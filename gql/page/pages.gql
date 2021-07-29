@@ -1,0 +1,19 @@
+query pages($page: Int, $search: String, $limit: Int, $sort: String) {
+  pages(page: $page, search: $search, limit: $limit, sort: $sort) {
+    data {
+      id
+      name
+      slug
+      title
+      description
+      content
+      menuTitle
+      active
+      createdAt
+      updatedAt
+    }
+    count
+    pageSize
+    page
+  }
+}

@@ -1,0 +1,15 @@
+query features($page: Int, $search: String, $limit: Int, $sort: String) {
+  features(page: $page, search: $search, limit: $limit, sort: $sort) {
+    count
+    page
+    pageSize
+    data {
+      id
+      name
+      value
+      type
+      product
+      active
+    }
+  }
+}

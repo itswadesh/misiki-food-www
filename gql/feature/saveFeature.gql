@@ -1,0 +1,24 @@
+mutation saveFeature(
+  $id: String!
+  $name: String
+  $value: String
+  $type: String
+  $product: ID
+  $active: Boolean
+) {
+  saveFeature(
+    id: $id
+    name: $name
+    value: $value
+    type: $type
+    product: $product
+    active: $active
+  ) {
+    id
+    name
+    value
+    type
+    product
+    active
+  }
+}

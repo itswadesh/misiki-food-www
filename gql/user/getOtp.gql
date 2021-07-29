@@ -1,0 +1,6 @@
+mutation getOtp($phone: String!) {
+  getOtp(phone: $phone) {
+    otp
+    timer
+  }
+}

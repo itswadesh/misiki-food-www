@@ -1,0 +1,17 @@
+query colors($page: Int, $search: String, $limit: Int, $sort: String) {
+  colors(page: $page, search: $search, limit: $limit, sort: $sort) {
+    count
+    page
+    pageSize
+    data {
+      id
+      name
+      color_code
+      info
+      featured
+      active
+      createdAt
+      updatedAt
+    }
+  }
+}

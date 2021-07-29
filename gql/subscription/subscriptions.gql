@@ -1,0 +1,20 @@
+query subscriptions {
+  subscriptions {
+    count
+    page
+    data {
+      id
+      name
+      type
+      img
+      mrp
+      price
+      days
+      active
+      vendor {
+        firstName
+        lastName
+      }
+    }
+  }
+}

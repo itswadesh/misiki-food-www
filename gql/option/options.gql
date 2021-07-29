@@ -1,0 +1,31 @@
+query options($pid: ID!) {
+  options(pid: $pid) {
+    count
+    page
+    pageSize
+    data {
+      id
+      pid
+      name
+      key
+      val
+      categories
+      position
+      info
+      preselect
+      required
+      type
+      isFilter
+      active
+      values {
+        id
+        name
+        default
+        direction
+        type
+        amount
+        position
+      }
+    }
+  }
+}

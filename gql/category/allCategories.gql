@@ -1,0 +1,34 @@
+query allCategories(
+  $page: Int
+  $search: String
+  $limit: Int
+  $level: Int
+  $sort: String
+  $megamenu: Boolean
+  $featured: Boolean
+  $active: Boolean
+  $shopbycategory: Boolean
+) {
+  allCategories(
+    page: $page
+    search: $search
+    limit: $limit
+    level: $level
+    sort: $sort
+    megamenu: $megamenu
+    featured: $featured
+    active: $active
+    shopbycategory: $shopbycategory
+  ) {
+    count
+    page
+    pageSize
+    data {
+      id
+      name
+      namePath
+      level
+      categoryId
+    }
+  }
+}

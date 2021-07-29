@@ -1,0 +1,14 @@
+query pageSlug($slug: String) {
+  pageSlug(slug: $slug) {
+    id
+    name
+    slug
+    title
+    description
+    content
+    menuTitle
+    active
+    createdAt
+    updatedAt
+  }
+}

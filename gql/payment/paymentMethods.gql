@@ -1,0 +1,30 @@
+query paymentMethods(
+  $page: Int
+  $search: String
+  $limit: Int
+  $sort: String
+  $active: Boolean
+) {
+  paymentMethods(
+    page: $page
+    search: $search
+    limit: $limit
+    sort: $sort
+    active: $active
+  ) {
+    count
+    page
+    pageSize
+    data {
+      id
+      name
+      img
+      value
+      color
+      key
+      text
+      position
+      active
+    }
+  }
+}

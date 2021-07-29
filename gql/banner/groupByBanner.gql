@@ -1,0 +1,20 @@
+query groupByBanner($type: String, $pageId: String, $groupTitle: String) {
+  groupByBanner(type: $type, pageId: $pageId, groupTitle: $groupTitle) {
+    _id {
+      title
+    }
+    data {
+      link
+      heading
+      img
+      sort
+      type
+      pageId
+      active
+      groupId
+      groupTitle
+      createdAt
+      updatedAt
+    }
+  }
+}

@@ -1,0 +1,7 @@
+query popularSearch($id: ID!) {
+  popularSearch(id: $id) {
+    id
+     text
+    popularity
+  }
+}

@@ -1,0 +1,35 @@
+query allBanners(
+  $page: Int
+  $search: String
+  $limit: Int
+  $sort: String
+  $type: String
+  $active: Boolean
+) {
+  allBanners(
+    page: $page
+    search: $search
+    limit: $limit
+    sort: $sort
+    type: $type
+    active: $active
+  ) {
+    count
+    page
+    pageSize
+    data {
+      id
+      link
+      heading
+      img
+      sort
+      type
+      pageId
+      groupId
+      groupTitle
+      active
+      createdAt
+      updatedAt
+    }
+  }
+}

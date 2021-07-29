@@ -1,0 +1,7 @@
+mutation syncProductImages($password: String!) {
+  syncProductImages(password: $password)
+}
+
+# {
+#   "password": "prakash"
+# }

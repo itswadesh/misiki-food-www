@@ -1,0 +1,12 @@
+query emailTemplate($id: String) {
+  emailTemplate(id: $id) {
+    id
+    name
+    title
+    description
+    content
+    active
+    createdAt
+    updatedAt
+  }
+}

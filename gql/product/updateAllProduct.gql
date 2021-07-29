@@ -1,0 +1,7 @@
+mutation updateAllProduct($password: String!) {
+  updateAllProduct(password: $password)
+}
+
+# {
+#   "password": "prakash"
+# }

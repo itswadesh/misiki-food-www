@@ -1,0 +1,45 @@
+deployment:
+  name: tblz-frontend-deploy
+  namespace: tablez-dev
+  labels:
+    app: tblz-frontend-deploy
+  selectorLabels:
+    app: tblz-frontend-pod
+  replicas: 1
+  strategyType: RollingUpdate
+  maxSurge: 1
+  maxUnavailable: 0
+  containers:
+  - name: tblz-frontend-app
+    image: tblzdevacr.azurecr.io/tablez-frontend:latest
+    imagePullPolicy: Always
+    memoryRequest: "1024Mi"
+    cpuRequest: "1000m"
+    memoryLimit: "2048Mi"
+    cpuLimit: "2000m"
+    containerPorts: [4400]
+    nodeSelector:
+      agentpool: devapipool
+    env:
+    - name: WWW_URL
+      value: https://dev.tablez.com
+    - name: HTTP_ENDPOINT
+      value: http://tblz-bkend-service.tablez-dev.svc
+    - name: PORT
+      value: "4400"
+    envFrom:
+    - tblz-frontend-analytics-secret
+service:
+  name: tblz-frontend-service
+  namespace: tablez-dev
+  selector:
+    app: tblz-frontend-pod
+  type: ClusterIP
+  protocols: [TCP]
+  ports: [80]
+  targetPorts: [4400]
+hpa:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 4
+  averageCpuUtilization: 60

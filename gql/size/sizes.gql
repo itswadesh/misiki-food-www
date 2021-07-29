@@ -1,0 +1,19 @@
+query sizes($page: Int, $search: String, $limit: Int, $sort: String) {
+  sizes(page: $page, search: $search, limit: $limit, sort: $sort) {
+    count
+    page
+    pageSize
+    data {
+      id
+      name
+      slug
+      info
+      img
+      sort
+      featured
+      active
+      createdAt
+      updatedAt
+    }
+  }
+}

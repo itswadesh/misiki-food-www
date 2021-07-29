@@ -1,0 +1,14 @@
+{{ $service := .Values.service }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $service.name }}
+  namespace: {{ $service.namespace }}
+spec:
+  selector:
+  {{ toYaml $service.selector | nindent 4}}
+  ports:
+  - protocol: {{ (index $service.protocols 0) }}
+    port: {{ (index $service.ports 0) }}
+    targetPort: {{ (index $service.targetPorts 0) }}
+  type: ClusterIP

@@ -1,0 +1,39 @@
+query users(
+  $page: Int
+  $search: String
+  $limit: Int
+  $sort: String
+  $role: String
+) {
+  users(page: $page, search: $search, limit: $limit, sort: $sort, role: $role) {
+    count
+    page
+    pageSize
+    data {
+      id
+      email
+      firstName
+      lastName
+      name
+      avatar
+      city
+      phone
+      role
+      verified
+      active
+      productSold
+      luluCustomerNo
+      address {
+        address
+        city
+      }
+      info {
+        store
+        public
+      }
+      plan
+      createdAt
+      updatedAt
+    }
+  }
+}

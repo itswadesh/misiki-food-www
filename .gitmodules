@@ -1,0 +1,6 @@
+[submodule "gql"]
+	path = gql
+	url = git@github.com:itswadesh/litekart-gql.git
+[submodule "shared"]
+	path = shared
+	url = git@github.com:itswadesh/litekart-shared.git

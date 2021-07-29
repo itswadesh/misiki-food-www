@@ -1,0 +1,14 @@
+query page($id: String) {
+  page(id: $id) {
+    id
+    name
+    slug
+    title
+    description
+    content
+    menuTitle
+    active
+    createdAt
+    updatedAt
+  }
+}

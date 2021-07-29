@@ -1,0 +1,46 @@
+mutation saveCollection(
+  $id: String!
+  $name: String
+  $products: [ID]
+  $description: String
+  $images: [String]
+  $img: String
+  $sort: String
+  $type: String
+  $active: Boolean
+) {
+  saveCollection(
+    id: $id
+    name: $name
+    products: $products
+    description: $description
+    images: $images
+    img: $img
+    sort: $sort
+    type: $type
+    active: $active
+  ) {
+    id
+    name
+    description
+    active
+    images
+    img
+    q
+    sort
+    type
+    products
+    createdAt
+    updatedAt
+  }
+}
+
+# {
+#   "id": "new",
+#   "name": "new arrivals",
+#   "description": "sfds",
+#   "img": "a",
+#   "images": "AAAA",
+#   "sort": "nn",
+#   "products": ["60e177d62ab7cb11c00f69f0","60e17040a881142c7c99d70b"]
+# }

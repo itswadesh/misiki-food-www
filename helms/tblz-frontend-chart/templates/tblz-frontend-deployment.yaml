@@ -1,0 +1,50 @@
+{{ $deployment := .Values.deployment }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $deployment.name }}
+  namespace: {{ $deployment.namespace }}
+  labels:
+  {{ toYaml $deployment.labels | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+    {{ toYaml $deployment.selectorLabels | nindent 6 }}
+  replicas: {{ $deployment.replicas }}
+  strategy:
+    type: {{ $deployment.strategyType }}
+    rollingUpdate:
+      maxSurge: {{ $deployment.maxSurge }}
+      maxUnavailable: {{ $deployment.maxUnavailable }}
+  template:
+    metadata:
+      labels:
+      {{ toYaml $deployment.selectorLabels | nindent 8 }}
+    spec:
+      containers:
+      {{ $container := (index $deployment.containers 0) }}
+      - name: {{ $container.name }}
+        image: {{ $container.image }}
+        imagePullPolicy: {{ $container.imagePullPolicy }}
+        resources:
+          requests:
+            memory: {{ $container.memoryRequest }}
+            cpu: {{ $container.cpuRequest }}
+          limits:
+            memory: {{ $container.memoryLimit }}
+            cpu: {{ $container.cpuLimit }}
+        env:
+        {{ range $env := $container.env }}
+        - name: {{ $env.name }}
+          value: {{ $env.value | quote }}
+        {{ end }}
+        envFrom:
+        {{ range $env := $container.envFrom }}
+        - secretRef:
+            name: {{ $env }}
+        {{ end }}        
+        ports:
+        - containerPort: {{ (index $container.containerPorts 0) }}
+      nodeSelector:
+      {{ toYaml $container.nodeSelector | nindent 8 }}
+  

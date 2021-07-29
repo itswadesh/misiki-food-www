@@ -1,0 +1,16 @@
+query banner($id: String!) {
+  banner(id: $id) {
+    id
+    link
+    heading
+    img
+    type
+    sort
+    groupId
+    groupTitle
+    pageId
+    active
+    createdAt
+    updatedAt
+  }
+}

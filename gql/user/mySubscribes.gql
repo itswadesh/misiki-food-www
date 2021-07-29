@@ -1,0 +1,26 @@
+query mySubscribes {
+  mySubscribes {
+    count
+    page
+    data {
+      id
+      amount
+      daysLeft
+      onGoing
+      StartTime
+      EndTime
+      StartTimeISO
+      EndTimeISO
+      subscription {
+        id
+        name
+        img
+        type
+        mrp
+        price
+        days
+        active
+      }
+    }
+  }
+}

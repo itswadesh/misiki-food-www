@@ -1,0 +1,26 @@
+mutation OrderRefund(
+  $oid: ID!
+  $pid: ID!
+  $amount: Float!
+  $note: String!
+  $email: String!
+  $password: String!
+) {
+  OrderRefund(
+    oid: $oid
+    pid: $pid
+    amount: $amount
+    note: $note
+    email: $email
+    password: $password
+  ) {
+    id
+  }
+}
+
+# {
+#   "oid": "608ac3d553069d34041b8d23",
+#   "itemId": "60897bfa7bcb042afc3cd125",
+#   "amount": 33.33,
+#   "note": "aaa"
+# }
