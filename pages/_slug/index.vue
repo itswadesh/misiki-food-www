@@ -73,7 +73,6 @@ export default {
     // Discounts,
     VideoBanner,
   },
-  middleware: ['landing'],
   asyncData({ params, app, store }) {
     const { title, keywords, description } = store.state.settings || {} // err = null
     return { title, keywords, description }
