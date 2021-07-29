@@ -1,8 +1,0 @@
-mutation fileUpload($files: [Upload!], $folder: String) {
-  fileUpload(files: $files, folder: $folder) {
-    filename
-    mimetype
-    encoding
-    url
-  }
-}

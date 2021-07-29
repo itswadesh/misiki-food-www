@@ -1,3 +1,0 @@
-query emailTemplates($folder: String, $name: String) {
-  emailTemplates(folder: $folder, name: $name)
-}
