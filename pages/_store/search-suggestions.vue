@@ -167,7 +167,7 @@
         <nuxt-link
           v-for="p in popularSearches"
           :key="p.id"
-          :to="`/${$route.params.store}/search/${p.text}`"
+          :to="`/search/${p.text}`"
           class="
             w-auto
             h-auto
@@ -191,8 +191,9 @@
 </template>
 <script>
 import POPULAR_SEARCHES from '~/gql/search/popularSearches.gql'
-
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
+  components: { NuxtLink },
   layout: 'none',
   data() {
     return {

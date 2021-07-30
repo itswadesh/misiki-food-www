@@ -1,24 +1,25 @@
 const pwa = {
   manifest: {
-    short_name: 'Anne',
-    name: 'Anne',
-    description: 'Anne ecommerce',
+    short_name: 'Hopyshopy',
+    name: 'Hopyshopy',
+    description: 'Hopyshopy ecommerce',
   },
 }
 const colors = {
   primary: {
-    500: '#FB7801', // brown
+    500: '#6366f1', // brown
   },
   secondary: {
-    100: '#dff7d5', // very light green
+    100: '#d1fae5' /* green-300  */,
     200: '#32CD32', // green
     400: '#78f547', // light green
-    500: '#000000', // black
+    500: '#55C451' /* lightgreen */,
+    600: '#3db340' /* just-dark-green  */,
   },
   accent: {
-    100: '#faebeb', // very light red
-    500: '#ff8c00', // light-orange
-    900: '#FF461B;', // red
+    100: '#fee2e2' /* light-red */,
+    500: '#f59e0b' /* yellow-500 */,
+    900: '#eb0000;', // red
   },
 }
 const fontFamily = {

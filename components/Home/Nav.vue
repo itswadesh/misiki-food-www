@@ -201,7 +201,7 @@
             </div>
           </nuxt-link>
           <!-- :to="localePath('index')" -->
-          <nuxt-link :to="localePath('cart')" class="h-full mx-3 my-auto">
+          <nuxt-link to="/cart" class="h-full mx-3 my-auto">
             <div class="relative flex flex-col">
               <!-- cart icon -->
               <svg
@@ -290,7 +290,7 @@ export default {
       if (this.settings.topLogin) {
         this.$emit('showLogin', true)
       } else {
-        this.$router.push(`${$route.params.store}/login`)
+        this.$router.push(`/${this.$route.params.store}/login`)
       }
     },
     // showLogin() {
