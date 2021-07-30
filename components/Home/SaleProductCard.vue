@@ -11,8 +11,7 @@
           rounded
           -ms-16
           lg:mt-6
-          md:ms-0
-          md:items-center
+          md:ms-0 md:items-center
           focus:outline-none
         "
       >
@@ -57,8 +56,7 @@
                 ease-in-out
                 transform
                 md:h-48
-                hover:-translate-y-1
-                hover:scale-110
+                hover:-translate-y-1 hover:scale-110
               "
             />
           </span>
@@ -85,7 +83,9 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
+  components: { NuxtLink },
   props: {
     id: { type: String },
     slug: { type: String },
@@ -93,7 +93,6 @@ export default {
     price: { type: String },
     img: { type: String },
   },
-
   data() {
     return {
       isActive: true,

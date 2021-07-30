@@ -72,7 +72,9 @@
 </template>
 
 <script>
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
+  components: { NuxtLink },
   props: {
     path: { type: Array, default: () => [] },
     name: { type: String, default: null },

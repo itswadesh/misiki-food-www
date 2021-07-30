@@ -98,6 +98,7 @@
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
+import NuxtLink from '~/components/NuxtLink.vue'
 // import TOGGLE from '~/gql/wishlist/toggleWishlist.gql'
 export default {
   // computed:{
@@ -107,7 +108,7 @@ export default {
   //     };
   //   }
   // },
-  components: {},
+  components: { NuxtLink },
   // ['id', 'slug', 'name', 'price', 'img'],
   props: {
     product: { type: Object, default: () => {} },

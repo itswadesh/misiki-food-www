@@ -27,8 +27,7 @@
           grid-cols-2
           mx-auto
           sm:grid-cols-3
-          lg:grid-cols-5
-          lg:w-5/6
+          lg:grid-cols-5 lg:w-5/6
           md:w-3/4
         "
       >
@@ -45,8 +44,7 @@
               class="
                 h-12
                 w-12
-                sm:h-20
-                sm:w-20
+                sm:h-20 sm:w-20
                 flex
                 justify-center
                 items-center
@@ -89,8 +87,10 @@
 
 <script>
 // import BRANDS from '~/gql/brand/brands.gql'
+import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
+  components: { NuxtLink },
   props: {
     ishome: { type: Boolean, default: false },
     brands: { type: Array, default: null },
@@ -163,7 +163,9 @@ export default {
     go(url) {
       if (url)
         this.$router.push(
-          `/search?${this.ishome ? 'parentBrands' : 'brands'}=${url}`
+          `/${this.$route.params.store}/search?${
+            this.ishome ? 'parentBrands' : 'brands'
+          }=${url}`
         )
     },
     //   async getBrands() {

@@ -53,15 +53,18 @@
         <!-- <LeftOptions /> -->
         <div
           v-if="
-            $router.currentRoute.path == '/my' ||
-            $router.currentRoute.path == '/my/orders' ||
-            $router.currentRoute.path == '/my/order-details' ||
-            $router.currentRoute.path == '/my/return' ||
-            $router.currentRoute.path == '/my/profile' ||
-            $router.currentRoute.path == '/my/wishlist' ||
-            $router.currentRoute.path == '/my/reviews' ||
-            $router.currentRoute.path == '/my/manage-address' ||
-            $router.currentRoute.path == '/my/demo-requests'
+            $router.currentRoute.path == `${$route.params.store}/my` ||
+            $router.currentRoute.path == `${$route.params.store}/my/orders` ||
+            $router.currentRoute.path ==
+              `${$route.params.store}/my/order-details` ||
+            $router.currentRoute.path == `${$route.params.store}/my/return` ||
+            $router.currentRoute.path == `${$route.params.store}/my/profile` ||
+            $router.currentRoute.path == `${$route.params.store}/my/wishlist` ||
+            $router.currentRoute.path == `${$route.params.store}/my/reviews` ||
+            $router.currentRoute.path ==
+              `${$route.params.store}/my/manage-address` ||
+            $router.currentRoute.path ==
+              `${$route.params.store}/my/demo-requests`
           "
           class=""
         >
@@ -299,6 +302,7 @@ import { mapActions, mapMutations, mapGetters } from 'vuex'
 import SIGNOUT from '~/gql/user/signOut.gql'
 import GET_MEGAMENU from '~/gql/category/megamenu.gql'
 import BRAND from '~/gql/brand/brand.gql'
+import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
   props: {
@@ -473,6 +477,7 @@ export default {
       },
     }
   },
+  components: { NuxtLink },
   computed: {
     ...mapGetters({ megamenu: 'megamenu' }),
     user() {

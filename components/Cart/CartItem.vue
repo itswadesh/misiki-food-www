@@ -304,9 +304,11 @@
 
 <script>
 import { mapGetters, mapActions, mapMutations } from 'vuex'
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
+  components: { NuxtLink },
   props: {
-    item: { type: Object },
+    item: { type: Object, default: null },
   },
   data() {
     return {

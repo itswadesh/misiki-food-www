@@ -167,7 +167,7 @@
         <nuxt-link
           v-for="p in popularSearches"
           :key="p.id"
-          :to="`/search/${p.text}`"
+          :to="`/${$route.params.store}/search/${p.text}`"
           class="
             w-auto
             h-auto
@@ -233,10 +233,10 @@ export default {
     },
     submit() {
       // const q1 = q ? `/search/${q}` : `/search/${this.q}`
-      this.$router.push(`/search/${this.q}`)
+      this.$router.push(`/${this.$route.params.store}/search/${this.q}`)
     },
     onselect(v) {
-      if (v) this.$router.push(`/search/${v.key}`)
+      if (v) this.$router.push(`/${this.$route.params.store}/search/${v.key}`)
     },
     fillValue(val) {
       this.product = val

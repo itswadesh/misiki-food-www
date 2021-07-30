@@ -100,8 +100,10 @@
 <script>
 import { mapGetters } from 'vuex'
 import { location } from '~/shared/mixins'
+import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
+  components: { NuxtLink },
   mixins: [location],
   data() {
     return {
@@ -151,7 +153,7 @@ export default {
       })
     },
     submit(q) {
-      this.$router.push(`/search/${q}`)
+      this.$router.push(`/${this.$route.params.store}/search/${q}`)
     },
     closeSidebar() {
       this.sidebar = false

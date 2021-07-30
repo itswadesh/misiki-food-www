@@ -37,8 +37,7 @@
           cursor-pointer
           focus:outline-none
           active:scale-90
-          hover:bg-gray-300
-          hover:shadow
+          hover:bg-gray-300 hover:shadow
         "
         @click="showPrev"
       >
@@ -67,7 +66,9 @@
 
           <div v-for="b in brands" :key="b.id">
             <nuxt-link
-              :to="localePath(`/search?brands=${b.slug}`)"
+              :to="
+                localePath(`/${$route.params.store}/search?brands=${b.slug}`)
+              "
               class="my-auto focus:outline-none"
             >
               <img
@@ -75,8 +76,7 @@
                 class="
                   w-12
                   h-6
-                  md:h-12
-                  md:w-24
+                  md:h-12 md:w-24
                   object-cover
                   my-auto
                   focus:outline-none
@@ -148,8 +148,7 @@
           cursor-pointer
           focus:outline-none
           active:scale-90
-          hover:bg-gray-300
-          hover:shadow
+          hover:bg-gray-300 hover:shadow
         "
         @click="showNext"
       >
@@ -172,8 +171,10 @@
 
 <script>
 // import SlideBarSkeleton from '~/components/AllSkeletons/SlideBarSkeleton'
+import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
+  components: { NuxtLink },
   props: {
     brands: { type: Array, default: null },
   },

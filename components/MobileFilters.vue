@@ -535,12 +535,12 @@ export default {
     changed(e) {
       this.fl[e.model] = e.checked
       // this.fl.pilot = e.checked;
-      const url = constructURL('/search', this.fl)
+      const url = constructURL(`/${this.$route.params.store}/search`, this.fl)
       this.$router.push(url)
     },
     checkCategory() {},
     go(slug) {
-      this.$router.push('/' + slug)
+      this.$router.push(`/${this.$route.params.store}/` + slug)
     },
     clearAll() {
       this.$router.push({ query: null })

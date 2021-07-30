@@ -33,10 +33,7 @@
         class="
           w-full
           text-center
-          lg:bg-white
-          lg:absolute
-          lg:bg-opacity-60
-          lg:bottom-0
+          lg:bg-white lg:absolute lg:bg-opacity-60 lg:bottom-0
         "
       >
         <div class="mx-4 lg:mx-auto lg:w-2/3">
@@ -54,8 +51,7 @@
                 focus:outline-none
                 px-9
                 bg-primary-500
-                hover:bg-gray-200
-                hover:text-primary-500
+                hover:bg-gray-200 hover:text-primary-500
               "
               @click="saveLanding()"
             >

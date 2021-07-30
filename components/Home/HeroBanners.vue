@@ -118,9 +118,10 @@
 
 <script>
 import HeroBannerSkeleton from '~/components/AllSkeletons/HeroBannerSkeleton'
+import NuxtLink from '~/components/NuxtLink.vue'
 // import BANNERS from '~/gql/banner/banners.gql'
 export default {
-  components: { HeroBannerSkeleton },
+  components: { HeroBannerSkeleton, NuxtLink },
   props: {
     banners: { type: Array, default: null },
   },

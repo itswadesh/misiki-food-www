@@ -33,7 +33,9 @@
 </template>
 
 <script>
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
+  components: { NuxtLink },
   props: {
     product: { type: Object, default: null },
   },

@@ -81,8 +81,9 @@ export default {
     gotoLogin() {
       let l = '/dashboard'
       if (this.user) l = '/dashboard'
-      else if (this.settings.otpLogin) l = '/account/otp-login'
-      else l = '/login'
+      else if (this.settings.otpLogin)
+        l = `${$route.params.store}/account/otp-login`
+      else l = `${$route.params.store}/login`
       // this.$router.push(l)
       return l
     },

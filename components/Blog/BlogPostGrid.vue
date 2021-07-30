@@ -55,7 +55,9 @@
   </div>
 </template>
 <script>
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
+  components: { NuxtLink },
   props: {
     post: { type: Object, default: null },
   },

@@ -11,8 +11,7 @@
         class="
           grid grid-cols-1
           gap-4
-          sm:gap-6
-          sm:grid-cols-2
+          sm:gap-6 sm:grid-cols-2
           lg:grid-cols-2
           xl:grid-cols-3
         "
@@ -30,9 +29,7 @@
             rounded-sm
             shadow
             cursor-pointer
-            hover:-translate-y-1
-            hover:shadow-lg
-            hover:scale-100
+            hover:-translate-y-1 hover:shadow-lg hover:scale-100
           "
         >
           <div class="flex flex-row p-5">
@@ -55,7 +52,7 @@
 <script>
 import FAQ from '~/components/User/Dashboard/FAQ.vue'
 export default {
-  components: { FAQ },
+  components: { FAQ, NuxtLink },
   middleware: ['isAuth'],
   data() {
     return {

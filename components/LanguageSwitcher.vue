@@ -62,12 +62,14 @@
   </div>
 </template>
 <script>
+import NuxtLink from '~/components/NuxtLink.vue'
+
 export default {
   name: 'LanguageSwitcher',
   data() {
     return {}
   },
-  computed: {},
+  computed: { NuxtLink },
   methods: {},
 }
 </script>

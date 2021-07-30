@@ -255,14 +255,14 @@ export default {
       // this.$router.push(path)
       const fl = { ...this.fl }
       fl.sort = this.sortBy
-      const url = constructURL('/search', fl)
+      const url = constructURL(`/search`, fl)
       this.$router.push(url)
     },
     remove(k, i) {
       const ix = this.fl[k].indexOf(i)
       this.fl[k].splice(ix, 1)
       // this.$emit("removed", this.fl);
-      const url = constructURL('/search', this.fl)
+      const url = constructURL(`/${this.$route.params.store}/search`, this.fl)
       this.$router.push(url)
     },
   },

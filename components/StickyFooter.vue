@@ -15,7 +15,7 @@
   >
     <div class="flex items-center justify-around">
       <nuxt-link
-        :to="localePath('/search/')"
+        :to="localePath(`/${$route.params.store}/search/`)"
         class="category-item"
         active-class="text-primary"
       >
@@ -109,7 +109,9 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
+  components: { NuxtLink },
   computed: {
     ...mapGetters({ cart: 'cart/cart' }),
   },

@@ -173,10 +173,11 @@
 import { mapGetters } from 'vuex'
 import { Button } from '~/shared/components/ui'
 import TestCoupons from '~/components/Cart/TestCoupons.vue'
+import NuxtLink from '~/components/NuxtLink.vue'
 
 // import CART from "~/gql/cart/cart.gql"
 export default {
-  components: { TestCoupons, Button },
+  components: { TestCoupons, Button, NuxtLink },
   props: {
     selectedAddress: { type: String, default: null },
     details: {

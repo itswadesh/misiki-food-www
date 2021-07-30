@@ -522,9 +522,10 @@ import { constructURL } from '~/lib/'
 import PARENT_BRANDS from '~/gql/brand/parentBrands.gql'
 import GET_MEGAMENU from '~/gql/category/megamenu.gql'
 import BRAND from '~/gql/brand/brand.gql'
+import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
-  components: { Checkbox, Radio },
+  components: { Checkbox, Radio, NuxtLink },
   props: {
     clear: Boolean,
     fl: {
@@ -619,7 +620,7 @@ export default {
     changed(e) {
       this.scrollToTop()
       this.fl[e.model] = e.checked
-      const url = constructURL('/search', this.fl)
+      const url = constructURL(`/${this.$route.params.store}/search`, this.fl)
 
       this.$router.push(url)
     },
@@ -627,7 +628,7 @@ export default {
       const ix = this.fl[k].indexOf(i)
       this.fl[k].splice(ix, 1)
       // this.$emit("removed", this.fl);
-      const url = constructURL('/search', this.fl)
+      const url = constructURL(`/${this.$route.params.store}/search`, this.fl)
       this.$router.push(url)
     },
     checkCategory() {},

@@ -160,6 +160,7 @@ import SignupStep from '~/components/Login/Email/SignupStep.vue'
 import EnterOtp from '~/components/Login/Mobile/EnterOtp.vue'
 import EnterMobileNumber from '~/components/Login/Mobile/EnterMobileNumber.vue'
 import GET_OTP from '~/gql/user/getOtp.gql'
+import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
   components: {
@@ -167,6 +168,7 @@ export default {
     SignupStep,
     EnterOtp,
     EnterMobileNumber,
+    NuxtLink,
   },
   layout: 'none',
   middleware: 'isGuest',

@@ -38,3 +38,10 @@
     </div>
   </div>
 </template>
+<script>
+import NuxtLink from '~/components/NuxtLink.vue'
+
+export default {
+  components: { NuxtLink },
+}
+</script>

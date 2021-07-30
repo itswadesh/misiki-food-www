@@ -18,7 +18,7 @@
               v-model="selectedAddress"
               :value="a.id"
               name="group"
-              @changed="addressChanged"
+              @change="addressChanged"
             />
             <div
               class="

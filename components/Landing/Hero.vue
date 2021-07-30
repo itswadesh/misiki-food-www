@@ -144,7 +144,8 @@ export default {
   methods: {
     gotoLogin() {
       if (this.user) this.$router.push('/dashboard')
-      else if (this.settings.otpLogin) this.$router.push('/account/otp-login')
+      else if (this.settings.otpLogin)
+        this.$router.push(`${$route.params.store}/account/otp-login`)
       else this.$router.push('/login')
     },
   },

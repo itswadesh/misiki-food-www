@@ -80,8 +80,7 @@
                     class="
                       text-xs
                       font-light
-                      hover:underline
-                      hover:text-gray-800
+                      hover:underline hover:text-gray-800
                       focus:outline-none
                     "
                   >
@@ -225,6 +224,7 @@ import Checkbox from '~/shared/components/ui/Checkbox.vue'
 import SignupStep from '~/components/Login/Email/SignupStep.vue'
 import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
 import { Textbox } from '~/shared/components/ui'
+import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
   components: {
@@ -232,6 +232,7 @@ export default {
     SignupStep,
     GrnIndGradiantButton,
     Textbox,
+    NuxtLink,
   },
   layout: 'none',
   middleware: ['isGuest'],

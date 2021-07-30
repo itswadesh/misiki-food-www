@@ -77,10 +77,11 @@
 <script>
 import BagSkelton from '~/components/AllSkeletons/BagSkelton.vue'
 import CATEGORIES from '~/gql/category/categories.gql'
-
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
   components: {
     BagSkelton,
+    NuxtLink,
   },
   data() {
     return {

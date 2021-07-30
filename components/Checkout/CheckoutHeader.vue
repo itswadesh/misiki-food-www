@@ -7,8 +7,7 @@
       px-5
       md:mt-10
       xl:mt-20
-      lg:px-8
-      lg:pb-4
+      lg:px-8 lg:pb-4
     "
   >
     <div class="mt-2 order-0 lg:order-0"></div>
@@ -23,8 +22,7 @@
         font-bold
         tracking-widest
         text-center text-gray-700
-        lg:order-1
-        lg:w-1/3
+        lg:order-1 lg:w-1/3
       "
     >
       <nuxt-link :to="localePath('cart')" class="flex flex-col mx-2">
@@ -142,9 +140,11 @@
 </template>
 
 <script>
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
+  components: { NuxtLink },
   props: {
-    selected: { type: String },
+    selected: { type: String, default: null },
   },
   // ['selected'],
 }

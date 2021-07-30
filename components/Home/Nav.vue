@@ -251,11 +251,13 @@
 // import CART from '~/gql/cart/cart.gql'
 import SearchAutocomplete from '~/components/SearchAutocomplete.vue'
 import LeftUserProfile from '~/components/User/LeftUserProfile.vue'
+import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
   components: {
     SearchAutocomplete,
     LeftUserProfile,
+    NuxtLink,
   },
   props: {
     msg: { type: String, default: null },
@@ -288,7 +290,7 @@ export default {
       if (this.settings.topLogin) {
         this.$emit('showLogin', true)
       } else {
-        this.$router.push('/login')
+        this.$router.push(`${$route.params.store}/login`)
       }
     },
     // showLogin() {

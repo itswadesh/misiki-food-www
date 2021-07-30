@@ -310,7 +310,7 @@
           <nuxt-link
             v-for="(s, ix) in popularSearches"
             :key="ix"
-            :to="`/search/${s.text}`"
+            :to="`/${$route.params.store}/search/${s.text}`"
             class="
               w-auto
               px-1

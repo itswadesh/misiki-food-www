@@ -44,8 +44,7 @@
                     class="
                       w-2
                       h-2
-                      lg:w-3
-                      lg:h-3
+                      lg:w-3 lg:h-3
                       mt-1.5
                       me-2
                       rounded-full
@@ -86,7 +85,9 @@
 </template>
 
 <script>
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
+  components: { NuxtLink },
   props: {
     product: { type: Object, default: null },
     ix: { type: Number, default: 0 },

@@ -12,8 +12,7 @@
           text-center text-white
           rounded-t-md
           bg-primary-500
-          hover:bg-gray-200
-          hover:text-primary-500
+          hover:bg-gray-200 hover:text-primary-500
         "
       >
         {{ product.heading }}
@@ -34,9 +33,11 @@
 </template>
 
 <script>
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
+  components: { NuxtLink },
   props: {
-    product: { type: Object },
+    product: { type: Object, default: null },
   },
 }
 </script>

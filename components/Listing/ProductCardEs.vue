@@ -28,7 +28,9 @@
           "
         >
           <nuxt-link
-            :to="`/search/${product.brand && product.brand.name}`"
+            :to="`/${$route.params.store}/search/${
+              product.brand && product.brand.name
+            }`"
             class="absolute"
           >
             <div
@@ -169,8 +171,10 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
+  components: { NuxtLink },
   props: {
     product: { type: Object, default: () => {} },
     pid: { type: String, default: null }, // Required in case of elastic search id not available inside product

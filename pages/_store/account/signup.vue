@@ -237,6 +237,7 @@ import Checkbox from '~/shared/components/ui/Checkbox.vue'
 import SignupStep from '~/components/Login/Email/SignupStep.vue'
 import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
 import { Textbox } from '~/shared/components/ui'
+import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
   components: {
@@ -244,6 +245,7 @@ export default {
     SignupStep,
     GrnIndGradiantButton,
     Textbox,
+    NuxtLink,
   },
   layout: 'none',
   middleware: ['isGuest'],
@@ -290,7 +292,7 @@ export default {
         if (data) {
           this.$store.commit('success', 'Signup Successful')
           const referrer = this.$route.query.referrer || '/'
-          if (referrer) this.$router.push(referrer)
+          if (referrer) this.$router.push($route.params.store + '/' + referrer)
         }
       } catch (e) {
         this.$store.commit('setErr', e)
