@@ -310,7 +310,7 @@
           <nuxt-link
             v-for="(s, ix) in popularSearches"
             :key="ix"
-            :to="`/${$route.params.store}/search/${s.text}`"
+            :to="`/search/${s.text}`"
             class="
               w-auto
               px-1
@@ -532,11 +532,11 @@
   </div>
 </template>
 <script>
-// import LanguageSwitcher from '~/components/LanguageSwitcher'
+import LanguageSwitcher from '~/components/LanguageSwitcher'
 import POPULAR_SEARCHES from '~/gql/search/popularSearches.gql'
-
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
-  // components: { LanguageSwitcher },
+  components: { NuxtLink, LanguageSwitcher },
   data() {
     return {
       year: new Date().getFullYear(),

@@ -205,7 +205,7 @@ export default {
         return
       }
       this.$router.push(
-        `/checkout/payment-options?address=${this.selectedAddress}`
+        `/${this.$route.params.store}/checkout/payment-options?address=${this.selectedAddress}`
       )
     },
     hideOffers() {

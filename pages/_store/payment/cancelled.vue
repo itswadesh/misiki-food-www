@@ -398,9 +398,10 @@
 import { mapMutations, mapActions, mapGetters } from 'vuex'
 import ORDER from '~/gql/order/order.gql'
 // import SUBSCRIPTION_ORDER_UPDATED from '~/gql/order/SUBSCRIPTION_ORDER_UPDATED.gql'
+import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
-  components: {},
+  components: { NuxtLink },
   data() {
     return {
       order: null,

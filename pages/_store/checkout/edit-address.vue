@@ -32,9 +32,7 @@
               mx-auto
               mt-6
               sm:px-2
-              lg:ms-8
-              lg:w-1/3
-              lg:mt-0
+              lg:ms-8 lg:w-1/3 lg:mt-0
             "
           >
             <span
@@ -51,7 +49,7 @@
             </span>
             <PriceDetails
               :btnname="'Continue'"
-              :nextpage="`/checkout/payment-options?address=${$route.query.id}`"
+              :nextpage="`/${$route.params.store}/checkout/payment-options?address=${$route.query.id}`"
               class="bg-white border rounded shadow"
             />
           </div>

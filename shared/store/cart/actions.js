@@ -129,7 +129,9 @@ export default {
               },
             })
           ).data.checkout
-          this.$router.push(`/payment/success?id=${order.id}&provider=COD`)
+          this.$router.push(
+            `/${this.app.route.params.store}/payment/success?id=${order.id}&provider=COD`
+          )
         } catch (err) {
           commit('setErr', err, { root: true })
           this.$router.push(`/payment/failed?provider=COD`)
@@ -181,7 +183,7 @@ export default {
               // vm.clearCart()
               if (capture)
                 vm.$router.push(
-                  `/payment/success?id=${capture.id}&provider=Razorpay`
+                  `/${this.$route.params.store}/payment/success?id=${capture.id}&provider=Razorpay`
                 )
               else vm.$router.push(`/payment/failed?provider=Razorpay`)
             } catch (e) {

@@ -81,7 +81,7 @@
       </div>
       <nuxt-link
         v-else
-        :to="localePath('/checkout/address')"
+        :to="localePath(`/${$route.params.store}/checkout/address`)"
         class="flex flex-col items-center text-center"
       >
         <div

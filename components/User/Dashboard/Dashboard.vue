@@ -51,6 +51,7 @@
 </template>
 <script>
 import FAQ from '~/components/User/Dashboard/FAQ.vue'
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
   components: { FAQ, NuxtLink },
   middleware: ['isAuth'],

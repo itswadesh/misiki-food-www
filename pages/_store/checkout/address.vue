@@ -73,6 +73,8 @@ import SelectAddress from '~/components/User/Dashboard/SelectAddress.vue'
 import MY_ADDRESSES from '~/gql/address/myAddresses.gql'
 import DELETE_ADDRESS from '~/gql/address/deleteAddress.gql'
 import CartSummaryCheckout from '~/components/Checkout/CartSummaryCheckout.vue'
+import NuxtLink from '~/components/NuxtLink.vue'
+
 const CheckoutHeader = () => import('~/components/Checkout/CheckoutHeader.vue')
 export default {
   components: {
@@ -80,6 +82,7 @@ export default {
     Button,
     CartSummaryCheckout,
     CheckoutHeader,
+    NuxtLink,
   },
   middleware: ['isAuth'],
   data() {

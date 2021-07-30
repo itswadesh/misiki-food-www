@@ -35,13 +35,13 @@
             text-blue-500
             border-r border-gray-200
           "
-          @click="go('/checkout/address')"
+          @click="go(`/${$route.params.store}/checkout/address`)"
         >
           Edit/Change
         </button>
         <button
           class="w-1/2 py-1 mt-1 tracking-widest text-blue-500"
-          @click="go('/checkout/add')"
+          @click="go(`/${$route.params.store}/checkout/add`)"
         >
           Add New Address
         </button>

@@ -531,7 +531,9 @@ export default {
           //     },
           //   })
           // ).data.stripe
-          this.$router.push(`/payment/success?id=${capture.id}?provider=Stripe`)
+          this.$router.push(
+            `/${this.$route.params.store}/payment/success?id=${capture.id}?provider=Stripe`
+          )
         } catch (e) {
           this.setErr(e)
         } finally {

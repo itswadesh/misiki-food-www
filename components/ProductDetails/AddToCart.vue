@@ -21,8 +21,7 @@
           focus:ring-offset-2
           focus:ring-secondary-600
           focus:outline-none
-          md:px-6
-          md:p-3
+          md:px-6 md:p-3
         "
       >
         Go To Cart
@@ -51,8 +50,7 @@
         focus:ring-offset-2
         focus:ring-yellow-600
         focus:outline-none
-        md:px-6
-        md:p-3
+        md:px-6 md:p-3
       "
       @click="
         addToBag({
@@ -121,8 +119,7 @@
         sm:rounded
         button
         me-3
-        md:px-6
-        md:p-3
+        md:px-6 md:p-3
       "
     >
       No Stock
@@ -133,7 +130,10 @@
 
 <script>
 import { mapActions, mapMutations } from 'vuex'
+import NuxtLink from '~/components/NuxtLink.vue'
+
 export default {
+  components: { NuxtLink },
   props: {
     product: Object,
     selectedOptions: { type: Object },
@@ -201,7 +201,7 @@ export default {
             action: {
               text: 'View Cart',
               onClick: (e, toastObject) => {
-                this.$router.push('/cart')
+                this.$router.push(`/${this.$route.params.store}/cart`)
                 toastObject.goAway(0)
               },
             },

@@ -153,7 +153,7 @@ export default {
             action: {
               text: 'View Cart',
               onClick: (e, toastObject) => {
-                this.$router.push('/cart')
+                this.$router.push(`/${this.$route.params.store}/cart`)
                 toastObject.goAway(0)
               },
             },

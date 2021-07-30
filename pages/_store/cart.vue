@@ -68,7 +68,7 @@
             >
               <PriceDetails
                 :btnname="'Select Address'"
-                :nextpage="'checkout/address'"
+                :nextpage="'/checkout/address'"
                 class="
                   bg-white
                   border-t

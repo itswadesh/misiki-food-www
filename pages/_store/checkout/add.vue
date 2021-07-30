@@ -32,9 +32,7 @@
               w-full
               mx-auto
               mt-6
-              lg:ms-4
-              lg:w-1/3
-              lg:mt-0
+              lg:ms-4 lg:w-1/3 lg:mt-0
             "
           >
             <span
