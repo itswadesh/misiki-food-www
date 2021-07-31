@@ -2,9 +2,9 @@ const shell = require('shelljs')
 require('dotenv').config()
 
 // Start Config
-const PM2_NAME = 'anne-www'
-const REMOTE_DIR = '/var/www/anne/www'
-const REMOTE_HOST = '143.110.244.136'
+const PM2_NAME = 'misiki'
+const REMOTE_DIR = '/var/www/misiki/www'
+const REMOTE_HOST = '35.154.134.150'
 const REMOTE_USER = 'root'
 const PRIVATE_KEY = process.env.LIVE_KEY
 const FILE_NAMES = '.nuxt static nuxt.config.js shared config lang package.json'

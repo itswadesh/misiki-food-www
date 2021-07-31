@@ -37,7 +37,7 @@ export default {
     // { src: '~/plugins/init', ssr: false },
     // { src: '~/plugins/directives.js', ssr:false },
   ],
-  components: true,
+  // components: true,
   buildModules: [
     '@nuxtjs/dotenv',
     '@nuxtjs/apollo',
