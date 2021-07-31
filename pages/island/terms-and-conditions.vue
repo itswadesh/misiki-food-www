@@ -93,11 +93,13 @@
 <script>
 import WantMore from '~/components/Island/WantMore.vue'
 import WhiteFooter from '~/components/Island/WhiteFooter.vue'
+import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
   components: {
     WantMore,
     WhiteFooter,
+    NuxtLink,
   },
   layout: 'none',
 

@@ -100,10 +100,8 @@
 <script>
 import { mapGetters } from 'vuex'
 import { location } from '~/shared/mixins'
-import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
-  components: { NuxtLink },
   mixins: [location],
   data() {
     return {

@@ -62,10 +62,11 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
+  components: { NuxtLink },
   layout: 'none',
-
   computed: {
     ...mapGetters({ settings: 'settings', error: 'error' }),
   },

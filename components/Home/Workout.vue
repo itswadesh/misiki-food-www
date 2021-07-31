@@ -60,8 +60,9 @@
 <script>
 import WorkoutSkeleton from '~/components/AllSkeletons/WorkoutSkeleton.vue'
 import BANNERS from '~/gql/banner/banners.gql'
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
-  components: { WorkoutSkeleton },
+  components: { WorkoutSkeleton, NuxtLink },
   data() {
     return {
       banners: null,

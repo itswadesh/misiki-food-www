@@ -84,9 +84,10 @@ import { mapGetters } from 'vuex'
 import { Textbox } from '~/shared/components/ui'
 import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
 // const Submit = () => import('~/shared/components/ui/Submit')
+import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
-  components: { Textbox, GrnIndGradiantButton },
+  components: { Textbox, GrnIndGradiantButton, NuxtLink },
   middleware: ['isAuth'],
   data() {
     return {

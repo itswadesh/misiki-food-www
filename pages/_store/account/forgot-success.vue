@@ -70,8 +70,9 @@
 <script>
 import { mapGetters } from 'vuex'
 import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
-  components: { GrnIndGradiantButton },
+  components: { GrnIndGradiantButton, NuxtLink },
   layout: 'none',
 
   computed: {

@@ -9,8 +9,7 @@
         bg-white
         rounded-sm
         shadow
-        sm:py-2
-        sm:flex-row
+        sm:py-2 sm:flex-row
       "
     >
       <div class="my-auto text-lg font-normal text-gray-700">Edit Address</div>
@@ -73,10 +72,12 @@
 <script>
 import { Button } from '~/shared/components/ui'
 import EditAddress from '~/components/User/EditAddress.vue'
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
   components: {
     EditAddress,
     Button,
+    NuxtLink,
   },
   layout: 'account',
   middleware: ['isAuth'],

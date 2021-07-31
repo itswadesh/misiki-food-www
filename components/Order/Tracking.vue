@@ -19,8 +19,7 @@
           mx-4
           rounded
           xl:mx-auto
-          lg:bg-white
-          lg:shadow
+          lg:bg-white lg:shadow
         "
       >
         <div class="p-2 px-4 bg-white shadow md:shadow-none md:mx-4 lg:px-8">
@@ -179,10 +178,7 @@
                 text-sm text-gray-400
                 bg-white
                 shadow
-                lg:shadow-none
-                lg:mt-0
-                lg:w-1/4
-                lg:p-0
+                lg:shadow-none lg:mt-0 lg:w-1/4 lg:p-0
               "
             >
               <div class="mb-4 text-lg font-medium text-gray-600">
@@ -206,8 +202,7 @@
                 justify-between
                 w-full
                 text-sm text-gray-400
-                lg:w-3/4
-                lg:flex-row
+                lg:w-3/4 lg:flex-row
               "
             >
               <div
@@ -217,11 +212,7 @@
                   mt-5
                   bg-white
                   shadow
-                  lg:p-0
-                  lg:shadow-none
-                  lg:mt-0
-                  lg:w-1/2
-                  lg:me-6
+                  lg:p-0 lg:shadow-none lg:mt-0 lg:w-1/2 lg:me-6
                 "
               >
                 <h3 class="mb-4 text-lg font-medium text-gray-600">
@@ -452,7 +443,9 @@
 </template>
 
 <script>
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
+  components: { NuxtLink },
   data() {
     return {
       tracking: [

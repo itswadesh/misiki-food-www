@@ -681,13 +681,14 @@ import { mapGetters, mapActions, mapMutations } from 'vuex'
 import REVIEWS from '~/gql/review/reviewSummary.gql'
 import { NETEASE_WWW } from '~/shared/config'
 import DemoRequestModal from '~/components/ProductDetails/DemoRequestModal.vue'
+import NuxtLink from '~/components/NuxtLink.vue'
 
 // import Share from '~/components/ProductDetails/Share'
 // import { Checkbox } from '~/shared/components/ui'
 // import WishButton from '~/components/WishButton.vue'
 // import ProductSizeChart from '~/components/ProductDetails/ProductSizeChart'
 export default {
-  components: { DemoRequestModal },
+  components: { DemoRequestModal, NuxtLink },
   props: {
     host: { type: String, default: null },
     pg: { type: Object, default: null },

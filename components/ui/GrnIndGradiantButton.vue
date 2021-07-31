@@ -70,8 +70,15 @@ export default {
 <style scoped>
 .gradient {
   display: flex;
-  background: linear-gradient(120deg, #fb7801, #000000, #fb7801);
-  background-size: 200%;
+  background: linear-gradient(
+    120deg,
+    #10b981,
+    #6366f1,
+    #10b981,
+    #6366f1,
+    #10b981
+  );
+  background-size: 300%;
   transition: 0.8s;
 }
 

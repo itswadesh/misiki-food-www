@@ -592,8 +592,9 @@ import OrderListSkeleton from '~/components/AllSkeletons/OrderListSkeleton.vue'
 import DemoRequestModal from '~/components/ProductDetails/DemoRequestModal.vue'
 import MY_ORDERS from '~/gql/order/myOrders.gql'
 import { NETEASE_WWW } from '~/shared/config'
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
-  components: { OrderListSkeleton, DemoRequestModal },
+  components: { OrderListSkeleton, DemoRequestModal, NuxtLink },
   data() {
     return {
       selectedProduct: {},
@@ -619,7 +620,7 @@ export default {
       this.showDemoScheduler = true
     },
     go(url) {
-      this.$router.push(url)
+      this.$router.push(`/${this.$route.params.store}${url}`)
     },
     onSelect(val) {
       this.select = val

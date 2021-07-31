@@ -160,6 +160,7 @@ import ItemsForReturn from '~/components/ReturnProducts/ItemsForReturn.vue'
 import ReasonFor from '~/components/ReturnProducts/ReasonFor.vue'
 import PaymentMode from '~/components/ReturnProducts/PaymentMode.vue'
 import Confirm from '~/components/ReturnProducts/Confirm.vue'
+import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
   components: {
@@ -167,6 +168,7 @@ export default {
     ReasonFor,
     PaymentMode,
     Confirm,
+    NuxtLink,
   },
   data() {
     return {

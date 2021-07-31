@@ -44,10 +44,7 @@
           md:border-t-0
           mt-5
           pt-5
-          md:pt-0
-          md:mt-0
-          md:w-1/2
-          md:px-5
+          md:pt-0 md:mt-0 md:w-1/2 md:px-5
           lg:px-10
         "
       >
@@ -148,6 +145,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import { Radio } from '~/shared/components/ui'
+import NuxtLink from '~/components/NuxtLink.vue'
 
 import ORDER_ITEM from '~/gql/order/orderItem.gql'
 import RETURN_OR_REPLACE_ITEM from '~/gql/order/returnOrReplace.gql'
@@ -164,6 +162,7 @@ const returnReasons = [
 export default {
   components: {
     Radio,
+    NuxtLink,
   },
   layout: 'account',
   middleware: ['isAuth'],
@@ -201,7 +200,7 @@ export default {
           })
         ).data.returnOrReplace
         this.$router.push(
-          `/my/order-details?orderId=${this.$route.query.orderId}&itemId=${this.$route.query.itemId}`
+          `/${this.$route.params.store}/my/order-details?orderId=${this.$route.query.orderId}&itemId=${this.$route.query.itemId}`
         )
       } catch (e) {
         this.$store.commit('setErr', e)

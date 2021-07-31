@@ -42,9 +42,11 @@
 </template>
 
 <script>
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
+  components: { NuxtLink },
   props: {
-    error: { type: Object },
+    error: { type: Object, default: null },
   },
   head() {
     const i18nHead = this.$nuxtI18nHead({ addSeoAttributes: true })

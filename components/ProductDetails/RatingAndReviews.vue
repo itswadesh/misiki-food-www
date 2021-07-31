@@ -128,7 +128,9 @@
 </template>
 <script>
 import PRODUCT_REVIEWS from '~/gql/review/productReviews.gql'
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
+  components: { NuxtLink },
   data() {
     return {
       productReviews: null,

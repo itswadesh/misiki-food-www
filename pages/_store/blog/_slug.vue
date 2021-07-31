@@ -54,8 +54,12 @@
 <script>
 import BLOGS from '~/gql/blog/blogs.gql'
 import BLOG from '~/gql/blog/blog.gql'
+import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
+  components: {
+    NuxtLink,
+  },
   async asyncData({ route, query, params, $axios, app, store }) {
     let post = null
     let err = null

@@ -79,6 +79,11 @@ export default {
       address: null,
     }
   },
+  head() {
+    return {
+      title: 'Add Address',
+    }
+  },
   computed: {
     ...mapGetters({ user: 'auth/user' }),
   },
@@ -94,11 +99,6 @@ export default {
     //     this.address.phone = this.user.phone
     //   }
     // }
-  },
-  head() {
-    return {
-      title: 'Add Address',
-    }
   },
 
   methods: {

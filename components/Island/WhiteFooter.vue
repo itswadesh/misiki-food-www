@@ -533,9 +533,13 @@
 <script>
 // import LanguageSwitcher from '~/components/LanguageSwitcher'
 import POPULAR_SEARCHES from '~/gql/search/popularSearches.gql'
+import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
-  // components: { LanguageSwitcher },
+  components: {
+    NuxtLink,
+    // LanguageSwitcher
+  },
   data() {
     return {
       year: new Date().getFullYear(),

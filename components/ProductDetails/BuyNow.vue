@@ -84,10 +84,10 @@
 import { mapActions, mapMutations } from 'vuex'
 export default {
   props: {
-    product: Object,
-    selectedOptions: { type: Object },
-    options: { type: Array },
-    userSelectedVariant: { type: Object },
+    product: { type: Object, default: null },
+    selectedOptions: { type: Object, default: null },
+    options: { type: Array, default: null },
+    userSelectedVariant: { type: Object, default: null },
   },
   data() {
     return {

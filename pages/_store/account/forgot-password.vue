@@ -72,9 +72,10 @@
 import { mapActions, mapGetters } from 'vuex'
 import { Textbox } from '~/shared/components/ui'
 import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
+import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
-  components: { Textbox, GrnIndGradiantButton },
+  components: { Textbox, GrnIndGradiantButton, NuxtLink },
   layout: 'none',
   data() {
     return { email: this.$route.query.email }

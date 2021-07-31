@@ -10,8 +10,7 @@
         rounded-full
         me-3
         focus:outline-none
-        hover:shadow-lg
-        hover:bg-gray-300
+        hover:shadow-lg hover:bg-gray-300
       "
       @click="open = true"
     >
@@ -45,20 +44,14 @@
           rounded-sm
           shadow-2xl
           right-8
-          sm:right-0
-          sm:overflow-hidden
-          sm:p-3
-          sm:w-2/5
-          sm:h-32
+          sm:right-0 sm:overflow-hidden sm:p-3 sm:w-2/5 sm:h-32
         "
       >
         <div
           class="
             flex flex-col
             h-full
-            sm:justify-around
-            sm:my-auto
-            sm:flex-wrap sm:flex-row
+            sm:justify-around sm:my-auto sm:flex-wrap sm:flex-row
           "
         >
           <div class="p-3 bg-gray-200 border-b sm:hidden">
@@ -68,7 +61,7 @@
           <div class="flex flex-col w-full sm:flex-row">
             <!-- fb -->
             <ShareNetwork
-              :url="`${host}/${product.slug}?id=${product.id}`"
+              :url="`${host}/${$route.params.store}/${product.slug}?id=${product.id}`"
               :title="product.name"
               :description="product.description || ''"
               :quote="(product.category && product.category.name) || ''"
@@ -83,8 +76,7 @@
                 border-b
                 sm:flex-col
                 focus:outline-none
-                sm:border-b-0
-                sm:ps-0
+                sm:border-b-0 sm:ps-0
                 ps-4
               "
               @click="close(null)"
@@ -116,7 +108,7 @@
             </ShareNetwork>
             <!-- twitter -->
             <ShareNetwork
-              :url="`${host}/${product.slug}?id=${product.id}`"
+              :url="`${host}/${$route.params.store}/${product.slug}?id=${product.id}`"
               :title="product.name"
               :description="product.description || ''"
               :quote="(product.category && product.category.name) || ''"
@@ -132,8 +124,7 @@
                 border-b
                 sm:flex-col
                 focus:outline-none
-                sm:border-b-0
-                sm:ps-0
+                sm:border-b-0 sm:ps-0
                 ps-4
               "
               @click="close(null)"
@@ -165,7 +156,7 @@
             </ShareNetwork>
             <!-- email -->
             <ShareNetwork
-              :url="`${host}/${product.slug}?id=${product.id}`"
+              :url="`${host}/${$route.params.store}/${product.slug}?id=${product.id}`"
               :title="product.name"
               :description="product.description || ''"
               :quote="(product.category && product.category.name) || ''"
@@ -180,8 +171,7 @@
                 border-b
                 sm:flex-col
                 focus:outline-none
-                sm:border-b-0
-                sm:ps-0
+                sm:border-b-0 sm:ps-0
                 ps-4
               "
               @click="close(null)"
@@ -212,7 +202,7 @@
               >
             </ShareNetwork>
             <ShareNetwork
-              :url="`${host}/${product.slug}?id=${product.id}`"
+              :url="`${host}/${$route.params.store}/${product.slug}?id=${product.id}`"
               :title="product.name"
               :description="product.description || ''"
               :quote="(product.category && product.category.name) || ''"
@@ -227,8 +217,7 @@
                 border-b
                 sm:flex-col
                 focus:outline-none
-                sm:border-b-0
-                sm:ps-0
+                sm:border-b-0 sm:ps-0
                 ps-4
               "
               @click="close(null)"
@@ -283,7 +272,7 @@
             </ShareNetwork>
 
             <ShareNetwork
-              :url="`${host}/${product.slug}?id=${product.id}`"
+              :url="`${host}/${$route.params.store}/${product.slug}?id=${product.id}`"
               :title="product.name"
               :description="product.description || ''"
               :quote="(product.category && product.category.name) || ''"
@@ -298,8 +287,7 @@
                 border-b
                 sm:flex-col
                 focus:outline-none
-                sm:border-b-0
-                sm:ps-0
+                sm:border-b-0 sm:ps-0
                 ps-4
               "
               @click="close(null)"
@@ -365,8 +353,7 @@
                 border-b
                 sm:flex-col
                 focus:outline-none
-                sm:border-b-0
-                sm:ps-0
+                sm:border-b-0 sm:ps-0
                 ps-4
               "
               @click="copy()"
@@ -398,7 +385,7 @@
       ></div>
     </div>
     <div ref="productLink" class="hidden">
-      {{ `${host}/${product.slug}?id=${product.id}` }}
+      {{ `${host}/${$route.params.store}/${product.slug}?id=${product.id}` }}
     </div>
   </div>
 </template>

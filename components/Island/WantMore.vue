@@ -63,9 +63,11 @@
 
 <script>
 import Checkbox from '~/shared/components/ui/Checkbox.vue'
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
   components: {
     Checkbox,
+    NuxtLink,
   },
 }
 </script>

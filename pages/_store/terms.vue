@@ -115,7 +115,13 @@
     </ul>
   </section>
 </template>
+<script>
+import NuxtLink from '~/components/NuxtLink.vue'
 
+export default {
+  components: { NuxtLink },
+}
+</script>
 <style scoped>
 h6 {
   @apply text-sm md:text-base;

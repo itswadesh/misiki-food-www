@@ -325,9 +325,10 @@
 import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
   name: 'MyComponent',
-  components: { VueSlickCarousel },
+  components: { VueSlickCarousel, NuxtLink },
   data() {
     return {
       settings: {

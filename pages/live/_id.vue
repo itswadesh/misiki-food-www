@@ -61,9 +61,10 @@
 import HlsPlayer from '~/components/Video/HlsPlayer.vue'
 import CHANNEL from '~/gql/channel/channel.gql'
 import Chats from '~/components/Chats'
+import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
-  components: { HlsPlayer, Chats },
+  components: { HlsPlayer, Chats, NuxtLink },
   data() {
     return {
       channel: null,

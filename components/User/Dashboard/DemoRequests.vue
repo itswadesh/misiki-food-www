@@ -230,6 +230,7 @@ import { mapGetters } from 'vuex'
 import WishlistSkeleton from '~/components/AllSkeletons/WishlistSkeleton.vue'
 import MY_SCHEDULE_DEMOS from '~/gql/scheduleDemo/myScheduleDemos.gql'
 import { NETEASE_WWW } from '~/shared/config'
+import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
   components: { WishlistSkeleton },

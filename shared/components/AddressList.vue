@@ -112,9 +112,10 @@
 import Heading from './Heading'
 // import ListSkeleton from './ui/ListSkeleton'
 import DELETE_ADDRESS from '~/gql/address/deleteAddress.gql'
+import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
-  components: { Heading },
+  components: { Heading, NuxtLink },
   layout: 'account',
   middleware: ['isAuth'],
   data() {

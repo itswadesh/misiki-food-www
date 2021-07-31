@@ -190,6 +190,16 @@ export default {
       selectedAddress: null,
     }
   },
+  head() {
+    return {
+      title: 'Manage Address',
+    }
+  },
+  computed: {
+    user() {
+      return this.$store.state.auth.user
+    },
+  },
   async created() {
     await this.getAddress()
   },
@@ -269,16 +279,6 @@ export default {
           }
         }
       })
-    },
-  },
-  head() {
-    return {
-      title: 'Manage Address',
-    }
-  },
-  computed: {
-    user() {
-      return this.$store.state.auth.user
     },
   },
 }

@@ -91,7 +91,9 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
+  components: { NuxtLink },
   props: {
     heading: { type: String, default: null },
     detail: { type: String, default: null },

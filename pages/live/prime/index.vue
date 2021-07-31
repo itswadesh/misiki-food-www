@@ -29,8 +29,10 @@
 // import Sidebar from '~/components/Livenow/Sidebar.vue'
 // import Livenow from '~/components/Livenow/Livenow.vue'
 import CHANNELS from '~/gql/channel/channels.gql'
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
   components: {
+    NuxtLink,
     // Sidebar,
     // Livenow,
   },

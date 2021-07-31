@@ -166,9 +166,10 @@
 <script>
 import EnterOtp from './EnterOtp'
 import EnterMobileNumber from './EnterMobileNumber'
+import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
-  components: { EnterMobileNumber, EnterOtp },
+  components: { EnterMobileNumber, EnterOtp, NuxtLink },
   props: {
     closeButton: { type: Boolean, default: true },
   },

@@ -95,6 +95,7 @@ const CartItem = () => import('~/components/Cart/CartItem')
 const CartSummary = () => import('~/components/Cart/CartSummary')
 const CheckoutHeader = () => import('~/components/Checkout/CheckoutHeader')
 const CheckoutFooter = () => import('~/components/Checkout/CheckoutFooter')
+import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
   components: {
@@ -103,6 +104,7 @@ export default {
     CartSummary,
     CheckoutHeader,
     CheckoutFooter,
+    NuxtLink,
   },
   computed: {
     ...mapGetters({

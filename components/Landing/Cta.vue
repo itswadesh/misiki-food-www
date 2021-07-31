@@ -71,11 +71,29 @@
             />
           </svg>
         </a>
-        <a href="https://admin.hopyshopy.com/account/otp-login">
-          class=" m-3 sm:m-5 lg:m-0 rounded-full px-8 xl:px-7 py-2 sm:py-4
-          border border-gray-800 text-gray-800 frosted-btn transform
-          hover:-translate-y-0.5 transition duration-700 flex items-center
-          space-x-5 " >
+        <a
+          href="https://admin.hopyshopy.com/account/otp-login"
+          class="
+            m-3
+            sm:m-5
+            lg:m-0
+            rounded-full
+            px-8
+            xl:px-7
+            py-2
+            sm:py-4
+            border border-gray-800
+            text-gray-800
+            frosted-btn
+            transform
+            hover:-translate-y-0.5
+            transition
+            duration-700
+            flex
+            items-center
+            space-x-5
+          "
+        >
           <span class="z-10">Get Started</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -81,7 +81,10 @@
 <script>
 import { mapGetters } from 'vuex'
 import ORDER_DETAILS from '~/gql/order/order.gql'
+import NuxtLink from '~/components/NuxtLink.vue'
+
 export default {
+  components: { NuxtLink },
   data() {
     return {
       order: null,

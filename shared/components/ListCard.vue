@@ -62,8 +62,9 @@
 <script>
 import { mapGetters } from 'vuex'
 import { Ratingcircle } from './ui'
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
-  components: { Ratingcircle },
+  components: { Ratingcircle, NuxtLink },
   props: {
     product: { type: Object, default: () => {} },
     isLoading: { type: Boolean, default: false },

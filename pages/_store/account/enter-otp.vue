@@ -229,6 +229,7 @@ import Checkbox from '~/shared/components/ui/Checkbox.vue'
 import SignupStep from '~/components/Login/Email/SignupStep.vue'
 import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
 import GET_OTP from '~/gql/user/getOtp.gql'
+import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
   components: {
@@ -236,6 +237,7 @@ export default {
     SignupStep,
     GrnIndGradiantButton,
     OtpInput,
+    NuxtLink,
   },
   layout: 'none',
   middleware: ['isGuest'],

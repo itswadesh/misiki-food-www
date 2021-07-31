@@ -107,6 +107,7 @@ export default {
     { commit, state, rootState, getters },
     { paymentMethod, address }
   ) {
+    console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz', this.app.context)
     paymentMethod = paymentMethod || 'COD'
     switch (paymentMethod) {
       case 'COD':
@@ -130,11 +131,13 @@ export default {
             })
           ).data.checkout
           this.$router.push(
-            `/${this.app.route.params.store}/payment/success?id=${order.id}&provider=COD`
+            `/${this.app.context.params.store}/payment/success?id=${order.id}&provider=COD`
           )
         } catch (err) {
           commit('setErr', err, { root: true })
-          this.$router.push(`/payment/failed?provider=COD`)
+          // this.$router.push(
+          //   `/${this.app.context.params.store}/payment/failed?provider=COD`
+          // )
         } finally {
           commit('busy', false, { root: true })
         }

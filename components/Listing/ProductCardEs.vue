@@ -28,9 +28,7 @@
           "
         >
           <nuxt-link
-            :to="`/${$route.params.store}/search/${
-              product.brand && product.brand.name
-            }`"
+            :to="`/search/${product.brand && product.brand.name}`"
             class="absolute"
           >
             <div

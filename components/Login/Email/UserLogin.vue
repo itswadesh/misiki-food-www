@@ -276,7 +276,9 @@
 
 <script>
 import { mapMutations, mapActions } from 'vuex'
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
+  components: { NuxtLink },
   data() {
     return {
       email: '',

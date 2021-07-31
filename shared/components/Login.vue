@@ -131,8 +131,9 @@ import { mapActions, mapMutations } from 'vuex'
 import { Textbox, Submit } from '~/shared/components/ui'
 // import { Error } from '~/shared/components'
 import SIGN_IN from '~/gql/user/signIn.gql'
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
-  components: { Textbox, Submit },
+  components: { Textbox, Submit, NuxtLink },
   middleware: ['isGuest'],
   data() {
     return {

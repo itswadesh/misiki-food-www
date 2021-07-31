@@ -104,7 +104,10 @@
 </template>
 
 <script>
-export default {}
+import NuxtLink from '~/components/NuxtLink.vue'
+export default {
+  components: { NuxtLink },
+}
 </script>
 
 <style scoped>

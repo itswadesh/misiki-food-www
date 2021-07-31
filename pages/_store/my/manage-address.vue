@@ -9,8 +9,7 @@
         bg-white
         rounded-sm
         shadow
-        sm:py-2
-        sm:flex-row
+        sm:py-2 sm:flex-row
       "
     >
       <div class="my-auto text-lg font-normal text-gray-700">
@@ -81,10 +80,12 @@
 import { Button } from '~/shared/components/ui'
 
 import SelectAddress from '~/components/User/Dashboard/SelectAddress.vue'
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
   components: {
     SelectAddress,
     Button,
+    NuxtLink,
   },
   layout: 'account',
   middleware: ['isAuth'],

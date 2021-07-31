@@ -31,7 +31,9 @@
 <script>
 import { mapMutations } from 'vuex'
 import CATEGORIES from '~/gql/category/categories.gql'
+import NuxtLink from '~/components/NuxtLink.vue'
 export default {
+  components: { NuxtLink },
   data() {
     return {
       categories: null,

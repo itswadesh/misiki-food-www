@@ -147,8 +147,10 @@
 import { mapActions } from 'vuex'
 import DropdownMenu from './DropdownMenu'
 import { menu } from '~/config/menu'
+import NuxtLink from '~/components/NuxtLink.vue'
+
 export default {
-  components: { DropdownMenu },
+  components: { DropdownMenu, NuxtLink },
   props: {
     open: { type: Boolean },
   },

@@ -64,9 +64,10 @@
 <script>
 import { mapGetters } from 'vuex'
 import { Heading } from '~/shared/components'
+import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
-  components: { Heading },
+  components: { Heading, NuxtLink },
   layout: 'none',
 
   computed: {
