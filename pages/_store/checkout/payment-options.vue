@@ -310,16 +310,7 @@
           </CheckoutSummary>
           <!-- <span class="mx-5 border-t"></span> -->
           <h3
-            class="
-              pt-5
-              ps-5
-              my-auto
-              text-xl
-              font-medium
-              text-gray-600
-              bg-white
-              ps-5
-            "
+            class="pt-5 my-auto text-xl font-medium text-gray-600 bg-white ps-5"
           >
             Delivery Address:
           </h3>

@@ -49,9 +49,9 @@
 <script>
 import NuxtLink from '~/components/NuxtLink.vue'
 export default {
-  components{NuxtLink},
+  components: { NuxtLink },
   props: {
-    banner: { type: Object },
+    banner: { type: Object, default: null },
   },
 }
 </script>

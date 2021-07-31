@@ -90,12 +90,12 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import NuxtLink from '~/components/NuxtLink.vue'
 const CartItem = () => import('~/components/Cart/CartItem')
 // const Offers = () => import('~/components/Cart/Offers')
 const CartSummary = () => import('~/components/Cart/CartSummary')
 const CheckoutHeader = () => import('~/components/Checkout/CheckoutHeader')
 const CheckoutFooter = () => import('~/components/Checkout/CheckoutFooter')
-import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
   components: {
