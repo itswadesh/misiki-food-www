@@ -276,7 +276,7 @@ export default {
   },
   methods: {
     go(url) {
-      this.$router.push(url)
+      this.$router.push(`/${this.$route.params.store}${url}`)
     },
     async submit() {
       try {
@@ -292,7 +292,8 @@ export default {
         if (data) {
           this.$store.commit('success', 'Signup Successful')
           const referrer = this.$route.query.referrer || '/'
-          if (referrer) this.$router.push($route.params.store + '/' + referrer)
+          if (referrer)
+            this.$router.push(this.$route.params.store + '/' + referrer)
         }
       } catch (e) {
         this.$store.commit('setErr', e)

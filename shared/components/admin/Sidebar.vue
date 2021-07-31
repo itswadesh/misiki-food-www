@@ -136,7 +136,7 @@
         font-semibold
         text-gray-500
       "
-      @click="$router.push('/login')"
+      @click="$router.push(`/${$route.params.store}/login`)"
     >
       Login
     </button>
@@ -176,7 +176,7 @@ export default {
     ...mapActions({ logout: 'auth/logout' }),
     async signout() {
       await this.logout()
-      this.$router.push('/login')
+      this.$router.push(`/${this.$route.params.store}/login`)
     },
     hideSidebar(e) {
       this.$emit('hideSidebar', e)

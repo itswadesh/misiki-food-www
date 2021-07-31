@@ -8,8 +8,7 @@
         justify-center
         min-h-screen
         text-center
-        sm:block
-        sm:p-0
+        sm:block sm:p-0
       "
     >
       <div class="fixed inset-0 transition-opacity" aria-hidden="true">
@@ -32,10 +31,7 @@
           rounded-lg
           shadow-xl
           text-start
-          sm:my-8
-          sm:align-middle
-          sm:max-w-lg
-          sm:w-full
+          sm:my-8 sm:align-middle sm:max-w-lg sm:w-full
         "
         role="dialog"
         aria-modal="true"
@@ -91,10 +87,9 @@ export default {
     hide(e) {
       //  console.log("hide ho ja")
       // this.sidebar = false
-      if (e) this.$router.push(`/c/${e}`)
+      if (e) this.$router.push(`/${this.$route.params.store}/c/${e}`)
       this.$emit('hide', true)
     },
   },
-  components: {},
 }
 </script>

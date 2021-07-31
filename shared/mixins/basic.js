@@ -155,7 +155,7 @@ export default {
       }
     },
     go(id) {
-      this.$router.push('/' + this.api + '/' + id)
+      this.$router.push(`/${this.$route.params.store}/${this.api}/${id}`)
     },
     hideFilterBox() {
       this.showFilter = false

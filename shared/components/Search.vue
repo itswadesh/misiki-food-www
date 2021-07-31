@@ -93,7 +93,7 @@ export default {
         this.typingTimer = setTimeout(function () {
           if (!value || value === 'undefined') value = '' // When clear button clicked
           vm.searchString = value
-          vm.$router.push(`/search/${value}`)
+          vm.$router.push(`/${this.$route.params.store}/search/${value}`)
         }, this.settings.typingTimeout)
       },
     },

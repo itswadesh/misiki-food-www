@@ -17,7 +17,7 @@
         <i
           class="block me-2 fa fa-arrow-left lg:invisible"
           aria-hidden="true"
-          @click="$router.push('/my/')"
+          @click="$router.push(`/${$route.params.store}/my/`)"
         ></i
         >Password
       </div>
@@ -90,7 +90,7 @@ export default {
       }
       try {
         await this.changePassword(this.password)
-        this.$router.push('/my/orders')
+        this.$router.push(`/${this.$route.params.store}/my/orders`)
       } catch (e) {}
     },
   },

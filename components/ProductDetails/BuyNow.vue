@@ -100,7 +100,7 @@ export default {
     ...mapActions({ addToCart: 'cart/addToCart' }),
     ...mapMutations({ success: 'success', setErr: 'setErr' }),
     go() {
-      this.$router.push('/cart')
+      this.$router.push(`/${this.$route.params.store}/cart`)
     },
     async addToBag(obj) {
       // if (!this.userSelectedVariant) {

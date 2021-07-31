@@ -352,7 +352,7 @@ export default {
           phone: this.countryCode + this.phone,
         })
         const r = this.$route.query.ref || '/'
-        this.$router.push(r)
+        this.$router.push(`/${this.$route.params.store}${r}`)
         this.success('OTP Verified Successfully')
       } catch (e) {
         this.$store.commit('setErr', e)

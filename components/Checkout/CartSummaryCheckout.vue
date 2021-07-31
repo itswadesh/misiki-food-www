@@ -201,7 +201,7 @@ export default {
     ...mapActions({ removeCoupon: 'cart/removeCoupon' }),
     proceed() {
       if (!this.selectedAddress) {
-        this.$router.push(`/checkout/add`)
+        this.$router.push(`/${this.$route.params.store}/checkout/add`)
         return
       }
       this.$router.push(

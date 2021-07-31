@@ -85,11 +85,11 @@ export default {
           this.setErr(e)
       } finally {
         this.busy(false)
-        this.$router.push('/dashboard') // It mush be inside finally because updateProfile throws error when not logged in too
+        this.$router.push(`/${this.$route.params.store}/dashboard`) // It mush be inside finally because updateProfile throws error when not logged in too
       }
     },
     go(url) {
-      this.$router.push(url)
+      this.$router.push(`/${this.$route.params.store}${url}`)
     },
   },
 }

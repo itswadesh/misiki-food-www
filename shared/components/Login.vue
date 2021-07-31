@@ -179,7 +179,7 @@ export default {
   },
   mounted() {
     const isAuthenticated = !!this.$apolloHelpers.getToken()
-    if (isAuthenticated) this.$router.push('/my')
+    if (isAuthenticated) this.$router.push(`/${this.$route.params.store}/my`)
   },
   async created() {
     // let geoCookie = await this.$cookies.get("geo");
@@ -252,7 +252,7 @@ export default {
             })
           } else {
             const redirect = this.$route.hash.substr(1) || '/my'
-            this.$router.push(redirect)
+            this.$router.push(`/${this.$route.params.store}${redirect}`)
           }
         } catch (e) {
           this.setErr(e)

@@ -80,7 +80,7 @@ export default {
       this.scrollToTop()
       const url = constructURL('/', query)
       const cslug = this.$route.path.substr(1)
-      this.$router.push(`/${cslug}${url}&page=${p}`)
+      this.$router.push(`/${this.$route.params.store}/${cslug}${url}&page=${p}`)
     },
   },
 }

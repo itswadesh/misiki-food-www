@@ -413,7 +413,7 @@ export default {
     },
     close(e) {
       this.open = false
-      if (e) this.$router.push(`/c/${e}`)
+      if (e) this.$router.push(`/${this.$route.params.store}/c/${e}`)
     },
   },
 }

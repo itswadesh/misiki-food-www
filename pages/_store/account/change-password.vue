@@ -112,7 +112,7 @@ export default {
   },
   methods: {
     hide(e) {
-      if (e) this.$router.push(`/c/${e}`)
+      if (e) this.$router.push(`/${this.$route.params.store}/c/${e}`)
       this.$emit('hide', true)
     },
     submit() {
@@ -129,7 +129,7 @@ export default {
           password: this.password,
           passwordConfirmation: this.password,
         })
-        this.$router.push('/')
+        this.$router.push(`/${this.$route.params.store}`)
       } catch (e) {}
     },
   },

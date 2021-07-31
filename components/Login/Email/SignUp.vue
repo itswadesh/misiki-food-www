@@ -65,8 +65,7 @@
               rounded-md
               shadow
               border-primary-500
-              focus:outline-none
-              focus:ring-primary-500 focus:ring-2
+              focus:outline-none focus:ring-primary-500 focus:ring-2
             "
             :class="
               loading ? 'text-white bg-gray-500' : 'bg-primary-500 text-white'
@@ -133,6 +132,7 @@ import { Textbox } from '~/shared/components/ui'
 import EnterEmail from '~/components/Login/Email/EnterEmail.vue'
 export default {
   components: { EnterEmail, Textbox },
+  layout: 'none',
   middleware: ['isGuest'],
   data() {
     return {
@@ -149,11 +149,20 @@ export default {
       msg: null,
     }
   },
+
+  head() {
+    return {
+      title: `SignUp for ${this.settings.websiteName}`,
+    }
+  },
+  computed: {
+    ...mapGetters({ settings: 'settings', error: 'error' }),
+  },
   methods: {
     ...mapActions({ register: 'auth/register' }),
     ...mapMutations({ success: 'success', setErr: 'setErr' }),
     go(url) {
-      this.$router.push(url)
+      this.$router.push(`/${this.$route.params.store}${url}`)
     },
     async submit() {
       try {
@@ -168,21 +177,13 @@ export default {
         if (data) {
           this.success('Signup Successful')
           const referrer = this.$route.query.referrer || '/'
-          if (referrer) this.$router.push(referrer)
+          if (referrer)
+            this.$router.push(`/${this.$route.params.store}${referrer}`)
         }
       } catch (e) {
         this.setErr(e)
       }
     },
-  },
-  computed: {
-    ...mapGetters({ settings: 'settings', error: 'error' }),
-  },
-  layout: 'none',
-  head() {
-    return {
-      title: `SignUp for ${this.settings.websiteName}`,
-    }
   },
 }
 </script>

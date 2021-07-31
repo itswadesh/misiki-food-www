@@ -41,7 +41,7 @@
             @keyup.enter="
               $event.target.blur()
               $router.push(
-                `/${this.$route.params.store}/search/${selectedVal || ''}`
+                `/${$route.params.store}/search/${selectedVal || ''}`
               )
             "
             @focus="onFocused()"

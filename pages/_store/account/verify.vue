@@ -81,7 +81,9 @@ export default {
         password: this.password,
         passwordConfirmation: this.password,
       })
-      this.$router.push('/account/verification-success')
+      this.$router.push(
+        `/${this.$route.params.store}/account/verification-success`
+      )
     } catch (e) {
       this.$store.commit('setErr', e)
     }

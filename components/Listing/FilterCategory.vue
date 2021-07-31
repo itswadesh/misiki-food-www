@@ -10,8 +10,7 @@
             text-gray-600
             rounded
             cursor-pointer
-            hover:bg-yellow-100
-            hover:text-yellow-600
+            hover:bg-yellow-100 hover:text-yellow-600
           "
         >
           <Radio
@@ -65,7 +64,9 @@ export default {
   methods: {
     onChangeValue(i) {
       this.selectedCategoryIndex = i
-      this.$router.push(`/c/${this.selectedvalue.slug}`)
+      this.$router.push(
+        `/${this.$route.params.store}/c/${this.selectedvalue.slug}`
+      )
       // $nuxt.$emit('onSelectCategory', this.selectedvalue.slug)
     },
   },

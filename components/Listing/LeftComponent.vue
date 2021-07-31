@@ -186,7 +186,9 @@ export default {
       // console.log(this.fl, 'filterrrrrrrrrrrrrrrrr')
       let link = await this.getUrl()
       link = link.substr(0, link.length - 1)
-      this.$router.push(`/c/${this.$route.params.slug}${link}`)
+      this.$router.push(
+        `/${this.$route.params.store}/c/${this.$route.params.slug}${link}`
+      )
     },
     getUrl() {
       let url = '?'

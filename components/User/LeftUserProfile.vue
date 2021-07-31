@@ -552,11 +552,11 @@ export default {
     // },
     go(url) {
       this.$emit('hideSidebar', true)
-      this.$router.push(url)
+      this.$router.push(`/${this.$route.params.store}${url}`)
     },
     hideSidebar(e) {
       this.sidebar = false
-      if (e) this.$router.push(`/c/${e}`)
+      if (e) this.$router.push(`/${this.$route.params.store}/c/${e}`)
       this.$emit('hideSidebar', true)
     },
     onSelectCategory(val) {

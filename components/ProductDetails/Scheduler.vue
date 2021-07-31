@@ -198,7 +198,9 @@ export default {
     this.minDate = tomorrow
     // 2021-08-08 08:08 am
     if (!this.user) {
-      this.$router.push(`/login?ref=${this.$route.fullPath}`)
+      this.$router.push(
+        `/${this.$route.params.store}/login?ref=${this.$route.fullPath}`
+      )
     }
     if (this.product) {
       this.schedule.product = this.product.id
@@ -223,7 +225,7 @@ export default {
         // ).data.saveScheduleDemo
         // console.log('dsfsdfsdf', this.saveCustomerMessage)
         this.success(msg)
-        this.$router.push(`/my/demo-requests`)
+        this.$router.push(`/${this.$route.params.store}/my/demo-requests`)
       } catch (e) {
         this.setErr(e)
       } finally {
@@ -235,7 +237,7 @@ export default {
       }
     },
     hide(e) {
-      if (e) this.$router.push(`/c/${e}`)
+      if (e) this.$router.push(`/${this.$route.params.store}/c/${e}`)
       this.$emit('hide', true)
     },
   },

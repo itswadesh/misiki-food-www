@@ -90,7 +90,7 @@ export default {
         await this.emailPassword({
           email: this.email,
         })
-        this.$router.push('/account/forgot-success')
+        this.$router.push(`/${this.$route.params.store}/account/forgot-success`)
       } catch (e) {
         this.$store.commit('setErr', e)
       }

@@ -56,7 +56,10 @@
               </a>
             </div>
 
-            <GrnIndGradiantButton class="w-full" @click="$router.push('login')">
+            <GrnIndGradiantButton
+              class="w-full"
+              @click="$router.push('/${this.$route.params.store}/login`')"
+            >
               Home
             </GrnIndGradiantButton>
           </div>

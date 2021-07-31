@@ -48,7 +48,7 @@ export default {
       this.data = [] // Reset query parameters
     },
     go(url) {
-      this.$router.push(url)
+      this.$router.push(`/${this.$route.params.store}${url}`)
     },
   },
   watch: {

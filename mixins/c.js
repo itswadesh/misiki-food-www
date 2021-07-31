@@ -95,7 +95,7 @@ export default {
       this.scrollToTop()
       const url = constructURL('/', query)
       const cslug = this.$route.path.substr(1)
-      this.$router.push(`/${cslug}${url}&page=${p}`)
+      this.$router.push(`/${this.$route.params.store}/${cslug}${url}&page=${p}`)
     },
     scrollToTop() {
       if (process.client) {
@@ -113,7 +113,7 @@ export default {
       delete fl.page
       delete fl.categories
       const url = this.constructURL('/', c, fl)
-      this.$router.push(`${url}page=1`)
+      this.$router.push(`/${this.$route.params.store}${url}page=1`)
     },
     constructURL(url, category, fl) {
       if (category) url += category + '?'
@@ -124,7 +124,7 @@ export default {
       return url
     },
     go(slug) {
-      this.$router.push('/' + slug)
+      this.$router.push(`/${this.$route.params.store}/${slug}`)
     },
     facetRemoved(f) {
       this.fl = f
@@ -143,7 +143,7 @@ export default {
       const c = this.$route.path.slice(1)
       const fl = {}
       const url = this.constructURL('/', c, fl)
-      this.$router.push(`${url}page=1`)
+      this.$router.push(`/${this.$route.params.store}${url}page=1`)
     },
     mergeToWishlist(products, wishlist) {
       try {

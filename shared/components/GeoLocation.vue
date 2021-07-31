@@ -45,7 +45,7 @@ export default {
     try {
       this.geo = this.$cookies.get('geo')
       if (!this.geo && process.client) {
-        this.$router.push('/change-location')
+        this.$router.push(`/${this.$route.params.store}/change-location`)
         // this.gettingLocation = true;
         // this.geo = await this.locateMe();
       }

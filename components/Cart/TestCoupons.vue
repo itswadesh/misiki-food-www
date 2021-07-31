@@ -7,8 +7,7 @@
         justify-center
         min-h-screen
         text-center
-        sm:block
-        sm:p-0
+        sm:block sm:p-0
       "
     >
       <div class="fixed inset-0 transition-opacity" aria-hidden="true">
@@ -30,10 +29,7 @@
           rounded-lg
           shadow-xl
           text-start
-          sm:my-8
-          sm:align-middle
-          sm:max-w-lg
-          sm:w-full
+          sm:my-8 sm:align-middle sm:max-w-lg sm:w-full
         "
         role="dialog"
         aria-modal="true"
@@ -225,6 +221,9 @@ import COUPONS from '~/gql/cart/coupons.gql'
 import { Radio } from '~/shared/components/ui'
 
 export default {
+  components: {
+    Radio,
+  },
   data() {
     return {
       coupon_code: null,
@@ -234,14 +233,15 @@ export default {
       saving: false,
     }
   },
-  created() {
-    this.getCoupons()
-  },
   computed: {
     ...mapGetters({
       settings: 'settings',
     }),
   },
+  created() {
+    this.getCoupons()
+  },
+
   methods: {
     ...mapActions({ applyCoupon: 'cart/applyCoupon' }),
     async applyOffer(code) {
@@ -274,9 +274,6 @@ export default {
       if (e) this.$router.push(`/c/${e}`)
       this.$emit('hide', true)
     },
-  },
-  components: {
-    Radio,
   },
 }
 </script>

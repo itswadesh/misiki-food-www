@@ -364,8 +364,13 @@ export default {
         // ).data.saveAddress
         this.success(msg)
         if (this.$route.query.prev)
-          this.$router.push(`/${this.$route.query.prev}`)
-        else this.$router.push(`/${this.$route.params.store}${this.returnUrl}`)
+          this.$router.push(
+            `/${this.$route.params.store}/${this.$route.query.prev}`
+          )
+        else
+          this.$router.push(
+            `/${this.$route.params.store}/${this.$route.params.store}${this.returnUrl}`
+          )
       } catch (e) {
         this.setErr(e)
       } finally {
