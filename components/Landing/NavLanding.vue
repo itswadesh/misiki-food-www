@@ -1,7 +1,7 @@
 <template>
-  <nav class="w-full fixed top-0 z-50 frosted shadow blur">
+  <nav class="w-full fixed top-0 z-50 frosted shadow">
     <div class="container mx-auto max-w-7xl px-2 sm:px-10">
-      <div class="flex items-center justify-between p-3 ease-in-out lg:py-5">
+      <div class="flex items-center justify-between p-3">
         <div class="flex items-center w-full">
           <nuxt-link
             to="/"
@@ -16,7 +16,7 @@
               underline
               nuxt-link-active
             "
-            ><img src="/icon.png" alt="" class="h-8 mr-2" />
+            ><img src="/icon.png" alt="" class="h-10 mr-2" />
           </nuxt-link>
         </div>
         <div
@@ -30,16 +30,20 @@
           "
         >
           <nav class="flex items-center">
-            <a :href="getLoginUrl()">
-              title="Login" class="mt-1 ml-1 nav link" > Login
+            <a
+              :href="getLoginUrl()"
+              title="Login"
+              class="mr-5 text-primary-500"
+            >
+              Login
             </a>
-            <a :href="getLoginUrl()">
-              title="Get Started" rel="prefetch">
+            <a :href="getLoginUrl()" title="Get Started" rel="prefetch">
               <GrnIndGradiantButton class="w-full max-w-sm" type="button">
                 Get Started
               </GrnIndGradiantButton>
             </a>
           </nav>
+
           <!-- <button
             aria-label="Open Menu"
             class="p-2 bg-gray-100 rounded focus:outline-none lg:hidden"
