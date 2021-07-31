@@ -75,6 +75,7 @@
     "tailwindcss-rtl": "^0.7.0",
     "vue-ctk-date-time-picker": "^2.5.0",
     "vue-gtag": "^1.16.1",
+    "vue-image-magnifier": "^0.2.1",
     "vue-infinite-loading": "^2.4.5",
     "vue-lazyload": "^1.3.3",
     "vue-plain-pagination": "^0.3.0",

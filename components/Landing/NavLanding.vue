@@ -30,10 +30,10 @@
           "
         >
           <nav class="flex items-center">
-            <a href="https://admin.hopyshopy.com/account/otp-login">
+            <a :href="getLoginUrl()">
               title="Login" class="mt-1 ml-1 nav link" > Login
             </a>
-            <a href="https://admin.hopyshopy.com/account/otp-login">
+            <a :href="getLoginUrl()">
               title="Get Started" rel="prefetch">
               <GrnIndGradiantButton class="w-full max-w-sm" type="button">
                 Get Started
@@ -78,14 +78,10 @@ export default {
     },
   },
   methods: {
-    gotoLogin() {
-      let l = '/dashboard'
-      if (this.user) l = '/dashboard'
-      else if (this.settings.otpLogin)
-        l = `${$route.params.store}/account/otp-login`
-      else l = `${$route.params.store}/login`
-      // this.$router.push(l)
-      return l
+    getLoginUrl() {
+      if (this.settings.otpLogin)
+        return `${this.settings.ADMIN_PANEL_LINK}/account/otp-login`
+      else return `${this.settings.ADMIN_PANEL_LINK}/login`
     },
   },
 }

@@ -265,10 +265,12 @@
         </form>
       </div>
       <div
-        v-if="settings.adminPanelLink"
+        v-if="settings.ADMIN_PANEL_LINK"
         class="mb-4 text-center hover:text-primary-500"
       >
-        <nuxt-link :to="`${settings.adminPanelLink}`">Merchant Login</nuxt-link>
+        <nuxt-link :to="`${settings.ADMIN_PANEL_LINK}`"
+          >Merchant Login</nuxt-link
+        >
       </div>
     </div>
   </div>

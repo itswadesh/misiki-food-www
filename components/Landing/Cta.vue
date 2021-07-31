@@ -72,7 +72,7 @@
           </svg>
         </a>
         <a
-          href="https://admin.hopyshopy.com/account/otp-login"
+          :href="getLoginUrl()"
           class="
             m-3
             sm:m-5
@@ -124,14 +124,10 @@ export default {
     },
   },
   methods: {
-    gotoLogin() {
-      let l = '/dashboard'
-      if (this.user) l = '/dashboard'
-      else if (this.settings.otpLogin)
-        l = `${$route.params.store}/account/otp-login`
-      else l = `${$route.params.store}/login`
-      // this.$router.push(l)
-      return l
+    getLoginUrl() {
+      if (this.settings.otpLogin)
+        return `${this.settings.ADMIN_PANEL_LINK}/account/otp-login`
+      else return `${this.settings.ADMIN_PANEL_LINK}/login`
     },
   },
 }

@@ -72,7 +72,7 @@
 
         <div class="flex-col mx-5 md:mx-0">
           <div class="flex justify-center lg:justify-start email">
-            <a href="https://admin.hopyshopy.com/account/otp-login">
+            <a :href="getLoginUrl()">
               <GrnIndGradiantButton
                 class="w-full max-w-md mt-10 py-3 text-lg"
                 type="submit"
@@ -142,11 +142,10 @@ export default {
     },
   },
   methods: {
-    gotoLogin() {
-      if (this.user) this.$router.push(`/${this.$route.params.store}/dashboard`)
-      else if (this.settings.otpLogin)
-        this.$router.push(`${$route.params.store}/account/otp-login`)
-      else this.$router.push(`/${this.$route.params.store}/login`)
+    getLoginUrl() {
+      if (this.settings.otpLogin)
+        return `${this.settings.ADMIN_PANEL_LINK}/account/otp-login`
+      else return `${this.settings.ADMIN_PANEL_LINK}/login`
     },
   },
 }

@@ -17,7 +17,7 @@
           "
         >
           <a
-            :href="settings.adminPanelLink"
+            :href="settings.ADMIN_PANEL_LINK"
             target="blank"
             class="
               w-auto
@@ -138,7 +138,7 @@
             How it works
           </nuxt-link>
           <a
-            :href="`${settings.adminPanelLink}/account/signup`"
+            :href="`${settings.ADMIN_PANEL_LINK}/account/signup`"
             class="
               w-auto
               px-1
