@@ -1,8 +1,8 @@
 const pwa = {
   manifest: {
-    short_name: 'Hopyshopy',
-    name: 'Hopyshopy',
-    description: 'Hopyshopy ecommerce',
+    short_name: 'Misiki',
+    name: 'Misiki Store',
+    description: 'Misiki store front',
   },
 }
 const colors = {

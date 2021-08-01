@@ -28,7 +28,7 @@ export const { GOOGLE_MAPS_KEY = '' } = process.env
 export const { HERE_KEY } = process.env
 
 export const dev = process.env.NODE_ENV !== 'production'
-export const { HTTP_ENDPOINT = 'https://aapi.litekart.in' } = process.env
+export const { HTTP_ENDPOINT = 'https://api.misiki.in' } = process.env
 export const NETEASE_WWW = dev
   ? 'http://localhost:3300'
   : 'https://litekartlive.netlify.app'

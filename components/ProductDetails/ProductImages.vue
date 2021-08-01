@@ -164,6 +164,7 @@
                 v-for="(ig, ix) in images"
                 :key="ix"
                 class="h-20 mx-auto focus:outline-none"
+                @click="selectedImage = ig"
               >
                 <img
                   v-lazy="ig"
