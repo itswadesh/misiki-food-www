@@ -7,12 +7,14 @@ const pwa = {
 }
 const colors = {
   primary: {
-    500: '#6366f1', // brown
+    100: '#e0e7ff' /* indigo-100 */,
+    200: '#c7d2fe' /* indigo-200 */,
+    500: '#6366f1' /* indigo-500 */,
+    600: '#4f46e5' /* indigo-800 */,
+    700: '#3730a3' /* indigo-800 */,
   },
   secondary: {
     100: '#d1fae5' /* green-300  */,
-    200: '#32CD32', // green
-    400: '#78f547', // light green
     500: '#55C451' /* lightgreen */,
     600: '#3db340' /* just-dark-green  */,
   },
