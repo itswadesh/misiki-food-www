@@ -15,7 +15,7 @@
       We are upgrading. Will not take much time.
     </div>
     <header class="z-40 w-full h-24 p-2 shadow-xs sm:shadow-md lg:p-3 lg:h-16">
-      <div class="relative flex justify-between mx-auto xl:container">
+      <div class="relative flex items-center justify-between space-x-5">
         <div class="flex items-center my-auto">
           <div class="hambargar menu lg:hidden">
             <button
@@ -76,169 +76,121 @@
             </nuxt-link>
           </div>
         </div>
-        <SearchAutocomplete class="absolute hidden my-auto mb-1 lg:flex" />
-        <!--right header block -->
-        <div class="relative flex items-center my-auto lg:mt-1">
-          <div class="flex flex-row items-center mx-3 my-auto flex-nowrap">
-            <div class="my-auto">
-              <!-- for desktop screen  -->
-              <div
-                v-if="!user"
-                class="
-                  hidden
-                  my-auto
-                  tracking-wider
-                  cursor-pointer
-                  lg:flex
-                  sm:mb-0
-                  text-primary-500 text-normal
-                "
-                @click="findLoginScreen"
-              >
-                <!-- {{ showLogin }} -->
-                <!-- login icon  -->
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="w-6 h-6"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </div>
-              <!-- for mobile screen -->
-              <nuxt-link
-                v-if="!user"
-                to="/login"
-                class="
-                  my-auto
-                  tracking-wider
-                  cursor-pointer
-                  lg:hidden
-                  sm:mb-0
-                  text-primary-500 text-normal
-                "
-              >
-                <!-- login icon  -->
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="w-6 h-6"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </nuxt-link>
 
-              <div v-else class="w-auto cursor-pointer text-primary-500">
-                <nuxt-link :to="localePath('/my')">
-                  <div class="flex flex-col items-center w-full mx-auto">
-                    <div>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="w-6 h-6"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                          clip-rule="evenodd"
-                        />
-                      </svg>
-                    </div>
-                    <!-- <div
-                      v-if="user"
-                      class="flex w-full text-center sm:hidden sm:-mt-0 text-normal"
-                    >
-                      <span v-if="!user.firstName" class="mx-auto my-auto text-center"
-                        >Hi</span
-                      >
-                      <span v-else class="mx-auto my-auto capitalize">
-                        {{ user.firstName }}
-                      </span>
-                    </div> -->
-                  </div>
-                </nuxt-link>
-              </div>
-            </div>
-          </div>
-          <nuxt-link :to="localePath('/my/wishlist')">
-            <div class="">
-              <!-- heart icon  -->
-              <svg
-                class="
-                  w-6
-                  h-6
-                  mx-2
-                  my-auto
-                  transition
-                  duration-500
-                  ease-in-out
-                  transform
-                  text-primary-500
-                  hw
-                  hover:-translate-y-1 hover:scale-110 hover:text-accent-900
-                "
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-                  clip-rule="evenodd"
-                />
-              </svg>
+        <SearchAutocomplete class="hidden lg:block" />
+        <!--right header block -->
+
+        <div
+          class="
+            flex
+            items-center
+            justify-between
+            flex-shrink-0
+            ml-10
+            mr-3
+            max-w-max
+            space-x-5
+          "
+        >
+          <button
+            v-if="!user"
+            class="focus:outline-none"
+            @click="findLoginScreen"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 mx-auto"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+              />
+            </svg>
+            <div class="text-xs font-bold headings">Profile</div>
+          </button>
+
+          <nuxt-link v-else class="w-auto" :to="localePath('/my')">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 mx-auto"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+              />
+            </svg>
+            <div class="hidden text-xs font-bold sm:flex headings">Profile</div>
+          </nuxt-link>
+
+          <nuxt-link class="w-auto" :to="localePath('/my/wishlist')">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 mx-auto"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1"
+                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+              />
+            </svg>
+            <div class="hidden text-xs font-bold sm:flex headings">
+              Wishlist
             </div>
           </nuxt-link>
-          <!-- :to="localePath('index')" -->
-          <nuxt-link to="/cart" class="h-full mx-3 my-auto">
-            <div class="relative flex flex-col">
-              <!-- cart icon -->
-              <svg
-                class="relative w-6 h-6 mt-2 text-primary-500"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
-                />
-              </svg>
+
+          <nuxt-link class="relative" to="/cart">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 mx-auto"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1"
+                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+              />
+            </svg>
+
+            <div class="hidden text-xs font-bold sm:flex">
+              Cart
               <div
                 v-if="cart && cart.qty > 0"
                 class="
                   absolute
-                  top-0
-                  right-0
+                  px-1
+                  text-center
+                  rounded-full
                   flex
                   items-center
                   justify-center
-                  w-5
-                  h-5
-                  -mt-1
-                  text-xs text-center text-white
-                  rounded-full
-                  -me-2
-                  ms-1
-                  bg-secondary-500
                 "
               >
-                {{ cart.qty }}
+                <div class="text-xs text-center text-white font-semi">
+                  {{ cart.qty }}
+                </div>
               </div>
             </div>
           </nuxt-link>
         </div>
       </div>
+
       <SearchAutocomplete
         style="margin-top: 8px"
         class="sticky top-0 lg:hidden"
