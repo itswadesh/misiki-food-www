@@ -107,10 +107,7 @@
                 "
               >
                 <div class="w-1/2">
-                  <nuxt-link
-                    to="/account/otp-login"
-                    class="ms-auto max-w-max link"
-                  >
+                  <nuxt-link to="/otplogin" class="ms-auto max-w-max link">
                     Login with otp
                   </nuxt-link>
                 </div>

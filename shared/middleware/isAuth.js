@@ -7,7 +7,7 @@ export default async function ({ app, error, store, redirect, route }) {
     const otpLogin = (
       await client.query({ query: SETTINGS, fetchPolicy: 'no-cache' })
     ).data.settings.otpLogin
-    if (otpLogin) goto = '/account/otp-login'
+    if (otpLogin) goto = '/otplogin'
   } catch (e) {}
   try {
     store.commit('clearErr')

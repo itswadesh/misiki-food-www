@@ -64,7 +64,8 @@
             <div
               class="flex flex-row justify-center my-8 space-x-2 md:space-x-4"
             >
-              <div
+              <a
+                href="/auth/facebook"
                 class="
                   transition
                   duration-300
@@ -93,8 +94,9 @@
                     stroke-width="1.4"
                   />
                 </svg>
-              </div>
-              <div
+              </a>
+              <a
+                href="/auth/google"
                 class="
                   transition
                   duration-300
@@ -133,9 +135,9 @@
                     fill="#EB4335"
                   />
                 </svg>
-              </div>
+              </a>
             </div>
-            <div class="flex justify-center">
+            <!-- <div class="flex justify-center">
               <Checkbox
                 ><div class="text-xs">
                   When you click on an
@@ -144,7 +146,7 @@
                   assent
                 </div>
               </Checkbox>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

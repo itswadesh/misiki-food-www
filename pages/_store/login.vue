@@ -80,7 +80,7 @@
           </form>
           <div class="flex items-center justify-between mt-5 text-sm">
             <nuxt-link
-              to="/account/otp-login"
+              to="/otplogin"
               class="text-start text-primary-500 hover:underline max-w-max"
             >
               Login with phone

@@ -84,7 +84,7 @@ export default {
   methods: {
     getLoginUrl() {
       if (this.settings.otpLogin)
-        return `${this.settings.ADMIN_PANEL_LINK}/account/otp-login`
+        return `${this.settings.ADMIN_PANEL_LINK}/otplogin`
       else return `${this.settings.ADMIN_PANEL_LINK}/login`
     },
   },
