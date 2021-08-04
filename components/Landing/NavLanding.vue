@@ -38,7 +38,13 @@
               Login
             </a>
             <a :href="getLoginUrl()" title="Get Started" rel="prefetch">
-              <GrnIndGradiantButton class="w-full max-w-sm" type="button">
+              <GrnIndGradiantButton
+                class="w-28"
+                type="button"
+                loadingringsize="xs"
+                :loading="loading"
+                @click="loading = true"
+              >
                 Get Started
               </GrnIndGradiantButton>
             </a>
@@ -73,6 +79,13 @@ import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
 
 export default {
   components: { GrnIndGradiantButton },
+
+  data() {
+    return {
+      loading: false,
+    }
+  },
+
   computed: {
     settings() {
       return this.$store.state.settings || {}

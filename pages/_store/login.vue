@@ -9,7 +9,7 @@
       text-gray-600
       bg-gradient-to-br
       from-secondary-100
-      to-yellow-100
+      to-primary-100
     "
   >
     <!-- Login side start  -->

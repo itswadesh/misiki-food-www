@@ -73,7 +73,12 @@
         <div class="flex-col mx-5 md:mx-0">
           <div class="flex justify-center lg:justify-start email">
             <a :href="getLoginUrl()">
-              <GrnIndGradiantButton class="w-full max-w-md mt-10 py-3 text-lg">
+              <GrnIndGradiantButton
+                loadingringsize="lg"
+                class="w-64 mt-10 py-3 text-lg"
+                :loading="loading"
+                @click="loading = true"
+              >
                 Launch your store now
               </GrnIndGradiantButton>
             </a>
@@ -130,6 +135,13 @@ import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
 
 export default {
   components: { GrnIndGradiantButton },
+
+  data() {
+    return {
+      loading: false,
+    }
+  },
+
   computed: {
     settings() {
       return this.$store.state.settings || {}
