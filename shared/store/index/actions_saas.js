@@ -25,8 +25,21 @@ export default {
       // console.log('FCM:::', e.toString())
     }
   },
+  async fetchSettings({ commit, state, getters, $fire, params }, slug) {
+    try {
+      commit('clearErr')
+      const settings = (
+        await this.app.apolloProvider.defaultClient.query({ query: SETTINGS })
+      ).data.settings
+      commit('settings', settings)
+    } catch (e) {
+      commit('setErr', e)
+    } finally {
+      commit('busy', false)
+    }
+  },
   async fetch({ commit, state, getters, $fire, params }, slug) {
-    console.log('init.........', slug)
+    console.log('store id.........', slug)
     try {
       commit('clearErr')
       const stor = (
@@ -35,14 +48,10 @@ export default {
           variables: { slug },
         })
       ).data.storeOne
-      const settings = (
-        await this.app.apolloProvider.defaultClient.query({ query: SETTINGS })
-      ).data.settings
       const megamenu = (
         await this.app.apolloProvider.defaultClient.query({ query: MEGAMENU })
       ).data.megamenu
       commit('megamenu', megamenu)
-      commit('settings', settings)
       commit('store', stor)
       // const observer = this.app.apolloProvider.defaultClient.subscribe({
       //   query: SUBSCRIPTION_SETTINGS_UPDATED,
@@ -77,6 +86,7 @@ export default {
     // await dispatch('cart/fetch')
   },
   async nuxtServerInit({ state, commit, dispatch }, { params, app }) {
+    await dispatch('fetchSettings')
     if (!params.store) return
     app.router.base = params.store || '/'
 
