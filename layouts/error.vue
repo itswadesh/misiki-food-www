@@ -1,40 +1,52 @@
 <template>
-  <section class="min-h-screen px-8 py-1">
+  <section
+    class="container max-w-7xl mx-auto px-2 md:px-10 h-screen text-gray-700"
+  >
     <div
       class="
-        pb-4
-        mx-auto
-        font-bold
-        text-center text-gray-800
-        border-b-4 border-gray-800
-        lg:w-1/2
+        flex flex-col
+        p-6
+        items-center
+        justify-center
+        text-center
+        tracking-wide
       "
     >
-      <h1 v-if="error.statusCode === 404" class="text=5xl">404</h1>
-      <h1 v-else class="text=4xl">Error!</h1>
-      <img
-        v-lazy="'/placeholder/no-network.png'"
-        alt=""
-        class="object-contain h-48 mx-auto sm:w-2/3"
-      />
-      <div class="px-4 py-2 mt-3 text-red-500 bg-red-200 border border-red-300">
-        {{ error.message }}
+      <div class="max-w-max">
+        <span class="mb-5 font-semibold text-red-500">ERROR! </span>
+
+        <img
+          v-if="error.statusCode === 404"
+          v-lazy="'/no/404-error-animate.svg'"
+          alt="404 Error"
+          class="object-contain h-80 md:h-96"
+        />
+
+        <img
+          v-else
+          v-lazy="'/no/search-animate.svg'"
+          alt="404 Error"
+          class="object-contain h-80 md:h-96"
+        />
+
+        <div
+          class="
+            px-4
+            py-2
+            mt-5
+            text-red-500
+            bg-red-200
+            border border-red-300
+            font-semibold
+            text-sm
+            md:text-base
+          "
+        >
+          {{ error.message }}
+        </div>
       </div>
-    </div>
-    <div>
-      <nuxt-link
-        to="/"
-        class="
-          block
-          px-4
-          py-2
-          mt-4
-          text-sm
-          font-thin
-          text-center text-gray-700
-          rounded
-        "
-      >
+
+      <nuxt-link to="/" class="px-4 py-2 mt-5 text-sm rounded hover:underline">
         {{ settings.websiteName }}
       </nuxt-link>
     </div>

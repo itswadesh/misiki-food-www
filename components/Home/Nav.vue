@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col bg-white shadow frosted">
+  <nav class="flex flex-col bg-white shadow frosted">
     <div
       v-if="!settings.id"
       class="
@@ -14,10 +14,11 @@
     >
       We are upgrading. Will not take much time.
     </div>
-    <header class="z-40 w-full h-24 p-2 shadow-xs sm:shadow-md lg:p-3 lg:h-16">
+
+    <header class="z-40 w-full h-24 p-2 shadow-xs md:shadow-md md:p-3 md:h-16">
       <div class="relative flex items-center justify-between space-x-5">
-        <div class="flex items-center my-auto">
-          <div class="hambargar menu lg:hidden">
+        <div class="flex items-center my-auto flex-shrink-0">
+          <div class="hambargar menu md:hidden">
             <button
               aria-label="Open Menu"
               class="
@@ -30,7 +31,7 @@
               @click="sidebar = !sidebar"
             >
               <svg
-                class="w-6 h-6 pt-1 text-primary-500 me-3"
+                class="w-6 h-6 pt-1 me-3"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -39,11 +40,12 @@
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  stroke-width="2"
+                  stroke-width="1.5"
                   d="M4 6h16M4 12h16M4 18h16"
                 />
               </svg>
             </button>
+
             <div
               v-if="sidebar"
               class="
@@ -58,6 +60,7 @@
               "
               @click="sidebar = false"
             />
+
             <LeftUserProfile
               class="h-screen"
               :show="sidebar"
@@ -65,19 +68,17 @@
               @hideSidebar="sidebar = false"
             />
           </div>
-          <div class="h-full my-auto lg:mt-1">
-            <nuxt-link :to="localePath('/')">
-              <div class="my-auto">
-                <img
-                  v-lazy="settings.logo"
-                  class="object-contain h-8 my-auto md:h-8"
-                />
-              </div>
-            </nuxt-link>
-          </div>
+
+          <nuxt-link :to="localePath('/')">
+            <img
+              v-lazy="settings.logo"
+              alt="logo"
+              class="object-contain h-6 w-6 md:h-10 md:w-10 flex-shrink-0"
+            />
+          </nuxt-link>
         </div>
 
-        <SearchAutocomplete class="hidden lg:block" />
+        <SearchAutocomplete class="hidden md:block" />
         <!--right header block -->
 
         <div
@@ -107,11 +108,12 @@
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="1"
+                stroke-width="1.5"
                 d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
               />
             </svg>
-            <div class="text-xs font-bold headings">Profile</div>
+
+            <div class="hidden text-xs font-semibold md:block">Login</div>
           </button>
 
           <nuxt-link v-else class="w-auto" :to="localePath('/my')">
@@ -125,11 +127,11 @@
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="1"
+                stroke-width="1.5"
                 d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
               />
             </svg>
-            <div class="hidden text-xs font-bold sm:flex headings">Profile</div>
+            <div class="hidden text-xs font-semibold md:block">Profile</div>
           </nuxt-link>
 
           <nuxt-link class="w-auto" :to="localePath('/my/wishlist')">
@@ -143,13 +145,11 @@
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="1"
+                stroke-width="1.5"
                 d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
               />
             </svg>
-            <div class="hidden text-xs font-bold sm:flex headings">
-              Wishlist
-            </div>
+            <div class="hidden text-xs font-semibold md:block">Wishlist</div>
           </nuxt-link>
 
           <nuxt-link class="relative" to="/cart">
@@ -163,12 +163,12 @@
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="1"
+                stroke-width="1.5"
                 d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
               />
             </svg>
 
-            <div class="hidden text-xs font-bold sm:flex">
+            <div class="hidden text-xs font-semibold md:block">
               Cart
               <div
                 v-if="cart && cart.qty > 0"
@@ -193,10 +193,10 @@
 
       <SearchAutocomplete
         style="margin-top: 8px"
-        class="sticky top-0 lg:hidden"
+        class="sticky top-0 md:hidden"
       />
     </header>
-  </div>
+  </nav>
 </template>
 
 <script>
