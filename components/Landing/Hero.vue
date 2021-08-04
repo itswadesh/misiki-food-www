@@ -73,10 +73,7 @@
         <div class="flex-col mx-5 md:mx-0">
           <div class="flex justify-center lg:justify-start email">
             <a :href="getLoginUrl()">
-              <GrnIndGradiantButton
-                class="w-full max-w-md mt-10 py-3 text-lg"
-                type="submit"
-              >
+              <GrnIndGradiantButton class="w-full max-w-md mt-10 py-3 text-lg">
                 Launch your store now
               </GrnIndGradiantButton>
             </a>
