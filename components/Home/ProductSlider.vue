@@ -1,80 +1,59 @@
 <template>
-  <div class="h-auto sm:mb-2">
-    <div class="h-auto">
-      <div class="focus:outline-none">
-        <div class="flex justify-center border-b">
-          <span
-            class="
-              pb-2
-              mt-2
-              text-xl text-center
-              sm:text-2xl
-              lg:text-3xl
-              md:-mt-4
-              border-b2
-              text-primary-500
-              border-secondary-500
-              md:ms-6
-            "
-          >
-            {{ heading }}
-          </span>
+  <section>
+    <h1 class="text-3xl font-bold text-gray-700 mb-5 sm:mb-10 tracking-wide">
+      {{ heading }}
+    </h1>
+
+    <div v-if="loading"><ProductSliderSkeleton /></div>
+
+    <VueSlickCarousel v-else-if="details && details.length" v-bind="settings">
+      <template #prevArrow="arrowOption">
+        <div
+          class="
+            invisible
+            text-primary-500
+            custom-arrow custom-arrow1
+            md:visible
+          "
+        >
+          {{ arrowOption.currentSlide }}/{{ arrowOption.slideCount }}
         </div>
-        <div class="conatiner focus:outline-none">
-          <!-- v-if="loading" -->
-          <!-- <ProductSliderSkeleton /> -->
-          <VueSlickCarousel v-if="details && details.length" v-bind="settings">
-            <template #prevArrow="arrowOption">
-              <div
-                class="
-                  invisible
-                  text-primary-500
-                  custom-arrow custom-arrow1
-                  md:visible
-                "
-              >
-                {{ arrowOption.currentSlide }}/{{ arrowOption.slideCount }}
-              </div>
-            </template>
-            <div
-              v-for="product in details"
-              :key="product.id"
-              class="flex flex-col mb-6 justify-items-center focus:outline-none"
-            >
-              <ProductSliderCards
-                bg-color="white"
-                :product="product"
-                class="m-1 sm:m-2 focus:outline-none"
-              />
-            </div>
-            <template #nextArrow="arrowOption">
-              <div
-                class="
-                  invisible
-                  custom-arrow
-                  text-primary-500
-                  custom-arrow2
-                  md:visible
-                "
-              >
-                {{ arrowOption.currentSlide }}/{{ arrowOption.slideCount }}
-              </div>
-            </template>
-          </VueSlickCarousel>
-        </div>
+      </template>
+
+      <div
+        v-for="product in details"
+        :key="product.id"
+        class="flex flex-row items-start justify-start"
+      >
+        <ProductSliderCards :product="product" />
       </div>
-    </div>
-  </div>
+
+      <template #nextArrow="arrowOption">
+        <div
+          class="
+            invisible
+            custom-arrow
+            text-primary-500
+            custom-arrow2
+            md:visible
+          "
+        >
+          {{ arrowOption.currentSlide }}/{{ arrowOption.slideCount }}
+        </div>
+      </template>
+    </VueSlickCarousel>
+  </section>
 </template>
 
 <script>
 import ProductSliderCards from '~/components/Home/ProductSliderCards.vue'
-// import ProductSliderSkeleton from '~/components/AllSkeletons/ProductSliderSkeleton'
+import ProductSliderSkeleton from '~/components/AllSkeletons/ProductSliderSkeleton'
 export default {
   components: {
-    // ProductSliderSkeleton,
+    ProductSliderSkeleton,
     ProductSliderCards,
   },
+
   props: {
     details: {
       type: Array,
@@ -85,6 +64,7 @@ export default {
       default: null,
     },
   },
+
   data() {
     return {
       isWishlist: false,

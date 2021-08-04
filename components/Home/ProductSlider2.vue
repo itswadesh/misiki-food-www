@@ -1,85 +1,59 @@
 <template>
-  <div class="h-auto mx-auto mt-2 mb-2 md:m-4 sm:ms-0 sm:px-0">
-    <div class="h-auto">
-      <div class="focus:outline-none">
-        <div class="flex justify-center border-b">
-          <span
-            class="
-              pb-2
-              mt-2
-              text-xl text-center
-              sm:text-2xl
-              lg:text-3xl
-              border-b2
-              text-primary-500
-              border-primary-500
-              md:ms-6 md:mt-4
-            "
-          >
-            {{ heading }}
-          </span>
+  <section>
+    <h1 class="text-3xl font-bold text-gray-700 mb-5 sm:mb-10 tracking-wide">
+      {{ heading }}
+    </h1>
+
+    <div v-if="loading"><ProductSliderSkeleton /></div>
+
+    <VueSlickCarousel v-else-if="details && details.length" v-bind="settings">
+      <template #prevArrow="arrowOption">
+        <div
+          class="
+            invisible
+            text-primary-500
+            custom-arrow custom-arrow1
+            md:visible
+          "
+        >
+          {{ arrowOption.currentSlide }}/{{ arrowOption.slideCount }}
         </div>
-        <div class="ps-0 mx-auto sm:ps-0 2xl:px-6 conatiner focus:outline-none">
-          <VueSlickCarousel v-if="details && details.length" v-bind="settings">
-            <template #prevArrow="arrowOption">
-              <div
-                class="
-                  invisible
-                  custom-arrow
-                  text-primary-500
-                  custom-arrow1
-                  md:visible
-                "
-              >
-                {{ arrowOption.currentSlide }}/{{ arrowOption.slideCount }}
-              </div>
-            </template>
-            <div
-              v-for="product in details"
-              :key="product.id"
-              class="
-                flex flex-col
-                mb-6
-                ms-6
-                sm:ms-0
-                justify-items-center
-                focus:outline-none
-              "
-            >
-              <!--  -->
-              <ProductSliderCards2
-                bg-color="white"
-                :product="product"
-                class="m-2 focus:outline-none"
-              />
-            </div>
-            <!--  -->
-            <template #nextArrow="arrowOption">
-              <div
-                class="
-                  invisible
-                  custom-arrow
-                  text-primary-500
-                  custom-arrow2
-                  md:visible
-                "
-              >
-                {{ arrowOption.currentSlide }}/{{ arrowOption.slideCount }}
-              </div>
-            </template>
-          </VueSlickCarousel>
-        </div>
+      </template>
+
+      <div
+        v-for="product in details"
+        :key="product.id"
+        class="flex flex-row items-start justify-start"
+      >
+        <ProductSliderCards2 :product="product" />
       </div>
-    </div>
-  </div>
+
+      <template #nextArrow="arrowOption">
+        <div
+          class="
+            invisible
+            custom-arrow
+            text-primary-500
+            custom-arrow2
+            md:visible
+          "
+        >
+          {{ arrowOption.currentSlide }}/{{ arrowOption.slideCount }}
+        </div>
+      </template>
+    </VueSlickCarousel>
+  </section>
 </template>
 
 <script>
 import ProductSliderCards2 from '~/components/Home/ProductSliderCards2.vue'
+import ProductSliderSkeleton from '~/components/AllSkeletons/ProductSliderSkeleton'
 export default {
   components: {
+    ProductSliderSkeleton,
     ProductSliderCards2,
   },
+
   props: {
     details: {
       type: Array,
@@ -90,6 +64,7 @@ export default {
       default: null,
     },
   },
+
   data() {
     return {
       isWishlist: false,
@@ -161,11 +136,11 @@ export default {
   border-bottom: 3px solid;
 }
 .custom-arrow {
-  margin-right: 10px;
+  margin-right: 7px;
   height: 80px;
   width: 46px;
   padding: 6px;
-  padding-top: 9px;
+  padding-top: 23px;
   box-shadow: 10px;
 }
 .slick-prev::before,
@@ -177,7 +152,7 @@ export default {
   -webkit-font-smoothing: antialiased;
 }
 .slick-prev {
-  margin-left: -20px;
+  margin-left: -25px;
   z-index: 1;
   left: 0;
   box-shadow: 10px;

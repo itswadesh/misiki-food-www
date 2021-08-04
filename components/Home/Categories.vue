@@ -1,27 +1,13 @@
 <template>
-  <div class="flex flex-col h-auto py-6 bg-white">
-    <div class="flex justify-center mx-5 border-b">
-      <span
-        class="
-          pb-2
-          mt-2
-          text-xl
-          font-normal
-          text-center
-          sm:text-2xl
-          lg:text-3xl
-          border-b4
-          text-secondary-500
-          border-secondary-500
-          md:mt-4
-        "
-      >
-        Categories
-      </span>
-    </div>
+  <section>
+    <h1 class="text-3xl font-bold text-gray-700 mb-5 sm:mb-10 tracking-wide">
+      Categories
+    </h1>
+
     <BagSkelton v-if="loading" />
+
     <div
-      v-if="categories"
+      v-else-if="categories"
       class="
         grid grid-cols-3
         gap-4
@@ -71,7 +57,7 @@
         </nuxt-link>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
