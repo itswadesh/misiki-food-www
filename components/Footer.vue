@@ -1,17 +1,6 @@
 <template>
   <div
-    class="
-      flex-row
-      justify-center
-      w-full
-      p-2
-      text-sm
-      font-semibold
-      text-center
-      bg-white
-      text-primary-500
-      -z-2
-    "
+    class="flex-row justify-center w-full text-gray-500 p-2 text-sm text-center"
   >
     <span>Policy© 2007-{{ year }} {{ settings.websiteName }}</span>
   </div>

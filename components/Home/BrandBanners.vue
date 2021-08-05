@@ -65,6 +65,7 @@ export default {
 
   data() {
     return {
+      loading: false,
       settings: {
         dots: false,
         infinite: false,

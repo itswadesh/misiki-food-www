@@ -51,23 +51,7 @@
     <div class="max-w-full mt-4">
       <div class="h-full mx-auto">
         <!-- <LeftOptions /> -->
-        <div
-          v-if="
-            $router.currentRoute.path == `${$route.params.store}/my` ||
-            $router.currentRoute.path == `${$route.params.store}/my/orders` ||
-            $router.currentRoute.path ==
-              `${$route.params.store}/my/order-details` ||
-            $router.currentRoute.path == `${$route.params.store}/my/return` ||
-            $router.currentRoute.path == `${$route.params.store}/my/profile` ||
-            $router.currentRoute.path == `${$route.params.store}/my/wishlist` ||
-            $router.currentRoute.path == `${$route.params.store}/my/reviews` ||
-            $router.currentRoute.path ==
-              `${$route.params.store}/my/manage-address` ||
-            $router.currentRoute.path ==
-              `${$route.params.store}/my/demo-requests`
-          "
-          class=""
-        >
+        <div v-if="ifAccountPages" class="">
           <div class="flex justify-end lg:justify-center">
             <span
               class="
@@ -305,6 +289,7 @@ import BRAND from '~/gql/brand/brand.gql'
 import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
+  components: { NuxtLink },
   props: {
     show: { type: Boolean },
   },
@@ -477,11 +462,14 @@ export default {
       },
     }
   },
-  components: { NuxtLink },
   computed: {
     ...mapGetters({ megamenu: 'megamenu' }),
     user() {
       return this.$store.state.auth.user
+    },
+    ifAccountPages() {
+      const currPath = this.$router.currentRoute.path
+      return currPath.includes('/my')
     },
   },
   watch: {
