@@ -153,6 +153,29 @@
           </nuxt-link>
 
           <nuxt-link class="relative" to="/cart">
+            <div
+              class="
+                absolute
+                top-0
+                right-0
+                -m-1
+                bg-primary-500
+                flex-shrink-0
+                h-4
+                w-4
+                rounded-full
+                flex
+                items-center
+                justify-center
+                text-xs text-center text-white
+                font-medium
+              "
+            >
+              <span v-if="cart && cart.qty > 0">{{ cart.qty }}</span>
+
+              <span>0</span>
+            </div>
+
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-5 mx-auto"
@@ -168,25 +191,7 @@
               />
             </svg>
 
-            <div class="hidden text-xs font-semibold md:block">
-              Cart
-              <div
-                v-if="cart && cart.qty > 0"
-                class="
-                  absolute
-                  px-1
-                  text-center
-                  rounded-full
-                  flex
-                  items-center
-                  justify-center
-                "
-              >
-                <div class="text-xs text-center text-white font-semi">
-                  {{ cart.qty }}
-                </div>
-              </div>
-            </div>
+            <div class="hidden text-xs font-semibold md:block">Cart</div>
           </nuxt-link>
         </div>
       </div>

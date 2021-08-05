@@ -6,33 +6,24 @@
 
     <div v-if="loading"><ProductSliderSkeleton /></div>
 
-    <div class="flex flex-row flex-wrap items-start justify-between">
+    <div
+      class="hidden lg:grid lg:grid-cols-5 gap-2 sm:gap-5 md:gap-10 items-start"
+    >
       <button
         v-for="b in brands"
         :key="b.id"
-        class="flex-shrink-0 p-1"
+        class="flex-shrink-0 flex-grow-0"
         @click="go(b.slug)"
       >
         <img
           v-if="b.img"
           v-lazy="b.img"
           alt="brand"
-          class="
-            bg-white
-            border
-            sm:border-0
-            w-1/2
-            sm:w-60 sm:mb-2
-            md:mb-5
-            object-cover
-          "
+          class="object-cover object-top"
         />
         <div
           v-else
           class="
-            h-12
-            w-12
-            sm:h-20 sm:w-20
             flex
             justify-center
             items-center
@@ -48,6 +39,41 @@
           {{ b.name | first }}
         </div>
       </button>
+    </div>
+
+    <div class="lg:hidden overflow-x-auto">
+      <div class="flex items-start justify-start space-x-2 sm:space-x-5">
+        <button
+          v-for="b in brands"
+          :key="b.id"
+          class="flex-shrink-0 flex-grow-0"
+          @click="go(b.slug)"
+        >
+          <img
+            v-if="b.img"
+            v-lazy="b.img"
+            alt="brand"
+            class="object-cover object-top"
+          />
+          <div
+            v-else
+            class="
+              flex
+              justify-center
+              items-center
+              text-center
+              my-auto
+              text-primary-500
+              font-semibold
+              rounded-full
+              border-2 border-primary-500
+              text-2xl
+            "
+          >
+            {{ b.name | first }}
+          </div>
+        </button>
+      </div>
     </div>
   </section>
 </template>
