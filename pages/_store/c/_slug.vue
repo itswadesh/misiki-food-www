@@ -137,18 +137,20 @@ export default {
     try {
       const cslug = route.params.slug
       if (cslug) {
+        const storeId = store.state.store && store.state.store.id
         category = (
           await client.query({
             query: CATEGORY,
             variables: {
               slug: cslug,
-              store: store.state.store && store.state.store.id,
+              store: storeId,
             },
             fetchPolicy: 'no-cache',
           })
         ).data.category
       }
       const q = params.slug || null
+      query.store = storeId || '23sdf43rfs5fdgsdf'
       const qry = { ...query }
       delete qry.brand
       if (q) qry.categories = q

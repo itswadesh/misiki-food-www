@@ -367,10 +367,7 @@ export default {
           this.$router.push(
             `/${this.$route.params.store}/${this.$route.query.prev}`
           )
-        else
-          this.$router.push(
-            `/${this.$route.params.store}/${this.$route.params.store}${this.returnUrl}`
-          )
+        else this.$router.push(`/${this.$route.params.store}${this.returnUrl}`)
       } catch (e) {
         this.setErr(e)
       } finally {

@@ -230,7 +230,7 @@ export default {
     let selectedVariant = null
     let err = null
     const id = query.id
-    if (!id) error({ statusCode: 404, message: 'Product not found' })
+    if (!id) error({ statusCode: 404, message: 'Page not found' })
     try {
       product = (
         await client.query({
@@ -239,7 +239,7 @@ export default {
           fetchPolicy: 'no-cache',
         })
       ).data.product
-      if (!product) error('Product not found')
+      if (!product) error('Page not found')
       // for (let v of product && product.variants) {
       //   if (v.stock > 0) {
       //     selectedVariant = v

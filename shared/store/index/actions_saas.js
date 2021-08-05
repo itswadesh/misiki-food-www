@@ -39,7 +39,6 @@ export default {
     }
   },
   async fetch({ commit, state, getters, $fire, params }, slug) {
-    console.log('store id.........', slug)
     try {
       commit('clearErr')
       const stor = (
@@ -48,11 +47,16 @@ export default {
           variables: { slug },
         })
       ).data.storeOne
-      const megamenu = (
-        await this.app.apolloProvider.defaultClient.query({ query: MEGAMENU })
-      ).data.megamenu
-      commit('megamenu', megamenu)
-      commit('store', stor)
+      if (stor) {
+        const megamenu = (
+          await this.app.apolloProvider.defaultClient.query({
+            query: MEGAMENU,
+            variables: { store: stor.id },
+          })
+        ).data.megamenu
+        commit('megamenu', megamenu)
+        commit('store', stor)
+      }
       // const observer = this.app.apolloProvider.defaultClient.subscribe({
       //   query: SUBSCRIPTION_SETTINGS_UPDATED,
       // })

@@ -221,43 +221,43 @@ export default {
   },
   data() {
     return {
-      megamenu: null,
+      // megamenu: null,
       parentBrands: false,
     }
   },
-  // computed: {
-  // ...mapGetters({ megamenu: 'megamenu' }),
-  // },
+  computed: {
+    ...mapGetters({ megamenu: 'megamenu' }),
+  },
   created() {
-    this.getMegamenu()
+    // this.getMegamenu()
     this.getParentBrands()
   },
   methods: {
-    async getMegamenu() {
-      // this.loading = true
-      try {
-        const brand = await this.$get('brand/brand', {
-          slug: this.$route.params.slug,
-        })
-        // const brand = (
-        //   await this.$apollo.query({
-        //     query: BRAND,
-        //     variables: { slug: this.$route.params.slug },
-        //   })
-        // ).data.brand
-        const variables = { active: true }
-        if (this.brand) {
-          variables.brand = brand.id
-        }
-        this.megamenu = await this.$get('category/megamenu', variables)
-        // this.megamenu = (
-        //   await this.$apollo.query({
-        //     query: MEGAMENU,
-        //     variables,
-        //   })
-        // ).data.megamenu
-      } catch (e) {}
-    },
+    // async getMegamenu() {
+    //   // this.loading = true
+    //   try {
+    //     const brand = await this.$get('brand/brand', {
+    //       slug: this.$route.params.slug,
+    //     })
+    //     // const brand = (
+    //     //   await this.$apollo.query({
+    //     //     query: BRAND,
+    //     //     variables: { slug: this.$route.params.slug },
+    //     //   })
+    //     // ).data.brand
+    //     const variables = { active: true }
+    //     if (this.brand) {
+    //       variables.brand = brand.id
+    //     }
+    //     this.megamenu = await this.$get('category/megamenu', variables)
+    //     // this.megamenu = (
+    //     //   await this.$apollo.query({
+    //     //     query: MEGAMENU,
+    //     //     variables,
+    //     //   })
+    //     // ).data.megamenu
+    //   } catch (e) {}
+    // },
     async getParentBrands() {
       // this.loading = true
       try {

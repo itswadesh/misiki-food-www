@@ -27,7 +27,7 @@
       "
     >
       <LeftUserProfile class="hidden border rounded-sm shadow lg:block" />
-      <nuxt class="w-full lg:ps-6 lg:w-3/4" />
+      <nuxt class="w-full lg:ps-6 lg:w-3/4" keep-alive />
     </div>
     <div class="flex-1 mt-12" />
     <Footer class="absolute bottom-0" />

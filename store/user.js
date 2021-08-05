@@ -5,25 +5,25 @@ const state = () => ({
 })
 
 const getters = {
-  async fetch({ commit, state, getters }) {
-    try {
-      commit('clearErr', null, { root: true })
-      commit('busy', true, { root: true })
-      const data = (
-        await this.app.apolloProvider.defaultClient.query({
-          query: ME,
-          fetchPolicy: 'no-cache',
-        })
-      ).data.me
-      // console.log(data)
-      commit('setUser', data)
-      return data
-    } catch (e) {
-      // commit('setErr', e, { root: true })
-    } finally {
-      commit('busy', false, { root: true })
-    }
-  },
+  // async fetch({ commit, state, getters }) {
+  //   try {
+  //     commit('clearErr', null, { root: true })
+  //     commit('busy', true, { root: true })
+  //     const data = (
+  //       await this.app.apolloProvider.defaultClient.query({
+  //         query: ME,
+  //         fetchPolicy: 'no-cache',
+  //       })
+  //     ).data.me
+  //     // console.log(data)
+  //     commit('setUser', data)
+  //     return data
+  //   } catch (e) {
+  //     // commit('setErr', e, { root: true })
+  //   } finally {
+  //     commit('busy', false, { root: true })
+  //   }
+  // },
 }
 
 const mutations = {
