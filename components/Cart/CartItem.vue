@@ -305,8 +305,10 @@
 <script>
 import { mapGetters, mapActions, mapMutations } from 'vuex'
 import NuxtLink from '~/components/NuxtLink.vue'
+import WishButton from '~/components/WishButton.vue'
+
 export default {
-  components: { NuxtLink },
+  components: { NuxtLink, WishButton },
   props: {
     item: { type: Object, default: null },
   },

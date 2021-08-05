@@ -199,10 +199,12 @@ import { mapMutations } from 'vuex'
 import { getIdFromUrl } from 'vue-youtube'
 import ProductImgThumbnails from './ProductImgThumbnails.vue'
 import Share from '~/components/ProductDetails/Share.vue'
+import WishButton from '~/components/WishButton.vue'
 
 export default {
   components: {
     ProductImgThumbnails,
+    WishButton,
     // ImageMagnifier,
     Share,
   },

@@ -32,7 +32,7 @@
             py-3
             mx-auto
             my-auto
-            text-base
+            text-sm
             font-light
             text-gray-600
           "
