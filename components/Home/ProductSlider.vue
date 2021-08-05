@@ -1,63 +1,129 @@
 <template>
-  <section>
-    <h1 class="text-3xl font-bold text-gray-700 mb-5 sm:mb-10 tracking-wide">
+  <main>
+    <h1
+      class="
+        text-xl
+        md:text-3xl
+        font-bold
+        text-gray-700
+        mb-5
+        sm:mb-10
+        tracking-wide
+      "
+    >
       {{ heading }}
     </h1>
 
-    <div v-if="loading"><ProductSliderSkeleton /></div>
-
-    <VueSlickCarousel v-else-if="details && details.length" v-bind="settings">
-      <template #prevArrow="arrowOption">
-        <div
+    <section v-if="details" class="mt-5">
+      <div class="flex justify-center items-center">
+        <progress
+          v-if="loading"
           class="
-            invisible
-            text-primary-500
-            custom-arrow custom-arrow1
-            md:visible
+            absolute
+            z-10
+            justify-center
+            block
+            m-3
+            material-progress-circular
           "
-        >
-          {{ arrowOption.currentSlide }}/{{ arrowOption.slideCount }}
-        </div>
-      </template>
-
-      <div
-        v-for="product in details"
-        :key="product.id"
-        class="flex flex-row items-start justify-start"
-      >
-        <ProductSliderCards :product="product" />
+        />
       </div>
 
-      <template #nextArrow="arrowOption">
+      <div class="relative">
         <div
           class="
-            invisible
-            custom-arrow
-            text-primary-500
-            custom-arrow2
-            md:visible
+            absolute
+            z-20
+            inset-y-0
+            left-0
+            ml-5
+            flex
+            items-center
+            justify-center
           "
         >
-          {{ arrowOption.currentSlide }}/{{ arrowOption.slideCount }}
+          <button class="focus:outline-none" @click="showPrev">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 md:h-10 md:w-10 text-gray-500 hover:text-gray-800"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
         </div>
-      </template>
-    </VueSlickCarousel>
-  </section>
+
+        <div>
+          <VueSlickCarousel
+            v-if="details && details.length"
+            v-bind="settings"
+            ref="carousel"
+          >
+            <div
+              v-for="product in details"
+              :key="product.id"
+              class="pr-2 sm:pr-5 lg:pr-10 flex"
+            >
+              <HomePageProduct :product="product" class="item-stretch" />
+            </div>
+          </VueSlickCarousel>
+        </div>
+
+        <div
+          class="
+            absolute
+            z-20
+            inset-y-0
+            right-0
+            mr-5
+            flex
+            items-center
+            justify-center
+          "
+        >
+          <button class="focus:outline-none" @click="showNext">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 md:h-10 md:w-10 text-gray-500 hover:text-gray-800"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
 </template>
 
 <script>
-import ProductSliderCards from '~/components/Home/ProductSliderCards.vue'
-import ProductSliderSkeleton from '~/components/AllSkeletons/ProductSliderSkeleton'
+import HomePageProduct from '~/components/Home/HomePageProduct.vue'
+// import ProductSliderSkeleton from '~/components/AllSkeletons/ProductSliderSkeleton'
+
 export default {
   components: {
-    ProductSliderSkeleton,
-    ProductSliderCards,
+    // ProductSliderSkeleton,
+    HomePageProduct,
   },
 
   props: {
     details: {
       type: Array,
-      default: null,
+      default: () => [],
     },
     heading: {
       type: String,
@@ -67,94 +133,69 @@ export default {
 
   data() {
     return {
-      isWishlist: false,
-      products: null,
       loading: false,
-
       settings: {
-        dots: false,
-        infinite: false,
-        speed: 500,
-        slidesToShow: 6,
+        centerMode: false,
+        focusOnSelect: false,
+        infinite: true,
+        slidesToShow: 5,
+        arrows: false,
         slidesToScroll: 1,
-        initialSlide: 0,
+        autoplay: false,
+        speed: 500,
         responsive: [
-          {
-            breakpoint: 1536,
-            settings: {
-              slidesToShow: 6,
-              slidesToScroll: 1,
-              infinite: true,
-              dots: false,
-            },
-          },
           {
             breakpoint: 1280,
             settings: {
               slidesToShow: 5,
-              slidesToScroll: 1,
-              infinite: true,
-              dots: false,
             },
           },
           {
             breakpoint: 1024,
             settings: {
-              slidesToShow: 4,
-              slidesToScroll: 1,
-              infinite: true,
-              dots: false,
-            },
-          },
-          {
-            breakpoint: 768,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 1,
-              infinite: true,
-              dots: false,
-            },
-          },
-          {
-            breakpoint: 640,
-            settings: {
               slidesToShow: 2,
-              slidesToScroll: 1,
-              infinite: false,
-              dots: false,
             },
           },
+          // {
+          //   breakpoint: 768,
+          //   settings: {
+          //     slidesToShow: 3,
+          //   },
+          // },
+          // {
+          //   breakpoint: 640,
+          //   settings: {
+          //     slidesToShow: 2,
+          //     arrows: false,
+          //     centerMode: false,
+          //   },
+          // },
+          // {
+          //   breakpoint: 360,
+          //   settings: {
+          //     slidesToShow: 1,
+          //     arrows: false,
+          //     centerMode: false,
+          //   },
+          // },
         ],
       },
     }
   },
+
+  methods: {
+    go(url) {
+      this.$router.push(this.localePath(url))
+    },
+
+    showNext() {
+      this.$refs.carousel.next()
+    },
+
+    showPrev() {
+      this.$refs.carousel.prev()
+    },
+  },
 }
 </script>
-
-<style scoped>
-.border-b2 {
-  border-bottom: 3px solid;
-}
-.custom-arrow {
-  margin-right: 7px;
-  height: 80px;
-  width: 46px;
-  padding: 6px;
-  padding-top: 23px;
-  box-shadow: 10px;
-}
-.slick-prev::before,
-.slick-next::before {
-  font-size: 40px;
-  line-height: 1;
-  opacity: 1;
-  box-shadow: 10px;
-  -webkit-font-smoothing: antialiased;
-}
-.slick-prev {
-  margin-left: -25px;
-  z-index: 1;
-  left: 0;
-  box-shadow: 10px;
-}
-</style>
+<style scoped></style>

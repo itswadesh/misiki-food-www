@@ -1,6 +1,16 @@
 <template>
   <section>
-    <h1 class="text-3xl font-bold text-gray-700 mb-5 sm:mb-10 tracking-wide">
+    <h1
+      class="
+        text-xl
+        md:text-3xl
+        font-bold
+        text-gray-700
+        mb-5
+        sm:mb-10
+        tracking-wide
+      "
+    >
       Categories
     </h1>
 
@@ -24,8 +34,10 @@
         :key="c.id"
         class="mx-auto mt-6"
       >
-        <nuxt-link :to="localePath(`/c/${c.slug}`)">
-          <!-- transition duration-500 ease-in-out transform md:h-auto hover:-translate-y-1 hover:scale-110 -->
+        <nuxt-link
+          :to="localePath(`/c/${c.slug}`)"
+          class="bg-white rounded-md shadow hover:shadow-md h-43 w-32"
+        >
           <img
             v-lazy="c.img"
             alt="categories"
@@ -41,6 +53,7 @@
               md:w-32 md:h-32
             "
           />
+
           <span
             class="
               flex

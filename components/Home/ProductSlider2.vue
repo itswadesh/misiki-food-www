@@ -20,12 +20,8 @@
         </div>
       </template>
 
-      <div
-        v-for="product in details"
-        :key="product.id"
-        class="flex flex-row items-start justify-start"
-      >
-        <ProductSliderCards2 :product="product" />
+      <div v-for="product in details" :key="product.id">
+        <ProductSliderCards :product="product" />
       </div>
 
       <template #nextArrow="arrowOption">
@@ -46,12 +42,12 @@
 </template>
 
 <script>
-import ProductSliderCards2 from '~/components/Home/ProductSliderCards2.vue'
+import ProductSliderCards from '~/components/Home/ProductSliderCards.vue'
 import ProductSliderSkeleton from '~/components/AllSkeletons/ProductSliderSkeleton'
 export default {
   components: {
     ProductSliderSkeleton,
-    ProductSliderCards2,
+    ProductSliderCards,
   },
 
   props: {

@@ -1,14 +1,7 @@
 <template>
-  <section class="flex-shrink-0 w-1/2 sm:w-52">
+  <section class="w-full">
     <div
-      class="
-        border
-        sm:border-0 sm:mr-2 sm:mb-2
-        md:mr-4 md:mb-4
-        group
-        hover:bg-white hover:shadow-md
-        text-gray-800
-      "
+      class="group hover:bg-white hover:shadow-md text-gray-800"
       @mouseenter="showitems()"
       @mouseleave="hideitems()"
     >
@@ -20,7 +13,7 @@
           <img
             v-lazy="product.img"
             alt="product.name"
-            class="object-cover object-top w-full h-72 bg-black"
+            class="object-cover object-top w-full h-72 sm:h-96 lg:h-72 bg-black"
           />
         </div>
 
@@ -209,7 +202,7 @@
               v-if="product.price < product.mrp"
               class="mr-1 text-xs text-primary-700 whitespace-nowrap"
             >
-              <h6 class="hidden sm:block">({{ product.discount }}% off)</h6>
+              ({{ product.discount }}% off)
             </div>
 
             <div v-if="product.stock < 1" class="text-xs text-red-500">

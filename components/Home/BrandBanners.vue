@@ -1,6 +1,16 @@
 <template>
   <section>
-    <h1 class="text-3xl font-bold text-gray-700 mb-5 sm:mb-10 tracking-wide">
+    <h1
+      class="
+        text-xl
+        md:text-3xl
+        font-bold
+        text-gray-700
+        mb-5
+        sm:mb-10
+        tracking-wide
+      "
+    >
       Top Brands
     </h1>
 
@@ -19,7 +29,7 @@
           v-if="b.img"
           v-lazy="b.img"
           alt="brand"
-          class="object-cover object-top"
+          class="object-cover object-top h-96"
         />
         <div
           v-else
@@ -34,6 +44,7 @@
             rounded-full
             border-2 border-primary-500
             text-2xl
+            h-96
           "
         >
           {{ b.name | first }}
@@ -53,7 +64,7 @@
             v-if="b.img"
             v-lazy="b.img"
             alt="brand"
-            class="object-cover object-top"
+            class="object-cover object-top h-96"
           />
           <div
             v-else
@@ -68,6 +79,7 @@
               rounded-full
               border-2 border-primary-500
               text-2xl
+              h-96
             "
           >
             {{ b.name | first }}
@@ -183,3 +195,27 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  --tw-divide-opacity: 1;
+  border-color: rgba(209, 213, 219, var(--tw-divide-opacity));
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  --tw-divide-opacity: 1;
+  border-color: rgba(209, 213, 219, var(--tw-divide-opacity));
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  --tw-divide-opacity: 1;
+  border-color: rgba(209, 213, 219, var(--tw-divide-opacity));
+}
+</style>
