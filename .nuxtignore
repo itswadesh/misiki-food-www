@@ -5,3 +5,7 @@ pages/gift-cards
 pages/samples
 pages/unused
 pages/tutorial
+.git
+.github
+.nuxt
+.vscode
