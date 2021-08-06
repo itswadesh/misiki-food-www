@@ -1,13 +1,16 @@
 <template>
-  <section>
+  <main
+    class="container mx-auto bg-white px-2 sm:px-10 pb-5 md:pb-0 text-gray-700"
+  >
     <h1
       class="
         text-xl
-        md:text-3xl
-        font-bold
-        text-gray-700
-        mb-5
-        sm:mb-10
+        md:text-2xl
+        lg:text-3xl
+        font-semibold
+        sm:font-bold
+        py-5
+        lg:py-10
         tracking-wide
       "
     >
@@ -16,67 +19,71 @@
 
     <BagSkelton v-if="loading" />
 
-    <div
-      v-else-if="categories"
-      class="
-        grid grid-cols-3
-        gap-4
-        p-1
-        px-3
-        md:grid-cols-4
-        lg:grid-cols-6 lg:px-28
-        md:p-8 md:px-24
-      "
-    >
+    <section v-else-if="categories">
       <div
-        v-for="c in categories.data"
-        v-if="c.img"
-        :key="c.id"
-        class="mx-auto mt-6"
+        class="
+          grid grid-cols-3
+          sm:grid-cols-5
+          gap-2
+          sm:gap-5
+          items-start
+          justify-items-center
+        "
       >
-        <nuxt-link
-          :to="localePath(`/c/${c.slug}`)"
-          class="bg-white rounded-md shadow hover:shadow-md h-43 w-32"
-        >
-          <img
-            v-lazy="c.img"
-            alt="categories"
-            class="
-              object-cover
-              w-24
-              h-24
-              mx-auto
-              border-2
-              rounded-full
-              border-secondary-500
-              hover:shadow-xl
-              md:w-32 md:h-32
-            "
-          />
+        <div v-for="c in categories.data" v-if="c.img" :key="c.id">
+          <nuxt-link :to="localePath(`/c/${c.slug}`)" class="group">
+            <div
+              class="
+                overflow-hidden
+                border-2 border-gray-300
+                group-hover:border-primary-500
+                mb-2
+                sm:mb-4
+                max-w-max max-h-max
+                rounded-full
+              "
+            >
+              <img
+                v-lazy="c.img"
+                alt="categories"
+                class="
+                  object-cover
+                  h-24
+                  w-24
+                  md:h-32 md:w-32
+                  border-2
+                  md:border-4
+                  rounded-full
+                  border-white border-opacity-70
+                  shadow
+                  hover:shadow-md
+                "
+              />
+            </div>
 
-          <span
-            class="
-              flex
-              justify-center
-              mx-auto
-              mt-4
-              text-base
-              font-normal
-              text-center text-gray-500
-            "
-          >
-            {{ c.name }}
-          </span>
-        </nuxt-link>
+            <h6
+              class="
+                text-sm
+                font-serif
+                sm:text-base
+                text-center
+                group-hover:text-primary-500
+              "
+            >
+              {{ c.name }}
+            </h6>
+          </nuxt-link>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 </template>
 
 <script>
 import BagSkelton from '~/components/AllSkeletons/BagSkelton.vue'
 import CATEGORIES from '~/gql/category/categories.gql'
 import NuxtLink from '~/components/NuxtLink.vue'
+
 export default {
   components: {
     BagSkelton,
@@ -115,8 +122,27 @@ export default {
   },
 }
 </script>
+
 <style scoped>
-.border-b4 {
-  border-bottom: 3px solid;
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  --tw-divide-opacity: 1;
+  border-color: rgba(209, 213, 219, var(--tw-divide-opacity));
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  --tw-divide-opacity: 1;
+  border-color: rgba(209, 213, 219, var(--tw-divide-opacity));
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  --tw-divide-opacity: 1;
+  border-color: rgba(209, 213, 219, var(--tw-divide-opacity));
 }
 </style>

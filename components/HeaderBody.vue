@@ -74,18 +74,17 @@
       <div class="flex-wrap p-1 mt-1">
         <div class="text-sm">
           <div class="relative flex flex-row">
-            <span class="my-auto text-base font-light text-gray-500 me-2"
+            <span class="my-auto text-sm font-light text-gray-500 me-2"
               >SORT BY</span
             >
             <select
               v-model="sortBy"
               class="
-                text-base
+                text-sm
                 font-light
-                border-none
+                border border-gray-300
                 rounded
-                text-primary-500
-                focus:ring-primary-500
+                focus:ring-0 focus:border-primary-500
                 hover:shadow
                 focus:outline-none
               "
@@ -101,6 +100,7 @@
                 {{ s.name }}
               </option>
             </select>
+
             <div
               class="
                 absolute

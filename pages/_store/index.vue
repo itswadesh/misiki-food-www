@@ -1,12 +1,12 @@
 <template>
-  <div class="container mx-auto">
+  <div class="container mx-auto md:bg-white">
     <Megamenu class="hidden xl:flex px-2 sm:px-10" />
 
-    <HeroSlider :banners="sliderBanners" class="px-2 sm:px-10" />
+    <HeroSlider :banners="sliderBanners" class="mb-5" />
 
-    <Categories class="px-2 sm:px-10 mb-10" />
+    <Categories class="px-2 sm:px-10 mb-5 md:mb-0" />
 
-    <HeroBanners :banners="heroBanners" class="px-2 sm:px-10 mb-10" />
+    <HeroBanners :banners="heroBanners" class="px-2 sm:px-10 mb-5 md:mb-0" />
 
     <Deals />
 
@@ -14,30 +14,26 @@
       v-for="(p, ix) in pickedBanners"
       v-if="pickedBanners && pickedBanners.length"
       :key="ix"
-      class="px-2 sm:px-10 mb-10"
+      class="px-2 sm:px-10 mb-5 md:mb-0"
     >
       <HeroBannersSlider :banners="p && p.data" :title="p._id && p._id.title" />
     </div>
 
-    <BrandBanners
-      class="pl-2 sm:pl-10 mb-10"
-      :ishome="true"
-      :brands="brandBanners && brandBanners.data"
-    />
+    <BrandBanners :ishome="true" :brands="brandBanners && brandBanners.data" />
 
     <ProductSlider
-      class="pl-2 sm:pl-10 mb-5"
+      class="pl-2 sm:pl-10 mb-5 md:mb-0"
       :details="youMayLikeProducts"
       :heading="'You May Like'"
     />
 
     <ProductSlider
-      class="pl-2 sm:pl-10 mb-5"
+      class="pl-2 sm:pl-10 mb-5 md:mb-0"
       :details="hotProducts"
       :heading="'Trending'"
     />
 
-    <VideoBanner :banners="videoBanners" class="px-2 sm:px-10" />
+    <VideoBanner :banners="videoBanners" class="px-2 sm:px-10 mb-5 md:mb-0" />
 
     <!-- <Discounts /> -->
     <!-- <div>

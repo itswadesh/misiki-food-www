@@ -1,13 +1,14 @@
 <template>
-  <section>
+  <main class="container mx-auto bg-white pl-2 sm:pl-10 lg:pr-10 text-gray-700">
     <h1
       class="
         text-xl
-        md:text-3xl
-        font-bold
-        text-gray-700
-        mb-5
-        sm:mb-10
+        md:text-2xl
+        lg:text-3xl
+        font-semibold
+        sm:font-bold
+        py-5
+        lg:py-10
         tracking-wide
       "
     >
@@ -16,55 +17,21 @@
 
     <div v-if="loading"><ProductSliderSkeleton /></div>
 
-    <div
-      class="hidden lg:grid lg:grid-cols-5 gap-2 sm:gap-5 md:gap-10 items-start"
-    >
-      <button
-        v-for="b in brands"
-        :key="b.id"
-        class="flex-shrink-0 flex-grow-0"
-        @click="go(b.slug)"
-      >
-        <img
-          v-if="b.img"
-          v-lazy="b.img"
-          alt="brand"
-          class="object-cover object-top h-96"
-        />
-        <div
-          v-else
-          class="
-            flex
-            justify-center
-            items-center
-            text-center
-            my-auto
-            text-primary-500
-            font-semibold
-            rounded-full
-            border-2 border-primary-500
-            text-2xl
-            h-96
-          "
-        >
-          {{ b.name | first }}
-        </div>
-      </button>
-    </div>
+    <section v-if="brands">
+      <!-- Above 1024px  -->
 
-    <div class="lg:hidden overflow-x-auto">
-      <div class="flex items-start justify-start space-x-2 sm:space-x-5">
+      <div class="hidden lg:grid lg:grid-cols-6 gap-5 items-start">
         <button
           v-for="b in brands"
           :key="b.id"
-          class="flex-shrink-0 flex-grow-0"
+          class="flex-grow-0 container mx-auto flex-shrink-0"
           @click="go(b.slug)"
         >
           <img
             v-if="b.img"
             v-lazy="b.img"
             alt="brand"
-            class="object-cover object-top h-96"
+            class="object-cover object-top w-full"
           />
           <div
             v-else
@@ -86,8 +53,47 @@
           </div>
         </button>
       </div>
-    </div>
-  </section>
+
+      <!-- Below 1024px  -->
+
+      <div class="lg:hidden overflow-x-auto">
+        <div class="flex items-start justify-start space-x-2 sm:space-x-5">
+          <button
+            v-for="b in brands"
+            :key="b.id"
+            class="container mx-auto w-64 flex-shrink-0"
+            @click="go(b.slug)"
+          >
+            <img
+              v-if="b.img"
+              v-lazy="b.img"
+              alt="brand"
+              class="object-cover object-top w-full"
+            />
+
+            <div
+              v-else
+              class="
+                flex
+                justify-center
+                items-center
+                text-center
+                my-auto
+                text-primary-500
+                font-semibold
+                rounded-full
+                border-2 border-primary-500
+                text-2xl
+                h-96
+              "
+            >
+              {{ b.name | first }}
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
 </template>
 
 <script>
@@ -104,65 +110,9 @@ export default {
   data() {
     return {
       loading: false,
-      settings: {
-        dots: false,
-        infinite: false,
-        speed: 500,
-        slidesToScroll: 1,
-        initialSlide: 0,
-        responsive: [
-          {
-            breakpoint: 1536,
-            settings: {
-              slidesToShow: 6,
-              slidesToScroll: 1,
-              infinite: true,
-              dots: false,
-            },
-          },
-          {
-            breakpoint: 1280,
-            settings: {
-              slidesToShow: 5,
-              slidesToScroll: 1,
-              infinite: true,
-              dots: false,
-            },
-          },
-          {
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 1,
-              infinite: true,
-              dots: false,
-            },
-          },
-          {
-            breakpoint: 640,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 1,
-              infinite: false,
-              dots: false,
-            },
-          },
-          // {
-          //   breakpoint: 400,
-          //   settings: {
-          //     centerMode: true,
-          //     centerPadding: '90px',
-          //     centerMargin: '5px',
-          //     slidesToScroll: 1,
-          //     focusOnSelect: true,
-          //     infinite: false,
-          //     slidesToShow: 1,
-          //   },
-          // },
-        ],
-      },
     }
   },
+
   async created() {
     // await this.getBrands()
   },

@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full">
+  <section class="container mx-auto w-64 lg:w-full">
     <div
       class="group hover:bg-white hover:shadow-md text-gray-800"
       @mouseenter="showitems()"
@@ -13,7 +13,7 @@
           <img
             v-lazy="product.img"
             alt="product.name"
-            class="object-cover object-top w-full h-72 sm:h-96 lg:h-72 bg-black"
+            class="object-cover object-top w-full h-72 bg-white"
           />
         </div>
 
@@ -188,14 +188,14 @@
             "
           >
             <h6 class="mr-1 text-xs sm:text-sm font-semibold whitespace-nowrap">
-              {{ product.price | currency(settings.currencySymbol, 2) }}
+              {{ product.price | currency(settings.currencySymbol) }}
             </h6>
 
             <h6
               v-if="product.price < product.mrp"
               class="mr-1 text-xs text-gray-500 whitespace-nowrap line-through"
             >
-              {{ product.mrp | currency(settings.currencySymbol, 2) }}
+              {{ product.mrp | currency(settings.currencySymbol) }}
             </h6>
 
             <div
@@ -204,10 +204,10 @@
             >
               ({{ product.discount }}% off)
             </div>
+          </div>
 
-            <div v-if="product.stock < 1" class="text-xs text-red-500">
-              Out of stock
-            </div>
+          <div v-if="product.stock < 1" class="text-xs text-red-500">
+            Out of stock
           </div>
         </div>
       </nuxt-link>

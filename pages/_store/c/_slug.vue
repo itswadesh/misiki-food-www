@@ -28,6 +28,7 @@
         :fl="fl"
         @clearAllFilters="clearAllFilters"
       />
+
       <div class="relative w-full px-4">
         <HeaderBody
           :category="category"
@@ -36,8 +37,11 @@
           @removed="facetRemoved"
           @showFilters="showMobileFilter = true"
         />
+
         <!-- <ProductSkeleton /> -->
+
         <NoProduct v-if="(!products || !products.length) && !loading" />
+
         <div v-else class="sm:mt-0">
           <div
             v-if="loading"
@@ -52,6 +56,7 @@
           >
             <ProductSkeleton v-for="(p, ix) in 10" :key="ix + '-1'" />
           </div>
+
           <div
             v-else-if="products && products.length > 0"
             class="
@@ -83,6 +88,7 @@
               />
             </div>
           </div>
+
           <!-- <infinite-loading @infinite="loadMore($route.query.page)"></infinite-loading> -->
 
           <!-- <div class="pagination_box">
@@ -97,6 +103,7 @@
             ></v-pagination>
           </div>-->
         </div>
+
         <Pagination
           class="mt-5"
           :count="noOfPages"
