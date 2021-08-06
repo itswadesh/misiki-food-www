@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto md:bg-white">
+  <div class="container mx-auto">
     <Megamenu class="hidden xl:flex px-2 sm:px-10" />
 
     <HeroSlider :banners="sliderBanners" class="mb-5" />
@@ -19,18 +19,22 @@
       <HeroBannersSlider :banners="p && p.data" :title="p._id && p._id.title" />
     </div>
 
-    <BrandBanners :ishome="true" :brands="brandBanners && brandBanners.data" />
-
-    <ProductSlider
-      class="pl-2 sm:pl-10 mb-5 md:mb-0"
-      :details="youMayLikeProducts"
-      :heading="'You May Like'"
+    <BrandBanners
+      :ishome="true"
+      :brands="brandBanners && brandBanners.data"
+      class="mb-5 md:mb-0"
     />
 
     <ProductSlider
-      class="pl-2 sm:pl-10 mb-5 md:mb-0"
+      :details="youMayLikeProducts"
+      :heading="'You May Like'"
+      class="mb-5 md:mb-0"
+    />
+
+    <ProductSlider
       :details="hotProducts"
       :heading="'Trending'"
+      class="mb-5 md:mb-0"
     />
 
     <VideoBanner :banners="videoBanners" class="px-2 sm:px-10 mb-5 md:mb-0" />

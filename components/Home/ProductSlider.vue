@@ -7,9 +7,7 @@
         lg:text-3xl
         font-semibold
         sm:font-bold
-        pt-5
-        pb-5
-        lg:pt-10 lg:pb-0
+        py-5
         tracking-wide
       "
     >
