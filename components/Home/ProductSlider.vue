@@ -8,6 +8,7 @@
         font-semibold
         sm:font-bold
         py-5
+        lg:py-10
         tracking-wide
       "
     >
@@ -37,7 +38,7 @@
             class="
               absolute
               z-20
-              inset-y-0
+              top-36
               left-0
               ml-5
               flex
@@ -75,7 +76,7 @@
               v-bind="settings"
               ref="carousel"
             >
-              <div v-for="product in details" :key="product.id" class="p-5">
+              <div v-for="product in details" :key="product.id" class="pr-5">
                 <HomePageProduct :product="product" />
               </div>
             </VueSlickCarousel>
@@ -85,7 +86,7 @@
             class="
               absolute
               z-20
-              inset-y-0
+              top-36
               right-0
               mr-5
               flex

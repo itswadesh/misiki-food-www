@@ -12,7 +12,7 @@
         <div class="">
           <img
             v-lazy="product.img"
-            alt="product.name"
+            alt="product"
             class="object-cover object-top w-full h-72 bg-white"
           />
         </div>
@@ -20,109 +20,26 @@
         <div class="p-4">
           <!-- For view above 640px start -->
 
-          <div v-if="show" class="-mt-12 hidden sm:block">
+          <div v-if="show" class="-mt-12">
             <!-- View smilar button start-->
-            <nuxt-link to="#" class="flex justify-end">
-              <div
-                class="
-                  flex
-                  items-center
-                  bg-white
-                  text-primary-500
-                  h-7
-                  w-7
-                  rounded-full
-                  border border-primary-500
-                  trans
-                "
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5 flex-shrink-0"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+            <div class="hidden sm:block">
+              <nuxt-link to="#" class="flex justify-end">
+                <div
+                  class="
+                    flex
+                    items-center
+                    bg-white
+                    text-primary-500
+                    h-7
+                    w-7
+                    rounded-full
+                    border border-primary-500
+                    trans
+                  "
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
-                  ></path>
-                </svg>
-                <span class="ps-2 text-xs whitespace-nowrap">View similar</span>
-              </div>
-            </nuxt-link>
-            <!-- View smilar button end-->
-
-            <!-- Wishlist start-->
-            <button
-              class="
-                mt-3.5
-                py-1
-                w-full
-                border border-gray-300
-                hover:bg-gray-100
-                transition
-                duration-300
-                flex
-                items-center
-                justify-center
-                space-x-2
-                focus:outline-none
-              "
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-gray-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                ></path></svg
-              ><span class="text-sm font-semibold">WISHLIST</span>
-            </button>
-            <!-- Wishlist end-->
-
-            <!-- Size chart start-->
-            <div class="mt-1.5 flex items-baseline justify-start">
-              <h5 class="mr-1 text-sm">Sizes:</h5>
-              <h6
-                class="
-                  space-x-1
-                  text-xs
-                  font-medium
-                  text-gray-500
-                  flex
-                  items-baseline
-                "
-              >
-                <!-- <div>{{ v.size }}</div> -->
-              </h6>
-            </div>
-            <!-- Size chart end-->
-
-            <!-- For view above 640px end -->
-
-            <!-- For view below 640px start -->
-
-            <div class="sm:hidden">
-              <div class="flex items-center justify-between">
-                <h4 class="font-semibold mb-1.5">
-                  <span v-if="product.brand"> {{ product.brand }}</span>
-                  <span v-else> _ </span>
-                </h4>
-
-                <!-- Heart icon start  -->
-                <div class="sm:hidden">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5"
+                    class="h-5 w-5 flex-shrink-0"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -131,10 +48,95 @@
                       stroke-linecap="round"
                       stroke-linejoin="round"
                       stroke-width="2"
-                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                      d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
                     ></path>
                   </svg>
+                  <span class="ps-2 text-xs whitespace-nowrap"
+                    >View similar</span
+                  >
                 </div>
+              </nuxt-link>
+              <!-- View smilar button end-->
+
+              <!-- Wishlist start-->
+              <button
+                class="
+                  flex
+                  mt-3.5
+                  py-1
+                  w-full
+                  border border-gray-300
+                  hover:bg-gray-100
+                  transition
+                  duration-300
+                  items-center
+                  justify-center
+                  space-x-2
+                  focus:outline-none
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 text-gray-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  ></path></svg
+                ><span class="text-sm font-semibold">WISHLIST</span>
+              </button>
+              <!-- Wishlist end-->
+
+              <!-- Size chart start-->
+              <div class="flex mt-1.5 items-baseline justify-start">
+                <h5 class="mr-1 text-sm">Sizes:</h5>
+                <h6
+                  class="
+                    space-x-1
+                    text-xs
+                    font-medium
+                    text-gray-500
+                    flex
+                    items-baseline
+                  "
+                >
+                  <!-- <div>{{ v.size }}</div> -->
+                </h6>
+              </div>
+              <!-- Size chart end-->
+            </div>
+
+            <!-- For view above 640px end -->
+
+            <!-- For view below 640px start -->
+
+            <div class="block sm:hidden">
+              <div class="flex items-center justify-between">
+                <h4 class="font-semibold mb-1.5">
+                  <span v-if="product.brand"> {{ product.brand }}</span>
+                  <span v-else> _ </span>
+                </h4>
+
+                <!-- Heart icon start  -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  ></path>
+                </svg>
                 <!-- Heart icon end  -->
               </div>
 
@@ -157,10 +159,29 @@
           <!-- For view below 640px end -->
 
           <div v-else>
-            <h4 class="font-semibold mb-1.5">
-              <span v-if="product.brand"> {{ product.brand }}</span>
-              <span v-else> _ </span>
-            </h4>
+            <div class="flex items-center justify-between">
+              <h4 class="font-semibold mb-1.5">
+                <span v-if="product.brand"> {{ product.brand }}</span>
+                <span v-else> _ </span>
+              </h4>
+
+              <!-- Heart icon start  -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 sm:hidden"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                ></path>
+              </svg>
+              <!-- Heart icon end  -->
+            </div>
 
             <h5
               class="

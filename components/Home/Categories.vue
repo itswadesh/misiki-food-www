@@ -20,18 +20,14 @@
     <BagSkelton v-if="loading" />
 
     <section v-else-if="categories">
-      <div
-        class="
-          grid grid-cols-3
-          sm:grid-cols-5
-          gap-2
-          sm:gap-5
-          items-start
-          justify-items-center
-        "
-      >
-        <div v-for="c in categories.data" v-if="c.img" :key="c.id">
-          <nuxt-link :to="localePath(`/c/${c.slug}`)" class="group">
+      <div class="flex flex-wrap items-start justify-between">
+        <div
+          v-for="c in categories.data"
+          v-if="c.img"
+          :key="c.id"
+          class="mb-2 sm:mb-5 group"
+        >
+          <nuxt-link :to="localePath(`/c/${c.slug}`)">
             <div
               class="
                 overflow-hidden
@@ -39,7 +35,7 @@
                 group-hover:border-primary-500
                 mb-2
                 sm:mb-4
-                max-w-max max-h-max
+                flex-shrink-0 flex-grow-0
                 rounded-full
               "
             >
@@ -63,6 +59,8 @@
 
             <h6
               class="
+                w-24
+                md:w-32
                 text-sm
                 font-serif
                 sm:text-base

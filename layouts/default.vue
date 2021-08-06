@@ -15,16 +15,16 @@
       <Nuxt class="w-full mt-24 lg:mt-16" keep-alive />
       <div class="flex-1" />
     </div>
-    <BrownFooter class="hidden sm:block" />
+    <WhiteFooter class="hidden sm:block" />
     <OtpLogin v-if="showLoginModal" @showLogin="showLogin" />
   </div>
 </template>
 <script>
 import OtpLogin from '~/components/Login/Mobile/OtpLogin.vue'
 import Nav from '~/components/Home/Nav.vue'
-import BrownFooter from '~/components/Home/BrownFooter.vue'
+import WhiteFooter from '~/components/Island/WhiteFooter.vue'
 export default {
-  components: { Nav, OtpLogin, BrownFooter },
+  components: { Nav, OtpLogin, WhiteFooter },
   data() {
     return {
       showLoginModal: false,

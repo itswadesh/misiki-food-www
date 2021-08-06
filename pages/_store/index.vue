@@ -2,7 +2,7 @@
   <div class="container mx-auto">
     <Megamenu class="hidden xl:flex px-2 sm:px-10" />
 
-    <HeroSlider :banners="sliderBanners" class="mb-5" />
+    <HeroSlider :banners="sliderBanners" class="lg:mb-10" />
 
     <Categories class="px-2 sm:px-10 mb-5 md:mb-0" />
 
@@ -46,6 +46,8 @@
     <!-- <FooterSection class="hidden lg:block" /> -->
     <!-- <GridComponents /> -->
     <!--    -->
+
+    <div class="h-10 bg-white w-full"></div>
   </div>
 </template>
 

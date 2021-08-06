@@ -32,10 +32,10 @@
       <div
         v-for="b in banners"
         :key="b.id"
-        class="p-5 overflow-hidden focus:outline-none"
+        class="overflow-hidden focus:outline-none"
       >
         <button class="z-auto my-auto focus:outline-none" @click="go(b.link)">
-          <div class="rounded-2xl focus:outline-none">
+          <div class="focus:outline-none">
             <img
               v-lazy="b.img"
               class="
@@ -51,7 +51,6 @@
                 md:h-64
                 lg:h-80
                 xl:h-96
-                rounded-2xl
               "
             />
           </div>
@@ -79,12 +78,16 @@ export default {
         focusOnSelect: false,
         infinite: true,
         slidesToShow: 1,
+        dots: true,
         autoplay: true,
         speed: 500,
+        skeleton: false,
+        loading: false,
         responsive: [
           {
             breakpoint: 1024,
             settings: {
+              dots: true,
               centerPadding: '110px',
               centerMargin: '20px',
               slidesToScroll: 1,
@@ -95,6 +98,7 @@ export default {
           {
             breakpoint: 768,
             settings: {
+              dots: false,
               centerPadding: '60px',
               centerMargin: '15px',
               slidesToScroll: 1,
@@ -105,6 +109,7 @@ export default {
           {
             breakpoint: 640,
             settings: {
+              dots: false,
               centerPadding: '0px',
               centerMargin: '15px',
               slidesToScroll: 1,
@@ -114,8 +119,6 @@ export default {
           },
         ],
       },
-      skeleton: false,
-      loading: false,
     }
   },
   // async created() {
