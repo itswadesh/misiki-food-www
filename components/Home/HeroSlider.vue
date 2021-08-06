@@ -1,64 +1,63 @@
 <template>
-  <div class="focus:outline-none h-52 md:h-64 lg:h-80 xl:h-96">
-    <div class="flex justify-center">
-      <progress
-        v-if="loading"
-        class="
-          absolute
-          z-10
-          justify-center
-          block
-          m-3
-          material-progress-circular
-        "
-      />
+  <section
+    class="
+      container
+      mx-auto
+      overflow-hidden
+      bg-white
+      h-48
+      md:h-64
+      lg:h-80
+      xl:h-96
+    "
+  >
+    <div class="flex items-center justify-center">
+      <progress v-if="loading" class="material-progress-circular" />
     </div>
+
     <!-- <SlideBarSkeleton v-if="skeleton" /> -->
+
     <VueSlickCarousel
       v-if="banners && banners.length"
       v-bind="settings"
-      class="relative focus:outline-none"
+      class="relative"
     >
       <template #prevArrow="arrowOption">
         <div class="invisible custom-arrow md:visible hover:shadow-xl">
           {{ arrowOption.currentSlide }}/{{ arrowOption.slideCount }}
         </div>
       </template>
+
       <template #nextArrow="arrowOption">
         <div class="invisible custom-arrow md:visible hover:shadow-xl">
           {{ arrowOption.currentSlide }}/{{ arrowOption.slideCount }}
         </div>
       </template>
-      <div
+
+      <button
         v-for="b in banners"
         :key="b.id"
         class="overflow-hidden focus:outline-none"
+        @click="go(b.link)"
       >
-        <button class="z-auto my-auto focus:outline-none" @click="go(b.link)">
-          <div class="focus:outline-none">
-            <img
-              v-lazy="b.img"
-              class="
-                bg-white
-                object-cover
-                w-full
-                my-auto
-                overflow-hidden
-                bg-white
-                focus:outline-none
-                md:object-cover
-                h-48
-                md:h-64
-                lg:h-80
-                xl:h-96
-              "
-            />
-          </div>
-        </button>
-      </div>
-      <!-- v-if="loading" -->
+        <img
+          v-lazy="b.img"
+          class="
+            bg-white
+            object-cover
+            w-full
+            my-auto
+            overflow-hidden
+            bg-white
+            h-48
+            md:h-64
+            lg:h-80
+            xl:h-96
+          "
+        />
+      </button>
     </VueSlickCarousel>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -71,6 +70,8 @@ export default {
   // components: { SlideBarSkeleton },
   data() {
     return {
+      loading: false,
+
       settings: {
         centerMode: false,
         centerPadding: '150px',
@@ -78,16 +79,15 @@ export default {
         focusOnSelect: false,
         infinite: true,
         slidesToShow: 1,
-        dots: true,
         autoplay: true,
         speed: 500,
         skeleton: false,
-        loading: false,
+        loading: true,
+        // dots: true,
         responsive: [
           {
             breakpoint: 1024,
             settings: {
-              dots: true,
               centerPadding: '110px',
               centerMargin: '20px',
               slidesToScroll: 1,
@@ -98,7 +98,6 @@ export default {
           {
             breakpoint: 768,
             settings: {
-              dots: false,
               centerPadding: '60px',
               centerMargin: '15px',
               slidesToScroll: 1,
@@ -109,7 +108,6 @@ export default {
           {
             breakpoint: 640,
             settings: {
-              dots: false,
               centerPadding: '0px',
               centerMargin: '15px',
               slidesToScroll: 1,

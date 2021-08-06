@@ -2,7 +2,7 @@
   <div class="container mx-auto">
     <Megamenu class="hidden xl:flex px-2 sm:px-10" />
 
-    <HeroSlider :banners="sliderBanners" class="lg:mb-10" />
+    <HeroSlider :banners="sliderBanners" />
 
     <Categories class="px-2 sm:px-10 mb-5 md:mb-0" />
 
