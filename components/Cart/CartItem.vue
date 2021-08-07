@@ -1,216 +1,231 @@
 <template>
   <div
     class="
-      container
       relative
       flex flex-col
-      p-1
-      mt-4
+      p-2
+      sm:p-4
+      mb-4
       bg-white
       rounded
       shadow
-      md:shadow-sm md:border md:p-2
+      md:shadow-sm md:border
     "
   >
-    <div class="w-full">
-      <div class="flex flex-row w-full">
-        <div class="flex flex-row w-full overflow-hidden">
-          <nuxt-link
-            :to="localePath(`/${item.slug}?id=${item.pid}`)"
-            class="w-1/3 md:w-1/4"
-          >
-            <img
-              v-lazy="item.img"
-              alt="mobile"
-              class="
-                object-contain
-                w-full
-                h-40
-                mx-auto
-                overflow-hidden
-                md:border
-              "
-            />
-          </nuxt-link>
-          <div class="relative flex flex-col w-2/3 ms-3 md:w-3/4">
-            <div
-              class="
-                flex flex-row
-                justify-between
-                text-gray-500
-                hover:text-secondary-500
-              "
-            >
-              <nuxt-link
-                :to="localePath(`/${item.slug}?id=${item.pid}`)"
-                class="text-base font-light truncate"
-              >
-                {{ item.name }}
-              </nuxt-link>
-            </div>
-            <div
-              class="
-                my-3
-                text-sm
-                font-light
-                leading-3
-                capitalize
-                text-start text-primary-500
-              "
-            >
-              {{ item.brandName || '--' }}
-            </div>
-            <div>
-              <span class="my-3 text-md text-secondary-200 md:text-base">
-                {{ item.price | currency(settings.currencySymbol, 2) }}
-              </span>
-            </div>
+    <div class="flex flex-row w-full overflow-hidden">
+      <nuxt-link
+        :to="localePath(`/${item.slug}?id=${item.pid}`)"
+        class="w-1/3 md:w-1/4 overflow-hidden"
+      >
+        <img
+          v-lazy="item.img"
+          alt="mobile"
+          class="object-contain object-top w-full h-auto"
+        />
+      </nuxt-link>
 
-            <div
-              class="
-                flex flex-col
-                my-3
-                text-xs text-gray-400
-                md:text-sm md:font-sm
-              "
-            >
-              <div v-for="(o, ix, iix) in JSON.parse(item.options)" :key="iix">
-                <!-- {{ ix }}={{ o }} -->
-              </div>
-            </div>
-            <!-- qty button  -->
-            <div class="absolute bottom-0 flex flex-row justify-between w-full">
-              <div class="flex flex-row w-full text-xs text-gray-400">
-                <div class="flex flex-row me-4">
-                  <span class="my-auto text-sm font-thin text-gray-400 me-2">
-                    Qty :
-                  </span>
-                  <div class="flex flex-row">
-                    <button
-                      class="
-                        w-10
-                        h-10
-                        my-auto
-                        text-xl
-                        font-semibold
-                        text-gray-700
-                        bg-gray-100
-                        border border-gray-200
-                        rounded-full
-                        hover:bg-gray-300
-                        paddings
-                        buttons
-                        focus:outline-none
-                      "
-                      @click="
-                        addToBag({
-                          pid: item.pid,
-                          vid: item.vid,
-                          qty: -1,
-                          options: item.options,
-                          vendor: item.vendor && item.vendor.id,
-                        })
-                      "
-                    >
-                      <!-- minus icon  -->
-                      <svg
-                        class="w-4 h-4 mx-auto text-gray-600"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z"
-                          clip-rule="evenodd"
-                        />
-                      </svg>
-                    </button>
-                    <div class="my-auto count text-md focus:outline-none">
-                      <img
-                        v-if="loading"
-                        v-lazy="'/loading.svg'"
-                        class="mx-auto my-auto"
-                      />
-                      <div
-                        v-else
-                        class="
-                          container
-                          flex
-                          justify-center
-                          mx-auto
-                          my-auto
-                          mt-1
-                        "
-                      >
-                        <span class="text-sm text-gray-600">{{
-                          item.qty
-                        }}</span>
-                      </div>
-                    </div>
-                    <button
-                      class="
-                        w-10
-                        h-10
-                        my-auto
-                        text-xl
-                        font-semibold
-                        text-gray-700
-                        border
-                        rounded-full
-                        border-secondary-500
-                        bg-secondary-500
-                        hover:bg-blue-500
-                        paddings
-                        buttons
-                        focus:outline-none
-                      "
-                      @click="
-                        addToBag({
-                          pid: item.pid,
-                          vid: item.vid,
-                          qty: 1,
-                          options: item.options,
-                          vendor: item.vendor && item.vendor.id,
-                        })
-                      "
-                    >
-                      <!-- plus icon  -->
-                      <svg
-                        class="w-4 h-4 mx-auto text-white"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                          clip-rule="evenodd"
-                        />
-                      </svg>
-                    </button>
+      <div class="relative flex flex-col flex-1 w-2/3 ms-3 md:w-3/4">
+        <div
+          class="
+            mb-1
+            sm:mb-2
+            text-base
+            sm:text-lg
+            font-semibold
+            leading-3
+            capitalize
+            text-start
+          "
+        >
+          {{ item.brandName || '--' }}
+        </div>
+
+        <nuxt-link
+          :to="localePath(`/${item.slug}?id=${item.pid}`)"
+          class="
+            mb-1
+            sm:mb-2
+            text-sm
+            md:text-base
+            text-gray-500
+            hover:text-primary-500
+            truncate
+          "
+        >
+          {{ item.name }}
+        </nuxt-link>
+
+        <div class="flex flex-row items-baseline mb-1 sm:mb-2">
+          <b class="me-1 text-sm sm:text-base">Rs.</b>
+
+          <b class="me-2 text-sm sm:text-base">
+            {{ item.price | currency(settings.currencySymbol) }}
+          </b>
+
+          <strike
+            v-if="item.price < item.mrp"
+            class="text-xs sm:text-sm font-light me-2 text-gray-500"
+          >
+            {{ item.mrp | currency(settings.currencySymbol) }}
+          </strike>
+
+          <div
+            v-if="item.discount > 0"
+            class="text-xs sm:text-sm text-primary-700"
+          >
+            ({{ item.discount }}% off)
+          </div>
+        </div>
+
+        <div
+          class="
+            mb-1
+            sm:mb-2
+            flex flex-col
+            text-xs text-gray-400
+            md:text-sm md:font-thin
+          "
+        >
+          <div v-for="(o, ix, iix) in JSON.parse(item.options)" :key="iix">
+            <!-- {{ ix }}={{ o }} -->
+          </div>
+        </div>
+
+        <!-- qty button  -->
+        <div
+          class="
+            absolute
+            bottom-0
+            flex flex-col
+            sm:flex-row sm:justify-between
+            w-full
+          "
+        >
+          <div class="flex flex-row max-w-max text-xs mb-1 sm:mb-0">
+            <div class="flex flex-row me-4">
+              <span class="my-auto text-sm font-semibold me-2"> Qty : </span>
+
+              <div class="flex flex-row">
+                <button
+                  v-ripple="'rgba(243, 244, 246, 0.5)'"
+                  class="
+                    w-8
+                    h-8
+                    my-auto
+                    text-xl
+                    font-semibold
+                    text-gray-700
+                    bg-gray-100
+                    border border-gray-200
+                    rounded-full
+                    hover:bg-gray-300
+                    paddings
+                    focus:outline-none
+                  "
+                  @click="
+                    addToBag({
+                      pid: item.pid,
+                      vid: item.vid,
+                      qty: -1,
+                      options: item.options,
+                      vendor: item.vendor && item.vendor.id,
+                    })
+                  "
+                >
+                  <!-- minus icon  -->
+
+                  <svg
+                    class="w-4 h-4 mx-auto text-gray-600"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+
+                <div class="my-auto count text-md focus:outline-none">
+                  <img
+                    v-if="loading"
+                    v-lazy="'/loading.svg'"
+                    class="mx-auto my-auto"
+                  />
+
+                  <div
+                    v-else
+                    class="container flex justify-center mx-auto my-auto mt-1"
+                  >
+                    <span class="text-sm text-gray-600">{{ item.qty }}</span>
                   </div>
                 </div>
-                <!-- wishlist icon  -->
-                <div class="my-auto">
-                  <WishButton
-                    :pid="item.pid"
-                    class="
-                      hidden
-                      w-8
-                      h-8
-                      my-auto
-                      font-semibold
-                      text-center
-                      rounded
-                      hover:bg-primary-200
-                      bg-primary-100
-                      md:flex
-                      px-auto
-                      focus:outline-none
-                    "
-                  />
-                  <!-- <button
+
+                <button
+                  v-ripple="'rgba(85, 196, 81, 0.5)'"
+                  class="
+                    w-8
+                    h-8
+                    my-auto
+                    text-xl
+                    font-semibold
+                    text-gray-700
+                    border
+                    rounded-full
+                    border-secondary-500
+                    bg-secondary-500
+                    paddings
+                    focus:outline-none
+                  "
+                  @click="
+                    addToBag({
+                      pid: item.pid,
+                      vid: item.vid,
+                      qty: 1,
+                      options: item.options,
+                      vendor: item.vendor && item.vendor.id,
+                    })
+                  "
+                >
+                  <!-- plus icon  -->
+                  <svg
+                    class="w-4 h-4 mx-auto text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <!-- wishlist icon  -->
+            <div class="my-auto">
+              <WishButton
+                :pid="item.pid"
+                rounded
+                class="
+                  hidden
+                  w-8
+                  h-8
+                  my-auto
+                  font-semibold
+                  text-center
+                  rounded
+                  hover:bg-red-200
+                  bg-red-100
+                  md:flex
+                  px-auto
+                  focus:outline-none
+                "
+              />
+              <!-- <button
                     @click="toggleWishlist(item.pid)"
                     :disabled="isDisabled"
                     class="hidden my-auto font-semibold text-center rounded-sm icons bg-accent-100 md:flex px-auto hover:opacity-75 focus:outline-none"
@@ -233,68 +248,69 @@
                       />
                     </svg>
                   </button> -->
-                </div>
-              </div>
-              <!-- {{ item.options }}=={{ item.vendor.id }} -->
-              <!-- remove icon -->
-              <div class="flex flex-row">
-                <WishButton
-                  :pid="item.pid"
-                  class="
-                    w-8
-                    h-8
-                    my-auto
-                    font-semibold
-                    text-center
-                    rounded
-                    md:hidden
-                    hover:bg-red-200
-                    bg-accent-100
-                    px-auto
-                    focus:outline-none
-                  "
-                />
-                <button
-                  class="
-                    flex
-                    justify-center
-                    w-8
-                    h-8
-                    m-1
-                    font-semibold
-                    text-gray-600
-                    bg-gray-200
-                    rounded
-                    icons
-                    focus:outline-none
-                    hover:bg-gray-300
-                    focus:outline-noe
-                  "
-                  @click="
-                    addToBag({
-                      pid: item.pid,
-                      vid: item.vid,
-                      qty: -10000,
-                      options: item.options,
-                      vendor: item.vendor && item.vendor.id,
-                    })
-                  "
-                >
-                  <svg
-                    class="w-4 h-4"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                </button>
-              </div>
             </div>
+          </div>
+          <!-- {{ item.options }}=={{ item.vendor.id }} -->
+
+          <!-- remove icon -->
+          <div class="flex flex-row max-w-max">
+            <WishButton
+              :pid="item.pid"
+              class="
+                w-8
+                h-8
+                my-auto
+                font-semibold
+                text-center
+                rounded
+                md:hidden
+                hover:bg-red-200
+                bg-accent-100
+                px-auto
+                focus:outline-none
+              "
+            />
+
+            <button
+              v-ripple="'rgba(229, 231, 235, 0.5)'"
+              class="
+                flex
+                justify-center
+                w-8
+                h-8
+                m-1
+                font-semibold
+                text-gray-600
+                bg-gray-200
+                rounded
+                icons
+                focus:outline-none
+                hover:bg-gray-300
+                focus:outline-noe
+              "
+              @click="
+                addToBag({
+                  pid: item.pid,
+                  vid: item.vid,
+                  qty: -10000,
+                  options: item.options,
+                  vendor: item.vendor && item.vendor.id,
+                })
+              "
+            >
+              <svg
+                class="w-4 h-4"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
@@ -439,10 +455,6 @@ export default {
 }
 .paddings {
   padding: 2px;
-}
-.buttons {
-  height: 1.6rem;
-  width: 1.6rem;
 }
 .count {
   height: 1.75rem;

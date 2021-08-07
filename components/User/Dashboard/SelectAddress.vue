@@ -3,6 +3,14 @@
     <div class="w-full">
       <!--  -->
       <AddressSkeleton v-if="skeleton" />
+
+      <div
+        v-if="addresses && addresses.data && addresses.data.length == 0"
+        class="p-6 text-lg text-center text-gray-500"
+      >
+        No Address found
+      </div>
+
       <div
         v-if="addresses && addresses.data && addresses.data.length"
         class="w-full"
@@ -10,158 +18,186 @@
         <div
           v-for="(a, ix) in addresses && addresses.data"
           :key="ix"
-          class="pb-4"
+          class="p-2 sm:p-4"
           :class="ix == addresses.data.length - 1 ? '' : 'border-b'"
         >
-          <label class="flex flex-row w-full p-2 px-3 sm:p-4 sm:px-6">
+          <label class="flex flex-row items-start w-full mb-5">
             <Radio
               v-model="selectedAddress"
+              class="mt-1.5"
               :value="a.id"
               name="group"
               @change="addressChanged"
             />
-            <div
-              class="
-                w-full
-                text-base
-                font-light
-                leading-7
-                text-gray-500
-                cursor-pointer
-                ms-2
-              "
-            >
-              <span class="capitalize">
-                {{ a.firstName }} {{ a.lastName }}
-              </span>
-              <div class="flex flex-row my-1 sm:w-2/3">
-                <span class="text-gray-700 me-1">Address:</span>
-                {{ a.address }},
+
+            <div class="w-full font-light text-gray-800 cursor-pointer ms-2">
+              <h5 class="capitalize font-semibold tracking-wide md:text-lg">
+                {{ a.firstName }}
+                {{ a.lastName }}
+              </h5>
+
+              <div class="text-sm md:text-base flex items-start my-1 sm:w-2/3">
+                <h5
+                  class="
+                    font-medium
+                    tracking-wide
+                    me-2
+                    w-16
+                    sm:w-20
+                    flex
+                    items-start
+                    justify-between
+                  "
+                >
+                  <span>Address</span> <span>:</span>
+                </h5>
+
+                <h6 class="flex flex-col text-gray-500">
+                  <span>{{ a.address }},</span
+                  ><span>{{ a.city }}, {{ a.state }}, {{ a.country }}</span>
+                </h6>
               </div>
-              <span class="capitalize">
-                {{ a.city }}, {{ a.state }}, {{ a.country }}
-              </span>
-              <div class="flex flex-row my-1">
-                <span class="text-gray-700 me-1">Pin:</span>
-                {{ a.zip }}
+
+              <div class="text-sm md:text-base flex items-start my-1 sm:w-2/3">
+                <h5
+                  class="
+                    font-medium
+                    tracking-wide
+                    me-2
+                    w-16
+                    sm:w-20
+                    flex
+                    items-start
+                    justify-between
+                  "
+                >
+                  <span>Pin</span> <span>:</span>
+                </h5>
+
+                <h6 class="text-gray-500">{{ a.zip }}</h6>
               </div>
-              <div class="flex flex-row my-1">
-                <span class="text-gray-700 me-1">Phone:</span>
-                <span class="underline">
-                  {{ a.phone }}
-                </span>
+
+              <div class="text-sm md:text-base flex items-start my-1 sm:w-2/3">
+                <h5
+                  class="
+                    font-medium
+                    tracking-wide
+                    me-2
+                    w-16
+                    sm:w-20
+                    flex
+                    items-start
+                    justify-between
+                  "
+                >
+                  <span>Phone</span> <span>:</span>
+                </h5>
+
+                <h6 class="text-gray-500">{{ a.phone }}</h6>
               </div>
-              <div class="flex flex-row flex-wrap my-1">
-                <span class="text-gray-700 me-1">Email:</span>
-                <span class="underline">
-                  {{ a.email }}
-                </span>
+
+              <div class="text-sm md:text-base flex items-start my-1 sm:w-2/3">
+                <h5
+                  class="
+                    font-medium
+                    tracking-wide
+                    me-2
+                    w-16
+                    sm:w-20
+                    flex
+                    items-start
+                    justify-between
+                  "
+                >
+                  <span>Email</span> <span>:</span>
+                </h5>
+
+                <h6 class="text-gray-500 truncate">{{ a.email }}</h6>
               </div>
             </div>
           </label>
-          <div
-            class="
-              flex flex-row
-              w-full
-              px-3
-              my-auto
-              mt-5
-              sm:mt-0 sm:justify-between sm:px-7
-            "
-          >
-            <div class="w-full my-auto">
-              <!-- <label class="flex flex-row">
-                        <input
-                          type="checkbox"
-                          class="my-auto border-0 rounded-sm me-3 bg-gray-50 text-primary-500 ring-yellow-600 ring-1 focus:ring-1 focus:ring-yellow-600 focus:ring-offset-0"
-                        />
-                        <span class="text-gray-500">Make this as a Primary address</span>
-                      </label> -->
-            </div>
-            <div class="flex flex-row">
-              <!-- <nuxt-link
+
+          <!-- <div class="w-full my-auto">
+            <label class="flex flex-row items-start">
+              <input
+                type="checkbox"
+                class="
+                  my-auto
+                  border-0
+                  rounded-sm
+                  me-3
+                  bg-gray-50
+                  text-primary-500
+                  ring-yellow-600 ring-1
+                  focus:ring-1 focus:ring-yellow-600 focus:ring-offset-0
+                "
+              />
+              <h6 class="text-gray-500">Make this as a Primary address</h6>
+            </label>
+          </div> -->
+
+          <div class="flex flex-row space-x-2 sm:space-x-5">
+            <!-- <nuxt-link
                 :to="localePath(`/my/edit-addresses?id=${a.id}`)"
                 class="me-3"
               > -->
-              <button
-                type="button"
-                class="
-                  w-full
-                  px-5
-                  text-sm
-                  tracking-widest
-                  uppercase
-                  bg-white
-                  border
-                  rounded
-                  sm:p-1 sm:px-3
-                  text-primary-500
-                  border-primary-500
-                  focus:outline-none
-                  focus:ring-opacity-50
-                  focus:ring
-                  focus:ring-offset-2
-                  focus:ring-primary-200
-                  lg:rounded
-                "
-                @click="edit(a.id)"
-              >
-                Edit
-              </button>
-              <!-- </nuxt-link> -->
-              <button
-                type="button"
-                class="
-                  w-full
-                  p-2
-                  px-3
-                  text-sm
-                  tracking-widest
-                  text-gray-400
-                  uppercase
-                  rounded
-                  ms-3
-                  focus:outline-none
-                  focus:ring-opacity-50
-                  focus:ring
-                  focus:ring-offset-2
-                  lg:rounded
-                "
-                @click="del(a.id)"
-              >
-                <div v-if="iconloading" class="flex justify-center">
-                  <svg
-                    style="height: 20px; width: 20px"
-                    class="text-gray-500 -ms-1 animate-spin"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      class="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      stroke-width="4"
-                    ></circle>
-                    <path
-                      class="opacity-75"
-                      fill="currentColor"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    ></path>
-                  </svg>
-                </div>
-                <span v-else>remove</span>
-              </button>
-            </div>
+
+            <GrnIndGradiantButton
+              type="button"
+              class="w-full uppercase"
+              @click="edit(a.id)"
+            >
+              Edit
+            </GrnIndGradiantButton>
+            <!-- </nuxt-link> -->
+
+            <button
+              type="button"
+              class="
+                w-full
+                py-2
+                text-gray-700
+                hover:text-white
+                font-semibold
+                bg-transparent
+                hover:bg-gray-600
+                transition
+                duration-300
+                rounded-md
+                hover:shadow-md
+                uppercase
+                focus:outline-none
+                transform
+                active:scale-95
+              "
+              @click="del(a.id)"
+            >
+              <div v-if="iconloading" class="flex items-center justify-center">
+                <svg
+                  class="h-5 w-5 text-gray-500 animate-spin"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    class="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    stroke-width="4"
+                  ></circle>
+                  <path
+                    class="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  ></path>
+                </svg>
+              </div>
+
+              <h6 v-else>Remove</h6>
+            </button>
           </div>
-        </div>
-        <div
-          v-if="addresses.data.length == 0"
-          class="p-6 text-lg text-center text-gray-500"
-        >
-          No Address found
         </div>
       </div>
     </div>
@@ -172,10 +208,11 @@
 import { mapMutations } from 'vuex'
 import AddressSkeleton from '~/components/AllSkeletons/AddressSkeleton.vue'
 import { Radio } from '~/shared/components/ui'
+import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
 import MY_ADDRESSES from '~/gql/address/myAddresses.gql'
 import DELETE_ADDRESS from '~/gql/address/deleteAddress.gql'
 export default {
-  components: { Radio, AddressSkeleton },
+  components: { Radio, AddressSkeleton, GrnIndGradiantButton },
   middleware: ['isAuth'],
   props: {
     id: { type: String, default: null },
@@ -283,3 +320,5 @@ export default {
   },
 }
 </script>
+
+<style scoped></style>

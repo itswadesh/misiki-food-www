@@ -1,74 +1,99 @@
 <template>
-  <div class="container mx-auto">
-    <div>
-      <CheckoutHeader selected="address" />
-      <div class="lg:mx-auto lg:container">
-        <div class="flex flex-col w-full mx-auto sm:pb-20 lg:flex-row">
-          <div class="container flex flex-col mx-auto lg:w-2/3">
-            <span class="my-4 text-2xl text-center text-gray-500 lg:text-start">
-              Select Delivery Address
-            </span>
-            <SelectAddress
-              class="w-full mx-auto mb-4 bg-white rounded shadow"
-              :return-url="'/checkout/edit-address'"
-              :add-return-url="'/checkout/add'"
-              @addressChanged="addressChanged"
-            />
-            <nuxt-link :to="localePath('/checkout/add')">
-              <Button
-                class="
-                  w-full
-                  p-3
-                  bg-secondary-500
-                  focus:ring-secondary-500
-                  md:w-1/3 md:mt-0
-                "
-              >
-                ADD NEW ADDRESS
-              </Button>
-            </nuxt-link>
-          </div>
-          <div
+  <section
+    class="container mx-auto max-w-6xl px-2 sm:px-10 mb-10 text-gray-700"
+  >
+    <CheckoutHeader selected="address" class="py-5 sm:py-10" />
+
+    <div class="flex flex-col lg:flex-row lg:space-x-5">
+      <div class="lg:w-2/3 lg:border-r lg:border-gray-200 lg:pr-5">
+        <div class="text-2xl font-bold tracking-wide mb-3">
+          Select Delivery Address
+        </div>
+
+        <SelectAddress
+          class="w-full mx-auto mb-4 bg-white rounded shadow"
+          :return-url="'/checkout/edit-address'"
+          :add-return-url="'/checkout/add'"
+          @addressChanged="addressChanged"
+        />
+
+        <div class="my-10 w-1/2">
+          <nuxt-link
+            :to="localePath('/checkout/add')"
             class="
-              container
-              relative
-              flex flex-col
               w-full
-              mx-auto
-              mt-6
-              lg:ms-4 lg:w-1/3 lg:-mt-0
+              h-40
+              sm:h-60
+              border border-gray-400 border-dashed
+              rounded-md
+              flex flex-col
+              items-center
+              justify-center
+              hover:border-primary-500
+              group
             "
           >
-            <span
+            <div
               class="
-                hidden
-                w-full
-                mx-auto
-                text-2xl text-center text-gray-500
-                sm:my-4
-                lg:text-start
-                sm:flex
+                h-8
+                w-8
+                sm:h-10 sm:w-10
+                rounded-full
+                border border-gray-400
+                flex
+                items-center
+                justify-center
+                bg-gray-100
+                group-hover:border-primary-500
               "
             >
-              Cart Summary
-            </span>
-            <div class="">
-              <CartSummaryCheckout
-                :loading="loading"
-                :selected-address="selectedAddress"
-                class="border-t rounded sm:border-t-0 sm:border sm:shadow"
-              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-gray-600 group-hover:text-primary-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                ></path>
+              </svg>
             </div>
-          </div>
+            <span
+              class="
+                mt-2
+                text-gray-800
+                group-hover:text-primary-500
+                text-sm
+                sm:text-base
+                font-medium
+              "
+            >
+              ADD NEW ADDRESS</span
+            >
+          </nuxt-link>
         </div>
       </div>
+
+      <div class="lg:w-1/3 pb-10">
+        <div class="text-2xl font-bold tracking-wide mb-3">Cart Summary</div>
+
+        <hr class="border-t border-gray-200 mb-2" />
+
+        <CartSummaryCheckout
+          :loading="loading"
+          :selected-address="selectedAddress"
+        />
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
-import { Button } from '~/shared/components/ui'
 import SelectAddress from '~/components/User/Dashboard/SelectAddress.vue'
 import MY_ADDRESSES from '~/gql/address/myAddresses.gql'
 import DELETE_ADDRESS from '~/gql/address/deleteAddress.gql'
@@ -79,18 +104,17 @@ const CheckoutHeader = () => import('~/components/Checkout/CheckoutHeader.vue')
 export default {
   components: {
     SelectAddress,
-    Button,
     CartSummaryCheckout,
     CheckoutHeader,
     NuxtLink,
   },
   middleware: ['isAuth'],
+
   data() {
     return {
       iconloading: false,
       addresses: null,
       selectedAddress: null,
-      loading: false,
     }
   },
   head() {

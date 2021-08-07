@@ -1,29 +1,79 @@
 <template>
-  <div class="flex flex-col sm:p-1">
-    <div class="p-3 my-auto text-lg font-medium text-center text-gray-600">
-      PRICE DETAILS
-    </div>
+  <section class="flex flex-col mb-4">
     <div v-if="cart">
-      <div>
+      <div class="text-sm sm:text-base">
+        <div class="flex justify-between mb-2">
+          <span>Items Subtotal</span>
+          <span>{{
+            cart.subtotal | currency(settings.currencySymbol, 2)
+          }}</span>
+        </div>
+
+        <div class="flex justify-between mb-2">
+          <span>Total Item</span>
+          <span>{{ cart.qty }}</span>
+        </div>
+
+        <div
+          v-if="cart.discount && cart.discount.amount > 0"
+          class="flex justify-between mb-2"
+        >
+          <span>Your Savings</span>
+          <span class="text-secondary-500">
+            -{{ cart.discount.amount | currency(settings.currencySymbol, 2) }}
+          </span>
+        </div>
+
+        <div v-if="cart.shipping" class="flex justify-between mb-2">
+          <nuxt-link
+            to="/delivery-charges"
+            class="flex items-center hover:text-primary-500"
+          >
+            <h6 class="me-1">Delivery Charges</h6>
+
+            <h6>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </h6>
+          </nuxt-link>
+
+          <span v-if="cart.shipping.charge > 0">
+            {{ cart.shipping.charge | currency(settings.currencySymbol, 2) }}
+          </span>
+          <span v-else> FREE </span>
+        </div>
+      </div>
+
+      <div class="mb-2">
         <button
           class="flex flex-row focus:outline-none"
           @click="showOffers = !showOffers"
         >
           <span
             class="
-              flex-shrink-0
               text-sm
               font-medium
               cursor-pointer
-              ms-3
-              text-secondary-200
-              hover:text-secondary-400
+              text-primary-500
+              hover:text-primary-700
             "
           >
             See Available Offer
           </span>
-          <!-- <span class="flex-shrink-0 mx-auto text-white bg-green-700 rounded-full pl">i</span>-->
         </button>
+
         <span v-if="showOffers">
           <TestCoupons
             :class="showOffers ? 'open' : 'close'"
@@ -31,153 +81,38 @@
           />
         </span>
       </div>
-      <div
-        class="
-          container
-          flex flex-row
-          justify-between
-          flex-shrink-0
-          p-2
-          px-3
-          mx-auto
-          text-base
-          font-light
-        "
-      >
-        <span>Items Subtotal</span>
-        <span>{{ cart.subtotal | currency(settings.currencySymbol, 2) }}</span>
-      </div>
-      <div
-        class="
-          container
-          flex flex-row
-          justify-between
-          flex-shrink-0
-          p-2
-          px-3
-          mx-auto
-          text-base
-          font-light
-        "
-      >
-        <span>Total Item</span>
-        <span>{{ cart.qty }}</span>
-      </div>
-      <div
-        v-if="cart.discount && cart.discount.amount > 0"
-        class="
-          container
-          flex flex-row
-          justify-between
-          p-2
-          px-3
-          mx-auto
-          text-base
-          font-light
-        "
-      >
-        <span>Your Savings</span>
-        <span class="text-accent-900">
-          -{{ cart.discount.amount | currency(settings.currencySymbol, 2) }}
-        </span>
+
+      <hr class="border-t border-gray-200 my-2" />
+
+      <div class="mt-4 flex justify-between text-base sm:text-lg sm:pb-5">
+        <b>Total Amount</b>
+        <b> {{ cart.total | currency(settings.currencySymbol, 2) }}</b>
       </div>
 
-      <div
-        v-if="cart.shipping"
-        class="
-          container
-          flex flex-row
-          justify-between
-          p-2
-          px-3
-          mx-auto
-          text-base
-          font-light
-        "
-      >
-        <nuxt-link
-          to="/delivery-charges"
-          class="
-            flex
-            font-light
-            hover:font-medium
-            text-gray-600
-            hover:text-primary-500
-            cursor-pointer
-          "
-        >
-          <h6>Delivery Charges</h6>
-          <h6 class="ms-1 my-auto">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-          </h6>
-        </nuxt-link>
-        <span>{{
-          cart.shipping.charge | currency(settings.currencySymbol, 2)
-        }}</span>
-      </div>
-
-      <div
-        class="
-          container
-          flex flex-row
-          justify-between
-          p-2
-          px-3
-          mx-auto
-          text-base
-          font-semibold
-          text-gray-600
-        "
-      >
-        <span class="text-xl">Total Amount</span>
-        <!-- class="text-secondary-400" -->
-        <span class="text-xl">
-          {{ cart.total | currency(settings.currencySymbol, 2) }}
-        </span>
-      </div>
-      <div class="fixed bottom-0 w-full sm:relative">
+      <div class="fixed bottom-0 inset-x-0 w-full sm:static">
         <nuxt-link v-if="nextpage" :to="nextpage">
-          <div class="flex items-center justify-center w-full sm:px-3">
-            <Button
-              class="
-                p-3
-                text-white
-                sm:my-4
-                focus:ring-primary-500
-                bg-primary-500
-              "
-            >
-              {{ btnname }}
-            </Button>
-          </div>
+          <GrnIndGradiantButton
+            class="w-full"
+            :loading="loading"
+            @click="loading = true"
+          >
+            {{ btnname }}
+          </GrnIndGradiantButton>
         </nuxt-link>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import { Button } from '~/shared/components/ui'
+import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
 import TestCoupons from '~/components/Cart/TestCoupons.vue'
 import NuxtLink from '~/components/NuxtLink.vue'
 
 // import CART from "~/gql/cart/cart.gql"
 export default {
-  components: { TestCoupons, Button, NuxtLink },
+  components: { TestCoupons, GrnIndGradiantButton, NuxtLink },
   props: {
     selectedAddress: { type: String, default: null },
     details: {
@@ -198,6 +133,7 @@ export default {
       showOffers: false,
       hide: false,
       show: true,
+      loading: false,
     }
   },
 

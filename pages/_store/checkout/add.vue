@@ -1,64 +1,33 @@
 <template>
-  <div class="container relative mx-auto">
-    <div>
-      <CheckoutHeader selected="address" />
-      <div>
-        <div class="flex flex-col w-full mx-auto pb-14 sm:pb-20 lg:flex-row">
-          <div class="container w-full mx-auto lg:w-2/3">
-            <span
-              class="
-                hidden
-                mx-auto
-                my-4
-                text-2xl text-center text-gray-500
-                lg:text-start
-                sm:flex
-              "
-            >
-              Billing Details
-            </span>
-            <EditAddress
-              id="new"
-              class="p-2 bg-white border rounded shadow"
-              :return-url="'/checkout/address'"
-            />
-          </div>
-          <!-- <AddAddressMobile class="py-4 bg-white sm:hidden" /> -->
-          <!-- <EditAddress go="checkout" id="add" class="w-2/3 bg-white border shadow rounded-xl" /> -->
-          <div
-            class="
-              container
-              relative
-              w-full
-              mx-auto
-              mt-6
-              lg:ms-4 lg:w-1/3 lg:mt-0
-            "
-          >
-            <span
-              class="
-                hidden
-                mx-auto
-                my-4
-                text-2xl text-center text-gray-500
-                lg:text-start
-                sm:flex
-              "
-            >
-              Cart Details
-            </span>
-            <PriceDetails
-              :btnname="'Continue'"
-              class="bg-white border rounded shadow"
-            />
-          </div>
+  <section
+    class="container mx-auto max-w-6xl px-2 sm:px-10 mb-10 text-gray-700"
+  >
+    <CheckoutHeader selected="address" class="py-5 sm:py-10" />
+
+    <div class="flex flex-col lg:flex-row lg:space-x-5">
+      <div class="lg:w-2/3 lg:border-r lg:border-gray-200 lg:pr-5">
+        <div class="text-2xl sm:text-4xl font-bold tracking-wide mb-2">
+          Billing Details
         </div>
+
+        <EditAddress id="new" :return-url="'/checkout/address'" />
+      </div>
+
+      <!-- <AddAddressMobile class="py-4 bg-white sm:hidden" /> -->
+      <!-- <EditAddress go="checkout" id="add" class="w-2/3 bg-white border shadow rounded-xl" /> -->
+      <div class="lg:w-1/3">
+        <div class="text-xl font-bold tracking-wide py-2">Cart Summary</div>
+
+        <hr class="border-t border-gray-200 my-2" />
+
+        <PriceDetails :btnname="'Continue'" />
       </div>
     </div>
+
     <!-- <div class="flex justify-center">
       <Footer class="absolute bottom-0 items-center" />
     </div> -->
-  </div>
+  </section>
 </template>
 
 <script>

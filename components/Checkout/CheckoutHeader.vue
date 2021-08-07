@@ -1,31 +1,18 @@
 <template>
-  <div
-    class="
-      flex flex-wrap
-      justify-center
-      p-2
-      px-5
-      md:mt-10
-      xl:mt-20
-      lg:px-8 lg:pb-4
-    "
-  >
-    <div class="mt-2 order-0 lg:order-0"></div>
+  <div class="flex justify-center px-5 md:mt-10 xl:mt-20">
     <div
       class="
+        w-full
+        sm:w-96
         flex
         justify-between
-        order-2
-        w-full
-        pt-3
         text-xs
-        font-bold
+        font-semibold
         tracking-widest
-        text-center text-gray-700
-        lg:order-1 lg:w-1/3
+        text-center
       "
     >
-      <nuxt-link :to="localePath('cart')" class="flex flex-col mx-2">
+      <nuxt-link :to="localePath('/cart')" class="flex flex-col">
         <div
           class="
             flex
@@ -34,27 +21,31 @@
             w-8
             h-8
             mx-auto
-            font-normal
-            text-center
-            border
             rounded-full
-            border-primary-500
+            border
           "
           :class="[
             selected == 'cart'
-              ? 'bg-primary-500  text-white'
-              : 'bg-white text-primary-500',
+              ? 'border-primary-500 bg-primary-500  text-white'
+              : 'border-gray-500 text-gray-500',
           ]"
         >
-          1
+          <span>1</span>
         </div>
-        <div class="mt-1 text-primary-500">Cart</div>
+
+        <div
+          class="mt-1"
+          :class="[
+            selected == 'cart' ? 'text-primary-500  ' : ' text-gray-500',
+          ]"
+        >
+          Cart
+        </div>
       </nuxt-link>
-      <hr class="flex-1 mx-3 my-4 dashes text-primary-500" />
-      <div
-        v-if="selected == 'cart'"
-        class="flex flex-col items-center text-center"
-      >
+
+      <hr class="flex-1 mx-1 my-4 dashes text-gray-500" />
+
+      <div v-if="selected == 'address'">
         <div
           class="
             flex
@@ -63,26 +54,31 @@
             w-8
             h-8
             mx-auto
-            font-normal
-            text-center
-            border
             rounded-full
-            border-primary-500
+            border
           "
           :class="[
             selected == 'address'
-              ? 'bg-primary-500  text-white'
-              : 'bg-white text-primary-500',
+              ? 'border-primary-500 bg-primary-500  text-white'
+              : 'border-gray-500 text-gray-500',
           ]"
         >
-          2
+          <span>2</span>
         </div>
-        <span class="mt-1 text-center text-primary-500">Address</span>
+
+        <div
+          class="mt-1"
+          :class="[
+            selected == 'address' ? 'text-primary-500  ' : ' text-gray-500',
+          ]"
+        >
+          Address
+        </div>
       </div>
+
       <nuxt-link
         v-else
         :to="localePath(`/${$route.params.store}/checkout/address`)"
-        class="flex flex-col items-center text-center"
       >
         <div
           class="
@@ -91,25 +87,34 @@
             justify-center
             w-8
             h-8
-            font-normal
-            text-center
-            border
+            mx-auto
             rounded-full
-            border-primary-500
+            border
           "
           :class="[
             selected == 'address'
-              ? 'bg-primary-500  text-white'
-              : 'bg-white text-primary-500',
+              ? 'border-primary-500 bg-primary-500  text-white'
+              : 'border-gray-500 text-gray-500',
           ]"
         >
-          2
+          <span>2</span>
         </div>
-        <span class="mt-1 text-center text-primary-500">Address</span>
+
+        <div
+          class="mt-1"
+          :class="[
+            selected == 'address' ? 'text-primary-500  ' : ' text-gray-500',
+          ]"
+        >
+          Address
+        </div>
       </nuxt-link>
-      <hr class="flex-1 mx-3 my-4 dashes text-primary-500" />
+
+      <hr class="flex-1 mx-1 my-4 dashes text-gray-500" />
+
       <!--  -->
-      <div class="items-center text-center">
+
+      <div>
         <div
           class="
             flex
@@ -118,22 +123,26 @@
             w-8
             h-8
             mx-auto
-            font-normal
-            text-center
-            bg-white
-            border
             rounded-full
-            border-primary-500
+            border
           "
           :class="[
             selected == 'payment'
-              ? 'bg-primary-500  text-white'
-              : 'bg-white text-primary-500',
+              ? 'border-primary-500 bg-primary-500  text-white'
+              : 'border-gray-500 text-gray-500',
           ]"
         >
-          3
+          <span>3</span>
         </div>
-        <span class="mt-1 text-center text-primary-500">Payment</span>
+
+        <div
+          class="mt-1"
+          :class="[
+            selected == 'payment' ? 'text-primary-500  ' : ' text-gray-500',
+          ]"
+        >
+          Payment
+        </div>
       </div>
     </div>
   </div>
