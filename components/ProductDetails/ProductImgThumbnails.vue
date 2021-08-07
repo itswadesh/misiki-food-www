@@ -43,9 +43,31 @@
       >
         <!-- :class="images.length > 4 ? 'mt-8' : ''" -->
         <img
+          v-if="!youtubeVideoId(img)"
           :key="img"
           v-lazy="img"
           alt=""
+          class="
+            object-contain
+            mx-auto
+            overflow-hidden
+            bg-white
+            border
+            p-0.5
+            rounded-sm
+            smallimg
+            hover:border-primary-500
+            md:w-full md:object-cover md:w-auto
+          "
+          :class="{ 'border-primary-500': img === selectedImage }"
+          @mouseenter="$emit('selectedImage', img)"
+        />
+        <youtube
+          v-else
+          ref="youtube"
+          :video-id="youtubeVideoId(img)"
+          :resize="true"
+          :fit-parent="true"
           class="
             object-contain
             mx-auto

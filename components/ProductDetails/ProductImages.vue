@@ -118,6 +118,7 @@
               ref="youtube"
               :video-id="youtubeVideoId(selectedImage)"
               :resize="true"
+              :fit-parent="true"
             />
           </div>
         </div>
