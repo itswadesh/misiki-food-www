@@ -141,10 +141,10 @@ export default {
     let err = null
     let productCount = 0
     const client = app.apolloProvider.defaultClient
+    const storeId = store.state.store && store.state.store.id
     try {
       const cslug = route.params.slug
       if (cslug) {
-        const storeId = store.state.store && store.state.store.id
         category = (
           await client.query({
             query: CATEGORY,
@@ -166,7 +166,7 @@ export default {
         params: { ...qry },
       })
       products = result.data
-      productCount = result.facets.style_count.value
+      productCount = result.facets && result.facets.style_count.value
       facets = result.facets && result.facets.all_aggs
       Object.keys(qry).map(function (k, i) {
         if (

@@ -143,7 +143,7 @@ export default {
       const c = this.$route.path.slice(1)
       const fl = {}
       const url = this.constructURL('/', c, fl)
-      this.$router.push(`/${this.$route.params.store}${url}page=1`)
+      this.$router.push(`${url}page=1`)
     },
     mergeToWishlist(products, wishlist) {
       try {
