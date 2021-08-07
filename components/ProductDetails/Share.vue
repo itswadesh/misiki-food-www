@@ -8,9 +8,13 @@
         px-4
         py-2
         rounded-full
-        me-3
         focus:outline-none
-        hover:shadow-lg hover:bg-gray-300
+        hover:shadow-md
+        border border-transparent
+        hover:border-gray-200
+        transition
+        duration-300
+        frosted
       "
       @click="open = true"
     >
@@ -418,3 +422,10 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.frosted:hover {
+  backdrop-filter: blur(15px);
+  background-color: hsla(0, 0%, 100%, 0.75);
+}
+</style>

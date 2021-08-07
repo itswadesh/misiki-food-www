@@ -1,17 +1,9 @@
 <template>
-  <div class="flex items-center my-auto text-sm font-thin">
+  <div class="flex items-center my-auto text-sm font-thin text-gray-500">
     <nuxt-link :to="localePath('/')">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class="
-          w-5
-          h-5
-          my-auto
-          text-gray-500
-          cursor-pointer
-          me-1
-          hover:text-primary-500
-        "
+        class="w-5 h-5 my-auto cursor-pointer hover:text-primary-500"
         viewBox="0 0 20 20"
         fill="currentColor"
       >
@@ -20,52 +12,28 @@
         />
       </svg>
     </nuxt-link>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      class="h-4 w-4"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M9 5l7 7-7 7"
-      />
-    </svg>
-    <nuxt-link
-      v-for="(p, ix) in path"
-      v-if="p"
-      :key="ix"
-      :to="`/c/${p.slug}`"
-      class="
-        my-auto
-        flex flex-wrap
-        items-center
-        capitalize
-        cursor-pointer
-        ms-1
-        hover:text-primary-500
-      "
-    >
-      {{ p.name }}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-4 w-4"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
+
+    <span class="transform rotate-12 mx-1">/</span>
+
+    <div v-for="(p, ix) in path" v-if="p" :key="ix" class="flex items-center">
+      <nuxt-link
+        :to="`/c/${p.slug}`"
+        class="
+          my-auto
+          flex flex-wrap
+          items-center
+          capitalize
+          cursor-pointer
+          hover:text-primary-500
+        "
       >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M9 5l7 7-7 7"
-        />
-      </svg>
-    </nuxt-link>
-    <span class="my-auto capitalize truncate text-primary-500 ms-1">
+        {{ p.name }}
+      </nuxt-link>
+
+      <span class="transform rotate-12 mx-1">/</span>
+    </div>
+
+    <span class="my-auto capitalize truncate text-primary-500">
       {{ name }}
     </span>
   </div>

@@ -1,40 +1,58 @@
 <template>
-  <div v-if="product" class="w-full px-2 pt-3 xl:mx-auto">
-    <div v-if="product.description">
-      <span
-        class="
-          flex
-          justify-center
-          pb-2
-          font-normal
-          text-center text-gray-700
-          uppercase
-          text-normal
-          md:justify-start
-        "
-      >
-        Description
-      </span>
-      <div class="pb-4 text-base font-light" v-html="product.description" />
+  <div v-if="product" class="w-full px-2 xl:ms-5">
+    <div v-if="product.description" class="mb-1 sm:mb-2">
+      <div class="flex items-center space-x-2 mb-2">
+        <span class="font-semibold">Description</span>
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 text-gray-500"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+          />
+        </svg>
+      </div>
+
+      <div
+        class="font-light text-gray-500 text-sm"
+        v-html="product.description"
+      />
     </div>
+
     <!-- key featires -->
-    <div v-if="product.keyFeatures && product.keyFeatures.length">
-      <span
-        class="
-          flex
-          justify-center
-          pb-2
-          font-normal
-          text-center text-gray-700
-          uppercase
-          md:justify-start
-          text-normal
-        "
-      >
-        Key Features
-      </span>
+
+    <div
+      v-if="product.keyFeatures && product.keyFeatures.length"
+      class="mb-1 sm:mb-2"
+    >
+      <div class="flex items-center space-x-2 mb-2">
+        <span class="font-semibold"> Key Features</span>
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 text-gray-500"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"
+          />
+        </svg>
+      </div>
+
       <div>
-        <ul class="text-base font-light">
+        <ul class="font-light text-s">
           <li v-for="(kf, ix) in product.keyFeatures" :key="ix + 'kf'">
             <div v-if="kf" class="flex flex-row py-2">
               <div class="w-5 h-5">
@@ -58,30 +76,28 @@
       </div>
     </div>
 
-    <div class="mt-8">
-      <div
-        class="
-          flex
-          justify-center
-          h-12
-          my-auto
-          font-normal
-          text-center text-gray-700
-          uppercase
-          bg-white
-          sm:bg-gray-300
-          md:justify-start
-          text-normal
-        "
-      >
-        <span class="my-auto ps-5">Product Details</span>
+    <div class="mb-1 sm:mb-2">
+      <div class="flex items-center space-x-2 mb-2">
+        <span class="font-semibold">Product Details</span>
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 text-gray-500"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+          />
+        </svg>
       </div>
 
       <div v-for="(s, ix) in product.productDetails" :key="ix + 'pdd'">
-        <div
-          v-if="s"
-          class="flex-row hidden text-lg font-light text-gray-500 sm:flex"
-        >
+        <div v-if="s" class="flex-row font-light text-gray-500 mb-2 text-sm">
           <div class="w-1/3 p-1 my-auto ps-3">
             {{ s.name }}
           </div>
@@ -93,76 +109,43 @@
 
       <div
         v-if="product.countryOfOrigin"
-        class="flex-row hidden text-lg font-light text-gray-500 sm:flex"
+        class="fles items-cennter mb-2 text-sm"
       >
-        <div class="w-1/3 p-1 my-auto ps-3">Country Of Origin</div>
-        <div class="w-2/3 p-1 my-auto">
-          {{ product.countryOfOrigin }}
-        </div>
-      </div>
-      <!-- mobile screen  -->
-      <!--  -->
-      <div v-for="(s, ix) in product.productDetails" :key="ix + 'pdm'">
-        <div
-          v-if="s"
-          class="
-            flex flex-col
-            text-base
-            font-light
-            text-gray-500
-            bg-gray-200
-            sm:hidden
-          "
-        >
-          <span class="w-full p-2 my-auto bg-white">
-            {{ s.name }}
-          </span>
-          <span class="w-full p-2 my-auto bg-gray-100">
-            {{ s.value }}
-          </span>
-        </div>
-      </div>
-      <div
-        class="
-          flex flex-col
-          text-base
-          font-light
-          text-gray-500
-          bg-gray-200
-          sm:hidden
-        "
-      >
-        <span class="w-full p-2 my-auto bg-white"> Country Of Origin </span>
-        <span class="w-full p-2 my-auto bg-gray-100">
-          {{ product.countryOfOrigin }}
-        </span>
+        <span class="font-medium me-2">Country Of Origin :</span>
+
+        <span class="text-gray-500 font-light">{{
+          product.countryOfOrigin
+        }}</span>
       </div>
     </div>
 
     <div
       v-if="product.specifications && product.specifications.length"
-      class="mt-8"
+      class="mb-1 sm:mb-2"
     >
-      <div
-        class="
-          flex
-          justify-center
-          h-12
-          my-auto
-          font-normal
-          text-center
-          bg-white
-          sm:bg-gray-300
-          md:justify-start
-          desc
-        "
-      >
-        <span class="my-auto uppercase ps-5">Specifications</span>
+      <div class="flex items-center space-x-2 mb-2">
+        <span class="font-semibold">Specifications</span>
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 text-gray-500"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+          />
+        </svg>
       </div>
+
       <div v-for="(s, ix) in product.specifications" :key="ix + 'ds'">
         <div
           v-if="s"
-          class="flex-row hidden text-base font-light text-gray-500 sm:flex"
+          class="flex-row hidden font-light text-gray-500 sm:flex text-sm"
         >
           <div class="w-1/3 p-1 my-auto ps-3">
             {{ s.name }}
@@ -172,11 +155,13 @@
           </div>
         </div>
       </div>
+
       <!-- mobile screen  -->
+
       <div v-for="(s, ix) in product.specifications" :key="ix + 'ms'">
         <div
           v-if="s"
-          class="flex flex-col text-base font-light text-gray-600 sm:hidden"
+          class="flex flex-col font-light text-gray-600 sm:hidden text-sm"
         >
           <span class="w-full p-2 my-auto bg-white">
             {{ s.name }}

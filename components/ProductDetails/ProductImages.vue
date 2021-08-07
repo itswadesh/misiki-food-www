@@ -75,7 +75,15 @@
       <!-- desktop view -->
       <div
         v-if="img"
-        class="flex-col hidden w-auto md:flex-row-reverse sm:flex"
+        class="
+          container
+          mx-auto
+          flex-col
+          hidden
+          w-auto
+          md:flex-row-reverse
+          sm:flex
+        "
       >
         <div
           class="
@@ -122,14 +130,13 @@
             />
           </div>
         </div>
-        <div>
-          <ProductImgThumbnails
-            :images="images"
-            :selected-image="selectedImage || img"
-            class="container px-2 mx-auto overflow-hidden cursor-pointer"
-            @selectedImage="popup"
-          />
-        </div>
+
+        <ProductImgThumbnails
+          class="md:mr-5"
+          :images="images"
+          :selected-image="selectedImage || img"
+          @selectedImage="popup"
+        />
       </div>
 
       <!-- mobile view -->
