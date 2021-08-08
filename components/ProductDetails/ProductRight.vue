@@ -7,11 +7,13 @@
 
     <div class="flex flex-row w-full afterSizeSelector">
       <div v-if="product" class="flex flex-col w-full px-2">
-        <strong v-if="product.brand" class="text-xl mb-1 sm:mb-2">
+        <strong v-if="product.brand" class="text-lg mb-1 sm:mb-2">
           {{ product.brand.name }}
         </strong>
 
-        <span class="mb-1 sm:mb-2 font-medium text-gray-500 sm:text-xl">
+        <span
+          class="mb-1 sm:mb-2 font-medium text-gray-500 text-sm sm:text-base"
+        >
           {{ product.name }}
 
           <!-- <span v-if="product.color">-{{ product.color.name }}</span> -->
@@ -50,28 +52,28 @@
         <div>
           <div class="mb-1 sm:mb-2">
             <div class="flex flex-row my-auto items-baseline mb-1 sm:mb-2">
-              <b class="me-1 text-lg sm:text-2xl">Rs.</b>
+              <b class="me-1 text-base sm:text-lg">Rs.</b>
 
-              <b class="me-2 text-lg sm:text-2xl">
+              <b class="me-2 text-base sm:text-lg">
                 {{ product.price | currency(settings.currencySymbol) }}
               </b>
 
               <strike
                 v-if="product.price < product.mrp"
-                class="sm:text-xl font-light me-2 text-gray-500"
+                class="text-sm sm:text-base font-light me-2 text-gray-500"
               >
                 {{ product.mrp | currency(settings.currencySymbol) }}
               </strike>
 
               <div
                 v-if="product.discount > 0"
-                class="sm:text-xl text-primary-700"
+                class="text-sm sm:text-base text-primary-700"
               >
                 ({{ product.discount }}% off)
               </div>
             </div>
 
-            <div class="text-sm sm:text-base text-secondary-500 font-semibold">
+            <div class="text-sm sm:text-base text-secondary-500 font-medium">
               inclusive of all taxes
             </div>
           </div>
@@ -466,7 +468,7 @@
             </div>
               </div> -->
 
-          <div class="flex items-center mb-1 sm:mb-2">
+          <div class="text-sm sm:text-base flex items-center mb-1 sm:mb-2">
             <span class="font-semibold me-2">Availability :</span>
 
             <span v-if="product.stock > 0" class="text-gray-500">
@@ -519,7 +521,7 @@
             </div>
           </div>
 
-          <div class="mb-1 sm:mb-2">
+          <div class="text-sm sm:text-base mb-1 sm:mb-2">
             <div class="flex flex-row items-center">
               <span class="font-semibold me-2">Delivery by :</span>
 
@@ -544,7 +546,10 @@
                 </span>
               </span> -->
 
-          <div v-if="reviewSummary" class="flex flex-row mb-1 sm:mb-2">
+          <div
+            v-if="reviewSummary"
+            class="text-sm sm:text-base flex flex-row mb-1 sm:mb-2"
+          >
             <div
               class="
                 flex flex-row
@@ -590,7 +595,15 @@
 
           <div
             v-if="product"
-            class="flex flex-row justify-between w-full mb-1 sm:mb-2"
+            class="
+              text-sm
+              sm:text-base
+              flex flex-row
+              justify-between
+              w-full
+              mb-1
+              sm:mb-2
+            "
           >
             <nuxt-link
               :to="localePath(`/rate-this-product?id=${product.id}`)"

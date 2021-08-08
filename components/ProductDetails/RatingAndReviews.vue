@@ -1,6 +1,6 @@
 <template>
   <div v-if="productReviews" class="w-full px-2 xl:ms-5">
-    <div class="flex items-center space-x-2 mb-2">
+    <div class="text-sm sm:text-base flex items-center space-x-2 mb-2">
       <span class="font-semibold">Rating and reviews</span>
 
       <svg
@@ -19,7 +19,11 @@
       </svg>
     </div>
 
-    <div v-for="r in productReviews.data" :key="r.id" class="mb-2 border-b">
+    <div
+      v-for="r in productReviews.data"
+      :key="r.id"
+      class="text-sm sm:text-base mb-2 border-b"
+    >
       <div class="flex flex-row justify-between mb-3">
         <div class="flex flex-row">
           <div

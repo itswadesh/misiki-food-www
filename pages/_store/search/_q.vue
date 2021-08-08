@@ -1,6 +1,7 @@
 <template>
   <div>
     <Megamenu class="hidden w-full xl:flex" />
+
     <MobileFilters
       class="sticky top-0 z-20 flex-none mt-16 sm:hidden"
       :count="productCount"
@@ -9,13 +10,15 @@
       @showFilter="showMobileFilter = true"
       @hide="showMobileFilter = false"
     />
+
     <div class="container flex mx-auto sm:mt-6 xl:mt-0">
       <DesktopFilters
-        class="flex-none hidden max-w-xs lg:block"
+        class="sticky top-20 flex-none hidden max-w-xs lg:block"
         :facets="facets"
         :fl="fl"
         @clearAllFilters="clearAllFilters"
       />
+
       <div class="relative w-full px-4">
         <HeaderBody
           class=""
@@ -54,7 +57,7 @@
                 2xl:grid-cols-5
               "
             >
-              <ProductCardEs
+              <HomePageProduct
                 v-for="(p, ix) in products"
                 :key="ix"
                 class="slide-up-item"
@@ -89,11 +92,19 @@
 <script>
 import Pagination from '~/shared/components/ui/Pagination'
 import c from '~/mixins/c.js'
-import ProductCardEs from '~/components/Listing/ProductCardEs.vue'
+import HomePageProduct from '~/components/Home/HomePageProduct.vue'
+// import ProductCardEs from '~/components/Listing/ProductCardEs.vue'
 import Megamenu from '~/components/Home/Megamenu.vue'
 export default {
-  components: { Pagination, ProductCardEs, Megamenu },
+  components: {
+    Pagination,
+    //  ProductCardEs
+    HomePageProduct,
+    Megamenu,
+  },
+
   mixins: [c],
+
   async asyncData({ params, query, $axios, store }) {
     let products = []
     let facets = []

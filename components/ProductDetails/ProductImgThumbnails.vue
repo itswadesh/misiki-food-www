@@ -3,7 +3,8 @@
     v-if="images && images.length > 1"
     class="
       z-0
-      flex flex-col
+      flex flex-row
+      md:flex-col
       justify-center
       xl:justify-start
       items-center

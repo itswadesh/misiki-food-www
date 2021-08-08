@@ -1,6 +1,6 @@
 <template>
   <div v-if="product" class="w-full px-2 xl:ms-5">
-    <div v-if="product.description" class="mb-1 sm:mb-2">
+    <div v-if="product.description" class="text-sm sm:text-base mb-1 sm:mb-2">
       <div class="flex items-center space-x-2 mb-2">
         <span class="font-semibold">Description</span>
 
@@ -30,7 +30,7 @@
 
     <div
       v-if="product.keyFeatures && product.keyFeatures.length"
-      class="mb-1 sm:mb-2"
+      class="text-sm sm:text-base mb-1 sm:mb-2"
     >
       <div class="flex items-center space-x-2 mb-2">
         <span class="font-semibold"> Key Features</span>
@@ -52,7 +52,7 @@
       </div>
 
       <div>
-        <ul class="font-light text-s">
+        <ul class="font-light text-sm sm:text-base">
           <li v-for="(kf, ix) in product.keyFeatures" :key="ix + 'kf'">
             <div v-if="kf" class="flex flex-row py-2">
               <div class="w-5 h-5">
@@ -76,7 +76,7 @@
       </div>
     </div>
 
-    <div class="mb-1 sm:mb-2">
+    <div class="text-sm sm:text-base mb-1 sm:mb-2">
       <div class="flex items-center space-x-2 mb-2">
         <span class="font-semibold">Product Details</span>
 
@@ -121,7 +121,7 @@
 
     <div
       v-if="product.specifications && product.specifications.length"
-      class="mb-1 sm:mb-2"
+      class="text-sm sm:text-base mb-1 sm:mb-2"
     >
       <div class="flex items-center space-x-2 mb-2">
         <span class="font-semibold">Specifications</span>

@@ -1,16 +1,8 @@
 <template>
   <div class="flex flex-col flex-shrink-0 bg-white hfull nowrap">
     <div class="sm:ms-3 xl:me-0">
-      <div class="flex flex-row justify-end pb-4 pe-4 md:hidden">
-        <Share :product="product" :host="host" />
-        <WishButton
-          v-if="product.id"
-          :rounded="true"
-          :pid="product.id"
-          class="p-1 w-7 h-7"
-        />
-      </div>
       <!-- desktop xl and above -->
+
       <!-- <div
         v-if="!loading"
         class="flex-col hidden w-full md:flex-row-reverse xl:hidden widths"
@@ -78,11 +70,10 @@
         class="
           container
           mx-auto
-          flex-col
           hidden
           w-auto
           md:flex-row-reverse
-          sm:flex
+          sm:flex sm:flex-col
         "
       >
         <div
@@ -97,14 +88,15 @@
             widths
           "
         >
-          <div class="absolute right-0 flex justify-end m-3">
+          <div class="absolute top-0 right-0 m-3">
             <WishButton
               v-if="product.id"
-              :rounded="true"
+              rounded
               :pid="product.id"
-              class="z-50 hidden w-8 h-8 p-1 md:flex"
+              class="z-50 p-1 w-8 h-8"
             />
           </div>
+
           <img
             v-if="!youtubeVideoId(selectedImage)"
             v-lazy="selectedImage"
@@ -121,7 +113,8 @@
               $photoswipe.open(0, [{ src: selectedImage, w: 768, h: 768 }])
             "
           />
-          <div v-else class="w-12">
+
+          <div v-else>
             <youtube
               ref="youtube"
               :video-id="youtubeVideoId(selectedImage)"
@@ -141,7 +134,19 @@
 
       <!-- mobile view -->
       <div class="w-full">
-        <div v-if="images && images.length" class="mx-auto sm:hidden">
+        <div
+          v-if="images && images.length"
+          class="relative z-10 mx-auto sm:hidden"
+        >
+          <div class="absolute top-0 right-0 m-2">
+            <WishButton
+              v-if="product.id"
+              rounded
+              :pid="product.id"
+              class="z-50 p-1 w-7 h-7"
+            />
+          </div>
+
           <div class="w-full mx-auto widths">
             <VueSlickCarousel
               ref="c1"
@@ -155,12 +160,13 @@
               >
                 <img
                   v-lazy="im"
-                  class="object-cover w-full h-full bg-gray-300"
+                  class="object-contain w-full h-full bg-white"
                 />
               </div>
             </VueSlickCarousel>
           </div>
-          <div class="w-full mt-10 px-7">
+
+          <div class="w-full mt-5 sm:mt-10">
             <VueSlickCarousel
               ref="c2"
               :as-nav-for="$refs.c1"
@@ -171,18 +177,17 @@
               <div
                 v-for="(ig, ix) in images"
                 :key="ix"
-                class="h-20 mx-auto focus:outline-none"
+                class="h-16 w-16 mx-auto focus:outline-none"
                 @click="selectedImage = ig"
               >
                 <img
                   v-lazy="ig"
                   class="
-                    object-cover
+                    object-contain
                     w-16
                     h-16
                     mx-auto
-                    my-2
-                    bg-gray-300
+                    bg-white
                     border
                     rounded
                   "
@@ -349,10 +354,10 @@ export default {
 .zoom-in {
   cursor: zoom-in;
 }
-.widths {
+/* .widths {
   width: 295px;
   height: 291px;
-}
+} */
 @media only screen and (min-width: 640px) {
   .widths {
     width: 470px;

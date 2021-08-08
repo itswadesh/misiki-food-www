@@ -81,7 +81,7 @@ div
           </div>
         </div>
 
-        <div class="mt-5 xl:w-2/5 xl:mt-0">
+        <div class="mt-5 sm:mt-10 xl:w-2/5 xl:mt-0">
           <!-- <DetailsSkeleton v-if="loading"  /> -->
 
           <div v-if="product && product.id" class="bg-white">
