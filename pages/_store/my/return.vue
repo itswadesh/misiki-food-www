@@ -182,9 +182,13 @@ export default {
     ...mapGetters({ settings: 'settings' }),
   },
   created() {
+    this.getReturnReasons()
     this.getData()
   },
   methods: {
+    getReturnReasons() {
+      this.returnReasons = this.settings.returnReasons
+    },
     async submit() {
       try {
         const res = (

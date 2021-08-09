@@ -168,12 +168,10 @@
                 items-center
                 justify-center
                 text-xs text-center text-white
-                font-medium
               "
             >
               <span v-if="cart && cart.qty > 0">{{ cart.qty }}</span>
-
-              <span>0</span>
+              <span v-else>0</span>
             </div>
 
             <svg
