@@ -1,12 +1,12 @@
 <template>
-  <div class="w-full h-full">
+  <section>
     <form
       v-if="profile"
       novalidate
       autocomplete="off"
       class="
         w-full
-        text-gray-500
+        text-gray-800
         bg-white
         rounded-lg
         shadow
@@ -14,37 +14,13 @@
       "
       @submit.stop.prevent="submit"
     >
-      <div
-        class="
-          container
-          w-full
-          p-5
-          pb-5
-          mx-auto
-          text-lg
-          font-normal
-          text-gray-700
-          border-b
-        "
-      >
-        Profile Details
-      </div>
-      <div
-        class="
-          w-full
-          px-5
-          pt-6
-          space-y-6
-          text-base
-          font-light
-          md:px-12
-          lg:px-20
-        "
-      >
+      <div class="w-full p-5 font-semibold border-b">Profile Details</div>
+
+      <div class="w-full p-10 space-y-5 text-base font-light">
         <Textbox
           v-model="profile.firstName"
           placeholder="First Name"
-          class="w-full px-3"
+          class="w-full"
           required
           autofocus
           :v="$v.profile.firstName"
@@ -54,22 +30,26 @@
               : ''
           "
         />
+
         <Textbox
           v-model="profile.lastName"
           placeholder="Last Name"
-          class="w-full px-3"
+          class="w-full"
           required
         />
+
         <Textbox
           v-model="profile.email"
           placeholder="Email"
-          class="w-full px-3"
+          class="w-full"
           required
         />
-        <div class="flex flex-row ps-4 mb-5">
+
+        <div class="flex flex-row mb-5">
           <div class="me-5">Gender:</div>
+
           <div class="flex">
-            <label class="flex flex-row me-4">
+            <label class="flex flex-row cursor-pointer me-4">
               <Radio
                 id="one"
                 v-model="profile.gender"
@@ -77,9 +57,11 @@
                 name="group"
                 class="my-auto"
               />
+
               <span class="my-auto text-gray-600 ms-2">Male</span>
             </label>
-            <label class="flex flex-row">
+
+            <label class="flex flex-row cursor-pointer">
               <Radio
                 id="one"
                 v-model="profile.gender"
@@ -87,14 +69,16 @@
                 name="group"
                 class="my-auto"
               />
+
               <span class="my-auto text-gray-600 ms-2">Female</span>
             </label>
           </div>
         </div>
       </div>
+
       <div class="flex justify-end px-5 md:px-12 lg:px-20">
         <!--  -->
-        <Button
+        <GrnIndGradiantButton
           class="
             w-full
             p-3
@@ -107,7 +91,8 @@
           type="submit"
           :disabled="$v.profile.$anyError && $v.profile.$anyDirty"
           >UPDATE
-        </Button>
+        </GrnIndGradiantButton>
+
         <!-- <button
           type="submit"
           :disabled="$v.profile.$anyError && $v.profile.$anyDirty"
@@ -117,20 +102,23 @@
         </button> -->
       </div>
     </form>
-  </div>
+  </section>
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
 import { required } from 'vuelidate/lib/validators'
 import { validationMixin } from 'vuelidate'
-import { Button, Textbox, Radio } from '~/shared/components/ui'
-
+import { Textbox, Radio } from '~/shared/components/ui'
+import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
 import UPDATE_PROFILE from '~/gql/user/updateProfile.gql'
 import ME from '~/gql/user/me.gql'
+
 export default {
-  components: { Textbox, Radio, Button },
+  components: { Textbox, Radio, GrnIndGradiantButton },
+
   mixins: [validationMixin],
+
   data() {
     return {
       profile: {

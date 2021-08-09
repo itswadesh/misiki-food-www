@@ -78,8 +78,13 @@
           </nuxt-link>
         </div>
 
-        <SearchAutocomplete class="hidden md:block" />
-        <!--right header block -->
+        <!-- Above 768px search bar start  -->
+
+        <SearchAutocomplete class="hidden md:block relative z-20" />
+
+        <!-- Above 768px search bar end  -->
+
+        <!--right header with icons block start -->
 
         <div
           class="
@@ -192,12 +197,18 @@
             <div class="hidden text-xs font-semibold md:block">Cart</div>
           </nuxt-link>
         </div>
+
+        <!--right header with icons block end -->
       </div>
+
+      <!-- Below 768px search bar start  -->
 
       <SearchAutocomplete
         style="margin-top: 8px"
         class="sticky top-0 md:hidden"
       />
+
+      <!-- Below 768px search bar end -->
     </header>
   </nav>
 </template>

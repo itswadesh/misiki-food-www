@@ -14,40 +14,17 @@
 
         <span class="mb-5 text-xs">Add items to it now.</span>
 
-        <nuxt-link
-          :to="localePath('/')"
-          class="
-            py-2
-            px-16
-            text-sm
-            md:text-base
-            font-medium
-            text-white
-            rounded
-            shadow
-            hover:shadow-md
-            transition
-            duration-300
-            transform
-            active:scale-95
-            bg-primary-500
-            hover:bg-primary-600
-            focus:ring-opacity-50
-            focus:ring
-            focus:ring-offset-2
-            focus:ring-primary-600
-          "
-        >
+        <GrnIndGradiantButton :to="localePath('/')" class="py-2 w-44 text-sm">
           Shop Now
-        </nuxt-link>
+        </GrnIndGradiantButton>
       </span>
     </div>
   </section>
 </template>
 <script>
-import NuxtLink from '~/components/NuxtLink.vue'
+import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
 
 export default {
-  components: { NuxtLink },
+  components: { GrnIndGradiantButton },
 }
 </script>

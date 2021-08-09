@@ -1,23 +1,26 @@
 <template>
-  <div
+  <section
     v-if="faqs"
     class="
-      flex flex-col flex-shrink-0
-      p-8
-      my-5
-      mt-10
+      flex flex-col
+      p-5
       text-sm
       bg-white
-      shadow
+      shadow-md
+      rounded-md
+      border
       md:my-10
+      text-gray-800
     "
   >
-    <div class="mb-6 text-lg">FAQ's</div>
+    <div class="mb-6 font-semibold tracking-wide">FAQ's</div>
+
     <div v-for="f in faqs.data" :key="f.ix">
-      <div class="flex-shrink-0 mb-2 text-gray-500">{{ f.question }}</div>
+      <div class="mb-2 text-gray-600">{{ f.question }}</div>
+
       <div class="mb-5 font-thin text-gray-400">{{ f.answer }}</div>
     </div>
-  </div>
+  </section>
 </template>
 <script>
 import FAQS from '~/gql/faq/faqs.gql'

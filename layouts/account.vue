@@ -1,5 +1,5 @@
 <template>
-  <div
+  <section
     class="
       relative
       flex flex-col
@@ -12,26 +12,20 @@
     "
   >
     <Nav class="fixed top-0 z-50 w-full" />
-    <div
-      class="
-        container
-        flex flex-row
-        justify-between
-        w-full
-        p-4
-        mx-auto
-        my-3
-        mt-24
-        sm:p-2 sm:mt-28
-        lg:mt-20
-      "
-    >
-      <LeftUserProfile class="hidden border rounded-sm shadow lg:block" />
-      <nuxt class="w-full lg:ps-6 lg:w-3/4" keep-alive />
+
+    <div class="w-full flex flex-row justify-center mt-28 md:mt-16">
+      <LeftUserProfile class="sticky top-0 hidden lg:block" />
+
+      <nuxt
+        class="container w-full mx-auto px-2 sm:px-10 pt-2 sm:pt-10"
+        keep-alive
+      />
     </div>
-    <div class="flex-1 mt-12" />
+
+    <div class="flex-1 w-full h-10" />
+
     <Footer class="absolute bottom-0" />
-  </div>
+  </section>
 </template>
 
 <script>

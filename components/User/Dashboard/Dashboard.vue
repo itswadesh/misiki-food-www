@@ -1,60 +1,69 @@
 <template>
-  <div class="w-full h-full mx-auto">
+  <section class="container mx-auto">
     <!-- <nuxt-link
       :to="'/'"
       class="relative w-full py-2 mb-6 text-blue-500 underline top-2 sm:hidden"
       >Back to home
     </nuxt-link> -->
 
-    <div class="z-0">
-      <div
+    <div
+      class="
+        mb-5
+        grid grid-cols-1
+        gap-4
+        sm:gap-5 sm:grid-cols-2
+        lg:grid-cols-2
+        xl:grid-cols-3
+      "
+    >
+      <nuxt-link
+        v-for="(i, ix) in dashboardMenuItems"
+        :key="ix"
+        :to="i.link"
         class="
-          grid grid-cols-1
-          gap-4
-          sm:gap-6 sm:grid-cols-2
-          lg:grid-cols-2
-          xl:grid-cols-3
+          transition
+          duration-300
+          ease-in-out
+          transform
+          bg-white
+          border
+          rounded-md
+          cursor-pointer
+          shadow-md
+          hover:shadow-lg
         "
       >
-        <nuxt-link
-          v-for="(i, ix) in dashboardMenuItems"
-          :key="ix"
-          :to="i.link"
-          class="
-            transition
-            duration-300
-            ease-in-out
-            transform
-            bg-white
-            rounded-sm
-            shadow
-            cursor-pointer
-            hover:-translate-y-1 hover:shadow-lg hover:scale-100
-          "
-        >
-          <div class="flex flex-row p-5">
-            <span class="w-20 h-20 my-auto text-primary-500" v-html="i.icon" />
-            <div class="flex flex-col w-48 xl:w-36 ms-5">
-              <span class="text-lg font-semibold text-primary-500">{{
-                i.text
-              }}</span>
-              <span class="mt-2 text-xs font-normal text-gray-500">
-                {{ i.description }}
-              </span>
-            </div>
+        <div class="flex flex-row items-start p-5">
+          <span
+            class="w-20 h-20 my-auto text-primary-500 me-5"
+            v-html="i.icon"
+          />
+
+          <div class="flex-1 flex flex-col">
+            <span class="mb-2 text-lg font-semibold text-primary-500">{{
+              i.text
+            }}</span>
+
+            <span class="text-xs md:text-sm text-gray-500">
+              {{ i.description }}
+            </span>
           </div>
-        </nuxt-link>
-      </div>
+        </div>
+      </nuxt-link>
     </div>
+
     <FAQ />
-  </div>
+  </section>
 </template>
 <script>
 import FAQ from '~/components/User/Dashboard/FAQ.vue'
 import NuxtLink from '~/components/NuxtLink.vue'
+
 export default {
   components: { FAQ, NuxtLink },
+
   middleware: ['isAuth'],
+
   data() {
     return {
       dashboardMenuItems: [
@@ -75,6 +84,7 @@ export default {
             />
           </svg>`,
         },
+
         {
           link: '/my/profile',
           text: 'My Profile',
@@ -94,6 +104,7 @@ export default {
             />
           </svg>`,
         },
+
         {
           link: '/my/wishlist',
           text: 'My Wishlist',
@@ -111,6 +122,7 @@ export default {
             />
           </svg>`,
         },
+
         {
           link: '/my/reviews',
           text: 'My Reviews',
@@ -128,6 +140,7 @@ export default {
             />
           </svg>`,
         },
+
         {
           link: '/my/manage-address',
           text: 'Manage Address',
@@ -136,6 +149,7 @@ export default {
                   <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
                 </svg>`,
         },
+
         {
           link: '/my/demo-requests',
           text: 'Demo Requests',
@@ -144,6 +158,7 @@ export default {
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
 </svg>`,
         },
+
         // {
         //   role: 'user',
         //   link: '/my/giftcards',
@@ -164,6 +179,7 @@ export default {
         //     />
         //   </svg>`,
         // },
+
         // {
         //   role: 'admin',
         //   link: '/my/credits',
@@ -184,6 +200,7 @@ export default {
         //     />
         //   </svg>`,
         // },
+
         // {
         //   role: 'user',
         //   link: '/my/profile',
@@ -202,6 +219,7 @@ export default {
       ],
     }
   },
+
   computed: {
     user() {
       return (this.$store.state.auth || {}).user

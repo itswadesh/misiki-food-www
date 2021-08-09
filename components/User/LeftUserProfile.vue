@@ -10,10 +10,12 @@
       overflow-x-hidden overflow-y-auto
       transition
       bg-white
-      shadow-lg
+      shadow-md
       lg:z-0 lg:w-72
       md:w-96
+      border-r
       lg:relative
+      text-gray-800
     "
   >
     <button
@@ -48,6 +50,7 @@
         />
       </svg>
     </button>
+
     <div class="max-w-full mt-4">
       <div class="h-full mx-auto">
         <!-- <LeftOptions /> -->
@@ -59,39 +62,49 @@
                 items-center
                 justify-center
                 w-full
+                px-2
                 py-10
                 border-b
               "
             >
-              <div v-if="user" class="px-3">
-                <img
-                  v-lazy="user.avatar"
-                  alt=""
-                  class="object-contain w-24 h-24 border rounded-full"
-                />
-              </div>
               <div
                 v-if="user"
                 class="
-                  flex flex-col
-                  my-auto
-                  mt-2
-                  text-xl
-                  font-semibold
-                  text-color
+                  w-24
+                  h-24
+                  border
+                  rounded-full
+                  overflow-hidden
+                  flex
+                  items-center
+                  justify-center
+                  bg-gray-100
                 "
               >
-                <span class="py-2 text-center">
+                <img
+                  v-lazy="user.avatar"
+                  alt=""
+                  class="object-cover object-top w-full h-full"
+                />
+              </div>
+
+              <div
+                v-if="user"
+                class="flex flex-col my-auto mt-2 text-lg font-semibold"
+              >
+                <span class="mb-2 text-center">
                   Hello, {{ user && user.firstName }}
                 </span>
+
                 <span class="text-sm font-normal text-center text-gray-400">
                   {{ user.email }}
                 </span>
               </div>
             </span>
           </div>
+
           <div
-            class="flex items-center justify-center w-full my-4 text-gray-600"
+            class="flex items-center justify-center w-full my-4 text-gray-500"
           >
             <ul class="flex flex-col items-start justify-center w-full mx-auto">
               <!-- dashboard -->
@@ -116,23 +129,22 @@
                     cursor-pointer
                     border-s-4
                     md:border-white
-                    hover:bg-yellow-100
+                    hover:bg-primary-100
                     hover:text-primary-500
                     hover:border-primary-500
-                    lg:hover:text-primary-500
                   "
                   @click.native="$emit('hideSidebar', true)"
                 >
                   <h3 class="flex flex-row w-full">
-                    <span
-                      class="w-6 h-6 my-auto me-2 text-primary-500"
-                      v-html="i.icon"
-                    />
-                    <span class="tracking-wider">{{ i.text }}</span>
+                    <span class="w-6 h-6 my-auto me-2" v-html="i.icon" />
+
+                    <span class="flex-1 tracking-wider">{{ i.text }}</span>
                   </h3>
                 </nuxt-link>
               </li>
+
               <!-- logout -->
+
               <li class="w-full">
                 <button
                   type="button"
@@ -150,6 +162,7 @@
                     cursor-pointer
                     focus:outline-none
                     border-s-4
+                    text-gray-500
                     md:border-white
                     hover:bg-yellow-100
                     hover:text-primary-500
@@ -159,7 +172,7 @@
                   @click="Logout"
                 >
                   <svg
-                    class="w-6 h-6 my-auto me-2 text-primary-500"
+                    class="w-6 h-6 my-auto me-2"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                     fill="currentColor"
@@ -170,12 +183,14 @@
                       clip-rule="evenodd"
                     />
                   </svg>
+
                   <span class="tracking-wider">Logout</span>
                 </button>
               </li>
             </ul>
           </div>
         </div>
+
         <div v-else class="w-full my-6 text-gray-600">
           <div
             class="
@@ -189,6 +204,7 @@
           >
             categories
           </div>
+
           <ul class="overflow-auto font-light max-h-screen mt-3">
             <li
               v-for="(c, i) in sideMegamenu"
@@ -201,6 +217,7 @@
                 type="checkbox"
                 name="tabs"
               />
+
               <label
                 class="block px-5 py-2 leading-normal cursor-pointer"
                 :for="'tab-multi-' + i"
@@ -217,6 +234,7 @@
                   {{ c.name }}
                 </nuxt-link>
               </label>
+
               <div
                 class="
                   overflow-hidden
@@ -237,6 +255,7 @@
               </div>
             </li>
           </ul>
+
           <!-- <ul class="flex flex-col items-start justify-center w-full mx-auto">
           <li
             class="w-full mb-2 ms-2"

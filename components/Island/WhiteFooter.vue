@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full p-8 text-gray-800 bg-white">
+  <div class="w-full p-8 text-gray-800 bg-transparent">
     <div class="flex flex-col justify-between lg:flex-row">
       <div class="w-full lg:w-4/5">
         <span class="ps-1 text-lg font-medium uppercase lg:mx-auto">
@@ -25,7 +25,7 @@
               mb-1
               tracking-wider
               text-center
-              border-r border-gray-800
+              border-r border-gray-400
               cursor-pointer
               hover:bg-gray-800 hover:text-white
             "
@@ -40,7 +40,7 @@
               mb-1
               tracking-wider
               text-center
-              border-r border-gray-800
+              border-r border-gray-400
               cursor-pointer
               hover:bg-gray-800 hover:text-white
             "
@@ -55,7 +55,7 @@
               mb-1
               tracking-wider
               text-center
-              border-r border-gray-800
+              border-r border-gray-400
               cursor-pointer
               hover:bg-gray-800 hover:text-white
             "
@@ -70,7 +70,7 @@
               mb-1
               tracking-wider
               text-center
-              border-r border-gray-800
+              border-r border-gray-400
               cursor-pointer
               hover:bg-gray-800 hover:text-white
             "
@@ -85,7 +85,7 @@
               mb-1
               tracking-wider
               text-center
-              border-r border-gray-800
+              border-r border-gray-400
               cursor-pointer
               hover:bg-gray-800 hover:text-white
             "
@@ -100,7 +100,7 @@
               mb-1
               tracking-wider
               text-center
-              border-r border-gray-800
+              border-r border-gray-400
               cursor-pointer
               hover:bg-gray-800 hover:text-white
             "
@@ -115,7 +115,7 @@
               mb-1
               tracking-wider
               text-center
-              border-r border-gray-800
+              border-r border-gray-400
               cursor-pointer
               hover:bg-gray-800 hover:text-white
             "
@@ -130,7 +130,7 @@
               mb-1
               tracking-wider
               text-center
-              border-r border-gray-800
+              border-r border-gray-400
               cursor-pointer
               hover:bg-gray-800 hover:text-white
             "
@@ -145,7 +145,7 @@
               mb-1
               tracking-wider
               text-center
-              border-r border-gray-800
+              border-r border-gray-400
               cursor-pointer
               hover:bg-gray-800 hover:text-white
             "
@@ -159,7 +159,7 @@
               mb-1
               tracking-wider
               text-center
-              border-r border-gray-800
+              border-r border-gray-400
               cursor-pointer
               hover:bg-gray-800
               hover:text-white
@@ -173,7 +173,7 @@
               mb-1
               tracking-wider
               text-center
-              border-r border-gray-800
+              border-r border-gray-400
               cursor-pointer
               hover:bg-gray-800
               hover:text-white
@@ -189,7 +189,7 @@
               mb-1
               tracking-wider
               text-center
-              border-r border-gray-800
+              border-r border-gray-400
               cursor-pointer
               hover:bg-gray-800 hover:text-white
             "
@@ -197,15 +197,15 @@
             Return Policy
           </nuxt-link>
           <!-- <span
-            class="w-auto px-1 mb-1 tracking-wider text-center border-r border-gray-800 cursor-pointer hover:bg-gray-800 hover:text-white"
+            class="w-auto px-1 mb-1 tracking-wider text-center border-r border-gray-400 cursor-pointer hover:bg-gray-800 hover:text-white"
             >Whitehat</span
           >
           <span
-            class="w-auto px-1 mb-1 tracking-wider text-center border-r border-gray-800 cursor-pointer hover:bg-gray-800 hover:text-white"
+            class="w-auto px-1 mb-1 tracking-wider text-center border-r border-gray-400 cursor-pointer hover:bg-gray-800 hover:text-white"
             >Blog</span
           >
           <span
-            class="w-auto px-1 mb-1 tracking-wider text-center border-r border-gray-800 cursor-pointer hover:bg-gray-800 hover:text-white"
+            class="w-auto px-1 mb-1 tracking-wider text-center border-r border-gray-400 cursor-pointer hover:bg-gray-800 hover:text-white"
             >Careers</span
           > -->
           <nuxt-link
@@ -216,6 +216,7 @@
               mb-1
               tracking-wider
               text-center
+              border-r border-gray-400
               cursor-pointer
               hover:bg-gray-800 hover:text-white
             "
@@ -230,6 +231,7 @@
               mb-1
               tracking-wider
               text-center
+              border-r border-gray-400
               cursor-pointer
               hover:bg-gray-800 hover:text-white
             "
@@ -244,6 +246,7 @@
               mb-1
               tracking-wider
               text-center
+              border-r border-gray-400
               cursor-pointer
               hover:bg-gray-800 hover:text-white
             "
@@ -258,6 +261,7 @@
               mb-1
               tracking-wider
               text-center
+              border-r border-gray-400
               cursor-pointer
               hover:bg-gray-800 hover:text-white
             "
@@ -272,6 +276,7 @@
               mb-1
               tracking-wider
               text-center
+              border-r border-gray-400
               cursor-pointer
               hover:bg-gray-800 hover:text-white
             "
@@ -286,7 +291,7 @@
               px-1
               mb-1
               text-center
-              border border-gray-800
+              border-r border-gray-400
               cursor-pointer
               hover:bg-gray-800 hover:text-white
             "
@@ -294,9 +299,11 @@
             Blog
           </nuxt-link>
         </div>
+
         <span class="ps-1 my-4 mt-6 text-lg font-medium uppercase lg:mx-auto"
           >Popular searches</span
         >
+
         <div
           class="
             flex flex-row flex-wrap
@@ -317,7 +324,7 @@
               mb-1
               tracking-wider
               text-center
-              border-r border-gray-800
+              border-r border-gray-400
               cursor-pointer
               hover:bg-gray-800 hover:text-white
             "
@@ -326,6 +333,7 @@
           </nuxt-link>
         </div>
       </div>
+
       <div
         class="
           flex-row
@@ -348,6 +356,7 @@
             all products at {{ settings.websiteName }}
           </span>
         </div>
+
         <!-- <div class="flex flex-col my-8 md:flex-row">
           <img
             v-lazy="'/img/footer/return.png'"
@@ -359,6 +368,7 @@
             receiving your order</span
           >
         </div> -->
+
         <div class="flex flex-col md:flex-row mt-2">
           <img
             v-lazy="'/img/footer/free.png'"
@@ -372,7 +382,8 @@
         </div>
       </div>
     </div>
-    <div class="w-full my-4 border-b-2 border-gray-800"></div>
+
+    <div class="w-full my-4 border-b-2 border-gray-400"></div>
     <div class="flex flex-col-reverse justify-between md:flex-row">
       <span class="mt-4 text-sm font-normal tracking-wider md:mt-0">
         © {{ year }} {{ settings.websiteName }}
@@ -380,7 +391,9 @@
           {{ settings.websiteEmail }}</span
         >
       </span>
+
       <!-- <LanguageSwitcher /> -->
+
       <div class="container flex flex-row w-full mx-auto md:w-auto md:mx-0">
         <svg
           width="285"
