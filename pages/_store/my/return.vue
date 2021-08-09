@@ -169,7 +169,7 @@ export default {
   data() {
     return {
       order: null,
-      returnReasons,
+      returnReasons: null,
       returnInfo: {},
     }
   },
