@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex flex-col bg-white shadow md:shadow-md frosted">
+  <div class="flex flex-col bg-white shadow frosted">
     <div
       v-if="!settings.id"
       class="
@@ -15,10 +15,10 @@
       We are upgrading. Will not take much time.
     </div>
 
-    <header class="z-40 w-full h-24 p-2 md:p-3 md:h-16">
-      <div class="relative flex items-center justify-between space-x-5">
-        <div class="flex items-center my-auto flex-shrink-0">
-          <div class="hambargar menu md:hidden">
+    <header class="z-40 w-full h-24 p-2 shadow-xs sm:shadow-md lg:p-3 lg:h-16">
+      <div class="relative flex justify-between mx-auto xl:container">
+        <div class="flex items-center my-auto">
+          <div class="hambargar menu lg:hidden">
             <button
               aria-label="Open Menu"
               class="
@@ -31,7 +31,7 @@
               @click="sidebar = !sidebar"
             >
               <svg
-                class="w-6 h-6 pt-1 me-3"
+                class="w-6 h-6 pt-1 text-primary-500 me-3"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -40,7 +40,7 @@
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  stroke-width="1.5"
+                  stroke-width="2"
                   d="M4 6h16M4 12h16M4 18h16"
                 />
               </svg>
@@ -69,20 +69,20 @@
             />
           </div>
 
-          <nuxt-link :to="localePath('/')">
-            <img
-              v-lazy="settings.logo"
-              alt="logo"
-              class="object-contain h-6 w-6 md:h-10 md:w-10 flex-shrink-0"
-            />
-          </nuxt-link>
+          <div class="h-full my-auto lg:mt-1">
+            <nuxt-link :to="localePath('/')">
+              <div class="my-auto">
+                <img
+                  v-lazy="settings.logo"
+                  alt="store logo"
+                  class="object-contain h-8 my-auto md:h-8"
+                />
+              </div>
+            </nuxt-link>
+          </div>
         </div>
 
-        <!-- Above 768px search bar start  -->
-
-        <SearchAutocomplete class="hidden md:block relative z-20" />
-
-        <!-- Above 768px search bar end  -->
+        <SearchAutocomplete class="absolute hidden my-auto mb-1 lg:flex" />
 
         <!--right header with icons block start -->
 
@@ -136,6 +136,7 @@
                 d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
               />
             </svg>
+
             <div class="hidden text-xs font-semibold md:block">Profile</div>
           </nuxt-link>
 
@@ -154,6 +155,7 @@
                 d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
               />
             </svg>
+
             <div class="hidden text-xs font-semibold md:block">Wishlist</div>
           </nuxt-link>
 
@@ -176,6 +178,7 @@
               "
             >
               <span v-if="cart && cart.qty > 0">{{ cart.qty }}</span>
+
               <span v-else>0</span>
             </div>
 
@@ -201,39 +204,36 @@
         <!--right header with icons block end -->
       </div>
 
-      <!-- Below 768px search bar start  -->
-
       <SearchAutocomplete
         style="margin-top: 8px"
-        class="sticky top-0 md:hidden"
+        class="sticky top-0 lg:hidden"
       />
-
-      <!-- Below 768px search bar end -->
     </header>
-  </nav>
+  </div>
 </template>
 
 <script>
 // import CART from '~/gql/cart/cart.gql'
 import SearchAutocomplete from '~/components/SearchAutocomplete.vue'
 import LeftUserProfile from '~/components/User/LeftUserProfile.vue'
-import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
   components: {
     SearchAutocomplete,
     LeftUserProfile,
-    NuxtLink,
   },
+
   props: {
     msg: { type: String, default: null },
   },
+
   data() {
     return {
       sidebar: false,
       showLogin: false,
     }
   },
+
   computed: {
     settings() {
       return this.$store.state.settings || {}
@@ -245,29 +245,34 @@ export default {
       return this.$store.state.cart
     },
   },
+
   // async created() {
   // console.log(this.user)
   // console.log(this.$router.path.name)
   // console.log(this.cart, 'nnnnnnnnnnnnnn')
   // await this.getCart()
   // },
+
   methods: {
     findLoginScreen() {
       if (this.settings.topLogin) {
         this.$emit('showLogin', true)
       } else {
-        this.$router.push(`/${this.$route.params.store}/login`)
+        this.$router.push('/login')
       }
     },
+
     // showLogin() {
     //   if (!this.user) {
     //     this.$router.push('/login')
     //   }
     // },
+
     hideOffers() {
       // console.log("hide offers")
       // this.showLogin = false
     },
+
     // async getCart() {
     //   console.log('add to tt', this.cart)
     //   try {
