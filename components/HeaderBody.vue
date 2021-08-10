@@ -11,7 +11,7 @@
         lg:flex
       "
     >
-      <div class="flex flex-row my-auto text-sm font-thin">
+      <div v-if="count !== 0" class="flex flex-row my-auto text-sm font-thin">
         <!-- <svg
           xmlns="http://www.w3.org/2000/svg"
           class="
@@ -63,14 +63,25 @@
       </div>
 
       <div class="flex p-1 my-auto font-semibold">
-        <div class="text-base font-hairline font-light text-gray-500 text-1">
-          <b> {{ count || 'no' }} </b>items found
+        <div class="text-gray-500 text-1">
+          <b> {{ count || 'No' }} </b
+          ><span class="font-light">items found</span>
           <span v-if="category && category.name"
-            >under <b> {{ category.name }} </b></span
+            ><span class="font-light">under</span>
+            <b
+              ><q>{{ category.name }} </q></b
+            ></span
           >
-          <span v-else>for {{ $route.params.q }}</span>
+          <span v-else>
+            <span class="font-light">for</span>
+
+            <b
+              ><q>{{ $route.params.q }} </q></b
+            >
+          </span>
         </div>
       </div>
+
       <div class="flex-wrap p-1 mt-1">
         <div class="text-sm">
           <div class="relative flex flex-row">

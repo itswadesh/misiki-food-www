@@ -1,13 +1,23 @@
 <template>
   <div>
-    <div class="container sticky top-0 z-10 max-w-full mx-auto bg-white">
-      <div
-        style="height: 43px"
-        class="flex flex-row justify-between p-2 px-3 text-sm shadow"
-      >
-        <div class="my-auto text-base font-light text-gray-500">
-          <b> {{ count }} </b> products found
+    <div
+      class="
+        container
+        sticky
+        top-0
+        z-10
+        max-w-full
+        mx-auto
+        bg-white
+        border-b border-gray-200
+      "
+    >
+      <div class="h-11 flex flex-row justify-between p-2 px-3 text-sm">
+        <div class="my-auto text-sm font-light text-gray-500">
+          <span v-if="count == 0">No</span>
+          <b v-else> {{ count }} </b> <span>products found</span>
         </div>
+
         <div class="flex flex-row my-auto">
           <div
             class="
@@ -24,19 +34,21 @@
             @click="showMobileSort = !showMobileSort"
           >
             <svg
-              class="me-1 text-primary-500"
-              width="14"
-              height="18"
-              viewBox="0 0 14 18"
-              fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 me-1 text-primary-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
               <path
-                d="M4 0L0 3.99H3V11H5V3.99H8L4 0ZM11 14.01V7H9V14.01H6L10 18L14 14.01H11Z"
-                fill="#BB8738"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"
               />
             </svg>
           </div>
+
           <div
             class="
               flex flex-row
@@ -51,19 +63,21 @@
             @click="showMobileFilter = !showMobileFilter"
           >
             <svg
-              class="me-1 text-primary-500"
-              width="18"
-              height="12"
-              viewBox="0 0 18 12"
-              fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-primary-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
               <path
-                d="M7 12H11V10H7V12ZM0 0V2H18V0H0ZM3 7H15V5H3V7Z"
-                fill="#BB8738"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"
               />
             </svg>
           </div>
+
           <!-- <div
             class="
               bg-red-500
@@ -85,6 +99,7 @@
         </div>
       </div>
     </div>
+
     <SortSlideUp
       v-if="!!showMobileSort"
       class="fixed"

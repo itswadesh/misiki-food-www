@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex flex-col bg-white shadow frosted">
+  <nav class="flex flex-col bg-white shadow md:shadow-md frosted">
     <div
       v-if="!settings.id"
       class="
@@ -15,7 +15,7 @@
       We are upgrading. Will not take much time.
     </div>
 
-    <header class="z-40 w-full h-24 p-2 shadow-xs md:shadow-md md:p-3 md:h-16">
+    <header class="z-40 w-full h-24 p-2 md:p-3 md:h-16">
       <div class="relative flex items-center justify-between space-x-5">
         <div class="flex items-center my-auto flex-shrink-0">
           <div class="hambargar menu md:hidden">

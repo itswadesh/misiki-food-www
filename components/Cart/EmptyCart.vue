@@ -14,7 +14,7 @@
 
         <span class="mb-5 text-xs">Add items to it now.</span>
 
-        <GrnIndGradiantButton :to="localePath('/')" class="py-2 w-44 text-sm">
+        <GrnIndGradiantButton :to="localePath('/')" class="py-2 w-40 text-sm">
           Shop Now
         </GrnIndGradiantButton>
       </span>
