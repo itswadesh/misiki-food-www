@@ -13,7 +13,7 @@ export default {
   async fetch({ commit, state, rootState, getters }, slug) {
     try {
       commit('clearErr', null, { root: true })
-      variables = {
+      const variables = {
         store: rootState.store && rootState.store.id,
       }
       const data = (
@@ -35,7 +35,7 @@ export default {
   async clear({ commit, state, rootState, getters }) {
     try {
       commit('clearErr', null, { root: true })
-      variables = {
+      const variables = {
         store: rootState.store && rootState.store.id,
       }
       const data = (

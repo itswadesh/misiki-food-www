@@ -38,7 +38,7 @@ export default {
         params.page = this.meta.page
         params.sort = this.$route.query.sortBy
         params.categories = this.$route.params.slug
-        params.store = this.$store.state.store && this.$store.state.store.id
+        // params.store = this.$store.state.store && this.$store.state.store.id
         params = this.serialize(params)
         this.clearErr()
         const { data, count, pageSize, page } = (

@@ -18,7 +18,7 @@ export default {
       const params = this.$route.query
       params.page = this.meta.page
       params.search = this.$route.params.q
-      params.store = this.$store.state.store && this.$store.state.store.id
+      // params.store = this.$store.state.store && this.$store.state.store.id
       if (this.meta.busy || this.meta.end) return
       try {
         this.clearErr()
