@@ -25,7 +25,7 @@ export default {
       // console.log('FCM:::', e.toString())
     }
   },
-  async fetchSettings({ commit, state, getters, $fire, params }, slug) {
+  async fetchSettings({ commit, state, getters, $fire, params }, domain) {
     try {
       commit('clearErr')
       const settings = (
@@ -38,13 +38,17 @@ export default {
       commit('busy', false)
     }
   },
-  async fetch({ commit, state, getters, $fire, params }, slug) {
+  async fetch({ commit, state, getters, $fire, params }, domain) {
     try {
       commit('clearErr')
+      const variables = { domain }
+      // if(domain.includes('.misiki.in'))
+      //  variables = { slug:'' }
+      console.log(variables)
       const stor = (
         await this.app.apolloProvider.defaultClient.query({
           query: STORE_ONE,
-          variables: { slug },
+          variables,
         })
       ).data.storeOne
       if (stor) {
@@ -89,14 +93,18 @@ export default {
     // await dispatch('auth/fetch')
     // await dispatch('cart/fetch')
   },
-  async nuxtServerInit({ state, commit, dispatch }, { params, app }) {
+  async nuxtServerInit({ state, commit, dispatch }, { params, app, req }) {
+    const host = req.headers.host
+    // .replace('https://', '')
+    // .replace('http://', '')
+    const domain = new URL('http://' + host)
+    console.log(domain)
     await dispatch('fetchSettings')
-    if (!params.store) return
-    app.router.base = params.store || '/'
-
+    // if (!params.store) return
+    // app.router.base = params.store || '/'
     // console.log('nuxtServerInit')
-    await dispatch('fetch', params.store)
-    await dispatch('auth/fetch', params.store)
-    await dispatch('cart/fetch', params.store)
+    await dispatch('fetch', domain.hostname)
+    await dispatch('auth/fetch', domain.hostname)
+    await dispatch('cart/fetch', domain.hostname)
   },
 }
