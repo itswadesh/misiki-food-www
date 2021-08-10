@@ -15,8 +15,7 @@
             p-4
             pt-16
             text-primary-500
-            md:flex-shrink-0 md:flex md:flex-col
-            md:items-center
+            md:flex-shrink-0 md:flex md:flex-col md:items-center
           "
         >
           <!-- <img

@@ -84,9 +84,7 @@ export default {
     },
     async toggleWishlist() {
       if (!this.user) {
-        this.$router.push(
-          `/${this.$route.params.store}/login?ref=${this.$router.currentRoute.fullPath}`
-        )
+        this.$router.push(`/login?ref=${this.$router.currentRoute.fullPath}`)
       }
       this.existInWishlist = !this.existInWishlist
       const msg = 'Product added to wishlist'

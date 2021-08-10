@@ -16,8 +16,7 @@
             border border-gray-400
             rounded
             shadow
-            focus:outline-none
-            focus:ring-offset-gray-200
+            focus:outline-none focus:ring-offset-gray-200
           "
         />
       </div>
@@ -36,8 +35,7 @@
               border border-gray-400
               rounded
               shadow
-              focus:outline-none
-              focus:ring-offset-gray-200
+              focus:outline-none focus:ring-offset-gray-200
             "
           >
             <option value="Month" selected disabled>Month</option>
@@ -69,8 +67,7 @@
               border border-gray-400
               rounded
               shadow
-              focus:outline-none
-              focus:ring-offset-gray-200
+              focus:outline-none focus:ring-offset-gray-200
             "
           >
             <option value="Year" selected disabled>Year</option>
@@ -133,8 +130,7 @@
                 border border-gray-400
                 rounded
                 shadow
-                focus:outline-none
-                focus:ring-offset-gray-200
+                focus:outline-none focus:ring-offset-gray-200
               "
             />
             <svg

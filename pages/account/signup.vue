@@ -2,7 +2,6 @@
   <section
     class="
       flex flex-col
-      cursor-default
       items-center
       justify-center
       h-screen
@@ -30,6 +29,8 @@
         <SignupStep class="p-10" />
       </div>
 
+      <!-- Login side start  -->
+
       <div class="px-4 md:w-1/2">
         <div class="mx-auto sm:w-11/12">
           <div class="flex flex-col pt-10">
@@ -47,86 +48,94 @@
               >
             </nuxt-link>
 
-            <div class="flex flex-col mt-5 text-center">
-              <div class="flex flex-col mx-auto space-y-1">
-                <!-- <div class="text-center ">
-        <span class="text-xl font-medium text-primary-500"
-          >OTP Verification</span
-        >
-      </div> -->
-                <h4 for="email" class="my-2 font-semibold lg:my-0">
-                  Enter The OTP sent to
-                </h4>
-                <div>
-                  <nuxt-link to="/login">
-                    <span class="text-xs font-bold">
-                      {{ countryCode }}-{{ phone }}
+            <div class="flex flex-col mt-5 text-gray-600">
+              <!--  -->
+              <span class="font-thin text-center">
+                Enter your email to start journey with us</span
+              >
+              <form novalidate autocomplete="off" @submit.stop.prevent="submit">
+                <!-- first name -->
+                <Textbox
+                  v-model="firstName"
+                  class="w-full max-w-sm mx-auto mt-3"
+                  placeholder="First name"
+                  autofocus
+                />
+                <!-- Last name  -->
+                <Textbox
+                  v-model="lastName"
+                  class="w-full max-w-sm mx-auto mt-3"
+                  placeholder="Last name"
+                />
+                <!-- email -->
+                <Textbox
+                  id="email"
+                  v-model="email"
+                  type="email"
+                  class="w-full max-w-sm mx-auto mt-3"
+                  placeholder="Email"
+                />
+                <!-- password -->
+                <Textbox
+                  id="password"
+                  v-model="password"
+                  type="password"
+                  class="w-full max-w-sm mx-auto mt-3"
+                  placeholder="Password"
+                />
+                <Textbox
+                  id="passwordConfirmation"
+                  v-model="passwordConfirmation"
+                  type="password"
+                  class="w-full max-w-sm mx-auto mt-3"
+                  placeholder="Repeat Password"
+                />
+
+                <div class="msg">{{ msg }}</div>
+
+                <div class="mt-5">
+                  <GrnIndGradiantButton
+                    class="w-full max-w-sm mx-auto"
+                    type="submit"
+                    :loading="loading"
+                  >
+                    <span v-if="!loading">SIGN UP</span>
+                    <span v-else>
+                      <svg
+                        class="w-6 h-6 text-white animate-spin"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          class="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          stroke-width="4"
+                        ></circle>
+                        <path
+                          class="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        ></path>
+                      </svg>
                     </span>
-                    <button class="text-xs link" @click="$emit('reRequest')">
-                      Change
-                    </button>
+                  </GrnIndGradiantButton>
+                </div>
+                <div class="flex justify-center mt-5">
+                  <nuxt-link
+                    to="/login"
+                    class="text-sm link focus:outline-none"
+                  >
+                    Sign In
                   </nuxt-link>
                 </div>
-
-                <div class="flex justify-center pt-5">
-                  <OtpInput
-                    input-classes="me-2 w-12 text-center rounded border-0 shadow-md hover:shadow transition duration-300"
-                    :num-inputs="4"
-                    separator=" "
-                    :should-auto-focus="true"
-                    @on-complete="VerifyTheOtp"
-                  />
-                </div>
-              </div>
-
-              <!-- <div
-      class="flex flex-row items-center justify-center text-xs text-orange-500"
-    >
-    Please wait for 00:{{ timerCount }} seconds
-    </div> -->
-
-              <div class="mt-5 text-center">
-                <h1 class="text-xs text-gray-700 otptext">
-                  Didn't recive the OTP?
-                  <div v-if="timerCount != 0">
-                    Please wait for 00:{{ timerCount }} seconds before next
-                    request
-                  </div>
-                  <button
-                    v-else
-                    button
-                    class="
-                      text-sm
-                      font-semibold
-                      uppercase
-                      focus:outline-none
-                      link
-                    "
-                    @click="requestOtp"
-                  >
-                    Resend otp
-                  </button>
-                </h1>
-              </div>
-              <div class="w-full my-6">
-                <GrnIndGradiantButton
-                  class="w-full max-w-sm mx-auto"
-                  type="submit"
-                  :disabled="loading"
-                >
-                  VERIFY
-                </GrnIndGradiantButton>
-
-                <!-- <nuxt-link to="/"
-          class="flex justify-center w-full px-4 py-2 mt-3 text-lg font-semibold transition-colors duration-300 bg-white border-none rounded-md shadow ring-1 ring-primary-500 text-primary-500 focus:outline-none focus:ring-primary-500 focus:ring-2"
-        >
-          <span class="font-normal uppercase text-normal">
-            Back
-          </span>
-        </nuxt-link> -->
-              </div>
+              </form>
             </div>
           </div>
+
           <!-- bottom text -->
           <div class="pb-5">
             <div
@@ -223,12 +232,11 @@
 </template>
 
 <script>
-import { mapActions, mapMutations, mapGetters } from 'vuex'
-import OtpInput from '@bachdgvn/vue-otp-input'
+import { mapGetters } from 'vuex'
 import Checkbox from '~/shared/components/ui/Checkbox.vue'
 import SignupStep from '~/components/Login/Email/SignupStep.vue'
 import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
-import GET_OTP from '~/gql/user/getOtp.gql'
+import { Textbox } from '~/shared/components/ui'
 import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
@@ -236,128 +244,59 @@ export default {
     Checkbox,
     SignupStep,
     GrnIndGradiantButton,
-    OtpInput,
+    Textbox,
     NuxtLink,
   },
   layout: 'none',
   middleware: ['isGuest'],
-  // props: {
-  //   countryCode: {
-  //     type: String,
-  //     default: '+91',
-  //   },
-  //   phone: {
-  //     type: String,
-  //   },
-  // },
-  asyncData({ params, app, store }) {
-    const { title, keywords, description } = store.state.settings || {} // err = null
-    return { title, keywords, description }
-  },
   data() {
     return {
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+      passwordConfirmation: '',
+      role: 'vendor',
       loading: false,
-      timerCount: 3,
-      countryCode: null,
-      phone: null,
+      fadeIn: '',
+      disable: 'disable',
+      showOTP: false,
+      msg: null,
+      signin: false,
     }
   },
+  head() {
+    return {
+      title: `SignUp for ${this.settings.websiteName}`,
+    }
+  },
+
   computed: {
-    ...mapGetters({ settings: 'settings' }),
-    user() {
-      return this.$store.state.auth.user
-    },
+    ...mapGetters({ settings: 'settings', error: 'error' }),
   },
-  watch: {
-    timerCount: {
-      handler(value) {
-        if (value > 0) {
-          setTimeout(() => {
-            this.timerCount--
-          }, 1000)
-        }
-      },
-      immediate: true, // This ensures the watcher is triggered upon creation
-    },
-  },
-  mounted() {
-    this.$nuxt.$on('getPhoneNo', (val) => {
-      this.phone = val
-    })
-  },
-  // head() {
-  //   return {
-  //     title: 'Login to ' + (this.settings || {}).websiteName,
-  //     meta: [
-  //       {
-  //         hid: 'description',
-  //         name: 'description',
-  //         content: 'Login to ' + (this.settings || {}).websiteName,
-  //       },
-  //       {
-  //         hid: 'og:description',
-  //         name: 'Description',
-  //         property: 'og:description',
-  //         content: 'Login to ' + (this.settings || {}).websiteName,
-  //       },
-  //       {
-  //         hid: 'og:title',
-  //         name: 'og:title',
-  //         property: 'og:title',
-  //         content: 'Login to ' + (this.settings || {}).websiteName,
-  //       },
-  //       // Twitter
-  //       {
-  //         name: 'twitter:title',
-  //         content: 'Login to ' + (this.settings || {}).websiteName,
-  //       },
-  //       {
-  //         name: 'twitter:description',
-  //         content: 'Login to ' + (this.settings || {}).websiteName,
-  //       },
-  //     ],
-  //   }
-  // },
   methods: {
-    ...mapActions({ verifyOtp: 'auth/verifyOtp' }),
-    ...mapMutations({ setErr: 'setErr', success: 'success' }),
-    async requestOtp() {
-      try {
-        this.loading = true
-        const result = await this.$post('user/getOtp', {
-          phone: this.countryCode + this.phone,
-        })
-        // const result = (
-        //   await this.$apollo.mutate({
-        //     mutation: GET_OTP,
-        //     variables: { phone: this.countryCode + this.phone },
-        //   })
-        // ).data
-        this.timerCount = result.timer
-        // this.timerCount = result.getOtp.timer
-        this.success('OTP Send Successfully')
-      } catch (e) {
-        this.$store.commit('setErr', e)
-
-        this.setErr(e)
-      } finally {
-        this.loading = false
-      }
+    go(url) {
+      this.$router.push(`${url}`)
     },
-    async VerifyTheOtp(val) {
+    async submit() {
       try {
         this.loading = true
-        await this.verifyOtp({
-          otp: val,
-          phone: this.countryCode + this.phone,
+        const data = await this.$store.dispatch('auth/register', {
+          firstName: this.firstName,
+          lastName: this.lastName,
+          email: this.email,
+          password: this.password,
+          passwordConfirmation: this.passwordConfirmation,
+          role: this.role,
         })
-        const r = this.$route.query.ref || '/'
-        this.$router.push(`/${this.$route.params.store}${r}`)
-        this.success('OTP Verified Successfully')
+        if (data) {
+          this.$store.commit('success', 'Signup Successful')
+          const referrer = this.$route.query.referrer || '/'
+          if (referrer)
+            this.$router.push(this.$route.params.store + '/' + referrer)
+        }
       } catch (e) {
         this.$store.commit('setErr', e)
-
-        // this.setErr(e.toString())
       } finally {
         this.loading = false
       }

@@ -192,9 +192,7 @@ export default {
         // ).data.saveReview
         this.success(msg)
         if (this.product)
-          this.$router.push(
-            `/${this.$route.params.store}/${this.product.slug}?id=${this.product.id}`
-          )
+          this.$router.push(`/${this.product.slug}?id=${this.product.id}`)
       } catch (e) {
         this.setErr(e)
       }

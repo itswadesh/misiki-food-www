@@ -279,9 +279,7 @@ export default {
       }
     },
     edit(id) {
-      this.$router.push(
-        `/${this.$route.params.store}${this.returnUrl}?id=${id}`
-      )
+      this.$router.push(`${this.returnUrl}?id=${id}`)
     },
     del(id) {
       this.$swal({

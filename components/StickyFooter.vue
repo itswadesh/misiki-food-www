@@ -15,7 +15,7 @@
   >
     <div class="flex items-center justify-around">
       <nuxt-link
-        :to="localePath(`/${$route.params.store}/search/`)"
+        :to="localePath(`/search/`)"
         class="category-item"
         active-class="text-primary"
       >

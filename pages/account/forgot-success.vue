@@ -58,7 +58,7 @@
 
             <GrnIndGradiantButton
               class="w-full"
-              @click="$router.push('/${this.$route.params.store}/login`')"
+              @click="$router.push('/login`')"
             >
               Home
             </GrnIndGradiantButton>

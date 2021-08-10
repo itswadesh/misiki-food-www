@@ -13,8 +13,7 @@
               rounded
               floating-input
               hover:bg-gray-300
-              focus:outline-none
-              focus:ring-primary-500
+              focus:outline-none focus:ring-primary-500
             "
             placeholder=" "
             :value="value"

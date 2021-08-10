@@ -49,7 +49,7 @@
             </span>
             <PriceDetails
               :btnname="'Continue'"
-              :nextpage="`/${$route.params.store}/checkout/payment-options?address=${$route.query.id}`"
+              :nextpage="`/checkout/payment-options?address=${$route.query.id}`"
               class="bg-white border rounded shadow"
             />
           </div>

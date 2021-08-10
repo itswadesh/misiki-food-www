@@ -38,8 +38,7 @@
             rounded-lg
             shadow-xl
             m-3
-            sm:my-auto
-            sm:align-middle
+            sm:my-auto sm:align-middle
             max-w-3xl
             w-full
           "
@@ -59,9 +58,7 @@
                   h-12
                   mx-auto
                   rounded-full
-                  sm:mx-0
-                  sm:h-10
-                  sm:w-10
+                  sm:mx-0 sm:h-10 sm:w-10
                 "
                 :class="{
                   'bg-brand-100': type == 'error',
@@ -142,10 +139,7 @@
                   focus:outline-none
                   active:scale-90
                   focus:ring-2 focus:ring-offset-2 focus:ring-primary-500
-                  sm:mt-0
-                  sm:ml-3
-                  sm:w-auto
-                  sm:text-sm
+                  sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm
                 "
                 @click="cancel"
               >

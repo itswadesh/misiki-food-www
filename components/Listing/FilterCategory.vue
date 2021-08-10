@@ -64,9 +64,7 @@ export default {
   methods: {
     onChangeValue(i) {
       this.selectedCategoryIndex = i
-      this.$router.push(
-        `/${this.$route.params.store}/c/${this.selectedvalue.slug}`
-      )
+      this.$router.push(`/c/${this.selectedvalue.slug}`)
       // $nuxt.$emit('onSelectCategory', this.selectedvalue.slug)
     },
   },

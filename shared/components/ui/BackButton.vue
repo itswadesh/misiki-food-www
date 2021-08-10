@@ -25,9 +25,7 @@ export default {
   },
   methods: {
     go() {
-      this.to
-        ? this.$router.push(`/${this.$route.params.store}${this.to}`)
-        : this.$router.go(-1)
+      this.to ? this.$router.push(`${this.to}`) : this.$router.go(-1)
     },
   },
 }

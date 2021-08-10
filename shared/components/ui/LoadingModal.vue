@@ -16,8 +16,7 @@
           pt-4
           pb-20
           text-center
-          sm:block
-          sm:p-0
+          sm:block sm:p-0
         "
       >
         <div
@@ -44,10 +43,7 @@
             bg-white
             rounded-lg
             shadow-xl
-            sm:my-8
-            sm:align-middle
-            sm:max-w-lg
-            sm:w-full
+            sm:my-8 sm:align-middle sm:max-w-lg sm:w-full
           "
           role="dialog"
           aria-modal="true"

@@ -80,8 +80,7 @@ export default {
       this.$emit('hideSidebar')
       this.$router.push(`${this.$router.currentRoute.path}`)
       this.showMenu = !this.showMenu
-      if (!this.submenu)
-        this.$router.push(`/${this.$route.params.store}${this.link}`)
+      if (!this.submenu) this.$router.push(`${this.link}`)
     },
   },
 }

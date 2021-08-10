@@ -217,7 +217,7 @@ export default {
         this.$emit('success')
         let r = this.$route.query.ref || '/'
         if (!user.firstName) {
-          r = `/${$route.params.store}/my/profile?ref=${r}`
+          r = `/my/profile?ref=${r}`
         }
         this.$router.push(r)
         this.success('OTP Verified Successfully')

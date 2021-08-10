@@ -11,8 +11,11 @@
     "
   >
     <div class="min-h-screen">
-      <Nav class="fixed top-0 z-50 w-full" @showLogin="showLogin" />
-      <Nuxt class="w-full mt-24 lg:mt-16" keep-alive />
+      <div v-if="!store.id">Store not found</div>
+      <div v-else>
+        <Nav class="fixed top-0 z-50 w-full" @showLogin="showLogin" />
+        <Nuxt class="w-full mt-24 lg:mt-16" keep-alive />
+      </div>
       <div class="flex-1" />
     </div>
     <WhiteFooter class="hidden sm:block" />
@@ -32,6 +35,11 @@ export default {
   },
   head() {
     return this.$nuxtI18nHead()
+  },
+  computed: {
+    store() {
+      return this.$store.state.store || {}
+    },
   },
   methods: {
     showLogin(e) {

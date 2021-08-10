@@ -65,7 +65,7 @@
           <div class="flex flex-col w-full sm:flex-row">
             <!-- fb -->
             <ShareNetwork
-              :url="`${host}/${$route.params.store}/${product.slug}?id=${product.id}`"
+              :url="`${host}/${product.slug}?id=${product.id}`"
               :title="product.name"
               :description="product.description || ''"
               :quote="(product.category && product.category.name) || ''"
@@ -112,7 +112,7 @@
             </ShareNetwork>
             <!-- twitter -->
             <ShareNetwork
-              :url="`${host}/${$route.params.store}/${product.slug}?id=${product.id}`"
+              :url="`${host}/${product.slug}?id=${product.id}`"
               :title="product.name"
               :description="product.description || ''"
               :quote="(product.category && product.category.name) || ''"
@@ -160,7 +160,7 @@
             </ShareNetwork>
             <!-- email -->
             <ShareNetwork
-              :url="`${host}/${$route.params.store}/${product.slug}?id=${product.id}`"
+              :url="`${host}/${product.slug}?id=${product.id}`"
               :title="product.name"
               :description="product.description || ''"
               :quote="(product.category && product.category.name) || ''"
@@ -206,7 +206,7 @@
               >
             </ShareNetwork>
             <ShareNetwork
-              :url="`${host}/${$route.params.store}/${product.slug}?id=${product.id}`"
+              :url="`${host}/${product.slug}?id=${product.id}`"
               :title="product.name"
               :description="product.description || ''"
               :quote="(product.category && product.category.name) || ''"
@@ -276,7 +276,7 @@
             </ShareNetwork>
 
             <ShareNetwork
-              :url="`${host}/${$route.params.store}/${product.slug}?id=${product.id}`"
+              :url="`${host}/${product.slug}?id=${product.id}`"
               :title="product.name"
               :description="product.description || ''"
               :quote="(product.category && product.category.name) || ''"
@@ -389,7 +389,7 @@
       ></div>
     </div>
     <div ref="productLink" class="hidden">
-      {{ `${host}/${$route.params.store}/${product.slug}?id=${product.id}` }}
+      {{ `${host}/${product.slug}?id=${product.id}` }}
     </div>
   </div>
 </template>
@@ -417,7 +417,7 @@ export default {
     },
     close(e) {
       this.open = false
-      if (e) this.$router.push(`/${this.$route.params.store}/c/${e}`)
+      if (e) this.$router.push(`/c/${e}`)
     },
   },
 }

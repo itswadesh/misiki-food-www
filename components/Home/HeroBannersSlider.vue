@@ -12,8 +12,7 @@
             justify-center
             w-4
             h-4
-            md:w-8
-            md:h-8
+            md:w-8 md:h-8
             me-2
             text-gray-800
             transition
@@ -24,8 +23,7 @@
             cursor-pointer
             focus:outline-none
             active:scale-90
-            hover:bg-gray-300
-            hover:shadow
+            hover:bg-gray-300 hover:shadow
           "
           @click="showPrev"
         >
@@ -50,8 +48,7 @@
             justify-center
             w-4
             h-4
-            md:w-8
-            md:h-8
+            md:w-8 md:h-8
             text-gray-800
             transition
             duration-300
@@ -61,8 +58,7 @@
             cursor-pointer
             focus:outline-none
             active:scale-90
-            hover:bg-gray-300
-            hover:shadow
+            hover:bg-gray-300 hover:shadow
           "
           @click="showNext"
         >

@@ -81,7 +81,7 @@ export default {
   methods: {
     hideSidebar(e) {
       this.sidebar = false
-      if (e) this.$router.push(`/${this.$route.params.store}/c/${e}`)
+      if (e) this.$router.push(`/c/${e}`)
       this.$emit('hideSidebar', true)
     },
   },

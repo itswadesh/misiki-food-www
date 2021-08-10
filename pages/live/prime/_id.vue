@@ -188,7 +188,7 @@ export default {
         //   })
         // ).data.saveChannel
         if (id === 'new' || !id || id === undefined || id === 'undefined')
-          this.$router.push(`/${this.$route.params.store}/live/${live.id}`)
+          this.$router.push(`/live/${live.id}`)
       } catch (e) {
         this.setErr(e)
       } finally {

@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link v-bind="{ ...$props, ...$attrs }" :to="toWithPrefix">
+  <nuxt-link v-bind="{ ...$props, ...$attrs }" :to="to">
     <slot></slot>
   </nuxt-link>
 </template>
@@ -9,7 +9,7 @@ export default {
   props: { to: { type: String, default: '/' } },
   computed: {
     toWithPrefix() {
-      return `/${this.$route.params.store}${this.to}`
+      return `${this.to}`
     },
   },
 }

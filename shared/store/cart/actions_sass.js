@@ -201,7 +201,7 @@ export default {
               // vm.clearCart()
               if (capture)
                 vm.$router.push(
-                  `/${this.$route.params.store}/payment/success?id=${capture.id}&provider=Razorpay`
+                  `/payment/success?id=${capture.id}&provider=Razorpay`
                 )
               else vm.$router.push(`/payment/failed?provider=Razorpay`)
             } catch (e) {

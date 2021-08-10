@@ -666,7 +666,7 @@ export default {
       this.showDemoScheduler = true
     },
     go(url) {
-      this.$router.push(`/${this.$route.params.store}${url}`)
+      this.$router.push(`${url}`)
     },
     onSelect(val) {
       this.select = val

@@ -19,8 +19,7 @@
           my-3
           text-base
           font-normal
-          lg:my-2
-          lg:w-auto
+          lg:my-2 lg:w-auto
         "
       >
         Page {{ current }} of {{ count }}
@@ -86,8 +85,7 @@
             my-auto
             rounded
             focus:outline-none
-            hover:bg-gray-400
-            hover:text-white
+            hover:bg-gray-400 hover:text-white
           "
           :class="{
             'bg-black font-medium text-white tracking-wide rounded-sm':

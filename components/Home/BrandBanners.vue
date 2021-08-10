@@ -120,9 +120,7 @@ export default {
     go(url) {
       if (url)
         this.$router.push(
-          `/${this.$route.params.store}/search?${
-            this.ishome ? 'parentBrands' : 'brands'
-          }=${url}`
+          `/search?${this.ishome ? 'parentBrands' : 'brands'}=${url}`
         )
     },
     //   async getBrands() {

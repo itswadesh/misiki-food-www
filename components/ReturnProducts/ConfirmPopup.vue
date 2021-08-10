@@ -87,7 +87,7 @@ export default {
     hide(e) {
       //  console.log("hide ho ja")
       // this.sidebar = false
-      if (e) this.$router.push(`/${this.$route.params.store}/c/${e}`)
+      if (e) this.$router.push(`/c/${e}`)
       this.$emit('hide', true)
     },
   },

@@ -162,7 +162,7 @@ export default {
     ...mapActions({ register: 'auth/register' }),
     ...mapMutations({ success: 'success', setErr: 'setErr' }),
     go(url) {
-      this.$router.push(`/${this.$route.params.store}${url}`)
+      this.$router.push(`${url}`)
     },
     async submit() {
       try {
@@ -177,8 +177,7 @@ export default {
         if (data) {
           this.success('Signup Successful')
           const referrer = this.$route.query.referrer || '/'
-          if (referrer)
-            this.$router.push(`/${this.$route.params.store}${referrer}`)
+          if (referrer) this.$router.push(`${referrer}`)
         }
       } catch (e) {
         this.setErr(e)

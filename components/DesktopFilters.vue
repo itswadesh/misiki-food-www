@@ -562,7 +562,7 @@ export default {
   methods: {
     async refreshSideMegaMenu() {
       try {
-        let brand = null
+        const brand = null
         const bv = {}
         const slug = this.$route.params.slug
         const brandId = this.$route.query.brand
@@ -620,7 +620,7 @@ export default {
     changed(e) {
       this.scrollToTop()
       this.fl[e.model] = e.checked
-      const url = constructURL(`/${this.$route.params.store}/search`, this.fl)
+      const url = constructURL(`/search`, this.fl)
 
       this.$router.push(url)
     },
@@ -628,7 +628,7 @@ export default {
       const ix = this.fl[k].indexOf(i)
       this.fl[k].splice(ix, 1)
       // this.$emit("removed", this.fl);
-      const url = constructURL(`/${this.$route.params.store}/search`, this.fl)
+      const url = constructURL(`/search`, this.fl)
       this.$router.push(url)
     },
     checkCategory() {},

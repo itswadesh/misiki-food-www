@@ -335,7 +335,7 @@ export default {
       success: 'success',
     }),
     go(url) {
-      this.$router.push(`/${this.$route.params.store}${url}`)
+      this.$router.push(`${url}`)
     },
     async submit() {
       try {

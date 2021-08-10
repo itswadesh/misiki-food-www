@@ -73,10 +73,14 @@
             <nuxt-link :to="localePath('/')">
               <div class="my-auto">
                 <img
-                  v-lazy="settings.logo"
+                  v-if="store.logo"
+                  v-lazy="store.logo"
                   alt="store logo"
                   class="object-contain h-8 my-auto md:h-8"
                 />
+                <span v-else class="text-gray-500 font-bold text-2xl">{{
+                  store.name
+                }}</span>
               </div>
             </nuxt-link>
           </div>
@@ -243,6 +247,9 @@ export default {
     },
     cart() {
       return this.$store.state.cart
+    },
+    store() {
+      return this.$store.state.store || {}
     },
   },
 

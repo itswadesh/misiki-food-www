@@ -9,9 +9,7 @@
           mx-auto
           bg-gray-300
           rounded-sm
-          md:flex
-          md:h-auto
-          md:w-full
+          md:flex md:h-auto md:w-full
           xl:w-3/4
           me-3
         "
@@ -24,8 +22,7 @@
           md:hidden
           h-80
           w-80
-          sm:w-96
-          sm:h-96
+          sm:w-96 sm:h-96
         "
       ></div>
       <div class="flex flex-row mx-auto mt-1 md:flex-col">

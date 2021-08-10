@@ -6,8 +6,7 @@
           flex flex-col
           md:flex-row
           space-y-16
-          md:space-y-0
-          md:items-center
+          md:space-y-0 md:items-center
           justify-start
           md:justify-between
           flex-wrap
@@ -80,9 +79,7 @@
         top-5
         left-5
         bottom-10
-        md:bottom-0
-        md:left-14
-        md:right-14
+        md:bottom-0 md:left-14 md:right-14
         isolate
       "
     >
@@ -90,8 +87,7 @@
         class="
           w-1
           h-full
-          md:h-1
-          md:w-full
+          md:h-1 md:w-full
           border-l-2
           md:border-l-0
           border-t-0

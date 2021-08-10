@@ -76,10 +76,7 @@
         </div>
       </div>
 
-      <nuxt-link
-        v-else
-        :to="localePath(`/${$route.params.store}/checkout/address`)"
-      >
+      <nuxt-link v-else :to="localePath(`/checkout/address`)">
         <div
           class="
             flex

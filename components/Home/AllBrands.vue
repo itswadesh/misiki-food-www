@@ -66,9 +66,7 @@
 
           <div v-for="b in brands" :key="b.id">
             <nuxt-link
-              :to="
-                localePath(`/${$route.params.store}/search?brands=${b.slug}`)
-              "
+              :to="localePath(`/search?brands=${b.slug}`)"
               class="my-auto focus:outline-none"
             >
               <img

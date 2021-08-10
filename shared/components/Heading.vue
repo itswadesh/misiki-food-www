@@ -9,8 +9,7 @@
         font-bold
         rounded
         text-start
-        focus:ring-gray-200
-        focus:outline-none
+        focus:ring-gray-200 focus:outline-none
         md:hidden
         hover:bg-gray-200
       "
@@ -35,8 +34,7 @@
         font-semibold
         text-center
         bg-gray-50
-        md:bg-white
-        md:text-left
+        md:bg-white md:text-left
       "
     >
       {{ title }}

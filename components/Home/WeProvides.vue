@@ -22,8 +22,8 @@
       >
         <a
           v-for="(s, sx) in socialmedias"
-          :key="sx"
           v-if="s.link"
+          :key="sx"
           target="_blank"
           :href="s.link"
         >
@@ -34,10 +34,8 @@
               h-4
               rounded-full
               cursor-pointer
-              lg:h-6
-              lg:w-6
-              xl:h-8
-              xl:w-8
+              lg:h-6 lg:w-6
+              xl:h-8 xl:w-8
             "
           />
         </a>

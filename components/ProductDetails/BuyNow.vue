@@ -46,7 +46,7 @@ export default {
     ...mapActions({ addToCart: 'cart/addToCart' }),
     ...mapMutations({ success: 'success', setErr: 'setErr' }),
     go() {
-      this.$router.push(`/${this.$route.params.store}/cart`)
+      this.$router.push(`/cart`)
     },
     async addToBag(obj) {
       // if (!this.userSelectedVariant) {
@@ -99,7 +99,7 @@ export default {
             action: {
               text: 'View Cart',
               onClick: (e, toastObject) => {
-                this.$router.push(`/${this.$route.params.store}/cart`)
+                this.$router.push(`/cart`)
                 toastObject.goAway(0)
               },
             },

@@ -142,11 +142,11 @@ export default {
     ...mapActions({ removeCoupon: 'cart/removeCoupon' }),
     proceed() {
       if (!this.selectedAddress) {
-        this.$router.push(`/${this.$route.params.store}/checkout/add`)
+        this.$router.push(`/checkout/add`)
         return
       }
       this.$router.push(
-        `/${this.$route.params.store}/checkout/payment-options?address=${this.selectedAddress}`
+        `/checkout/payment-options?address=${this.selectedAddress}`
       )
     },
     hideOffers() {

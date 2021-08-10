@@ -66,8 +66,7 @@
               rounded-md
               shadow
               border-primary-500
-              focus:outline-none
-              focus:ring-primary-500 focus:ring-2
+              focus:outline-none focus:ring-primary-500 focus:ring-2
             "
             :class="
               loading ? 'text-white bg-gray-500' : 'bg-primary-500 text-white'
@@ -120,8 +119,7 @@
               border-none
               rounded-md
               shadow
-              focus:outline-none
-              focus:ring-primary-500 focus:ring-2
+              focus:outline-none focus:ring-primary-500 focus:ring-2
               ring-1 ring-primary-500
               text-primary-500
             "
@@ -144,8 +142,7 @@
             cursor-pointer
             lg:mt-3
             text-primary-200
-            hover:text-primary-500
-            hover:underline
+            hover:text-primary-500 hover:underline
           "
         >
           Not a Member yet?

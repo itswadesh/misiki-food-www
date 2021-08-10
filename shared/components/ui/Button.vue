@@ -22,8 +22,7 @@
       transform
       ease-in-out
       sm:rounded
-      focus:ring-opacity-50 focus:ring focus:ring-offset-2
-      focus:outline-none
+      focus:ring-opacity-50 focus:ring focus:ring-offset-2 focus:outline-none
     "
     @click="handleClick"
   >

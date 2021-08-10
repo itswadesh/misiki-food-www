@@ -20,8 +20,7 @@
       cursor-pointer
       me-3
       focus:outline-none
-      hover:bg-gray-600
-      hover:text-white
+      hover:bg-gray-600 hover:text-white
     "
     @click="scrollToTop"
   >

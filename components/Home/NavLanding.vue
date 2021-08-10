@@ -151,7 +151,7 @@ export default {
       })
     },
     submit(q) {
-      this.$router.push(`/${this.$route.params.store}/search/${q}`)
+      this.$router.push(`/search/${q}`)
     },
     closeSidebar() {
       this.sidebar = false

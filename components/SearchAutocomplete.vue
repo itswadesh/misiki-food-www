@@ -36,9 +36,7 @@
             "
             @keyup.enter="
               $event.target.blur()
-              $router.push(
-                `/${$route.params.store}/search/${selectedVal || ''}`
-              )
+              $router.push(`/search/${selectedVal || ''}`)
             "
             @focus="onFocused()"
             @input="getData()"
@@ -151,16 +149,13 @@ export default {
         this.$router.push(
           `/${this.product._source.slug}?id=${this.product._id}`
         )
-      else
-        this.$router.push(
-          `/${this.$route.params.store}/search/${this.selectedVal}`
-        )
+      else this.$router.push(`/search/${this.selectedVal}`)
     },
     onselect(val) {
       // console.log(val)
       this.fillValue(val)
       this.onUnfocused()
-      this.$router.push(`/${this.$route.params.store}/search/${val.key}`)
+      this.$router.push(`/search/${val.key}`)
       // this.$router.push(`/${this.product._source.slug}?id=${this.product._id}`)
       // console.log(this.selectedVal)
     },
@@ -209,7 +204,7 @@ export default {
       }
     },
     onFocusedMobile() {
-      this.$router.push(`/${this.$route.params.store}/search-suggestions`)
+      this.$router.push(`/search-suggestions`)
     },
     onFocused() {
       //

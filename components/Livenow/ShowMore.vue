@@ -11,8 +11,7 @@
         text-purple-500
         rounded-md
         cursor-pointer
-        hover:text-purple-700
-        hover:bg-gray-200
+        hover:text-purple-700 hover:bg-gray-200
       "
     >
       <span class="flex-1 whitespace-nowrap"> Show more</span>

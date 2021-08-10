@@ -73,7 +73,7 @@ export default {
       this.getData(true)
     },
     go(url) {
-      this.$router.push(`/${this.$route.params.store}${url}`)
+      this.$router.push(`${url}`)
     },
   },
   watch: {

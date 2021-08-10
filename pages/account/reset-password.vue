@@ -90,7 +90,7 @@ export default {
           password: this.password,
           passwordConfirmation: this.password,
         })
-        this.$router.push(`/${this.$route.params.store}/account/reset-success`)
+        this.$router.push(`/account/reset-success`)
       } catch (e) {
         this.$store.commit('setErr', e)
       }

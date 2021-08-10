@@ -10,8 +10,7 @@
       cursor-pointer
       me-2
       hover:bg-green-100
-      focus:outline-none
-      focus:shadow-outline-green
+      focus:outline-none focus:shadow-outline-green
     "
     :class="{
       'bg-green-100 shadow-outline-green': activePlan === name,

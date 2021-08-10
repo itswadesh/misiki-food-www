@@ -204,7 +204,7 @@ export default {
           })
         ).data.returnOrReplace
         this.$router.push(
-          `/${this.$route.params.store}/my/order-details?orderId=${this.$route.query.orderId}&itemId=${this.$route.query.itemId}`
+          `/my/order-details?orderId=${this.$route.query.orderId}&itemId=${this.$route.query.itemId}`
         )
       } catch (e) {
         this.$store.commit('setErr', e)
