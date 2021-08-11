@@ -143,13 +143,11 @@ export default {
               },
             })
           ).data.checkout
-          this.$router.push(
-            `/${this.app.context.params.store}/payment/success?id=${order.id}&provider=COD`
-          )
+          this.$router.push(`/payment/success?id=${order.id}&provider=COD`)
         } catch (err) {
           commit('setErr', err, { root: true })
           // this.$router.push(
-          //   `/${this.app.context.params.store}/payment/failed?provider=COD`
+          //   `/payment/failed?provider=COD`
           // )
         } finally {
           commit('busy', false, { root: true })
