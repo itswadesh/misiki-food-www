@@ -75,13 +75,14 @@
             <a :href="getLoginUrl()">
               <GrnIndGradiantButton
                 loadingringsize="lg"
-                class="w-64 mt-10 py-3 text-lg"
+                class="w-72 mt-10 py-3 text-lg"
                 :loading="loading"
                 @click="loading = true"
               >
                 Launch your store now
               </GrnIndGradiantButton>
             </a>
+
             <!-- <div class="flex mt-10 border-gray-100 lg:mt-20">
               <div
                 class="py-2 pl-5 pr-16 text-gray-600 bg-white lg:text-lg lg:pr-40 add md:pr-48 md:py-4"
