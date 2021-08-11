@@ -206,7 +206,7 @@ export default {
     NuxtLink,
   },
   layout: 'none',
-  middleware: ['isGuest'],
+  middleware: ['isGuest', 'isEmailLogin'],
   data() {
     return {
       error: null,

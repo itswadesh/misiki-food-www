@@ -78,7 +78,7 @@ export default {
       ).data.signOut
       if (logout) {
         commit('clearUser')
-        this.$router.push(`/${this.app.context.params.store}`)
+        this.$router.push(`/`)
       } else commit('setErr', 'Logout error', { root: true })
     } catch (e) {
     } finally {
