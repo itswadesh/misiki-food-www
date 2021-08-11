@@ -87,7 +87,7 @@ export default {
   // },
   webfontloader: {
     google: {
-      families: ['Inter:400,700&display=swap'],
+      families: ['Inter:100,200,300,400,500,600,700&display=swap'],
     },
   },
   axios: {
@@ -113,6 +113,7 @@ export default {
   proxy: {
     '/graphql': HTTP_ENDPOINT,
     '/api': HTTP_ENDPOINT,
+    '/auth': HTTP_ENDPOINT,
   },
   build: {
     babel: {
