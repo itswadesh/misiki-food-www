@@ -80,7 +80,7 @@
 
           <div
             v-if="product.stock > 0 && product.stock < 5"
-            class="text-sm sm:text-base font-thin text-accent-900 mb-1 sm:mb-2"
+            class="text-sm sm:text-base font-light text-accent-900 mb-1 sm:mb-2"
           >
             Hurry up, only few left!
           </div>

@@ -1,7 +1,13 @@
 <template>
   <section class="container mx-auto w-64 lg:w-full">
     <div
-      class="group hover:bg-white hover:shadow-md text-gray-800"
+      class="
+        border border-transparent
+        hover:border-gray-100
+        rounded
+        hover:bg-white hover:shadow-md
+        text-gray-800
+      "
       @mouseenter="showitems()"
       @mouseleave="hideitems()"
     >
@@ -23,7 +29,10 @@
           <div v-if="show" class="-mt-12">
             <!-- View smilar button start-->
             <div class="hidden sm:block">
-              <nuxt-link to="#" class="flex justify-end">
+              <nuxt-link
+                :to="`/search/${product.brand && product.brand.name}`"
+                class="flex justify-end"
+              >
                 <div
                   class="
                     flex
@@ -203,7 +212,10 @@
               mt-2.5
               mb-1.5
               leading-4
-              flex flex-wrap
+              flex flex-row
+              overflow-hidden
+              whitespace-nowrap
+              overflow-ellipsis
               items-baseline
               justify-start
             "

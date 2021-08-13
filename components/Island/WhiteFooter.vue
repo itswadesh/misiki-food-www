@@ -1,17 +1,18 @@
 <template>
-  <div class="w-full p-8 text-gray-800 bg-transparent">
+  <div class="w-full p-8 text-gray-800 bg-white">
     <div class="flex flex-col justify-between lg:flex-row">
       <div class="w-full lg:w-4/5">
         <span class="ps-1 text-lg font-medium uppercase lg:mx-auto">
           Useful links
         </span>
+
         <div
           class="
             flex flex-row flex-wrap
             mt-4
             mb-4
             text-xs
-            font-thin
+            font-light
             md:mt-2
             lg:mx-auto
           "
@@ -266,7 +267,7 @@
               hover:bg-gray-800 hover:text-white
             "
           >
-            Contaact Seller
+            Contact Seller
           </nuxt-link>
           <nuxt-link
             to="/features"
@@ -309,7 +310,7 @@
             flex flex-row flex-wrap
             mt-4
             text-xs
-            font-thin
+            font-light
             md:mt-2
             lg:mx-auto
           "
@@ -340,7 +341,7 @@
           hidden
           w-full
           my-auto
-          font-thin
+          font-light
           lg:ps-6 lg:flex-col lg:w-2/5
           md:flex
         "

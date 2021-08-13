@@ -76,11 +76,25 @@
                   v-if="store.logo"
                   v-lazy="store.logo"
                   alt="store logo"
-                  class="object-contain h-8 my-auto md:h-8"
+                  class="object-contain h-8 md:h-10"
                 />
-                <span v-else class="text-gray-500 font-bold text-2xl">{{
-                  store.name
-                }}</span>
+
+                <h1
+                  v-else
+                  class="
+                    text-xl
+                    md:text-2xl
+                    lg:text-3xl
+                    text-transparent
+                    bg-clip-text bg-gradient-to-br
+                    from-secondary-500
+                    to-primary-500
+                    font-semibold
+                    sm:font-bold
+                  "
+                >
+                  {{ store.name }}
+                </h1>
               </div>
             </nuxt-link>
           </div>
@@ -92,6 +106,7 @@
 
         <div
           class="
+            my-auto
             flex
             items-center
             justify-between
@@ -122,7 +137,7 @@
               />
             </svg>
 
-            <div class="hidden text-xs font-semibold md:block">Login</div>
+            <div class="hidden text-sm lg:block">Login</div>
           </button>
 
           <nuxt-link v-else class="w-auto" :to="localePath('/my')">
@@ -141,7 +156,7 @@
               />
             </svg>
 
-            <div class="hidden text-xs font-semibold md:block">Profile</div>
+            <div class="hidden text-sm lg:block">Profile</div>
           </nuxt-link>
 
           <nuxt-link class="w-auto" :to="localePath('/my/wishlist')">
@@ -160,7 +175,7 @@
               />
             </svg>
 
-            <div class="hidden text-xs font-semibold md:block">Wishlist</div>
+            <div class="hidden text-sm lg:block">Wishlist</div>
           </nuxt-link>
 
           <nuxt-link class="relative" to="/cart">
@@ -178,7 +193,7 @@
                 flex
                 items-center
                 justify-center
-                text-xs text-center text-white
+                text-sm text-center text-white
               "
             >
               <span v-if="cart && cart.qty > 0">{{ cart.qty }}</span>
@@ -201,7 +216,7 @@
               />
             </svg>
 
-            <div class="hidden text-xs font-semibold md:block">Cart</div>
+            <div class="hidden text-sm lg:block">Cart</div>
           </nuxt-link>
         </div>
 
@@ -306,7 +321,7 @@ export default {
   background-color: hsla(0, 0%, 100%, 0.75);
 }
 
-.text-xs {
+.text-sm {
   font-size: 0.675rem;
   line-height: 1.1rem;
   margin-left: 1px;

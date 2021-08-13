@@ -5,6 +5,7 @@
         text-xl
         md:text-2xl
         lg:text-3xl
+        text-gray-500
         font-semibold
         sm:font-bold
         py-5
@@ -76,7 +77,11 @@
               v-bind="settings"
               ref="carousel"
             >
-              <div v-for="product in details" :key="product.id" class="pr-5">
+              <div
+                v-for="product in details"
+                :key="product.id"
+                class="pr-5 w-full"
+              >
                 <HomePageProduct :product="product" />
               </div>
             </VueSlickCarousel>
@@ -166,8 +171,8 @@ export default {
         centerMode: false,
         focusOnSelect: false,
         infinite: true,
-        slidesToShow: 5,
         arrows: false,
+        slidesToShow: 6,
         slidesToScroll: 1,
         autoplay: false,
         speed: 500,
@@ -175,19 +180,13 @@ export default {
           {
             breakpoint: 1536,
             settings: {
-              slidesToShow: 4,
+              slidesToShow: 5,
             },
           },
           {
             breakpoint: 1280,
             settings: {
-              slidesToShow: 3,
-            },
-          },
-          {
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: 2,
+              slidesToShow: 4,
             },
           },
         ],

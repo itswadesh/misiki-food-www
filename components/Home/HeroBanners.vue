@@ -2,7 +2,8 @@
   <div>
     <HeroBannerSkeleton v-if="loading" />
     <div v-for="(b, ix) of banners" :key="ix">
-      <h2 class="text-3xl text-gray-600 ms-3 font-bold">{{ b._id.title }}</h2>
+      <h2 class="text-3xl text-gray-500 ms-3 font-bold">{{ b._id.title }}</h2>
+
       <div v-if="b.data" class="grid grid-cols-2 lg:grid-cols-4">
         <a
           v-if="b.data[0] && ifUrl(b.data[0].link)"

@@ -2,7 +2,7 @@
   <div>
     <button
       type="button"
-      :class="{ 'bg-gray-300': open == true }"
+      :class="{ 'shadow-md border-gray-200': open == true }"
       class="
         flex flex-row
         px-4
@@ -32,37 +32,40 @@
         />
       </svg>
 
-      <span class="hidden my-auto font-thin ms-1 md:flex">Share</span>
+      <span class="hidden my-auto ms-1 md:flex">Share</span>
     </button>
+
     <div v-if="open && product" class="">
       <div
         class="
           absolute
-          z-50
+          right-10
+          z-40
           items-center
           w-4/5
+          sm:w-3/5
+          md:w-2/5
           mt-2
           overflow-y-auto
           bg-white
           border
           rounded-sm
           shadow-2xl
-          right-8
-          sm:right-0 sm:overflow-hidden sm:p-3 sm:w-2/5 sm:h-32
+          xl:overflow-hidden xl:p-3 xl:h-32
         "
       >
         <div
           class="
             flex flex-col
             h-full
-            sm:justify-around sm:my-auto sm:flex-wrap sm:flex-row
+            xl:justify-around xl:my-auto xl:flex-wrap xl:flex-row
           "
         >
-          <div class="p-3 bg-gray-200 border-b sm:hidden">
-            <span class="text-lg text-center">Share Via</span>
+          <div class="py-3 px-5 bg-gray-200 border-b xl:hidden">
+            <span class="font-semibold text-center">Share Via</span>
           </div>
 
-          <div class="flex flex-col w-full sm:flex-row">
+          <div class="flex flex-col w-full xl:flex-row">
             <!-- fb -->
             <ShareNetwork
               :url="`${host}/${product.slug}?id=${product.id}`"
@@ -78,10 +81,13 @@
                 w-full
                 mx-auto
                 border-b
-                sm:flex-col
+                xl:flex-col
                 focus:outline-none
-                sm:border-b-0 sm:ps-0
+                xl:border-b-0 xl:ps-0
                 ps-4
+                group
+                transition
+                duration-300
               "
               @click="close(null)"
             >
@@ -90,8 +96,8 @@
                   my-2
                   rounded-full
                   cursor-pointer
-                  sm:my-auto
-                  hover:shadow-lg
+                  xl:my-auto
+                  group-hover:shadow-md
                 "
                 width="50"
                 height="50"
@@ -106,7 +112,17 @@
                   />
                 </g>
               </svg>
-              <span class="my-auto font-light text-gray-500 ps-4 sm:ps-0">
+
+              <span
+                class="
+                  my-auto
+                  font-light
+                  text-gray-500
+                  group-hover:text-primary-500 group-hover:font-normal
+                  ps-4
+                  xl:ps-0
+                "
+              >
                 Facebook
               </span>
             </ShareNetwork>
@@ -126,10 +142,13 @@
                 w-full
                 mx-auto
                 border-b
-                sm:flex-col
+                xl:flex-col
                 focus:outline-none
-                sm:border-b-0 sm:ps-0
+                xl:border-b-0 xl:ps-0
                 ps-4
+                group
+                transition
+                duration-300
               "
               @click="close(null)"
             >
@@ -138,8 +157,8 @@
                   my-2
                   rounded-full
                   cursor-pointer
-                  sm:my-auto
-                  hover:shadow-lg
+                  xl:my-auto
+                  group-hover:shadow-md
                 "
                 width="50"
                 height="50"
@@ -154,7 +173,16 @@
                   />
                 </g>
               </svg>
-              <span class="my-auto font-light text-gray-500 ps-4 sm:ps-0">
+              <span
+                class="
+                  my-auto
+                  font-light
+                  text-gray-500
+                  group-hover:text-primary-500 group-hover:font-normal
+                  ps-4
+                  xl:ps-0
+                "
+              >
                 Twitter
               </span>
             </ShareNetwork>
@@ -173,10 +201,13 @@
                 w-full
                 mx-auto
                 border-b
-                sm:flex-col
+                xl:flex-col
                 focus:outline-none
-                sm:border-b-0 sm:ps-0
+                xl:border-b-0 xl:ps-0
                 ps-4
+                group
+                transition
+                duration-300
               "
               @click="close(null)"
             >
@@ -185,8 +216,8 @@
                   my-2
                   rounded-full
                   cursor-pointer
-                  sm:my-auto
-                  hover:shadow-lg
+                  xl:my-auto
+                  group-hover:shadow-md
                 "
                 width="50"
                 height="50"
@@ -201,7 +232,15 @@
                   />
                 </g>
               </svg>
-              <span class="my-auto font-light text-gray-500 ps-4 sm:ps-0"
+              <span
+                class="
+                  my-auto
+                  font-light
+                  text-gray-500
+                  group-hover:text-primary-500 group-hover:font-normal
+                  ps-4
+                  xl:ps-0
+                "
                 >Email</span
               >
             </ShareNetwork>
@@ -219,17 +258,29 @@
                 w-full
                 mx-auto
                 border-b
-                sm:flex-col
+                xl:flex-col
                 focus:outline-none
-                sm:border-b-0 sm:ps-0
+                xl:border-b-0 xl:ps-0
                 ps-4
+                group
+                transition
+                duration-300
               "
               @click="close(null)"
             >
               <svg
                 id="Capa_1"
                 version="1.1"
-                class="w-12 h-12 p-3 my-2 text-gray-600 border rounded-full"
+                class="
+                  w-12
+                  h-12
+                  p-3
+                  my-2
+                  text-gray-600
+                  border
+                  rounded-full
+                  group-hover:shadow-md
+                "
                 xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
                 x="0px"
@@ -270,7 +321,16 @@
                 <g></g>
                 <g></g>
               </svg>
-              <span class="my-auto font-light text-gray-500 ps-4 sm:ps-0">
+              <span
+                class="
+                  my-auto
+                  font-light
+                  text-gray-500
+                  group-hover:text-primary-500 group-hover:font-normal
+                  ps-4
+                  xl:ps-0
+                "
+              >
                 WhatsApp
               </span>
             </ShareNetwork>
@@ -289,16 +349,28 @@
                 w-full
                 mx-auto
                 border-b
-                sm:flex-col
+                xl:flex-col
                 focus:outline-none
-                sm:border-b-0 sm:ps-0
+                xl:border-b-0 xl:ps-0
                 ps-4
+                group
+                transition
+                duration-300
               "
               @click="close(null)"
             >
               <svg
                 id="Capa_1"
-                class="w-12 h-12 p-3 my-2 text-gray-600 border rounded-full"
+                class="
+                  w-12
+                  h-12
+                  p-3
+                  my-2
+                  text-gray-600
+                  border
+                  rounded-full
+                  group-hover:shadow-md
+                "
                 enable-background="new 0 0 512 512"
                 height="512"
                 viewBox="0 0 512 512"
@@ -343,7 +415,16 @@
                 </g>
               </svg>
 
-              <span class="my-auto font-light text-gray-500 ps-4 sm:ps-0">
+              <span
+                class="
+                  my-auto
+                  font-light
+                  text-gray-500
+                  group-hover:text-primary-500 group-hover:font-normal
+                  ps-4
+                  xl:ps-0
+                "
+              >
                 Message
               </span>
             </ShareNetwork>
@@ -355,16 +436,28 @@
                 w-full
                 mx-auto
                 border-b
-                sm:flex-col
+                xl:flex-col
                 focus:outline-none
-                sm:border-b-0 sm:ps-0
+                xl:border-b-0 xl:ps-0
                 ps-4
+                group
+                transition
+                duration-300
               "
               @click="copy()"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-12 h-12 p-3 my-2 text-gray-600 border rounded-full"
+                class="
+                  w-12
+                  h-12
+                  p-3
+                  my-2
+                  text-gray-600
+                  border
+                  rounded-full
+                  group-hover:shadow-md
+                "
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -375,7 +468,16 @@
                   d="M3 8a2 2 0 012-2v10h8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"
                 />
               </svg>
-              <span class="my-auto font-light text-gray-500 ps-4 sm:ps-0">
+              <span
+                class="
+                  my-auto
+                  font-light
+                  text-gray-500
+                  group-hover:text-primary-500 group-hover:font-normal
+                  ps-4
+                  xl:ps-0
+                "
+              >
                 Copy Link
               </span>
             </button>

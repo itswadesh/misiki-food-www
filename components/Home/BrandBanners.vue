@@ -5,6 +5,7 @@
         text-xl
         md:text-2xl
         lg:text-3xl
+        text-gray-500
         font-semibold
         sm:font-bold
         py-5

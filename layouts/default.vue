@@ -11,17 +11,29 @@
     "
   >
     <div class="min-h-screen">
-      <div v-if="!store.id" class="px-8 py-12">
+      <div
+        v-if="!store.id"
+        class="px-8 py-12 flex flex-col items-center justify-center"
+      >
         <div
-          class="pb-4 text-2xl font-bold text-center text-gray-800 md:text-3xl"
+          class="mb-6 text-2xl font-bold text-center text-gray-800 md:text-3xl"
         >
-          <img src="/no/dog-png-1.png" alt="" class="mx-auto mb-5 h-96 w-72" />
+          <img src="/no/dog-png-1.png" alt="" class="mx-auto h-96 w-72" />
           <p>Oops! Store not found</p>
         </div>
 
-        <div class="mt-4 text-xs font-semibold text-center">
+        <a target="blank" href="https://admin.misiki.in/" class="mb-5">
+          <GrnIndGradiantButton
+            :loading="loading"
+            class="w-52"
+            @click="loading = true"
+            >Create your store</GrnIndGradiantButton
+          >
+        </a>
+
+        <div class="mb-1 text-xs font-semibold text-center">
           MISIKI TECHNOLOGIES LLP,
-          <p class="mt-1">Odisha</p>
+          <p>Odisha</p>
         </div>
       </div>
 
@@ -43,11 +55,13 @@
 import OtpLogin from '~/components/Login/Mobile/OtpLogin.vue'
 import Nav from '~/components/Home/Nav.vue'
 import WhiteFooter from '~/components/Island/WhiteFooter.vue'
+import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
 export default {
-  components: { Nav, OtpLogin, WhiteFooter },
+  components: { Nav, OtpLogin, WhiteFooter, GrnIndGradiantButton },
   data() {
     return {
       showLoginModal: false,
+      loading: false,
     }
   },
   head() {

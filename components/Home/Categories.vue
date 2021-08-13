@@ -7,6 +7,7 @@
         text-xl
         md:text-2xl
         lg:text-3xl
+        text-gray-500
         font-semibold
         sm:font-bold
         py-5
@@ -20,12 +21,22 @@
     <BagSkelton v-if="loading" />
 
     <section v-else-if="categories">
-      <div class="flex flex-wrap items-start justify-between">
+      <div
+        class="
+          grid grid-cols-3
+          sm:grid-cols-4
+          lg:grid-cols-5
+          xl:grid-cols-7
+          gap-3
+          sm:gap-5
+          md:gap-7
+        "
+      >
         <div
           v-for="c in categories.data"
           v-if="c.img"
           :key="c.id"
-          class="mb-2 sm:mb-5 group"
+          class="mr-2 mb-2 sm:mr-5 xl:mr-6 sm:mb-5 xl:mb-6 group"
         >
           <nuxt-link :to="localePath(`/c/${c.slug}`)">
             <div
@@ -44,9 +55,8 @@
                 alt="categories"
                 class="
                   object-cover
-                  h-24
-                  w-24
-                  md:h-32 md:w-32
+                  h-full
+                  w-full
                   border-2
                   md:border-4
                   rounded-full
@@ -59,8 +69,6 @@
 
             <h6
               class="
-                w-24
-                md:w-32
                 text-sm
                 font-serif
                 sm:text-base

@@ -109,13 +109,11 @@
 
       <div
         v-if="product.countryOfOrigin"
-        class="fles items-cennter mb-2 text-sm"
+        class="fles items-cennter mb-2 text-sm font-medium"
       >
-        <span class="font-medium me-2">Country Of Origin :</span>
+        <span class="me-2">Country Of Origin :</span>
 
-        <span class="text-gray-500 font-light">{{
-          product.countryOfOrigin
-        }}</span>
+        <span class="text-gray-500">{{ product.countryOfOrigin }}</span>
       </div>
     </div>
 

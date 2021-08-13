@@ -26,7 +26,6 @@ div
           class="w-3/4"
         />
 
-        <div class="w-1/4 flex justify-end"></div>
         <Share :product="product" :host="host" />
       </div>
 

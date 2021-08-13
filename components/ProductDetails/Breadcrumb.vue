@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center my-auto text-sm font-thin text-gray-500">
+  <div class="flex items-center my-auto text-sm font-light text-gray-500">
     <nuxt-link :to="localePath('/')">
       <svg
         xmlns="http://www.w3.org/2000/svg"
