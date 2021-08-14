@@ -49,15 +49,19 @@
     <WhiteFooter class="hidden sm:block" />
 
     <OtpLogin v-if="showLoginModal" @showLogin="showLogin" />
+    <Modal :show="store.closed" title="Store is not accepting orders now">
+      {{ store.closedMessage || 'Please visit back later' }}
+    </Modal>
   </div>
 </template>
 <script>
 import OtpLogin from '~/components/Login/Mobile/OtpLogin.vue'
 import Nav from '~/components/Home/Nav.vue'
 import WhiteFooter from '~/components/Island/WhiteFooter.vue'
+import { Modal } from '~/shared/components/ui'
 import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
 export default {
-  components: { Nav, OtpLogin, WhiteFooter, GrnIndGradiantButton },
+  components: { Nav, OtpLogin, WhiteFooter, Modal, GrnIndGradiantButton },
   data() {
     return {
       showLoginModal: false,

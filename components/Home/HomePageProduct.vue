@@ -12,7 +12,7 @@
       @mouseleave="hideitems()"
     >
       <nuxt-link
-        :to="localePath(`/${product.slug}?id=${product.id}`)"
+        :to="localePath(`/${product.slug}?id=${product.id || pid}`)"
         class="block overflow-hidden"
       >
         <div class="">
@@ -264,6 +264,7 @@ export default {
   // ['id', 'slug', 'name', 'price', 'img'],
   props: {
     product: { type: Object, default: () => {} },
+    pid: { type: String, default: null },
   },
   data() {
     return {

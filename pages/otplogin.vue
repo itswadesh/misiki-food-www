@@ -60,7 +60,7 @@
             </div>
           </div>
           <!-- bottom text -->
-          <div class="pb-5">
+          <!-- <div class="pb-5">
             <div
               class="flex flex-row justify-center my-8 space-x-2 md:space-x-4"
             >
@@ -137,17 +137,7 @@
                 </svg>
               </a>
             </div>
-            <!-- <div class="flex justify-center">
-              <Checkbox
-                ><div class="text-xs">
-                  When you click on an
-                  <b class=""> "I agree to the terms and conditions" </b>
-                  checkbox, it is seen by the legal authorities as the user's
-                  assent
-                </div>
-              </Checkbox>
-            </div> -->
-          </div>
+          </div> -->
         </div>
       </div>
       <!-- Login side end -->
