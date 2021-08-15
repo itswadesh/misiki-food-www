@@ -95,11 +95,11 @@ export default {
   },
   async nuxtServerInit({ state, commit, dispatch }, { params, app, req }) {
     const host = req.headers.host
-    console.log('Host..............', host)
+    // console.log('Host..............', host)
     // .replace('https://', '')
     // .replace('http://', '')
     const domain = new URL('http://' + host)
-    console.log(domain)
+    // console.log(domain)
     await dispatch('fetchSettings')
     // if (!params.store) return
     // app.router.base = params.store || '/'

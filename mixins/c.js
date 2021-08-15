@@ -59,7 +59,7 @@ export default {
     this.currentPage = parseInt(this.$route.query.page)
   },
   watch: {
-    '$route.query': {
+    $route: {
       immediate: true,
       handler(value, oldValue) {
         const q = this.$route.params.q
@@ -77,12 +77,14 @@ export default {
             query[k] !== '' &&
             k !== 'price' &&
             k !== 'age' &&
-            k !== 'discount'
+            k !== 'discount' &&
+            k !== 'store'
           )
             query[k] = query[k].split(',')
         })
         this.fl = query // For selected filters
         if (q) qry.q = q
+        console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz', qry)
         // this.getData(qry)
       },
     },

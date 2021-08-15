@@ -9,7 +9,6 @@
 
       <div class="capitalize">
         We are unable to find items matching !! <br />
-        Try again...
       </div>
 
       <div class="text-1">{{ $route.query.q }}</div>

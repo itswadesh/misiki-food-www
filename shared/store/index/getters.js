@@ -11,4 +11,7 @@ export default {
   megamenu(state) {
     return state.megamenu || []
   },
+  store(state) {
+    return state.store || {}
+  },
 }

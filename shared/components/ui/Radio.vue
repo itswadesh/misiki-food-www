@@ -36,7 +36,7 @@ export default {
       default: null,
     },
 
-    modelValue: { type: String, default: '' },
+    modelValue: { type: [String, Array], default: null },
 
     color: { type: String, default: 'primary' },
   },

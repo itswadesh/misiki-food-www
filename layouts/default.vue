@@ -27,13 +27,14 @@
             :loading="loading"
             class="w-52"
             @click="loading = true"
-            >Create your store</GrnIndGradiantButton
           >
+            Create your store
+          </GrnIndGradiantButton>
         </a>
 
         <div class="mb-1 text-xs font-semibold text-center">
-          MISIKI TECHNOLOGIES LLP,
-          <p>Odisha</p>
+          MISIKI
+          <!-- <p>Odisha</p> -->
         </div>
       </div>
 
