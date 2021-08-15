@@ -109,11 +109,10 @@ export default {
     NuxtLink,
   },
   middleware: ['isAuth'],
-
   data() {
     return {
-      iconloading: false,
-      addresses: null,
+      loading: false,
+      // addresses: null,
       selectedAddress: null,
     }
   },
@@ -127,9 +126,17 @@ export default {
       return this.$store.state.auth.user
     },
   },
+  // watch: {
+  //   '$route.query': {
+  //     immediate: true,
+  //     async handler(value, oldValue) {
+  //       await this.getAddress()
+  //     },
+  //   },
+  // },
   async created() {
-    this.$store.dispatch('cart/fetch')
-    await this.getAddress()
+    // this.$store.dispatch('cart/fetch')
+    // await this.getAddress()
   },
   methods: {
     ...mapMutations({
@@ -138,64 +145,65 @@ export default {
       success: 'success',
       busy: 'busy',
     }),
-    selectFirstAddress(x) {
-      this.selectedAddress = x.addresses && x.addresses[0] && x.addresses[0].id
-      return x
-    },
+    // selectFirstAddress(x) {
+    //   this.selectedAddress = x.addresses && x.addresses[0] && x.addresses[0].id
+    //   return x
+    // },
     addressChanged(e) {
       this.selectedAddress = e
     },
-    async getAddress() {
-      try {
-        this.loading = true
-        this.addresses = await this.$get('address/myAddresses', {})
-        // this.addresses = (
-        //   await this.$apollo.query({
-        //     query: MY_ADDRESSES,
-        //     fetchPolicy: 'no-cache',
-        //   })
-        // ).data.myAddresses
-        this.selectedAddress =
-          this.addresses &&
-          this.addresses.data &&
-          this.addresses.data[0] &&
-          this.addresses.data[0].id
-      } catch (e) {
-      } finally {
-        this.loading = false
-      }
-    },
-    del(id) {
-      this.$swal({
-        title: 'Delete address?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Yes, delete it!',
-      }).then(async (result) => {
-        if (result.value) {
-          try {
-            this.iconloading = true
-            this.clearErr()
-            await this.$post('address/deleteAddress', { id })
-            // await this.$apollo.mutate({
-            //   mutation: DELETE_ADDRESS,
-            //   variables: { id },
-            //   // refetchQueries: () => [{ query: ADDRESSES }],
-            // })
-            // query.refetch()
-            await this.getAddress()
-            // this.$refs.adQ.getApolloQuery().refresh();
-            this.success('Address deleted successfully')
-          } catch (e) {
-            this.setErr(e)
-          } finally {
-            this.iconloading = false
-            this.busy(false)
-          }
-        }
-      })
-    },
+    // async getAddress() {
+    //   try {
+    //     this.loading = true
+    //     this.addresses = await this.$get('address/myAddresses', {})
+    //     // this.addresses = (
+    //     //   await this.$apollo.query({
+    //     //     query: MY_ADDRESSES,
+    //     //     fetchPolicy: 'no-cache',
+    //     //   })
+    //     // ).data.myAddresses
+    //     this.selectedAddress =
+    //       this.addresses &&
+    //       this.addresses.data &&
+    //       this.addresses.data[0] &&
+    //       this.addresses.data[0].id
+    //   } catch (e) {
+    //     console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz', e)
+    //   } finally {
+    //     this.loading = false
+    //   }
+    // },
+    // del(id) {
+    //   this.$swal({
+    //     title: 'Delete address?',
+    //     text: "You won't be able to revert this!",
+    //     icon: 'warning',
+    //     showCancelButton: true,
+    //     confirmButtonText: 'Yes, delete it!',
+    //   }).then(async (result) => {
+    //     if (result.value) {
+    //       try {
+    //         th = true
+    //         this.clearErr()
+    //         await this.$post('address/deleteAddress', { id })
+    //         // await this.$apollo.mutate({
+    //         //   mutation: DELETE_ADDRESS,
+    //         //   variables: { id },
+    //         //   // refetchQueries: () => [{ query: ADDRESSES }],
+    //         // })
+    //         // query.refetch()
+    //         // await this.getAddress()
+    //         // this.$refs.adQ.getApolloQuery().refresh();
+    //         this.success('Address deleted successfully')
+    //       } catch (e) {
+    //         this.setErr(e)
+    //       } finally {
+    //         th = false
+    //         this.busy(false)
+    //       }
+    //     }
+    //   })
+    // },
   },
 }
 </script>

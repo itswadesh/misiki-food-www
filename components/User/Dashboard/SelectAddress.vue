@@ -142,13 +142,29 @@
                 class="me-3"
               > -->
 
-            <GrnIndGradiantButton
+            <button
               type="button"
-              class="w-full uppercase"
+              class="
+                w-full
+                py-2
+                text-gray-700
+                hover:text-white
+                font-semibold
+                bg-transparent
+                hover:bg-gray-600
+                transition
+                duration-300
+                rounded-md
+                hover:shadow-md
+                uppercase
+                focus:outline-none
+                transform
+                active:scale-95
+              "
               @click="edit(a.id)"
             >
               Edit
-            </GrnIndGradiantButton>
+            </button>
             <!-- </nuxt-link> -->
 
             <button
@@ -237,9 +253,17 @@ export default {
       return this.$store.state.auth.user
     },
   },
-  async created() {
-    await this.getAddress()
+  watch: {
+    '$route.query': {
+      immediate: true,
+      async handler(value, oldValue) {
+        await this.getAddress()
+      },
+    },
   },
+  // async created() {
+  //   await this.getAddress()
+  // },
   methods: {
     ...mapMutations({
       clearErr: 'clearErr',
@@ -248,7 +272,7 @@ export default {
       busy: 'busy',
     }),
     selectFirstAddress(x) {
-      this.selectedAddress = x.addresses && x.addresses[0] && x.addresses[0].id
+      this.selectedAddress = x.data && x.data[0] && x.data[0].id
       return x
     },
     addressChanged(e) {
@@ -258,7 +282,9 @@ export default {
     async getAddress() {
       try {
         this.skeleton = true
+        // Allows users to access their address across stores. There is no store in gql
         this.addresses = await this.$get('address/myAddresses', {})
+        this.selectFirstAddress(this.addresses)
         // this.addresses = (
         //   await this.$apollo.query({
         //     query: MY_ADDRESSES,
@@ -267,11 +293,11 @@ export default {
         // ).data.myAddresses
         // Can not push automatically, because it creates bad user experience when user clicks on back to address list page
         // if (this.addresses.count < 1) this.$router.push(this.addReturnUrl)
-        this.selectedAddress =
-          this.addresses &&
-          this.addresses.data &&
-          this.addresses.data[0] &&
-          this.addresses.data[0].id
+        // this.selectedAddress =
+        //   this.addresses &&
+        //   this.addresses.data &&
+        //   this.addresses.data[0] &&
+        //   this.addresses.data[0].id
       } catch (e) {
         // console.log('eeeeeeeeeee', e)
       } finally {
