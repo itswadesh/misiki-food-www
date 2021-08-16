@@ -1,10 +1,12 @@
 <template>
-  <main class="container mx-auto bg-white pl-2 sm:pl-10 lg:pr-10 text-gray-700">
+  <main
+    v-if="brands"
+    class="container mx-auto bg-white pl-2 sm:pl-10 lg:pr-10 text-gray-700"
+  >
     <h1
       class="
         text-xl
         md:text-2xl
-        lg:text-3xl
         text-gray-500
         font-semibold
         sm:font-bold
@@ -18,7 +20,7 @@
 
     <div v-if="loading"><ProductSliderSkeleton /></div>
 
-    <section v-if="brands">
+    <section v-else>
       <!-- Above 1024px  -->
 
       <div class="hidden lg:grid lg:grid-cols-6 gap-5 items-start">

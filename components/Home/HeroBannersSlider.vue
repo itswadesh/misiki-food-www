@@ -3,7 +3,21 @@
     <div
       class="relative flex text-3xl font-bold text-center text-gray-700 px-3"
     >
-      <h3 class="text-sm md:text-xl font-medium">{{ title }}</h3>
+      <h1
+        class="
+          text-xl
+          md:text-2xl
+          text-gray-500
+          font-semibold
+          sm:font-bold
+          py-5
+          lg:py-10
+          tracking-wide
+        "
+      >
+        {{ title }}
+      </h1>
+
       <div class="absolute right-0 me-3 top-0 flex">
         <button
           class="

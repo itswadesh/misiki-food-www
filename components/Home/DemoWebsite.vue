@@ -1,6 +1,6 @@
 <template>
   <main
-    v-if="details && details.length"
+    v-if="demoimage && demoimage.length"
     class="container mx-auto bg-white pl-2 sm:pl-10 lg:pr-10 text-gray-700"
   >
     <h1
@@ -18,7 +18,7 @@
       {{ heading }}
     </h1>
 
-    <section v-if="details">
+    <section>
       <!-- Above 1024px  -->
 
       <div class="hidden lg:block">
@@ -41,7 +41,7 @@
             class="
               absolute
               z-20
-              top-36
+              top-28
               left-0
               ml-5
               flex
@@ -75,12 +75,8 @@
 
           <div>
             <VueSlickCarousel v-bind="settings" ref="carousel">
-              <div
-                v-for="product in details"
-                :key="product.id"
-                class="pr-5 w-full"
-              >
-                <HomePageProduct :product="product" />
+              <div v-for="(d, dx) in demoimage" :key="dx" class="pr-5 w-full">
+                <DemoWebsiteCard :demo="d" />
               </div>
             </VueSlickCarousel>
           </div>
@@ -89,7 +85,7 @@
             class="
               absolute
               z-20
-              top-36
+              top-28
               right-0
               mr-5
               flex
@@ -126,13 +122,9 @@
       <!-- Below 1024px  -->
 
       <div class="lg:hidden overflow-x-auto">
-        <div
-          v-if="details && details.length"
-          v-bind="settings"
-          class="flex items-start justify-start space-x-2"
-        >
-          <div v-for="product in details" :key="product.id">
-            <HomePageProduct :product="product" />
+        <div class="flex items-start justify-start space-x-2">
+          <div v-for="(d, dx) in demoimage" :key="dx" class="pr-5 w-full">
+            <DemoWebsiteCard :demo="d" />
           </div>
         </div>
       </div>
@@ -141,24 +133,16 @@
 </template>
 
 <script>
-import HomePageProduct from '~/components/Home/HomePageProduct.vue'
-// import ProductSliderSkeleton from '~/components/AllSkeletons/ProductSliderSkeleton'
+import DemoWebsiteCard from '~/components/Home/DemoWebsiteCard.vue'
 
 export default {
   components: {
-    // ProductSliderSkeleton,
-    HomePageProduct,
+    DemoWebsiteCard,
   },
 
   props: {
-    details: {
-      type: Array,
-      default: () => [],
-    },
-    heading: {
-      type: String,
-      default: null,
-    },
+    heading: { type: String, default: null },
+    demoimage: { type: Array, default: () => [] },
   },
 
   data() {
@@ -170,7 +154,7 @@ export default {
         focusOnSelect: false,
         infinite: true,
         arrows: false,
-        slidesToShow: 6,
+        slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: false,
         speed: 500,
@@ -178,13 +162,7 @@ export default {
           {
             breakpoint: 1536,
             settings: {
-              slidesToShow: 5,
-            },
-          },
-          {
-            breakpoint: 1280,
-            settings: {
-              slidesToShow: 4,
+              slidesToShow: 2,
             },
           },
         ],

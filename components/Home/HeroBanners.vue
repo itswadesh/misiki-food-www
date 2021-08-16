@@ -1,6 +1,7 @@
 <template>
   <div>
     <HeroBannerSkeleton v-if="loading" />
+
     <div v-for="(b, ix) of banners" :key="ix">
       <h2 class="text-3xl text-gray-500 ms-3 font-bold">{{ b._id.title }}</h2>
 

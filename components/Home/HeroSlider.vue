@@ -1,5 +1,6 @@
 <template>
   <section
+    v-if="banners && banners.length"
     class="
       container
       mx-auto
@@ -17,11 +18,7 @@
 
     <!-- <SlideBarSkeleton v-if="skeleton" /> -->
 
-    <VueSlickCarousel
-      v-if="banners && banners.length"
-      v-bind="settings"
-      class="relative"
-    >
+    <VueSlickCarousel v-bind="settings" class="relative">
       <template #prevArrow="arrowOption">
         <div class="invisible custom-arrow md:visible hover:shadow-xl">
           {{ arrowOption.currentSlide }}/{{ arrowOption.slideCount }}

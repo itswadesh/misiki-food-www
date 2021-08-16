@@ -1,12 +1,12 @@
 <template>
   <main
+    v-if="categories"
     class="container mx-auto bg-white px-2 sm:px-10 pb-5 md:pb-0 text-gray-700"
   >
     <h1
       class="
         text-xl
         md:text-2xl
-        lg:text-3xl
         text-gray-500
         font-semibold
         sm:font-bold
@@ -20,7 +20,7 @@
 
     <BagSkelton v-if="loading" />
 
-    <section v-else-if="categories">
+    <section v-else>
       <div
         class="
           grid grid-cols-3
