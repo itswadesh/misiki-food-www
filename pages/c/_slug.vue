@@ -44,7 +44,7 @@
 
         <div v-else class="sm:mt-0">
           <div
-            v-if="loading"
+            v-if="$fetchState.pending"
             class="
               grid grid-cols-2
               gap-4
@@ -56,7 +56,6 @@
           >
             <ProductSkeleton v-for="(p, ix) in 10" :key="ix + '-1'" />
           </div>
-
           <div
             v-else-if="products && products.length > 0"
             class="
@@ -135,67 +134,133 @@ export default {
   },
   mixins: [c],
   layout: 'search',
-  async asyncData({ route, query, params, $axios, app, store }) {
-    let products = []
-    let category = {}
+  async fetch() {
     let facets = []
     let fl = {}
-    let err = null
-    let productCount = 0
-    const client = app.apolloProvider.defaultClient
-    const storeId = store.state.store && store.state.store.id
-    try {
-      const cslug = route.params.slug
-      if (cslug) {
-        category = (
-          await client.query({
-            query: CATEGORY,
-            variables: {
-              slug: cslug,
-              store: storeId,
-            },
-            fetchPolicy: 'no-cache',
-          })
-        ).data.category
-      }
-      const q = params.slug || null
-      query.store = storeId || '23sdf43rfs5fdgsdf'
-      const qry = { ...query }
-      delete qry.brand
-      if (q) qry.categories = q
-      // if (cslug) qry.categories = cslug
-      const result = await $axios.$get('/api/products/es', {
-        params: { ...qry },
+    // let err = null
+    // let productCount = 0
+    // const client = app.apolloProvider.defaultClient
+    const storeId = this.$store.state.store.id
+    // try {
+    const cslug = this.$route.params.slug
+    if (cslug) {
+      this.category = await this.$get('category/category', {
+        slug: cslug,
       })
-      products = result.data
-      productCount = result.facets && result.facets.style_count.value
-      facets = result.facets && result.facets.all_aggs
-      Object.keys(qry).map(function (k, i) {
-        if (
-          qry[k] &&
-          !Array.isArray(qry[k]) &&
-          qry[k] !== null &&
-          qry[k] !== '' &&
-          k !== 'price' &&
-          k !== 'age' &&
-          k !== 'discount'
-        )
-          qry[k] = qry[k].split(',')
-      })
-      fl = { ...qry } // For selected filters
-      return { products, category, productCount, facets, fl, err: null }
-    } catch (e) {
-      if (e && e.response && e.response.data) {
-        err = e.response.data
-      } else if (e && e.response) {
-        err = e.response
-      } else {
-        err = e
-      }
-      console.log('/c/_slug err...', e)
-      return { products, category, productCount, facets: [], fl: {}, err }
+      // this.category = (
+      //   await client.query({
+      //     query: CATEGORY,
+      //     variables: {
+      //       slug: cslug,
+      //       store: storeId,
+      //     },
+      //     fetchPolicy: 'no-cache',
+      //   })
+      // ).data.category
     }
+    const q = cslug || null
+    const query = this.$route.query
+    query.store = storeId || '23sdf43rfs5fdgsdf'
+    const qry = { ...query }
+    delete qry.brand
+    if (q) qry.categories = q
+    // if (cslug) qry.categories = cslug
+    // console.log('aaaaaaaaaaaaaaaa', qry)
+    const result = await this.$axios.$get('/api/products/es', {
+      params: { ...qry },
+    })
+    this.products = result.data
+    this.productCount = result.facets && result.facets.style_count.value
+    facets = result.facets && result.facets.all_aggs
+    Object.keys(qry).map(function (k, i) {
+      if (
+        qry[k] &&
+        !Array.isArray(qry[k]) &&
+        qry[k] !== null &&
+        qry[k] !== '' &&
+        k !== 'price' &&
+        k !== 'age' &&
+        k !== 'discount'
+      )
+        qry[k] = qry[k].split(',')
+    })
+    fl = { ...qry } // For selected filters
+    this.fl = fl
+    this.facets = facets
+    // return { products, category, productCount, facets, fl, err: null }
+    // } catch (e) {
+    //   if (e && e.response && e.response.data) {
+    //     err = e.response.data
+    //   } else if (e && e.response) {
+    //     err = e.response
+    //   } else {
+    //     err = e
+    //   }
+    //   console.log('/c/_slug err...', e)
+    //   return { products, category, productCount, facets: [], fl: {}, err }
+    // }
   },
+  // async asyncData({ route, query, params, $axios, app, store }) {
+  //   let products = []
+  //   let category = {}
+  //   let facets = []
+  //   let fl = {}
+  //   let err = null
+  //   let productCount = 0
+  //   const client = app.apolloProvider.defaultClient
+  //   const storeId = store.state.store && store.state.store.id
+  //   try {
+  //     const cslug = route.params.slug
+  //     if (cslug) {
+  //       category = (
+  //         await client.query({
+  //           query: CATEGORY,
+  //           variables: {
+  //             slug: cslug,
+  //             store: storeId,
+  //           },
+  //           fetchPolicy: 'no-cache',
+  //         })
+  //       ).data.category
+  //     }
+  //     const q = params.slug || null
+  //     query.store = storeId || '23sdf43rfs5fdgsdf'
+  //     const qry = { ...query }
+  //     delete qry.brand
+  //     if (q) qry.categories = q
+  //     // if (cslug) qry.categories = cslug
+  //     const result = await $axios.$get('/api/products/es', {
+  //       params: { ...qry },
+  //     })
+  //     products = result.data
+  //     productCount = result.facets && result.facets.style_count.value
+  //     facets = result.facets && result.facets.all_aggs
+  //     Object.keys(qry).map(function (k, i) {
+  //       if (
+  //         qry[k] &&
+  //         !Array.isArray(qry[k]) &&
+  //         qry[k] !== null &&
+  //         qry[k] !== '' &&
+  //         k !== 'price' &&
+  //         k !== 'age' &&
+  //         k !== 'discount'
+  //       )
+  //         qry[k] = qry[k].split(',')
+  //     })
+  //     fl = { ...qry } // For selected filters
+  //     return { products, category, productCount, facets, fl, err: null }
+  //   } catch (e) {
+  //     if (e && e.response && e.response.data) {
+  //       err = e.response.data
+  //     } else if (e && e.response) {
+  //       err = e.response
+  //     } else {
+  //       err = e
+  //     }
+  //     console.log('/c/_slug err...', e)
+  //     return { products, category, productCount, facets: [], fl: {}, err }
+  //   }
+  // },
   head() {
     const host = process.server
       ? this.$ssrContext.req.headers.host
@@ -262,7 +327,7 @@ export default {
       ],
     }
   },
-  watchQuery: true,
+  // watchQuery: true,
   created() {
     this.scrollToTop()
     this.currentPage = parseInt(this.$route.query.page)

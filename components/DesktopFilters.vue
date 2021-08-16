@@ -611,7 +611,7 @@ export default {
     },
     scrollToTop() {
       if (process.client) {
-        window.scroll({ behavior: 'smooth', left: 0, top: 150 })
+        // window.scroll({ behavior: 'smooth', left: 0, top: 200 })
       }
     },
     categoryChanged(i) {

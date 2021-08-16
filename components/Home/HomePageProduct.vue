@@ -127,7 +127,9 @@
             <div class="block sm:hidden">
               <div class="flex items-center justify-between">
                 <h4 class="font-semibold mb-1.5">
-                  <span v-if="product.brand"> {{ product.brand }}</span>
+                  <span v-if="product.brand">
+                    {{ product.brand && product.brand.name }}</span
+                  >
                   <span v-else> _ </span>
                 </h4>
 
@@ -170,7 +172,9 @@
           <div v-else>
             <div class="flex items-center justify-between">
               <h4 class="font-semibold mb-1.5">
-                <span v-if="product.brand"> {{ product.brand }}</span>
+                <span v-if="product.brand && product.brand.name">
+                  {{ product.brand.name }}
+                </span>
                 <span v-else> _ </span>
               </h4>
 
