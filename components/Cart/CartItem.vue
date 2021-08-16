@@ -1,7 +1,6 @@
 <template>
   <div
     class="
-      relative
       flex flex-col
       p-2
       sm:p-4
@@ -79,8 +78,7 @@
 
         <div
           class="
-            mb-1
-            sm:mb-2
+            mb-2
             flex flex-col
             text-xs text-gray-400
             md:text-sm md:font-thin
@@ -93,13 +91,7 @@
 
         <!-- qty button  -->
         <div
-          class="
-            absolute
-            bottom-0
-            flex flex-col
-            sm:flex-row sm:justify-between
-            w-full
-          "
+          class="mt-auto flex flex-col sm:flex-row sm:justify-between w-full"
         >
           <div class="flex flex-row max-w-max text-xs mb-1 sm:mb-0">
             <div class="flex flex-row me-4">

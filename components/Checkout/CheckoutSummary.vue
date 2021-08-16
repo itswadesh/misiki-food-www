@@ -35,7 +35,7 @@
           </span>
         </div>
 
-        <div v-if="cart.shipping" class="text-sm flex justify-between mb-2">
+        <div v-if="cart.shipping" class="flex justify-between mb-2">
           <nuxt-link
             to="/delivery-charges"
             class="flex items-center hover:text-primary-500"
