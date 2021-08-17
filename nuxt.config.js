@@ -28,7 +28,7 @@ export default {
     { src: '~/plugins/slick.js' },
     { src: '~/plugins/scroll.js', ssr: false },
     { src: '~/plugins/filters.js' },
-    { src: '~/plugins/vue-simple-photoswipe.js', ssr: false },
+    { src: '~/plugins/vue-pswipe.js', ssr: false },
     { src: '~/plugins/VueYoutube.js', ssr: false },
     // { src: '~/plugins/zoom.js', ssr: false },
     // { src: '~/plugins/agora.js', ssr: false },

@@ -109,9 +109,7 @@
               my-auto
               preview-img-item
             "
-            @click="
-              $photoswipe.open(0, [{ src: selectedImage, w: 768, h: 768 }])
-            "
+            @click="handleClick"
           />
 
           <div v-else>
@@ -239,33 +237,57 @@ export default {
       selectedImage: null,
     }
   },
+  computed: {
+    photoSwipeImages() {
+      return this.images.map((image) => {
+        return {
+          src: image,
+          w: 1024,
+          h: 768,
+        }
+      })
+    },
+    // ...mapGetters({
+    //   cart: 'cart/cart',
+    //   getItemQty: 'cart/getItemQty',
+    // }),
+    // calculateOffPercent() {
+    //   if (!this.product || !this.product) return 0
+    //   let percent =
+    //     ((this.product.mrp - this.product.price) * 100) / this.product.mrp
+    //   return Math.round(percent)
+    // },
+    // calculatePrice() {
+    //   let price = 0
+    //   if (this.product.price < this.product.mrp) {
+    //     price = this.product.price
+    //   } else {
+    //     price = this.product.mrp
+    //   }
+    //   return price
+    // },
+  },
   created() {
     this.selectedImage = this.img
     // await this.getProduct()
   },
-  // computed: {
-  // ...mapGetters({
-  //   cart: 'cart/cart',
-  //   getItemQty: 'cart/getItemQty',
-  // }),
-  // calculateOffPercent() {
-  //   if (!this.product || !this.product) return 0
-  //   let percent =
-  //     ((this.product.mrp - this.product.price) * 100) / this.product.mrp
-  //   return Math.round(percent)
-  // },
-  // calculatePrice() {
-  //   let price = 0
-  //   if (this.product.price < this.product.mrp) {
-  //     price = this.product.price
-  //   } else {
-  //     price = this.product.mrp
-  //   }
-  //   return price
-  // },
-  // },
   methods: {
     ...mapMutations({ success: 'success' }),
+    handleClick() {
+      const pswp = this.$Pswp.open({
+        items: this.photoSwipeImages,
+        options: { index: this.getSelectedImageIndex(this.selectedImage) },
+      })
+    },
+    getSelectedImageIndex(i) {
+      const pos = this.photoSwipeImages
+        .map(function (e) {
+          return e.src
+        })
+        .indexOf(i)
+      return pos
+      // return this.photoSwipeImages.find((p) => {p.src === i})
+    },
     imgVideo(url) {
       return this.youtubeVideoId(url)
         ? `https://img.youtube.com/vi/${this.youtubeVideoId(url)}/1.jpg`
