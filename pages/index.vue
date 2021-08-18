@@ -37,12 +37,6 @@
       class="mb-5 md:mb-0"
     />
 
-    <DemoWebsite
-      :demoimage="demowebsiteimage"
-      :heading="'Demo Websites'"
-      class="mb-5 md:mb-0"
-    />
-
     <VideoBanner :banners="videoBanners" class="px-2 sm:px-10 mb-5 md:mb-0" />
 
     <!-- <Discounts /> -->
@@ -64,7 +58,6 @@ import HeroBanners from '~/components/Home/HeroBanners.vue'
 import Categories from '~/components/Home/Categories.vue'
 import Deals from '~/components/Home/Deals.vue'
 import ProductSlider from '~/components/Home/ProductSlider.vue'
-import DemoWebsite from '~/components/Home/DemoWebsite.vue'
 import ProductSlider2 from '~/components/Home/ProductSlider2.vue'
 import BrandBanners from '~/components/Home/BrandBanners.vue'
 import HeroBannersSlider from '~/components/Home/HeroBannersSlider.vue'
@@ -83,7 +76,6 @@ export default {
     Deals,
     HeroBannersSlider,
     ProductSlider,
-    DemoWebsite,
     ProductSlider2,
     BrandBanners,
     // Discounts,
@@ -107,19 +99,6 @@ export default {
       videoBanners: null,
       loadingVideoBanners: false,
       pickedBanners: null,
-
-      demowebsiteimage: [
-        {
-          img: '/home/demo-demo.png',
-          name: 'demo.misiki.in',
-          link: 'https://demo.misiki.in',
-        },
-        {
-          img: '/home/demo-fashion.png',
-          name: 'fashion.misiki.in',
-          link: 'https://fashion.misiki.in/',
-        },
-      ],
     }
   },
 
