@@ -46,8 +46,8 @@
               my-auto
               text-primary-500
               font-semibold
-              rounded-full
               border-2 border-primary-500
+              bg-primary-100
               text-2xl
               h-96
             "

@@ -25,11 +25,10 @@
         class="
           grid grid-cols-3
           sm:grid-cols-4
-          lg:grid-cols-5
-          xl:grid-cols-7
+          lg:grid-cols-6
+          xl:grid-cols-8
           gap-3
           sm:gap-5
-          md:gap-7
         "
       >
         <div
@@ -46,8 +45,11 @@
                 group-hover:border-primary-500
                 mb-2
                 sm:mb-4
-                flex-shrink-0 flex-grow-0
+                h-24
+                w-24
+                md:h-32 md:w-32
                 rounded-full
+                flex-shrink-0 flex-grow-0
               "
             >
               <img
@@ -59,7 +61,6 @@
                   w-full
                   border-2
                   md:border-4
-                  rounded-full
                   border-white border-opacity-70
                   shadow
                   hover:shadow-md
