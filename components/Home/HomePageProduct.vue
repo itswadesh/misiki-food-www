@@ -5,7 +5,7 @@
         border border-transparent
         hover:border-gray-100
         rounded
-        hover:bg-white hover:shadow-md
+        md:hover:bg-white md:hover:shadow-md
         text-gray-800
       "
       @mouseenter="showitems()"
@@ -26,7 +26,7 @@
         <div class="p-4">
           <!-- For view above 640px start -->
 
-          <div v-if="show" class="-mt-12">
+          <div v-if="show" class="sm:-mt-12">
             <!-- View smilar button start-->
             <div class="hidden sm:block">
               <nuxt-link

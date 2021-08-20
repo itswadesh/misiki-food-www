@@ -16,7 +16,7 @@
       <div class="flex-1" />
     </div>
     <BackToTopDark class="mb-3" />
-    <BrownFooter class="bottom-0 hidden mt-16 sm:block" />
+    <WhiteFooter class="hidden sm:block" />
     <OtpLogin v-if="showLoginModal" @showLogin="showLogin" />
   </div>
 </template>
@@ -25,10 +25,10 @@
 import OtpLogin from '~/components/Login/Mobile/OtpLogin.vue'
 import Nav from '~/components/Home/Nav.vue'
 import { BackToTopDark } from '~/shared/components/ui'
-import BrownFooter from '~/components/Home/BrownFooter.vue'
+import WhiteFooter from '~/components/Island/WhiteFooter.vue'
 
 export default {
-  components: { OtpLogin, BackToTopDark, Nav, BrownFooter },
+  components: { OtpLogin, BackToTopDark, Nav, WhiteFooter },
   data() {
     return {
       showLoginModal: false,

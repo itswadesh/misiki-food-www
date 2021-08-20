@@ -12,27 +12,36 @@
   >
     <div class="min-h-screen">
       <NavLanding class="fixed top-0 z-50 w-full" @showLogin="showLogin" />
+
       <Nuxt class="w-full mt-24 lg:mt-16" />
+
       <div class="flex-1" />
     </div>
-    <BrownFooter class="hidden sm:block" />
+
+    <WhiteFooter class="hidden sm:block" />
+
     <OtpLogin v-if="showLoginModal" @showLogin="showLogin" />
   </div>
 </template>
+
 <script>
 import OtpLogin from '~/components/Login/Mobile/OtpLogin.vue'
 import NavLanding from '~/components/Home/NavLanding.vue'
-import BrownFooter from '~/components/Home/BrownFooter.vue'
+import WhiteFooter from '~/components/Island/WhiteFooter.vue'
+
 export default {
-  components: { NavLanding, OtpLogin, BrownFooter },
+  components: { NavLanding, OtpLogin, WhiteFooter },
+
   data() {
     return {
       showLoginModal: false,
     }
   },
+
   head() {
     return this.$nuxtI18nHead()
   },
+
   methods: {
     showLogin(e) {
       this.showLoginModal = e
