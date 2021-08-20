@@ -58,6 +58,21 @@
                 @reRequest="isRequestSent = false"
               />
             </div>
+            <div class="flex items-center justify-center mt-12 text-sm">
+              <nuxt-link
+                to="/login?forced=true"
+                class="text-start text-primary-500 hover:underline max-w-max"
+              >
+                Login with email
+              </nuxt-link>
+
+              <!-- <nuxt-link
+                to="/account/signup"
+                class="text-end text-primary-500 hover:underline max-w-max"
+              >
+                Not a Member yet?
+              </nuxt-link> -->
+            </div>
           </div>
           <!-- bottom text -->
           <!-- <div class="pb-5">

@@ -31,7 +31,9 @@
         <h2 class="py-5 font-semibold">Password successfully changed</h2>
 
         <h5>You need to login again</h5>
-        <nuxt-link to="/login" class="pt-10 link">Back to login</nuxt-link>
+        <nuxt-link to="/login?forced=true" class="pt-10 link"
+          >Back to login</nuxt-link
+        >
       </div>
     </div>
   </div>

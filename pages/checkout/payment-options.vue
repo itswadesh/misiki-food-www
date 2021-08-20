@@ -39,7 +39,8 @@
                 <h2 class="text-xl font-black">{{ p.name }}</h2>
                 <div
                   v-if="
-                    (p.name != 'COD' || p.name != 'Manual') &&
+                    p.value !== 'COD' &&
+                    p.value !== 'Manual' &&
                     (!p.key || p.key == '')
                   "
                   class="text-center text-red-500"

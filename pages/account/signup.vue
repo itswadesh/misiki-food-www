@@ -292,8 +292,7 @@ export default {
         if (data) {
           this.$store.commit('success', 'Signup Successful')
           const referrer = this.$route.query.referrer || '/'
-          if (referrer)
-            this.$router.push(this.$route.params.store + '/' + referrer)
+          if (referrer) this.$router.push(referrer)
         }
       } catch (e) {
         this.$store.commit('setErr', e)

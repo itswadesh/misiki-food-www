@@ -58,7 +58,9 @@
                 Send email
               </GrnIndGradiantButton>
             </form>
-            <nuxt-link to="/login" class="mt-5 link">Back to login</nuxt-link>
+            <nuxt-link to="/login?forced=true" class="mt-5 link"
+              >Back to login</nuxt-link
+            >
           </div>
         </div>
 

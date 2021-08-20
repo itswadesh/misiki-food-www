@@ -35,8 +35,7 @@
       <div class="flex flex-col flex-1 ms-5">
         <h4 class="font-semibold leading-none">Add products to store.</h4>
         <nuxt-link to="#" class="mt-1 text-gray-400 hover:text-primary-500">
-          Use the revolutionary import product feature to add products and start
-          selling
+          Add product and start selling
         </nuxt-link>
       </div>
     </div>

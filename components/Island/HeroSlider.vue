@@ -138,8 +138,7 @@ export default {
   methods: {
     go(url) {
       if (this.ifUrl(url)) window.open(url, '_blank')
-      else
-        this.$router.push(this.$route.params.store + '/' + this.localePath(url))
+      else this.$router.push(this.localePath(url))
     },
 
     ifUrl(url) {

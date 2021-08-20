@@ -312,6 +312,7 @@ import { mapGetters, mapActions, mapMutations } from 'vuex'
 import NuxtLink from '~/components/NuxtLink.vue'
 export default {
   components: { NuxtLink },
+  layout: 'none',
   middleware: ['isGuest'],
   data() {
     return {
@@ -327,6 +328,14 @@ export default {
       showOTP: false,
       msg: null,
     }
+  },
+  head() {
+    return {
+      title: `SignUp for ${this.settings.websiteName}`,
+    }
+  },
+  computed: {
+    ...mapGetters({ settings: 'settings', error: 'error' }),
   },
   methods: {
     ...mapActions({ register: 'auth/register' }),
@@ -358,15 +367,6 @@ export default {
         // this.busy()
       }
     },
-  },
-  computed: {
-    ...mapGetters({ settings: 'settings', error: 'error' }),
-  },
-  layout: 'none',
-  head() {
-    return {
-      title: `SignUp for ${this.settings.websiteName}`,
-    }
   },
 }
 </script>
