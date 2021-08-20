@@ -38,7 +38,10 @@
               <div class="flex-1">
                 <h2 class="text-xl font-black">{{ p.name }}</h2>
                 <div
-                  v-if="p.name != 'COD' && (!p.key || p.key == '')"
+                  v-if="
+                    (p.name != 'COD' || p.name != 'Manual') &&
+                    (!p.key || p.key == '')
+                  "
                   class="text-center text-red-500"
                 >
                   {{ p.name }} Publishable key is invalid

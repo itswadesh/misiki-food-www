@@ -91,11 +91,7 @@
 
       <div class="fixed bottom-0 inset-x-0 w-full sm:static">
         <nuxt-link v-if="nextpage" :to="nextpage">
-          <GrnIndGradiantButton
-            class="w-full"
-            :loading="loading"
-            @click="loading = true"
-          >
+          <GrnIndGradiantButton class="w-full" :loading="loading">
             {{ btnname }}
           </GrnIndGradiantButton>
         </nuxt-link>

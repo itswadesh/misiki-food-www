@@ -4,9 +4,9 @@
       <div class="text-sm sm:text-base">
         <div class="flex justify-between mb-2">
           <span>Items Subtotal</span>
-          <span>{{
-            cart.subtotal | currency(settings.currencySymbol, 2)
-          }}</span>
+          <span>
+            {{ cart.subtotal | currency(settings.currencySymbol, 2) }}
+          </span>
         </div>
 
         <div class="flex justify-between mb-2">
@@ -104,7 +104,7 @@
         <GrnIndGradiantButton
           class="w-full"
           :loading="loading"
-          @click=";[proceed(), (loading = true)]"
+          @click="proceed()"
         >
           Proceed
         </GrnIndGradiantButton>
