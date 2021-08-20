@@ -284,7 +284,7 @@
                 addToBag({
                   pid: item.pid,
                   vid: item.vid,
-                  qty: -10000,
+                  qty: -9999999,
                   options: item.options,
                   vendor: item.vendor && item.vendor.id,
                 })
