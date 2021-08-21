@@ -37,7 +37,7 @@
             >
               <div class="flex-1">
                 <h2 class="text-xl font-black">{{ p.name }}</h2>
-                <div
+                <!-- <div
                   v-if="
                     p.value !== 'COD' &&
                     p.value !== 'Manual' &&
@@ -46,18 +46,14 @@
                   class="text-center text-red-500"
                 >
                   {{ p.name }} Publishable key is invalid
-                </div>
-                <span v-else>
+                </div> -->
+                <span>
                   {{ p.text }}
                 </span>
               </div>
               <div class="flex items-center">
                 <img v-lazy="p.img" :alt="p.name" class="w-16 h-12 mx-4" />
-                <Radio
-                  v-model="paymentMethod"
-                  :value="p.value"
-                  :color="p.color"
-                />
+                <Radio v-model="paymentMethod" :value="p" :color="p.color" />
               </div>
             </label>
           </div>
@@ -268,7 +264,9 @@
         <hr class="border-t border-gray-200 mb-2" />
 
         <CheckoutSummary :loading="loading" class="mb-4" @submit="submit">
-          <span v-if="paymentMethod == 'COD'">Place Order</span>
+          <span v-if="paymentMethod && paymentMethod.value == 'COD'"
+            >Place Order</span
+          >
           <span v-else-if="razorpayReady && loadedStripe">Pay Now</span>
         </CheckoutSummary>
 
@@ -307,7 +305,9 @@
           :loading="loading"
           @submit="submit"
         >
-          <span v-if="paymentMethod == 'COD'">Place Order</span>
+          <span v-if="paymentMethod && paymentMethod.value === 'COD'"
+            >Place Order</span
+          >
           <span v-else-if="razorpayReady && loadedStripe">Pay Now</span>
         </CheckoutSummary>
         <!-- <Footer class="hidden sm:flex" /> -->
@@ -378,7 +378,7 @@ export default {
       settings: 'settings',
     }),
     disable() {
-      if (this.paymentMethod === 'Stripe')
+      if (this.paymentMethod.value === 'Stripe')
         return !this.complete || this.errors.any()
       else return this.errors.any()
     },
@@ -455,6 +455,10 @@ export default {
       }
     },
     async submit() {
+      if (!this.paymentMethod || !this.paymentMethod.value) {
+        this.setErr('Payment Method Not Defined')
+      }
+      const paymentMethod = this.paymentMethod.value
       if (this.loading) return
       if (this.address) {
         delete this.address.__typename
@@ -463,7 +467,7 @@ export default {
         if (this.address.coords) delete this.address.coords.__typename
       }
       this.clearErr()
-      if (this.paymentMethod === 'COD') {
+      if (paymentMethod === 'COD') {
         try {
           this.loading = true
           await this.checkout({
@@ -475,7 +479,7 @@ export default {
         } finally {
           this.loading = false
         }
-      } else if (this.paymentMethod === 'Stripe') {
+      } else if (paymentMethod === 'Stripe') {
         try {
           this.loading = true
           const { token } = await createToken()
@@ -499,7 +503,7 @@ export default {
         } finally {
           this.loading = false
         }
-      } else if (this.paymentMethod === 'Cashfree') {
+      } else if (paymentMethod === 'Cashfree') {
         try {
           this.loading = true
           this.clearErr()
@@ -513,7 +517,7 @@ export default {
           this.loading = false
           this.busy(false)
         }
-      } else if (this.paymentMethod === 'Razorpay') {
+      } else if (paymentMethod === 'Razorpay') {
         try {
           const options = await this.checkout({
             paymentMethod: 'Razorpay',
