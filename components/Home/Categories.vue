@@ -61,6 +61,7 @@
                   w-full
                   border-2
                   md:border-4
+                  rounded-full
                   border-white border-opacity-70
                   shadow
                   hover:shadow-md

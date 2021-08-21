@@ -1,5 +1,5 @@
 <template>
-  <div class="h-auto">
+  <div class="h-auto text-gray-800">
     <div v-if="!email" class="relative h-full">
       <form
         v-if="!email"
@@ -9,10 +9,9 @@
         @submit.stop.prevent="requestOtp"
       >
         <div class="flex flex-col space-y-3">
-          <span class="text-base font-thin text-center text-gray-400"
-            >Please enter Mobile Number</span
-          >
-          <input
+          <span class="text-center">Please enter Mobile Number</span>
+
+          <Textbox
             id="number"
             ref="mobile"
             v-model="phone"
@@ -21,75 +20,18 @@
             autofocus
             placeholder="Enter Phone Number"
             required
-            class="
-              w-4/5
-              px-4
-              py-2
-              mx-auto
-              text-base
-              font-light
-              transition
-              duration-300
-              border-none
-              rounded
-              focus:ring-1 focus:ring-primary-500
-              ring-1 ring-gray-400
-              focus:border-transparent focus:outline-none
-            "
+            class="w-full max-w-sm mx-auto"
           />
         </div>
-        <div class="relative mt-3">
-          <Button
-            class="
-              flex
-              justify-center
-              w-4/5
-              px-4
-              py-2
-              mx-auto
-              text-lg
-              font-semibold
-              transition-colors
-              duration-300
-              rounded-md
-              shadow
-              hover:opacity-80
-              focus:outline-none focus:ring-primary-500 focus:ring-2
-            "
-            :class="loading ? 'bg-gray-400' : 'bg-primary-500 text-white'"
-            type="submit"
-            :disabled="loading"
-          >
-            <span
-              v-if="!loading"
-              class="text-base font-light tracking-widest uppercase"
-            >
-              SENT otp</span
-            >
-            <span v-else>
-              <svg
-                class="w-6 h-6 text-white -ms-1 animate-spin"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <circle
-                  class="opacity-25"
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  stroke-width="4"
-                ></circle>
-                <path
-                  class="opacity-75"
-                  fill="currentColor"
-                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                ></path>
-              </svg>
-            </span>
-          </Button>
-        </div>
+
+        <GrnIndGradiantButton
+          class="w-full max-w-sm mx-auto mt-5"
+          type="submit"
+          :loading="loading"
+        >
+          SEND OTP
+        </GrnIndGradiantButton>
+
         <!-- <div class="px-12 mt-4 text-center">
           <span
             @click="email = !email"
@@ -99,6 +41,7 @@
           </span>
         </div> -->
       </form>
+
       <!-- <div class="flex flex-row w-full mt-10">
         <span class="w-1/2 border-t border-gray-400"></span>
         <span class="mx-3 my-auto -mt-3 font-thin text-gray-400">Or</span>
@@ -159,6 +102,7 @@
         </div>
       </div> -->
     </div>
+
     <div v-else>
       <EnterEmail />
     </div>
@@ -168,13 +112,17 @@
 <script>
 import { mapMutations } from 'vuex'
 import EnterEmail from '~/components/Login/Email/EnterEmail.vue'
-import { Button } from '~/shared/components/ui'
 import GET_OTP from '~/gql/user/getOtp.gql'
+import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
+import { Textbox } from '~/shared/components/ui'
+
 export default {
   components: {
     EnterEmail,
-    Button,
+    GrnIndGradiantButton,
+    Textbox,
   },
+
   data() {
     return {
       email: false,
@@ -185,14 +133,13 @@ export default {
       title: 'aboutpage',
     }
   },
+
   computed: {
     settings() {
       return this.$store.state.settings || {}
     },
   },
-  mounted() {
-    this.$refs.mobile.focus()
-  },
+
   methods: {
     ...mapMutations({ setErr: 'setErr' }),
     async requestOtp() {

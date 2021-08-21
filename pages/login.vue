@@ -4,7 +4,7 @@
       flex flex-col
       items-center
       justify-center
-      h-screen
+      min-h-screen
       p-2
       text-gray-600
       bg-gradient-to-br
@@ -14,7 +14,7 @@
   >
     <!-- Login side start  -->
 
-    <div class="px-4 border rounded-lg frosted w-full max-w-sm">
+    <div class="px-4 border rounded-lg frosted w-full max-w-md">
       <div class="flex flex-col pt-10">
         <nuxt-link to="/" class="text-center">
           <span
@@ -31,9 +31,10 @@
         </nuxt-link>
 
         <div class="flex flex-col justify-center mt-5 text-gray-600">
-          <span class="font-thin text-center">
+          <span class="text-center">
             Please login using email and password
           </span>
+
           <form @submit.prevent="submit">
             <Textbox
               id="email"
@@ -78,7 +79,18 @@
               LOGIN
             </GrnIndGradiantButton>
           </form>
-          <div class="flex items-center justify-between mt-5 text-sm">
+
+          <div
+            class="
+              w-full
+              max-w-sm
+              mx-auto
+              flex flex-row
+              items-center
+              justify-between
+              mt-5
+            "
+          >
             <nuxt-link
               to="/otplogin"
               class="text-start text-primary-500 hover:underline max-w-max"
@@ -97,6 +109,7 @@
       </div>
 
       <!-- bottom text -->
+
       <div class="pb-5">
         <div class="flex flex-row justify-center my-8 space-x-2 md:space-x-4">
           <a
@@ -259,7 +272,7 @@ export default {
 </script>
 <style scoped>
 .frosted {
-  /* background-color:rgb(150, 139, 224); */
+  background-image: url('/login/bg-lighter.svg');
   backdrop-filter: blur(15px);
   background-color: hsla(0, 0%, 100%, 0.75);
 }

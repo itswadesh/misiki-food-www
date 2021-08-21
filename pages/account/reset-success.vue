@@ -1,20 +1,36 @@
 <template>
-  <div
+  <section
     class="
       flex flex-col
       items-center
       justify-center
-      h-screen
+      min-h-screen
       p-2
-      text-center text-gray-600
+      text-gray-600
       bg-gradient-to-br
       from-secondary-100
       to-primary-100
     "
   >
-    <div class="w-full max-w-sm">
-      <div class="p-10 rounded-md shadow-md frosted">
-        <div class="mx-auto max-w-max">
+    <div class="px-4 border rounded-lg frosted w-full max-w-md">
+      <!-- Change success start  -->
+
+      <div class="flex flex-col py-10 mx-auto text-center md:w-10/12">
+        <nuxt-link to="/" class="">
+          <span
+            class="
+              text-4xl
+              font-extrabold
+              text-transparent
+              bg-clip-text bg-gradient-to-br
+              from-green-500
+              to-blue-500
+            "
+            >{{ settings.websiteName }}</span
+          >
+        </nuxt-link>
+
+        <div class="mt-5 mx-auto max-w-max">
           <svg
             class="w-20 h-20"
             xmlns="http://www.w3.org/2000/svg"
@@ -31,12 +47,18 @@
         <h2 class="py-5 font-semibold">Password successfully changed</h2>
 
         <h5>You need to login again</h5>
-        <nuxt-link to="/login?forced=true" class="pt-10 link"
-          >Back to login</nuxt-link
-        >
+
+        <div class="flex justify-center mt-5">
+          <nuxt-link
+            to="/login?forced=true"
+            class="text-primary-500 hover:underline max-w-max"
+          >
+            Back to login
+          </nuxt-link>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -50,3 +72,11 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.frosted {
+  background-image: url('/login/bg-lighter.svg');
+  backdrop-filter: blur(15px);
+  background-color: hsla(0, 0%, 100%, 0.75);
+}
+</style>

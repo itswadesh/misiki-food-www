@@ -2,10 +2,9 @@
   <section
     class="
       flex flex-col
-      cursor-default
       items-center
       justify-center
-      h-screen
+      min-h-screen
       p-2
       text-gray-600
       bg-gradient-to-br
@@ -13,69 +12,59 @@
       to-primary-100
     "
   >
-    <div
-      class="
-        relative
-        flex
-        mx-auto
-        my-12
-        rounded-md
-        shadow-md
-        min-w-sm
-        md:max-w-4xl
-        frosted
-      "
-    >
-      <div class="hidden w-1/2 md:block">
-        <SignupStep class="p-10" />
-      </div>
+    <!-- Login side start  -->
 
-      <div class="px-4 md:w-1/2">
-        <div class="mx-auto sm:w-11/12">
-          <div class="flex flex-col pt-10">
-            <nuxt-link to="/" class="text-center">
-              <span
-                class="
-                  text-4xl
-                  font-extrabold
-                  text-transparent
-                  bg-clip-text bg-gradient-to-br
-                  from-secondary-500
-                  to-primary-500
-                "
-              >
-                {{ settings.websiteName }}
-              </span>
-            </nuxt-link>
-            <div v-if="!isRequestSent" class="mt-8">
-              <EnterMobileNumber :phone="phone" @sendOtp="onSendOtp" />
-            </div>
-            <!--enter otp -->
-            <div v-else class="mt-8">
-              <EnterOtp
-                :country-code="countryCode"
-                :phone="phone"
-                @reRequest="isRequestSent = false"
-              />
-            </div>
-            <div class="flex items-center justify-center mt-12 text-sm">
-              <nuxt-link
-                to="/login?forced=true"
-                class="text-start text-primary-500 hover:underline max-w-max"
-              >
-                Login with email
-              </nuxt-link>
+    <div class="px-4 border rounded-lg frosted w-full max-w-md">
+      <div class="flex flex-col py-10">
+        <nuxt-link to="/" class="text-center">
+          <span
+            class="
+              text-4xl
+              font-extrabold
+              text-transparent
+              bg-clip-text bg-gradient-to-br
+              from-secondary-500
+              to-primary-500
+            "
+          >
+            {{ settings.websiteName }}
+          </span>
+        </nuxt-link>
 
-              <!-- <nuxt-link
+        <div v-if="!isRequestSent" class="mt-8">
+          <EnterMobileNumber :phone="phone" @sendOtp="onSendOtp" />
+        </div>
+
+        <!--enter otp -->
+
+        <div v-else class="mt-8">
+          <EnterOtp
+            :country-code="countryCode"
+            :phone="phone"
+            @reRequest="isRequestSent = false"
+          />
+        </div>
+
+        <div class="mt-12 flex items-center justify-center">
+          <nuxt-link
+            to="/login?forced=true"
+            class="text-start text-primary-500 hover:underline max-w-max"
+          >
+            Login with email
+          </nuxt-link>
+
+          <!-- <nuxt-link
                 to="/account/signup"
                 class="text-end text-primary-500 hover:underline max-w-max"
               >
                 Not a Member yet?
               </nuxt-link> -->
-            </div>
-          </div>
-          <!-- bottom text -->
-          <!-- <div class="pb-5">
+        </div>
+      </div>
+
+      <!-- bottom text -->
+
+      <!-- <div class="pb-5">
             <div
               class="flex flex-row justify-center my-8 space-x-2 md:space-x-4"
             >
@@ -153,10 +142,9 @@
               </a>
             </div>
           </div> -->
-        </div>
-      </div>
-      <!-- Login side end -->
     </div>
+
+    <!-- Login side end -->
   </section>
 </template>
 
@@ -230,7 +218,7 @@ export default {
 </script>
 <style scoped>
 .frosted {
-  /* background-color:rgb(150, 139, 224); */
+  background-image: url('/login/bg-lighter.svg');
   backdrop-filter: blur(15px);
   background-color: hsla(0, 0%, 100%, 0.75);
 }

@@ -51,6 +51,7 @@
           <div v-if="timerCount != 0">
             Please wait for 00:{{ timerCount }} seconds before next request
           </div>
+
           <button
             v-else
             type="button"
@@ -68,57 +69,14 @@
         </h1>
       </div>
       <div class="w-full mt-6 lg:mt-5">
-        <Button
-          class="
-            flex
-            justify-center
-            w-4/5
-            px-4
-            py-2
-            mx-auto
-            text-lg
-            font-semibold
-            transition-colors
-            duration-300
-            rounded-md
-            shadow
-            focus:outline-none focus:ring-primary-500 focus:ring-2
-          "
-          :class="
-            loading ? 'text-white bg-gray-500' : 'bg-primary-500 text-white'
-          "
+        <GrnIndGradiantButton
+          class="w-full max-w-sm mx-auto mt-5"
           type="submit"
           :disabled="loading"
+          :loading="loading"
         >
-          <span
-            v-if="!loading"
-            class="text-base font-light tracking-widest uppercase"
-          >
-            verify
-          </span>
-          <span v-else>
-            <svg
-              class="w-6 h-6 text-white -ms-1 animate-spin"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <circle
-                class="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                stroke-width="4"
-              ></circle>
-              <path
-                class="opacity-75"
-                fill="currentColor"
-                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-              ></path>
-            </svg>
-          </span>
-        </Button>
+          VERIFY
+        </GrnIndGradiantButton>
 
         <!-- <nuxt-link to="/"
           class="flex justify-center w-full px-4 py-2 mt-3 text-lg font-semibold transition-colors duration-300 bg-white border-none rounded-md shadow ring-1 ring-primary-500 text-primary-500 focus:outline-none focus:ring-primary-500 focus:ring-2"
@@ -136,10 +94,11 @@
 import OtpInput from '@bachdgvn/vue-otp-input'
 import { mapActions, mapMutations } from 'vuex'
 import GET_OTP from '~/gql/user/getOtp.gql'
-import { Button } from '~/shared/components/ui'
+import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
 
 export default {
-  components: { OtpInput, Button },
+  components: { OtpInput, GrnIndGradiantButton },
+
   props: {
     countryCode: {
       type: String,
@@ -150,6 +109,7 @@ export default {
       default: '',
     },
   },
+
   data() {
     return {
       loading: false,
@@ -157,6 +117,7 @@ export default {
       otp: null,
     }
   },
+
   computed: {
     settings() {
       return this.$store.state.settings || {}
@@ -165,6 +126,7 @@ export default {
       return this.$store.state.auth.user
     },
   },
+
   watch: {
     timerCount: {
       handler(value) {
@@ -177,11 +139,13 @@ export default {
       immediate: true, // This ensures the watcher is triggered upon creation
     },
   },
+
   mounted() {
     $nuxt.$on('getPhoneNo', (val) => {
       this.phone = val
     })
   },
+
   methods: {
     ...mapActions({ verifyOtp: 'auth/verifyOtp' }),
     ...mapMutations({ setErr: 'setErr', success: 'success' }),
@@ -206,6 +170,7 @@ export default {
         this.loading = false
       }
     },
+
     async VerifyTheOtp(val) {
       if (val) this.otp = val
       try {

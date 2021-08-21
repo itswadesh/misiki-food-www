@@ -1,6 +1,7 @@
 <template>
   <label
-    class="flex items-center cursor-pointer hover:bg-none"
+    class="flex items-start cursor-pointer hover:bg-none"
+    :class="activategrouphover ? 'group' : ''"
     :for="id || uniqueId"
   >
     <input
@@ -13,6 +14,7 @@
       :color="color"
       :checked="checkboxState"
       class="
+        mt-0.5
         w-4
         h-4
         border-gray-400
@@ -20,7 +22,10 @@
         rounded-sm
         focus:outline-0 focus:ring-0 focus:ring-offset-0
       "
-      :class="{ 'text-primary-500': color == 'primary' }"
+      :class="[
+        { 'text-primary-500': color == 'primary' },
+        { 'group-hover:border-primary-500': activategrouphover == true },
+      ]"
       @click="toggle"
     />
 
@@ -33,7 +38,7 @@
       :style="{ 'background-color': docColor }"
     ></div>
 
-    <div class="text-sm text-gray-800 ms-2">
+    <div class="text-sm text-gray-800 group-hover:text-primary-500 ms-2">
       <slot />
     </div>
 
@@ -126,6 +131,12 @@ export default {
       type: Number,
       required: false,
       default: 0,
+    },
+
+    activategrouphover: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
   },
 
