@@ -73,7 +73,7 @@
           </div>
           <div class="w-1/4 px-6 text-end">22/02/2025</div>
           <div class="w-1/4 text-end">
-            {{ 125 | currency(settings.currencySymbol, 2) }}
+            {{ 125 | currency(store.currencySymbol, 2) }}
           </div>
         </div>
       </label>
@@ -100,7 +100,7 @@
                     <span class="my-2">Payment: Credit Card</span>
                 </div>
                 <div class="w-1/4 px-6 text-end">22/02/2025</div>
-                <div class="w-1/4 text-end">{{125 | currency(settings.currencySymbol,2)}}</div>
+                <div class="w-1/4 text-end">{{125 | currency(store.currencySymbol,2)}}</div>
                 </div>
             </label> -->
     </div>
@@ -115,7 +115,7 @@ export default {
   components: { Checkbox },
   computed: {
     ...mapGetters({
-      settings: 'settings',
+      store: 'store',
     }),
   },
 }

@@ -24,7 +24,7 @@
             </div>
             <h2 v-if="order" class="text-3xl font-bold text-center">
               Total Amount:
-              {{ order.amount.total | currency(settings.currencySymbol, 2) }}
+              {{ order.amount.total | currency(store.currencySymbol, 2) }}
             </h2>
             <h3
               class="
@@ -239,9 +239,7 @@
                             Price:
                           </div>
                           <div class="text-secondary-200">
-                            {{
-                              item.price | currency(settings.currencySymbol, 2)
-                            }}
+                            {{ item.price | currency(store.currencySymbol, 2) }}
                           </div>
                         </div>
                       </div>
@@ -252,7 +250,7 @@
               >
                 <div class="text-gray-400 me-1">Price:</div>
                 <div class="text-green-400">
-                  {{ item.price | currency(settings.currencySymbol,2) }}
+                  {{ item.price | currency(store.currencySymbol,2) }}
                 </div>
               </div> -->
                 </div>
@@ -361,29 +359,24 @@
                   <div v-if="order.amount.subtotal">
                     <strong> Subtotal:</strong>
                     {{
-                      order.amount.subtotal
-                        | currency(settings.currencySymbol, 2)
+                      order.amount.subtotal | currency(store.currencySymbol, 2)
                     }}
                   </div>
                   <div v-if="order.amount.discount" class="w-2/3 my-2">
                     <strong> Discount:</strong>
                     {{
-                      order.amount.discount
-                        | currency(settings.currencySymbol, 2)
+                      order.amount.discount | currency(store.currencySymbol, 2)
                     }},
                   </div>
                   <div v-if="order.amount.shipping" class="my-2">
                     <strong> Shipping: </strong>
                     {{
-                      order.amount.shipping
-                        | currency(settings.currencySymbol, 2)
+                      order.amount.shipping | currency(store.currencySymbol, 2)
                     }}
                   </div>
                   <div v-if="order.amount.total" class="underline">
                     <strong>Total:</strong>
-                    {{
-                      order.amount.total | currency(settings.currencySymbol, 2)
-                    }}
+                    {{ order.amount.total | currency(store.currencySymbol, 2) }}
                   </div>
                 </div>
               </div>
@@ -427,7 +420,7 @@ export default {
   //       result({ data }) {
   //         this.order = data.orderUpdated
   //         const status = this.order.items[0].status
-  //         const currentStatus = this.settings.orderStatuses.filter(
+  //         const currentStatus = this.store.orderStatuses.filter(
   //           (s) => s.status == status
   //         )[0]
   //         Push.create(currentStatus.title, {
@@ -440,7 +433,7 @@ export default {
   // },
   computed: {
     ...mapGetters({
-      settings: 'settings',
+      store: 'store',
       user: 'auth/user',
       cart: 'cart/cart',
     }),

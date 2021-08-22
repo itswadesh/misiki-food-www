@@ -258,7 +258,7 @@ export default {
     const HOST = process.server ? req.headers.host : window.location.host
     const nextWeek = new Date(new Date().setDate(new Date().getDate() + 7))
     let structuredData = {}
-    if (product && store.state.settings) {
+    if (product && store.state.store) {
       structuredData = {
         '@context': 'http://schema.org/',
         '@type': 'Product',
@@ -289,10 +289,10 @@ export default {
           priceValidUntil: nextWeek.toISOString(),
           url: `${HOST}/${product.slug}?id=${product.id}`,
           price: product.price < 1 ? '0.00' : product.price,
-          priceCurrency: store.state.settings.currencyCode,
+          priceCurrency: store.state.store.currencyCode,
           seller: {
             '@type': 'Organization',
-            name: store.state.settings.websiteName,
+            name: store.state.store.websiteName,
             url: HOST,
           },
         },

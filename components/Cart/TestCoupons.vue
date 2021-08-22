@@ -134,13 +134,12 @@
                     </div>
                     <div class="mt-3 text-xs font-medium text-gray-700">
                       Save up to
-                      {{ c.maxAmount | currency(settings.currencySymbol, 2) }}
+                      {{ c.maxAmount | currency(store.currencySymbol, 2) }}
                     </div>
                     <div class="mt-3 text-xs font-medium text-gray-700">
                       {{ c.text }} on minimum purchase of
                       {{
-                        c.minimumCartValue
-                          | currency(settings.currencySymbol, 2)
+                        c.minimumCartValue | currency(store.currencySymbol, 2)
                       }}
                       | Expires on {{ c.validToDate | date }}
                       {{ c.terms }}
@@ -157,7 +156,7 @@
             @submit.stop.prevent="applyOffer(coupon_code)"
           >
             <div class="my-auto text-sm text-gray-500">
-              <!-- Minimum saving {{ 125 | currency(settings.currencySymbol,2) }} -->
+              <!-- Minimum saving {{ 125 | currency(store.currencySymbol,2) }} -->
             </div>
             <button
               :disabled="disabled"
@@ -235,7 +234,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      settings: 'settings',
+      store: 'store',
     }),
   },
   created() {

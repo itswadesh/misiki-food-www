@@ -395,24 +395,22 @@
                     </td>
 
                     <td class="text-sm text-center text-gray-900" scope="col">
-                      {{ i.price | currency(settings.currencySymbol, 2) }}
+                      {{ i.price | currency(store.currencySymbol, 2) }}
                     </td>
 
                     <td class="text-sm text-center text-gray-900" scope="col">
-                      {{
-                        i.shippingCharge | currency(settings.currencySymbol, 2)
-                      }}
+                      {{ i.shippingCharge | currency(store.currencySymbol, 2) }}
                     </td>
 
                     <td class="text-sm text-center text-gray-900" scope="col">
-                      {{ i.total | currency(settings.currencySymbol, 2) }}
+                      {{ i.total | currency(store.currencySymbol, 2) }}
                     </td>
 
                     <td class="ps-4 text-sm text-gray-900" scope="col">
                       <span class="text-primary-500">{{ i.status }}</span>
 
                       <!-- <a
-                        v-if="settings.liveCommerce"
+                        v-if="store.liveCommerce"
                         :href="`${NETEASE_WWW}/netease?channelName=${order.id}-${i.pid}`"
                         target="_"
                       >
@@ -420,7 +418,7 @@
                       </a> -->
 
                       <button
-                        v-if="settings.liveCommerce"
+                        v-if="store.liveCommerce"
                         type="button"
                         @click="populateDemoScheduler(i)"
                       >
@@ -570,22 +568,20 @@
                   <div>
                     Price:
                     <b class="text-gray-500">
-                      {{ i.price | currency(settings.currencySymbol, 2) }}
+                      {{ i.price | currency(store.currencySymbol, 2) }}
                       * {{ i.qty }}
                     </b>
                   </div>
                   <div>
                     Delivery:
                     <b class="text-gray-500">
-                      {{
-                        i.shippingCharge | currency(settings.currencySymbol, 2)
-                      }}
+                      {{ i.shippingCharge | currency(store.currencySymbol, 2) }}
                     </b>
                   </div>
                   <div>
                     Total:
                     <b class="text-gray-500">
-                      {{ i.total | currency(settings.currencySymbol, 2) }}
+                      {{ i.total | currency(store.currencySymbol, 2) }}
                     </b>
                   </div>
                 </div>
@@ -655,6 +651,7 @@ export default {
   computed: {
     ...mapGetters({
       settings: 'settings',
+      store: 'store',
     }),
   },
   async created() {

@@ -37,7 +37,7 @@
               {{ order.vendor.lastName }}
             </h6>
             <h4 class="mt-2 text-xl font-semibold">
-              {{ order.price | currency(settings.currencySymbol, 2) }}
+              {{ order.price | currency(store.currencySymbol, 2) }}
             </h4>
           </div>
         </div>
@@ -212,7 +212,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({ settings: 'settings' }),
+    ...mapGetters({ store: 'store' }),
   },
   created() {
     dayjs.extend(advancedFormat)

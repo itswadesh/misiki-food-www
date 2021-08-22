@@ -169,7 +169,7 @@
               <div class="flex justify-center mx-auto mt-2">
                 <div class="flex flex-row text-xs conatiner">
                   <div class="font-semibold text-gray-600 me-1 md:me-2">
-                    {{ product.price | currency(settings.currencySymbol, 2) }}
+                    {{ product.price | currency(store.currencySymbol, 2) }}
                   </div>
                   <strike
                     class="
@@ -181,7 +181,7 @@
                       md:me-2
                     "
                     >{{
-                      product.mrp | currency(settings.currencySymbol, 2)
+                      product.mrp | currency(store.currencySymbol, 2)
                     }}</strike
                   >
                   <div
@@ -356,7 +356,7 @@ export default {
     ...mapGetters({
       cart: 'cart/cart',
       getItemQty: 'cart/getItemQty',
-      settings: 'settings',
+      store: 'store',
     }),
   },
   mounted() {

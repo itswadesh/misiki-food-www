@@ -13,7 +13,7 @@
       "
     >
       <img
-        v-lazy="settings.logoMobile"
+        v-lazy="store.logoMobile"
         alt=""
         class="object-contain w-32 h-20 -mt-10"
       />
@@ -149,8 +149,8 @@ export default {
     }
   },
   computed: {
-    settings() {
-      return this.$store.state.settings || {}
+    store() {
+      return this.$store.state.store || {}
     },
   },
   created() {

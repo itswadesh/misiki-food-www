@@ -98,7 +98,7 @@
         </form>
       </div>
       <div class="flex flex-col w-full sm:w-1/2">
-        <div v-if="settings" class="flex flex-col justify-center text-center">
+        <div v-if="store" class="flex flex-col justify-center text-center">
           <span class="mt-4">Email:</span>
           <span
             class="
@@ -112,8 +112,8 @@
               duration-100
             "
           >
-            <a :href="`mailto:${settings.websiteEmail}`">{{
-              settings.websiteEmail
+            <a :href="`mailto:${store.websiteEmail}`">{{
+              store.websiteEmail
             }}</a>
           </span>
           <span class="mt-8">Telephone:</span>
@@ -129,21 +129,21 @@
               duration-100
             "
           >
-            {{ settings.shopPhone }}
+            {{ store.shopPhone }}
           </span>
-          <span class="mt-8 text-xl">{{ settings.websiteLegalName }}</span>
+          <span class="mt-8 text-xl">{{ store.websiteLegalName }}</span>
           <span class="w-1/2 mx-auto text-primary-500">
-            {{ settings.shopAddress }}
+            {{ store.shopAddress }}
           </span>
         </div>
         <div class="mt-4 text-center">
           <h1
             v-if="
               !(
-                settings.facebook == (null || '') &&
-                settings.twitter == (null || '') &&
-                settings.instagram == (null || '') &&
-                settings.linkedin == (null || '')
+                store.facebook == (null || '') &&
+                store.twitter == (null || '') &&
+                store.instagram == (null || '') &&
+                store.linkedin == (null || '')
               )
             "
           >
@@ -151,8 +151,8 @@
           </h1>
           <div class="flex flex-row justify-center mt-3">
             <a
-              v-if="settings.facebook != null && settings.facebook != ''"
-              :href="settings.facebook"
+              v-if="store.facebook != null && store.facebook != ''"
+              :href="store.facebook"
               target="blank"
             >
               <img
@@ -162,8 +162,8 @@
               />
             </a>
             <a
-              v-if="settings.twitter != null && settings.twitter != ''"
-              :href="settings.twitter"
+              v-if="store.twitter != null && store.twitter != ''"
+              :href="store.twitter"
               target="blank"
             >
               <img
@@ -173,8 +173,8 @@
               />
             </a>
             <a
-              v-if="settings.instagram != null && settings.instagram != ''"
-              :href="settings.instagram"
+              v-if="store.instagram != null && store.instagram != ''"
+              :href="store.instagram"
               target="blank"
             >
               <img
@@ -184,8 +184,8 @@
               />
             </a>
             <a
-              v-if="settings.linkedin != null && settings.linkedin != ''"
-              :href="settings.linkedin"
+              v-if="store.linkedin != null && store.linkedin != ''"
+              :href="store.linkedin"
               target="blank"
             >
               <img
@@ -233,8 +233,8 @@ export default {
     isDisabled() {
       return !this.contact.name || !this.contact.email || !this.contact.message
     },
-    settings() {
-      return this.$store.state.settings || {}
+    store() {
+      return this.$store.state.store || {}
     },
     user() {
       return this.$store.state.auth.user

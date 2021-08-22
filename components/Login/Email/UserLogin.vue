@@ -125,11 +125,11 @@
       >
         <div class="flex justify-center sm:-mt-10 h-36 lg:py-1">
           <img
-            v-lazy="settings.logo"
-            :alt="settings.websiteName"
+            v-lazy="store.logo"
+            :alt="store.websiteName"
             class="object-contain h-40 w-44"
           />
-          <!-- <img v-lazy="settings.logoMobile" alt="" class="w-32 h-20" /> -->
+          <!-- <img v-lazy="store.logoMobile" alt="" class="w-32 h-20" /> -->
         </div>
         <span class="mb-4 font-medium text-center text-primary-500">
           SignIn using email and password

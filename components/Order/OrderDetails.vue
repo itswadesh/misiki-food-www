@@ -49,7 +49,7 @@
               <span class="mb-2">{{ i.name }}</span>
               <span class="text-sm text-gray-500">Color : color</span>
               <span class="text-sm text-gray-500">Quantity : {{ i.qty }}</span>
-              <span>{{ i.price | currency(settings.currencySymbol, 2) }}</span>
+              <span>{{ i.price | currency(store.currencySymbol, 2) }}</span>
             </div>
           </div>
           <div class="flex flex-col mt-3 lg:flex-row md:mt-0">
@@ -101,7 +101,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      settings: 'settings',
+      store: 'store',
     }),
   },
   created() {

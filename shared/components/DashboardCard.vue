@@ -31,7 +31,7 @@
               {{ data[model].count }} orders
             </div>
             <span class="text-5xl font-bold text-gray-900">{{
-              data[model].amount | currency(settings.currencySymbol, 2)
+              data[model].amount | currency(store.currencySymbol, 2)
             }}</span>
             <div class="flex items-center mt-4">
               <div class="pr-2 text-xs">
@@ -101,6 +101,6 @@ export default {
     link: { type: String, default: null },
     model: { type: String, default: null },
   },
-  computed: { ...mapGetters({ settings: 'settings' }) },
+  computed: { ...mapGetters({ store: 'store' }) },
 }
 </script>

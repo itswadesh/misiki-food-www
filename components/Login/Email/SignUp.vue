@@ -152,11 +152,11 @@ export default {
 
   head() {
     return {
-      title: `SignUp for ${this.settings.websiteName}`,
+      title: `SignUp for ${this.store.websiteName}`,
     }
   },
   computed: {
-    ...mapGetters({ settings: 'settings', error: 'error' }),
+    ...mapGetters({ store: 'store', error: 'error' }),
   },
   methods: {
     ...mapActions({ register: 'auth/register' }),

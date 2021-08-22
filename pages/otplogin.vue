@@ -27,7 +27,7 @@
               to-primary-500
             "
           >
-            {{ settings.websiteName }}
+            {{ store.websiteName }}
           </span>
         </nuxt-link>
 
@@ -180,7 +180,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      settings: 'settings',
+      store: 'store',
     }),
   },
   // mounted() {

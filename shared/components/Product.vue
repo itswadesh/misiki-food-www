@@ -44,7 +44,7 @@
       <span>{{ p.description }}</span>
       <div class="flex flex-wrap items-center justify-between my-2">
         <div class="font-bold">
-          {{ p.price | currency(settings.currencySymbol, 2) }}
+          {{ p.price | currency(store.currencySymbol, 2) }}
         </div>
         <div v-if="p.stock < 1" class="text-xs text-secondary-600">
           Out of stock
@@ -73,7 +73,7 @@ export default {
   props: {
     p: { type: Object, default: () => {} },
   },
-  computed: { ...mapGetters({ settings: 'settings' }) },
+  computed: { ...mapGetters({ store: 'store' }) },
   methods: {},
 }
 </script>

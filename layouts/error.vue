@@ -47,7 +47,7 @@
       </div>
 
       <nuxt-link to="/" class="px-4 py-2 mt-5 text-sm rounded hover:underline">
-        {{ settings.websiteName }}
+        {{ store.websiteName }}
       </nuxt-link>
     </div>
   </section>
@@ -64,12 +64,12 @@ export default {
     const i18nHead = this.$nuxtI18nHead({ addSeoAttributes: true })
     return {
       ...i18nHead,
-      title: `Error Occured - ${this.settings.websiteName}`,
+      title: `Error Occured - ${this.store.websiteName}`,
     }
   },
   computed: {
-    settings() {
-      return this.$store.state.settings || {}
+    store() {
+      return this.$store.state.store || {}
     },
   },
 }

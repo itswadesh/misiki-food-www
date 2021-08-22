@@ -19,8 +19,8 @@
           "
         >
           <!-- <img
-            v-lazy="settings.logo"
-            :alt="settings.websiteName"
+            v-lazy="store.logo"
+            :alt="store.websiteName"
             class="absolute z-10 hidden object-contain w-32 h-32 md:flex -top-20"
                 /> -->
           <img

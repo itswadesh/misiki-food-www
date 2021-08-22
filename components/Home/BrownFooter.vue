@@ -346,7 +346,7 @@
           />
           <span class="object-cover ps-4 my-auto lg:w-2/3">
             <strong class="font-light"> 100% ORIGINAL </strong> guarantee for
-            all products at {{ settings.websiteName }}
+            all products at {{ store.websiteName }}
           </span>
         </div>
         <!-- <div class="flex flex-col my-8 md:flex-row">
@@ -376,9 +376,9 @@
     <div class="w-full my-4 border-b-2 border-white"></div>
     <div class="flex flex-col-reverse justify-between md:flex-row">
       <span class="mt-4 text-sm font-normal tracking-wider md:mt-0">
-        © {{ year }} {{ settings.websiteName }}
-        <span v-if="settings.websiteEmail" class="ms-2">
-          {{ settings.websiteEmail }}</span
+        © {{ year }} {{ store.websiteName }}
+        <span v-if="store.websiteEmail" class="ms-2">
+          {{ store.websiteEmail }}</span
         >
       </span>
       <!-- <LanguageSwitcher /> -->
@@ -544,7 +544,9 @@ export default {
     }
   },
   computed: {
-    settings() {
+    store() {
+      return this.$store.state.store || {}
+    }, settings() {
       return this.$store.state.settings || {}
     },
   },

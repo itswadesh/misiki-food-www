@@ -9,7 +9,7 @@
         <div v-if="product" class="flex flex-row me-5">
           <div class="p-2 ps-4 my-auto text-gray-700">
             <span>{{ product.name }}</span>
-            <!-- <span class="flex justify-end text-xs text-secondary-200 text-end">{{product.price | currency(settings.currencySymbol,2)}}</span>-->
+            <!-- <span class="flex justify-end text-xs text-secondary-200 text-end">{{product.price | currency(store.currencySymbol,2)}}</span>-->
           </div>
           <img
             v-lazy="product.img"
@@ -152,7 +152,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      settings: 'settings',
+      store: 'store',
     }),
   },
   async created() {

@@ -9,7 +9,7 @@
       :title="data.name"
       :description="data.vendor.info.store"
       :quote="data.description"
-      :hashtags="settings.keywords"
+      :hashtags="store.keywords"
       network="facebook"
       style="color: #3b5998"
       class="flex items-center justify-center w-full lg:justify-start"
@@ -37,7 +37,7 @@
       :title="data.name"
       :description="data.vendor.info.store"
       :quote="data.description"
-      :hashtags="settings.keywords"
+      :hashtags="store.keywords"
       network="reddit"
       class="
         flex
@@ -70,7 +70,7 @@
       :title="data.name"
       :description="data.vendor.info.store"
       :quote="data.description"
-      :hashtags="settings.keywords"
+      :hashtags="store.keywords"
       twitter-user="litekart"
       network="twitter"
       style="color: #53a8e7"
@@ -99,7 +99,7 @@
       :title="data.name"
       :description="data.vendor.info.store"
       :quote="data.description"
-      :hashtags="settings.keywords"
+      :hashtags="store.keywords"
       network="whatsapp"
       style="color: #54cc61"
       class="flex items-center justify-center w-full lg:justify-start"
@@ -131,8 +131,8 @@ export default {
     host: { type: String, default: null },
   },
   computed: {
-    settings() {
-      return this.$store.state.settings || {}
+    store() {
+      return this.$store.state.store || {}
     },
   },
 }

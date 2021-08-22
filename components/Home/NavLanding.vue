@@ -13,7 +13,7 @@
         "
       >
         <nuxt-link to="/" class="flex items-center">
-          <img v-lazy="`${settings.logo}`" class="h-12 mx-2 mt-1" alt="Home" />
+          <img v-lazy="`${store.logo}`" class="h-12 mx-2 mt-1" alt="Home" />
         </nuxt-link>
       </div>
       <div class="py-4 flex justify-center order-4 w-full md:w-2/3 md:order-3">
@@ -120,7 +120,7 @@ export default {
     },
     ...mapGetters({
       showCart: 'cart/showCart',
-      settings: 'settings',
+      store: 'store',
     }),
   },
   mounted() {

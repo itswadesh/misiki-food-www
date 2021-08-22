@@ -49,12 +49,12 @@
         <!--  -->
         <!-- <div>
             <b>{{ 'SIGN UP' }}</b>
-            {{ 'TO ' + settings.websiteName }}
+            {{ 'TO ' + store.websiteName }}
           </div> -->
         <!--  -->
         <div class="my-3 text-4xl font-semibold tracking-wider text-center">
           <b>{{ 'SIGN UP' }}</b>
-          {{ 'TO ' + settings.websiteName }}
+          {{ 'TO ' + store.websiteName }}
         </div>
         <span class="mt-6 font-normal text-center text-white md:mt-0">
           Explore cart, wishlist, products, and more..
@@ -102,7 +102,7 @@
       </div>
       <div class="p-2 px-6 pt-4 bg-white md:mt-0 lg:p-5 lg:px-20 md:flex-1">
         <h3 class="flex justify-center lg:py-3">
-          <img v-lazy="settings.logoMobile" alt="" class="w-32 h-20" />
+          <img v-lazy="store.logoMobile" alt="" class="w-32 h-20" />
         </h3>
         <span class="my-6 font-medium text-center text-primary-500 lg:my-3">
           SignUp using social account
@@ -331,11 +331,11 @@ export default {
   },
   head() {
     return {
-      title: `SignUp for ${this.settings.websiteName}`,
+      title: `SignUp for ${this.store.websiteName}`,
     }
   },
   computed: {
-    ...mapGetters({ settings: 'settings', error: 'error' }),
+    ...mapGetters({ store: 'store', error: 'error' }),
   },
   methods: {
     ...mapActions({ register: 'auth/register' }),

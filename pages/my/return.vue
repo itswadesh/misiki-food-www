@@ -32,7 +32,7 @@
               {{ order.vendorInfo.lastName }}
             </h6>
             <h4 class="mt-2 text-xl font-medium">
-              {{ order.price | currency(settings.currencySymbol, 2) }}
+              {{ order.price | currency(store.currencySymbol, 2) }}
             </h4>
           </div>
         </div>
@@ -179,7 +179,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({ settings: 'settings' }),
+    ...mapGetters({ store: 'store' }),
   },
   created() {
     this.getReturnReasons()
@@ -187,7 +187,7 @@ export default {
   },
   methods: {
     getReturnReasons() {
-      this.returnReasons = this.settings.returnReasons
+      this.returnReasons = this.store.returnReasons
     },
     async submit() {
       try {

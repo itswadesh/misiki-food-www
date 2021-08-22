@@ -60,7 +60,7 @@ export default {
     noOfPages() {
       return Math.ceil(
         this.productCount /
-          (this.$store.state.settings && this.$store.state.settings.pageSize)
+          (this.$store.state.store && this.$store.state.store.pageSize)
       )
     },
   },

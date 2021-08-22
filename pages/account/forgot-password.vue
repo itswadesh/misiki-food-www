@@ -26,7 +26,7 @@
               from-green-500
               to-blue-500
             "
-            >{{ settings.websiteName }}</span
+            >{{ store.websiteName }}</span
           >
         </nuxt-link>
         <div class="flex flex-col">
@@ -87,7 +87,7 @@ export default {
     return { email: this.$route.query.email }
   },
   computed: {
-    ...mapGetters({ loading: 'loading' }),
+    ...mapGetters({ loading: 'loading', store: 'store' }),
   },
   methods: {
     ...mapActions({ emailPassword: 'auth/emailPassword' }),

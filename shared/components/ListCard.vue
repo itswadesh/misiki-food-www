@@ -37,7 +37,7 @@
             {{ p.vendor.info.restaurant }}
           </div>-->
           <div class="text-xl font-black text-gray-700">
-            {{ p.price | currency(settings.currencySymbol, 2) }}
+            {{ p.price | currency(store.currencySymbol, 2) }}
           </div>
         </div>
         <div class="flex items-center justify-between">
@@ -71,7 +71,7 @@ export default {
   },
 
   //  ['p', 'isLoading'],
-  computed: { ...mapGetters({ settings: 'settings' }) },
+  computed: { ...mapGetters({ store: 'store' }) },
   methods: {},
 }
 </script>

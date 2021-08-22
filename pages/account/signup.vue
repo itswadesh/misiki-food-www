@@ -27,7 +27,7 @@
                 from-secondary-500
                 to-primary-500
               "
-              >{{ settings.websiteName }}</span
+              >{{ store.websiteName }}</span
             >
           </nuxt-link>
 
@@ -248,12 +248,12 @@ export default {
   },
   head() {
     return {
-      title: `SignUp for ${this.settings.websiteName}`,
+      title: `SignUp for ${this.store.websiteName}`,
     }
   },
 
   computed: {
-    ...mapGetters({ settings: 'settings', error: 'error' }),
+    ...mapGetters({ store: 'store', error: 'error' }),
   },
   methods: {
     go(url) {

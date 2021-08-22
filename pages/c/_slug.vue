@@ -328,7 +328,7 @@ export default {
     }
   },
   // watchQuery: true,
-  created() {
+  fetch() {
     this.scrollToTop()
     this.currentPage = parseInt(this.$route.query.page)
     // let query = { ...this.$route.query };

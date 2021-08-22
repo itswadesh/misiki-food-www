@@ -27,7 +27,7 @@
                 from-secondary-500
                 to-primary-500
               "
-              >{{ settings.websiteName }}</span
+              >{{ store.websiteName }}</span
             >
           </nuxt-link>
           <div>
@@ -71,7 +71,7 @@ export default {
   layout: 'none',
 
   computed: {
-    ...mapGetters({ settings: 'settings', error: 'error' }),
+    ...mapGetters({ store: 'store', error: 'error' }),
   },
   async created() {
     try {

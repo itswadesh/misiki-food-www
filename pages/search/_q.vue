@@ -148,17 +148,17 @@ export default {
       return { products, productCount, facets: [], fl: {}, err }
     }
   },
-  head() {
-    return {
-      title: 'Search Product',
-    }
-  },
-  watchQuery: true,
-  created() {
+  // watchQuery: true,
+  fetch() {
     this.scrollToTop()
     this.currentPage = parseInt(this.$route.query.page)
     // let query = { ...this.$route.query };
     // this.fl = query;
+  },
+  head() {
+    return {
+      title: 'Search Product',
+    }
   },
   methods: {
     // async getData(query) {

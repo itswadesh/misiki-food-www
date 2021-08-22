@@ -58,14 +58,14 @@
           <b class="me-1 text-sm sm:text-base">Rs.</b>
 
           <b class="me-2 text-sm sm:text-base">
-            {{ item.price | currency(settings.currencySymbol) }}
+            {{ item.price | currency(store.currencySymbol) }}
           </b>
 
           <strike
             v-if="item.price < item.mrp"
             class="text-xs sm:text-sm font-light me-2 text-gray-500"
           >
-            {{ item.mrp | currency(settings.currencySymbol) }}
+            {{ item.mrp | currency(store.currencySymbol) }}
           </strike>
 
           <div
@@ -330,7 +330,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      settings: 'settings',
+      store: 'store',
       cart: 'cart/cart',
       getItemQty: 'cart/getItemQty',
     }),

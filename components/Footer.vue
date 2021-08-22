@@ -2,7 +2,7 @@
   <div
     class="flex-row justify-center w-full text-gray-500 p-2 text-sm text-center"
   >
-    <span>Policy© 2007-{{ year }} {{ settings.websiteName }}</span>
+    <span>Policy© 2007-{{ year }} {{ store.websiteName }}</span>
   </div>
 </template>
 <script>
@@ -13,8 +13,8 @@ export default {
     }
   },
   computed: {
-    settings() {
-      return this.$store.state.settings || {}
+    store() {
+      return this.$store.state.store || {}
     },
   },
 }

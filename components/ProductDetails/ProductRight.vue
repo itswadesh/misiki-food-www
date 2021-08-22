@@ -55,14 +55,14 @@
               <b class="me-1 text-base sm:text-lg">Rs.</b>
 
               <b class="me-2 text-base sm:text-lg">
-                {{ product.price | currency(settings.currencySymbol) }}
+                {{ product.price | currency(store.currencySymbol) }}
               </b>
 
               <strike
                 v-if="product.price < product.mrp"
                 class="text-sm sm:text-base font-light me-2 text-gray-500"
               >
-                {{ product.mrp | currency(settings.currencySymbol) }}
+                {{ product.mrp | currency(store.currencySymbol) }}
               </strike>
 
               <div
@@ -681,6 +681,7 @@ export default {
       cart: 'cart/cart',
       getItemQty: 'cart/getItemQty',
       settings: 'settings',
+      store: 'store',
     }),
     // discount() {
     //   return Math.floor(100 - (this.product.price * 100) / this.product.mrp)

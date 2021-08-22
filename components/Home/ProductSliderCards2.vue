@@ -187,14 +187,14 @@
             "
           >
             <h6 class="mr-1 text-xs sm:text-sm font-semibold whitespace-nowrap">
-              {{ product.price | currency(settings.currencySymbol, 2) }}
+              {{ product.price | currency(store.currencySymbol, 2) }}
             </h6>
 
             <h6
               v-if="product.price < product.mrp"
               class="mr-1 text-xs text-gray-500 whitespace-nowrap line-through"
             >
-              {{ product.mrp | currency(settings.currencySymbol, 2) }}
+              {{ product.mrp | currency(store.currencySymbol, 2) }}
             </h6>
 
             <div
@@ -241,7 +241,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      settings: 'settings',
+      store: 'store',
     }),
   },
   methods: {

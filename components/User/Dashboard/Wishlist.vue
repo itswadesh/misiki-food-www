@@ -115,7 +115,7 @@
                             <div class="text-accent-900">
                               {{
                                 w.product.price
-                                  | currency(settings.currencySymbol, 2)
+                                  | currency(store.currencySymbol, 2)
                               }}
                             </div>
                             <strike
@@ -124,7 +124,7 @@
                             >
                               {{
                                 w.product.mrp
-                                  | currency(settings.currencySymbol, 2)
+                                  | currency(store.currencySymbol, 2)
                               }}
                             </strike>
                             <div
@@ -210,7 +210,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      settings: 'settings',
+      store: 'store',
     }),
   },
 

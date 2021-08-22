@@ -44,7 +44,7 @@
                   from-secondary-500
                   to-primary-500
                 "
-                >{{ settings.websiteName }}</span
+                >{{ store.websiteName }}</span
               >
             </nuxt-link>
 
@@ -247,8 +247,8 @@ export default {
   },
 
   computed: {
-    settings() {
-      return this.$store.state.settings || {}
+    store() {
+      return this.$store.state.store || {}
     },
   },
   methods: {

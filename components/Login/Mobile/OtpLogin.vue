@@ -92,7 +92,7 @@
                     "
                   >
                     <img
-                      v-lazy="settings.logo"
+                      v-lazy="store.logo"
                       class="object-contain w-48 h-20 my-auto lg:h-12 lg:w-44"
                     />
                   </nuxt-link>
@@ -181,8 +181,8 @@ export default {
     }
   },
   computed: {
-    settings() {
-      return this.$store.state.settings || {}
+    store() {
+      return this.$store.state.store || {}
     },
   },
   methods: {

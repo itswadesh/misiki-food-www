@@ -26,7 +26,7 @@
               from-green-500
               to-blue-500
             "
-            >{{ settings.websiteName }}</span
+            >{{ store.websiteName }}</span
           >
         </nuxt-link>
 
@@ -108,7 +108,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      settings: 'settings',
+      store: 'store',
     }),
   },
   methods: {

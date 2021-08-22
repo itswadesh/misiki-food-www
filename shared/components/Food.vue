@@ -13,7 +13,7 @@
 
       <div class="price">
         <div class="font-bold">
-          Price : {{ product.price | currency(settings.currencySymbol, 2) }}
+          Price : {{ product.price | currency(store.currencySymbol, 2) }}
         </div>
       </div>
     </div>
@@ -28,7 +28,7 @@ export default {
   },
 
   // ['product', 'showcart'], // Used to hide the buttons at cart order page
-  computed: { ...mapGetters({ settings: 'settings' }) },
+  computed: { ...mapGetters({ store: 'store' }) },
 }
 </script>
 

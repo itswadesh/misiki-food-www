@@ -43,7 +43,7 @@
                   from-secondary-500
                   to-primary-500
                 "
-                >{{ settings.websiteName }}</span
+                >{{ store.websiteName }}</span
               >
             </nuxt-link>
 
@@ -251,7 +251,7 @@ export default {
   //   },
   // },
   asyncData({ params, app, store }) {
-    const { title, keywords, description } = store.state.settings || {} // err = null
+    const { title, keywords, description } = store.state.store || {} // err = null
     return { title, keywords, description }
   },
   data() {
@@ -263,7 +263,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({ settings: 'settings' }),
+    ...mapGetters({ store: 'store' }),
     user() {
       return this.$store.state.auth.user
     },
@@ -287,33 +287,33 @@ export default {
   },
   // head() {
   //   return {
-  //     title: 'Login to ' + (this.settings || {}).websiteName,
+  //     title: 'Login to ' + (this.store || {}).websiteName,
   //     meta: [
   //       {
   //         hid: 'description',
   //         name: 'description',
-  //         content: 'Login to ' + (this.settings || {}).websiteName,
+  //         content: 'Login to ' + (this.store || {}).websiteName,
   //       },
   //       {
   //         hid: 'og:description',
   //         name: 'Description',
   //         property: 'og:description',
-  //         content: 'Login to ' + (this.settings || {}).websiteName,
+  //         content: 'Login to ' + (this.store || {}).websiteName,
   //       },
   //       {
   //         hid: 'og:title',
   //         name: 'og:title',
   //         property: 'og:title',
-  //         content: 'Login to ' + (this.settings || {}).websiteName,
+  //         content: 'Login to ' + (this.store || {}).websiteName,
   //       },
   //       // Twitter
   //       {
   //         name: 'twitter:title',
-  //         content: 'Login to ' + (this.settings || {}).websiteName,
+  //         content: 'Login to ' + (this.store || {}).websiteName,
   //       },
   //       {
   //         name: 'twitter:description',
-  //         content: 'Login to ' + (this.settings || {}).websiteName,
+  //         content: 'Login to ' + (this.store || {}).websiteName,
   //       },
   //     ],
   //   }

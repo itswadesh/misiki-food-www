@@ -17,8 +17,7 @@
           <input
             v-model="selectedVal"
             :placeholder="
-              (settings && settings.searchbarText) ||
-              'Search for products, brands...'
+              (store && store.searchbarText) || 'Search for products, brands...'
             "
             class="
               hidden
@@ -45,8 +44,7 @@
           <!-- mobile view input -->
           <input
             :placeholder="
-              (settings && settings.searchbarText) ||
-              'Search for products, brands...'
+              (store && store.searchbarText) || 'Search for products, brands...'
             "
             class="
               sm:hidden
@@ -140,6 +138,9 @@ export default {
   computed: {
     settings() {
       return this.$store.state.settings || {}
+    },
+    store() {
+      return this.$store.state.store || {}
     },
   },
   methods: {

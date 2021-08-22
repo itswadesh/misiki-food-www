@@ -30,7 +30,7 @@
                 ref="q"
                 autofocus
                 :placeholder="
-                  (settings && settings.searchbarText) ||
+                  (store && store.searchbarText) ||
                   'Search for products, brands...'
                 "
                 :value="q"
@@ -203,8 +203,8 @@ export default {
     }
   },
   computed: {
-    settings() {
-      return this.$store.state.settings || {}
+    store() {
+      return this.$store.state.store || {}
     },
   },
   created() {

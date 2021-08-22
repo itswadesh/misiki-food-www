@@ -51,7 +51,7 @@ export default {
     noOfPages() {
       return Math.ceil(
         this.productCount /
-          (this.$store.state.settings && this.$store.state.settings.pageSize)
+          (this.$store.state.store && this.$store.state.store.pageSize)
       )
     },
   },
@@ -178,7 +178,7 @@ export default {
       this.meta.end = false
       this.meta.skip = 0
       this.meta.limit =
-        this.$store.state.settings && this.$store.state.settings.pageSize
+        this.$store.state.store && this.$store.state.store.pageSize
       this.products = [] // Reset query parameters
     },
     async getWishlist() {

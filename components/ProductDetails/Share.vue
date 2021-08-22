@@ -133,7 +133,7 @@
               :description="product.description || ''"
               :quote="(product.category && product.category.name) || ''"
               :hashtags="product.keywords || ''"
-              :twitter-user="settings.websiteName"
+              :twitter-user="store.websiteName"
               network="twitter"
               style="color: #53a8e7"
               class="
@@ -507,8 +507,8 @@ export default {
     }
   },
   computed: {
-    settings() {
-      return this.$store.state.settings || {}
+    store() {
+      return this.$store.state.store || {}
     },
   },
   methods: {
