@@ -56,7 +56,7 @@
                 v-lazy="c.img"
                 alt="categories"
                 class="
-                  object-cover
+                  object-cover object-top
                   h-full
                   w-full
                   border-2

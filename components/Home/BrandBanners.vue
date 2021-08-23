@@ -36,6 +36,7 @@
             alt="brand"
             class="object-cover object-top w-full"
           />
+
           <div
             v-else
             class="
@@ -49,7 +50,7 @@
               border-2 border-primary-500
               bg-primary-100
               text-2xl
-              h-96
+              h-64
             "
           >
             {{ b.name | first }}
@@ -87,7 +88,7 @@
                 rounded-full
                 border-2 border-primary-500
                 text-2xl
-                h-96
+                h-64
               "
             >
               {{ b.name | first }}
