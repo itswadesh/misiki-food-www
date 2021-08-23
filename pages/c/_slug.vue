@@ -165,7 +165,6 @@ export default {
     delete qry.brand
     if (q) qry.categories = q
     // if (cslug) qry.categories = cslug
-    // console.log('aaaaaaaaaaaaaaaa', qry)
     const result = await this.$axios.$get('/api/products/es', {
       params: { ...qry },
     })
@@ -328,12 +327,11 @@ export default {
     }
   },
   // watchQuery: true,
-  fetch() {
-    this.scrollToTop()
-    this.currentPage = parseInt(this.$route.query.page)
-    // let query = { ...this.$route.query };
-    // this.fl = query;
-  },
+  // fetch() {
+  // this.scrollToTop()
+  // let query = { ...this.$route.query };
+  // this.fl = query;
+  // },
   mounted() {
     // this.getWishlist() // This was causing node undefined error when page is refreshed
   },

@@ -66,12 +66,10 @@
         <div class="text-gray-500 text-1">
           <b> {{ count || 'No' }} </b
           ><span class="font-light">items found</span>
-          <span v-if="category && category.name"
-            ><span class="font-light">under</span>
-            <b
-              ><q>{{ category.name }} </q></b
-            ></span
-          >
+          <span v-if="category && category.name && category.name !== ''">
+            <span class="font-light">under</span>
+            <b>{{ category.name }} </b>
+          </span>
           <span v-else>
             <span class="font-light">for</span>
 

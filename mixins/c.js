@@ -62,6 +62,7 @@ export default {
     $route: {
       // immediate: true, // Throws error this.$fetch not a function
       handler(value, oldValue) {
+        console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz')
         const q = this.$route.params.q
         const query = { ...this.$route.query }
         const qry = { ...this.$route.query } // Prevent query sync
@@ -102,7 +103,7 @@ export default {
     },
     scrollToTop() {
       if (process.client) {
-        console.log('scroll..........')
+        // console.log('scroll..........')
         // window.scroll({
         //   behavior: 'smooth',
         //   left: 0,
