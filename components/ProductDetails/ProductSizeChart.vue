@@ -46,7 +46,11 @@
       </svg>
     </button>
     <div class="mt-6">
-      <img src="/img/productSizechart.jpg" alt="h-full w-full" />
+      <img
+        :src="product && product.sizechart"
+        alt="No Sizechart available"
+        class="h-full w-full"
+      />
     </div>
     <!-- <div class="">
         <div class="w-full border-t border-b">
@@ -78,6 +82,9 @@
 </template>
 <script>
 export default {
+  props: {
+    product: { type: Object, default: null },
+  },
   methods: {
     hideSidebar(e) {
       this.sidebar = false

@@ -20,26 +20,42 @@
         </span>
 
         <!-- size chart demo button  -->
-        <!-- <div>
-              <button
-                @click="sidebar = !sidebar"
-                aria-label="Open Menu"
-                class="overflow-x-hidden overflow-y-hidden transition ease-in-out focus:outline-none duration-1500"
-              >
-                Size chart
-              </button>
-              <div
-                v-if="sidebar"
-                @click="sidebar = false"
-                class="fixed inset-0 z-30 w-screen h-screen bg-black opacity-50 cursor-auto"
-              />
-              <ProductSizeChart
-                class="h-screen"
-                :show="sidebar"
-                :class="sidebar ? 'openSideBar' : 'closeSideBar'"
-                @hideSidebar="sidebar = false"
-              />
-            </div> -->
+        <div v-if="product.sizechart">
+          <button
+            aria-label="Open Menu"
+            class="
+              overflow-x-hidden overflow-y-hidden
+              transition
+              ease-in-out
+              focus:outline-none
+              duration-1500
+            "
+            @click="sidebar = !sidebar"
+          >
+            Size chart
+          </button>
+          <div
+            v-if="sidebar"
+            class="
+              fixed
+              inset-0
+              z-30
+              w-screen
+              h-screen
+              bg-black
+              opacity-50
+              cursor-auto
+            "
+            @click="sidebar = false"
+          />
+          <ProductSizeChart
+            :product="product"
+            class="h-screen"
+            :show="sidebar"
+            :class="sidebar ? 'openSideBar' : 'closeSideBar'"
+            @hideSidebar="sidebar = false"
+          />
+        </div>
 
         <!-- <span v-if="showDemoScheduler">
               <Scheduler
