@@ -12,7 +12,7 @@
   >
     <div class="min-h-screen">
       <div
-        v-if="!store.id"
+        v-if="!store.id && !settings.isMultiStore"
         class="px-8 py-12 flex flex-col items-center justify-center"
       >
         <div
@@ -22,7 +22,7 @@
           <p>Oops! Store not found</p>
         </div>
 
-        <a target="blank" href="https://admin.misiki.in/" class="mb-5">
+        <a target="blank" :href="`${settings.adminPanelLink}`" class="mb-5">
           <GrnIndGradiantButton
             :loading="loading"
             class="w-52"
@@ -33,8 +33,7 @@
         </a>
 
         <div class="mb-1 text-xs font-semibold text-center">
-          MISIKI
-          <!-- <p>Odisha</p> -->
+          {{ websiteName }}
         </div>
       </div>
 
@@ -73,6 +72,9 @@ export default {
     return this.$nuxtI18nHead()
   },
   computed: {
+    settings() {
+      return this.$store.state.settings || {}
+    },
     store() {
       return this.$store.state.store || {}
     },
