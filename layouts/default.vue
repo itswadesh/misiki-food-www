@@ -12,7 +12,7 @@
   >
     <div class="min-h-screen">
       <div
-        v-if="!store.id && !settings.isMultiStore"
+        v-if="!store.id && settings.isMultiStore"
         class="px-8 py-12 flex flex-col items-center justify-center"
       >
         <div
