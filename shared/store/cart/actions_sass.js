@@ -118,7 +118,6 @@ export default {
     { commit, state, rootState, getters },
     { paymentMethod, address }
   ) {
-    // console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz', this.app.context)
     paymentMethod = paymentMethod || 'COD'
     const store = rootState.store && rootState.store.id
     switch (paymentMethod) {

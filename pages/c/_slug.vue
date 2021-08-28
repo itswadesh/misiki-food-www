@@ -140,7 +140,7 @@ export default {
     // let err = null
     // let productCount = 0
     // const client = app.apolloProvider.defaultClient
-    const storeId = this.$store.state.store.id
+    const storeId = this.$store.state.store && this.$store.state.store.id
     // try {
     const cslug = this.$route.params.slug
     if (cslug) {
