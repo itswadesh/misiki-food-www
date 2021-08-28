@@ -5,7 +5,8 @@ export default ({ app }, inject) => {
     const endPoint = gql.substring(n + 1)
     const query = require(`~/gql/${gql}.gql`)
     variables.store = app.store.state.store && app.store.state.store.id
-    if (!variables.store) {
+    const settings = app.store.state.settings && app.store.state.settings
+    if (!variables.store && settings.isMultiStore) {
       variables.store = '23sdf43rfs5fdgsdf'
       throw new Error('Store not found')
     }
