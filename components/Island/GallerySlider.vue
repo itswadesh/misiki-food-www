@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div class="w-full max-w-6xl mx-auto">
+    <div class="w-full max-w-7xl mx-auto">
       <section class="text-center">
         <h1 class="font-semibold text-3xl">Worn by you</h1>
         <div

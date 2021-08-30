@@ -31,8 +31,6 @@
     <GallerySlider class="mt-5 md:mt-10" :banners="sliderBanners" />
 
     <WantMore class="mt-5 md:mt-10" />
-
-    <WhiteFooter class="mt-10 md:mt-20" />
   </section>
 </template>
 
@@ -46,7 +44,6 @@ import BrandBanners from '~/components/Home/BrandBanners.vue'
 import ProductSlider from '~/components/Home/ProductSlider.vue'
 import GallerySlider from '~/components/Island/GallerySlider.vue'
 import WantMore from '~/components/Island/WantMore.vue'
-import WhiteFooter from '~/components/Island/WhiteFooter.vue'
 
 export default {
   components: {
@@ -59,9 +56,10 @@ export default {
     ProductSlider,
     GallerySlider,
     WantMore,
-    WhiteFooter,
   },
-  layout: 'none',
+
+  layout: 'island',
+
   data() {
     return {
       sliderBanners: null,
@@ -70,12 +68,14 @@ export default {
       hotProducts: null,
     }
   },
+
   created() {
     this.getBanners()
     this.getBrands()
     this.getYouMayLikeProducts()
     this.getHotProducts()
   },
+
   methods: {
     async getBrands() {
       // this.loading = true

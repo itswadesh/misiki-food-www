@@ -11,30 +11,38 @@
     "
   >
     <Nav class="fixed top-0 z-50 w-full" @showLogin="showLogin" />
+
     <Nuxt />
+
     <div class="flex-1" />
-    <WhiteFooter class="mt-10 md:mt-20" />
+
+    <IslandFooter />
+
     <OtpLogin v-if="showLoginModal" @showLogin="showLogin" />
   </div>
 </template>
 <script>
 import Nav from '~/components/Home/Nav.vue'
 import OtpLogin from '~/components/Login/Mobile/OtpLogin.vue'
-import WhiteFooter from '~/components/Island/WhiteFooter.vue'
+import IslandFooter from '~/components/Island/IslandFooter.vue'
+
 export default {
   components: {
     Nav,
-    WhiteFooter,
+    IslandFooter,
     OtpLogin,
   },
+
   data() {
     return {
       showLoginModal: false,
     }
   },
+
   head() {
     return this.$nuxtI18nHead()
   },
+
   methods: {
     showLogin(e) {
       this.showLoginModal = e
