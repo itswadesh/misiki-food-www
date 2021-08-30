@@ -67,6 +67,7 @@ import BANNERS from '~/gql/banner/banners.gql'
 import GROUP_BY_BANNER from '~/gql/banner/groupByBanner.gql'
 import BRANDS from '~/gql/brand/brands.gql'
 import { TITLE, DESCRIPTION, KEYWORDS, sharingLogo } from '~/shared/config'
+
 export default {
   components: {
     Megamenu,
@@ -263,6 +264,7 @@ export default {
         this.visible = false
       }
     },
+
     async getYouMayLikeProducts() {
       this.loading = true
       try {
@@ -284,6 +286,7 @@ export default {
         this.loading = false
       }
     },
+
     async getHotProducts() {
       this.loading = true
       try {

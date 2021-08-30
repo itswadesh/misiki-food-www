@@ -1,6 +1,6 @@
 <template>
   <main
-    v-if="categories"
+    v-if="categories && categories.count > 0"
     class="container mx-auto bg-white px-2 sm:px-10 pb-5 md:pb-0 text-gray-700"
   >
     <h1

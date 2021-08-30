@@ -1,6 +1,6 @@
 <template>
   <main
-    v-if="brands"
+    v-if="brands && brands.length"
     class="container mx-auto bg-white pl-2 sm:pl-10 lg:pr-10 text-gray-700"
   >
     <h1

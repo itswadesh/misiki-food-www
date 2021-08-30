@@ -1,33 +1,42 @@
 <template>
-  <div
-    class="
-      flex flex-col
-      items-center
-      justify-center
-      font-semibold
-      tracking-wider
-      text-center
-    "
-  >
+  <div class="h-auto text-gray-800">
     <form @submit.prevent="VerifyTheOtp()">
-      <div class="container flex flex-col mx-auto space-y-3">
-        <div class="text-center">
-          <span class="text-xl font-medium text-primary-500"
-            >OTP Verification</span
-          >
+      <div class="flex flex-col">
+        <div class="mb-3 text-center text-xl font-medium text-primary-500">
+          OTP Verification
         </div>
-        <label for="email" class="my-2 text-center otptext lg:my-0">
-          Enter The OTP sent to
-          <span class="text-xs font-bold"> {{ countryCode }}-{{ phone }} </span>
-          <button
-            type="button"
-            class="text-xs text-primary-500 ms-1"
-            @click="$emit('reRequest')"
-          >
-            Change
-          </button>
+
+        <label
+          for="email"
+          class="
+            mb-5
+            flex flex-col
+            items-center
+            justify-center
+            space-y-1
+            text-center
+          "
+        >
+          <div class="text-sm">Enter the OTP sent to</div>
+
+          <div class="flex text-xs space-x-2">
+            <b> {{ countryCode }}-{{ phone }} </b>
+
+            <button
+              type="button"
+              class="
+                text-primary-500
+                hover:text-primary-700 hover:underline
+                focus:outline-none
+              "
+              @click="$emit('reRequest')"
+            >
+              Change
+            </button>
+          </div>
         </label>
-        <div class="flex justify-center">
+
+        <div class="mb-5 flex justify-center">
           <otp-input
             ref="otpInput"
             input-classes="mw-2 w-12 mx-2 border-none rounded shadow-md appearance-none none ring-1 ring-gray-100 focus:ring-1 focus:ring-primary-500 text-center rounded border-0 shadow-lg"
@@ -37,54 +46,41 @@
             @on-complete="VerifyTheOtp"
           />
         </div>
-      </div>
 
-      <!-- <div
-      class="flex flex-row items-center justify-center text-xs text-orange-500"
-    >
-    Please wait for 00:{{ timerCount }} seconds
-    </div> -->
+        <div class="mb-5 text-center">
+          <h1 class="text-xs text-gray-700 space-x-2">
+            <span>Didn't receive the OTP?</span>
 
-      <div class="mt-6 text-center">
-        <h1 class="text-xs text-gray-700 otptext">
-          Didn't receive the OTP?
-          <div v-if="timerCount != 0">
-            Please wait for 00:{{ timerCount }} seconds before next request
-          </div>
+            <span v-if="timerCount != 0">
+              Please wait for 00:{{ timerCount }} seconds before next request
+            </span>
 
-          <button
-            v-else
-            type="button"
-            class="
-              text-sm
-              font-semibold
-              uppercase
-              focus:outline-none
-              text-primary-500
-            "
-            @click="requestOtp"
-          >
-            Resend otp
-          </button>
-        </h1>
-      </div>
-      <div class="w-full mt-6 lg:mt-5">
+            <button
+              v-else
+              type="button"
+              class="
+                text-sm
+                font-semibold
+                uppercase
+                text-primary-500
+                hover:text-primary-700 hover:underline
+                focus:outline-none
+              "
+              @click="requestOtp"
+            >
+              Resend otp
+            </button>
+          </h1>
+        </div>
+
         <GrnIndGradiantButton
-          class="w-full max-w-sm mx-auto mt-5"
+          class="w-full max-w-sm mx-auto"
           type="submit"
           :disabled="loading"
           :loading="loading"
         >
           VERIFY
         </GrnIndGradiantButton>
-
-        <!-- <nuxt-link to="/"
-          class="flex justify-center w-full px-4 py-2 mt-3 text-lg font-semibold transition-colors duration-300 bg-white border-none rounded-md shadow ring-1 ring-primary-500 text-primary-500 focus:outline-none focus:ring-primary-500 focus:ring-2"
-        >
-          <span class="font-normal uppercase text-normal">
-            Back
-          </span>
-        </nuxt-link> -->
       </div>
     </form>
   </div>
