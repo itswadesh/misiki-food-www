@@ -14,7 +14,15 @@
 
           <div class="md:flex md:items-start md:justify-between">
             <div class="md:w-1/2">
-              <div class="space-y-3">
+              <div class="flex flex-col space-y-3">
+                <a
+                  href="https://admin.misiki.in/"
+                  target="blank"
+                  class="font-light text-sm whitespace-nowrap"
+                >
+                  Merchant Dashboard</a
+                >
+
                 <div
                   v-for="(h, hx) in helpcontainer"
                   :key="hx"
@@ -28,7 +36,7 @@
             </div>
 
             <div class="md:w-1/2">
-              <div class="space-y-3">
+              <div class="flex flex-col space-y-3">
                 <div
                   v-for="(hh, hhx) in helpcontainer2"
                   :key="hhx"
@@ -38,6 +46,14 @@
                     {{ hh.name }}
                   </nuxt-link>
                 </div>
+
+                <a
+                  href="https://admin.misiki.in/"
+                  target="blank"
+                  class="font-light text-sm whitespace-nowrap"
+                >
+                  Become a Merchant</a
+                >
               </div>
             </div>
           </div>
@@ -57,7 +73,7 @@
 
             <div class="md:flex md:items-start md:justify-between">
               <div class="md:w-1/2">
-                <div class="space-y-3">
+                <div class="flex flex-col space-y-3">
                   <div
                     v-for="(u, ux) in usefullinfo"
                     :key="ux"
@@ -81,7 +97,7 @@
 
             <div class="md:flex md:items-start md:justify-between">
               <div class="md:w-1/2">
-                <div class="space-y-3">
+                <div class="flex flex-col space-y-3">
                   <div
                     v-for="(i, ix) in InsideMisiki"
                     :key="ix"
@@ -123,7 +139,6 @@ export default {
       year: new Date().getFullYear(),
 
       helpcontainer: [
-        { link: '/', name: 'Merchant Dashboard' },
         { link: '/legal/shipping-policy', name: 'Shipping Policy' },
         { link: '/my/orders', name: 'Track Order' },
         { link: '/legal/return-policy', name: 'Return Policy' },
@@ -131,7 +146,6 @@ export default {
 
       helpcontainer2: [
         { link: '/faq', name: 'FAQ' },
-        { link: '/', name: 'Become a Merchant' },
         { link: '/how-it-works', name: 'How it works' },
         { link: '/my/orders', name: 'Contact Seller' },
       ],
