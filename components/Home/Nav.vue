@@ -69,7 +69,7 @@
             />
           </div>
 
-          <div class="h-full my-auto lg:mt-1">
+          <div class="h-full my-auto">
             <nuxt-link :to="localePath('/')">
               <div class="my-auto">
                 <img

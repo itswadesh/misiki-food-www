@@ -41,6 +41,7 @@
             from-secondary-500
             to-primary-500
             text-center
+            max-w-max
           "
         >
           <span v-if="store.websiteName">
@@ -269,8 +270,8 @@ export default {
       store: 'store',
     }),
 
-    settings() {
-      return this.$store.state.settings || {}
+    store() {
+      return this.$store.state.store || {}
     },
   },
 
