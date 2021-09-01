@@ -120,7 +120,7 @@ export default {
   components: { TestCoupons, GrnIndGradiantButton },
   props: {
     loading: { type: Boolean },
-    selectedAddress: { type: String, default: null },
+    selectedAddress: { type: Object, default: null },
   },
   data() {
     return {

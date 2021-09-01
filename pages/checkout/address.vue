@@ -82,7 +82,6 @@
         <div class="text-2xl font-bold tracking-wide mb-3">Cart Summary</div>
 
         <hr class="border-t border-gray-200 mb-2" />
-        --{{ selectedAddress }}
         <CartSummaryCheckout
           :loading="loading"
           :selected-address="selectedAddress"

@@ -240,9 +240,19 @@ export default {
             break
           }
           const url = cashFreePayload.url
-          delete cashFreePayload.__typename
-          delete cashFreePayload.url
-          delete cashFreePayload.token
+          const allowed = [
+            'appId',
+            'customerEmail',
+            'customerName',
+            'customerPhone',
+            'notifyUrl',
+            'orderAmount',
+            'orderCurrency',
+            'orderId',
+            'orderNote',
+            'returnUrl',
+            'signature',
+          ]
           const formI = document.createElement('form')
           formI.setAttribute('id', 'cashfreeForm')
           formI.setAttribute('action', url)
@@ -250,7 +260,7 @@ export default {
           formI.setAttribute('style', 'display:none;')
           if (cashFreePayload !== null) {
             for (const [key, value] of Object.entries(cashFreePayload)) {
-              if (value !== null) {
+              if (value !== null && allowed.includes(key)) {
                 const input = document.createElement('input')
                 input.setAttribute('type', 'hidden')
                 input.setAttribute('name', key)

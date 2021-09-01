@@ -389,8 +389,9 @@ import ORDER from '~/gql/order/order.gql'
 import PAY_SUCCESS_PAGE_HIT from '~/gql/order/paySuccessPageHit.gql'
 // import SUBSCRIPTION_ORDER_UPDATED from '~/gql/order/SUBSCRIPTION_ORDER_UPDATED.gql'
 import NuxtLink from '~/components/NuxtLink.vue'
+import OrderSuccessSkeleton from '~/components/Order/SuccessSkeleton.vue'
 export default {
-  components: { NuxtLink },
+  components: { OrderSuccessSkeleton, NuxtLink },
   data() {
     return {
       order: null,

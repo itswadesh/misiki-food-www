@@ -33,7 +33,7 @@
         </a>
 
         <div class="mb-1 text-xs font-semibold text-center">
-          {{ websiteName }}
+          {{ settings.websiteName }}
         </div>
       </div>
 
