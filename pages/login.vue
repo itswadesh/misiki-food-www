@@ -27,7 +27,7 @@
         max-w-sm
       "
     >
-      <div class="mb-8 flex flex-col">
+      <div class="mb-8 flex flex-col items-center">
         <!-- Store name  -->
 
         <nuxt-link
@@ -41,14 +41,13 @@
             from-secondary-500
             to-primary-500
             text-center
-            max-w-max
           "
         >
-          <span v-if="store.websiteName">
-            {{ store.websiteName }}
+          <span v-if="store.name">
+            {{ store.name }}
           </span>
 
-          <span v-else> Store Name </span>
+          <span v-else> {{ settings.websiteName }} </span>
         </nuxt-link>
 
         <div class="flex flex-col justify-center text-gray-600">
@@ -266,10 +265,9 @@ export default {
   },
 
   computed: {
-    ...mapGetters({
-      store: 'store',
-    }),
-
+    settings() {
+      return this.$store.state.settings || {}
+    },
     store() {
       return this.$store.state.store || {}
     },

@@ -43,11 +43,11 @@
             text-center
           "
         >
-          <span v-if="store.websiteName">
-            {{ store.websiteName }}
+          <span v-if="store.name">
+            {{ store.name }}
           </span>
 
-          <span v-else> Store Name </span>
+          <span v-else> {{ settings.websiteName }} </span>
         </nuxt-link>
 
         <!-- enter mobile number -->
@@ -116,9 +116,12 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      store: 'store',
-    }),
+    settings() {
+      return this.$store.state.settings || {}
+    },
+    store() {
+      return this.$store.state.store || {}
+    },
   },
   // mounted() {
   //   this.$refs.mobile.focus();
