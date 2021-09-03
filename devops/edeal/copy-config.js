@@ -1,0 +1,5 @@
+const shell = require('shelljs')
+shell.rm('-Rf', 'node-modules/.cache')
+shell.cp('-R', 'config/edeal/index.js', 'config/index.js')
+shell.cp('-R', 'config/edeal/icon.png', 'static/icon.png')
+shell.cp('-R', 'config/edeal/favicon.ico', 'static/favicon.ico')

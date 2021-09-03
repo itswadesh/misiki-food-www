@@ -1,0 +1,5 @@
+const shell = require('shelljs')
+shell.rm('-Rf', 'node-modules/.cache')
+shell.cp('-R', 'config/misiki/index.js', 'config/index.js')
+shell.cp('-R', 'config/misiki/icon.png', 'static/icon.png')
+shell.cp('-R', 'config/misiki/favicon.ico', 'static/favicon.ico')
