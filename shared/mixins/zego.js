@@ -162,12 +162,11 @@ export default {
         } else if (result.state === 'PLAY_REQUESTING') {
           // console.info(' play  retry')
         } else {
-          if (result.errorCode === 0) {
-            // console.warn('play stop ' + result.errorCode)
-          } else {
-            // console.error('play error ' + result.errorCode)
-          }
-
+          // if (result.errorCode === 0) {
+          //   // console.warn('play stop ' + result.errorCode)
+          // } else {
+          //   // console.error('play error ' + result.errorCode)
+          // }
           // const _msg = stateInfo.error.msg;
           // if (stateInfo.error.msg.indexOf ('server session closed, reason: ') > -1) {
           //         const code = stateInfo.error.msg.replace ('server session closed, reason: ', '');

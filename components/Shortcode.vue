@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { default as Tokenizer } from 'shortcode-tokenizer'
+import Tokenizer from 'shortcode-tokenizer'
 // function renderText(token) {
 //   if (token.type === Tokenizer.TEXT || token.type === Tokenizer.ERROR) {
 //     token.output = token.body

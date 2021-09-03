@@ -64,7 +64,7 @@ export default {
       })
       const marker = new google.maps.Marker({ position, map })
     },
-    async getLocation() {
+    getLocation() {
       return new Promise((resolve, reject) => {
         if (!('geolocation' in navigator)) {
           reject(new Error('Geolocation is not available.'))
