@@ -563,7 +563,8 @@ export default {
   computed: {
     store() {
       return this.$store.state.store || {}
-    }, settings() {
+    },
+    settings() {
       return this.$store.state.settings || {}
     },
   },

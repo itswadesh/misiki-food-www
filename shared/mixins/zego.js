@@ -190,7 +190,7 @@ export default {
       // const zg = this.zg
       zg.on(
         'roomStreamUpdate',
-        async (roomID, updateType, streamList, extendedData) => {
+        (roomID, updateType, streamList, extendedData) => {
           console.error(
             'roomStreamUpdate 1 roomID ',
             roomID,
