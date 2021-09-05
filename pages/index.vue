@@ -84,8 +84,8 @@ export default {
   },
 
   asyncData({ params, app, store }) {
-    const { title, keywords, description } = store.state.settings || {} // err = null
-    return { title, keywords, description }
+    const { title, keywords, description, favicon } = store.state.store || {} // err = null
+    return { title, keywords, description, favicon }
   },
 
   data() {
@@ -150,6 +150,14 @@ export default {
           hid: 'twitter_description',
           name: 'twitter:description',
           content: this.description || DESCRIPTION,
+        },
+      ],
+      link: [
+        {
+          hid: 'favicon',
+          rel: 'icon',
+          type: 'image/x-icon',
+          href: this.favicon || '/favicon.ico',
         },
       ],
     }
