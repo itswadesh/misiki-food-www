@@ -196,7 +196,7 @@ export default {
       if (this.selectedVal === null || this.selectedVal === '') return
       try {
         const result = await this.$axios.$get('/api/products/autocomplete', {
-          params: { q: this.selectedVal },
+          params: { q: this.selectedVal, store: this.store.id },
         })
         // console.log(result)
         this.products = result.data
