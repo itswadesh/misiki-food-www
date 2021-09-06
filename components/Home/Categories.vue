@@ -3,53 +3,54 @@
     v-if="categories && categories.count > 0"
     class="container mx-auto bg-white px-2 sm:px-10 pb-5 md:pb-0 text-gray-700"
   >
-    <h1
-      class="
-        text-xl
-        md:text-2xl
-        text-gray-500
-        font-semibold
-        sm:font-bold
-        py-5
-        lg:py-10
-        tracking-wide
-      "
-    >
-      Categories
-    </h1>
+    <div class="py-5 lg:py-10 flex items-center justify-center space-x-2">
+      <hr class="h-1 border-gray-300 flex-1" />
+
+      <div
+        class="
+          flex
+          items-center
+          justify-center
+          text-center text-white text-sm
+          sm:text-base
+          font-semibold
+          tracking-wider
+          uppercase
+          py-2
+          px-8
+          bg-primary-500
+        "
+      >
+        Categories
+      </div>
+
+      <hr class="h-1 border-gray-300 flex-1" />
+    </div>
 
     <BagSkelton v-if="loading" />
 
     <section v-else>
       <div
-        class="
-          grid grid-cols-3
-          sm:grid-cols-4
-          lg:grid-cols-6
-          xl:grid-cols-8
-          gap-3
-          sm:gap-5
-        "
+        class="grid grid-cols-3 gap-4 p-1 px-3 md:grid-cols-4 lg:grid-cols-6"
       >
         <div
           v-for="c in categories.data"
           v-if="c.img"
           :key="c.id"
-          class="mr-2 mb-2 sm:mr-5 xl:mr-6 sm:mb-5 xl:mb-6 group"
+          class="mr-2 mb-2 sm:mr-5 xl:mr-6 sm:mb-5 xl:mb-6"
         >
           <nuxt-link :to="localePath(`/c/${c.slug}`)">
             <div
               class="
                 overflow-hidden
+                w-24
+                h-24
+                md:w-32 md:h-32
+                rounded-full
                 border-2 border-gray-300
                 group-hover:border-primary-500
-                mb-2
-                sm:mb-4
-                h-24
-                w-24
-                md:h-32 md:w-32
-                rounded-full
-                flex-shrink-0 flex-grow-0
+                flex-shrink-0
+                group
               "
             >
               <img
@@ -57,29 +58,32 @@
                 alt="categories"
                 class="
                   object-cover object-top
-                  h-full
-                  w-full
+                  w-24
+                  h-24
+                  mx-auto
                   border-2
                   md:border-4
                   rounded-full
                   border-white border-opacity-70
-                  shadow
-                  hover:shadow-md
+                  group-hover:shadow-lg
+                  md:w-32 md:h-32
                 "
               />
             </div>
-
-            <h6
+            <span
               class="
-                text-sm
-                font-serif
-                sm:text-base
-                text-center
+                flex
+                justify-center
+                mx-auto
+                mt-4
+                text-base
+                font-normal
+                text-center text-gray-500
                 group-hover:text-primary-500
               "
             >
               {{ c.name }}
-            </h6>
+            </span>
           </nuxt-link>
         </div>
       </div>

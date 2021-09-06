@@ -19,12 +19,6 @@
       <HeroBannersSlider :banners="p && p.data" :title="p._id && p._id.title" />
     </div>
 
-    <BrandBanners
-      :ishome="true"
-      :brands="brandBanners && brandBanners.data"
-      class="mb-5 md:mb-0"
-    />
-
     <ProductSlider
       :details="youMayLikeProducts"
       :heading="'You May Like'"
@@ -38,6 +32,12 @@
     />
 
     <VideoBanner :banners="videoBanners" class="px-2 sm:px-10 mb-5 md:mb-0" />
+
+    <BrandBanners
+      :ishome="true"
+      :brands="brandBanners && brandBanners.data"
+      class="mb-5 md:mb-0"
+    />
 
     <!-- <Discounts /> -->
     <!-- <div>

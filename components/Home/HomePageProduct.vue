@@ -2,8 +2,7 @@
   <section class="container mx-auto w-64 lg:w-full">
     <div
       class="
-        border border-transparent
-        hover:border-gray-100
+        border border-gray-200
         rounded
         md:hover:bg-white md:hover:shadow-md
         text-gray-800

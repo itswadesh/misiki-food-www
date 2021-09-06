@@ -1,17 +1,5 @@
 <template>
-  <section
-    v-if="banners && banners.length"
-    class="
-      container
-      mx-auto
-      overflow-hidden
-      bg-white
-      h-48
-      md:h-64
-      lg:h-80
-      xl:h-96
-    "
-  >
+  <section v-if="banners && banners.length" class="overflow-hidden bg-white">
     <div class="flex items-center justify-center">
       <progress v-if="loading" class="material-progress-circular" />
     </div>
@@ -39,18 +27,7 @@
       >
         <img
           v-lazy="b.img"
-          class="
-            bg-white
-            object-cover
-            w-full
-            my-auto
-            overflow-hidden
-            bg-white
-            h-48
-            md:h-64
-            lg:h-80
-            xl:h-96
-          "
+          class="bg-white object-contain w-full my-auto bg-white"
         />
       </button>
     </VueSlickCarousel>

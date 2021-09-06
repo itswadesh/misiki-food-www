@@ -3,20 +3,29 @@
     v-if="details && details.length"
     class="container mx-auto bg-white pl-2 sm:pl-10 lg:pr-10 text-gray-700"
   >
-    <h1
-      class="
-        text-xl
-        md:text-2xl
-        text-gray-500
-        font-semibold
-        sm:font-bold
-        py-5
-        lg:py-10
-        tracking-wide
-      "
-    >
-      {{ heading }}
-    </h1>
+    <div class="py-5 lg:py-10 flex items-center justify-center space-x-2">
+      <hr class="h-1 border-gray-300 flex-1" />
+
+      <div
+        class="
+          flex
+          items-center
+          justify-center
+          text-center text-white text-sm
+          sm:text-base
+          font-semibold
+          tracking-wider
+          uppercase
+          py-2
+          px-8
+          bg-primary-500
+        "
+      >
+        {{ heading }}
+      </div>
+
+      <hr class="h-1 border-gray-300 flex-1" />
+    </div>
 
     <section v-if="details">
       <!-- Above 1024px  -->
