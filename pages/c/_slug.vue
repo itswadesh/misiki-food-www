@@ -117,7 +117,7 @@
 <script>
 import CATEGORY from '~/gql/category/category.gql'
 import c from '~/mixins/c.js'
-import { DESCRIPTION, KEYWORDS, sharingLogo } from '~/shared/config'
+import { DESCRIPTION, KEYWORDS } from '~/shared/config'
 // import ProductCardEs from '~/components/Listing/ProductCardEs.vue'
 import HomePageProduct from '~/components/Home/HomePageProduct.vue'
 import ProductSkeleton from '~/components/ProductSkeleton.vue'
@@ -134,6 +134,11 @@ export default {
   },
   mixins: [c],
   layout: 'search',
+  asyncData({ params, app, store }) {
+    const { title, keywords, description, favicon, logoMobile } =
+      store.state.store || {} // err = null
+    return { title, keywords, description, favicon, logoMobile }
+  },
   async fetch() {
     let facets = []
     let fl = {}
@@ -300,7 +305,8 @@ export default {
         },
         {
           property: 'og:image',
-          content: host + ((this.category && this.category.img) || sharingLogo),
+          content:
+            host + ((this.category && this.category.img) || this.logoMobile),
         },
         {
           property: 'og:image:width',

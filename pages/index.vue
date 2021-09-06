@@ -66,7 +66,7 @@ import TRENDING from '~/gql/product/trending.gql'
 import BANNERS from '~/gql/banner/banners.gql'
 import GROUP_BY_BANNER from '~/gql/banner/groupByBanner.gql'
 import BRANDS from '~/gql/brand/brands.gql'
-import { TITLE, DESCRIPTION, KEYWORDS, sharingLogo } from '~/shared/config'
+import { TITLE, DESCRIPTION, KEYWORDS } from '~/shared/config'
 
 export default {
   components: {
@@ -84,8 +84,9 @@ export default {
   },
 
   asyncData({ params, app, store }) {
-    const { title, keywords, description, favicon } = store.state.store || {} // err = null
-    return { title, keywords, description, favicon }
+    const { title, keywords, description, favicon, logoMobile } =
+      store.state.store || {} // err = null
+    return { title, keywords, description, favicon, logoMobile }
   },
 
   data() {
@@ -139,7 +140,7 @@ export default {
         {
           name: 'og_image',
           property: 'og:image',
-          content: host + sharingLogo,
+          content: host + this.logoMobile,
         },
 
         {

@@ -85,8 +85,9 @@ export default {
     EmptyCart,
   },
   asyncData({ params, app, store }) {
-    const { title, keywords, description } = store.state.settings || {} // err = null
-    return { title, keywords, description }
+    const { title, keywords, description, favicon, logoMobile } =
+      store.state.store || {} // err = null
+    return { title, keywords, description, favicon, logoMobile }
   },
   data() {
     return {

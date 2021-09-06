@@ -39,7 +39,7 @@
 <script>
 import BLOGS from '~/gql/blog/blogs.gql'
 import c from '~/mixins/c.js'
-import { DESCRIPTION, KEYWORDS, sharingLogo } from '~/shared/config'
+import { DESCRIPTION, KEYWORDS } from '~/shared/config'
 import Pagination from '~/shared/components/ui/Pagination.vue'
 import BlogPostGrid from '~/components/Blog/BlogPostGrid.vue'
 
@@ -57,6 +57,8 @@ export default {
     let err = null
     let blogCount = 0
     const client = app.apolloProvider.defaultClient
+    const { title, keywords, description, favicon, logoMobile } =
+      store.state.store || {} // err = null
     try {
       posts = (
         await client.query({
@@ -80,7 +82,18 @@ export default {
           query[k] = query[k].split(',')
       })
       fl = { ...query } // For selected filters
-      return { posts, blogCount, facets, fl, err: null }
+      return {
+        posts,
+        blogCount,
+        facets,
+        fl,
+        err: null,
+        title,
+        keywords,
+        description,
+        favicon,
+        logoMobile,
+      }
     } catch (e) {
       if (e && e.response && e.response.data) {
         err = e.response.data
@@ -90,7 +103,18 @@ export default {
         err = e
       }
       console.log('/c/_slug err...', e)
-      return { posts, blogCount, facets: [], fl: {}, err }
+      return {
+        posts,
+        blogCount,
+        facets: [],
+        fl: {},
+        err,
+        title,
+        keywords,
+        description,
+        favicon,
+        logoMobile,
+      }
     }
   },
   watchQuery: true,

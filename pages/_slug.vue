@@ -198,7 +198,7 @@ import Breadcrumb from '~/components/ProductDetails/Breadcrumb.vue'
 import AddToCart from '~/components/ProductDetails/AddToCart.vue'
 import BuyNow from '~/components/ProductDetails/BuyNow.vue'
 import ProductSlider from '~/components/Home/ProductSlider.vue'
-import { TITLE, DESCRIPTION, KEYWORDS, sharingLogo } from '~/shared/config'
+import { TITLE, DESCRIPTION, KEYWORDS } from '~/shared/config'
 import PRODUCTS from '~/gql/product/products.gql'
 import PRODUCT from '~/gql/product/product.gql'
 import PRODUCT_GROUP from '~/gql/product/product_group.gql'
@@ -298,7 +298,20 @@ export default {
         },
       }
     }
-    return { host: HOST, product, selectedVariant, err, structuredData }
+    const { title, keywords, description, favicon, logoMobile } =
+      store.state.store || {} // err = null
+    return {
+      host: HOST,
+      product,
+      selectedVariant,
+      err,
+      structuredData,
+      title,
+      keywords,
+      description,
+      favicon,
+      logoMobile,
+    }
   },
   data() {
     return {
@@ -361,7 +374,7 @@ export default {
           {
             name: 'og_image',
             property: 'og:image',
-            content: this.product.img || sharingLogo,
+            content: this.product.img || this.logoMobile,
           },
           {
             property: 'og:image:width',
@@ -385,7 +398,7 @@ export default {
           },
           {
             name: 'twitter:image:src',
-            content: this.product.img || sharingLogo,
+            content: this.product.img || this.logoMobile,
           },
           // Google / Schema.org markup:
           {
@@ -404,7 +417,7 @@ export default {
           {
             hid: 'product_image',
             itemprop: 'image',
-            content: this.product.img || sharingLogo,
+            content: this.product.img || this.logoMobile,
           },
           {
             hid: 'product_price',

@@ -61,7 +61,7 @@ export default {
   },
   async asyncData({ params, app, store, error }) {
     let brand = {}
-    const { title, keywords, description } = store.state.settings || {} // err = null
+    const { title, keywords, description, logoMobile } = store.state.store || {} // err = null
     const client = app.apolloProvider.defaultClient
     try {
       brand = (
@@ -78,7 +78,7 @@ export default {
     } catch (e) {
       error('Brand not found')
     }
-    return { brand, title, keywords, description }
+    return { brand, title, keywords, description, logoMobile }
   },
   data() {
     return {
@@ -131,7 +131,7 @@ export default {
         {
           name: 'og_image',
           property: 'og:image',
-          content: host + sharingLogo,
+          content: host + this.logoMobile,
         },
 
         {
