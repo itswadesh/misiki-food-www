@@ -1,8 +1,9 @@
 export const typingTimeout = 200 // After this delay the search api will be fired
 export const loadingTimeout = 500 // Loading indicator will be shown after this delay // used at Loading.vue of admin
-export const TITLE = ''
-export const DESCRIPTION = ''
-export const KEYWORDS = ''
+export const TITLE = 'Misiki - The progressive ecommerce stack'
+export const DESCRIPTION =
+  'The progressive ecommerce stack. We will create an enterprise level ecommerce within a day. Then will do customizations as you wish'
+export const KEYWORDS = 'misiki, ecommerce, '
 export const sharingLogo = ''
 export const recordsPerScroll = 40
 export const sorts = [
