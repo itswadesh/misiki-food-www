@@ -44,7 +44,7 @@ export default {
       const variables = { domain }
       // if(domain.includes('.misiki.in'))
       //  variables = { slug:'' }
-      console.log(variables)
+      // console.log(variables)
       const stor = (
         await this.app.apolloProvider.defaultClient.query({
           query: STORE_ONE,

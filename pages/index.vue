@@ -82,6 +82,7 @@ export default {
     // Discounts,
     VideoBanner,
   },
+  middleware: ['landing'],
 
   asyncData({ params, app, store }) {
     const { title, keywords, description, favicon, logoMobile } =
@@ -140,7 +141,7 @@ export default {
         {
           name: 'og_image',
           property: 'og:image',
-          content: host + this.logoMobile,
+          content: this.logoMobile,
         },
 
         {

@@ -1,27 +1,23 @@
 const pwa = {
   manifest: {
-    short_name: 'Misiki',
-    name: 'Misiki Store',
-    description: 'Misiki store front',
+    short_name: 'Anne',
+    name: 'Anne',
+    description: 'Anne ecommerce',
   },
 }
 const colors = {
   primary: {
-    100: '#e0e7ff' /* indigo-100 */,
-    200: '#c7d2fe' /* indigo-200 */,
-    500: '#6366f1' /* indigo-500 */,
-    600: '#4f46e5' /* indigo-800 */,
-    700: '#3730a3' /* indigo-800 */,
+    500: '#FB7801', // Brand Primary Color
   },
   secondary: {
-    100: '#d1fae5' /* green-300  */,
-    500: '#55C451' /* lightgreen */,
-    600: '#3db340' /* just-dark-green  */,
+    100: '#dff7d5', // Used for gradient button making
+    200: '#32CD32', // green
+    500: '#000000', // Brand Secondary Color
   },
   accent: {
-    100: '#fee2e2' /* light-red */,
-    500: '#f59e0b' /* yellow-500 */,
-    900: '#eb0000;', // red
+    100: '#faebeb', // very light red
+    500: '#ff8c00', // light-orange
+    900: '#FF461B;', // red
   },
 }
 const fontFamily = {

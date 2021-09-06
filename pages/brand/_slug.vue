@@ -130,7 +130,7 @@ export default {
         {
           name: 'og_image',
           property: 'og:image',
-          content: host + this.logoMobile,
+          content: this.logoMobile,
         },
 
         {
