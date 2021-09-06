@@ -34,7 +34,7 @@
       </svg>
     </button>
     <form
-      v-if="schedule.scheduleDateTime && minDate"
+      v-if="minDate"
       novalidate
       autocomplete="off"
       class="

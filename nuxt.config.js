@@ -10,7 +10,7 @@ import {
 import { pwa } from './config/index'
 console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz', HTTP_ENDPOINT, WWW_URL)
 // const whitelist = ['preview-img-item']
-const whitelistPatterns = [/(slick-+|swal2-)/]
+const whitelistPatterns = [/^slick-/, /^swal2-/, /^mx-/] // mx- is for vue2-datepicker
 export default {
   server: {
     host: '0.0.0.0',
