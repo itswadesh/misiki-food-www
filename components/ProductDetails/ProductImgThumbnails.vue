@@ -33,9 +33,8 @@
       <div v-for="(img, ix) in images" :key="ix" class="overflow-hidden">
         <!-- :class="images.length > 4 ? 'mt-8' : ''" -->
         <img
-          v-if="!youtubeVideoId(img)"
           :key="img"
-          v-lazy="img"
+          v-lazy="imgVideo(img)"
           alt=""
           class="
             object-cover
@@ -52,7 +51,7 @@
           :class="{ 'border-primary-500': img === selectedImage }"
           @mouseenter="$emit('selectedImage', img)"
         />
-        <youtube
+        <!-- <youtube
           v-else
           ref="youtube"
           :video-id="youtubeVideoId(img)"
@@ -72,7 +71,7 @@
           "
           :class="{ 'border-primary-500': img === selectedImage }"
           @mouseenter="$emit('selectedImage', img)"
-        />
+        /> -->
       </div>
       <template #nextArrow="arrowOption" class="absolute bottom-0">
         <div

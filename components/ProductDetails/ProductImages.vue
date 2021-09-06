@@ -157,9 +157,21 @@
                 class="bg-white border h-80 focus:outline-none"
               >
                 <img
+                  v-if="!youtubeVideoId(im)"
                   v-lazy="im"
+                  alt=""
                   class="object-contain w-full h-full bg-white"
+                  @click="handleClick"
                 />
+
+                <div v-else>
+                  <youtube
+                    ref="youtube"
+                    :video-id="youtubeVideoId(im)"
+                    :resize="true"
+                    :fit-parent="true"
+                  />
+                </div>
               </div>
             </VueSlickCarousel>
           </div>
@@ -179,7 +191,7 @@
                 @click="selectedImage = ig"
               >
                 <img
-                  v-lazy="ig"
+                  v-lazy="imgVideo(ig)"
                   class="
                     object-contain
                     w-16
