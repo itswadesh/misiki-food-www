@@ -31,7 +31,15 @@
 
     <section v-else>
       <div
-        class="grid grid-cols-3 gap-4 p-1 px-3 md:grid-cols-4 lg:grid-cols-6"
+        class="
+          grid grid-cols-3
+          gap-4
+          p-1
+          px-3
+          md:grid-cols-4
+          lg:grid-cols-6
+          justify-items-center
+        "
       >
         <div
           v-for="c in categories.data"
@@ -39,43 +47,44 @@
           :key="c.id"
           class="mr-2 mb-2 sm:mr-5 xl:mr-6 sm:mb-5 xl:mb-6"
         >
-          <nuxt-link :to="localePath(`/c/${c.slug}`)">
+          <nuxt-link
+            :to="localePath(`/c/${c.slug}`)"
+            class="w-24 md:w-32 group"
+          >
             <div
               class="
-                overflow-hidden
+                mb-4
                 w-24
                 h-24
                 md:w-32 md:h-32
                 rounded-full
+                flex
+                items-center
+                justify-center
                 border-2 border-gray-300
                 group-hover:border-primary-500
                 flex-shrink-0
-                group
+                group-hover:shadow-lg
+                overflow-hidden
               "
             >
               <img
                 v-lazy="c.img"
                 alt="categories"
                 class="
-                  object-cover object-top
-                  w-24
-                  h-24
-                  mx-auto
-                  border-2
-                  md:border-4
+                  h-full
+                  w-full
+                  object-cover
+                  h-22
+                  w-22
+                  md:h-28 md:w-28
                   rounded-full
-                  border-white border-opacity-70
-                  group-hover:shadow-lg
-                  md:w-32 md:h-32
                 "
               />
             </div>
-            <span
+
+            <h6
               class="
-                flex
-                justify-center
-                mx-auto
-                mt-4
                 text-base
                 font-normal
                 text-center text-gray-500
@@ -83,7 +92,7 @@
               "
             >
               {{ c.name }}
-            </span>
+            </h6>
           </nuxt-link>
         </div>
       </div>
