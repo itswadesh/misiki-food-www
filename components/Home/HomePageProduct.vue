@@ -18,7 +18,7 @@
           <img
             v-lazy="product.img"
             alt="product"
-            class="object-cover object-top w-full h-72 bg-white"
+            class="object-contain w-full h-72 bg-white"
           />
         </div>
 

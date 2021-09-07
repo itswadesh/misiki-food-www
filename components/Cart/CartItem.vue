@@ -156,7 +156,7 @@
                 </div>
 
                 <button
-                  v-ripple="'rgba(85, 196, 81, 0.5)'"
+                  v-ripple="'rgba(243, 244, 246, 0.5)'"
                   class="
                     w-8
                     h-8
