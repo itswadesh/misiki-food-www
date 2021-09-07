@@ -1,5 +1,5 @@
 <template>
-  <section class="container mx-auto w-64 lg:w-full">
+  <section class="container mx-auto w-64 mb-5 lg:w-full">
     <div
       class="
         border border-gray-200
@@ -14,11 +14,11 @@
         :to="localePath(`/${product.slug}?id=${product.id || pid}`)"
         class="block overflow-hidden"
       >
-        <div class="">
+        <div class="h-72 bg-gray-100">
           <img
             v-lazy="product.img"
             alt="product"
-            class="object-contain w-full h-72 bg-white"
+            class="object-contain w-full h-full"
           />
         </div>
 
@@ -223,20 +223,25 @@
               justify-start
             "
           >
-            <h6 class="mr-1 text-xs sm:text-sm font-semibold whitespace-nowrap">
+            <h6 class="mr-1.5 text-sm font-semibold whitespace-nowrap">
               {{ product.price | currency(store.currencySymbol) }}
             </h6>
 
             <h6
               v-if="product.price < product.mrp"
-              class="mr-1 text-xs text-gray-500 whitespace-nowrap line-through"
+              class="
+                mr-1.5
+                text-xs text-gray-500
+                whitespace-nowrap
+                line-through
+              "
             >
               {{ product.mrp | currency(store.currencySymbol) }}
             </h6>
 
             <div
               v-if="product.price < product.mrp"
-              class="mr-1 text-xs text-primary-700 whitespace-nowrap"
+              class="text-xs text-secondary-200 whitespace-nowrap"
             >
               ({{ product.discount }}% off)
             </div>
