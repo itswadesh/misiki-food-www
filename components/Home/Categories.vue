@@ -6,34 +6,22 @@
     <div class="py-5 lg:py-10 flex items-center justify-center space-x-2">
       <hr class="h-1 border-gray-300 flex-1" />
 
-      <div class="flex items-center">
-        <div class="w-9 overflow-hidden inline-block">
-          <div
-            class="h-14 bg-primary-500 -rotate-45 transform origin-top-right"
-          ></div>
-        </div>
-        <div
-          class="
-            flex
-            items-center
-            justify-center
-            text-center text-white text-sm
-            sm:text-base
-            font-semibold
-            tracking-wider
-            uppercase
-            py-2
-            px-8
-            bg-primary-500
-          "
-        >
-          Categories
-        </div>
-        <div class="w-9 overflow-hidden inline-block">
-          <div
-            class="h-14 bg-primary-500 rotate-45 transform origin-top-left"
-          ></div>
-        </div>
+      <div
+        class="
+          flex
+          items-center
+          justify-center
+          text-center text-white text-sm
+          sm:text-base
+          font-semibold
+          tracking-wider
+          uppercase
+          py-2
+          px-8
+          bg-primary-500
+        "
+      >
+        Categories
       </div>
 
       <hr class="h-1 border-gray-300 flex-1" />

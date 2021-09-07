@@ -1,18 +1,29 @@
 <template>
-  <section v-if="banners && banners.length" class="overflow-hidden bg-white">
-    <div class="flex items-center justify-center">
-      <progress v-if="loading" class="material-progress-circular" />
+  <div class="focus:outline-none h-52 md:h-64 lg:h-80 xl:h-96">
+    <div class="flex justify-center">
+      <progress
+        v-if="loading"
+        class="
+          absolute
+          z-10
+          justify-center
+          block
+          m-3
+          material-progress-circular
+        "
+      />
     </div>
-
     <!-- <SlideBarSkeleton v-if="skeleton" /> -->
-
-    <VueSlickCarousel v-bind="settings" class="relative">
+    <VueSlickCarousel
+      v-if="banners && banners.length"
+      v-bind="settings"
+      class="relative focus:outline-none"
+    >
       <template #prevArrow="arrowOption">
         <div class="invisible custom-arrow md:visible hover:shadow-xl">
           {{ arrowOption.currentSlide }}/{{ arrowOption.slideCount }}
         </div>
       </template>
-
       <template #nextArrow="arrowOption">
         <div class="invisible custom-arrow md:visible hover:shadow-xl">
           {{ arrowOption.currentSlide }}/{{ arrowOption.slideCount }}
@@ -22,16 +33,29 @@
       <button
         v-for="b in banners"
         :key="b.id"
-        class="overflow-hidden focus:outline-none"
+        class="z-auto my-auto focus:outline-none"
         @click="go(b.link)"
       >
         <img
           v-lazy="b.img"
-          class="bg-white object-contain w-full my-auto bg-white"
+          class="
+            bg-white
+            object-cover
+            w-full
+            my-auto
+            overflow-hidden
+            bg-white
+            focus:outline-none
+            h-48
+            md:h-64
+            lg:h-80
+            xl:h-96
+          "
         />
       </button>
+      <!-- v-if="loading" -->
     </VueSlickCarousel>
-  </section>
+  </div>
 </template>
 
 <script>
@@ -44,8 +68,6 @@ export default {
   // components: { SlideBarSkeleton },
   data() {
     return {
-      loading: false,
-
       settings: {
         centerMode: false,
         centerPadding: '150px',
@@ -55,9 +77,6 @@ export default {
         slidesToShow: 1,
         autoplay: true,
         speed: 500,
-        skeleton: false,
-        loading: true,
-        // dots: true,
         responsive: [
           {
             breakpoint: 1024,
@@ -91,6 +110,8 @@ export default {
           },
         ],
       },
+      skeleton: false,
+      loading: false,
     }
   },
   // async created() {
