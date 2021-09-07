@@ -115,6 +115,11 @@ export default {
       isRequestSent: false,
     }
   },
+  head() {
+    return {
+      title: `Otp Login for ${this.store.websiteName}`,
+    }
+  },
   computed: {
     settings() {
       return this.$store.state.settings || {}

@@ -164,11 +164,13 @@ export default {
       ],
     }
   },
+
   computed: {
     user() {
       return this.$store.state.auth.user
     },
   },
+
   mounted() {
     window.addEventListener('scroll', this.scrollListener)
   },

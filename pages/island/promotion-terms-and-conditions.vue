@@ -97,6 +97,12 @@ export default {
       ],
     }
   },
+
+  head() {
+    return {
+      title: 'Promotion Terms & Conditions',
+    }
+  },
 }
 </script>
 

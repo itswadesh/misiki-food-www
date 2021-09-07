@@ -97,7 +97,7 @@ export default {
   },
   head() {
     return {
-      title: 'Anne Cart',
+      title: 'Cart',
     }
   },
   computed: {

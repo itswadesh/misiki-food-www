@@ -7,4 +7,12 @@
   </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  head() {
+    return {
+      title: 'x',
+    }
+  },
+}
+</script>

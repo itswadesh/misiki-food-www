@@ -315,6 +315,12 @@ export default {
       ],
     }
   },
+
+  head() {
+    return {
+      title: 'Mobile Live',
+    }
+  },
 }
 </script>
 

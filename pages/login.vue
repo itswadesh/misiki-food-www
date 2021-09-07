@@ -264,6 +264,12 @@ export default {
     }
   },
 
+  head() {
+    return {
+      title: `Login for ${this.store.websiteName}`,
+    }
+  },
+
   computed: {
     settings() {
       return this.$store.state.settings || {}

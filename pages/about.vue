@@ -415,6 +415,12 @@ export default {
     }
   },
 
+  head() {
+    return {
+      title: 'About',
+    }
+  },
+
   created() {
     this.getBanners()
   },

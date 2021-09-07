@@ -48,8 +48,10 @@ export default {
     Pagination,
     BlogPostGrid,
   },
+
   mixins: [c],
   layout: 'search',
+
   async asyncData({ route, query, params, $axios, app, store }) {
     let posts = null
     let facets = []
@@ -117,7 +119,15 @@ export default {
       }
     }
   },
+
+  head() {
+    return {
+      title: 'Blog',
+    }
+  },
+
   watchQuery: true,
+
   created() {
     this.scrollToTop()
     this.currentPage = parseInt(this.$route.query.page)

@@ -246,6 +246,12 @@ export default {
     }
   },
 
+  head() {
+    return {
+      title: `Email Login for ${this.store.websiteName}`,
+    }
+  },
+
   computed: {
     store() {
       return this.$store.state.store || {}

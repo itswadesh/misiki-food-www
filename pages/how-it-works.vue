@@ -228,7 +228,13 @@
 </template>
 
 <script>
-export default {}
+export default {
+  head() {
+    return {
+      title: 'How it works',
+    }
+  },
+}
 </script>
 
 <style scoped>

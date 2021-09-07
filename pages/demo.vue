@@ -42,7 +42,13 @@
 </template>
 
 <script>
-export default {}
+export default {
+  head() {
+    return {
+      title: 'Demo',
+    }
+  },
+}
 </script>
 
 <style scoped>

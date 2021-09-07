@@ -17,6 +17,12 @@ export default {
     Sidebar,
     Livenow,
   },
+
+  head() {
+    return {
+      title: 'Live',
+    }
+  },
 }
 </script>
 

@@ -16,6 +16,12 @@ export default {
     SidebarMobile,
     AllVideos,
   },
+
+  head() {
+    return {
+      title: 'Videos',
+    }
+  },
 }
 </script>
 

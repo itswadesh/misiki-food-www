@@ -437,6 +437,7 @@ export default {
       cart: 'cart/cart',
     }),
   },
+
   async mounted() {
     await this.refresh()
     try {

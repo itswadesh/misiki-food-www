@@ -399,6 +399,12 @@ export default {
       ],
     }
   },
+
+  head() {
+    return {
+      title: 'About Us',
+    }
+  },
 }
 </script>
 

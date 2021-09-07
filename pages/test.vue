@@ -35,6 +35,11 @@ export default {
         'https://unpkg.com/vue-image-magnifier@0.1.1/example/img/DA2D9393-4081-4384-B493-95DA1620C26D.png',
     }
   },
+  head() {
+    return {
+      title: 'Test',
+    }
+  },
   methods: {
     changed(e) {
       console.log('Changed', e[0], e[1])

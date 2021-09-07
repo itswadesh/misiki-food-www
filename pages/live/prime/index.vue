@@ -41,6 +41,13 @@ export default {
       items: null,
     }
   },
+
+  head() {
+    return {
+      title: 'Live (Prime) ',
+    }
+  },
+
   async created() {
     this.items = (await this.$get('channel/channels', {})) || []
     // this.items =

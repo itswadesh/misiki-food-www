@@ -32,3 +32,13 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  head() {
+    return {
+      title: 'Delivery Charges',
+    }
+  },
+}
+</script>

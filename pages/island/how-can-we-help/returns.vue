@@ -210,6 +210,12 @@ export default {
       ],
     }
   },
+
+  head() {
+    return {
+      title: 'Returns',
+    }
+  },
 }
 </script>
 

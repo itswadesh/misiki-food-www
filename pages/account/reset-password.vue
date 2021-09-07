@@ -93,9 +93,10 @@ export default {
       passwordConfirmation: '',
     }
   },
+
   head() {
     return {
-      title: 'Reset Password',
+      title: `Reset Password for ${this.store.websiteName}`,
     }
   },
   computed: {

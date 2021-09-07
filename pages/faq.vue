@@ -11,5 +11,11 @@ export default {
   components: {
     FAQ,
   },
+
+  head() {
+    return {
+      title: 'FAQ',
+    }
+  },
 }
 </script>

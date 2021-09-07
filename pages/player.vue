@@ -15,6 +15,12 @@ export default {
     VideoPlayer,
     FlvPlayer,
   },
+
+  head() {
+    return {
+      title: 'Player',
+    }
+  },
 }
 </script>
 

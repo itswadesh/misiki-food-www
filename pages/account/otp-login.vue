@@ -181,6 +181,11 @@ export default {
       isRequestSent: false,
     }
   },
+  head() {
+    return {
+      title: `OTP Login for ${this.store.websiteName}`,
+    }
+  },
   computed: {
     ...mapGetters({
       settings: 'settings',

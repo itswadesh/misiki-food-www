@@ -211,6 +211,11 @@ Unlock engagement, awareness with tech-enabled Live Shopping eCommerce brands.`,
       ],
     }
   },
+  head() {
+    return {
+      title: 'Landing',
+    }
+  },
   methods: {
     saveLanding(c) {
       this.$cookies.set('landing', 'ok', { path: '/' })

@@ -48,7 +48,13 @@
 </template>
 
 <script>
-export default {}
+export default {
+  head() {
+    return {
+      title: 'Logos',
+    }
+  },
+}
 </script>
 
 <style scoped></style>

@@ -202,6 +202,11 @@ export default {
       autocomplete: null,
     }
   },
+  head() {
+    return {
+      title: 'Search Suggestions',
+    }
+  },
   computed: {
     store() {
       return this.$store.state.store || {}

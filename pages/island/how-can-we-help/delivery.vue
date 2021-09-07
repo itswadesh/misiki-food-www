@@ -180,6 +180,12 @@ export default {
       ],
     }
   },
+
+  head() {
+    return {
+      title: 'Delivery',
+    }
+  },
 }
 </script>
 

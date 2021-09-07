@@ -262,6 +262,11 @@ export default {
       phone: null,
     }
   },
+  head() {
+    return {
+      title: `Enter OTP for ${this.store.websiteName}`,
+    }
+  },
   computed: {
     ...mapGetters({ store: 'store' }),
     user() {

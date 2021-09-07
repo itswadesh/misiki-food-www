@@ -86,6 +86,11 @@ export default {
   data() {
     return { email: this.$route.query.email }
   },
+  head() {
+    return {
+      title: `Forgot Password for ${this.store.websiteName}`,
+    }
+  },
   computed: {
     ...mapGetters({ loading: 'loading', store: 'store' }),
   },

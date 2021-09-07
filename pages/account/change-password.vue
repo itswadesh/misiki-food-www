@@ -103,7 +103,7 @@ export default {
   },
   head() {
     return {
-      title: 'Change Password',
+      title: `Change Password for ${this.store.websiteName}`,
     }
   },
   computed: {

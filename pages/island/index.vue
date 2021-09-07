@@ -69,6 +69,12 @@ export default {
     }
   },
 
+  head() {
+    return {
+      title: 'Home',
+    }
+  },
+
   created() {
     this.getBanners()
     this.getBrands()

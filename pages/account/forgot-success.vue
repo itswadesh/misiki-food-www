@@ -75,6 +75,12 @@ export default {
   components: { GrnIndGradiantButton, NuxtLink },
   layout: 'none',
 
+  head() {
+    return {
+      title: `Forgot Success for ${this.store.websiteName}`,
+    }
+  },
+
   computed: {
     ...mapGetters({ store: 'store', error: 'error' }),
   },

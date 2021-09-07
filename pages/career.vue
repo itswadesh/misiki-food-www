@@ -1052,6 +1052,12 @@ export default {
     }
   },
 
+  head() {
+    return {
+      title: 'Career',
+    }
+  },
+
   mounted() {},
 
   methods: {

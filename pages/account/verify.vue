@@ -69,7 +69,11 @@ import NuxtLink from '~/components/NuxtLink.vue'
 export default {
   components: { Heading, NuxtLink },
   layout: 'none',
-
+  head() {
+    return {
+      title: `Verify for ${this.store.websiteName}`,
+    }
+  },
   computed: {
     ...mapGetters({ store: 'store', error: 'error' }),
   },

@@ -219,6 +219,7 @@ export default {
     ProductSlider,
     AddToCart,
   },
+
   // validate({ query }) {
   //   if (!query.id) return false
   // },

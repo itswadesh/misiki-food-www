@@ -262,6 +262,12 @@ export default {
     }
   },
 
+  head() {
+    return {
+      title: 'Terms & Conditions',
+    }
+  },
+
   methods: {
     toTop() {
       if (process.client) {

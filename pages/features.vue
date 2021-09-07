@@ -150,6 +150,12 @@
 import NuxtLink from '~/components/NuxtLink.vue'
 export default {
   components: { NuxtLink },
+
+  head() {
+    return {
+      title: 'Features',
+    }
+  },
 }
 </script>
 

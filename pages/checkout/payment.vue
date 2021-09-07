@@ -106,6 +106,11 @@ export default {
     CheckoutFooter,
     NuxtLink,
   },
+  head() {
+    return {
+      title: 'Payment',
+    }
+  },
   computed: {
     ...mapGetters({
       store: 'store',

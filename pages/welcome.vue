@@ -20,6 +20,12 @@ export default {
   components: { Hero, NavLanding, Cta, Showcase },
 
   layout: 'none',
+
+  head() {
+    return {
+      title: 'Welcome',
+    }
+  },
 }
 </script>
 
