@@ -22,7 +22,7 @@
           <p>Oops! Store not found</p>
         </div>
 
-        <a target="blank" :href="`${settings.adminPanelLink}`" class="mb-5">
+        <a target="blank" :href="`${settings.ADMIN_PANEL_LINK}`" class="mb-5">
           <GrnIndGradiantButton
             :loading="loading"
             class="w-52"
