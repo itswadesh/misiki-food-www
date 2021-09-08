@@ -10,7 +10,7 @@ export default {
   components: { UserLogin },
   head() {
     return {
-      title: `Login for ${this.store.websiteName}`,
+      title: `Login | ${this.store.websiteName || ''}`,
     }
   },
 }

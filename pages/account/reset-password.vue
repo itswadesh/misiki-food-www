@@ -96,7 +96,7 @@ export default {
 
   head() {
     return {
-      title: `Reset Password for ${this.store.websiteName}`,
+      title: `Reset Password | ${this.store.websiteName || ''}`,
     }
   },
   computed: {

@@ -264,7 +264,7 @@ export default {
   },
   head() {
     return {
-      title: `Enter OTP for ${this.store.websiteName}`,
+      title: `Enter OTP | ${this.store.websiteName || ''}`,
     }
   },
   computed: {

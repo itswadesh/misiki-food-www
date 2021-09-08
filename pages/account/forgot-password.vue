@@ -88,7 +88,7 @@ export default {
   },
   head() {
     return {
-      title: `Forgot Password for ${this.store.websiteName}`,
+      title: `Forgot Password | ${this.store.websiteName || ''}`,
     }
   },
   computed: {

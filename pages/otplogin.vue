@@ -117,7 +117,7 @@ export default {
   },
   head() {
     return {
-      title: `Otp Login for ${this.store.websiteName}`,
+      title: `Otp Login | ${this.store.websiteName || ''}`,
     }
   },
   computed: {

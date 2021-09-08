@@ -331,7 +331,7 @@ export default {
   },
   head() {
     return {
-      title: `SignUp for ${this.store.websiteName}`,
+      title: `SignUp | ${this.store.websiteName || ''}`,
     }
   },
   computed: {

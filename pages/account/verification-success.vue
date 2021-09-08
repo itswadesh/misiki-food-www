@@ -75,7 +75,7 @@ export default {
   layout: 'none',
   head() {
     return {
-      title: `Verification Success for ${this.store.websiteName}`,
+      title: `Verification Success | ${this.store.websiteName || ''}`,
     }
   },
   computed: {

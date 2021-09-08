@@ -248,7 +248,7 @@ export default {
 
   head() {
     return {
-      title: `Email Login for ${this.store.websiteName}`,
+      title: `Email Login | ${this.store.websiteName || ''}`,
     }
   },
 

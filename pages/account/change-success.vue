@@ -75,7 +75,7 @@ export default {
   layout: 'none',
   head() {
     return {
-      title: `Change Success for ${this.store.websiteName}`,
+      title: `Change Success | ${this.store.websiteName || ''}`,
     }
   },
   computed: {

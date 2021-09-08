@@ -69,7 +69,7 @@ export default {
   layout: 'none',
   head() {
     return {
-      title: `Reset Success for ${this.store.websiteName}`,
+      title: `Reset Success | ${this.store.websiteName || ''}`,
     }
   },
   computed: {

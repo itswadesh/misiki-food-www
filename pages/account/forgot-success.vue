@@ -77,7 +77,7 @@ export default {
 
   head() {
     return {
-      title: `Forgot Success for ${this.store.websiteName}`,
+      title: `Forgot Success | ${this.store.websiteName || ''}`,
     }
   },
 

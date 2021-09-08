@@ -71,7 +71,7 @@ export default {
   layout: 'none',
   head() {
     return {
-      title: `Verify for ${this.store.websiteName}`,
+      title: `Verify | ${this.store.websiteName || ''}`,
     }
   },
   computed: {

@@ -10,7 +10,7 @@
         shadow
       "
     >
-      <div v-if="reviews">
+      <div v-if="reviews" class="w-full">
         <div class="p-4">
           <span class="text-lg font-semibold"
             >My Reviews({{ reviews.count }})</span
@@ -18,19 +18,28 @@
           <div
             v-for="r in reviews.data"
             :key="r.id"
-            class="w-full p-1 pb-4 border-b cursor-pointer"
+            class="w-full p-1 pb-4 border-b"
           >
-            <!-- {{r.id}} -->
             <div class="flex flex-col w-full mt-3 sm:flex-row">
-              <div class="mx-auto h-36 sm:pe-5 sm:w-1/4">
+              <div v-if="r.pid" class="mx-auto h-36 sm:pe-5 sm:w-40">
                 <img
-                  v-lazy="r.product.img"
+                  v-lazy="r.pid.img"
                   alt="mobile"
                   class="object-contain w-full h-full"
                 />
               </div>
-              <div class="relative flex flex-col h-auto mt-4 sm:mt-0 sm:w-3/4">
-                <span class="text-gray-700">{{ r.product.name }}</span>
+              <div
+                class="
+                  relative
+                  flex flex-col
+                  h-auto
+                  mt-4
+                  sm:mt-0
+                  w-full
+                  sm:flex-1
+                "
+              >
+                <span class="text-gray-700">{{ r.message }}</span>
                 <div v-if="r.rating" class="flex flex-row my-2">
                   <span
                     style="padding: 2px"
@@ -72,7 +81,7 @@
                     lg:flex-row
                   "
                 >
-                  <div class="flex flex-row">
+                  <div v-if="r.user" class="flex flex-row">
                     <h6>{{ r.user.firstName }} {{ r.user.lastName }}</h6>
                     <svg
                       class="w-4 mx-2 my-auto text-secondary-200"
@@ -103,12 +112,12 @@
                 </div>
               </div>
             </div>
-            <div
+            <!-- <div
               class="flex flex-row justify-end mt-4 text-sm text-secondary-500"
             >
-              <!-- <button class="font-semibold cursor-pointer focus:outline-none">
+              <button class="font-semibold cursor-pointer focus:outline-none">
                 Edit
-              </button> -->
+              </button>
               <button
                 class="mx-3 font-semibold cursor-pointer focus:outline-none"
               >
@@ -117,7 +126,7 @@
               <button class="font-semibold cursor-pointer focus:outline-none">
                 Share
               </button>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -155,6 +164,7 @@
 
 <script>
 import REVIEWS from '~/gql/review/reviews.gql'
+
 export default {
   data() {
     return {
@@ -169,13 +179,13 @@ export default {
       // console.log("helllo theendkd")
       try {
         this.reviews = await this.$get('review/reviews', {})
-        // this.reviews = (
-        //   await this.$apollo.query({
-        //     query: REVIEWS,
-        //     fetchPolicy: 'no-cache',
-        //   })
-        // ).data.reviews
-        // console.log("reviesssss",this.reviews)
+        this.reviews = (
+          await this.$apollo.query({
+            query: REVIEWS,
+            fetchPolicy: 'no-cache',
+          })
+        ).data.reviews
+        console.log('reviesssss', this.reviews)
       } catch (e) {
         // console.log(e)
       }
