@@ -20,7 +20,7 @@
         </span>
 
         <!-- size chart demo button  -->
-        <div v-if="product.sizechart">
+        <!-- <div v-if="product.sizechart">
           <button
             aria-label="Open Menu"
             class="
@@ -55,7 +55,7 @@
             :class="sidebar ? 'openSideBar' : 'closeSideBar'"
             @hideSidebar="sidebar = false"
           />
-        </div>
+        </div> -->
 
         <!-- <span v-if="showDemoScheduler">
               <Scheduler
@@ -374,6 +374,43 @@
                           />
                         </div> -->
                   </div>
+                  <!-- size chart demo button  -->
+                  <div v-if="product.sizechart">
+                    <button
+                      aria-label="Open Menu"
+                      class="
+                        overflow-x-hidden overflow-y-hidden
+                        transition
+                        ease-in-out
+                        focus:outline-none
+                        duration-1500
+                      "
+                      @click="sidebar = !sidebar"
+                    >
+                      Size chart
+                    </button>
+                    <div
+                      v-if="sidebar"
+                      class="
+                        fixed
+                        inset-0
+                        z-30
+                        w-screen
+                        h-screen
+                        bg-black
+                        opacity-50
+                        cursor-auto
+                      "
+                      @click="sidebar = false"
+                    />
+                    <ProductSizeChart
+                      :product="product"
+                      class="h-screen"
+                      :show="sidebar"
+                      :class="sidebar ? 'openSideBar' : 'closeSideBar'"
+                      @hideSidebar="sidebar = false"
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -666,9 +703,9 @@ import NuxtLink from '~/components/NuxtLink.vue'
 // import Share from '~/components/ProductDetails/Share'
 // import { Checkbox } from '~/shared/components/ui'
 // import WishButton from '~/components/WishButton.vue'
-// import ProductSizeChart from '~/components/ProductDetails/ProductSizeChart'
+import ProductSizeChart from '~/components/ProductDetails/ProductSizeChart'
 export default {
-  components: { DemoRequestModal, NuxtLink },
+  components: { DemoRequestModal, NuxtLink, ProductSizeChart },
   props: {
     host: { type: String, default: null },
     pg: { type: Object, default: null },
