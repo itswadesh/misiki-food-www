@@ -33,30 +33,37 @@
       <div
         class="
           grid grid-cols-3
-          gap-4
           p-1
           px-3
           md:grid-cols-4
           lg:grid-cols-6
+          gap-3
+          md:gap-4
+          lg:gap-6
           justify-items-center
         "
       >
-        <div
-          v-for="c in categories.data"
-          v-if="c.img"
-          :key="c.id"
-          class="mr-2 mb-2 sm:mr-5 xl:mr-6 sm:mb-5 xl:mb-6"
-        >
+        <div v-for="c in categories.data" v-if="c.img" :key="c.id">
           <nuxt-link
             :to="localePath(`/c/${c.slug}`)"
-            class="w-24 md:w-32 group"
+            class="
+              w-24
+              md:w-32
+              xl:w-40
+              flex flex-col
+              items-start
+              justify-center
+              group
+            "
           >
             <div
               class="
-                mb-4
+                mb-2
+                ms:mb-4
                 w-24
                 h-24
                 md:w-32 md:h-32
+                xl:w-40 xl:h-40
                 rounded-full
                 flex
                 items-center
@@ -71,16 +78,25 @@
               <img
                 v-lazy="c.img"
                 alt="categories"
-                class="h-full w-full object-cover md:h-28 md:w-28 rounded-full"
+                class="
+                  h-full
+                  w-full
+                  object-cover
+                  md:h-28 md:w-28
+                  xl:w-40 xl:h-40
+                  rounded-full
+                "
               />
             </div>
 
             <h6
               class="
-                text-base
-                font-normal
+                w-full
+                text-sm
+                sm:text-base
                 text-center text-gray-500
                 group-hover:text-primary-500
+                capitalize
               "
             >
               {{ c.name }}

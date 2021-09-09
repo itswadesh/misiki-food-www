@@ -7,15 +7,15 @@
         alt=""
       />
 
-      <div class="capitalize">
-        We are unable to find items matching !! <br />
+      <div class="text-xl md:text-3xl">
+        We couldn't find any matches! <br />
       </div>
 
       <div class="text-1">{{ $route.query.q }}</div>
     </div>
 
     <nuxt-link :to="localePath('/')">
-      <GrnIndGradiantButton class="w-40 text-sm font-normal mx-auto my-5">
+      <GrnIndGradiantButton class="w-40 text-sm font-normal mx-auto my-10">
         Shop More</GrnIndGradiantButton
       >
     </nuxt-link>

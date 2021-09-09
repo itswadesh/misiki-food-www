@@ -9,21 +9,9 @@
       @showFilter="showMobileFilter = true"
       @hide="showMobileFilter = false"
     />
-    <div class="container flex mx-auto sm:mt-6 xl:mt-0">
+    <div class="flex sm:mt-6 xl:mt-0">
       <DesktopFilters
-        class="
-          sticky
-          top-0
-          flex-none
-          hidden
-          max-w-xs
-          min-h-screen
-          mt-5
-          bg-gray-100
-          shadow
-          ms-4
-          lg:block
-        "
+        class="sticky top-0 hidden lg:block"
         :facets="facets"
         :fl="fl"
         @clearAllFilters="clearAllFilters"
