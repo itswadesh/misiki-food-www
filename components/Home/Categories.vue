@@ -83,7 +83,7 @@
                   w-full
                   object-cover
                   md:h-28 md:w-28
-                  xl:w-40 xl:h-40
+                  xl:w-36 xl:h-36
                   rounded-full
                 "
               />
