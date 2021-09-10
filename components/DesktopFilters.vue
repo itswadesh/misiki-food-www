@@ -1,10 +1,9 @@
-h4
 <template>
-  <div v-if="facets" class="w-64 p-4 min-h-screen">
-    <div class="border-b">
-      <h5 class="text-sm font-bold uppercase">CATEGORIES</h5>
+  <div v-if="facets" class="w-72 min-h-screen border-r">
+    <div v-if="sideMegamenu && sideMegamenu.count > 0" class="border-b p-4">
+      <h5 class="mb-4 text-sm font-bold uppercase leading-3">CATEGORIES</h5>
 
-      <ul class="mt-2 overflow-y-auto max-h-72">
+      <ul class="overflow-y-auto max-h-72">
         <li
           v-for="(c, i) in sideMegamenu"
           :key="i"
@@ -14,7 +13,7 @@ h4
             overflow-hidden
             border-t
             tab
-            py-2
+            mb-2
             cursor-pointer
           "
         >
@@ -92,7 +91,7 @@ h4
       </ul>
     </div>
 
-    <div class="flex items-center justify-between py-4 border-b">
+    <div class="flex items-center justify-between p-4 border-b">
       <h5 class="text-sm font-bold uppercase">FILTERS</h5>
 
       <button
@@ -170,11 +169,11 @@ h4
         facets.brands.all.buckets &&
         facets.brands.all.buckets.length > 0
       "
-      class="mt-4 border-b"
+      class="p-4 border-b"
     >
-      <h5 class="text-sm font-bold uppercase">BRAND</h5>
+      <h5 class="mb-4 text-sm font-bold uppercase leading-3">BRAND</h5>
 
-      <ul class="mt-2 overflow-y-auto max-h-72">
+      <ul class="overflow-y-auto max-h-72">
         <li
           v-for="b in facets.brands &&
           facets.brands.all &&
@@ -186,7 +185,7 @@ h4
             class="
               flex
               items-center
-              my-2
+              mb-2
               tracking-wider
               text-sm
               font-light
@@ -209,11 +208,11 @@ h4
         facets.genders.all.buckets &&
         facets.genders.all.buckets.length > 0
       "
-      class="mt-4 border-b"
+      class="p-4 border-b"
     >
-      <h5 class="text-sm font-bold uppercase">GENDER</h5>
+      <h5 class="mb-4 text-sm font-bold uppercase leading-3">GENDER</h5>
 
-      <ul class="mt-2 overflow-y-auto max-h-72">
+      <ul class="overflow-y-auto max-h-72">
         <li
           v-for="b in facets.genders &&
           facets.genders.all &&
@@ -225,7 +224,7 @@ h4
             class="
               flex
               items-center
-              my-2
+              mb-2
               tracking-wider
               text-sm
               font-light
@@ -248,11 +247,11 @@ h4
         facets.colors.all.buckets &&
         facets.colors.all.buckets.length > 0
       "
-      class="mt-4 border-b"
+      class="p-4 border-b"
     >
-      <h5 class="text-sm font-bold uppercase">COLOR</h5>
+      <h5 class="mb-4 text-sm font-bold uppercase leading-3">COLOR</h5>
 
-      <ul class="mt-2 overflow-y-auto max-h-72">
+      <ul class="overflow-y-auto max-h-72">
         <li
           v-for="b in facets.colors &&
           facets.colors.all &&
@@ -264,7 +263,7 @@ h4
             class="
               flex
               items-center
-              my-2
+              mb-2
               tracking-wider
               text-sm
               font-light
@@ -289,11 +288,11 @@ h4
         facets.sizes.all.buckets.length > 0
       "
       color="primary"
-      class="mt-4 border-b"
+      class="p-4 border-b"
     >
-      <h5 class="text-sm font-bold uppercase">SIZES</h5>
+      <h5 class="mb-4 text-sm font-bold uppercase leading-3">SIZES</h5>
 
-      <ul class="mt-2 overflow-y-auto max-h-72">
+      <ul class="overflow-y-auto max-h-72">
         <li
           v-for="b in facets.sizes &&
           facets.sizes.all &&
@@ -305,7 +304,7 @@ h4
             class="
               flex
               items-center
-              my-2
+              mb-2
               tracking-wider
               text-sm
               font-light
@@ -331,11 +330,11 @@ h4
         getTotalDocCount(facets.price.all.buckets) > 0
       "
       color="primary"
-      class="mt-4 border-b"
+      class="p-4 border-b"
     >
-      <h5 class="text-sm font-bold uppercase">PRICE RANGE</h5>
+      <h5 class="mb-4 text-sm font-bold uppercase leading-3">PRICE RANGE</h5>
 
-      <ul class="mt-2 overflow-y-auto max-h-72">
+      <ul class="overflow-y-auto max-h-72">
         <li
           v-for="b in facets.price &&
           facets.price.all &&
@@ -348,7 +347,7 @@ h4
             class="
               flex
               items-center
-              my-2
+              mb-2
               tracking-wider
               text-sm
               font-light
@@ -374,11 +373,11 @@ h4
         getTotalDocCount(facets.age.all.buckets) > 0
       "
       color="primary"
-      class="mt-4 border-b"
+      class="p-4 border-b"
     >
-      <h5 class="text-sm font-bold uppercase">AGE GROUP</h5>
+      <h5 class="mb-4 text-sm font-bold uppercase leading-3">AGE GROUP</h5>
 
-      <ul class="mt-2 overflow-y-auto max-h-72">
+      <ul class="overflow-y-auto max-h-72">
         <li
           v-for="b in facets.age && facets.age.all && facets.age.all.buckets"
           v-if="b.doc_count > 0"
@@ -389,7 +388,7 @@ h4
             class="
               flex
               items-center
-              my-2
+              mb-2
               tracking-wider
               text-sm
               font-light
@@ -415,11 +414,11 @@ h4
         getTotalDocCount(facets.discount.all.buckets) > 0
       "
       color="primary"
-      class="mt-4 border-b"
+      class="p-4 border-b"
     >
-      <h5 class="text-sm font-bold uppercase">Discount</h5>
+      <h5 class="mb-4 text-sm font-bold uppercase leading-3">Discount</h5>
 
-      <ul class="mt-2 overflow-y-auto max-h-72">
+      <ul class="overflow-y-auto max-h-72">
         <li
           v-for="b in facets.discount &&
           facets.discount.all &&
@@ -432,7 +431,7 @@ h4
             class="
               flex
               items-center
-              my-2
+              mb-2
               tracking-wider
               text-sm
               font-light
