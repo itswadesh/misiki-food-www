@@ -176,7 +176,7 @@
 <script>
 export default {
   props: {
-    product: Object,
+    product: { type: Object, default: null },
   },
   data() {
     return {

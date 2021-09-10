@@ -22,12 +22,8 @@
           <p>Oops! Store not found</p>
         </div>
 
-        <a target="blank" :href="`${settings.ADMIN_PANEL_LINK}`" class="mb-5">
-          <GrnIndGradiantButton
-            :loading="loading"
-            class="w-52"
-            @click="loading = true"
-          >
+        <a :href="`${settings.ADMIN_PANEL_LINK}`" class="mb-5">
+          <GrnIndGradiantButton class="w-52">
             Create your store
           </GrnIndGradiantButton>
         </a>
