@@ -1,5 +1,5 @@
 <template>
-  <section class="container mx-auto w-64 mb-5 lg:w-full">
+  <section class="container mx-auto w-64 mb-1.5 lg:mb-5 lg:w-full">
     <div
       class="
         border border-gray-200
@@ -167,7 +167,6 @@
           </div>
 
           <!-- For view below 640px end -->
-
           <div v-else>
             <div class="flex items-center justify-between">
               <h4 class="font-semibold mb-1.5">

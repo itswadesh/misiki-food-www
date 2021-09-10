@@ -5,6 +5,9 @@
       inset-0
       z-50
       flex flex-col
+      items-center
+      justify-center
+      ml-auto
       w-4/5
       overflow-x-hidden overflow-y-auto
       transition
@@ -45,11 +48,12 @@
         />
       </svg>
     </button>
-    <div class="mt-6">
+
+    <div class="m-6">
       <img
         :src="product && product.sizechart"
         alt="No Sizechart available"
-        class="h-full w-full"
+        class="object-contain"
       />
     </div>
     <!-- <div class="">

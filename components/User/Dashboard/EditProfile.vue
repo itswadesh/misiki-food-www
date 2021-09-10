@@ -169,7 +169,7 @@ export default {
         //   })
         // ).data.updateProfile
         this.success(msg)
-        const r = this.$route.query.ref || '/'
+        const r = this.$route.query.ref || '/my'
         this.$router.push(r)
       } catch (e) {
         this.setErr(e)

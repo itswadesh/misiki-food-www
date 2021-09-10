@@ -1,5 +1,5 @@
 <template>
-  <div v-if="product" class="w-full px-2 xl:ms-5">
+  <div v-if="product.lenght" class="w-full px-2 xl:ms-5">
     <div v-if="product.description" class="text-sm sm:text-base mb-1 sm:mb-2">
       <div class="flex items-center space-x-2 mb-2">
         <span class="font-semibold">Description</span>

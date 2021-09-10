@@ -1,5 +1,15 @@
 <template>
-  <div class="flex items-center my-auto text-sm font-light text-gray-500">
+  <div
+    class="
+      flex
+      items-center
+      my-auto
+      text-sm
+      overflow-hidden
+      whitespace-nowrap
+      overflow-ellipsis
+    "
+  >
     <nuxt-link :to="localePath('/')">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +30,7 @@
         :to="`/c/${p.slug}`"
         class="
           my-auto
-          flex flex-wrap
+          whitespace-nowrap
           items-center
           capitalize
           cursor-pointer
@@ -33,7 +43,7 @@
       <span class="transform rotate-12 mx-1">/</span>
     </div>
 
-    <span class="my-auto capitalize truncate text-primary-500">
+    <span class="my-auto capitalize text-primary-500">
       {{ name }}
     </span>
   </div>

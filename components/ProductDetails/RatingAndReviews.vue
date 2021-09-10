@@ -1,5 +1,8 @@
 <template>
-  <div v-if="productReviews" class="w-full px-2 xl:ms-5">
+  <div
+    v-if="productReviews && productReviews.count > 0"
+    class="w-full px-2 xl:ms-5"
+  >
     <div class="text-sm sm:text-base flex items-center space-x-2 mb-2">
       <span class="font-semibold">Rating and reviews</span>
 

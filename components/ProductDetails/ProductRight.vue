@@ -96,7 +96,15 @@
 
           <div
             v-if="product.stock > 0 && product.stock < 5"
-            class="text-sm sm:text-base font-light text-accent-900 mb-1 sm:mb-2"
+            class="
+              text-sm
+              sm:text-base
+              font-light
+              text-accent-900
+              mb-1
+              sm:mb-2
+              animate-pulse
+            "
           >
             Hurry up, only few left!
           </div>
@@ -322,8 +330,9 @@
             >
               <div v-if="pg.sizeGroup && pg.sizeGroup.length">
                 <div class="flex flex-wrap items-center">
-                  <span class="font-light text-gray-700 me-6"> Sizes: </span>
-                  <div class="flex flex-wrap">
+                  <div class="flex flex-wrap me-5">
+                    <span class="font-semibold me-2"> Sizes: </span>
+
                     <nuxt-link
                       v-for="(i, ix) in pg.sizeGroup"
                       :key="ix + 's'"
@@ -416,7 +425,7 @@
 
               <div v-if="pg.colorGroup && pg.colorGroup.length" class="mt-3">
                 <div class="flex flex-wrap items-center">
-                  <span class="font-light text-gray-700 me-4"> Colors: </span>
+                  <span class="font-semibold me-2"> Colors: </span>
                   <div class="flex flex-wrap overflow-y-auto">
                     <nuxt-link
                       v-for="(i, ix) in pg.colorGroup"
@@ -524,11 +533,18 @@
           <div class="text-sm sm:text-base flex items-center mb-1 sm:mb-2">
             <span class="font-semibold me-2">Availability :</span>
 
-            <span v-if="product.stock > 0" class="text-gray-500">
-              {{ product.stock }} In Stock
+            <span v-if="product.stock >= 5" class="text-secondary-200"
+              >In Stock</span
+            >
+
+            <span
+              v-else-if="product.stock > 0 && product.stock < 5"
+              class="text-primary-500"
+            >
+              {{ product.stock }} remaining
             </span>
 
-            <span v-else class="text-accent-900"> Not Available </span>
+            <span v-else class="text-accent-900"> Out of Stock</span>
           </div>
 
           <!-- deleivery  -->
