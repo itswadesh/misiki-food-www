@@ -82,7 +82,14 @@
                 "
               >
                 <img
-                  v-lazy="user.avatar"
+                  v-if="!user.avatar"
+                  src="/leadership-profile.png"
+                  alt=""
+                  class="object-cover object-top w-full h-full"
+                />
+                <img
+                  v-else
+                  :src="user.avatar"
                   alt=""
                   class="object-cover object-top w-full h-full"
                 />
