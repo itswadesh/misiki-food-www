@@ -1,6 +1,8 @@
 <template>
-  <div v-if="product.lenght" class="w-full px-2 xl:ms-5">
-    <div v-if="product.description" class="text-sm sm:text-base mb-1 sm:mb-2">
+  <div v-if="product" class="w-full px-2 xl:ms-5">
+    <!-- Description -->
+
+    <div v-if="product.description" class="text-sm sm:text-base mb-1.5 sm:mb-3">
       <div class="flex items-center space-x-2 mb-2">
         <span class="font-semibold">Description</span>
 
@@ -26,11 +28,11 @@
       />
     </div>
 
-    <!-- key featires -->
+    <!-- Key Features -->
 
     <div
       v-if="product.keyFeatures && product.keyFeatures.length"
-      class="text-sm sm:text-base mb-1 sm:mb-2"
+      class="text-sm sm:text-base mb-1.5 sm:mb-3"
     >
       <div class="flex items-center space-x-2 mb-2">
         <span class="font-semibold"> Key Features</span>
@@ -76,7 +78,7 @@
       </div>
     </div>
 
-    <div class="text-sm sm:text-base mb-1 sm:mb-2">
+    <div class="text-sm sm:text-base mb-1.5 sm:mb-3">
       <div class="flex items-center space-x-2 mb-2">
         <span class="font-semibold">Product Details</span>
 
@@ -109,9 +111,9 @@
 
       <div
         v-if="product.countryOfOrigin"
-        class="fles items-cennter mb-2 text-sm font-medium"
+        class="flex items-center mb-2 text-sm font-medium"
       >
-        <span class="me-2">Country Of Origin :</span>
+        <span class="whitespace-nowrap w-36 me-2">Country Of Origin - </span>
 
         <span class="text-gray-500">{{ product.countryOfOrigin }}</span>
       </div>
@@ -119,7 +121,7 @@
 
     <div
       v-if="product.specifications && product.specifications.length"
-      class="text-sm sm:text-base mb-1 sm:mb-2"
+      class="text-sm sm:text-base mb-1.5 sm:mb-3"
     >
       <div class="flex items-center space-x-2 mb-2">
         <span class="font-semibold">Specifications</span>

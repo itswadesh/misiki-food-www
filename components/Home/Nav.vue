@@ -17,7 +17,7 @@
 
     <header class="z-40 w-full h-24 p-2 shadow-xs sm:shadow-md lg:p-3 lg:h-16">
       <div class="relative flex justify-between mx-auto xl:container">
-        <div class="flex items-center my-auto">
+        <div class="flex flex-row items-center my-auto">
           <div class="hambargar menu lg:hidden">
             <button
               aria-label="Open Menu"
@@ -31,8 +31,8 @@
               @click="sidebar = !sidebar"
             >
               <svg
-                class="w-6 h-6 pt-1 text-primary-500 me-3"
                 xmlns="http://www.w3.org/2000/svg"
+                class="h-6 pt-1 text-primary-500 me-3"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -69,35 +69,30 @@
             />
           </div>
 
-          <div class="h-full my-auto">
-            <nuxt-link :to="localePath('/')">
-              <div class="my-auto">
-                <img
-                  v-if="store.logo"
-                  v-lazy="store.logo"
-                  alt="store logo"
-                  class="object-contain h-8 md:h-10"
-                />
+          <nuxt-link :to="localePath('/')">
+            <img
+              v-if="store.logo"
+              v-lazy="store.logo"
+              alt="store logo"
+              class="object-contain h-8 md:h-10"
+            />
 
-                <h1
-                  v-else
-                  class="
-                    text-xl
-                    md:text-2xl
-                    lg:text-3xl
-                    text-transparent
-                    bg-clip-text bg-gradient-to-br
-                    from-secondary-500
-                    to-primary-500
-                    font-semibold
-                    sm:font-bold
-                  "
-                >
-                  {{ store.name }}
-                </h1>
-              </div>
-            </nuxt-link>
-          </div>
+            <h1
+              v-else
+              class="
+                text-lg
+                md:text-2xl
+                text-transparent
+                bg-clip-text bg-gradient-to-br
+                from-secondary-500
+                to-primary-500
+                font-semibold
+                sm:font-bold
+              "
+            >
+              {{ store.name }}
+            </h1>
+          </nuxt-link>
         </div>
 
         <SearchAutocomplete class="absolute hidden my-auto mb-1 lg:flex" />

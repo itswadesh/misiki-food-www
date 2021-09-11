@@ -9,7 +9,7 @@
       <div v-if="product" class="flex flex-col w-full px-2">
         <strong
           v-if="product.brand"
-          class="leading-3 text-lg sm:text-xl mb-1.5 sm:mb-3"
+          class="leading-3 text-lg sm:text-xl mb-1 uppercase"
         >
           {{ product.brand.name }}
         </strong>
@@ -19,6 +19,8 @@
 
           <!-- <span v-if="product.color">-{{ product.color.name }}</span> -->
         </p>
+
+        <hr class="mb-1.5 sm:mb-3 border-t border-gray-200 w-full" />
 
         <!-- size chart demo button  -->
         <!-- <div v-if="product.sizechart">
@@ -554,25 +556,50 @@
             </div>
               </div> -->
 
-          <div class="text-sm sm:text-base flex items-center mb-1 sm:mb-2">
-            <span class="font-semibold whitespace-nowrap w-36 me-2"
-              >AVAILABILITY -
-            </span>
+          <div class="flex items-center mb-1.5 sm:mb-3">
+            <div
+              class="
+                flex flex-row
+                items-center
+                space-x-2
+                w-36
+                me-2
+                font-semibold
+                whitespace-nowrap
+              "
+            >
+              <span>AVAILABILITY </span>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 text-gray-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                />
+              </svg>
+            </div>
 
             <span
               v-if="product.stock >= 5"
-              class="text-secondary-200 whitespace-nowrap"
+              class="text-sm text-secondary-200 whitespace-nowrap"
               >In Stock</span
             >
 
             <span
               v-else-if="product.stock > 0 && product.stock < 5"
-              class="text-primary-500 whitespace-nowrap"
+              class="text-sm text-primary-500 whitespace-nowrap"
             >
               {{ product.stock }} remaining
             </span>
 
-            <span v-else class="text-accent-900 whitespace-nowrap">
+            <span v-else class="text-sm text-accent-900 whitespace-nowrap">
               Out of Stock</span
             >
           </div>
@@ -620,13 +647,41 @@
             </div>
           </div>
 
-          <div class="text-sm sm:text-base mb-1 sm:mb-2">
+          <div class="mb-1.5 sm:mb-3">
             <div class="flex flex-row items-center">
-              <span class="font-semibold whitespace-nowrap w-36 me-2"
-                >GET IT BY -
-              </span>
+              <div
+                class="
+                  flex flex-row
+                  items-center
+                  space-x-2
+                  w-36
+                  me-2
+                  font-semibold
+                  whitespace-nowrap
+                "
+              >
+                <span>GET IT BY </span>
 
-              <span class="whitespace-nowrap text-gray-500">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 text-gray-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"
+                  />
+                </svg>
+              </div>
+
+              <span class="text-sm whitespace-nowrap text-gray-500">
                 {{ deliveryDate }}
               </span>
             </div>
@@ -647,10 +702,7 @@
                 </span>
               </span> -->
 
-          <div
-            v-if="reviewSummary"
-            class="text-sm sm:text-base flex flex-row mb-1 sm:mb-2"
-          >
+          <div v-if="reviewSummary" class="flex flex-row mb-1.5 sm:mb-3">
             <div
               class="
                 flex flex-row
@@ -684,7 +736,7 @@
                 />
               </svg>
             </div>
-            <span class="my-auto font-light text-gray-500">
+            <span class="text-sm text-gray-500">
               {{ reviewSummary.count }}
               ratings and
               {{ reviewSummary.reviews && reviewSummary.reviews.length }}
@@ -702,8 +754,8 @@
               flex flex-row
               justify-between
               w-full
-              mb-1
-              sm:mb-2
+              mb-1.5
+              sm:mb-3
             "
           >
             <nuxt-link
@@ -738,6 +790,8 @@
         @close="showDemoScheduler = false"
       />
     </div>
+
+    <hr class="mb-1.5 sm:mb-3 border-t border-gray-200 w-full" />
   </div>
 </template>
 

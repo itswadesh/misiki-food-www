@@ -92,6 +92,7 @@ div
 
             <div
               class="
+                mb-5
                 px-2
                 xl:ms-5
                 md:flex
@@ -126,18 +127,9 @@ div
             </div>
           </div>
 
-          <div
-            class="
-              bg-white
-              border-t border-b
-              mt-5
-              xl:mt-0
-              sm:border-b-0 sm:border-t-0
-            "
-          >
-            <ProductDetailSpecs :product="product" />
-            <RatingAndReviews class="mt-5" />
-          </div>
+          <ProductDetailSpecs :product="product" class="mb-5" />
+
+          <RatingAndReviews />
         </div>
       </div>
     </div>
