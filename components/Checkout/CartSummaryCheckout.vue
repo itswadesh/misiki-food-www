@@ -1,22 +1,26 @@
 <template>
   <section class="flex flex-col">
+    <div class="text-lg font-bold tracking-wide mb-3">Cart Summary</div>
+
+    <hr class="border-t border-gray-200 mb-3" />
+
     <div v-if="cart">
-      <div class="text-sm sm:text-base">
-        <div class="flex justify-between mb-2">
+      <div class="text-sm">
+        <div class="flex items-center justify-between mb-2">
           <span>Items Subtotal</span>
           <span>
             {{ cart.subtotal | currency(store.currencySymbol, 2) }}
           </span>
         </div>
 
-        <div class="flex justify-between mb-2">
+        <div class="flex items-center justify-between mb-2">
           <span>Total Item</span>
           <span>{{ cart.qty }}</span>
         </div>
 
         <div
           v-if="cart.discount && cart.discount.amount > 0"
-          class="flex justify-between mb-2"
+          class="flex items-center justify-between mb-2"
         >
           <span>Applied Coupon</span>
           <span class="text-primary-500">
@@ -27,7 +31,7 @@
 
         <div
           v-if="cart.discount && cart.discount.amount > 0"
-          class="flex justify-between mb-2"
+          class="flex items-center justify-between mb-2"
         >
           <span>Your Savings</span>
           <span class="text-secondary-500">
@@ -35,7 +39,10 @@
           </span>
         </div>
 
-        <div v-if="cart.shipping" class="flex justify-between mb-2">
+        <div
+          v-if="cart.shipping"
+          class="flex items-center justify-between mb-2"
+        >
           <nuxt-link
             to="/delivery-charges"
             class="flex items-center hover:text-primary-500"
@@ -93,21 +100,70 @@
         </span>
       </div>
 
-      <hr class="border-t border-gray-200 my-2" />
+      <hr class="border-t border-gray-200 my-3" />
 
-      <div class="mt-4 flex justify-between text-base sm:text-lg sm:pb-5">
+      <div class="flex justify-between text-base sm:pb-5">
         <b>Total Amount</b>
         <b> {{ cart.total | currency(store.currencySymbol, 2) }}</b>
       </div>
 
       <div class="fixed bottom-0 inset-x-0 w-full sm:static">
-        <GrnIndGradiantButton
-          class="w-full"
-          :loading="loading"
+        <button
+          class="
+            w-full
+            px-4
+            py-2
+            font-semibold
+            justify-center
+            tracking-wider
+            text-white
+            transition
+            duration-300
+            transform
+            bg-white
+            sm:rounded-md
+            shadow-md
+            hover:shadow
+            focus:outline-none focus:ring-0 focus:ring-offset-0
+            sm:active:scale-95
+          "
+          :class="
+            loading
+              ? ' bg-gray-400 cursor-not-allowed'
+              : 'bg-primary-500 hover:bg-opacity-80'
+          "
           @click="proceed()"
         >
-          Proceed
-        </GrnIndGradiantButton>
+          <div
+            v-if="!loading"
+            class="flex items-center justify-center space-x-1"
+          >
+            Proceed
+          </div>
+
+          <div v-else>
+            <svg
+              class="mx-auto text-white animate-spin h-6 w-6"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                class="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="4"
+              ></circle>
+              <path
+                class="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
+            </svg>
+          </div>
+        </button>
       </div>
     </div>
   </section>

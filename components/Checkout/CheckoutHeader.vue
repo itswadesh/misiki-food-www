@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center px-5 md:mt-10 xl:mt-20">
+  <div class="flex justify-center p-5 sm:p-10">
     <div
       class="
         w-full

@@ -1,42 +1,54 @@
 <template>
   <section
-    class="container mx-auto max-w-6xl px-2 sm:px-10 mb-10 text-gray-700"
+    class="container mx-auto max-w-5xl px-2 sm:px-10 mb-10 text-gray-700"
   >
     <CheckoutHeader selected="payment" class="py-5 sm:py-10" />
 
     <div class="flex flex-col lg:flex-row lg:space-x-5">
       <div class="lg:w-2/3 lg:border-r lg:border-gray-200 lg:pr-5">
-        <div class="text-2xl font-bold tracking-wide mb-3">Payment Methods</div>
+        <div class="text-lg font-bold tracking-wide mb-3">Payment Methods</div>
 
         <div v-if="paymentMethods && paymentMethods.length > 0">
           <div v-for="p in paymentMethods" :key="p.id">
-            <div
-              v-if="
-                paymentMethod == 'Stripe' &&
-                p.name == 'Stripe' &&
-                loadedStripe &&
-                p.key &&
-                p.key != null
-              "
-              class="px-6 py-4 my-2 rounded shadow-lg"
-            ></div>
-
             <label
               class="
+                p-3
+                sm:p-5
                 flex
-                justify-between
+                items-center
+                space-x-5
                 w-full
-                px-6
-                py-4
                 my-2
-                bg-white
+                border
                 rounded
-                shadow-lg
+                shadow-md
                 cursor-pointer
               "
             >
+              <div class="flex items-center space-x-5">
+                <Radio v-model="paymentMethod" :value="p" :color="p.color" />
+
+                <div
+                  class="
+                    flex
+                    items-center
+                    justify-center
+                    w-12
+                    h-12
+                    rounded-full
+                    border border-gray-200
+                  "
+                >
+                  <img
+                    v-lazy="p.img"
+                    :alt="p.name"
+                    class="w-10 h-10 rounded-full object-cover"
+                  />
+                </div>
+              </div>
+
               <div class="flex-1">
-                <h2 class="text-xl font-black">{{ p.name }}</h2>
+                <h2 class="mb-1 leading-3 font-black">{{ p.name }}</h2>
                 <!-- <div
                   v-if="
                     p.value !== 'COD' &&
@@ -47,15 +59,22 @@
                 >
                   {{ p.name }} Publishable key is invalid
                 </div> -->
-                <span>
+                <span class="text-sm">
                   {{ p.text }}
                 </span>
               </div>
-              <div class="flex items-center">
-                <img v-lazy="p.img" :alt="p.name" class="w-16 h-12 mx-4" />
-                <Radio v-model="paymentMethod" :value="p" :color="p.color" />
-              </div>
             </label>
+
+            <div
+              v-if="
+                paymentMethod == 'Stripe' &&
+                p.name == 'Stripe' &&
+                loadedStripe &&
+                p.key &&
+                p.key != null
+              "
+              class="px-6 py-4 my-2 rounded shadow-lg"
+            ></div>
           </div>
         </div>
 
@@ -259,44 +278,42 @@
       </div>
 
       <div class="lg:w-1/3 pb-10">
-        <div class="text-2xl font-bold tracking-wide mb-3">Cart Summary</div>
+        <div class="text-lg font-bold tracking-wide mb-3">Cart Summary</div>
 
         <hr class="border-t border-gray-200 mb-2" />
 
-        <CheckoutSummary :loading="loading" class="mb-4" @submit="submit">
+        <CheckoutSummary :loading="loading" class="mb-5" @submit="submit">
           <span v-if="paymentMethod && paymentMethod.value == 'COD'"
             >Place Order</span
           >
           <span v-else-if="razorpayReady && loadedStripe">Pay Now</span>
         </CheckoutSummary>
 
-        <h3 class="mb-4 text-base sm:text-lg font-semibold">
+        <div class="text-lg font-bold tracking-wide mb-3">
           Delivery Address:
-        </h3>
+        </div>
 
-        <div v-if="address" class="text-xs sm:text-sm">
-          <div class="mb-1 capitalize text-sm sm:text-base">
-            {{ address.firstName }} {{ address.lastName }}
+        <hr class="border-t border-gray-200 my-3" />
+
+        <h5 v-if="address" class="mb-2 capitalize font-semibold tracking-wide">
+          {{ address.firstName }}
+          {{ address.lastName }}
+        </h5>
+
+        <div>
+          <div class="mb-3 text-xs font-light flex flex-wrap">
+            {{ address.address }}, {{ address.city }}, {{ address.state }},
+            {{ address.country }} - {{ address.zip }}
           </div>
 
-          <div class="mb-1 capitalize">
-            {{ address.address }}
+          <div class="mb-3 text-xs space-x-2">
+            <span>Mobile : </span>
+            <span class="font-semibold"> {{ address.phone }}</span>
           </div>
 
-          <div class="mb-1 capitalize">
-            {{ address.city }} {{ address.state }} {{ address.country }}
-          </div>
-
-          <div class="mb-1 capitalize">
-            {{ address.zip }}
-          </div>
-
-          <div class="mb-1 capitalize">
-            {{ address.phone }}
-          </div>
-
-          <div class="mb-1 capitalize">
-            {{ address.email }}
+          <div class="mb-5 text-xs space-x-2">
+            <span>Email : </span>
+            <span class="font-semibold"> {{ address.email }}</span>
           </div>
         </div>
 

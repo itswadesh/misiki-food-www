@@ -2,8 +2,7 @@
   <div
     class="
       flex flex-col
-      p-2
-      sm:p-4
+      p-3
       mb-4
       bg-white
       rounded

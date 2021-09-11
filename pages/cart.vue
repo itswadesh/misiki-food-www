@@ -1,6 +1,6 @@
 <template>
   <section
-    class="container mx-auto max-w-6xl px-2 sm:px-10 mb-10 text-gray-700"
+    class="container mx-auto max-w-5xl px-2 sm:px-10 mb-10 text-gray-700"
   >
     <CheckoutHeader
       v-if="cart.items.length"
@@ -18,17 +18,18 @@
         <div class="lg:w-2/3 lg:border-r lg:border-gray-200 lg:pr-5">
           <div class="flex items-baseline mb-3">
             <div class="text-2xl font-bold tracking-wide">Cart</div>
+
             <div
               class="
                 w-1
                 h-1
                 flex-shrink-0 flex-grow-0
-                mx-3
+                mx-1.5
                 bg-gray-400
                 rounded-full
               "
             ></div>
-            <div class="text-sm sm:text-lg tracking-tighter text-gray-400">
+            <div class="text-sm text-gray-400">
               {{ cart.items.length }} items
             </div>
           </div>
@@ -49,10 +50,6 @@
         </div>
 
         <div class="lg:w-1/3">
-          <div class="text-2xl font-bold tracking-wide mb-3">Price Summary</div>
-
-          <hr class="border-t border-gray-200 mb-2" />
-
           <PriceDetails
             :btnname="'Select Address'"
             :nextpage="'/checkout/address'"

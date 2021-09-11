@@ -1,87 +1,59 @@
 <template>
   <section
-    class="container mx-auto max-w-6xl px-2 sm:px-10 mb-10 text-gray-700"
+    class="container mx-auto max-w-5xl px-2 sm:px-10 mb-10 text-gray-700"
   >
-    <CheckoutHeader selected="address" class="py-5 sm:py-10" />
+    <CheckoutHeader selected="address" class="" />
 
     <div class="flex flex-col lg:flex-row lg:space-x-5">
       <div class="lg:w-2/3 lg:border-r lg:border-gray-200 lg:pr-5">
-        <div class="text-2xl font-bold tracking-wide mb-3">
+        <div class="text-lg font-bold tracking-wide mb-3">
           Select Delivery Address
         </div>
 
         <SelectAddress
-          class="w-full mx-auto mb-4 bg-white rounded shadow"
+          class="mb-5"
           :return-url="'/checkout/edit-address'"
           :add-return-url="'/checkout/add'"
           @addressChanged="addressChanged"
         />
 
-        <div class="my-10 w-1/2">
+        <div>
           <nuxt-link
             :to="localePath('/checkout/add')"
             class="
               w-full
-              h-40
-              sm:h-60
-              border border-gray-400 border-dashed
+              p-2
+              sm:p-4
+              border border-gray-300 border-dashed
               rounded-md
-              flex flex-col
+              flex
               items-center
-              justify-center
-              hover:border-primary-500
+              space-x-2
+              text-primary-500
               group
             "
           >
-            <div
-              class="
-                h-8
-                w-8
-                sm:h-10 sm:w-10
-                rounded-full
-                border border-gray-400
-                flex
-                items-center
-                justify-center
-                bg-gray-100
-                group-hover:border-primary-500
-              "
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-gray-600 group-hover:text-primary-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                ></path>
-              </svg>
-            </div>
-            <span
-              class="
-                mt-2
-                text-gray-800
-                group-hover:text-primary-500
-                text-sm
-                sm:text-base
-                font-medium
-              "
-            >
-              ADD NEW ADDRESS</span
-            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+              ></path>
+            </svg>
+
+            <span class="text-sm font-medium"> ADD NEW ADDRESS</span>
           </nuxt-link>
         </div>
       </div>
 
       <div class="lg:w-1/3 pb-10">
-        <div class="text-2xl font-bold tracking-wide mb-3">Cart Summary</div>
-
-        <hr class="border-t border-gray-200 mb-2" />
         <CartSummaryCheckout
           :loading="loading"
           :selected-address="selectedAddress"

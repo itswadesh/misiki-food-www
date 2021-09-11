@@ -18,7 +18,7 @@
         ring-1 ring-gray-300
         focus:outline-none
         hover:shadow
-        focus:ring-1 focus:ring-primary-500
+        focus:ring-1 focus:ring-indigo-500
       "
       :class="[
         right ? 'text-right' : 'text-left',

@@ -84,10 +84,13 @@
                 md:text-2xl
                 text-transparent
                 bg-clip-text bg-gradient-to-br
-                from-secondary-500
-                to-primary-500
+                from-primary-500
+                to-secondary-500
                 font-semibold
                 sm:font-bold
+                overflow-hidden
+                whitespace-nowrap
+                overflow-ellipsis
               "
             >
               {{ store.name }}

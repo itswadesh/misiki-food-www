@@ -21,9 +21,10 @@
         <!-- forms -->
         <div
           class="
+            mb-10
             grid grid-cols-1
             gap-2
-            text-sm text-primary-500
+            text-sm text-gray-800
             md:gap-4 md:grid-cols-2
           "
         >
@@ -130,19 +131,13 @@
             />
           </label>
         </div>
-        <div class="w-full mt-8">
+
+        <div class="w-full">
           <div
-            class="
-              flex flex-col
-              justify-between
-              w-full
-              my-auto
-              mb-0
-              md:flex-row
-            "
+            class="flex flex-col items-center justify-center w-full md:flex-row"
           >
-            <div class="w-full my-auto md:w-1/2">
-              <!-- <label class="flex flex-row">
+            <!-- <div class="w-full my-auto md:w-1/2">
+              <label class="flex flex-row">
                 <input
                   type="checkbox"
                   class="my-auto border-0 rounded-sm me-3 bg-gray-50 text-primary-500 ring-primary-500 ring-1 focus:ring-1 focus:ring-primary-500 focus:ring-offset-0"
@@ -150,13 +145,14 @@
                 <h6 class="text-gray-500"
                   >Make this as a default address</
                 >
-              </label> -->
-            </div>
+              </label>
+            </div> -->
+
             <!-- :disabled="$v.address.$anyError && $v.address.$anyDirty" -->
 
             <GrnIndGradiantButton
               type="submit"
-              class="w-full md:w-1/3"
+              class="w-full md:w-1/2"
               :loading="iconloading"
               :disabled="
                 isDisabled ||
@@ -168,7 +164,7 @@
               "
               @click="loading = true"
             >
-              <h6>ADD ADDRESS</h6>
+              <h6>SAVE ADDRESS</h6>
             </GrnIndGradiantButton>
 
             <!-- <Button

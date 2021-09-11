@@ -1,14 +1,12 @@
 <template>
   <section
-    class="container mx-auto max-w-6xl px-2 sm:px-10 mb-10 text-gray-700"
+    class="container mx-auto max-w-5xl px-2 sm:px-10 mb-10 text-gray-700"
   >
     <CheckoutHeader selected="address" class="py-5 sm:py-10" />
 
     <div class="flex flex-col lg:flex-row lg:space-x-5">
       <div class="lg:w-2/3 lg:border-r lg:border-gray-200 lg:pr-5">
-        <div class="text-2xl sm:text-4xl font-bold tracking-wide mb-2">
-          Billing Details
-        </div>
+        <div class="text-lg font-bold tracking-wide mb-3">Billing Details</div>
 
         <EditAddress id="new" :return-url="'/checkout/address'" />
       </div>
@@ -16,11 +14,7 @@
       <!-- <AddAddressMobile class="py-4 bg-white sm:hidden" /> -->
       <!-- <EditAddress go="checkout" id="add" class="w-2/3 bg-white border shadow rounded-xl" /> -->
       <div class="lg:w-1/3">
-        <div class="text-xl font-bold tracking-wide py-2">Cart Summary</div>
-
-        <hr class="border-t border-gray-200 my-2" />
-
-        <PriceDetails :btnname="'Continue'" />
+        <PriceDetails />
       </div>
     </div>
 

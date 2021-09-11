@@ -1,23 +1,27 @@
 <template>
-  <div class="w-full mt-4">
+  <div class="w-full">
     <div
       class="
+        w-full
+        hidden
+        lg:flex
+        flex-row
         items-center
         justify-between
-        flex-none
-        hidden
-        w-full
         text-sm
-        lg:flex
+        font-light
+        text-gray-500
+        py-2
+        px-4
       "
     >
-      <div v-if="count !== 0" class="flex flex-row my-auto text-sm font-thin">
+      <div v-if="count !== 0" class="flex flex-row">
         <!-- <svg
           xmlns="http://www.w3.org/2000/svg"
           class="
             w-5
             h-5
-            text-gray-500
+            
             cursor-pointer
             me-1
             hover:text-primary-500
@@ -62,72 +66,50 @@
         </span> -->
       </div>
 
-      <div class="flex p-1 my-auto font-semibold">
-        <div class="text-gray-500 text-1">
-          <b> {{ count || 'No' }} </b
-          ><span class="font-light">items found</span>
-          <span v-if="category && category.name && category.name !== ''">
-            <span class="font-light">under</span>
-            <b>{{ category.name }} </b>
-          </span>
-          <span v-else>
-            <span class="font-light">for</span>
+      <div class="flex items-center space-x-2">
+        <span class="font-bold"> {{ count || 'No' }} </span
+        ><span>items found for</span>
 
-            <b
-              ><q>{{ $route.params.q }} </q></b
-            >
-          </span>
-        </div>
+        <span
+          v-if="category && category.name && category.name !== ''"
+          class="font-bold"
+          >{{ category.name }}
+        </span>
+
+        <span v-else class="font-bold"
+          ><q>{{ $route.params.q }} </q></span
+        >
       </div>
 
-      <div class="flex-wrap p-1 mt-1">
-        <div class="text-sm">
-          <div class="relative flex flex-row">
-            <span class="my-auto text-sm font-light text-gray-500 me-2"
-              >SORT BY</span
-            >
-            <select
-              v-model="sortBy"
-              class="
-                text-sm
-                font-light
-                border border-gray-300
-                rounded
-                focus:ring-0 focus:border-primary-500
-                hover:shadow
-                focus:outline-none
-              "
-              @change="sort"
-            >
-              <option
-                v-for="(s, ix) in sorts"
-                v-if="s"
-                :key="ix"
-                class="bg-transparent text-start"
-                :value="s.val"
-              >
-                {{ s.name }}
-              </option>
-            </select>
+      <div class="flex items-center">
+        <span class="me-2">SORT BY</span>
 
-            <div
-              class="
-                absolute
-                inset-y-0
-                right-0
-                flex
-                items-center
-                px-2
-                pointer-events-none
-                text-primary-500
-              "
-            >
-              <i class="px-1 fa fa-caret-down" />
-            </div>
-          </div>
-        </div>
+        <select
+          v-model="sortBy"
+          class="
+            text-sm
+            font-light
+            border border-gray-300
+            rounded
+            focus:ring-0 focus:border-blue-500
+            hover:shadow
+            focus:outline-none
+          "
+          @change="sort"
+        >
+          <option
+            v-for="(s, ix) in sorts"
+            v-if="s"
+            :key="ix"
+            class="bg-transparent text-start"
+            :value="s.val"
+          >
+            {{ s.name }}
+          </option>
+        </select>
       </div>
     </div>
+
     <div
       class="
         flex-row
@@ -146,7 +128,6 @@
           items-center
           text-base
           font-light
-          text-gray-500
           rounded
           pe-5
           text-start
@@ -165,7 +146,7 @@
           my-auto
           text-base
           font-light
-          text-center text-gray-500
+          text-center
           md:block
         "
       >
