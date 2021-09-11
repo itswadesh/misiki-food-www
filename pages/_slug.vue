@@ -20,11 +20,7 @@ div
           sm:py-5
         "
       >
-        <Breadcrumb
-          :path="product.category && product.category.pathA"
-          :name="product.name"
-          class="w-3/4"
-        />
+        <Breadcrumb :path="bc()" :name="product.name" class="w-3/4" />
 
         <Share :product="product" :host="host" />
       </div>
@@ -443,6 +439,11 @@ export default {
       success: 'success',
       busy: 'busy',
     }),
+    bc() {
+      const b = [...this.product.category.pathA]
+      b.push(this.product.category)
+      return b
+    },
     async getProductGroups() {
       const id = this.$route.query.id
       if (!id) return

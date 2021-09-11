@@ -24,8 +24,12 @@
     </nuxt-link>
 
     <span class="transform rotate-12 mx-1">/</span>
-
-    <div v-for="(p, ix) in path" v-if="p" :key="ix" class="flex items-center">
+    <div
+      v-for="(p, ix) in path"
+      v-if="p && p.name"
+      :key="ix"
+      class="flex items-center"
+    >
       <nuxt-link
         :to="`/c/${p.slug}`"
         class="
