@@ -1,5 +1,8 @@
 <template>
-  <section class="container mx-auto w-64 mb-1.5 lg:mb-5 lg:w-full">
+  <section
+    v-if="product"
+    class="container mx-auto w-64 mb-1.5 lg:mb-5 lg:w-full"
+  >
     <div
       class="
         border border-gray-200
@@ -126,9 +129,7 @@
             <div class="block sm:hidden">
               <div class="flex items-center justify-between">
                 <h4 class="font-semibold mb-1.5">
-                  <span v-if="product.brand">
-                    {{ product.brand && product.brand.name }}</span
-                  >
+                  <span v-if="product.brand"> {{ product.brand.name }}</span>
                   <span v-else> _ </span>
                 </h4>
 
@@ -167,12 +168,11 @@
           </div>
 
           <!-- For view below 640px end -->
+
           <div v-else>
             <div class="flex items-center justify-between">
               <h4 class="font-semibold mb-1.5">
-                <span v-if="product.brand && product.brand.name">
-                  {{ product.brand.name }}
-                </span>
+                <span v-if="product.brand"> {{ product.brand.name }}</span>
                 <span v-else> _ </span>
               </h4>
 
@@ -209,6 +209,7 @@
             </h5>
           </div>
 
+          <!-- Price section for all view start -->
           <div
             class="
               mt-2.5
@@ -245,6 +246,8 @@
               ({{ product.discount }}% off)
             </div>
           </div>
+
+          <!-- Price section for all view end -->
 
           <div v-if="product.stock < 1" class="text-xs text-red-500">
             Out of stock

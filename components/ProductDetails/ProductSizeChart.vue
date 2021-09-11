@@ -11,7 +11,7 @@
       w-4/5
       overflow-x-hidden overflow-y-auto
       transition
-      bg-white
+      frosted
       shadow-lg
       lg:w-3/5
     "
@@ -27,14 +27,16 @@
         justify-center
         w-8
         h-8
-        rounded
-        hover:bg-gray-100
+        rounded-bl
+        hover:bg-gray-300
+        transition
+        duration-300
         focus:outline-none
       "
       @click="hideSidebar(null)"
     >
       <svg
-        class="w-5 h-5 text-primary-500"
+        class="w-5 h-5 text-gray-800"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
@@ -98,3 +100,11 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.frosted {
+  /* background-image: url('/login/bg-lighter.svg'); */
+  backdrop-filter: blur(15px);
+  background-color: hsla(0, 0%, 100%, 0.75);
+}
+</style>

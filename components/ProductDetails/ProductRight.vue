@@ -7,17 +7,18 @@
 
     <div class="flex flex-row w-full afterSizeSelector">
       <div v-if="product" class="flex flex-col w-full px-2">
-        <strong v-if="product.brand" class="text-lg mb-1 sm:mb-2">
+        <strong
+          v-if="product.brand"
+          class="leading-3 text-lg sm:text-xl mb-1.5 sm:mb-3"
+        >
           {{ product.brand.name }}
         </strong>
 
-        <span
-          class="mb-1 sm:mb-2 font-medium text-gray-500 text-sm sm:text-base"
-        >
+        <p class="mb-1.5 sm:mb-3 text-gray-500 text-base sm:text-lg">
           {{ product.name }}
 
           <!-- <span v-if="product.color">-{{ product.color.name }}</span> -->
-        </span>
+        </p>
 
         <!-- size chart demo button  -->
         <!-- <div v-if="product.sizechart">
@@ -66,30 +67,30 @@
             </span> -->
 
         <div>
-          <div class="mb-1 sm:mb-2">
-            <div class="flex flex-row my-auto items-baseline mb-1 sm:mb-2">
-              <b class="me-1 text-base sm:text-lg">Rs.</b>
+          <div class="mb-1.5 sm:mb-3">
+            <div class="flex flex-row my-auto items-baseline mb-1">
+              <b class="me-1 text-lg sm:text-lg">Rs.</b>
 
-              <b class="me-2 text-base sm:text-lg">
+              <b class="me-2 text-base sm:text-xl">
                 {{ product.price | currency(store.currencySymbol) }}
               </b>
 
               <strike
                 v-if="product.price < product.mrp"
-                class="text-sm sm:text-base font-light me-2 text-gray-500"
+                class="text-base sm:text-lg font-light me-2 text-gray-500"
               >
                 {{ product.mrp | currency(store.currencySymbol) }}
               </strike>
 
               <div
                 v-if="product.discount > 0"
-                class="text-sm sm:text-base text-primary-700"
+                class="text-base sm:text-lg text-primary-700"
               >
                 ({{ product.discount }}% off)
               </div>
             </div>
 
-            <div class="text-sm sm:text-base text-secondary-500 font-medium">
+            <div class="text-sm text-secondary-200 font-medium">
               inclusive of all taxes
             </div>
           </div>
@@ -101,15 +102,15 @@
               sm:text-base
               font-light
               text-accent-900
-              mb-1
-              sm:mb-2
+              mb-1.5
+              sm:mb-3
               animate-pulse
             "
           >
             Hurry up, only few left!
           </div>
 
-          <span class="mt-2 border-b shadow-sm"></span>
+          <span class="mb-1.5 sm:mb-3 border-b shadow-sm"></span>
           <!-- <div class="mt-4">
                 <span class="avl">Available offers</span>
                 <ul class="mt-3 ms-5 subline">
@@ -326,13 +327,70 @@
                 ((pg.colorGroup && pg.colorGroup.length) ||
                   (pg.sizeGroup && pg.sizeGroup.length))
               "
-              class="my-3 text-sm lg:my-0"
+              class="mb-1.5 sm:mb-3 text-sm tracking-wide"
             >
-              <div v-if="pg.sizeGroup && pg.sizeGroup.length">
-                <div class="flex flex-wrap items-center">
-                  <div class="flex flex-wrap me-5">
-                    <span class="font-semibold me-2"> Sizes: </span>
+              <div
+                v-if="pg.sizeGroup && pg.sizeGroup.length"
+                class="mb-1.5 sm:mb-3"
+              >
+                <div class="flex flex-col">
+                  <div class="mb-1.5 sm:mb-3 flex items-center">
+                    <h6 class="font-semibold w-36 me-2">SELECT SIZE</h6>
 
+                    <div v-if="product.sizechart">
+                      <button
+                        aria-label="Open Menu"
+                        class="
+                          focus:outline-none
+                          duration-1500
+                          text-primary-500
+                          font-semibold
+                          flex
+                          items-center
+                          space-x-1
+                        "
+                        @click="sidebar = !sidebar"
+                      >
+                        <span>SIZE CHART</span>
+
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clip-rule="evenodd"
+                          />
+                        </svg>
+                      </button>
+                      <div
+                        v-if="sidebar"
+                        class="
+                          fixed
+                          inset-0
+                          z-30
+                          w-screen
+                          h-screen
+                          bg-black
+                          opacity-50
+                          cursor-auto
+                        "
+                        @click="sidebar = false"
+                      />
+                      <ProductSizeChart
+                        :product="product"
+                        class="h-screen"
+                        :show="sidebar"
+                        :class="sidebar ? 'openSideBar' : 'closeSideBar'"
+                        @hideSidebar="sidebar = false"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="flex flex-row items-center space-x-2">
                     <nuxt-link
                       v-for="(i, ix) in pg.sizeGroup"
                       :key="ix + 's'"
@@ -340,13 +398,13 @@
                       :class="getClassesForSizeGroup(i, product)"
                       class="
                         relative
-                        text-xs
+                        text-sm
+                        font-medium
                         flex
                         items-center
                         justify-center
                         w-12
                         h-12
-                        m-1
                         bg-white
                         border
                         rounded-full
@@ -363,7 +421,9 @@
                         {{ i.size.name }}
                       </div>
                     </nuxt-link>
-                    <!-- <div
+                  </div>
+                </div>
+                <!-- <div
                           @click="sidebar = !sidebar" aria-label="Open Menu"
                           class="my-auto text-sm font-light text-gray-600 underline cursor-pointer ms-2 hover:text-gray-800 hover:font-semibold"
                         >
@@ -382,51 +442,16 @@
                             @hideSidebar="sidebar = false"
                           />
                         </div> -->
-                  </div>
-                  <!-- size chart demo button  -->
-                  <div v-if="product.sizechart">
-                    <button
-                      aria-label="Open Menu"
-                      class="
-                        overflow-x-hidden overflow-y-hidden
-                        transition
-                        ease-in-out
-                        focus:outline-none
-                        duration-1500
-                      "
-                      @click="sidebar = !sidebar"
-                    >
-                      Size chart
-                    </button>
-                    <div
-                      v-if="sidebar"
-                      class="
-                        fixed
-                        inset-0
-                        z-30
-                        w-screen
-                        h-screen
-                        bg-black
-                        opacity-50
-                        cursor-auto
-                      "
-                      @click="sidebar = false"
-                    />
-                    <ProductSizeChart
-                      :product="product"
-                      class="h-screen"
-                      :show="sidebar"
-                      :class="sidebar ? 'openSideBar' : 'closeSideBar'"
-                      @hideSidebar="sidebar = false"
-                    />
-                  </div>
-                </div>
+                <!-- size chart demo button  -->
               </div>
 
-              <div v-if="pg.colorGroup && pg.colorGroup.length" class="mt-3">
-                <div class="flex flex-wrap items-center">
-                  <span class="font-semibold me-2"> Colors: </span>
-                  <div class="flex flex-wrap overflow-y-auto">
+              <div v-if="pg.colorGroup && pg.colorGroup.length">
+                <div>
+                  <h6 class="mb-1.5 sm:mb-3 font-semibold w-36 me-2">
+                    AVAILABLE COLORS
+                  </h6>
+
+                  <div class="flex flex-row items-center space-x-2">
                     <nuxt-link
                       v-for="(i, ix) in pg.colorGroup"
                       :key="ix + 'c'"
@@ -439,7 +464,6 @@
                         justify-center
                         w-12
                         h-12
-                        m-1
                         border border-gray-500
                         hover:border-primary-500
                         rounded-full
@@ -531,20 +555,26 @@
               </div> -->
 
           <div class="text-sm sm:text-base flex items-center mb-1 sm:mb-2">
-            <span class="font-semibold me-2">Availability :</span>
+            <span class="font-semibold whitespace-nowrap w-36 me-2"
+              >AVAILABILITY -
+            </span>
 
-            <span v-if="product.stock >= 5" class="text-secondary-200"
+            <span
+              v-if="product.stock >= 5"
+              class="text-secondary-200 whitespace-nowrap"
               >In Stock</span
             >
 
             <span
               v-else-if="product.stock > 0 && product.stock < 5"
-              class="text-primary-500"
+              class="text-primary-500 whitespace-nowrap"
             >
               {{ product.stock }} remaining
             </span>
 
-            <span v-else class="text-accent-900"> Out of Stock</span>
+            <span v-else class="text-accent-900 whitespace-nowrap">
+              Out of Stock</span
+            >
           </div>
 
           <!-- deleivery  -->
@@ -592,9 +622,11 @@
 
           <div class="text-sm sm:text-base mb-1 sm:mb-2">
             <div class="flex flex-row items-center">
-              <span class="font-semibold me-2">Delivery by :</span>
+              <span class="font-semibold whitespace-nowrap w-36 me-2"
+                >GET IT BY -
+              </span>
 
-              <span class="text-gray-500">
+              <span class="whitespace-nowrap text-gray-500">
                 {{ deliveryDate }}
               </span>
             </div>
@@ -788,18 +820,18 @@ export default {
       let classes = ''
       if (i.stock < 1) classes = 'border-gray-400 text-gray-400 bg-gray-300'
       else if (i.id === product.id)
-        classes = 'border-primary-500 text-white bg-primary-500'
+        classes = 'border-primary-500 text-primary-500 bg-white'
       else
         classes =
-          'border-gray-500 text-gray-700 hover:text-primary-500 hover:border-primary-500'
+          'border-gray-500 text-gray-700 hover:border-primary-500 bg-white'
       return classes
     },
     getClassesForColorGroup(i, product) {
       let classes = ''
       if (i.stock < 1) classes = 'border-gray-100 text-gray-400'
       else if (i.id === product.id)
-        classes = 'border-primary-500  bg-primary-500'
-      else classes = 'border-gray-500  hover:border-primary-500'
+        classes = 'border-primary-500 bg-primary-500'
+      else classes = 'border-gray-500 hover:border-primary-500'
       return classes
     },
     populateDemoScheduler(p) {

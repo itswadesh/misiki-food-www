@@ -1,7 +1,9 @@
 <template>
   <div v-if="facets" class="w-72 min-h-screen border-r">
     <div v-if="sideMegamenu && sideMegamenu.count > 0" class="border-b p-4">
-      <h5 class="mb-4 text-sm font-bold uppercase leading-3">CATEGORIES</h5>
+      <h5 class="mb-4 text-sm font-bold uppercase leading-3 tracking-wide">
+        CATEGORIES
+      </h5>
 
       <ul class="overflow-y-auto max-h-72">
         <li
@@ -91,8 +93,8 @@
       </ul>
     </div>
 
-    <div class="flex items-center justify-between p-4 border-b">
-      <h5 class="text-sm font-bold uppercase">FILTERS</h5>
+    <div class="flex items-center justify-between p-4 border-b leading-3">
+      <h5 class="font-bold uppercase tracking-wide">FILTERS</h5>
 
       <button
         class="
@@ -171,7 +173,9 @@
       "
       class="p-4 border-b"
     >
-      <h5 class="mb-4 text-sm font-bold uppercase leading-3">BRAND</h5>
+      <h5 class="mb-4 text-sm font-bold uppercase leading-3 tracking-wide">
+        BRAND
+      </h5>
 
       <ul class="overflow-y-auto max-h-72">
         <li
@@ -210,7 +214,9 @@
       "
       class="p-4 border-b"
     >
-      <h5 class="mb-4 text-sm font-bold uppercase leading-3">GENDER</h5>
+      <h5 class="mb-4 text-sm font-bold uppercase leading-3 tracking-wide">
+        GENDER
+      </h5>
 
       <ul class="overflow-y-auto max-h-72">
         <li
@@ -249,7 +255,9 @@
       "
       class="p-4 border-b"
     >
-      <h5 class="mb-4 text-sm font-bold uppercase leading-3">COLOR</h5>
+      <h5 class="mb-4 text-sm font-bold uppercase leading-3 tracking-wide">
+        COLOR
+      </h5>
 
       <ul class="overflow-y-auto max-h-72">
         <li
@@ -290,7 +298,9 @@
       color="primary"
       class="p-4 border-b"
     >
-      <h5 class="mb-4 text-sm font-bold uppercase leading-3">SIZES</h5>
+      <h5 class="mb-4 text-sm font-bold uppercase leading-3 tracking-wide">
+        SIZES
+      </h5>
 
       <ul class="overflow-y-auto max-h-72">
         <li
@@ -332,7 +342,9 @@
       color="primary"
       class="p-4 border-b"
     >
-      <h5 class="mb-4 text-sm font-bold uppercase leading-3">PRICE RANGE</h5>
+      <h5 class="mb-4 text-sm font-bold uppercase leading-3 tracking-wide">
+        PRICE RANGE
+      </h5>
 
       <ul class="overflow-y-auto max-h-72">
         <li
@@ -375,7 +387,9 @@
       color="primary"
       class="p-4 border-b"
     >
-      <h5 class="mb-4 text-sm font-bold uppercase leading-3">AGE GROUP</h5>
+      <h5 class="mb-4 text-sm font-bold uppercase leading-3 tracking-wide">
+        AGE GROUP
+      </h5>
 
       <ul class="overflow-y-auto max-h-72">
         <li
@@ -416,7 +430,9 @@
       color="primary"
       class="p-4 border-b"
     >
-      <h5 class="mb-4 text-sm font-bold uppercase leading-3">Discount</h5>
+      <h5 class="mb-4 text-sm font-bold uppercase leading-3 tracking-wide">
+        Discount
+      </h5>
 
       <ul class="overflow-y-auto max-h-72">
         <li
