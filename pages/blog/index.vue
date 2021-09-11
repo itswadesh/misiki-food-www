@@ -50,7 +50,6 @@ export default {
   },
 
   mixins: [c],
-  layout: 'search',
 
   async asyncData({ route, query, params, $axios, app, store }) {
     let posts = null
