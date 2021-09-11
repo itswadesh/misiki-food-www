@@ -32,7 +32,7 @@
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-6 pt-1 text-primary-500 me-3"
+                class="h-6 mt-1.5 text-primary-500 me-3"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"

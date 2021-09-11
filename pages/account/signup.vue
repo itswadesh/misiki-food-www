@@ -27,7 +27,7 @@
         max-w-sm
       "
     >
-      <div class="mb-8 flex flex-col">
+      <div class="mb-5 flex flex-col">
         <!-- Store name  -->
 
         <nuxt-link
@@ -51,7 +51,7 @@
         </nuxt-link>
 
         <div class="flex flex-col justify-center text-gray-600">
-          <span class="text-center">
+          <span class="mb-5 text-center">
             Enter your email to start journey with us
           </span>
 
@@ -104,7 +104,7 @@
             <div class="msg">{{ msg }}</div>
 
             <GrnIndGradiantButton
-              class="w-full max-w-sm mx-auto"
+              class="mb-5 w-full max-w-sm mx-auto"
               type="submit"
               :loading="loading"
             >
@@ -129,16 +129,16 @@
 
       <!-- OR  -->
 
-      <div class="mb-8 flex flex-row w-full">
+      <!-- <div class="mb-8 flex flex-row w-full">
         <span class="w-1/2 border-t border-gray-400"></span>
         <span class="mx-3 my-auto -mt-3">or</span>
         <span class="w-1/2 border-t border-gray-400"></span>
-      </div>
+      </div> -->
 
       <!-- bottom section -->
 
       <div class="w-full max-w-sm mx-auto">
-        <div class="mb-8 flex flex-row justify-center space-x-2 md:space-x-4">
+        <!-- <div class="mb-8 flex flex-row justify-center space-x-2 md:space-x-4">
           <div
             class="
               transition
@@ -209,7 +209,7 @@
               />
             </svg>
           </div>
-        </div>
+        </div> -->
 
         <div class="flex justify-center">
           <Checkbox

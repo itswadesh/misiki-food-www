@@ -21,7 +21,7 @@
           class="p-3 sm:p-5 flex items-start justify-between"
           :class="ix == addresses.data.length - 1 ? '' : 'border-b'"
         >
-          <label class="flex flex-row items-start w-full max-w-xs">
+          <label class="flex flex-row items-start w-full max-w-xs pr-3">
             <Radio
               v-model="selectedAddress"
               class="mt-1.5"
@@ -30,8 +30,17 @@
               @change="addressChanged"
             />
 
-            <div class="w-full cursor-pointer ms-2">
-              <h5 class="mb-2 capitalize font-semibold tracking-wide">
+            <div class="w-full cursor-pointer ms-1 sm:ms-2">
+              <h5
+                class="
+                  mb-2
+                  text-sm
+                  sm:text-base
+                  capitalize
+                  font-semibold
+                  tracking-wide
+                "
+              >
                 {{ a.firstName }}
                 {{ a.lastName }}
               </h5>
@@ -47,8 +56,8 @@
                   <span class="font-semibold"> {{ a.phone }}</span>
                 </div>
 
-                <div class="mb-5 text-xs space-x-2">
-                  <span>Email : </span>
+                <div class="mb-5 text-xs sm:space-x-2">
+                  <span class="hidden sm:block">Email : </span>
                   <span class="font-semibold"> {{ a.email }}</span>
                 </div>
               </div>

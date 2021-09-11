@@ -5,7 +5,7 @@
     <CheckoutHeader selected="address" class="" />
 
     <div class="flex flex-col lg:flex-row lg:space-x-5">
-      <div class="lg:w-2/3 lg:border-r lg:border-gray-200 lg:pr-5">
+      <div class="mb-5 lg:w-2/3 lg:border-r lg:border-gray-200 lg:pr-5">
         <div class="text-lg font-bold tracking-wide mb-3">
           Select Delivery Address
         </div>
@@ -53,7 +53,7 @@
         </div>
       </div>
 
-      <div class="lg:w-1/3 pb-10">
+      <div class="lg:w-1/3 mb-10">
         <CartSummaryCheckout
           :loading="loading"
           :selected-address="selectedAddress"

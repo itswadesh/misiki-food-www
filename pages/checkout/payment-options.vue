@@ -8,7 +8,7 @@
       <div class="lg:w-2/3 lg:border-r lg:border-gray-200 lg:pr-5">
         <div class="text-lg font-bold tracking-wide mb-3">Payment Methods</div>
 
-        <div v-if="paymentMethods && paymentMethods.length > 0">
+        <div v-if="paymentMethods && paymentMethods.length > 0" class="mb-5">
           <div v-for="p in paymentMethods" :key="p.id">
             <label
               class="
@@ -48,7 +48,9 @@
               </div>
 
               <div class="flex-1">
-                <h2 class="mb-1 leading-3 font-black">{{ p.name }}</h2>
+                <h2 class="mb-1 text-sm sm:text-base leading-3 font-black">
+                  {{ p.name }}
+                </h2>
                 <!-- <div
                   v-if="
                     p.value !== 'COD' &&
@@ -59,7 +61,7 @@
                 >
                   {{ p.name }} Publishable key is invalid
                 </div> -->
-                <span class="text-sm">
+                <span class="text-xs">
                   {{ p.text }}
                 </span>
               </div>

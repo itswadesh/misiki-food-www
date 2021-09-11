@@ -27,7 +27,7 @@
         max-w-sm
       "
     >
-      <div class="mb-8 flex flex-col items-center">
+      <div class="flex flex-col items-center">
         <!-- Store name  -->
 
         <nuxt-link
@@ -138,17 +138,17 @@
 
       <!-- OR  -->
 
-      <div class="mb-8 flex flex-row w-full">
+      <!-- <div class="mb-8 flex flex-row w-full">
         <span class="w-1/2 border-t border-gray-400"></span>
         <span class="mx-3 my-auto -mt-3">or</span>
         <span class="w-1/2 border-t border-gray-400"></span>
-      </div>
+      </div> -->
 
       <!-- bottom section -->
 
       <!-- Facebook svg -->
 
-      <div class="flex flex-row justify-center space-x-2 md:space-x-4">
+      <!-- <div class="flex flex-row justify-center space-x-2 md:space-x-4">
         <a
           href="/auth/facebook"
           class="
@@ -179,11 +179,11 @@
               stroke-width="1.4"
             />
           </svg>
-        </a>
+        </a> -->
 
-        <!-- Google svg -->
+      <!-- Google svg -->
 
-        <a
+      <!-- <a
           href="/auth/google"
           class="
             transition
@@ -224,7 +224,7 @@
             />
           </svg>
         </a>
-      </div>
+      </div> -->
     </div>
 
     <!-- Email login end -->
