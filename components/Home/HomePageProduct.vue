@@ -1,15 +1,7 @@
 <template>
   <section
     v-if="product"
-    class="
-      w-full
-      border
-      sm:w-52 sm:mx-2
-      md:mx-4 md:mb-5
-      group
-      hover:bg-white hover:shadow-md
-      text-gray-800
-    "
+    class="w-full border group hover:bg-white hover:shadow-md text-gray-800"
     @mouseenter="showitems()"
     @mouseleave="hideitems()"
   >

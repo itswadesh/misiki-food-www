@@ -49,6 +49,10 @@
           <div
             v-else-if="products && products.length > 0"
             class="
+              px-3
+              py-3
+              sm:py-0 sm:px-3
+              md:px-4
               grid grid-cols-2
               gap-3
               md:gap-4
