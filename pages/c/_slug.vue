@@ -115,7 +115,6 @@ export default {
     Megamenu,
   },
   mixins: [c],
-  layout: 'search',
   asyncData({ params, app, store }) {
     const { title, keywords, description, favicon, logoMobile } =
       store.state.store || {} // err = null
