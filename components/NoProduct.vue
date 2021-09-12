@@ -15,9 +15,9 @@
     </div>
 
     <nuxt-link :to="localePath('/')">
-      <GrnIndGradiantButton class="w-40 text-sm font-normal mx-auto my-10">
-        Shop More</GrnIndGradiantButton
-      >
+      <PrimaryButtonRounded class="w-40 text-sm font-normal mx-auto my-10">
+        Shop More
+      </PrimaryButtonRounded>
     </nuxt-link>
 
     <!-- <div class="flex w-full shadow-md">
@@ -27,13 +27,13 @@
 </template>
 
 <script>
-import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
+import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
 // import MegamenuMobile from '~/components/MegamenuMobile.vue'
 
 export default {
   components: {
     //  MegamenuMobile
-    GrnIndGradiantButton,
+    PrimaryButtonRounded,
   },
 }
 </script>

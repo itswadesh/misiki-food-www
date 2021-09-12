@@ -22,8 +22,6 @@
       />
     </div>
 
-    <div class="flex-1 w-full h-10" />
-
     <Footer class="absolute bottom-0" />
   </section>
 </template>

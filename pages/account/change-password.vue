@@ -12,7 +12,7 @@
       to-primary-100
     "
   >
-    <div class="px-4 border rounded-lg frosted w-full max-w-md">
+    <div class="px-4 border rounded-lg frosted w-full max-w-sm">
       <!-- Change success start  -->
 
       <div class="flex flex-col py-10 mx-auto text-center md:w-10/12">
@@ -65,13 +65,13 @@
             />
           </form>
 
-          <GrnIndGradiantButton
+          <PrimaryButtonRounded
             class="w-full mt-10"
             type="submit"
             :disabled="loading"
           >
             Update Password
-          </GrnIndGradiantButton>
+          </PrimaryButtonRounded>
         </div>
 
         <!-- Change password end -->
@@ -83,12 +83,12 @@
 <script>
 import { mapGetters } from 'vuex'
 import { Textbox } from '~/shared/components/ui'
-import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
+import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
 // const Submit = () => import('~/shared/components/ui/Submit')
 import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
-  components: { Textbox, GrnIndGradiantButton, NuxtLink },
+  components: { Textbox, PrimaryButtonRounded, NuxtLink },
   middleware: ['isAuth'],
   data() {
     return {

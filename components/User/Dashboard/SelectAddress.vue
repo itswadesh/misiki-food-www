@@ -21,7 +21,7 @@
           class="p-3 sm:p-5 flex items-start justify-between"
           :class="ix == addresses.data.length - 1 ? '' : 'border-b'"
         >
-          <label class="flex flex-row items-start w-full max-w-xs pr-3">
+          <label class="flex flex-row items-start w-full cursor-pointer">
             <Radio
               v-model="selectedAddress"
               class="mt-1.5"
@@ -30,7 +30,7 @@
               @change="addressChanged"
             />
 
-            <div class="w-full cursor-pointer ms-1 sm:ms-2">
+            <div class="w-full flex-1 ms-2">
               <h5
                 class="
                   mb-2
@@ -46,18 +46,21 @@
               </h5>
 
               <div>
-                <div class="mb-3 text-xs font-light flex flex-wrap">
-                  {{ a.address }}, {{ a.city }}, {{ a.state }},
-                  {{ a.country }} - {{ a.zip }}
+                <div class="mb-3 text-xs font-light flex flex-col">
+                  <span class="flex flex-wrap"> {{ a.address }}, </span>
+                  <span class="flex flex-wrap">
+                    {{ a.city }}, {{ a.state }}, {{ a.country }} -
+                    {{ a.zip }}</span
+                  >
                 </div>
 
-                <div class="mb-3 text-xs space-x-2">
+                <div class="mb-3 text-xs space-x-2 whitespace-nowrap">
                   <span>Mobile : </span>
                   <span class="font-semibold"> {{ a.phone }}</span>
                 </div>
 
-                <div class="mb-5 text-xs sm:space-x-2">
-                  <span class="hidden sm:block">Email : </span>
+                <div class="mb-5 text-xs sm:space-x-2 whitespace-nowrap">
+                  <span>Email : </span>
                   <span class="font-semibold"> {{ a.email }}</span>
                 </div>
               </div>
@@ -138,22 +141,6 @@
             </div>
           </label>
 
-          <div
-            class="
-              border
-              py-1
-              px-3
-              rounded-full
-              border-secondary-200
-              text-secondary-200 text-xs
-              font-medium
-              leading-3
-              max-w-max
-            "
-          >
-            Default
-          </div>
-
           <!-- <div class="w-full my-auto">
             <label class="flex flex-row items-start">
               <input
@@ -182,11 +169,11 @@
 import { mapMutations } from 'vuex'
 import AddressSkeleton from '~/components/AllSkeletons/AddressSkeleton.vue'
 import { Radio } from '~/shared/components/ui'
-import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
+import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
 import MY_ADDRESSES from '~/gql/address/myAddresses.gql'
 import DELETE_ADDRESS from '~/gql/address/deleteAddress.gql'
 export default {
-  components: { Radio, AddressSkeleton, GrnIndGradiantButton },
+  components: { Radio, AddressSkeleton, PrimaryButtonRounded },
   middleware: ['isAuth'],
   props: {
     id: { type: String, default: null },

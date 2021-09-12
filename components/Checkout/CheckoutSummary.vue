@@ -102,62 +102,12 @@
       </div>
 
       <div class="fixed bottom-0 inset-x-0 w-full sm:static">
-        <button
-          class="
-            w-full
-            px-4
-            py-2
-            font-semibold
-            justify-center
-            tracking-wider
-            text-white
-            transition
-            duration-300
-            transform
-            bg-white
-            sm:rounded-md
-            shadow-md
-            hover:shadow
-            focus:outline-none focus:ring-0 focus:ring-offset-0
-            sm:active:scale-95
-          "
-          :class="
-            loading
-              ? ' bg-gray-400 cursor-not-allowed'
-              : 'bg-primary-500 hover:bg-opacity-80'
-          "
+        <PrimaryButton
+          class="w-full"
           @click=";[$emit('submit'), (loading = true)]"
         >
-          <div
-            v-if="!loading"
-            class="flex items-center justify-center space-x-1"
-          >
-            Proceed
-          </div>
-
-          <div v-else>
-            <svg
-              class="mx-auto text-white animate-spin h-6 w-6"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <circle
-                class="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                stroke-width="4"
-              ></circle>
-              <path
-                class="opacity-75"
-                fill="currentColor"
-                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-              ></path>
-            </svg>
-          </div>
-        </button>
+          Proceed
+        </PrimaryButton>
       </div>
     </div>
   </section>
@@ -166,10 +116,11 @@
 <script>
 import { mapGetters } from 'vuex'
 import TestCoupons from '~/components/Cart/TestCoupons.vue'
-import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
+import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
+import PrimaryButton from '~/components/ui/PrimaryButton.vue'
 
 export default {
-  components: { TestCoupons, GrnIndGradiantButton },
+  components: { TestCoupons, PrimaryButtonRounded, PrimaryButton },
   props: {
     loading: { type: Boolean },
     selectedAddress: { type: Object, default: null },

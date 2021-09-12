@@ -38,7 +38,7 @@
               Login
             </a>
             <a :href="getLoginUrl()" title="Get Started" rel="prefetch">
-              <GrnIndGradiantButton
+              <PrimaryButtonRounded
                 class="w-28"
                 type="button"
                 loadingringsize="xs"
@@ -46,7 +46,7 @@
                 @click="loading = true"
               >
                 Get Started
-              </GrnIndGradiantButton>
+              </PrimaryButtonRounded>
             </a>
           </nav>
 
@@ -75,10 +75,10 @@
 </template>
 
 <script>
-import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
+import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
 
 export default {
-  components: { GrnIndGradiantButton },
+  components: { PrimaryButtonRounded },
 
   data() {
     return {

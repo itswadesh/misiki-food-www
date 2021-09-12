@@ -48,14 +48,15 @@
               required
               placeholder="Enter your email"
             />
-            <GrnIndGradiantButton
+
+            <PrimaryButtonRounded
               class="w-full"
               :class="loading ? 'bg-gray-500' : ''"
               type="submit"
               :disabled="loading"
             >
               Send email
-            </GrnIndGradiantButton>
+            </PrimaryButtonRounded>
           </form>
 
           <div class="flex justify-center mt-5">
@@ -77,11 +78,11 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import { Textbox } from '~/shared/components/ui'
-import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
+import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
 import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
-  components: { Textbox, GrnIndGradiantButton, NuxtLink },
+  components: { Textbox, PrimaryButtonRounded, NuxtLink },
   layout: 'none',
   data() {
     return { email: this.$route.query.email }

@@ -88,13 +88,13 @@
                   </nuxt-link>
                 </div>
 
-                <GrnIndGradiantButton
+                <PrimaryButtonRounded
                   class="w-full max-w-sm mx-auto mt-5"
                   type="submit"
                   :disabled="loading"
                 >
                   LOGIN
-                </GrnIndGradiantButton>
+                </PrimaryButtonRounded>
               </form>
               <div
                 class="
@@ -219,7 +219,7 @@
 import { mapGetters, mapMutations, mapActions } from 'vuex'
 import Checkbox from '~/shared/components/ui/Checkbox.vue'
 import SignupStep from '~/components/Login/Email/SignupStep.vue'
-import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
+import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
 import { Textbox } from '~/shared/components/ui'
 import NuxtLink from '~/components/NuxtLink.vue'
 
@@ -227,7 +227,7 @@ export default {
   components: {
     Checkbox,
     SignupStep,
-    GrnIndGradiantButton,
+    PrimaryButtonRounded,
     Textbox,
     NuxtLink,
   },

@@ -150,7 +150,7 @@
 
             <!-- :disabled="$v.address.$anyError && $v.address.$anyDirty" -->
 
-            <GrnIndGradiantButton
+            <PrimaryButtonRounded
               type="submit"
               class="w-full md:w-1/2"
               :loading="iconloading"
@@ -164,99 +164,8 @@
               "
               @click="loading = true"
             >
-              <h6>SAVE ADDRESS</h6>
-            </GrnIndGradiantButton>
-
-            <!-- <Button
-              class="
-                w-full
-                p-2
-                mt-4
-                bg-secondary-500
-                focus:ring-secondary-500
-                md:w-1/3
-                m:my-4
-              "
-              :class="{
-                'bg-gray-400':
-                  isDisabled ||
-                  ($v.address.email.$invalid && $v.address.email.$dirty) ||
-                  ($v.address.$anyError && $v.address.$anyDirty) ||
-                  ($v.address.zip.$invalid && $v.address.zip.$dirty) ||
-                  ($v.address.phone.$invalid && $v.address.phone.$dirty) ||
-                  ($v.address.firstName.$invalid &&
-                    $v.address.firstName.$dirty),
-              }"
-              type="submit"
-              :disabled="
-                isDisabled ||
-                ($v.address.email.$invalid && $v.address.email.$dirty) ||
-                ($v.address.$anyError && $v.address.$anyDirty) ||
-                ($v.address.zip.$invalid && $v.address.zip.$dirty) ||
-                ($v.address.phone.$invalid && $v.address.phone.$dirty) ||
-                ($v.address.firstName.$invalid && $v.address.firstName.$dirty)
-              "
-            >
-              <div v-if="iconloading" class="flex justify-center">
-                <svg
-                  style="height: 20px; width: 20px"
-                  class="text-white -ms-1 animate-spin"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <circle
-                    class="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    stroke-width="4"
-                  ></circle>
-                  <path
-                    class="opacity-75"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                  ></path>
-                </svg>
-              </div>
-              <h6 v-else class="text-base">ADD ADDRESS</h6>
-            </Button> -->
-
-            <!-- <button
-              :disabled="$v.address.$anyError && $v.address.$anyDirty"
-              type="submit"
-              class="w-full p-3 mt-4 text-sm font-semibold 
-              tracking-widest text-white bg-secondary-500 
-              md:w-1/3 md:mt-0 focus:outline-none 
-              duration-200 hover:-translate-y-0.5 transition 
-              transform ease-in-out rounded focus:ring-opacity-50 focus:ring focus:ring-offset-2 focus:ring-secondary-500 lg:rounded"
-            >
-              <div v-if="iconloading" class="flex justify-center">
-                <svg
-                  style="height: 20px; width: 20px"
-                  class="text-white -ms-1 animate-spin"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <circle
-                    class="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    stroke-width="4"
-                  ></circle>
-                  <path
-                    class="opacity-75"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                  ></path>
-                </svg>
-              </div>
-              <h6 v-else> ADD ADDRESS</h6>
-            </button> -->
+              SAVE ADDRESS
+            </PrimaryButtonRounded>
           </div>
         </div>
       </form>
@@ -269,13 +178,13 @@ import { mapMutations } from 'vuex'
 import { required, minLength, maxLength, email } from 'vuelidate/lib/validators'
 import { validationMixin } from 'vuelidate'
 import { Textbox, Button } from '~/shared/components/ui'
-import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
+import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
 import SAVE_ADDRESS from '~/gql/address/saveAddress.gql'
 import GET_LOCATION_FROM_ZIP from '~/gql/location/getLocationFromZip.gql'
 import ADDRESS from '~/gql/address/address.gql'
 
 export default {
-  components: { Textbox, Button, GrnIndGradiantButton },
+  components: { Textbox, Button, PrimaryButtonRounded },
 
   mixins: [validationMixin],
 

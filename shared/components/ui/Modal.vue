@@ -107,13 +107,13 @@
           </div>
           <div v-if="okText || cancelText" class="px-4 pb-6 sm:px-6 sm:flex">
             <div class="ml-auto flex space-x-5 items-center">
-              <GrnIndGradiantButton
+              <PrimaryButtonRounded
                 type="button"
                 class="text-sm px-8"
                 @click="submit"
               >
                 {{ okText }}
-              </GrnIndGradiantButton>
+              </PrimaryButtonRounded>
               <button
                 type="button"
                 class="
@@ -154,9 +154,9 @@
 </template>
 
 <script>
-import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
+import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
 export default {
-  components: { GrnIndGradiantButton },
+  components: { PrimaryButtonRounded },
   props: {
     title: { type: String, default: null },
     show: { type: Boolean, default: false },

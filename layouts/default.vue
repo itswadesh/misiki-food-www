@@ -23,9 +23,9 @@
         </div>
 
         <a :href="`${settings.ADMIN_PANEL_LINK}`" class="mb-5">
-          <GrnIndGradiantButton class="w-52">
+          <PrimaryButtonRounded class="w-52">
             Create your store
-          </GrnIndGradiantButton>
+          </PrimaryButtonRounded>
         </a>
 
         <div class="mb-1 text-xs font-semibold text-center">
@@ -53,9 +53,9 @@ import OtpLogin from '~/components/Login/Mobile/OtpLogin.vue'
 import Nav from '~/components/Home/Nav.vue'
 import WhiteFooter from '~/components/Island/WhiteFooter.vue'
 import { Modal } from '~/shared/components/ui'
-import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
+import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
 export default {
-  components: { Nav, OtpLogin, WhiteFooter, Modal, GrnIndGradiantButton },
+  components: { Nav, OtpLogin, WhiteFooter, Modal, PrimaryButtonRounded },
   data() {
     return {
       showLoginModal: false,

@@ -73,14 +73,14 @@
           </h1>
         </div>
 
-        <GrnIndGradiantButton
+        <PrimaryButtonRounded
           class="w-full max-w-sm mx-auto"
           type="submit"
           :disabled="loading"
           :loading="loading"
         >
           VERIFY
-        </GrnIndGradiantButton>
+        </PrimaryButtonRounded>
       </div>
     </form>
   </div>
@@ -90,10 +90,10 @@
 import OtpInput from '@bachdgvn/vue-otp-input'
 import { mapActions, mapMutations } from 'vuex'
 import GET_OTP from '~/gql/user/getOtp.gql'
-import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
+import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
 
 export default {
-  components: { OtpInput, GrnIndGradiantButton },
+  components: { OtpInput, PrimaryButtonRounded },
 
   props: {
     countryCode: {

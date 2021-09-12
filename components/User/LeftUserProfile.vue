@@ -6,6 +6,7 @@
       z-50
       flex flex-col
       w-5/6
+      h-full
       max-w-sm
       overflow-x-hidden overflow-y-auto
       transition

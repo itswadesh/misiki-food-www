@@ -58,8 +58,8 @@
             type="password"
             autofocus
           /> -->
-          <GrnIndGradiantButton class="w-full mt-5"
-            >Reset Password</GrnIndGradiantButton
+          <PrimaryButtonRounded class="w-full mt-5"
+            >Reset Password</PrimaryButtonRounded
           >
         </form>
 
@@ -79,11 +79,11 @@
 <script>
 import { mapGetters } from 'vuex'
 import { Textbox } from '~/shared/components/ui'
-import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
+import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
 import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
-  components: { Textbox, GrnIndGradiantButton, NuxtLink },
+  components: { Textbox, PrimaryButtonRounded, NuxtLink },
   layout: 'none',
   data() {
     return {

@@ -14,18 +14,18 @@
 
         <span class="mb-5 text-xs">Add items to it now.</span>
         <nuxt-link :to="localePath('/')">
-          <GrnIndGradiantButton class="py-2 w-40 text-sm">
+          <PrimaryButtonRounded class="py-2 w-40 text-sm">
             Shop Now
-          </GrnIndGradiantButton>
+          </PrimaryButtonRounded>
         </nuxt-link>
       </span>
     </div>
   </section>
 </template>
 <script>
-import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
+import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
 
 export default {
-  components: { GrnIndGradiantButton },
+  components: { PrimaryButtonRounded },
 }
 </script>

@@ -102,9 +102,9 @@
 
     <!-- No stock  -->
 
-    <GrnIndGradiantButton v-else class="w-full sm:py-3" :loading="iconloading">
+    <PrimaryButtonRounded v-else class="w-full sm:py-3" :loading="iconloading">
       No Stock
-    </GrnIndGradiantButton>
+    </PrimaryButtonRounded>
 
     <!-- <div v-else>Vendor not found. can't proceed checkout</div> -->
   </div>
@@ -113,10 +113,10 @@
 <script>
 import { mapActions, mapMutations } from 'vuex'
 import NuxtLink from '~/components/NuxtLink.vue'
-import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
+import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
 
 export default {
-  components: { NuxtLink, GrnIndGradiantButton },
+  components: { NuxtLink, PrimaryButtonRounded },
   props: {
     product: { type: Object, default: null },
     selectedOptions: { type: Object, default: null },

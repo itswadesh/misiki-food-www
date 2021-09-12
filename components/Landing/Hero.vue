@@ -73,14 +73,14 @@
         <div class="flex-col mx-5 md:mx-0">
           <div class="flex justify-center lg:justify-start email">
             <a :href="getLoginUrl()">
-              <GrnIndGradiantButton
+              <PrimaryButtonRounded
                 loadingringsize="lg"
                 class="w-72 mt-10 py-3 text-lg"
                 :loading="loading"
                 @click="loading = true"
               >
                 Launch your store now
-              </GrnIndGradiantButton>
+              </PrimaryButtonRounded>
             </a>
 
             <!-- <div class="flex mt-10 border-gray-100 lg:mt-20">
@@ -132,10 +132,10 @@
   </section>
 </template>
 <script>
-import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
+import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
 
 export default {
-  components: { GrnIndGradiantButton },
+  components: { PrimaryButtonRounded },
 
   data() {
     return {

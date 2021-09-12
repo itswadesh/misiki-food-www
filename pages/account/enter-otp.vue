@@ -109,13 +109,13 @@
                 </h1>
               </div>
               <div class="w-full my-6">
-                <GrnIndGradiantButton
+                <PrimaryButtonRounded
                   class="w-full max-w-sm mx-auto"
                   type="submit"
                   :disabled="loading"
                 >
                   VERIFY
-                </GrnIndGradiantButton>
+                </PrimaryButtonRounded>
 
                 <!-- <nuxt-link to="/"
           class="flex justify-center w-full px-4 py-2 mt-3 text-lg font-semibold transition-colors duration-300 bg-white border-none rounded-md shadow ring-1 ring-primary-500 text-primary-500 focus:outline-none focus:ring-primary-500 focus:ring-2"
@@ -227,7 +227,7 @@ import { mapActions, mapMutations, mapGetters } from 'vuex'
 import OtpInput from '@bachdgvn/vue-otp-input'
 import Checkbox from '~/shared/components/ui/Checkbox.vue'
 import SignupStep from '~/components/Login/Email/SignupStep.vue'
-import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
+import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
 import GET_OTP from '~/gql/user/getOtp.gql'
 import NuxtLink from '~/components/NuxtLink.vue'
 
@@ -235,7 +235,7 @@ export default {
   components: {
     Checkbox,
     SignupStep,
-    GrnIndGradiantButton,
+    PrimaryButtonRounded,
     OtpInput,
     NuxtLink,
   },

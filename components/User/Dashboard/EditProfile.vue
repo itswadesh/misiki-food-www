@@ -78,7 +78,7 @@
 
       <div class="flex justify-end px-5 md:px-12 lg:px-20">
         <!--  -->
-        <GrnIndGradiantButton
+        <PrimaryButtonRounded
           class="
             w-full
             p-3
@@ -91,7 +91,7 @@
           type="submit"
           :disabled="$v.profile.$anyError && $v.profile.$anyDirty"
           >UPDATE
-        </GrnIndGradiantButton>
+        </PrimaryButtonRounded>
 
         <!-- <button
           type="submit"
@@ -110,12 +110,12 @@ import { mapMutations } from 'vuex'
 import { required } from 'vuelidate/lib/validators'
 import { validationMixin } from 'vuelidate'
 import { Textbox, Radio } from '~/shared/components/ui'
-import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
+import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
 import UPDATE_PROFILE from '~/gql/user/updateProfile.gql'
 import ME from '~/gql/user/me.gql'
 
 export default {
-  components: { Textbox, Radio, GrnIndGradiantButton },
+  components: { Textbox, Radio, PrimaryButtonRounded },
 
   mixins: [validationMixin],
 

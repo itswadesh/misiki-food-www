@@ -24,13 +24,13 @@
           />
         </div>
 
-        <GrnIndGradiantButton
+        <PrimaryButtonRounded
           class="w-full max-w-sm mx-auto"
           type="submit"
           :loading="loading"
         >
           SEND OTP
-        </GrnIndGradiantButton>
+        </PrimaryButtonRounded>
       </form>
     </div>
 
@@ -44,13 +44,13 @@
 import { mapMutations } from 'vuex'
 import EnterEmail from '~/components/Login/Email/EnterEmail.vue'
 import GET_OTP from '~/gql/user/getOtp.gql'
-import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
+import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
 import { Textbox } from '~/shared/components/ui'
 
 export default {
   components: {
     EnterEmail,
-    GrnIndGradiantButton,
+    PrimaryButtonRounded,
     Textbox,
   },
 

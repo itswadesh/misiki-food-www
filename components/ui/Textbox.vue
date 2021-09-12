@@ -10,7 +10,7 @@
         border border-gray-400
         rounded-md
         bg-gray-50
-        hover:bg-white hover:border-primary-600
+        hover:bg-white hover:border-primary-500
         focus:outline-none
       "
       :class="[
