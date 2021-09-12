@@ -432,7 +432,8 @@ export default {
       busy: 'busy',
     }),
     bc() {
-      const b = [...this.product.category.pathA]
+      let b = []
+      if (this.product.category) b = [...this.product.category.pathA]
       b.push(this.product.category)
       return b
     },
