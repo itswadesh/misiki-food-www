@@ -16,7 +16,7 @@
           transition
           duration-300
           transform
-          bg-primary-500
+          bg-accent-500
           hover:bg-opacity-80
           rounded-md
           shadow-md
@@ -100,11 +100,34 @@
       </div>
     </button>
 
-    <!-- No stock  -->
-
-    <PrimaryButtonRounded v-else class="w-full sm:py-3" :loading="iconloading">
+    <button
+      v-else
+      class="
+        w-full
+        px-4
+        py-2
+        sm:py-3
+        font-semibold
+        flex
+        items-center
+        justify-center
+        tracking-wider
+        text-white
+        transition
+        duration-300
+        transform
+        rounded-md
+        shadow-md
+        hover:shadow
+        focus:outline-none focus:ring-0 focus:ring-offset-0
+        bg-gray-400
+        cursor-not-allowed
+      "
+    >
       No Stock
-    </PrimaryButtonRounded>
+    </button>
+
+    <!-- No stock  -->
 
     <!-- <div v-else>Vendor not found. can't proceed checkout</div> -->
   </div>
@@ -116,7 +139,7 @@ import NuxtLink from '~/components/NuxtLink.vue'
 import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
 
 export default {
-  components: { NuxtLink, PrimaryButtonRounded },
+  components: { NuxtLink },
   props: {
     product: { type: Object, default: null },
     selectedOptions: { type: Object, default: null },
