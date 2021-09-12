@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-white mih-h-screen pb-10 text-gray-800">
+  <section class="bg-white min-h-screen pb-10 text-gray-800">
     <div class="w-full max-w-7xl mx-auto px-3">
       <h1 class="text-2xl md:text-4xl tracking-wide text-center py-5 sm:py-10">
         Sitemap

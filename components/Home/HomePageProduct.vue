@@ -2,8 +2,7 @@
   <section
     v-if="product"
     class="
-      flex-shrink-0
-      w-1/2
+      w-full
       border
       sm:w-52 sm:mx-2
       md:mx-4 md:mb-5

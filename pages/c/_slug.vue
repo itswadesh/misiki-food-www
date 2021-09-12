@@ -33,14 +33,29 @@
         <div v-else>
           <div
             v-if="$fetchState.pending"
-            class="flex flex-wrap justify-between"
+            class="
+              grid grid-cols-2
+              gap-3
+              md:gap-4
+              sm:grid-cols-3
+              lg:grid-cols-3
+              xl:grid-cols-4
+              2xl:grid-cols-5
+            "
           >
             <ProductSkeleton v-for="(p, ix) in 10" :key="ix + '-1'" />
           </div>
 
           <div
             v-else-if="products && products.length > 0"
-            class="flex flex-wrap justify-between"
+            class="
+              grid grid-cols-2
+              gap-3
+              md:gap-4
+              sm:grid-cols-3
+              xl:grid-cols-4
+              2xl:grid-cols-5
+            "
           >
             <HomePageProduct
               v-for="(p, ix) in products"
