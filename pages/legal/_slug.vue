@@ -1,24 +1,10 @@
 <template>
   <div class="container mx-auto prose">
-    <ApolloQuery
-      class
-      :query="require('~/gql/page/pageSlug.gql')"
-      :variables="{ slug: $route.params.slug }"
-      :update="
-        (data) => {
-          setPage(data.pageSlug)
-          return data.pageSlug
-        }
-      "
-    >
-      <template #default="{ result: { error, data }, isLoading }">
-        <div v-if="isLoading" class="w-full">Loading...</div>
-        <ErrComponent v-else-if="error" />
-        <main v-else-if="data">
-          <Shortcode :content="data.content"></Shortcode>
-        </main>
-      </template>
-    </ApolloQuery>
+    <div>
+      <main>
+        <Shortcode :content="data.content"></Shortcode>
+      </main>
+    </div>
   </div>
 </template>
 <script>
@@ -30,6 +16,13 @@ export default {
     return {
       page: {},
     }
+  },
+  async fetch() {
+    console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz')
+    this.page = await this.$get('page/pageSlug', {
+      slug: this.$route.params.slug,
+    })
+    console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz', this.page)
   },
   head() {
     return {
@@ -50,18 +43,18 @@ export default {
           hid: 'keywords',
           name: 'Keywords',
           property: 'keywords',
-          content: this.page && this.page.metaKeywords,
+          content: this.page && this.page.keywords,
         },
         {
           hid: 'og:title',
           name: 'og:title',
           property: 'og:title',
-          content: this.page && this.page.metaTitle,
+          content: this.page && this.page.title,
         },
         // Twitter
         {
           name: 'twitter:title',
-          content: this.page && this.page.metaTitle,
+          content: this.page && this.page.title,
         },
         {
           name: 'twitter:description',
