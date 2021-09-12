@@ -138,10 +138,10 @@
         <div
           v-if="details && details.length"
           v-bind="settings"
-          class="flex items-start justify-start space-x-2"
+          class="flex flex-row items-start justify-start space-x-2"
         >
           <div v-for="product in details" :key="product.id">
-            <HomePageProduct :product="product" />
+            <HomePageProduct :product="product" class="w-56" />
           </div>
         </div>
       </div>
