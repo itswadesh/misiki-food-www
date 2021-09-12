@@ -1,5 +1,5 @@
 <template>
-  <section v-if="faqs && faqs.count > 0" class="md:my-10 text-gray-800">
+  <section v-if="faqs && faqs.count > 0" class="mb-32 md:mt-10 text-gray-800">
     <div class="mb-3 text-lg font-semibold tracking-wide">
       Frequently Asked Questions
     </div>
@@ -13,16 +13,16 @@
       >
         <div
           class="
-            px-2
-            sm:px-4
-            pt-2
-            sm:pt-4
+            px-4
+            sm:px-8
+            pt-4
+            sm:pt-8
             cursor-pointer
             flex
             items-start
             justify-between
           "
-          :class="f.opened ? 'pb-0.5' : 'pb-2 sm:pb-4'"
+          :class="f.opened ? 'pb-1' : 'pb-4 sm:pb-8'"
         >
           <span class="flex-1 text-sm sm:text-base font-medium">
             {{ f.question }}
@@ -50,11 +50,11 @@
         <div
           v-if="f.opened"
           class="
-            px-2
-            sm:px-4
-            pt-2
-            pb-2
-            sm:pb-4
+            px-4
+            sm:px-8
+            pt-4
+            pb-4
+            sm:pb-8
             text-gray-500 text-xs
             sm:text-sm
             animate-dropdown

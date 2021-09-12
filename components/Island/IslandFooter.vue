@@ -32,6 +32,14 @@
                     {{ h.name }}
                   </nuxt-link>
                 </div>
+
+                <a
+                  href="https://admin.misiki.in/"
+                  target="blank"
+                  class="font-light text-sm whitespace-nowrap"
+                >
+                  Become a Merchant</a
+                >
               </div>
             </div>
 
@@ -46,14 +54,6 @@
                     {{ hh.name }}
                   </nuxt-link>
                 </div>
-
-                <a
-                  href="https://admin.misiki.in/"
-                  target="blank"
-                  class="font-light text-sm whitespace-nowrap"
-                >
-                  Become a Merchant</a
-                >
               </div>
             </div>
           </div>
@@ -148,6 +148,7 @@ export default {
         { link: '/faq', name: 'FAQ' },
         { link: '/how-it-works', name: 'How it works' },
         { link: '/my/orders', name: 'Contact Seller' },
+        { link: '/island/sitemap', name: 'Site Map' },
       ],
 
       usefullinfo: [

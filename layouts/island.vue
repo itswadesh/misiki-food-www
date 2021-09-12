@@ -12,7 +12,7 @@
   >
     <Nav class="fixed top-0 z-50 w-full" @showLogin="showLogin" />
 
-    <Nuxt />
+    <Nuxt class="margin-top" />
 
     <div class="flex-1" />
 
@@ -50,3 +50,16 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+@media (max-width: 1024px) {
+  .margin-top {
+    margin-top: 6rem;
+  }
+}
+@media (min-width: 1024px) {
+  .margin-top {
+    margin-top: 4rem;
+  }
+}
+</style>
