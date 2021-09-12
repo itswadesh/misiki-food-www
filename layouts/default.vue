@@ -38,8 +38,6 @@
 
         <Nuxt class="w-full mt-24 lg:mt-16" keep-alive />
       </div>
-
-      <div class="flex-1" />
     </div>
 
     <WhiteFooter class="hidden sm:block" />

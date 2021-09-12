@@ -12,7 +12,7 @@
   >
     <div class="min-h-screen">
       <Nav class="fixed top-0 z-50 w-full" @showLogin="showLogin" />
-      <Nuxt class="w-full mt-24 xl:mt-16" keep-alive />
+      <Nuxt class="container mx-auto w-full mt-24 xl:mt-16" keep-alive />
       <div class="flex-1" />
     </div>
     <BackToTopDark class="mb-3" />
