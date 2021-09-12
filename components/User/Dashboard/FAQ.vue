@@ -3,14 +3,13 @@
     <div class="mb-3 text-lg font-semibold tracking-wide">
       Frequently Asked Questions
     </div>
-
     <div class="border-l border-t border-r rounded-lg overflow-hidden">
       <div
-        v-for="f in faqs.data"
-        :key="f.ix"
+        v-for="(f, ix) in faqs.data"
+        :key="ix"
         class="border-b"
-        :class="show[ix] ? 'bg-white' : 'bg-gray-50'"
-        @click="showans(ix)"
+        :class="f.opened ? 'bg-white' : 'bg-gray-50'"
+        @click="f.opened = !f.opened"
       >
         <div
           class="
@@ -23,17 +22,17 @@
             items-start
             justify-between
           "
-          :class="show[ix] ? 'pb-0.5' : 'pb-2 sm:pb-4'"
+          :class="f.opened ? 'pb-0.5' : 'pb-2 sm:pb-4'"
         >
-          <span class="flex-1 text-sm sm:text-base font-medium">{{
-            f.question
-          }}</span>
+          <span class="flex-1 text-sm sm:text-base font-medium">
+            {{ f.question }}
+          </span>
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-5 sm:h-6 transition duration-300 text-gray-500"
             :class="
-              show[i] ? 'transform rotate-45 transition duration-300' : ''
+              f.opened ? 'transform rotate-45 transition duration-300' : ''
             "
             fill="none"
             viewBox="0 0 24 24"
@@ -49,7 +48,7 @@
         </div>
 
         <div
-          v-if="show[ix]"
+          v-if="f.opened"
           class="
             px-2
             sm:px-4
@@ -68,34 +67,20 @@
   </section>
 </template>
 <script>
-import FAQS from '~/gql/faq/faqs.gql'
-
 export default {
   data() {
     return {
       faqs: null,
-      show: false,
     }
   },
-
   async created() {
     await this.getFaqs()
   },
 
   methods: {
-    showans(ix) {
-      show[ix] = !show[ix]
-    },
-
     async getFaqs() {
       try {
         this.faqs = await this.$get('faq/faqs', {})
-        // this.faqs = (
-        //   await this.$apollo.query({
-        //     query: FAQS,
-        //     fetchpolicy: 'no-cache',
-        //   })
-        // ).data.faqs
       } catch (e) {}
     },
   },
