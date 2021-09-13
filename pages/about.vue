@@ -390,7 +390,7 @@
 
       <GallerySlider class="mb-10" :banners="sliderBanners" />
       <WantMore class="mb-20" />
-      <WhiteFooter />
+      <!-- <WhiteFooter /> -->
     </div>
   </section>
 </template>

@@ -16,12 +16,12 @@
             <div class="md:w-1/2">
               <div class="flex flex-col space-y-3">
                 <a
-                  href="https://admin.misiki.in/"
+                  :href="settings.ADMIN_PANEL_LINK"
                   target="blank"
                   class="font-light text-sm whitespace-nowrap"
                 >
-                  Merchant Dashboard</a
-                >
+                  Merchant Dashboard
+                </a>
 
                 <div
                   v-for="(h, hx) in helpcontainer"
@@ -34,7 +34,7 @@
                 </div>
 
                 <a
-                  href="https://admin.misiki.in/"
+                  :href="settings.ADMIN_PANEL_LINK"
                   target="blank"
                   class="font-light text-sm whitespace-nowrap"
                 >
@@ -92,7 +92,7 @@
             <h1
               class="mb-5 pb-5 border-b border-gray-400 font-semibold text-lg"
             >
-              Inside Misiki
+              Insiders
             </h1>
 
             <div class="md:flex md:items-start md:justify-between">
@@ -117,7 +117,7 @@
       <div
         class="mb-10 flex items-center justify-center space-x-5 md:space-x-10"
       >
-        <a v-for="(s, sx) in socialmedia" :key="sx" href="#" class="">
+        <a v-for="(s, sx) in socialmedia" :key="sx" :href="s.link" class="">
           <img :src="s.icon" :alt="s.name" class="h-6 w-6 md:h-8 md:w-8" />
         </a>
       </div>
@@ -139,38 +139,37 @@ export default {
       year: new Date().getFullYear(),
 
       helpcontainer: [
-        { link: '/legal/shipping-policy', name: 'Shipping Policy' },
+        { link: '/island/how-can-we-help/delivery', name: 'Shipping Policy' },
         { link: '/my/orders', name: 'Track Order' },
-        { link: '/legal/return-policy', name: 'Return Policy' },
+        { link: '/island/how-can-we-help/returns', name: 'Return Policy' },
       ],
 
       helpcontainer2: [
         { link: '/faq', name: 'FAQ' },
         { link: '/how-it-works', name: 'How it works' },
         { link: '/my/orders', name: 'Contact Seller' },
-        { link: '/island/sitemap', name: 'Site Map' },
       ],
 
       usefullinfo: [
-        { link: '/legal/terms', name: 'Terms Of Use' },
+        { link: '/island/terms-and-conditions', name: 'Terms Of Use' },
         { link: '/legal/privacy-policy', name: 'Privacy policy' },
         { link: '/features', name: 'Features' },
-        { link: '/blog"', name: 'Blog' },
+        { link: '/blog', name: 'Blog' },
       ],
 
       InsideMisiki: [
-        { link: '/contact-us', name: 'Contact Us' },
+        { link: '/island/how-can-we-help/contact-us', name: 'Contact Us' },
         { link: '/legal/about-us', name: 'About Us' },
         { link: '/career', name: 'Career' },
         { link: '/contact-us', name: 'Disputes' },
       ],
 
       socialmedia: [
-        { name: 'facebook', icon: '/socialmedia/facebook.png' },
-        { name: 'facebook', icon: '/socialmedia/twitter.png' },
-        { name: 'facebook', icon: '/socialmedia/instagram.png' },
-        { name: 'facebook', icon: '/socialmedia/linkedin.png' },
-        { name: 'facebook', icon: '/socialmedia/youtube.png' },
+        { name: 'facebook', icon: '/socialmedia/facebook.png', link: '/' },
+        { name: 'facebook', icon: '/socialmedia/twitter.png', link: '/' },
+        { name: 'facebook', icon: '/socialmedia/instagram.png', link: '/' },
+        { name: 'facebook', icon: '/socialmedia/linkedin.png', link: '/' },
+        { name: 'facebook', icon: '/socialmedia/youtube.png', link: '/' },
       ],
     }
   },

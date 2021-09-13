@@ -163,7 +163,7 @@
     </div>
 
     <WantMore class="mb-20" />
-    <WhiteFooter />
+    <!-- <WhiteFooter /> -->
   </section>
 </template>
 
@@ -176,8 +176,6 @@ export default {
     WantMore,
     WhiteFooter,
   },
-
-  layout: 'none',
 
   data() {
     return {

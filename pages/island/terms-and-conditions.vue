@@ -86,7 +86,7 @@
     </div>
 
     <WantMore class="mt-5 md:mt-10" />
-    <WhiteFooter class="mt-10 md:mt-20" />
+    <!-- <WhiteFooter class="mt-10 md:mt-20" /> -->
   </section>
 </template>
 
@@ -101,7 +101,6 @@ export default {
     WhiteFooter,
     NuxtLink,
   },
-  layout: 'none',
 
   data() {
     return {
