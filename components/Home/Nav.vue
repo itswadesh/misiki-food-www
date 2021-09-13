@@ -80,6 +80,8 @@
             <h1
               v-else
               class="
+                w-28
+                md:w-40
                 text-lg
                 md:text-2xl
                 text-transparent
