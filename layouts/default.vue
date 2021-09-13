@@ -40,7 +40,8 @@
       </div>
     </div>
 
-    <IslandFooter />
+    <WhiteFooter class="hidden sm:block" />
+
     <OtpLogin v-if="showLoginModal" @showLogin="showLogin" />
     <Modal :show="store.closed" title="Store is not accepting orders now">
       {{ store.closedMessage || 'Please visit back later' }}
@@ -53,16 +54,8 @@ import Nav from '~/components/Home/Nav.vue'
 import WhiteFooter from '~/components/Island/WhiteFooter.vue'
 import { Modal } from '~/shared/components/ui'
 import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
-import IslandFooter from '~/components/Island/IslandFooter.vue'
 export default {
-  components: {
-    Nav,
-    OtpLogin,
-    WhiteFooter,
-    Modal,
-    PrimaryButtonRounded,
-    IslandFooter,
-  },
+  components: { Nav, OtpLogin, WhiteFooter, Modal, PrimaryButtonRounded },
   data() {
     return {
       showLoginModal: false,
