@@ -30,7 +30,7 @@
     "edeal-deploy": "node devops/edeal/deploy",
     "edeal-copy-config": "node devops/edeal/copy-config",
     "edeal": "run-s edeal-copy-config build copy edeal-deploy",
-    "live": "run-s anne misiki mywondermall misiki.io",
+    "live": "run-s misiki mywondermall misiki.io",
     "lived": "run-s docker-build docker-push",
     "docker-build": "docker build -t itswadesh/tablez-fontend .",
     "docker-push": "docker push itswadesh/tablez-fontend",
