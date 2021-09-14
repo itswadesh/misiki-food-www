@@ -223,10 +223,7 @@
         <!--right header with icons block end -->
       </div>
 
-      <SearchAutocomplete
-        style="margin-top: 8px"
-        class="sticky top-0 lg:hidden"
-      />
+      <SearchAutocomplete class="lg:hidden" />
     </header>
   </div>
 </template>

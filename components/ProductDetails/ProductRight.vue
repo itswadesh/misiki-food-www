@@ -596,7 +596,7 @@
               v-else-if="product.stock > 0 && product.stock < 5"
               class="text-sm text-primary-500 whitespace-nowrap"
             >
-              {{ product.stock }} remaining
+              Only {{ product.stock }} remaining
             </span>
 
             <span v-else class="text-sm text-accent-900 whitespace-nowrap">

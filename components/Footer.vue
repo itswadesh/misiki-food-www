@@ -1,8 +1,18 @@
 <template>
   <div
-    class="flex-row justify-center w-full text-gray-500 p-2 text-sm text-center"
+    class="
+      p-3
+      sm:p-5
+      w-full
+      flex flex-row
+      items-center
+      justify-center
+      whitespace-nowrap
+      text-gray-500 text-sm text-center
+    "
   >
-    <span>Policy© 2007-{{ year }} {{ store.websiteName }}</span>
+    <span class="text-base mr-1">©</span
+    ><span> Policy 2007-{{ year }} {{ store.websiteName }}</span>
   </div>
 </template>
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto lg:ps-8 lg:w-3/4">
+  <div class="container mx-auto4">
     <div
       class="
         flex flex-col

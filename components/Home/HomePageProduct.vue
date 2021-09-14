@@ -9,7 +9,7 @@
       :to="localePath(`/${product.slug}?id=${product.id || pid}`)"
       class="block overflow-hidden"
     >
-      <div class="h-72 bg-gray-100">
+      <div class="h-48 sm:h-72 bg-gray-100">
         <img
           v-lazy="product.img"
           alt="product"
@@ -17,7 +17,7 @@
         />
       </div>
 
-      <div class="p-4">
+      <div class="p-2 sm:p-4">
         <!-- For view above 640px start -->
 
         <div v-if="show" class="sm:-mt-12">
@@ -62,6 +62,7 @@
             <!-- Wishlist start-->
             <button
               class="
+                z-30
                 flex
                 mt-3.5
                 py-1
@@ -96,19 +97,20 @@
             <!-- Size chart start-->
             <div class="flex mt-1.5 items-baseline justify-start">
               <h5 class="mr-1 text-sm">Sizes:</h5>
-              <h6
-                class="
-                  space-x-1
-                  text-xs
-                  font-medium
-                  text-gray-500
-                  flex
-                  items-baseline
-                "
-              >
-                <!-- <div>{{ v.size }}</div> -->
+              <h6 class="space-x-1 text-xs text-gray-500 flex items-baseline">
+                <div
+                  v-if="pg && pg.sizeGroup && pg.sizeGroup.length"
+                  class="font-medium"
+                >
+                  <span v-for="(s, sx) in pg.sizeGroup" :key="sx + 's'">
+                    {{ s.size.nam }}
+                  </span>
+                </div>
+
+                <div v-else class="font-light">No size available</div>
               </h6>
             </div>
+
             <!-- Size chart end-->
           </div>
 
@@ -117,34 +119,41 @@
           <!-- For view below 640px start -->
 
           <div class="block sm:hidden">
-            <div class="flex items-center justify-between">
-              <h4 class="font-semibold mb-1.5">
+            <div class="flex items-center justify-between mb-1.5">
+              <h4 class="text-sm font-semibold">
                 <span v-if="product.brand"> {{ product.brand.name }}</span>
                 <span v-else> _ </span>
               </h4>
 
               <!-- Heart icon start  -->
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                ></path>
-              </svg>
+
+              <button class="z-30 focus:outline-none">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  ></path>
+                </svg>
+              </button>
+
               <!-- Heart icon end  -->
             </div>
 
             <h5
               class="
-                text-sm
-                font-medium
+                text-xs
+                sm:text-sm
+                font-light
+                sm:font-normal
+                text-gray-500
                 overflow-hidden
                 whitespace-nowrap
                 overflow-ellipsis
@@ -160,8 +169,8 @@
         <!-- For view below 640px end -->
 
         <div v-else>
-          <div class="flex items-center justify-between">
-            <h4 class="font-semibold mb-1.5">
+          <div class="flex items-center justify-between mb-1.5">
+            <h4 class="text-sm sm:text-base font-semibold">
               <span v-if="product.brand"> {{ product.brand.name }}</span>
               <span v-else> _ </span>
             </h4>
@@ -169,7 +178,7 @@
             <!-- Heart icon start  -->
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 sm:hidden"
+              class="h-4 sm:h-5 sm:hidden"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -186,8 +195,11 @@
 
           <h5
             class="
-              text-sm
-              font-medium
+              text-xs
+              sm:text-sm
+              font-light
+              sm:font-normal
+              text-gray-500
               overflow-hidden
               whitespace-nowrap
               overflow-ellipsis
@@ -202,8 +214,10 @@
         <!-- Price section for all view start -->
         <div
           class="
-            mt-2.5
-            mb-1.5
+            mt-1.5
+            sm:mt-2.5
+            mb-1
+            sm:mb-1.5
             leading-4
             flex flex-row
             overflow-hidden
@@ -213,20 +227,32 @@
             justify-start
           "
         >
-          <h6 class="mr-1.5 text-sm font-semibold whitespace-nowrap">
+          <h6 class="mr-1 sm:mr-1.5 text-sm font-semibold whitespace-nowrap">
             {{ product.price | currency(store.currencySymbol) }}
           </h6>
 
           <h6
             v-if="product.price < product.mrp"
-            class="mr-1.5 text-xs text-gray-500 whitespace-nowrap line-through"
+            class="
+              mr-1
+              sm:mr-1.5
+              text-xs text-gray-500
+              font-light
+              whitespace-nowrap
+              line-through
+            "
           >
             {{ product.mrp | currency(store.currencySymbol) }}
           </h6>
 
           <div
             v-if="product.price < product.mrp"
-            class="text-xs text-secondary-200 whitespace-nowrap"
+            class="
+              text-xs text-secondary-200
+              font-light
+              whitespace-nowrap
+              truncate
+            "
           >
             ({{ product.discount }}% off)
           </div>
@@ -259,6 +285,7 @@ export default {
   props: {
     product: { type: Object, default: () => {} },
     pid: { type: String, default: null },
+    pg: { type: Object, default: null },
   },
   data() {
     return {

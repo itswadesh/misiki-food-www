@@ -1,7 +1,6 @@
 <template>
   <section
     class="
-      relative
       flex flex-col
       w-full
       min-h-screen
@@ -11,18 +10,19 @@
       bg-gray-50
     "
   >
-    <Nav class="fixed top-0 z-50 w-full" />
+    <Nav class="fixed w-full top-0 z-50" />
 
-    <div class="w-full flex flex-row justify-center mt-28 md:mt-16">
-      <LeftUserProfile class="sticky top-0 hidden lg:block" />
+    <div class="w-full h-full flex flex-row justify-center margin-top">
+      <div class="hidden lg:block w-64">
+        <LeftUserProfile />
+      </div>
 
-      <nuxt
-        class="container w-full mx-auto px-2 sm:px-10 pt-2 sm:pt-10"
-        keep-alive
-      />
+      <div class="flex-1 relative min-h-screen">
+        <nuxt class="container mx-auto p-2 sm:p-10 flex-1 h-full" keep-alive />
+
+        <Footer class="absolute bottom-0 inset-x-0" />
+      </div>
     </div>
-
-    <Footer class="absolute bottom-0" />
   </section>
 </template>
 
@@ -47,3 +47,16 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+@media (max-width: 1024px) {
+  .margin-top {
+    margin-top: 8.2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .margin-top {
+    margin-top: 6.2rem;
+  }
+}
+</style>

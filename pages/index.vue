@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto">
-    <Megamenu class="hidden xl:flex px-2 sm:px-10" />
+    <Megamenu class="hidden xl:flex px-10" />
 
     <HeroSlider :banners="sliderBanners" />
 
@@ -21,12 +21,14 @@
 
     <ProductSlider
       :details="youMayLikeProducts"
+      :pg="pg"
       :heading="'You May Like'"
       class="mb-5 md:mb-0"
     />
 
     <ProductSlider
       :details="hotProducts"
+      :pg="pg"
       :heading="'Trending'"
       class="mb-5 md:mb-0"
     />
@@ -66,6 +68,7 @@ import TRENDING from '~/gql/product/trending.gql'
 import BANNERS from '~/gql/banner/banners.gql'
 import GROUP_BY_BANNER from '~/gql/banner/groupByBanner.gql'
 import BRANDS from '~/gql/brand/brands.gql'
+import PRODUCT_GROUP from '~/gql/product/product_group.gql'
 import { TITLE, DESCRIPTION, KEYWORDS } from '~/shared/config'
 
 export default {
@@ -94,6 +97,7 @@ export default {
     return {
       hotProducts: null,
       youMayLikeProducts: null,
+      pg: null,
       visible: false,
       banners: null,
       brandBanners: null,
@@ -179,6 +183,7 @@ export default {
     this.getHotProducts()
     this.getYouMayLikeProducts()
     this.getBrands()
+    this.getProductGroups()
   },
   methods: {
     async getBrands() {
@@ -188,7 +193,6 @@ export default {
           parent: null,
           limit: 30,
           page: 0,
-          sort: 'sort',
           featured: true,
         })
         // this.brandBanners = (
@@ -317,6 +321,21 @@ export default {
       } finally {
         this.loading = false
       }
+    },
+
+    async getProductGroups() {
+      try {
+        this.pg = await this.$get('product/product_group', { id })
+        // this.pg = (
+        //   await this.$apollo.query({
+        //     query: PRODUCT_GROUP,
+        //     variables: { id },
+        //     fetchPolicy: 'no-cache',
+        //   })
+        // ).data.product_group
+        // this.checkWishlist()
+        console.log(pg)
+      } catch (e) {}
     },
   },
 }
