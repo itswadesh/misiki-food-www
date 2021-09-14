@@ -3,6 +3,7 @@ const pwa = {
     short_name: 'Mywondermall',
     name: 'Mywondermall',
     description: 'Mywondermall Shop',
+    theme_color: '#FB7801',
   },
 }
 const colors = {

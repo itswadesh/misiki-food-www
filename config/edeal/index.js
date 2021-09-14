@@ -3,6 +3,7 @@ const pwa = {
     short_name: 'Edeal',
     name: 'Edeal',
     description: 'Edeal Shop',
+    theme_color: '#000000',
   },
 }
 const colors = {

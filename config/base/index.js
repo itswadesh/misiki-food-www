@@ -3,6 +3,7 @@ const pwa = {
     short_name: 'Misiki',
     name: 'Misiki Store',
     description: 'Misiki store front',
+    theme_color: '#6366f1',
   },
 }
 const colors = {
