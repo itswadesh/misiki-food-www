@@ -273,6 +273,7 @@ export default {
             // })
             // query.refetch()
             await this.getAddress()
+            this.$emit('addressChanged')
             // this.$refs.adQ.getApolloQuery().refresh();
             this.success('Address deleted successfully')
           } catch (e) {

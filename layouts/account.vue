@@ -18,7 +18,7 @@
       </div>
 
       <div class="flex-1 relative min-h-screen">
-        <nuxt class="container mx-auto p-2 sm:p-10 flex-1 h-full" keep-alive />
+        <nuxt class="container mx-auto p-2 sm:p-10 flex-1 h-full" />
 
         <Footer class="absolute bottom-0 inset-x-0" />
       </div>

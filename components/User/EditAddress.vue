@@ -179,7 +179,7 @@ import { required, minLength, maxLength, email } from 'vuelidate/lib/validators'
 import { validationMixin } from 'vuelidate'
 import { Textbox, Button } from '~/shared/components/ui'
 import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
-import SAVE_ADDRESS from '~/gql/address/saveAddress.gql'
+// import SAVE_ADDRESS from '~/gql/address/saveAddress.gql'
 import GET_LOCATION_FROM_ZIP from '~/gql/location/getLocationFromZip.gql'
 import ADDRESS from '~/gql/address/address.gql'
 

@@ -13,9 +13,9 @@
 
       <!-- <AddAddressMobile class="py-4 bg-white sm:hidden" /> -->
       <!-- <EditAddress go="checkout" id="add" class="w-2/3 bg-white border shadow rounded-xl" /> -->
-      <div class="lg:w-1/3">
+      <!-- <div class="lg:w-1/3">
         <PriceDetails />
-      </div>
+      </div> -->
     </div>
 
     <!-- <div class="flex justify-center">

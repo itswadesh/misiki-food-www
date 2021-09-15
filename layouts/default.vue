@@ -36,7 +36,7 @@
       <div v-else>
         <Nav class="fixed top-0 z-50 w-full" @showLogin="showLogin" />
 
-        <Nuxt class="w-full mt-24 lg:mt-16" keep-alive />
+        <Nuxt class="w-full mt-24 lg:mt-16" />
       </div>
     </div>
 

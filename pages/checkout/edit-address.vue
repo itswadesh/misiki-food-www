@@ -12,12 +12,12 @@
         />
       </div>
 
-      <div class="lg:w-1/3">
+      <!-- <div class="lg:w-1/3">
         <PriceDetails
           :btnname="'Continue'"
           :nextpage="`/checkout/payment-options?address=${$route.query.id}`"
         />
-      </div>
+      </div> -->
     </div>
   </div>
 </template>

@@ -10,7 +10,7 @@
       bg-gray-50
     "
   >
-    <Nuxt keep-alive />
+    <Nuxt />
     <div class="flex-1" />
   </div>
 </template>

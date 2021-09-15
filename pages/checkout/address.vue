@@ -52,7 +52,6 @@
           </nuxt-link>
         </div>
       </div>
-
       <div class="lg:w-1/3 mb-10">
         <CartSummaryCheckout
           :loading="loading"
@@ -87,6 +86,18 @@ export default {
       selectedAddress: null,
     }
   },
+  // watch: {
+  //   '$route.query': {
+  //     immediate: true,
+  //     async handler(value, oldValue) {
+  //       await this.getAddress()
+  //     },
+  //   },
+  // },
+  async fetch() {
+    // this.$store.dispatch('cart/fetch')
+    await this.getAddress()
+  },
   head() {
     return {
       title: 'Select Address',
@@ -96,18 +107,6 @@ export default {
     user() {
       return this.$store.state.auth.user
     },
-  },
-  // watch: {
-  //   '$route.query': {
-  //     immediate: true,
-  //     async handler(value, oldValue) {
-  //       await this.getAddress()
-  //     },
-  //   },
-  // },
-  async created() {
-    // this.$store.dispatch('cart/fetch')
-    await this.getAddress()
   },
   methods: {
     ...mapMutations({
