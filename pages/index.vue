@@ -18,7 +18,7 @@
       <HeroBannersSlider
         :banners="p && p.data"
         :title="p._id && p._id.title"
-        class="px-2 sm:px-7"
+        class="sm:px-10 lg:px-7"
       />
     </div>
 

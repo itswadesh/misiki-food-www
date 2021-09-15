@@ -1,11 +1,11 @@
 <template>
   <div
     v-if="banners && banners.length"
-    class="container mx-auto bg-white px-2 sm:px-10 text-gray-700"
+    class="container mx-auto bg-white sm:px-10 text-gray-700"
   >
-    <div class="mb-5 relative flex px-3">
+    <div class="mb-5 relative flex px-2 lg:px-3">
       <h3 class="text-base md:text-xl font-medium">{{ title }}</h3>
-      <div class="absolute right-0 mr-3 top-0 flex">
+      <div class="absolute right-0 mr-2 lg:mr-3 top-0 flex">
         <button
           class="
             flex
@@ -83,7 +83,7 @@
       <button
         v-for="b in banners"
         :key="b.id"
-        class="overflow-hidden focus:outline-none p-1 lg:px-3"
+        class="overflow-hidden focus:outline-none px-1 lg:px-3"
         @click="go(b.link)"
       >
         <img v-lazy="b.img" class="object-cover rounded-2xl bg-white" />
