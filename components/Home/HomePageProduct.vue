@@ -60,7 +60,8 @@
             <!-- View smilar button end-->
 
             <!-- Wishlist start-->
-            <button
+            <div class="h-rem w-full"></div>
+            <!-- <button
               class="
                 z-30
                 flex
@@ -91,11 +92,21 @@
                   d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
                 ></path></svg
               ><span class="text-sm font-semibold">WISHLIST</span>
-            </button>
+            </button> -->
             <!-- Wishlist end-->
 
             <!-- Size chart start-->
-            <div class="flex mt-1.5 items-baseline justify-start">
+            <div
+              class="
+                flex
+                mt-1.5
+                items-baseline
+                justify-start
+                overflow-hidden
+                whitespace-nowrap
+                overflow-ellipsis
+              "
+            >
               <h5 class="mr-1 text-sm">Sizes:</h5>
               <h6 class="space-x-1 text-xs text-gray-500 flex items-baseline">
                 <div
@@ -107,7 +118,7 @@
                   </span>
                 </div>
 
-                <div v-else class="font-light">No size available</div>
+                <div v-else class="font-light truncate">Not available</div>
               </h6>
             </div>
 
@@ -127,7 +138,7 @@
 
               <!-- Heart icon start  -->
 
-              <button class="z-30 focus:outline-none">
+              <!-- <button class="z-30 focus:outline-none">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-4"
@@ -142,7 +153,7 @@
                     d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
                   ></path>
                 </svg>
-              </button>
+              </button> -->
 
               <!-- Heart icon end  -->
             </div>
@@ -176,7 +187,7 @@
             </h4>
 
             <!-- Heart icon start  -->
-            <svg
+            <!-- <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-4 sm:h-5 sm:hidden"
               fill="none"
@@ -189,7 +200,7 @@
                 stroke-width="2"
                 d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
               ></path>
-            </svg>
+            </svg> -->
             <!-- Heart icon end  -->
           </div>
 
@@ -351,5 +362,8 @@ export default {
   width: 130px;
   padding-left: 0px;
   justify-content: center;
+}
+.h-rem {
+  height: 2.75rem;
 }
 </style>

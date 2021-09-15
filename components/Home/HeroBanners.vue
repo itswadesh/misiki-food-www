@@ -1,9 +1,34 @@
 <template>
-  <div v-if="banners && banners.length > 0">
+  <div v-if="banners && banners.length > 0" class="bg-white text-gray-700">
     <HeroBannerSkeleton v-if="loading" />
 
     <div v-for="(b, ix) of banners" :key="ix">
-      <h2 class="text-3xl text-gray-500 ms-3 font-bold">{{ b._id.title }}</h2>
+      <div
+        v-if="b._id.title"
+        class="py-5 lg:py-10 flex items-center justify-center space-x-2"
+      >
+        <hr class="h-1 border-gray-300 flex-1" />
+
+        <div
+          class="
+            flex
+            items-center
+            justify-center
+            text-center text-white text-sm
+            sm:text-base
+            font-semibold
+            tracking-wider
+            uppercase
+            py-2
+            px-8
+            bg-primary-500
+          "
+        >
+          {{ b._id.title }}
+        </div>
+
+        <hr class="h-1 border-gray-300 flex-1" />
+      </div>
 
       <div v-if="b.data" class="grid grid-cols-2 lg:grid-cols-4">
         <a

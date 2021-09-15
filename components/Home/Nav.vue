@@ -9,7 +9,7 @@
         tracking-wide
         text-center
         bg-gray-800
-        text-accent-900 text-sm
+        text-white text-sm
       "
     >
       We are upgrading. Will not take much time.

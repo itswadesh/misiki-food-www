@@ -141,7 +141,7 @@
           class="flex flex-row items-start justify-start space-x-2"
         >
           <div v-for="product in details" :key="product.id">
-            <HomePageProduct :product="product" class="w-56" />
+            <HomePageProduct :product="product" class="w-36 sm:w-56" />
           </div>
         </div>
       </div>

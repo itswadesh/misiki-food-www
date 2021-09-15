@@ -34,6 +34,7 @@
         v-for="b in banners"
         :key="b.id"
         class="z-auto my-auto focus:outline-none"
+        aria-label="Slider Banners"
         @click="go(b.link)"
       >
         <img
@@ -49,6 +50,7 @@
             lg:h-80
             xl:h-96
           "
+          alt="Slider Banners"
         />
       </button>
       <!-- v-if="loading" -->
