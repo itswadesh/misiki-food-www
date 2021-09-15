@@ -12,8 +12,8 @@
           target="blank"
           class="block w-auto col-span-2 m-2 sm:m-3"
         >
-          <img
-            v-lazy="b.data[0].img"
+          <nuxt-img
+            :src="b.data[0].img"
             class="object-scale-down w-full h-full rounded"
           />
         </a>
@@ -22,8 +22,8 @@
           :to="localePath(b.data[0].link)"
           class="w-auto col-span-2 m-2 sm:m-3"
         >
-          <img
-            v-lazy="b.data[0].img"
+          <nuxt-img
+            :src="b.data[0].img"
             class="object-scale-down w-full h-full rounded"
           />
         </nuxt-link>
@@ -33,8 +33,8 @@
           target="blank"
           class="block w-auto col-span-2 sm:m-3"
         >
-          <img
-            v-lazy="b.data[1].img"
+          <nuxt-img
+            :src="b.data[1].img"
             class="object-scale-down w-full h-full rounded"
           />
         </a>
@@ -43,8 +43,8 @@
           :to="localePath(b.data[1].link)"
           class="w-auto col-span-2 m-3"
         >
-          <img
-            v-lazy="b.data[1].img"
+          <nuxt-img
+            :src="b.data[1].img"
             class="object-scale-down w-full h-full rounded"
           />
         </nuxt-link>
@@ -54,8 +54,8 @@
           target="blank"
           class="block w-auto col-span-1 m-2 sm:m-3"
         >
-          <img
-            v-lazy="b.data[2].img"
+          <nuxt-img
+            :src="b.data[2].img"
             class="object-scale-down w-full h-full rounded"
           />
         </a>
@@ -64,8 +64,8 @@
           :to="localePath(b.data[2].link)"
           class="w-auto col-span-1 m-2 sm:m-3"
         >
-          <img
-            v-lazy="b.data[2].img"
+          <nuxt-img
+            :src="b.data[2].img"
             class="object-scale-down w-full h-full rounded"
           />
         </nuxt-link>
@@ -76,8 +76,8 @@
           target="blank"
           class="block w-auto col-span-1 m-2 sm:m-3"
         >
-          <img
-            v-lazy="b.data[3].img"
+          <nuxt-img
+            :src="b.data[3].img"
             class="object-scale-down w-full h-full rounded"
           />
         </a>
@@ -86,8 +86,8 @@
           :to="localePath(b.data[3].link)"
           class="w-auto col-span-1 m-2 sm:m-3"
         >
-          <img
-            v-lazy="b.data[3].img"
+          <nuxt-img
+            :src="b.data[3].img"
             class="object-scale-down w-full h-full rounded"
           />
         </nuxt-link>
@@ -98,8 +98,8 @@
           target="blank"
           class="block w-auto col-span-2 m-3"
         >
-          <img
-            v-lazy="b.data[4].img"
+          <nuxt-img
+            :src="b.data[4].img"
             class="object-scale-down w-full h-full rounded"
           />
         </a>
@@ -108,8 +108,8 @@
           :to="localePath(b.data[4].link)"
           class="w-auto col-span-2 m-3"
         >
-          <img
-            v-lazy="b.data[4].img"
+          <nuxt-img
+            :src="b.data[4].img"
             class="object-scale-down w-full h-full rounded"
           />
         </nuxt-link>
