@@ -18,7 +18,8 @@
         mb-5
         md:mb-0
         text-base
-        md:text-xl
+        md:text-lg
+        lg:text-xl
         antialiased
         font-semibold
         tracking-widest
