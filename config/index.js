@@ -3,6 +3,7 @@ const pwa = {
     short_name: 'Anne',
     name: 'Anne',
     description: 'Anne ecommerce',
+    theme_color: '#FB7801',
   },
 }
 const colors = {

@@ -40,14 +40,14 @@
           target="blank"
           class="w-auto col-span-2"
         >
-          <nuxt-img :src="b.data[0].img" class="w-full h-full rounded" />
+          <img v-lazy="b.data[0].img" class="w-full h-full rounded" />
         </a>
         <nuxt-link
           v-else-if="b.data[0]"
           :to="localePath(b.data[0].link)"
           class="w-auto col-span-2"
         >
-          <nuxt-img :src="b.data[0].img" class="w-full h-full rounded" />
+          <img v-lazy="b.data[0].img" class="w-full h-full rounded" />
         </nuxt-link>
         <a
           v-if="b.data[1] && ifUrl(b.data[1].link)"
@@ -55,14 +55,14 @@
           target="blank"
           class="w-auto col-span-2"
         >
-          <nuxt-img :src="b.data[1].img" class="w-full h-full rounded" />
+          <img v-lazy="b.data[1].img" class="w-full h-full rounded" />
         </a>
         <nuxt-link
           v-else-if="b.data[1]"
           :to="localePath(b.data[1].link)"
           class="w-auto col-span-2"
         >
-          <nuxt-img :src="b.data[1].img" class="w-full h-full rounded" />
+          <img v-lazy="b.data[1].img" class="w-full h-full rounded" />
         </nuxt-link>
         <a
           v-if="b.data[2] && ifUrl(b.data[2].link)"
@@ -70,14 +70,14 @@
           target="blank"
           class="w-auto col-span-1"
         >
-          <nuxt-img :src="b.data[2].img" class="w-full h-full rounded" />
+          <img v-lazy="b.data[2].img" class="w-full h-full rounded" />
         </a>
         <nuxt-link
           v-else-if="b.data[2]"
           :to="localePath(b.data[2].link)"
           class="w-auto col-span-1"
         >
-          <nuxt-img :src="b.data[2].img" class="w-full h-full rounded" />
+          <img v-lazy="b.data[2].img" class="w-full h-full rounded" />
         </nuxt-link>
 
         <a
@@ -86,14 +86,14 @@
           target="blank"
           class="w-auto col-span-1"
         >
-          <nuxt-img :src="b.data[3].img" class="w-full h-full rounded" />
+          <img v-lazy="b.data[3].img" class="w-full h-full rounded" />
         </a>
         <nuxt-link
           v-else-if="b.data[3]"
           :to="localePath(b.data[3].link)"
           class="w-auto col-span-1"
         >
-          <nuxt-img :src="b.data[3].img" class="w-full h-full rounded" />
+          <img v-lazy="b.data[3].img" class="w-full h-full rounded" />
         </nuxt-link>
 
         <a
@@ -102,14 +102,14 @@
           target="blank"
           class="w-auto col-span-2"
         >
-          <nuxt-img :src="b.data[4].img" class="w-full h-full rounded" />
+          <img v-lazy="b.data[4].img" class="w-full h-full rounded" />
         </a>
         <nuxt-link
           v-else-if="b.data[4]"
           :to="localePath(b.data[4].link)"
           class="w-auto col-span-2"
         >
-          <nuxt-img :src="b.data[4].img" class="w-full h-full rounded" />
+          <img v-lazy="b.data[4].img" class="w-full h-full rounded" />
         </nuxt-link>
       </div>
     </div>
