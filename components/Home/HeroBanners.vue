@@ -1,5 +1,5 @@
 <template>
-  <div v-if="banners && banners.count > 0">
+  <div v-if="banners && banners.length > 0">
     <HeroBannerSkeleton v-if="loading" />
 
     <div v-for="(b, ix) of banners" :key="ix">
