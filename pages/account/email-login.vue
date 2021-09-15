@@ -44,7 +44,7 @@
                   from-secondary-500
                   to-primary-500
                 "
-                >{{ store.websiteName }}</span
+                >{{ store.name }}</span
               >
             </nuxt-link>
 
@@ -248,7 +248,7 @@ export default {
 
   head() {
     return {
-      title: `Email Login | ${this.store.websiteName || ''}`,
+      title: `Email Login | ${this.store.name || ''}`,
     }
   },
 

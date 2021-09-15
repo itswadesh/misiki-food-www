@@ -43,7 +43,7 @@
                   from-secondary-500
                   to-primary-500
                 "
-                >{{ store.websiteName }}</span
+                >{{ store.name }}</span
               >
             </nuxt-link>
 
@@ -264,7 +264,7 @@ export default {
   },
   head() {
     return {
-      title: `Enter OTP | ${this.store.websiteName || ''}`,
+      title: `Enter OTP | ${this.store.name || ''}`,
     }
   },
   computed: {

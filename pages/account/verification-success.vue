@@ -26,7 +26,7 @@
               from-green-500
               to-blue-500
             "
-            >{{ store.websiteName }}</span
+            >{{ store.name }}</span
           >
         </nuxt-link>
 
@@ -75,7 +75,7 @@ export default {
   layout: 'none',
   head() {
     return {
-      title: `Verification Success | ${this.store.websiteName || ''}`,
+      title: `Verification Success | ${this.store.name || ''}`,
     }
   },
   computed: {

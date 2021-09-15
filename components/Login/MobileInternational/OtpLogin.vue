@@ -20,7 +20,7 @@
         >
           <!-- <img
             v-lazy="store.logo"
-            :alt="store.websiteName"
+            :alt="store.name"
             class="absolute z-10 hidden object-contain w-32 h-32 md:flex -top-20"
                 /> -->
           <img

@@ -266,7 +266,7 @@ export default {
 
   head() {
     return {
-      title: `Login | ${this.store.websiteName || ''}`,
+      title: `Login | ${this.store.name || ''}`,
     }
   },
 

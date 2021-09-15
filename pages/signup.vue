@@ -49,12 +49,12 @@
         <!--  -->
         <!-- <div>
             <b>{{ 'SIGN UP' }}</b>
-            {{ 'TO ' + store.websiteName }}
+            {{ 'TO ' + store.name }}
           </div> -->
         <!--  -->
         <div class="my-3 text-4xl font-semibold tracking-wider text-center">
           <b>{{ 'SIGN UP' }}</b>
-          {{ 'TO ' + store.websiteName }}
+          {{ 'TO ' + store.name }}
         </div>
         <span class="mt-6 font-normal text-center text-white md:mt-0">
           Explore cart, wishlist, products, and more..
@@ -331,7 +331,7 @@ export default {
   },
   head() {
     return {
-      title: `SignUp | ${this.store.websiteName || ''}`,
+      title: `SignUp | ${this.store.name || ''}`,
     }
   },
   computed: {

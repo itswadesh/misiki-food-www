@@ -26,7 +26,7 @@
               from-green-500
               to-blue-500
             "
-            >{{ store.websiteName }}</span
+            >{{ store.name }}</span
           >
         </nuxt-link>
         <div>
@@ -45,7 +45,7 @@
           </div>
 
           <div class="flex flex-col my-5 space-y-5">
-            <h6>Password Reset for {{ store.websiteName }}</h6>
+            <h6>Password Reset for {{ store.name }}</h6>
 
             <h5 class="font-semibold text-lg">
               Password reset link sent to your email successfully
@@ -77,7 +77,7 @@ export default {
 
   head() {
     return {
-      title: `Forgot Success | ${this.store.websiteName || ''}`,
+      title: `Forgot Success | ${this.store.name || ''}`,
     }
   },
 

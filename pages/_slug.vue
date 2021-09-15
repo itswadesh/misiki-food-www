@@ -281,7 +281,7 @@ export default {
           priceCurrency: store.state.store.currencyCode,
           seller: {
             '@type': 'Organization',
-            name: store.state.store.websiteName,
+            name: store.state.store.name,
             url: HOST,
           },
         },

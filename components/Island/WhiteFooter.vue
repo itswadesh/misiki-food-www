@@ -354,7 +354,7 @@
           />
           <span class="object-cover ps-4 my-auto lg:w-2/3">
             <strong class="font-light"> 100% ORIGINAL </strong> guarantee for
-            all products at {{ store.websiteName }}
+            all products at {{ store.name }}
           </span>
         </div>
 
@@ -387,7 +387,7 @@
     <div class="w-full my-4 border-b-2 border-gray-400"></div>
     <div class="flex flex-col-reverse justify-between md:flex-row">
       <span class="mt-4 text-sm font-normal tracking-wider md:mt-0">
-        © {{ year }} {{ store.websiteName }}
+        © {{ year }} {{ store.name }}
         <span v-if="store.websiteEmail" class="ms-2">
           {{ store.websiteEmail }}</span
         >

@@ -26,7 +26,7 @@
               from-green-500
               to-blue-500
             "
-            >{{ store.websiteName }}</span
+            >{{ store.name }}</span
           >
         </nuxt-link>
         <div class="flex flex-col">
@@ -89,7 +89,7 @@ export default {
   },
   head() {
     return {
-      title: `Forgot Password | ${this.store.websiteName || ''}`,
+      title: `Forgot Password | ${this.store.name || ''}`,
     }
   },
   computed: {

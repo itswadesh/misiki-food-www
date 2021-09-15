@@ -10,9 +10,7 @@
       </div>
       <div class="flex-1 ms-5">
         <h4 class="font-semibold leading-none">Sign up.</h4>
-        <h6 class="mt-1 text-gray-400">
-          Create your {{ store.websiteName }} account
-        </h6>
+        <h6 class="mt-1 text-gray-400">Create your {{ store.name }} account</h6>
       </div>
     </div>
     <div class="flex items-start mt-10">
@@ -21,7 +19,7 @@
       </div>
       <div class="flex-1 ms-5">
         <h4 class="font-semibold leading-none">
-          Enter the {{ store.websiteName }} Dashboard.
+          Enter the {{ store.name }} Dashboard.
         </h4>
         <h6 class="mt-1 text-gray-400">
           Create a store and get your store URL.

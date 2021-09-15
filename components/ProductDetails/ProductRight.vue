@@ -71,7 +71,7 @@
         <div>
           <div class="mb-1.5 sm:mb-3">
             <div class="flex flex-row my-auto items-baseline mb-1">
-              <b class="me-1 text-lg sm:text-lg">Rs.</b>
+              <b class="me-1 text-lg sm:text-lg"></b>
 
               <b class="me-2 text-base sm:text-xl">
                 {{ product.price | currency(store.currencySymbol) }}

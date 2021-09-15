@@ -43,8 +43,8 @@
             text-center
           "
         >
-          <span v-if="store.websiteName">
-            {{ store.websiteName }}
+          <span v-if="store.name">
+            {{ store.name }}
           </span>
 
           <span v-else> Store Name </span>
@@ -262,7 +262,7 @@ export default {
   },
   head() {
     return {
-      title: `SignUp | ${this.store.websiteName || ''}`,
+      title: `SignUp | ${this.store.name || ''}`,
     }
   },
 

@@ -8,7 +8,7 @@
 export default {
   head() {
     return {
-      title: `Registration Successfull | ${this.store.websiteName || ''}`,
+      title: `Registration Successfull | ${this.store.name || ''}`,
     }
   },
 }

@@ -133,7 +133,7 @@
               :description="product.description || ''"
               :quote="(product.category && product.category.name) || ''"
               :hashtags="product.keywords || ''"
-              :twitter-user="store.websiteName"
+              :twitter-user="store.name"
               network="twitter"
               style="color: #53a8e7"
               class="

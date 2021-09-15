@@ -26,7 +26,7 @@
               from-green-500
               to-blue-500
             "
-            >{{ store.websiteName }}</span
+            >{{ store.name }}</span
           >
         </nuxt-link>
 
@@ -96,7 +96,7 @@ export default {
 
   head() {
     return {
-      title: `Reset Password | ${this.store.websiteName || ''}`,
+      title: `Reset Password | ${this.store.name || ''}`,
     }
   },
   computed: {

@@ -54,7 +54,7 @@
         </nuxt-link>
 
         <div class="flex flex-row items-baseline mb-1 sm:mb-2">
-          <b class="me-1 text-sm sm:text-base">Rs.</b>
+          <b class="me-1 text-sm sm:text-base"></b>
 
           <b class="me-2 text-sm sm:text-base">
             {{ item.price | currency(store.currencySymbol) }}

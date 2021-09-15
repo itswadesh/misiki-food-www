@@ -27,7 +27,7 @@
                 from-secondary-500
                 to-primary-500
               "
-              >{{ store.websiteName }}</span
+              >{{ store.name }}</span
             >
           </nuxt-link>
           <div>
@@ -71,7 +71,7 @@ export default {
   layout: 'none',
   head() {
     return {
-      title: `Verify | ${this.store.websiteName || ''}`,
+      title: `Verify | ${this.store.name || ''}`,
     }
   },
   computed: {

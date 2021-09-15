@@ -123,7 +123,7 @@
       </div>
 
       <div class="text-xs text-gray-400 text-center font-light tracking-wide">
-        © {{ year }} {{ store.websiteName }}
+        © {{ year }} {{ store.name }}
         <span v-if="store.websiteEmail" class="ms-2">
           {{ store.websiteEmail }}</span
         >

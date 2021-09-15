@@ -12,7 +12,7 @@
     "
   >
     <span class="text-base mr-1">©</span
-    ><span> Policy 2007-{{ year }} {{ store.websiteName }}</span>
+    ><span> Policy 2007-{{ year }} {{ store.name }}</span>
   </div>
 </template>
 <script>

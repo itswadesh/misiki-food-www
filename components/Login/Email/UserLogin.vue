@@ -126,7 +126,7 @@
         <div class="flex justify-center sm:-mt-10 h-36 lg:py-1">
           <img
             v-lazy="store.logo"
-            :alt="store.websiteName"
+            :alt="store.name"
             class="object-contain h-40 w-44"
           />
           <!-- <img v-lazy="store.logoMobile" alt="" class="w-32 h-20" /> -->

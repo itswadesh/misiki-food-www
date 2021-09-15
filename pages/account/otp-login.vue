@@ -183,7 +183,7 @@ export default {
   },
   head() {
     return {
-      title: `OTP Login | ${this.store.websiteName || ''}`,
+      title: `OTP Login | ${this.store.name || ''}`,
     }
   },
   computed: {

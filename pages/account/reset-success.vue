@@ -26,7 +26,7 @@
               from-green-500
               to-blue-500
             "
-            >{{ store.websiteName }}</span
+            >{{ store.name }}</span
           >
         </nuxt-link>
 
@@ -69,7 +69,7 @@ export default {
   layout: 'none',
   head() {
     return {
-      title: `Reset Success | ${this.store.websiteName || ''}`,
+      title: `Reset Success | ${this.store.name || ''}`,
     }
   },
   computed: {
