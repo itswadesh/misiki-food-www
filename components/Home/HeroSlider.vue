@@ -1,5 +1,5 @@
 <template>
-  <div class="focus:outline-none h-48 md:h-64 lg:h-80 xl:h-96">
+  <div class="bg-white h-48 md:h-64 lg:h-80 xl:h-96">
     <div class="flex items-center justify-center">
       <progress
         v-if="loading"

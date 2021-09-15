@@ -3,11 +3,8 @@
     v-ripple="'rgba(255, 0,0, 0.5)'"
     :disabled="isDisabled"
     class="
-      my-auto
-      ms-1
       font-semibold
       text-center
-      icons
       bg-accent-100
       px-auto
       hover:opacity-75

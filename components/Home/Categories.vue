@@ -1,7 +1,7 @@
 <template>
   <main
     v-if="categories && categories.count > 0"
-    class="container mx-auto bg-white px-2 sm:px-10 pb-5 md:pb-0 text-gray-700"
+    class="container mx-auto bg-white px-2 sm:px-10 text-gray-700"
   >
     <div class="py-5 lg:py-10 flex items-center justify-center space-x-2">
       <hr class="h-1 border-gray-300 flex-1" />

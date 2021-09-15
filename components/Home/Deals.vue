@@ -1,5 +1,5 @@
 <template>
-  <div v-if="deals" class="h-auto mx-auto bg-black conatiner lg:px-10">
+  <div v-if="deals" class="h-auto mx-auto bg-white conatiner lg:px-10">
     <div class="h-auto focus:outline-none">
       <DealsSkeleton v-if="loading" />
       <div

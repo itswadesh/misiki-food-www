@@ -1,68 +1,79 @@
 <template>
-  <div v-if="brands && brands.length" class="w-full">
-    <div class="flex flex-col py-6 bg-white lg:py-12 md:flex-row">
-      <div
-        class="
-          w-full
-          my-auto
-          text-lg
-          antialiased
-          font-semibold
-          tracking-widest
-          text-center
-          transform
-          lg:py-6
-          md:-rotate-90
-          text-secondary-500
-          lg:w-1/6
-          md:w-1/4
-        "
-      >
-        Brands
-      </div>
-      <div
-        class="
-          grid
-          w-full
-          grid-cols-2
-          mx-auto
-          sm:grid-cols-3
-          lg:grid-cols-5 lg:w-5/6
-          md:w-3/4
-        "
-      >
-        <div v-for="b in brands" :key="b.id" class="mx-auto">
-          <button class="p-1" @click="go(b.slug)">
-            <img
-              v-if="b.img"
-              v-lazy="b.img"
-              alt="bab"
-              class="object-contain h-12 sm:h-20"
-            />
-            <div
-              v-else
-              class="
-                h-12
-                w-12
-                sm:h-20 sm:w-20
-                flex
-                justify-center
-                items-center
-                text-center
-                my-auto
-                text-primary-500
-                font-semibold
-                rounded-full
-                border-2 border-primary-500
-                text-2xl
-              "
-            >
-              {{ b.name | first }}
-            </div>
-          </button>
-        </div>
+  <div
+    v-if="brands && brands.length"
+    class="
+      container
+      mx-auto
+      flex flex-col
+      md:flex-row md:items-center
+      bg-white
+      px-2
+      sm:px-10
+      text-gray-700
+    "
+  >
+    <h1
+      class="
+        w-full
+        mb-5
+        md:mb-0
+        text-base
+        md:text-xl
+        antialiased
+        font-semibold
+        tracking-widest
+        text-center
+        transform
+        md:-rotate-90
+        text-secondary-500
+        lg:w-1/6
+        md:w-1/4
+      "
+    >
+      BRANDS
+    </h1>
+
+    <div
+      class="
+        w-full
+        grid grid-cols-3
+        md:grid-cols-4
+        lg:grid-cols-5 lg:w-5/6
+        md:w-3/4
+      "
+    >
+      <div v-for="b in brands" :key="b.id" class="mx-auto">
+        <button class="p-1" @click="go(b.slug)">
+          <img
+            v-if="b.img"
+            v-lazy="b.img"
+            alt="bab"
+            class="object-contain h-12 sm:h-20"
+          />
+          <div
+            v-else
+            class="
+              h-12
+              w-12
+              sm:h-20 sm:w-20
+              flex
+              justify-center
+              items-center
+              text-center
+              my-auto
+              text-primary-500
+              font-semibold
+              rounded-full
+              border-2 border-primary-500
+              text-2xl
+            "
+          >
+            {{ b.name | first }}
+          </div>
+        </button>
       </div>
     </div>
+
     <!-- <div class="bg-yellow-300 md:hidden" v-if="brands && brands.data && brands.data.length">
       <VueSlickCarousel
         v-bind="settings"

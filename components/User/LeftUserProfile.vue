@@ -2,7 +2,7 @@
   <aside
     class="
       fixed
-      lg:stickey lg:top-24
+      lg:stickey lg:top-16
       inset-0
       lg:inset-y-0
       z-30

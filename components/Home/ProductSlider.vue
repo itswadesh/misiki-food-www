@@ -1,7 +1,7 @@
 <template>
   <main
     v-if="details && details.length"
-    class="container mx-auto bg-white pl-2 sm:pl-10 lg:pr-10 text-gray-700"
+    class="bg-white pl-2 sm:pl-10 lg:pr-10 text-gray-700"
   >
     <div class="py-5 lg:py-10 flex items-center justify-center space-x-2">
       <hr class="h-1 border-gray-300 flex-1" />

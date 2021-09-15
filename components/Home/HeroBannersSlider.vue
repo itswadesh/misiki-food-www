@@ -1,33 +1,20 @@
 <template>
-  <div v-if="banners && banners.length" class="mt-5">
-    <div
-      class="relative flex text-3xl font-bold text-center text-gray-700 px-3"
-    >
-      <h1
-        class="
-          text-xl
-          md:text-2xl
-          text-gray-500
-          font-semibold
-          sm:font-bold
-          py-5
-          lg:py-10
-          tracking-wide
-        "
-      >
-        {{ title }}
-      </h1>
-
-      <div class="absolute right-0 me-3 top-0 flex">
+  <div
+    v-if="banners && banners.length"
+    class="container mx-auto bg-white px-2 sm:px-10 text-gray-700"
+  >
+    <div class="mb-5 relative flex px-3">
+      <h3 class="text-base md:text-xl font-medium">{{ title }}</h3>
+      <div class="absolute right-0 mr-3 top-0 flex">
         <button
           class="
             flex
             items-center
             justify-center
-            w-4
-            h-4
+            w-6
+            h-6
             md:w-8 md:h-8
-            me-2
+            mr-2
             text-gray-800
             transition
             duration-300
@@ -60,8 +47,8 @@
             flex
             items-center
             justify-center
-            w-4
-            h-4
+            w-6
+            h-6
             md:w-8 md:h-8
             text-gray-800
             transition
@@ -92,18 +79,16 @@
       </div>
     </div>
 
-    <div class="mt-2 md:mt-6">
-      <VueSlickCarousel v-bind="sliderSettings" ref="carousel">
-        <button
-          v-for="b in banners"
-          :key="b.id"
-          class="overflow-hidden focus:outline-none p-1 lg:p-3"
-          @click="go(b.link)"
-        >
-          <img v-lazy="b.img" class="object-cover rounded-2xl bg-white" />
-        </button>
-      </VueSlickCarousel>
-    </div>
+    <VueSlickCarousel v-bind="sliderSettings" ref="carousel">
+      <button
+        v-for="b in banners"
+        :key="b.id"
+        class="overflow-hidden focus:outline-none p-1 lg:px-3"
+        @click="go(b.link)"
+      >
+        <img v-lazy="b.img" class="object-cover rounded-2xl bg-white" />
+      </button>
+    </VueSlickCarousel>
   </div>
 </template>
 

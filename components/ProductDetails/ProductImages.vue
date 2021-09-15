@@ -80,20 +80,19 @@
           class="
             relative
             z-10
-            mx-auto
             overflow-hidden
             bg-white
             border-2
-            rounded-sm
+            rounded-md
             widths
           "
         >
-          <div class="absolute top-0 right-0 m-3">
+          <div class="z-50 absolute top-0 right-0 m-3">
             <WishButton
               v-if="product.id"
               rounded
               :pid="product.id"
-              class="z-50 p-1 w-8 h-8"
+              class="p-1 w-8 h-8"
             />
           </div>
 
@@ -131,80 +130,78 @@
       </div>
 
       <!-- mobile view -->
-      <div class="w-full">
+
+      <div v-if="images && images.length" class="container mx-auto sm:hidden">
         <div
-          v-if="images && images.length"
-          class="relative z-10 mx-auto sm:hidden"
+          class="
+            relative
+            z-10
+            overflow-hidden
+            bg-white
+            border-2
+            rounded-md
+            widths
+          "
         >
-          <div class="absolute top-0 right-0 m-2">
+          <div class="z-50 absolute top-0 right-0 m-2">
             <WishButton
               v-if="product.id"
               rounded
               :pid="product.id"
-              class="z-50 p-1 w-7 h-7"
+              class="p-1 w-7 h-7"
             />
           </div>
 
-          <div class="w-full mx-auto widths">
-            <VueSlickCarousel
-              ref="c1"
-              :as-nav-for="$refs.c2"
-              :focus-on-select="true"
+          <VueSlickCarousel
+            ref="c1"
+            :as-nav-for="$refs.c2"
+            :focus-on-select="true"
+          >
+            <div
+              v-for="(im, ix) in images"
+              :key="ix"
+              class="bg-white border h-80 focus:outline-none"
             >
-              <div
-                v-for="(im, ix) in images"
-                :key="ix"
-                class="bg-white border h-80 focus:outline-none"
-              >
-                <img
-                  v-if="!youtubeVideoId(im)"
-                  v-lazy="im"
-                  alt=""
-                  class="object-contain w-full h-full bg-white"
-                  @click="handleClick"
-                />
+              <img
+                v-if="!youtubeVideoId(im)"
+                v-lazy="im"
+                alt=""
+                class="object-contain w-full h-full bg-white"
+                @click="handleClick"
+              />
 
-                <div v-else>
-                  <youtube
-                    ref="youtube"
-                    :video-id="youtubeVideoId(im)"
-                    :resize="true"
-                    :fit-parent="true"
-                  />
-                </div>
-              </div>
-            </VueSlickCarousel>
-          </div>
-
-          <div class="w-full mt-5 sm:mt-10">
-            <VueSlickCarousel
-              ref="c2"
-              :as-nav-for="$refs.c1"
-              :slides-to-show="4"
-              :focus-on-select="true"
-              class="mx-auto"
-            >
-              <div
-                v-for="(ig, ix) in images"
-                :key="ix"
-                class="h-16 w-16 mx-auto focus:outline-none"
-                @click="selectedImage = ig"
-              >
-                <img
-                  v-lazy="imgVideo(ig)"
-                  class="
-                    object-contain
-                    w-16
-                    h-16
-                    mx-auto
-                    bg-white
-                    border
-                    rounded
-                  "
+              <div v-else>
+                <youtube
+                  ref="youtube"
+                  :video-id="youtubeVideoId(im)"
+                  :resize="true"
+                  :fit-parent="true"
                 />
               </div>
-            </VueSlickCarousel>
-          </div>
+            </div>
+          </VueSlickCarousel>
+        </div>
+
+        <div class="w-full mt-5 sm:mt-10">
+          <VueSlickCarousel
+            ref="c2"
+            :as-nav-for="$refs.c1"
+            :slides-to-show="4"
+            :focus-on-select="true"
+            class="mx-auto"
+          >
+            <div
+              v-for="(ig, ix) in images"
+              :key="ix"
+              class="h-16 w-16 mx-auto focus:outline-none"
+              @click="selectedImage = ig"
+            >
+              <img
+                v-lazy="imgVideo(ig)"
+                class="object-contain w-16 h-16 mx-auto bg-white border rounded"
+              />
+            </div>
+          </VueSlickCarousel>
         </div>
       </div>
     </div>

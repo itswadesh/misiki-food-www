@@ -51,12 +51,12 @@ export default {
 <style scoped>
 @media (max-width: 1024px) {
   .margin-top {
-    margin-top: 8.2rem;
+    margin-top: 6.2rem;
   }
 }
 @media (min-width: 1024px) {
   .margin-top {
-    margin-top: 6.2rem;
+    margin-top: 4.2rem;
   }
 }
 </style>
