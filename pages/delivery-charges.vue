@@ -6,39 +6,67 @@
       Delivery Charges
     </h4>
 
-    <div class="text-gray-600 font-light mb-8">
-      <!-- <div class="my-6">
-        1. GoSport products: For Delivery In a Week, charges are:
-      </div>
-      <div>Orders below Rs. 750 : Rs.100/-</div>
-      <div>Orders below Rs. 750 : Rs.100/-</div>
-
-      <div class="my-6">
-        2. Anne products: For Delivery In a Week, charges are:
-      </div>
-      <div>Orders below Rs. 750 : Rs.100/-</div>
-      <div>Orders above Rs. 750 : Rs. 0/-</div>
-
-      <div class="my-6">
-        3. YOYOSO products: For Delivery In a Week, charges are:
-      </div>
-      <div>Orders below Rs. 500 : Rs.100/-</div>
-      <div>Orders above Rs. 501 : Rs. 0/-</div> -->
-
-      <!-- 4. For all other products: -->
-      <div class="my-6">For Delivery In a Week, charges are:</div>
-      <div>Orders below Rs. 750 : Rs.100/-</div>
-      <div>Orders above Rs. 750 : Rs. 0/-</div>
-    </div>
+    <Shortcode :content="page.content"></Shortcode>
   </section>
 </template>
 
 <script>
+const Shortcode = () => import('~/components/Shortcode')
 export default {
+  components: { Shortcode },
+  data() {
+    return {
+      page: {},
+    }
+  },
+  async fetch() {
+    this.page = await this.$get('page/pageSlug', {
+      slug: 'delivery-charges',
+    })
+  },
   head() {
     return {
-      title: 'Delivery Charges',
+      title: this.page && this.page.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.page && this.page.metaDescription,
+        },
+        {
+          hid: 'og:description',
+          name: 'Description',
+          property: 'og:description',
+          content: this.page && this.page.metaDescription,
+        },
+        {
+          hid: 'keywords',
+          name: 'Keywords',
+          property: 'keywords',
+          content: this.page && this.page.keywords,
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          property: 'og:title',
+          content: this.page && this.page.title,
+        },
+        // Twitter
+        {
+          name: 'twitter:title',
+          content: this.page && this.page.title,
+        },
+        {
+          name: 'twitter:description',
+          content: this.page && this.page.metaDescription,
+        },
+      ],
     }
+  },
+  methods: {
+    setPage(page) {
+      this.page = page
+    },
   },
 }
 </script>

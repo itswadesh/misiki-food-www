@@ -2,7 +2,7 @@
   <div class="container mx-auto prose">
     <div>
       <main>
-        <Shortcode :content="data.content"></Shortcode>
+        <Shortcode :content="page.content"></Shortcode>
       </main>
     </div>
   </div>
@@ -18,11 +18,10 @@ export default {
     }
   },
   async fetch() {
-    console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz')
     this.page = await this.$get('page/pageSlug', {
       slug: this.$route.params.slug,
+      active: true,
     })
-    console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz', this.page)
   },
   head() {
     return {

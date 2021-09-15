@@ -61,12 +61,13 @@ export default {
     const { title, keywords, description, favicon, logoMobile } =
       store.state.store || {} // err = null
     try {
+      query.store = store.state.store && store.state.store.id
+      query.active = true
       posts = (
         await client.query({
           query: BLOGS,
           variables: query,
           fetchPolicy: 'no-cache',
-          store: store.state.store && store.state.store.id,
         })
       ).data.blogs
       blogCount = posts.count
