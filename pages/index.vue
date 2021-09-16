@@ -113,14 +113,6 @@ export default {
       shopByCategory: null,
     }
   },
-  fetch() {
-    this.getAllRecommendations()
-    // this.getBanners()
-    // this.getHotProducts()
-    // this.getYouMayLikeProducts()
-    // this.getBrands()
-    // this.getProductGroups()
-  },
 
   head() {
     const host = process.server
@@ -190,6 +182,14 @@ export default {
       return this.$store.state.store || {}
     },
   },
+  created() {
+    this.getAllRecommendations()
+    // this.getBanners()
+    // this.getHotProducts()
+    // this.getYouMayLikeProducts()
+    // this.getBrands()
+    // this.getProductGroups()
+  },
 
   mounted() {
     window.addEventListener('scroll', this.scrollListener)
@@ -204,6 +204,7 @@ export default {
               store: this.store.id,
             },
             fetchPolicy: 'no-cache',
+            errorPolicy: 'all',
           })
         ).data
         const banners = productDetailRecommendations.banners

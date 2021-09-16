@@ -229,6 +229,7 @@ export default {
           query: DETAIL,
           variables: { id },
           fetchPolicy: 'no-cache',
+          errorPolicy: 'all',
         })
       ).data
       product = pw.product
