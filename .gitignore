@@ -9,3 +9,7 @@ prod
 .idea
 static/sw.js
 .eslintcache
+
+config/index.js
+static/icon.png
+static/favicon.ico

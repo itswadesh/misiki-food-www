@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "run-s misiki-copy-config nuxt",
+    "nuxt": "nuxt",
     "build": "nuxt build",
     "builda": "nuxt build -a",
     "u": "git pull upstream master",
