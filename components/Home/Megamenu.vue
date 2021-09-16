@@ -209,9 +209,9 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import PARENT_BRANDS from '~/gql/brand/parentBrands.gql'
-import MEGAMENU from '~/gql/category/megamenu.gql'
-import BRAND from '~/gql/brand/brand.gql'
+// import PARENT_BRANDS from '~/gql/brand/parentBrands.gql'
+// import MEGAMENU from '~/gql/category/megamenu.gql'
+// import BRAND from '~/gql/brand/brand.gql'
 import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
@@ -230,7 +230,7 @@ export default {
   },
   created() {
     // this.getMegamenu()
-    this.getParentBrands()
+    // this.getParentBrands()
   },
   methods: {
     // async getMegamenu() {
@@ -258,28 +258,28 @@ export default {
     //     // ).data.megamenu
     //   } catch (e) {}
     // },
-    async getParentBrands() {
-      // this.loading = true
-      try {
-        this.parentBrands = await this.$get('brand/parentBrands', {
-          featured: true,
-          limit: 30,
-          page: 0,
-        })
-        // this.parentBrands = (
-        //   await this.$apollo.query({
-        //     query: PARENT_BRANDS,
-        //     variables: { featured: true, limit: 30, page: 0 },
-        //     fetchPolicy: 'no-cache',
-        //   })
-        // ).data.parentBrands
-        // console.log("brands to show", this.brands)
-      } catch (e) {
-        // console.log(e)
-      } finally {
-        // this.loading = false
-      }
-    },
+    // async getParentBrands() {
+    //   // this.loading = true
+    //   try {
+    //     this.parentBrands = await this.$get('brand/parentBrands', {
+    //       featured: true,
+    //       limit: 30,
+    //       page: 0,
+    //     })
+    //     // this.parentBrands = (
+    //     //   await this.$apollo.query({
+    //     //     query: PARENT_BRANDS,
+    //     //     variables: { featured: true, limit: 30, page: 0 },
+    //     //     fetchPolicy: 'no-cache',
+    //     //   })
+    //     // ).data.parentBrands
+    //     // console.log("brands to show", this.brands)
+    //   } catch (e) {
+    //     // console.log(e)
+    //   } finally {
+    //     // this.loading = false
+    //   }
+    // },
   },
 }
 </script>

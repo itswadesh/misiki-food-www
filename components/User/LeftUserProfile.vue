@@ -200,7 +200,7 @@
 
       <ul class="overflow-auto font-light max-h-screen mt-3">
         <li
-          v-for="(c, i) in sideMegamenu"
+          v-for="(c, i) in megamenu"
           :key="i"
           class="w-full overflow-hidden border-b tab"
         >
@@ -482,14 +482,14 @@ export default {
       return currPath.includes('/my')
     },
   },
-  watch: {
-    $route(to, from) {
-      this.refreshSideMegaMenu()
-    },
-  },
-  created() {
-    this.refreshSideMegaMenu()
-  },
+  // watch: {
+  //   $route(to, from) {
+  //     this.refreshSideMegaMenu()
+  //   },
+  // },
+  // created() {
+  //   this.refreshSideMegaMenu()
+  // },
   methods: {
     ...mapMutations({ success: 'success', setErr: 'setErr' }),
     ...mapActions({ logout: 'auth/logout' }),
@@ -498,40 +498,40 @@ export default {
       if (this.brand) url = `/c/${cSlug}?brand=${this.brand.id}`
       return this.localePath(url)
     },
-    async refreshSideMegaMenu() {
-      try {
-        let brand = null
-        const bv = {}
-        const slug = this.$route.params.slug
-        const brandId = this.$route.query.brand
-        if (brandId) bv.id = brandId
-        else if (slug) bv.slug = slug
-        try {
-          if (bv.id || bv.slug) {
-            this.brand = brand = await this.$get('brand/brand', bv)
-            // this.brand = brand = (
-            //   await this.$apollo.query({
-            //     query: BRAND,
-            //     variables: bv,
-            //   })
-            // ).data.brand
-          }
-        } catch (e) {}
-        const variables = {}
-        // if (this.$route.path.includes('/brand/') || (brand && brand.id)) {
-        if (brand && brand.id) variables.brand = brand.id
-        if (slug && !this.$route.path.includes('/brand/')) variables.slug = slug
-        // console.log('aaaaaaaaaaaaaaaa', variables)
-        this.sideMegamenu = await this.$get('category/megamenu', variables)
-        // this.sideMegamenu = (
-        //   await this.$apollo.query({
-        //     query: GET_MEGAMENU,
-        //     variables,
-        //     fetchPolicy: 'no-cache',
-        //   })
-        // ).data.megamenu
-      } catch (e) {}
-    },
+    // async refreshSideMegaMenu() {
+    //   try {
+    //     let brand = null
+    //     const bv = {}
+    //     const slug = this.$route.params.slug
+    //     const brandId = this.$route.query.brand
+    //     if (brandId) bv.id = brandId
+    //     else if (slug) bv.slug = slug
+    //     try {
+    //       if (bv.id || bv.slug) {
+    //         this.brand = brand = await this.$get('brand/brand', bv)
+    //         // this.brand = brand = (
+    //         //   await this.$apollo.query({
+    //         //     query: BRAND,
+    //         //     variables: bv,
+    //         //   })
+    //         // ).data.brand
+    //       }
+    //     } catch (e) {}
+    //     const variables = {}
+    //     // if (this.$route.path.includes('/brand/') || (brand && brand.id)) {
+    //     if (brand && brand.id) variables.brand = brand.id
+    //     if (slug && !this.$route.path.includes('/brand/')) variables.slug = slug
+    //     // console.log('aaaaaaaaaaaaaaaa', variables)
+    //     this.sideMegamenu = await this.$get('category/megamenu', variables)
+    //     // this.sideMegamenu = (
+    //     //   await this.$apollo.query({
+    //     //     query: GET_MEGAMENU,
+    //     //     variables,
+    //     //     fetchPolicy: 'no-cache',
+    //     //   })
+    //     // ).data.megamenu
+    //   } catch (e) {}
+    // },
     // async getCategories() {
     // console.log('get categories')
     // try {

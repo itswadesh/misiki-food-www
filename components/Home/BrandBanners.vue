@@ -171,10 +171,7 @@ export default {
   },
   methods: {
     go(url) {
-      if (url)
-        this.$router.push(
-          `/search?${this.ishome ? 'parentBrands' : 'brands'}=${url}`
-        )
+      if (url) this.$router.push(`/search?brands=${url}`)
     },
     //   async getBrands() {
     //     // this.loading = true

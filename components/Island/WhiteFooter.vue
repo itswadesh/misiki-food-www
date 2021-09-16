@@ -300,38 +300,38 @@
             Blog
           </nuxt-link>
         </div>
-
-        <span class="ps-1 my-4 mt-6 text-lg font-medium uppercase lg:mx-auto"
-          >Popular searches</span
-        >
-
-        <div
-          class="
-            flex flex-row flex-wrap
-            mt-4
-            text-xs
-            font-light
-            md:mt-2
-            lg:mx-auto
-          "
-        >
-          <nuxt-link
-            v-for="(s, ix) in popularSearches"
-            :key="ix"
-            :to="`/search/${s.text}`"
+        <div v-if="popularSearches && popularSearches.length">
+          <span class="ps-1 my-4 mt-6 text-lg font-medium uppercase lg:mx-auto">
+            Popular searches
+          </span>
+          <div
             class="
-              w-auto
-              px-1
-              mb-1
-              tracking-wider
-              text-center
-              border-r border-gray-400
-              cursor-pointer
-              hover:bg-gray-800 hover:text-white
+              flex flex-row flex-wrap
+              mt-4
+              text-xs
+              font-light
+              md:mt-2
+              lg:mx-auto
             "
           >
-            {{ s.text }}
-          </nuxt-link>
+            <nuxt-link
+              v-for="(s, ix) in popularSearches"
+              :key="ix"
+              :to="`/search/${s.text}`"
+              class="
+                w-auto
+                px-1
+                mb-1
+                tracking-wider
+                text-center
+                border-r border-gray-400
+                cursor-pointer
+                hover:bg-gray-800 hover:text-white
+              "
+            >
+              {{ s.text }}
+            </nuxt-link>
+          </div>
         </div>
       </div>
 
@@ -546,7 +546,6 @@
 </template>
 <script>
 // import LanguageSwitcher from '~/components/LanguageSwitcher'
-import POPULAR_SEARCHES from '~/gql/search/popularSearches.gql'
 import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
@@ -557,9 +556,15 @@ export default {
   data() {
     return {
       year: new Date().getFullYear(),
-      popularSearches: null,
+      // popularSearches: null,
     }
   },
+  // async fetch() {
+  // this.getPopularSearches()
+  // this.popularSearches = (
+  //   await this.$get('search/popularSearches', { sort: '-popularity' })
+  // ).data
+  // },
   computed: {
     store() {
       return this.$store.state.store || {}
@@ -567,32 +572,32 @@ export default {
     settings() {
       return this.$store.state.settings || {}
     },
-  },
-  created() {
-    this.getPopularSearches()
+    popularSearches() {
+      return this.$store.state.popularSearches || []
+    },
   },
   methods: {
-    async getPopularSearches() {
-      try {
-        this.loading = true
-        this.popularSearches = (
-          await this.$get('search/popularSearches', { sort: '-popularity' })
-        ).data
-        // this.popularSearches = (
-        //   await this.$apollo.query({
-        //     query: POPULAR_SEARCHES,
-        //     variables: {
-        //       sort: '-popularity',
-        //     },
-        //     fetchPolicy: 'no-cache',
-        //   })
-        // ).data.popularSearches.data
-      } catch (e) {
-        // console.log(e)
-      } finally {
-        this.loading = false
-      }
-    },
+    // async getPopularSearches() {
+    //   try {
+    //     this.loading = true
+    //     this.popularSearches = (
+    //       await this.$get('search/popularSearches', { sort: '-popularity' })
+    //     ).data
+    //     // this.popularSearches = (
+    //     //   await this.$apollo.query({
+    //     //     query: POPULAR_SEARCHES,
+    //     //     variables: {
+    //     //       sort: '-popularity',
+    //     //     },
+    //     //     fetchPolicy: 'no-cache',
+    //     //   })
+    //     // ).data.popularSearches.data
+    //   } catch (e) {
+    //     // console.log(e)
+    //   } finally {
+    //     this.loading = false
+    //   }
+    // },
   },
 }
 </script>

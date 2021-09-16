@@ -812,6 +812,7 @@ export default {
     host: { type: String, default: null },
     pg: { type: Object, default: null },
     product: { type: Object, default: null },
+    reviewSummary: { type: Object, default: null },
     // loading: { type: Boolean },
   },
   data() {
@@ -820,7 +821,7 @@ export default {
       showDemoScheduler: false,
       sidebar: false,
       selectedRadio: null,
-      reviewSummary: null,
+      // reviewSummary: null,
       selectedOptions: {},
       select: null,
       deliveryDate: null,
@@ -843,7 +844,7 @@ export default {
     // },
   },
   async created() {
-    await this.getReviews()
+    // await this.getReviews()
     await this.updatedDeliveryDates()
     if (this.product.options) {
       this.product.options.forEach((o) => {
@@ -892,20 +893,20 @@ export default {
       this.selectedProduct = { id: p.id, name: p.name }
       this.showDemoScheduler = true
     },
-    async getReviews() {
-      const pid = this.$route.query.id
-      if (!pid) return
-      try {
-        this.reviewSummary = await this.$get('review/reviewSummary', { pid })
-        // this.reviewSummary = (
-        //   await this.$apollo.query({
-        //     query: REVIEWS,
-        //     variables: { pid },
-        //     fetchPolicy: 'no-cache',
-        //   })
-        // ).data.reviewSummary
-      } catch (e) {}
-    },
+    // async getReviews() {
+    //   const pid = this.$route.query.id
+    //   if (!pid) return
+    //   try {
+    //     this.reviewSummary = await this.$get('review/reviewSummary', { pid })
+    //     // this.reviewSummary = (
+    //     //   await this.$apollo.query({
+    //     //     query: REVIEWS,
+    //     //     variables: { pid },
+    //     //     fetchPolicy: 'no-cache',
+    //     //   })
+    //     // ).data.reviewSummary
+    //   } catch (e) {}
+    // },
     ...mapMutations({
       clearErr: 'clearErr',
       setErr: 'setErr',

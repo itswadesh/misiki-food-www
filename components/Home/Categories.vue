@@ -118,36 +118,39 @@ export default {
     BagSkelton,
     NuxtLink,
   },
+  props: {
+    categories: { type: Object, default: null },
+  },
   data() {
     return {
-      categories: null,
+      // categories: null,
       loading: false,
     }
   },
   created() {
-    this.getCategories()
+    // this.getCategories()
   },
   methods: {
-    async getCategories() {
-      this.loading = true
-      try {
-        this.categories = await this.$get('category/categories', {
-          img: true,
-          shopbycategory: true,
-        })
-        // this.categories = (
-        //   await this.$apollo.query({
-        //     query: CATEGORIES,
-        //     variables: { img: true, shopbycategory: true },
-        //     fetchPolicy: 'no-cache',
-        //   })
-        // ).data.categories
-      } catch (e) {
-        // console.log(e)
-      } finally {
-        this.loading = false
-      }
-    },
+    // async getCategories() {
+    //   this.loading = true
+    //   try {
+    //     this.categories = await this.$get('category/categories', {
+    //       img: true,
+    //       shopbycategory: true,
+    //     })
+    //     // this.categories = (
+    //     //   await this.$apollo.query({
+    //     //     query: CATEGORIES,
+    //     //     variables: { img: true, shopbycategory: true },
+    //     //     fetchPolicy: 'no-cache',
+    //     //   })
+    //     // ).data.categories
+    //   } catch (e) {
+    //     // console.log(e)
+    //   } finally {
+    //     this.loading = false
+    //   }
+    // },
   },
 }
 </script>

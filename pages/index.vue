@@ -4,7 +4,10 @@
 
     <HeroSlider :banners="sliderBanners" class="pb-5 md:pb-10" />
 
-    <Categories class="px-2 sm:px-10 pb-5 md:pb-10" />
+    <Categories
+      :categories="shopByCategory"
+      class="px-2 sm:px-10 pb-5 md:pb-10"
+    />
 
     <HeroBanners :banners="heroBanners" class="px-2 sm:px-10 pb-5 md:pb-10" />
 
@@ -37,7 +40,6 @@
     />
 
     <VideoBanner :banners="videoBanners" class="px-2 sm:px-10 pb-5 md:pb-10" />
-
     <BrandBanners
       :ishome="true"
       :brands="brandBanners && brandBanners.data"
@@ -65,6 +67,7 @@ import ProductSlider2 from '~/components/Home/ProductSlider2.vue'
 import BrandBanners from '~/components/Home/BrandBanners.vue'
 import HeroBannersSlider from '~/components/Home/HeroBannersSlider.vue'
 import VideoBanner from '~/components/Home/VideoBanner.vue'
+import HOME from '~/gql/groupQueries/HOME.gql'
 import TRENDING from '~/gql/product/trending.gql'
 import BANNERS from '~/gql/banner/banners.gql'
 import GROUP_BY_BANNER from '~/gql/banner/groupByBanner.gql'
@@ -107,7 +110,16 @@ export default {
       videoBanners: null,
       loadingVideoBanners: false,
       pickedBanners: null,
+      shopByCategory: null,
     }
+  },
+  fetch() {
+    this.getAllRecommendations()
+    // this.getBanners()
+    // this.getHotProducts()
+    // this.getYouMayLikeProducts()
+    // this.getBrands()
+    // this.getProductGroups()
   },
 
   head() {
@@ -174,19 +186,46 @@ export default {
     user() {
       return this.$store.state.auth.user
     },
+    store() {
+      return this.$store.state.store || {}
+    },
   },
 
   mounted() {
     window.addEventListener('scroll', this.scrollListener)
   },
-  created() {
-    this.getBanners()
-    this.getHotProducts()
-    this.getYouMayLikeProducts()
-    this.getBrands()
-    this.getProductGroups()
-  },
   methods: {
+    async getAllRecommendations() {
+      try {
+        const productDetailRecommendations = (
+          await this.$apollo.query({
+            query: HOME,
+            variables: {
+              store: this.store.id,
+            },
+            fetchPolicy: 'no-cache',
+          })
+        ).data
+        const banners = productDetailRecommendations.banners
+        const groupByBanner = productDetailRecommendations.groupByBanner
+        this.sliderBanners = banners.data.filter((b) => b.type === 'slider')
+        this.videoBanners = banners.data.filter((b) => b.type === 'video')
+        this.heroBanners = groupByBanner.filter((b) => b._id.type === 'hero')
+        this.pickedBanners = groupByBanner.filter(
+          (b) => b._id.type === 'picked'
+        )
+        this.brandBanners = productDetailRecommendations.brands
+        this.shopByCategory = productDetailRecommendations.categories
+
+        const trending = productDetailRecommendations.trending
+        this.youMayLikeProducts = trending.filter((b) => b.sale === true)
+        this.hotProducts = trending.filter((b) => b.hot === true)
+
+        this.pg = productDetailRecommendations.pg
+      } catch (e) {
+        console.log('err...........', e)
+      }
+    },
     async getBrands() {
       // this.loading = true
       try {
@@ -220,52 +259,21 @@ export default {
       this.loading = true
       // this.skeleton = true
       try {
-        const banners = await this.$get('banner/banners', {
-          sort: 'sort',
-          pageId: 'home',
-          active: true,
-        })
-        // const banners = (
-        //   await this.$apollo.query({
-        //     query: BANNERS,
-        //     variables: {
-        //       sort: 'sort',
-        //       pageId: 'home',
-        //       active: true,
-        //     },
-        //     fetchPolicy: 'no-cache',
-        //   })
-        // ).data.banners
-        this.sliderBanners = banners.data.filter((b) => b.type === 'slider')
-        this.videoBanners = banners.data.filter((b) => b.type === 'video')
+        // const banners = await this.$get('banner/banners', {
+        //   sort: 'sort',
+        //   pageId: 'home',
+        //   active: true,
+        // })
+        // this.sliderBanners = banners.data.filter((b) => b.type === 'slider')
+        // this.videoBanners = banners.data.filter((b) => b.type === 'video')
         this.heroBanners = await this.$get('banner/groupByBanner', {
           pageId: 'home',
           type: 'hero',
         })
-        // this.heroBanners = (
-        //   await this.$apollo.query({
-        //     query: GROUP_BY_BANNER,
-        //     variables: {
-        //       pageId: 'home',
-        //       type: 'hero',
-        //     },
-        //     fetchPolicy: 'no-cache',
-        //   })
-        // ).data.groupByBanner
         this.pickedBanners = await this.$get('banner/groupByBanner', {
           pageId: 'home',
           type: 'picked',
         })
-        // this.pickedBanners = (
-        //   await this.$apollo.query({
-        //     query: GROUP_BY_BANNER,
-        //     variables: {
-        //       pageId: 'home',
-        //       type: 'picked',
-        //     },
-        //     fetchPolicy: 'no-cache',
-        //   })
-        // ).data.groupByBanner
       } catch (e) {
         // console.log(e)
       } finally {
@@ -288,15 +296,6 @@ export default {
         this.youMayLikeProducts = await this.$get('product/trending', {
           type: 'sale',
         })
-        // this.youMayLikeProducts = (
-        //   await this.$apollo.query({
-        //     query: TRENDING,
-        //     variables: {
-        //       type: 'sale',
-        //     },
-        //     fetchPolicy: 'no-cache',
-        //   })
-        // ).data.trending
       } catch (e) {
         // console.log(e)
       } finally {
@@ -308,15 +307,6 @@ export default {
       this.loading = true
       try {
         this.hotProducts = await this.$get('product/trending', { type: 'hot' })
-        // this.hotProducts = (
-        //   await this.$apollo.query({
-        //     query: TRENDING,
-        //     variables: {
-        //       type: 'hot',
-        //     },
-        //     fetchPolicy: 'no-cache',
-        //   })
-        // ).data.trending
       } catch (e) {
         // console.log(e)
       } finally {
@@ -324,20 +314,20 @@ export default {
       }
     },
 
-    async getProductGroups() {
-      try {
-        this.pg = await this.$get('product/product_group', { id })
-        // this.pg = (
-        //   await this.$apollo.query({
-        //     query: PRODUCT_GROUP,
-        //     variables: { id },
-        //     fetchPolicy: 'no-cache',
-        //   })
-        // ).data.product_group
-        // this.checkWishlist()
-        console.log(pg)
-      } catch (e) {}
-    },
+    // async getProductGroups() {
+    //   try {
+    //     this.pg = await this.$get('product/product_group', { id })
+    //     // this.pg = (
+    //     //   await this.$apollo.query({
+    //     //     query: PRODUCT_GROUP,
+    //     //     variables: { id },
+    //     //     fetchPolicy: 'no-cache',
+    //     //   })
+    //     // ).data.product_group
+    //     // this.checkWishlist()
+    //     console.log(pg)
+    //   } catch (e) {}
+    // },
   },
 }
 </script>

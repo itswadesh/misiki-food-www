@@ -91,6 +91,7 @@
             <WishButton
               v-if="product.id"
               rounded
+              :exist-in-wishlist="existInWishlist"
               :pid="product.id"
               class="p-1 w-8 h-8"
             />
@@ -148,6 +149,7 @@
               v-if="product.id"
               rounded
               :pid="product.id"
+              :exist-in-wishlist="existInWishlist"
               class="p-1 w-7 h-7"
             />
           </div>
@@ -235,6 +237,7 @@ export default {
     img: { type: String, default: null },
     host: { type: String, default: null },
     product: { type: Object, default: null },
+    existInWishlist: { type: Boolean, default: false },
   },
   data() {
     return {

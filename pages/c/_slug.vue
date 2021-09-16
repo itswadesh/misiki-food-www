@@ -28,9 +28,7 @@
 
         <!-- <ProductSkeleton /> -->
 
-        <NoProduct v-if="(!products || !products.length) && !loading" />
-
-        <div v-else>
+        <div>
           <div
             v-if="$fetchState.pending"
             class="
@@ -45,6 +43,7 @@
           >
             <ProductSkeleton v-for="(p, ix) in 10" :key="ix + '-1'" />
           </div>
+          <p v-else-if="$fetchState.error">Error while fetching products</p>
 
           <div
             v-else-if="products && products.length > 0"
@@ -69,6 +68,7 @@
               :pid="p._id"
             />
           </div>
+          <NoProduct v-else />
 
           <!-- <infinite-loading @infinite="loadMore($route.query.page)"></infinite-loading> -->
 

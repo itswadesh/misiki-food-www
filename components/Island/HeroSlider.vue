@@ -95,6 +95,7 @@ export default {
         slidesToShow: 1,
         autoplay: true,
         speed: 500,
+        lazyLoad: 'progressive',
         responsive: [
           {
             breakpoint: 1024,

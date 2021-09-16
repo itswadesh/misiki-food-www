@@ -1,13 +1,13 @@
 <template>
   <div v-if="facets" class="w-72 min-h-screen border-r">
-    <div v-if="sideMegamenu && sideMegamenu.count > 0" class="border-b p-4">
+    <div v-if="megamenu && megamenu.length > 0" class="border-b p-4">
       <h5 class="mb-4 text-sm font-bold uppercase leading-3 tracking-wide">
         CATEGORIES
       </h5>
 
       <ul class="overflow-y-auto max-h-72">
         <li
-          v-for="(c, i) in sideMegamenu"
+          v-for="(c, i) in megamenu"
           :key="i"
           class="
             font-light
@@ -532,6 +532,7 @@
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 import { Checkbox, Radio } from '~/shared/components/ui'
 import { constructURL } from '~/lib/'
 import PARENT_BRANDS from '~/gql/brand/parentBrands.gql'
@@ -562,8 +563,11 @@ export default {
       sideMegamenu: null,
     }
   },
+  computed: {
+    ...mapGetters({ megamenu: 'megamenu' }),
+  },
   created() {
-    this.refreshSideMegaMenu()
+    // this.refreshSideMegaMenu()
     // try {
     //   this.sideMegamenu = (
     //     await this.$apollo.query({
@@ -575,43 +579,43 @@ export default {
     // } catch (e) {}
   },
   methods: {
-    async refreshSideMegaMenu() {
-      try {
-        const brand = null
-        const bv = {}
-        const slug = this.$route.params.slug
-        const brandId = this.$route.query.brand
-        if (brandId) bv.id = brandId
-        else if (slug) bv.slug = slug
-        try {
-          if (bv.id || bv.slug) {
-            this.brand = await this.$get('brand/brand', {
-              query: BRAND,
-              variables: bv,
-            })
-            // this.brand = brand = (
-            //   await this.$apollo.query({
-            //     query: BRAND,
-            //     variables: bv,
-            //   })
-            // ).data.brand
-          }
-        } catch (e) {}
-        const variables = {}
-        // if (this.$route.path.includes('/brand/') || (brand && brand.id)) {
-        if (brand && brand.id) variables.brand = brand.id
-        if (slug && !this.$route.path.includes('/brand/')) variables.slug = slug
-        // console.log('aaaaaaaaaaaaaaaa', variables)
-        this.sideMegamenu = await this.$get('category/megamenu', variables)
-        // this.sideMegamenu = (
-        //   await this.$apollo.query({
-        //     query: GET_MEGAMENU,
-        //     variables,
-        //     fetchPolicy: 'no-cache',
-        //   })
-        // ).data.megamenu
-      } catch (e) {}
-    },
+    // async refreshSideMegaMenu() {
+    //   try {
+    //     const brand = null
+    //     const bv = {}
+    //     const slug = this.$route.params.slug
+    //     const brandId = this.$route.query.brand
+    //     if (brandId) bv.id = brandId
+    //     else if (slug) bv.slug = slug
+    //     try {
+    //       if (bv.id || bv.slug) {
+    //         this.brand = await this.$get('brand/brand', {
+    //           query: BRAND,
+    //           variables: bv,
+    //         })
+    //         // this.brand = brand = (
+    //         //   await this.$apollo.query({
+    //         //     query: BRAND,
+    //         //     variables: bv,
+    //         //   })
+    //         // ).data.brand
+    //       }
+    //     } catch (e) {}
+    //     const variables = {}
+    //     // if (this.$route.path.includes('/brand/') || (brand && brand.id)) {
+    //     if (brand && brand.id) variables.brand = brand.id
+    //     if (slug && !this.$route.path.includes('/brand/')) variables.slug = slug
+    //     // console.log('aaaaaaaaaaaaaaaa', variables)
+    //     this.sideMegamenu = await this.$get('category/megamenu', variables)
+    //     // this.sideMegamenu = (
+    //     //   await this.$apollo.query({
+    //     //     query: GET_MEGAMENU,
+    //     //     variables,
+    //     //     fetchPolicy: 'no-cache',
+    //     //   })
+    //     // ).data.megamenu
+    //   } catch (e) {}
+    // },
     slug(slug) {
       let s = `/c/${slug}`
       if (this.brand) s = `/c/${slug}?brand=${this.brand.id}`
@@ -650,28 +654,28 @@ export default {
     go(slug) {
       this.$router.push('/' + slug)
     },
-    async getParentBrands() {
-      // this.loading = true
-      try {
-        this.parentBrands = await this.$get('brand/parentBrands', {
-          featured: true,
-          limit: 5,
-          page: 0,
-        })
-        // this.parentBrands = (
-        //   await this.$apollo.query({
-        //     query: PARENT_BRANDS,
-        //     variables: { featured: true, limit: 5, page: 0 },
-        //     fetchPolicy: 'no-cache',
-        //   })
-        // ).data.parentBrands
-        // console.log("brands to show", this.brands)
-      } catch (e) {
-        // console.log(e)
-      } finally {
-        // this.loading = false
-      }
-    },
+    // async getParentBrands() {
+    //   // this.loading = true
+    //   try {
+    //     this.parentBrands = await this.$get('brand/parentBrands', {
+    //       featured: true,
+    //       limit: 5,
+    //       page: 0,
+    //     })
+    //     // this.parentBrands = (
+    //     //   await this.$apollo.query({
+    //     //     query: PARENT_BRANDS,
+    //     //     variables: { featured: true, limit: 5, page: 0 },
+    //     //     fetchPolicy: 'no-cache',
+    //     //   })
+    //     // ).data.parentBrands
+    //     // console.log("brands to show", this.brands)
+    //   } catch (e) {
+    //     // console.log(e)
+    //   } finally {
+    //     // this.loading = false
+    //   }
+    // },
   },
 }
 </script>

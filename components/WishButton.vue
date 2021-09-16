@@ -39,18 +39,19 @@ import TOGGLE from '~/gql/wishlist/toggleWishlist.gql'
 import CHECK_WISHLIST from '~/gql/wishlist/checkWishlist.gql'
 export default {
   props: {
+    existInWishlist: { type: Boolean, required: false, default: false },
     pid: { type: String, required: true },
     rounded: { type: Boolean },
   },
   data() {
     return {
-      existInWishlist: false,
+      // existInWishlist: false,
       isDisabled: false,
     }
   },
-  created() {
-    this.checkWishlist()
-  },
+  // created() {
+  // this.checkWishlist()
+  // },
   methods: {
     ...mapMutations({
       clearErr: 'clearErr',
@@ -59,26 +60,26 @@ export default {
       info: 'info',
       busy: 'busy',
     }),
-    async checkWishlist() {
-      try {
-        this.existInWishlist = await this.$get('wishlist/checkWishlist', {
-          product: this.pid,
-          variant: this.pid,
-        })
-        // this.existInWishlist = (
-        //   await this.$apollo.query({
-        //     query: CHECK_WISHLIST,
-        //     variables: {
-        //       product: this.pid,
-        //       variant: this.pid,
-        //     },
-        //     fetchPolicy: 'no-cache',
-        //   })
-        // ).data.checkWishlist
-      } catch (e) {
-        this.setErr(e)
-      }
-    },
+    // async checkWishlist() {
+    //   try {
+    //     this.existInWishlist = await this.$get('wishlist/checkWishlist', {
+    //       product: this.pid,
+    //       variant: this.pid,
+    //     })
+    //     // this.existInWishlist = (
+    //     //   await this.$apollo.query({
+    //     //     query: CHECK_WISHLIST,
+    //     //     variables: {
+    //     //       product: this.pid,
+    //     //       variant: this.pid,
+    //     //     },
+    //     //     fetchPolicy: 'no-cache',
+    //     //   })
+    //     // ).data.checkWishlist
+    //   } catch (e) {
+    //     this.setErr(e)
+    //   }
+    // },
     async toggleWishlist() {
       if (!this.user) {
         this.$router.push(`/login?ref=${this.$router.currentRoute.fullPath}`)

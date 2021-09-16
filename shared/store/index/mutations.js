@@ -5,6 +5,9 @@ export default {
   megamenu(state, payload) {
     state.megamenu = payload
   },
+  popularSearches(state, payload) {
+    state.popularSearches = payload
+  },
   settings(state, payload) {
     state.settings = payload
   },

@@ -1,4 +1,3 @@
-div
 <template>
   <div class="pb-10 bg-white sm:pb-32">
     <Megamenu class="hidden border-b xl:flex" />
@@ -32,13 +31,14 @@ div
           <div v-if="product && product.id" class="sticky top-20">
             <ProductImages
               v-if="product"
-              :loading="loading"
+              :loading="$fetchState.pending"
               class="h-auto mt-5 nowrap lg:mt-0 mb-5 md:mb-10"
               :images="product && product.images"
               :pid="product.id"
               :img="product.img"
               :host="host"
               :product="product"
+              :exist-in-wishlist="checkWishlist"
             />
 
             <div
@@ -86,6 +86,7 @@ div
               :host="host"
               :product="product"
               :pg="pg"
+              :review-summary="reviewSummary"
               @variantChanged="variantChanged"
               @optionChanged="optionChanged"
             />
@@ -188,11 +189,12 @@ import BuyNow from '~/components/ProductDetails/BuyNow.vue'
 import ProductSlider from '~/components/Home/ProductSlider.vue'
 import { TITLE, DESCRIPTION, KEYWORDS } from '~/shared/config'
 import PRODUCTS from '~/gql/product/products.gql'
-import PRODUCT from '~/gql/product/product.gql'
+import DETAIL from '~/gql/groupQueries/DETAIL.gql'
 import PRODUCT_GROUP from '~/gql/product/product_group.gql'
 // import TOGGLE from '~/gql/wishlist/toggleWishlist.gql'
 // import CHECK_WISHLIST from '~/gql/wishlist/checkWishlist.gql'
 import DetailsPageLeftSkeleton from '~/components/AllSkeletons/DetailsPageLeftSkeleton.vue'
+import { ReviewSummary } from '~/shared/components'
 export default {
   components: {
     Share,
@@ -214,19 +216,26 @@ export default {
   async asyncData({ params, query, app, req, error, store }) {
     const client = app.apolloProvider.defaultClient
     let product = {}
+    let productGroup = {}
+    let checkWishlist = false
+    let reviewSummary = {}
     let selectedVariant = null
     let err = null
     const id = query.id
     if (!id) error({ statusCode: 404, message: 'Page not found' })
     try {
-      product = (
+      const pw = (
         await client.query({
-          query: PRODUCT,
+          query: DETAIL,
           variables: { id },
           fetchPolicy: 'no-cache',
         })
-      ).data.product
-      if (!product) error('Page not found')
+      ).data
+      product = pw.product
+      productGroup = pw.product_group
+      checkWishlist = pw.checkWishlist
+      reviewSummary = pw.reviewSummary
+      if (!product) error('Not found')
       // for (let v of product && product.variants) {
       //   if (v.stock > 0) {
       //     selectedVariant = v
@@ -292,6 +301,9 @@ export default {
     return {
       host: HOST,
       product,
+      productGroup,
+      checkWishlist,
+      reviewSummary,
       selectedVariant,
       err,
       structuredData,
@@ -311,6 +323,13 @@ export default {
       // savingWishlist: false,
       // alertToSelectMandatoryOptions: false,
     }
+  },
+  async fetch() {
+    this.recommendedProducts = await this.$get('product/products', {
+      new: true,
+    })
+    // this.getProducts()
+    // // this.getProductGroups()
   },
 
   head() {
@@ -420,10 +439,6 @@ export default {
     }
     return prod
   },
-  created() {
-    this.getProducts()
-    this.getProductGroups()
-  },
   methods: {
     ...mapMutations({
       clearErr: 'clearErr',
@@ -437,21 +452,21 @@ export default {
       b.push(this.product.category)
       return b
     },
-    async getProductGroups() {
-      const id = this.$route.query.id
-      if (!id) return
-      try {
-        this.pg = await this.$get('product/product_group', { id })
-        // this.pg = (
-        //   await this.$apollo.query({
-        //     query: PRODUCT_GROUP,
-        //     variables: { id },
-        //     fetchPolicy: 'no-cache',
-        //   })
-        // ).data.product_group
-        // this.checkWishlist()
-      } catch (e) {}
-    },
+    // async getProductGroups() {
+    //   const id = this.$route.query.id
+    //   if (!id) return
+    //   try {
+    //     this.pg = await this.$get('product/product_group', { id })
+    //     // this.pg = (
+    //     //   await this.$apollo.query({
+    //     //     query: PRODUCT_GROUP,
+    //     //     variables: { id },
+    //     //     fetchPolicy: 'no-cache',
+    //     //   })
+    //     // ).data.product_group
+    //     // this.checkWishlist()
+    //   } catch (e) {}
+    // },
     // async checkWishlist() {
     //   try {
     //     this.existInWishlist = (
@@ -507,27 +522,27 @@ export default {
       // console.log('oooooooooooooooooo', o)
       this.selectedOptions = o
     },
-    async getProducts() {
-      // Recommended Products
-      this.loading = true
-      try {
-        this.recommendedProducts = await this.$get('product/products', {
-          new: true,
-        })
-        // this.recommendedProducts = (
-        //   await this.$apollo.query({
-        //     query: PRODUCTS,
-        //     variables: {
-        //       new: true,
-        //     },
-        //     fetchPolicy: 'no-cache',
-        //   })
-        // ).data.products
-      } catch (e) {
-      } finally {
-        this.loading = false
-      }
-    },
+    // async getProducts() {
+    //   // Recommended Products
+    //   this.loading = true
+    //   try {
+    //     this.recommendedProducts = await this.$get('product/products', {
+    //       new: true,
+    //     })
+    //     // this.recommendedProducts = (
+    //     //   await this.$apollo.query({
+    //     //     query: PRODUCTS,
+    //     //     variables: {
+    //     //       new: true,
+    //     //     },
+    //     //     fetchPolicy: 'no-cache',
+    //     //   })
+    //     // ).data.products
+    //   } catch (e) {
+    //   } finally {
+    //     this.loading = false
+    //   }
+    // },
   },
 }
 </script>

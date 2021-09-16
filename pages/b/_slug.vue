@@ -152,7 +152,7 @@ export default {
       }
       const q = params.slug || null
       const qry = { ...query }
-      if (q) qry.parentBrands = q
+      if (q) qry.brands = q
       // if (cslug) qry.categories = cslug
       const result = await $axios.$get('/api/products/es', {
         params: { ...qry },
