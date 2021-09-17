@@ -15,7 +15,6 @@
             overflow-hidden
             bg-white
             border-2
-            rounded-sm
             widths
           "
         >
@@ -76,18 +75,8 @@
           sm:flex sm:flex-col
         "
       >
-        <div
-          class="
-            relative
-            z-10
-            overflow-hidden
-            bg-white
-            border-2
-            rounded-md
-            widths
-          "
-        >
-          <div class="z-50 absolute top-0 right-0 m-3">
+        <div class="relative z-10 overflow-hidden bg-white widths">
+          <div class="z-50 absolute top-0 right-0">
             <WishButton
               v-if="product.id"
               rounded
@@ -133,18 +122,8 @@
       <!-- mobile view -->
 
       <div v-if="images && images.length" class="container mx-auto sm:hidden">
-        <div
-          class="
-            relative
-            z-10
-            overflow-hidden
-            bg-white
-            border-2
-            rounded-md
-            widths
-          "
-        >
-          <div class="z-50 absolute top-0 right-0 m-2">
+        <div class="relative z-10 overflow-hidden bg-white widths">
+          <div class="z-50 absolute top-0 right-0">
             <WishButton
               v-if="product.id"
               rounded
@@ -162,7 +141,7 @@
             <div
               v-for="(im, ix) in images"
               :key="ix"
-              class="bg-white border h-80 focus:outline-none"
+              class="bg-white h-80 focus:outline-none"
             >
               <img
                 v-if="!youtubeVideoId(im)"
@@ -200,7 +179,7 @@
             >
               <img
                 v-lazy="imgVideo(ig)"
-                class="object-contain w-16 h-16 mx-auto bg-white border rounded"
+                class="object-contain w-16 h-16 mx-auto bg-white"
               />
             </div>
           </VueSlickCarousel>
