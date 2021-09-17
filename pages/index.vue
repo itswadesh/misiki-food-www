@@ -22,7 +22,7 @@
         <HeroBannersSlider
           :banners="p && p.data"
           :title="p._id && p._id.title"
-          class="sm:px-10 lg:px-7 mb-5"
+          class="sm:px-10 lg:px-7 mb-5 md:mb-10"
         />
       </div>
 
@@ -30,14 +30,14 @@
         :details="youMayLikeProducts"
         :pg="pg"
         :heading="'You May Like'"
-        class="mb-5 lg:mb-10 pl-2 sm:pl-10 lg:pr-10"
+        class="mb-5 md:mb-10 pl-2 sm:pl-10 lg:pr-10"
       />
 
       <ProductSlider
         :details="hotProducts"
         :pg="pg"
         :heading="'Trending'"
-        class="mb-5 lg:mb-10 pl-2 sm:pl-10 lg:pr-10"
+        class="mb-5 md:mb-10 pl-2 sm:pl-10 lg:pr-10"
       />
 
       <VideoBanner
