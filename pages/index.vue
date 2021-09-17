@@ -1,50 +1,55 @@
 <template>
-  <div class="container mx-auto bg-white">
+  <div class="bg-white">
     <Megamenu class="hidden xl:flex px-10" />
 
-    <HeroSlider :banners="sliderBanners" class="pb-5 md:pb-10" />
+    <HeroSlider :banners="sliderBanners" class="mb-5 md:mb-10" />
 
-    <Categories
-      :categories="shopByCategory"
-      class="px-2 sm:px-10 pb-5 md:pb-10"
-    />
+    <div class="container mx-auto">
+      <Categories
+        :categories="shopByCategory"
+        class="px-2 sm:px-10 mb-5 md:mb-10"
+      />
 
-    <HeroBanners :banners="heroBanners" class="px-2 sm:px-10 pb-5 md:pb-10" />
+      <HeroBanners :banners="heroBanners" class="px-2 sm:px-10 mb-5 md:mb-10" />
 
-    <Deals class="px-2 sm:px-10 pb-5 md:pb-10" />
+      <Deals class="px-2 sm:px-10 mb-5 md:mb-10" />
 
-    <div
-      v-for="(p, ix) in pickedBanners"
-      v-if="pickedBanners && pickedBanners.length"
-      :key="ix"
-    >
-      <HeroBannersSlider
-        :banners="p && p.data"
-        :title="p._id && p._id.title"
-        class="sm:px-10 lg:px-7 pb-5"
+      <div
+        v-for="(p, ix) in pickedBanners"
+        v-if="pickedBanners && pickedBanners.length"
+        :key="ix"
+      >
+        <HeroBannersSlider
+          :banners="p && p.data"
+          :title="p._id && p._id.title"
+          class="sm:px-10 lg:px-7 mb-5"
+        />
+      </div>
+
+      <ProductSlider
+        :details="youMayLikeProducts"
+        :pg="pg"
+        :heading="'You May Like'"
+        class="mb-5 lg:mb-10 pl-2 sm:pl-10 lg:pr-10"
+      />
+
+      <ProductSlider
+        :details="hotProducts"
+        :pg="pg"
+        :heading="'Trending'"
+        class="mb-5 lg:mb-10 pl-2 sm:pl-10 lg:pr-10"
+      />
+
+      <VideoBanner
+        :banners="videoBanners"
+        class="px-2 sm:px-10 mb-5 md:mb-10"
+      />
+      <BrandBanners
+        :ishome="true"
+        :brands="brandBanners && brandBanners.data"
+        class="px-2 sm:px-10 mb-5 md:mb-10"
       />
     </div>
-
-    <ProductSlider
-      :details="youMayLikeProducts"
-      :pg="pg"
-      :heading="'You May Like'"
-      class="pb-5 lg:pb-10 pl-2 sm:pl-10 lg:pr-10"
-    />
-
-    <ProductSlider
-      :details="hotProducts"
-      :pg="pg"
-      :heading="'Trending'"
-      class="pb-5 lg:pb-10 pl-2 sm:pl-10 lg:pr-10"
-    />
-
-    <VideoBanner :banners="videoBanners" class="px-2 sm:px-10 pb-5 md:pb-10" />
-    <BrandBanners
-      :ishome="true"
-      :brands="brandBanners && brandBanners.data"
-      class="px-2 sm:px-10 pb-5 md:pb-10"
-    />
 
     <!-- <Discounts /> -->
     <!-- <div>
@@ -89,6 +94,9 @@ export default {
     // Discounts,
     VideoBanner,
   },
+
+  layout: 'home',
+
   middleware: ['landing'],
 
   asyncData({ params, app, store }) {

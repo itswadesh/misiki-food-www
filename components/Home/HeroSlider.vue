@@ -38,17 +38,17 @@
         @click="go(b.link)"
       >
         <img
-          v-lazy="b.img"
+          v-lazy="`${b.img}?tr=w-1500,h-380,fo-auto`"
           class="
-            bg-white
-            object-cover
-            w-full
-            overflow-hidden
             bg-white
             h-48
             md:h-64
             lg:h-80
             xl:h-96
+            w-full
+            object-cover
+            overflow-hidden
+            bg-white
           "
           alt="Slider Banners"
         />

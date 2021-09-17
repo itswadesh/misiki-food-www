@@ -1,43 +1,41 @@
 <template>
   <div
     class="
-      relative
       flex flex-col
       w-full
+      min-h-screen
       font-sans
       antialiased
       text-gray-800
-      bg-gray-50
+      bg-white
     "
   >
-    <div class="min-h-screen">
+    <div
+      v-if="!store.id && settings.isMultiStore"
+      class="px-8 py-12 flex flex-col items-center justify-center"
+    >
       <div
-        v-if="!store.id && settings.isMultiStore"
-        class="px-8 py-12 flex flex-col items-center justify-center"
+        class="mb-6 text-2xl font-bold text-center text-gray-800 md:text-3xl"
       >
-        <div
-          class="mb-6 text-2xl font-bold text-center text-gray-800 md:text-3xl"
-        >
-          <img src="/no/dog-png-1.png" alt="" class="mx-auto h-96 w-72" />
-          <p>Oops! Store not found</p>
-        </div>
-
-        <a :href="`${settings.ADMIN_PANEL_LINK}`" class="mb-5">
-          <PrimaryButtonRounded class="w-52">
-            Create your store
-          </PrimaryButtonRounded>
-        </a>
-
-        <div class="mb-1 text-xs font-semibold text-center">
-          {{ settings.websiteName }}
-        </div>
+        <img src="/no/dog-png-1.png" alt="" class="mx-auto h-96 w-72" />
+        <p>Oops! Store not found</p>
       </div>
 
-      <div v-else>
-        <Nav class="fixed top-0 z-50 w-full" @showLogin="showLogin" />
+      <a :href="`${settings.ADMIN_PANEL_LINK}`" class="mb-5">
+        <PrimaryButtonRounded class="w-52">
+          Create your store
+        </PrimaryButtonRounded>
+      </a>
 
-        <Nuxt class="w-full mt-24 lg:mt-16" />
+      <div class="mb-1 text-xs font-semibold text-center">
+        {{ settings.websiteName }}
       </div>
+    </div>
+
+    <div v-else>
+      <Nav class="fixed top-0 z-50 w-full" @showLogin="showLogin" />
+
+      <Nuxt class="w-full mt-24 lg:mt-16" />
     </div>
 
     <WhiteFooter class="hidden sm:block" />

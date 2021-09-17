@@ -88,7 +88,10 @@
         class="overflow-hidden focus:outline-none px-1 lg:px-3"
         @click="go(b.link)"
       >
-        <img v-lazy="b.img" class="object-cover rounded-2xl bg-white" />
+        <img
+          v-lazy="`${b.img}?tr=w-375,h-430,fo-auto`"
+          class="h-full w-full object-cover rounded-2xl bg-white"
+        />
       </button>
     </VueSlickCarousel>
   </div>
