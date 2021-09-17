@@ -1,7 +1,17 @@
 <template>
   <section>
-    <div class="md:flex space-y-0.5 md:space-y-0 md:space-x-0.5">
-      <div class="relative md:w-2/3 flex-shrink-0">
+    <div class="grid grid-cols-1 md:grid-cols-3">
+      <div
+        class="
+          col-span-1
+          md:col-span-2
+          relative
+          border-t
+          md:border-t-2 md:border-r-2
+          border-white
+          flex-1
+        "
+      >
         <img
           src="/island/home/adorable-baby-beautiful-boy.jpg"
           alt=""
@@ -62,7 +72,9 @@
         </nuxt-link>
       </div>
 
-      <div class="relative md:w-1/3 flex-shrink-0">
+      <div
+        class="col-span-1 relative border-t md:border-t-2 border-white flex-1"
+      >
         <img
           src="/island/home/men.jpg"
           alt=""

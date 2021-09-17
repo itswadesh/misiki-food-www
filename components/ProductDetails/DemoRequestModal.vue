@@ -49,11 +49,13 @@
       "
       @submit.stop.prevent="submit"
     >
-      <date-picker
+      <!-- <date-picker
         v-model="schedule.scheduleDateTime"
         type="datetime"
         :disabled-date="beforeTomorrow"
-      ></date-picker>
+      ></date-picker> -->
+
+      <Textbox v-model="schedule.scheduleDateTime" type="date" />
 
       <!-- <VueDatePicker
         ref="menu"
@@ -137,7 +139,7 @@ import dayjs from 'dayjs'
 import VueCtkDateTimePicker from 'vue-ctk-date-time-picker'
 import DatePicker from 'vue2-datepicker'
 import { mapMutations } from 'vuex'
-import { Button, Modal } from '~/shared/components/ui'
+import { Button, Modal, Textbox } from '~/shared/components/ui'
 import SAVE_SCHEDULE_DEMO from '~/gql/scheduleDemo/saveScheduleDemo.gql'
 import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css'
 import 'vue2-datepicker/index.css'
@@ -146,6 +148,7 @@ export default {
     Button,
     Modal,
     VueCtkDateTimePicker,
+    Textbox,
     DatePicker,
   },
   props: {

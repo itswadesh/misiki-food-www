@@ -189,7 +189,7 @@ export default {
 }
 @media (min-width: 768px) {
   .h-rem {
-    height: 40rem;
+    height: 43rem;
   }
 }
 </style>

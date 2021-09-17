@@ -1,6 +1,8 @@
 <template>
   <section class="grid grid-cols-1 md:grid-cols-3">
-    <div class="relative border-t md:border-r-2 border-white">
+    <div
+      class="relative border-t md:border-t-2 md:border-r-2 border-white flex-1"
+    >
       <img
         src="/island/home/girl.jpg"
         alt="Girls"
@@ -35,7 +37,9 @@
       </nuxt-link>
     </div>
 
-    <div class="relative border-t md:border-r-2 border-white">
+    <div
+      class="relative border-t md:border-t-2 md:border-r-2 border-white flex-1"
+    >
       <img
         src="/island/home/boy.jpg"
         alt="Boys"
@@ -70,7 +74,7 @@
       </nuxt-link>
     </div>
 
-    <div class="relative border-t border-white">
+    <div class="relative border-t md:border-t-2 border-white flex-1">
       <img
         src="/island/home/men.jpg"
         alt="Mens"

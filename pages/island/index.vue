@@ -4,33 +4,33 @@
 
     <MainCategoryBanners class="mt-px" />
 
-    <SecondMainCategoryBanners class="mt-px" />
+    <SecondMainCategoryBanners class="mb-5 md:mb-10" />
 
-    <Categories class="mt-5 md:mt-10" />
+    <Categories class="mb-5 md:mb-10" />
 
-    <HeroBanners :banners="heroBanners" class="mt-5 md:mt-10" />
-
-    <BrandBanners
-      :ishome="true"
-      :brands="brandBanners && brandBanners.data"
-      class="mb-5 md:mb-0"
-    />
+    <HeroBanners :banners="heroBanners" class="mb-5 md:mb-10" />
 
     <ProductSlider
       :details="youMayLikeProducts"
       :heading="'You May Like'"
-      class="mb-5 md:mb-0"
+      class="md:mb-10"
     />
 
     <ProductSlider
       :details="hotProducts"
       :heading="'Trending'"
-      class="mb-5 md:mb-0"
+      class="md:mb-10"
     />
 
-    <GallerySlider class="mt-5 md:mt-10" :banners="sliderBanners" />
+    <BrandBanners
+      :ishome="true"
+      :brands="brandBanners && brandBanners.data"
+      class="mb-5 md:mb-10"
+    />
 
-    <WantMore class="mt-5 md:mt-10" />
+    <GallerySlider class="mb-5 md:mb-10" :banners="sliderBanners" />
+
+    <WantMore class="mb-5 md:mb-10" />
   </section>
 </template>
 
@@ -178,6 +178,6 @@ export default {
 
 <style scoped>
 .mt-px {
-  margin-top: -5px;
+  margin-top: -6px;
 }
 </style>

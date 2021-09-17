@@ -184,13 +184,13 @@ export default {
           {
             breakpoint: 1536,
             settings: {
-              slidesToShow: 5,
+              slidesToShow: 6,
             },
           },
           {
             breakpoint: 1280,
             settings: {
-              slidesToShow: 4,
+              slidesToShow: 5,
             },
           },
         ],
