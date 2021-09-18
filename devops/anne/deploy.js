@@ -2,12 +2,13 @@ const shell = require('shelljs')
 require('dotenv').config()
 
 // Start Config
-const PM2_NAME = 'anne-www'
+const PM2_NAME = 'anne.biz:5500'
 const REMOTE_DIR = '/var/www/anne/www'
-const REMOTE_HOST = '143.110.244.136'
+const REMOTE_HOST = '157.245.58.201'
 const REMOTE_USER = 'root'
 const PRIVATE_KEY = process.env.LIVE_KEY
-const FILE_NAMES = '.nuxt static nuxt.config.js shared config lang package.json'
+const FILE_NAMES =
+  '.nuxt static nuxt.config.js shared config lang package.json pm2.config.js'
 // End Config
 
 // Zip and send file to remote server
@@ -35,10 +36,12 @@ const host = {
     privateKey: require('fs').readFileSync(PRIVATE_KEY),
   },
   commands: [
+    'sudo mkdir -p ' + REMOTE_DIR,
     'cd ' + REMOTE_DIR,
     'sudo tar xf arialshop.tar.gz -C ' + REMOTE_DIR,
     'sudo rm arialshop.tar.gz',
-    'sudo npm install --force',
+    'sudo npm install --production --force',
+    `sudo pm2 start pm2.config.js`,
     'sudo pm2 reload ' + PM2_NAME,
   ],
 }
