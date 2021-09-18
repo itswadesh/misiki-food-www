@@ -39,6 +39,16 @@
             <h4 class="mt-2 text-xl font-semibold">
               {{ order.price | currency(store.currencySymbol, 2) }}
             </h4>
+
+            <button
+              v-if="settings.liveCommerce"
+              type="button"
+              @click="
+                populateDemoScheduler({ id: order.pid, name: order.name })
+              "
+            >
+              Schedule a demo
+            </button>
           </div>
         </div>
       </div>
@@ -179,6 +189,13 @@
         </div>
       </div>
     </div>
+    <div v-if="selectedProduct">
+      <DemoRequestModal
+        :show="showDemoScheduler"
+        :product="selectedProduct"
+        @close="showDemoScheduler = false"
+      />
+    </div>
   </section>
 </template>
 
@@ -191,11 +208,13 @@ import ORDER_ITEM from '~/gql/order/orderItem.gql'
 import OrderTracking from '~/components/Order/OrderTracking.vue'
 import ReturnTracking from '~/components/Order/ReturnTracking.vue'
 import NuxtLink from '~/components/NuxtLink.vue'
+import DemoRequestModal from '~/components/ProductDetails/DemoRequestModal.vue'
 export default {
   components: {
     OrderTracking,
     ReturnTracking,
     NuxtLink,
+    DemoRequestModal,
   },
   layout: 'account',
   middleware: ['isAuth'],
@@ -204,6 +223,8 @@ export default {
       order: null,
       deliveryBy: null,
       now: null,
+      selectedProduct: null,
+      showDemoScheduler: false,
     }
   },
   head() {
@@ -212,7 +233,10 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({ store: 'store' }),
+    ...mapGetters({
+      settings: 'settings',
+      store: 'store',
+    }),
   },
   created() {
     dayjs.extend(advancedFormat)
@@ -221,6 +245,10 @@ export default {
     this.getData()
   },
   methods: {
+    populateDemoScheduler(p) {
+      this.selectedProduct = { id: p.id, name: p.name }
+      this.showDemoScheduler = true
+    },
     isReturn() {
       return (
         this.order.status === 'Return' ||

@@ -410,20 +410,12 @@
                       <span class="text-primary-500">{{ i.status }}</span>
 
                       <!-- <a
-                        v-if="store.liveCommerce"
+                        v-if="settings.liveCommerce"
                         :href="`${NETEASE_WWW}/netease?channelName=${order.id}-${i.pid}`"
                         target="_"
                       >
                         Schedule Demo
                       </a> -->
-
-                      <button
-                        v-if="store.liveCommerce"
-                        type="button"
-                        @click="populateDemoScheduler(i)"
-                      >
-                        Schedule a demo
-                      </button>
 
                       <!-- :class="showDemoScheduler ? 'open' : 'close'" -->
                     </td>
@@ -602,13 +594,6 @@
                       {{ i.status }}
                     </span>
                   </div>
-                  <button
-                    v-if="settings.liveCommerce"
-                    type="button"
-                    @click="populateDemoScheduler(i)"
-                  >
-                    Schedule a demo
-                  </button>
                 </div>
               </div>
             </div>
@@ -618,29 +603,19 @@
       </div>
       <!-- if no product found -->
     </div>
-    <div v-if="selectedProduct">
-      <DemoRequestModal
-        :show="showDemoScheduler"
-        :product="selectedProduct"
-        @close="showDemoScheduler = false"
-      />
-    </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import OrderListSkeleton from '~/components/AllSkeletons/OrderListSkeleton.vue'
-import DemoRequestModal from '~/components/ProductDetails/DemoRequestModal.vue'
 import MY_ORDERS from '~/gql/order/myOrders.gql'
 import { NETEASE_WWW } from '~/shared/config'
 import NuxtLink from '~/components/NuxtLink.vue'
 export default {
-  components: { OrderListSkeleton, DemoRequestModal, NuxtLink },
+  components: { OrderListSkeleton, NuxtLink },
   data() {
     return {
-      selectedProduct: {},
-      showDemoScheduler: false,
       select: 0,
       statuses: [{ b: 'delivered' }, { b: 'In-track' }, { b: 'pending' }],
       loading: false,
@@ -658,10 +633,6 @@ export default {
     await this.getOrders()
   },
   methods: {
-    populateDemoScheduler(p) {
-      this.selectedProduct = { id: p.pid, name: p.name }
-      this.showDemoScheduler = true
-    },
     go(url) {
       this.$router.push(`${url}`)
     },

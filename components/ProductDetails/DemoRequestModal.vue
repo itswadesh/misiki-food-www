@@ -220,7 +220,6 @@ export default {
     async submit() {
       const msg = 'Schedule Done !'
       this.loading = true
-      // console.log('fesfsdfsdfs')
       try {
         this.saveScheduleDemo = await this.$post(
           'scheduleDemo/saveScheduleDemo',
