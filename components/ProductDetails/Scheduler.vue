@@ -83,11 +83,11 @@
             "
             @submit.stop.prevent="submit"
           >
-            <VueCtkDateTimePicker
+            <!-- <VueCtkDateTimePicker
               v-model="schedule.scheduleDateTime"
               :min-date="minDate"
               class="shadow-md"
-            />
+            /> -->
             <div class="my-6">
               Schedule product demo request for {{ product && product.name }}
             </div>
@@ -156,15 +156,15 @@
 
 <script>
 import dayjs from 'dayjs'
-import VueCtkDateTimePicker from 'vue-ctk-date-time-picker'
+// import VueCtkDateTimePicker from 'vue-ctk-date-time-picker'
 import { mapMutations } from 'vuex'
 import { Button } from '~/shared/components/ui'
 import SAVE_SCHEDULE_DEMO from '~/gql/scheduleDemo/saveScheduleDemo.gql'
-import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css'
+// import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css'
 export default {
   components: {
     Button,
-    VueCtkDateTimePicker,
+    // VueCtkDateTimePicker,
   },
   props: {
     product: { type: Object, default: null },

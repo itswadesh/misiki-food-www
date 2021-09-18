@@ -4,7 +4,7 @@ module.exports = {
       name: 'anne.biz:5500',
       script: 'npm',
       automation: false,
-      args: 'run start',
+      args: 'start',
       env: {
         NODE_ENV: 'development',
       },

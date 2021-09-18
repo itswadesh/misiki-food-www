@@ -4,7 +4,7 @@ module.exports = {
       name: 'mywondermall.com:3300',
       script: 'npm',
       automation: false,
-      args: 'run start',
+      args: 'start',
       env: {
         NODE_ENV: 'development',
       },

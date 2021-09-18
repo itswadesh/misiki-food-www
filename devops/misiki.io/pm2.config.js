@@ -1,10 +1,10 @@
 module.exports = {
   apps: [
     {
-      name: 'misiki.io:5000',
+      name: 'misiki.io:7700',
       script: 'npm',
       automation: false,
-      args: 'run start',
+      args: 'start',
       env: {
         NODE_ENV: 'development',
       },

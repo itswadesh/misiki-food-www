@@ -136,20 +136,20 @@
 
 <script>
 import dayjs from 'dayjs'
-import VueCtkDateTimePicker from 'vue-ctk-date-time-picker'
-import DatePicker from 'vue2-datepicker'
+// import VueCtkDateTimePicker from 'vue-ctk-date-time-picker'
+// import DatePicker from 'vue2-datepicker'
 import { mapMutations } from 'vuex'
 import { Button, Modal, Textbox } from '~/shared/components/ui'
 import SAVE_SCHEDULE_DEMO from '~/gql/scheduleDemo/saveScheduleDemo.gql'
-import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css'
-import 'vue2-datepicker/index.css'
+// import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css'
+// import 'vue2-datepicker/index.css'
 export default {
   components: {
     Button,
     Modal,
-    VueCtkDateTimePicker,
+    // VueCtkDateTimePicker,
     Textbox,
-    DatePicker,
+    // DatePicker,
   },
   props: {
     product: { type: Object, default: null },

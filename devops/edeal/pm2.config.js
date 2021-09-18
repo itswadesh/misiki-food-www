@@ -4,7 +4,7 @@ module.exports = {
       name: 'edeal.shop:6600',
       script: 'npm',
       automation: false,
-      args: 'run start',
+      args: 'start',
       env: {
         NODE_ENV: 'development',
       },

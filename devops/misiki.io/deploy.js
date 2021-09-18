@@ -2,7 +2,7 @@ const shell = require('shelljs')
 require('dotenv').config()
 
 // Start Config
-const PM2_NAME = 'misiki.io:5000'
+const PM2_NAME = 'misiki.io:7700'
 const REMOTE_DIR = '/var/www/misiki/www'
 const REMOTE_HOST = '143.110.244.136'
 const REMOTE_USER = 'root'

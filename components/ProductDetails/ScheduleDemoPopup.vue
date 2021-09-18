@@ -1,18 +1,18 @@
 <template>
   <div>
-    <VueCtkDateTimePicker
+    <!-- <VueCtkDateTimePicker
       v-model="demo.scheduleDate"
       :min-date="minDate"
       class="shadow-md"
-    />
+    /> -->
   </div>
 </template>
 
 <script>
-import VueCtkDateTimePicker from 'vue-ctk-date-time-picker'
+// import VueCtkDateTimePicker from 'vue-ctk-date-time-picker'
 export default {
   components: {
-    VueCtkDateTimePicker,
+    // VueCtkDateTimePicker,
   },
   props: {
     show: { type: Boolean, default: false },
