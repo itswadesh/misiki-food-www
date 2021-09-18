@@ -17,10 +17,10 @@
         <LeftUserProfile />
       </div>
 
-      <div class="flex-1 relative min-h-screen">
+      <div class="flex-1 min-h-screen">
         <nuxt class="container mx-auto p-2 sm:p-10 flex-1 h-full" />
 
-        <Footer class="absolute bottom-0 inset-x-0" />
+        <Footer class="mt-auto w-full" />
       </div>
     </div>
   </section>

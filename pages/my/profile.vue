@@ -1,5 +1,7 @@
 <template>
-  <EditProfile />
+  <section>
+    <EditProfile />
+  </section>
 </template>
 <script>
 import EditProfile from '~/components/User/Dashboard/EditProfile.vue'

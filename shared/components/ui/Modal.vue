@@ -177,7 +177,6 @@ export default {
 
 <style scoped>
 .frosted {
-  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   background-color: rgba(0, 0, 0, 0.7);
 }

@@ -1,106 +1,159 @@
 <template>
-  <section>
+  <section class="w-full text-gray-800">
     <form
       v-if="profile"
       novalidate
       autocomplete="off"
-      class="
-        w-full
-        text-gray-800
-        bg-white
-        rounded-lg
-        shadow
-        lg:mx-auto lg:container
-      "
       @submit.stop.prevent="submit"
     >
-      <div class="w-full p-5 font-semibold border-b">Profile Details</div>
+      <!-- Profile name and credentials start  -->
 
-      <div class="w-full p-10 space-y-5 text-base font-light">
-        <Textbox
-          v-model="profile.firstName"
-          placeholder="First Name"
-          class="w-full"
-          required
-          autofocus
-          :v="$v.profile.firstName"
-          :err="
-            $v.profile.firstName.$invalid && $v.profile.firstName.$dirty
-              ? 'First Name is required'
-              : ''
+      <div class="mb-5 sm:mb-10 text-gray-800 bg-gray-200 rounded-sm">
+        <h2
+          class="
+            p-4
+            text-lg
+            font-semibold
+            tracking-wider
+            border-b border-gray-50
           "
-        />
+        >
+          Profile name and credentials
+        </h2>
 
-        <Textbox
-          v-model="profile.lastName"
-          placeholder="Last Name"
-          class="w-full"
-          required
-        />
+        <div class="py-4">
+          <div class="items-center p-4 md:flex">
+            <div class="w-full md:px-2 md:w-3/12">First Name</div>
+            <div class="w-full md:w-9/12">
+              <div class="max-w-sm mt-2 md:mt-0">
+                <Textbox
+                  v-model="profile.firstName"
+                  placeholder="First Name"
+                  class="w-full"
+                  required
+                  autofocus
+                  :v="$v.profile.firstName"
+                  :err="
+                    $v.profile.firstName.$invalid && $v.profile.firstName.$dirty
+                      ? 'First Name is required'
+                      : ''
+                  "
+                />
+              </div>
+            </div>
+          </div>
 
-        <Textbox
-          v-model="profile.email"
-          placeholder="Email"
-          class="w-full"
-          required
-        />
+          <div class="items-center p-4 md:flex">
+            <div class="w-full md:px-2 md:w-3/12">Last Name</div>
+            <div class="w-full md:w-9/12">
+              <div class="max-w-sm mt-2 md:mt-0">
+                <Textbox
+                  v-model="profile.lastName"
+                  placeholder="Last Name"
+                  class="w-full"
+                  required
+                />
+              </div>
+            </div>
+          </div>
 
-        <div class="flex flex-row mb-5">
-          <div class="me-5">Gender:</div>
+          <!-- <div class="p-2 md:flex lg:items-center">
+          <div class="w-full  md:px-2 md:w-3/12">Community username</div>
+          <div class="items-center w-full lg:flex md:w-9/12">
+            <div class="max-w-sm mt-2 md:w-96 md:mt-0">
+              <Textbox v-model="profile.username" @change="save(profile)" />
+            </div>
+            <h6 class="my-2 text-xs text-gray-600 lg:ml-5">
+              Username for community forums
+            </h6>
+          </div>
+        </div> -->
 
-          <div class="flex">
-            <label class="flex flex-row cursor-pointer me-4">
-              <Radio
-                id="one"
-                v-model="profile.gender"
-                value="Male"
-                name="group"
-                class="my-auto"
-              />
+          <div class="items-center p-4 md:flex">
+            <div class="w-full md:px-2 md:w-3/12">Your Email</div>
+            <div class="w-full md:w-9/12">
+              <div class="max-w-sm mt-2 md:mt-0">
+                <Textbox
+                  v-model="profile.email"
+                  placeholder="Email"
+                  class="w-full"
+                  required
+                />
+              </div>
+            </div>
+          </div>
 
-              <span class="my-auto text-gray-600 ms-2">Male</span>
-            </label>
+          <div class="items-center p-4 md:flex">
+            <div class="w-full md:px-2 md:w-3/12">Your Phone</div>
+            <div class="w-full md:w-9/12">
+              <div class="max-w-sm mt-2 md:mt-0">
+                <Textbox
+                  v-model="profile.phone"
+                  placeholder="Email"
+                  class="w-full"
+                  required
+                />
+              </div>
+            </div>
+          </div>
 
-            <label class="flex flex-row cursor-pointer">
-              <Radio
-                id="one"
-                v-model="profile.gender"
-                value="Female"
-                name="group"
-                class="my-auto"
-              />
+          <div class="items-center p-4 md:flex">
+            <div class="w-full md:px-2 md:w-3/12">Gender</div>
 
-              <span class="my-auto text-gray-600 ms-2">Female</span>
-            </label>
+            <div class="w-full md:w-9/12">
+              <div class="flex mt-2 md:mt-0">
+                <label class="flex flex-row cursor-pointer me-4">
+                  <Radio
+                    id="one"
+                    v-model="profile.gender"
+                    value="Male"
+                    name="group"
+                    class="my-auto"
+                  />
+
+                  <span class="my-auto text-gray-600 ms-2">Male</span>
+                </label>
+
+                <label class="flex flex-row cursor-pointer">
+                  <Radio
+                    id="one"
+                    v-model="profile.gender"
+                    value="Female"
+                    name="group"
+                    class="my-auto"
+                  />
+
+                  <span class="my-auto text-gray-600 ms-2">Female</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="items-center p-4 md:flex">
+            <div class="w-full md:px-2 md:w-3/12">Your Profile Pictur</div>
+            <div class="w-full md:w-9/12">
+              <div class="max-w-sm mt-2 md:mt-0">
+                <!-- <ImageUpload
+                  name="avatar"
+                  folder="user"
+                  :image="profile.avatar"
+                  @save="saveImage"
+                  @remove="saveImage(profile.avatar, '')"
+                /> -->
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="flex justify-end px-5 md:px-12 lg:px-20">
-        <!--  -->
-        <PrimaryButtonRounded
-          class="
-            w-full
-            p-3
-            my-6
-            md:px-6 md:p-2 md:w-1/3
-            sm:w-1/2 sm:mt-10
-            bg-secondary-500
-            focus:ring-secondary-500
-          "
-          type="submit"
-          :disabled="$v.profile.$anyError && $v.profile.$anyDirty"
-          >UPDATE
-        </PrimaryButtonRounded>
+      <!-- Profile name and credentials end  -->
 
-        <!-- <button
-          type="submit"
-          :disabled="$v.profile.$anyError && $v.profile.$anyDirty"
-          class="md:w-1/3 sm:w-1/2 w-full p-3 my-6 sm:mt-10 hover:-translate-y-0.5 transition transform text-lg text-center text-white uppercase ease-in-out rounded shadow bg-secondary-500 focus:ring focus:ring-offset-2 focus:ring-secondary-500 focus:outline-none md:px-6 md:p-2"
-        >
-          UPDATE
-        </button> -->
-      </div>
+      <PrimaryButtonRounded
+        class="w-full p-3 md:px-6 md:p-2 md:w-1/3 sm:w-1/2"
+        type="submit"
+        :disabled="$v.profile.$anyError && $v.profile.$anyDirty"
+        >UPDATE
+      </PrimaryButtonRounded>
     </form>
   </section>
 </template>
@@ -109,13 +162,13 @@
 import { mapMutations } from 'vuex'
 import { required } from 'vuelidate/lib/validators'
 import { validationMixin } from 'vuelidate'
-import { Textbox, Radio } from '~/shared/components/ui'
+import { Textbox, Radio, ImageUpload } from '~/shared/components/ui'
 import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
 import UPDATE_PROFILE from '~/gql/user/updateProfile.gql'
 import ME from '~/gql/user/me.gql'
 
 export default {
-  components: { Textbox, Radio, PrimaryButtonRounded },
+  components: { Textbox, ImageUpload, Radio, PrimaryButtonRounded },
 
   mixins: [validationMixin],
 
@@ -178,3 +231,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.width {
+  min-width: max-content;
+}
+</style>

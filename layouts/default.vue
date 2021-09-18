@@ -43,6 +43,7 @@
     <WhiteFooter class="hidden sm:block" />
 
     <OtpLogin v-if="showLoginModal" @showLogin="showLogin" />
+
     <Modal :show="store.closed" title="Store is not accepting orders now">
       {{ store.closedMessage || 'Please visit back later' }}
     </Modal>

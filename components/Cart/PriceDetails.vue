@@ -115,14 +115,13 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
 import PrimaryButton from '~/components/ui/PrimaryButton.vue'
 import TestCoupons from '~/components/Cart/TestCoupons.vue'
 import NuxtLink from '~/components/NuxtLink.vue'
 
 // import CART from "~/gql/cart/cart.gql"
 export default {
-  components: { TestCoupons, PrimaryButton, PrimaryButtonRounded, NuxtLink },
+  components: { TestCoupons, PrimaryButton, NuxtLink },
   props: {
     selectedAddress: { type: String, default: null },
     details: {
