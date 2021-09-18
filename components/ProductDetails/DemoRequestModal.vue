@@ -54,8 +54,24 @@
         type="datetime"
         :disabled-date="beforeTomorrow"
       ></date-picker> -->
-
-      <Textbox v-model="schedule.scheduleDateTime" type="date" />
+      <!-- <input
+        id="demo-time"
+        v-model="schedule.scheduleDateTime"
+        type="datetime-local"
+        name="demo-time"
+        value="2021-06-12T19:30"
+        min="2021-09-12T19:30"
+        max="2021-12-14T00:00"
+      /> -->
+      <input
+        id="demo-time"
+        v-model="schedule.scheduleDateTime"
+        type="datetime-local"
+        name="demo-time"
+        :min="minDate"
+        :max="nextMonth"
+      />
+      <!-- <Textbox v-model="schedule.scheduleDateTime" type="date" /> -->
 
       <!-- <VueDatePicker
         ref="menu"
@@ -178,10 +194,13 @@ export default {
     },
   },
   created() {
-    const tomorrow = dayjs().add(1, 'day').format('YYYY-MM-DD hh:mm:ss a')
-    this.schedule.scheduleDateTime = tomorrow.toString()
-    const tomo = dayjs().add(1, 'day').format('YYYY-MM-DD hh:mm:ss a')
-    this.minDate = tomo // 2021-08-08 08:08 am
+    const now = dayjs()
+    const tomorrow = dayjs().add(1, 'day')
+    const nextMonth = dayjs().add(30, 'day')
+    this.schedule.scheduleDateTime = tomorrow.format('YYYY-MM-DDThh:mm')
+    // const tomo = tomorrow.format('YYYY-MM-DDThh:mm')
+    this.minDate = tomorrow.format('YYYY-MM-DDThh:mm')
+    this.nextMonth = nextMonth.format('YYYY-MM-DDThh:mm') // 2021-08-08 08:08 am
     if (!this.user) {
       this.$router.push(`/login?ref=${this.$route.fullPath}`)
     }
