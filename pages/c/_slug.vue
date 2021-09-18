@@ -9,7 +9,7 @@
       @showFilter="showMobileFilter = true"
       @hide="showMobileFilter = false"
     />
-    <div class="flex">
+    <div class="flex sm:mt-6 xl:mt-0">
       <DesktopFilters
         class="sticky top-0 hidden lg:block"
         :facets="facets"
@@ -32,26 +32,34 @@
           <div
             v-if="$fetchState.pending"
             class="
+              container
+              mx-auto
+              px-3
+              py-3
+              sm:py-0 sm:px-3
+              md:p-4
               grid grid-cols-2
               gap-3
               md:gap-4
               sm:grid-cols-3
-              lg:grid-cols-3
               xl:grid-cols-4
               2xl:grid-cols-5
             "
           >
             <ProductSkeleton v-for="(p, ix) in 10" :key="ix + '-1'" />
           </div>
+
           <p v-else-if="$fetchState.error">Error while fetching products</p>
 
           <div
             v-else-if="products && products.length > 0"
             class="
+              container
+              mx-auto
               px-3
               py-3
               sm:py-0 sm:px-3
-              md:px-4
+              md:p-4
               grid grid-cols-2
               gap-3
               md:gap-4
@@ -104,6 +112,7 @@ import { DESCRIPTION, KEYWORDS } from '~/shared/config'
 import HomePageProduct from '~/components/Home/HomePageProduct.vue'
 import ProductSkeleton from '~/components/ProductSkeleton.vue'
 import Megamenu from '~/components/Home/Megamenu.vue'
+import HeaderBody from '~/components/HeaderBody.vue'
 import Pagination from '~/shared/components/ui/Pagination.vue'
 
 export default {
@@ -113,6 +122,7 @@ export default {
     HomePageProduct,
     // ProductCardEs,
     Megamenu,
+    HeaderBody,
   },
   mixins: [c],
   asyncData({ params, app, store }) {

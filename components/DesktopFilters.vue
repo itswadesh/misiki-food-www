@@ -1,23 +1,38 @@
 <template>
-  <div v-if="facets" class="w-72 min-h-screen border-r">
-    <div v-if="megamenu && megamenu.length > 0" class="border-b p-4">
-      <h5 class="mb-4 text-sm font-bold uppercase leading-3 tracking-wide">
+  <div v-if="facets" class="w-72 min-h-screen border-l border-r">
+    <div
+      v-if="megamenu && megamenu.length > 0"
+      class="pt-4 border-b leading-3 xl:hidden"
+    >
+      <h5 class="px-4 pb-4 font-bold uppercase tracking-wide border-b">
         CATEGORIES
       </h5>
 
-      <ul class="overflow-y-auto max-h-72">
+      <ul class="pl-2 overflow-y-auto max-h-72">
         <li
           v-for="(c, i) in megamenu"
           :key="i"
           class="
+            py-4
+            pl-2
+            pr-2
+            flex-shrink-0
             font-light
             w-full
             overflow-hidden
-            border-t
+            border-b
             tab
-            mb-2
             cursor-pointer
           "
+          :class="{
+            has: c.children.length,
+            'border-yellow-500': i % 6 === 0,
+            'border-purple-500': i % 6 === 1,
+            'border-red-500': i % 6 === 2,
+            'border-green-500': i % 6 === 3,
+            'border-pink-500': i % 6 === 4,
+            'border-blue-500': i % 6 === 5,
+          }"
         >
           <input
             :id="'tab-multi-' + i"
@@ -62,6 +77,7 @@
             </nuxt-link>
           </div>
         </li>
+
         <!-- <li v-for="(c, index) in sideMegamenu" class="w-full overflow-hidden border-t tab" :key="c.id">
           <a
             class=""
