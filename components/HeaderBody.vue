@@ -1,182 +1,95 @@
 <template>
-  <div class="w-full">
-    <div
-      class="
-        w-full
-        hidden
-        lg:flex
-        flex-row
-        items-center
-        justify-between
-        text-sm
-        font-light
-        text-gray-500
-        py-2
-        px-4
-      "
-    >
-      <div v-if="count !== 0" class="flex flex-row">
-        <!-- <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="
-            w-5
-            h-5
-            
-            cursor-pointer
-            me-1
-            hover:text-primary-500
-          "
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
-          />
-        </svg> -->
-        <!-- <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M9 5l7 7-7 7"
-          />
-        </svg> -->
-        <Breadcrumb
-          v-if="category && category.name"
-          :path="category && category.pathA"
-          :name="category.name"
-        />
-        <!-- <span
-          v-if="category && category.name"
-          class="capitalize cursor-pointer ms-1 hover:text-primary-500"
-        >
-          {{ category.name }}
-        </span> -->
-        <!-- <span
-          v-else
-          class="capitalize cursor-pointer ms-1 hover:text-primary-500"
-        >
-          {{ $route.params.q }}
-        </span> -->
-      </div>
-
-      <div class="flex items-center space-x-2">
-        <span class="font-bold"> {{ count || 'No' }} </span
-        ><span>items found for</span>
-
-        <span
-          v-if="category && category.name && category.name !== ''"
-          class="font-bold"
-          >{{ category.name }}
-        </span>
-
-        <span v-else class="font-bold"
-          ><q>{{ $route.params.q }} </q></span
-        >
-      </div>
-
-      <div class="flex items-center">
-        <span class="me-2">SORT BY</span>
-
-        <select
-          v-model="sortBy"
-          class="
-            text-sm
-            font-light
-            border border-gray-300
-            rounded
-            focus:ring-0 focus:border-blue-500
-            hover:shadow
-            focus:outline-none
-          "
-          @change="sort"
-        >
-          <option
-            v-for="(s, ix) in sorts"
-            v-if="s"
-            :key="ix"
-            class="bg-transparent text-start"
-            :value="s.val"
-          >
-            {{ s.name }}
-          </option>
-        </select>
-      </div>
-    </div>
-
-    <div
-      class="
-        flex-row
-        justify-between
-        hidden
-        w-full
-        mb-2
-        sm:flex sm:px-4
-        xs:block
-        lg:hidden
-      "
-    >
-      <div
+  <div
+    class="
+      hidden
+      sm:grid
+      grid-cols-3
+      items-center
+      gap-5
+      place-content-between
+      w-full
+      p-4
+      lg:p-2
+      text-sm
+      border-b
+    "
+  >
+    <div class="col-span-1 justify-self-start lg:hidden">
+      <button
         class="
-          flex
-          items-center
-          text-base
-          font-light
-          rounded
-          pe-5
-          text-start
-          hover:bg-gray-200
+          w-20
+          text-sm
+          font-semibold
+          uppercase
+          tracking-wide
+          py-1.5
+          bg-gray-300
+          hover:bg-primary-500
+          border border-gray-300
+          hover:border-primary-500
+          text-gray-800
+          hover:text-white
+          transition
+          duration-300
+          rounded-md
+          focus:outline-none
         "
         @click="$emit('showFilters')"
       >
         Filter
-      </div>
+      </button>
+    </div>
 
-      <div
-        class="
-          flex-1
-          hidden
-          px-4
-          my-auto
-          text-base
-          font-light
-          text-center
-          md:block
-        "
+    <div class="hidden lg:block col-span-1 justify-self-start">
+      <Breadcrumb
+        v-if="category && category.name"
+        :path="category && category.pathA"
+        :name="category.name"
+      />
+    </div>
+
+    <div
+      class="
+        flex
+        col-span-1
+        font-light
+        text-center
+        items-center
+        space-x-1
+        justify-self-center
+      "
+    >
+      <span class="font-bold"> {{ count || 'No' }} </span>
+
+      <span>items found for</span>
+
+      <span
+        v-if="category && category.name && category.name !== ''"
+        class="font-bold"
       >
-        <b> {{ count }} </b>items
-      </div>
-      <div class="items-center text-center text-gray-700 text-primary">
-        <select
-          v-model="sortBy"
-          class="
-            text-sm
-            font-light
-            border-none
-            rounded
-            text-primary-500
-            focus:ring-primary-500
-            hover:shadow
-            focus:outline-none
-          "
-          @change="sort"
-        >
-          <option
-            v-for="(s, ix) in sorts"
-            :key="ix"
-            class="bg-white"
-            :value="s.val"
-          >
-            {{ s.name }}
-          </option>
-        </select>
-      </div>
+        {{ category.name }}
+      </span>
+
+      <q v-else class="font-bold"> {{ $route.params.q }} </q>
+    </div>
+
+    <div class="col-span-1 justify-self-end">
+      <select
+        v-model="sortBy"
+        class="
+          py-1.5
+          text-sm
+          font-light
+          border-gray-300
+          rounded
+          focus:outline-none
+        "
+        @change="sort"
+      >
+        <option v-for="(s, ix) in sorts" v-if="s" :key="ix" :value="s.val">
+          {{ s.name }}
+        </option>
+      </select>
     </div>
   </div>
 </template>

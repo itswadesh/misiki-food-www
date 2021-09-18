@@ -11,7 +11,7 @@
       @hide="showMobileFilter = false"
     />
 
-    <div class="container flex mx-auto sm:mt-6 xl:mt-0">
+    <div class="flex sm:mt-6 xl:mt-0">
       <DesktopFilters
         class="sticky top-20 flex-none hidden max-w-xs lg:block"
         :facets="facets"
@@ -19,66 +19,50 @@
         @clearAllFilters="clearAllFilters"
       />
 
-      <div class="relative w-full px-4">
+      <div class="relative w-full">
         <HeaderBody
-          class=""
           :category="{}"
           :count="productCount"
           :fl="fl"
           @removed="facetRemoved"
           @showFilters="showMobileFilter = true"
         />
+
         <NoProduct v-if="(!products || !products.length) && !loading" />
-        <div v-else class="">
-          <div v-if="loading" class="flex flex-wrap justify-between">
-            <ProductSkeleton v-for="(p, ix) in 10" :key="ix + '-1'" />
-          </div>
+
+        <div v-else>
           <div
-            v-else-if="products && products.length > 0"
             class="
-              sticky
-              flex flex-col flex-shrink-0
-              w-full
-              h-full
-              mt-2
-              md:p-3
-              nowrap
-              flex-nowrap
+              container
+              mx-auto
+              px-3
+              py-3
+              sm:py-0 sm:px-3
+              md:p-4
+              grid grid-cols-2
+              gap-3
+              md:gap-4
+              sm:grid-cols-3
+              xl:grid-cols-4
+              2xl:grid-cols-5
             "
           >
-            <div
-              class="
-                grid grid-cols-2
-                gap-3
-                md:gap-4
-                sm:grid-cols-3
-                lg:grid-cols-3
-                xl:grid-cols-4
-                2xl:grid-cols-5
-              "
-            >
-              <HomePageProduct
-                v-for="(p, ix) in products"
-                :key="ix"
-                class="slide-up-item"
-                :product="p._source"
-                :pid="p._id"
-              />
-              <!-- <infinite-loading @infinite="loadMore($route.query.page)"></infinite-loading> -->
+            <div v-if="loading" class="flex flex-wrap justify-between">
+              <ProductSkeleton v-for="(p, ix) in 10" :key="ix + '-1'" />
             </div>
+
+            <HomePageProduct
+              v-for="(p, ix) in products"
+              v-else-if="products && products.length > 0"
+              :key="ix"
+              class="slide-up-item"
+              :product="p._source"
+              :pid="p._id"
+            />
+            <!-- <infinite-loading @infinite="loadMore($route.query.page)"></infinite-loading> -->
           </div>
-          <!-- <div class="pagination_box">
-            <v-pagination
-              v-if="noOfPages>1"
-              v-model="currentPage"
-              @change="changePage(currentPage)"
-              :page-count="noOfPages"
-              :disabled="loading"
-              :classes="bootstrapPaginationClasses"
-              :labels="paginationAnchorTexts"
-            ></v-pagination>
-          </div>-->
         </div>
+
         <Pagination
           :count="noOfPages"
           :current="parseInt($route.query.page || 1)"
@@ -95,12 +79,15 @@ import c from '~/mixins/c.js'
 import HomePageProduct from '~/components/Home/HomePageProduct.vue'
 // import ProductCardEs from '~/components/Listing/ProductCardEs.vue'
 import Megamenu from '~/components/Home/Megamenu.vue'
+import HeaderBody from '~/components/HeaderBody.vue'
+
 export default {
   components: {
     Pagination,
     //  ProductCardEs
     HomePageProduct,
     Megamenu,
+    HeaderBody,
   },
 
   mixins: [c],
