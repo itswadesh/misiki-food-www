@@ -108,7 +108,7 @@
                     class="w-10 h-6 p-1 my-auto border me-2"
                   />
                   <img
-                    src="/img/Rupay-Logo.png"
+                    src="/img/rupay-logo.png"
                     alt="rupay"
                     class="w-10 h-6 p-1 my-auto border me-2"
                   />
@@ -266,7 +266,7 @@
                     class="w-6 h-6 p-1 my-auto border rounded-full me-2"
                   />
                   <img
-                    src="/img/UPI-Logo.png"
+                    src="/img/upi-logo.png"
                     alt="ae"
                     class="w-10 h-6 p-1 my-auto border"
                   />

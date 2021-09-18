@@ -498,12 +498,12 @@
         </svg>
 
         <!-- <img
-          src="/img/Mastercard-logo.png"
+          src="/img/mastercard-logo.png"
           alt="mastercard"
           class="my-auto bg-white border me-2 icon"
         />
         <img
-          src="/img/Rupay-Logo.png"
+          src="/img/rupay-logo.png"
           alt="rupay"
           class="my-auto bg-white border me-2 icon"
         />
@@ -523,7 +523,7 @@
           class="my-auto bg-white border me-2 icon"
         />
         <img
-          src="/img/UPI-Logo.png"
+          src="/img/upi-logo.png"
           alt="ae"
           class="my-auto bg-white border me-2 icon"
         /> -->

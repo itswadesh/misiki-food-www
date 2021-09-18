@@ -1,23 +1,7 @@
 <template>
-  <div
-    class="
-      flex flex-col
-      p-2
-      sm:p-4
-      mb-4
-      bg-white
-      rounded
-      shadow
-      md:shadow-sm md:border
-    "
-  >
+  <div class="flex flex-col p-3 sm:p-10 rounded-md shadow-md border">
     <div v-if="address">
-      <form
-        class="p-1 md:p-4"
-        novalidate
-        autocomplete="off"
-        @submit.stop.prevent="submit"
-      >
+      <form novalidate autocomplete="off" @submit.stop.prevent="submit">
         <!-- forms -->
         <div
           class="
@@ -29,7 +13,7 @@
           "
         >
           <label class="col-span-2 md:col-span-1">
-            <h6 class="mb-2">First Name</h6>
+            <h6 class="mb-2 font-semibold">First Name</h6>
 
             <Textbox
               v-model="address.firstName"
@@ -45,13 +29,13 @@
           </label>
 
           <label class="col-span-2 md:col-span-1">
-            <h6 class="mb-2">Last Name</h6>
+            <h6 class="mb-2 font-semibold">Last Name</h6>
 
             <Textbox v-model="address.lastName" placeholder="" required />
           </label>
 
           <label class="col-span-2 md:col-span-1">
-            <h6 class="mb-2">Mobile number</h6>
+            <h6 class="mb-2 font-semibold">Mobile number</h6>
 
             <Textbox
               v-model="address.phone"
@@ -67,7 +51,7 @@
           </label>
           <label class="col-span-2 md:col-span-1">
             <!-- @input="$event.target.composing = false" -->
-            <h6 class="mb-2">Pincode</h6>
+            <h6 class="mb-2 font-semibold">Pincode</h6>
 
             <Textbox
               v-model.number="address.zip"
@@ -84,7 +68,7 @@
           </label>
 
           <label class="col-span-2">
-            <h6 class="mb-2">Address (Area and Street)</h6>
+            <h6 class="mb-2 font-semibold">Address (Area and Street)</h6>
 
             <Textbox
               v-model="address.address"
@@ -99,25 +83,25 @@
           </label>
 
           <label class="col-span-2 md:col-span-1">
-            <h6 class="mb-2">City/District/Town</h6>
+            <h6 class="mb-2 font-semibold">City/District/Town</h6>
 
             <Textbox v-model="address.city" placeholder="" />
           </label>
 
           <label class="col-span-2 md:col-span-1">
-            <h6 class="mb-2">State</h6>
+            <h6 class="mb-2 font-semibold">State</h6>
 
             <Textbox v-model="address.state" placeholder="" disabled />
           </label>
 
           <label class="col-span-2 md:col-span-1">
-            <h6 class="mb-2">Country</h6>
+            <h6 class="mb-2 font-semibold">Country</h6>
 
             <Textbox v-model="address.country" placeholder="" disabled />
           </label>
 
           <label class="col-span-2 md:col-span-1">
-            <h6 class="mb-2">Email</h6>
+            <h6 class="mb-2 font-semibold">Email</h6>
 
             <Textbox
               v-model="address.email"

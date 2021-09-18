@@ -3,10 +3,12 @@
     v-ripple="'rgba(255, 0,0, 0.5)'"
     :disabled="isDisabled"
     class="
+      flex
+      items-center
+      justify-center
       font-semibold
       text-center
       bg-accent-100
-      px-auto
       hover:opacity-75
       focus:outline-none
     "
@@ -16,7 +18,7 @@
     <!-- class="p-2 hover:bg-red-200 focus:outline-none hover:shadow-md" -->
     <!-- heart icon  -->
     <svg
-      class="mx-auto text-accent-900"
+      class="text-accent-900"
       :class="{ 'text-accent-900 fill-current ': existInWishlist }"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"

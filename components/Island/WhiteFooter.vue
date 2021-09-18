@@ -385,52 +385,24 @@
     </div>
 
     <div class="w-full my-4 border-b-2 border-gray-400"></div>
-    <div class="flex flex-col-reverse justify-between md:flex-row">
-      <span class="mt-4 text-sm font-normal tracking-wider md:mt-0">
+    <div class="flex flex-row justify-between">
+      <div class="text-sm font-normal tracking-wider md:mt-0 whitespace-nowrap">
         © {{ year }} {{ store.name }}
         <span v-if="store.websiteEmail" class="ms-2">
           {{ store.websiteEmail }}</span
         >
-      </span>
+      </div>
 
       <!-- <LanguageSwitcher /> -->
 
-      <div class="container flex flex-row w-full mx-auto md:w-auto md:mx-0">
-        <img
-          src="/img/Mastercard-logo.png"
-          alt="mastercard"
-          class="mb-1 bg-white border me-2 icon"
-        />
-        <!-- <img
-          src="/img/Mastercard-logo.png"
-          alt="mastercard"
-          class="mb-1 bg-white border me-2 icon"
-        />
-        <img
-          src="/img/Rupay-Logo.png"
-          alt="rupay"
-          class="mb-1 bg-white border me-2 icon"
-        />
-        <img
-          src="/img/visa.png"
-          alt="visa"
-          class="mb-1 bg-white border me-2 icon"
-        />
-        <img
-          src="/img/american.jpg"
-          alt="ae"
-          class="mb-1 bg-white border me-2 icon"
-        />
-        <img
-          src="/img/paypal-logo-png-transparent.png"
-          alt="payppal"
-          class="mb-1 bg-white border me-2 icon"
-        />
-        <img
-          src="/img/UPI-Logo.png"
-          alt="ae"
-          class="mb-1 bg-white border me-2 icon"
-        /> -->
+      <div class="flex flex-row items-center space-x-2">
+        <div v-for="(i, ix) in icons" :key="ix" class="mb-1">
+          <img
+            :src="i.img"
+            :alt="i.alt"
+            class="h-7 w-12 bg-white border p-1 object-contain"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -448,6 +420,14 @@ export default {
     return {
       year: new Date().getFullYear(),
       // popularSearches: null,
+      icons: [
+        { img: '/img/mastercard-logo.png', alt: 'mastercard' },
+        { img: '/img/rupay-logo.png', alt: 'rupay' },
+        { img: '/img/visa.png', alt: 'visa' },
+        { img: '/img/american.jpg', alt: 'american-express' },
+        { img: '/img/paypal-logo-png-transparent.png', alt: 'paypal' },
+        { img: '/img/upi-logo.png', alt: 'upi' },
+      ],
     }
   },
   // async fetch() {

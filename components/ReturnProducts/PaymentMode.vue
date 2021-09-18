@@ -135,7 +135,7 @@
                     class="w-6 h-6 p-1 my-auto border rounded-full me-2"
                   />
                   <img
-                    v-lazy="'/img/UPI-Logo.png'"
+                    v-lazy="'/img/upi-logo.png'"
                     alt="ae"
                     class="w-10 h-6 p-1 my-auto border"
                   />

@@ -54,20 +54,9 @@
           </svg>
         </button>
 
-        <div class="flex justify-end lg:justify-center">
-          <span
-            class="
-              flex flex-col
-              items-center
-              justify-center
-              w-full
-              px-2
-              py-10
-              border-b
-            "
-          >
+        <div class="w-full px-2 py-10 border-b">
+          <div v-if="user" class="flex flex-col items-center justify-center">
             <div
-              v-if="user"
               class="
                 w-24
                 h-24
@@ -94,10 +83,7 @@
               />
             </div>
 
-            <div
-              v-if="user"
-              class="flex flex-col my-auto mt-2 text-lg font-semibold"
-            >
+            <div class="flex flex-col my-auto mt-2 text-lg font-semibold">
               <span class="mb-2 text-center">
                 Hello, {{ user && user.firstName }}
               </span>
@@ -106,18 +92,24 @@
                 {{ user.email }}
               </span>
             </div>
-          </span>
+          </div>
+
+          <div v-else class="flex items-center justify-center h-32">
+            <p class="text-center font-semibold text-gray-500">
+              You have not LoggedIn
+            </p>
+          </div>
         </div>
       </div>
 
-      <div class="flex items-center justify-center w-full my-4 text-gray-500">
+      <div class="flex items-center justify-center w-full my-5 text-gray-500">
         <ul class="flex flex-col items-start justify-center w-full mx-auto">
           <!-- dashboard -->
           <li v-for="(i, ix) in dashboardMenuItems" :key="ix" class="w-full">
             <nuxt-link
               v-if="i"
               :to="localePath(i.link)"
-              exact-active-class="bg-primary-100 text-primary-500"
+              exact-active-class="border-primary-500 bg-primary-100 text-primary-500"
               class="
                 flex flex-row
                 w-full
@@ -126,10 +118,9 @@
                 mx-auto
                 ease-in-out
                 transform
-                border-white
                 cursor-pointer
                 border-s-4
-                hover:bg-primary-100
+                hover:bg-gray-100
                 hover:text-primary-500
                 hover:border-primary-500
               "
@@ -151,23 +142,16 @@
               class="
                 flex flex-row
                 w-full
-                px-5
+                px-4
                 py-3
                 mx-auto
-                transition
-                duration-300
                 ease-in-out
                 transform
-                border-white
                 cursor-pointer
-                focus:outline-none
                 border-s-4
-                text-gray-500
-                md:border-white
-                hover:bg-yellow-100
+                hover:bg-gray-100
                 hover:text-primary-500
                 hover:border-primary-500
-                lg:hover:text-primary-500
               "
               @click="Logout"
             >
@@ -591,5 +575,9 @@ export default {
 }
 .tab input[type='checkbox'] + label.has::after {
   content: '\25BE';
+}
+.frosted {
+  backdrop-filter: blur(15px);
+  background-color: hsla(0, 0%, 100%, 0.75);
 }
 </style>

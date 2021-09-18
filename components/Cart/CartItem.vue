@@ -203,6 +203,7 @@
                 rounded
                 class="
                   hidden
+                  p-1.5
                   w-8
                   h-8
                   my-auto
@@ -248,6 +249,7 @@
             <WishButton
               :pid="item.pid"
               class="
+                p-1.5
                 w-8
                 h-8
                 my-auto
@@ -266,7 +268,9 @@
               v-ripple="'rgba(229, 231, 235, 0.5)'"
               class="
                 flex
+                items-center
                 justify-center
+                p-1.5
                 w-8
                 h-8
                 m-1
@@ -290,7 +294,6 @@
               "
             >
               <svg
-                class="w-4 h-4"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
