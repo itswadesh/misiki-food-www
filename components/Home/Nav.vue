@@ -177,7 +177,6 @@
 
             <div class="hidden text-sm lg:block">Wishlist</div>
           </nuxt-link>
-
           <nuxt-link class="relative" to="/cart">
             <div
               class="
