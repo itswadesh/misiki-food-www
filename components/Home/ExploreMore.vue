@@ -4,7 +4,7 @@
     class="w-full my-6"
   >
     <video autoplay loop muted class="z-10 w-full h-auto">
-      <source :src="banners.data[0].img" type="video/mp4" />
+      <source v-lazy="banners.data[0].img" type="video/mp4" />
     </video>
   </div>
 </template>

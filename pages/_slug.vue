@@ -406,7 +406,7 @@ export default {
               DESCRIPTION,
           },
           {
-            name: 'twitter:image:src',
+            name: 'twitter:imagev-lazy',
             content: this.product.img || this.logoMobile,
           },
           // Google / Schema.org markup:

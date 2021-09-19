@@ -77,7 +77,7 @@
               />
               <img
                 v-else
-                :src="user.avatar"
+                v-lazy="user.avatar"
                 alt=""
                 class="object-cover object-top w-full h-full"
               />

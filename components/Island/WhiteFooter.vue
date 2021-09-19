@@ -398,7 +398,7 @@
       <div class="flex flex-row items-center space-x-2">
         <div v-for="(i, ix) in icons" :key="ix" class="mb-1">
           <img
-            :src="i.img"
+            v-lazy="i.img"
             :alt="i.alt"
             class="h-7 w-12 bg-white border p-1 object-contain"
           />

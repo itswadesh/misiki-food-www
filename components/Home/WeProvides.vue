@@ -7,7 +7,7 @@
         class="items-center hidden my-auto me-5 lg:flex"
       >
         <img
-          :src="i.img"
+          v-lazy="i.img"
           class="w-4 h-4 rounded-full lg:h-6 lg:w-6 xl:h-8 xl:w-8"
         />
         <h6
@@ -28,7 +28,7 @@
           :href="s.link"
         >
           <img
-            :src="s.img"
+            v-lazy="s.img"
             class="
               w-4
               h-4

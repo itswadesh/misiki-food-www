@@ -1,7 +1,7 @@
 <template>
   <div v-if="banners && banners[0] && banners[0].img" class="w-full lg:my-6">
     <video autoplay loop muted class="z-10 w-full h-auto">
-      <source :src="banners[0].img" type="video/mp4" />
+      <source v-lazy="banners[0].img" type="video/mp4" />
     </video>
   </div>
 </template>

@@ -53,7 +53,7 @@
 
     <div class="m-6">
       <img
-        :src="product && product.sizechart"
+        v-lazy="product && product.sizechart"
         alt="No Sizechart available"
         class="object-contain"
       />

@@ -51,7 +51,7 @@
           >
             <div>
               <img
-                :src="t.icon"
+                v-lazy="t.icon"
                 alt=""
                 class="absolute inset-0 h-6 w-6 m-1.5 opacity-70"
               />

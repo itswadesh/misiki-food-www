@@ -3,7 +3,9 @@
     <div class="relative justify-center w-full">
       <video
         class="object-cover w-full h-48 md:h-96 lg:h-125"
-        :src="'https://res.cloudinary.com/anne-biz/video/upload/q_auto/v1631807948/video_wiaoqe_m9u8ih.mp4?q_auto'"
+        v-lazy="
+          'https://res.cloudinary.com/anne-biz/video/upload/q_auto/v1631807948/video_wiaoqe_m9u8ih.mp4?q_auto'
+        "
         autoplay
         loop
         muted

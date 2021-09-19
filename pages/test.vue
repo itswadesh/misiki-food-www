@@ -9,7 +9,7 @@
     /> -->
     <!-- <PicZoom url="/img/american.jpg" :scale="3"></PicZoom> -->
     <image-magnifier
-      :src="image"
+      v-lazy="image"
       :zoom-src="image"
       width="400"
       height="300"
