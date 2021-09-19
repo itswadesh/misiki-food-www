@@ -20,8 +20,7 @@ export default ({ store, app }) => {
         let src = listener.src
         if (src) {
           const contains = src.includes(S3_URL)
-          if (CDN_URL && S3_URL && contains)
-            src = src.replace(S3_URL, CDN_URL + `tr:w-auto,dpr-auto/`)
+          if (CDN_URL && S3_URL && contains) src = src.replace(S3_URL, CDN_URL)
           listener.el.setAttribute('lazy-progressive', 'true')
           listener.loading = src + '?tr=w-3,h-2'
           listener.src = src
