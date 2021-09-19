@@ -1,17 +1,19 @@
 <template>
-  <div>
+  <section>
     <Megamenu class="hidden w-full xl:flex" :brand="$route.query.brand" />
+
     <MobileFilters
-      class="sticky top-0 z-20 flex-none mt-16 sm:hidden"
+      class="sticky top-0 z-20 flex-none mt-16 md:hidden"
       :count="productCount"
       :facets="facets"
       :fl="fl"
       @showFilter="showMobileFilter = true"
       @hide="showMobileFilter = false"
     />
-    <div class="flex sm:mt-6 xl:mt-0">
+
+    <div class="flex">
       <DesktopFilters
-        class="sticky top-0 hidden lg:block"
+        class="sticky top-0 hidden md:block"
         :facets="facets"
         :fl="fl"
         @clearAllFilters="clearAllFilters"
@@ -19,6 +21,7 @@
 
       <div class="w-full">
         <HeaderBody
+          class="hidden md:block"
           :category="category"
           :count="productCount"
           :fl="fl"
@@ -36,7 +39,7 @@
               mx-auto
               px-3
               py-3
-              sm:py-0 sm:px-3
+              sm:px-3
               md:p-4
               grid grid-cols-2
               gap-3
@@ -49,7 +52,9 @@
             <ProductSkeleton v-for="(p, ix) in 10" :key="ix + '-1'" />
           </div>
 
-          <p v-else-if="$fetchState.error">Error while fetching products</p>
+          <p v-else-if="$fetchState.error" class="p-5 sm:p-10 text-center">
+            Error while fetching products
+          </p>
 
           <div
             v-else-if="products && products.length > 0"
@@ -58,7 +63,7 @@
               mx-auto
               px-3
               py-3
-              sm:py-0 sm:px-3
+              sm:px-3
               md:p-4
               grid grid-cols-2
               gap-3
@@ -76,6 +81,7 @@
               :pid="p._id"
             />
           </div>
+
           <NoProduct v-else />
 
           <!-- <infinite-loading @infinite="loadMore($route.query.page)"></infinite-loading> -->
@@ -89,7 +95,7 @@
               :disabled="loading"
               :classes="bootstrapPaginationClasses"
               :labels="paginationAnchorTexts"
-            ></v-pagination>
+            ></v-pagination>     
           </div>-->
         </div>
 
@@ -101,9 +107,11 @@
         />
       </div>
     </div>
+
     <!-- <RightSideBar /> -->
-  </div>
+  </section>
 </template>
+
 <script>
 import CATEGORY from '~/gql/category/category.gql'
 import c from '~/mixins/c.js'
@@ -125,11 +133,13 @@ export default {
     HeaderBody,
   },
   mixins: [c],
+
   asyncData({ params, app, store }) {
     const { title, keywords, description, favicon, logoMobile } =
       store.state.store || {} // err = null
     return { title, keywords, description, favicon, logoMobile }
   },
+
   async fetch() {
     let facets = []
     let fl = {}
@@ -256,6 +266,7 @@ export default {
   //     return { products, category, productCount, facets: [], fl: {}, err }
   //   }
   // },
+
   head() {
     const host = process.server
       ? this.$ssrContext.req.headers.host
@@ -328,9 +339,11 @@ export default {
   // let query = { ...this.$route.query };
   // this.fl = query;
   // },
+
   mounted() {
     // this.getWishlist() // This was causing node undefined error when page is refreshed
   },
+
   methods: {
     // scrollToTop() {
     //   if (process.client) {
@@ -358,6 +371,7 @@ export default {
   },
 }
 </script>
+
 <style scoped>
 /* .pagination {
   list-style-type: none !important;

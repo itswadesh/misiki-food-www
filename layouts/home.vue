@@ -12,7 +12,7 @@
   >
     <div
       v-if="!store.id && settings.isMultiStore"
-      class="px-8 py-12 flex flex-col items-center justify-center"
+      class="px-8 py-12 flex flex-col min-h-screen items-center justify-center"
     >
       <div
         class="mb-6 text-2xl font-bold text-center text-gray-800 md:text-3xl"

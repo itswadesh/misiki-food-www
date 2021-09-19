@@ -7,7 +7,7 @@
         alt=""
       />
 
-      <div class="text-xl md:text-3xl">
+      <div class="text-xl md:text-2xl lg:text-3xl">
         We couldn't find any matches! <br />
       </div>
 

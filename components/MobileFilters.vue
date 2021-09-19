@@ -12,10 +12,11 @@
         border-b border-gray-200
       "
     >
-      <div class="h-11 flex flex-row justify-between p-2 px-3 text-sm">
+      <div class="h-11 sm:h-12 flex flex-row justify-between p-2 px-3 text-sm">
         <div class="my-auto text-sm font-light text-gray-500">
-          <span v-if="count == 0">No</span>
-          <b v-else> {{ count }} </b> <span>products found</span>
+          <span v-if="count == 0" class="font-bold">No</span>
+          <span v-else class="font-bold"> {{ count }} </span>
+          <span>products found</span>
         </div>
 
         <div class="flex flex-row my-auto">
@@ -27,7 +28,7 @@
               transition
               ease-in-out
               cursor-pointer
-              me-4
+              me-5
               focus:outline-none
               duration-1500
             "
@@ -35,7 +36,7 @@
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 me-1 text-primary-500"
+              class="h-5 text-primary-500"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -64,7 +65,7 @@
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 text-primary-500"
+              class="h-5 text-primary-500"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

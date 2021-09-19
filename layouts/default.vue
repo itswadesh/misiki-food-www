@@ -13,7 +13,14 @@
     <div class="min-h-screen">
       <div
         v-if="!store.id && settings.isMultiStore"
-        class="px-8 py-12 flex flex-col items-center justify-center"
+        class="
+          px-8
+          py-12
+          flex flex-col
+          min-h-screen
+          items-center
+          justify-center
+        "
       >
         <div
           class="mb-6 text-2xl font-bold text-center text-gray-800 md:text-3xl"
@@ -36,7 +43,10 @@
       <div v-else>
         <Nav class="fixed top-0 z-50 w-full" @showLogin="showLogin" />
 
-        <Nuxt class="w-full mt-24 lg:mt-16" />
+        <Nuxt
+          class="w-full"
+          :class="!settings.id ? 'mt-32 lg:mt-24' : 'mt-24 lg:mt-16'"
+        />
       </div>
     </div>
 

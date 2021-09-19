@@ -1,36 +1,29 @@
 <template>
   <div>
     <Megamenu class="hidden w-full xl:flex" />
+
     <HeroSlider v-if="brand && brand.img" :banners="[{ img: brand.img }]" />
+
     <MobileFilters
-      class="sticky top-0 z-20 flex-none mt-16 sm:hidden"
+      class="sticky top-0 z-20 flex-none mt-16 md:hidden"
       :count="productCount"
       :facets="facets"
       :fl="fl"
       @showFilter="showMobileFilter = true"
       @hide="showMobileFilter = false"
     />
-    <div class="flex sm:mt-6 xl:mt-0">
+
+    <div class="flex">
       <DesktopFilters
-        class="
-          sticky
-          top-0
-          flex-none
-          hidden
-          max-w-xs
-          min-h-screen
-          mt-5
-          bg-gray-100
-          shadow
-          ms-4
-          lg:block
-        "
+        class="sticky top-0 hidden md:block"
         :facets="facets"
         :fl="fl"
         @clearAllFilters="clearAllFilters"
       />
+
       <div class="relative w-full">
         <HeaderBody
+          class="hidden md:block"
           :category="category"
           :count="productCount"
           :fl="fl"
@@ -49,7 +42,7 @@
               mx-auto
               px-3
               py-3
-              sm:py-0 sm:px-3
+              sm:px-3
               md:p-4
               grid grid-cols-2
               gap-3
@@ -71,6 +64,7 @@
               :product="p._source"
               :pid="p._id"
             />
+
             <!-- <infinite-loading @infinite="loadMore($route.query.page)"></infinite-loading> -->
           </div>
 
@@ -102,6 +96,7 @@
             ></v-pagination>
           </div>-->
         </div>
+
         <Pagination
           class="mt-5"
           :count="noOfPages"
@@ -110,9 +105,11 @@
         />
       </div>
     </div>
+
     <!-- <RightSideBar /> -->
   </div>
 </template>
+
 <script>
 import BRAND from '~/gql/brand/brand.gql'
 import c from '~/mixins/c.js'
@@ -135,8 +132,9 @@ export default {
     HeaderBody,
     HeroSlider,
   },
+
   mixins: [c],
-  layout: 'search',
+
   async asyncData({ route, query, params, $axios, app }) {
     let products = []
     let brand = {}
@@ -189,6 +187,7 @@ export default {
       return { products, brand, productCount, facets: [], fl: {}, err }
     }
   },
+
   head() {
     const host = process.server
       ? this.$ssrContext.req.headers.host
@@ -253,16 +252,20 @@ export default {
       ],
     }
   },
+
   watchQuery: true,
+
   created() {
     this.scrollToTop()
     this.currentPage = parseInt(this.$route.query.page)
     // let query = { ...this.$route.query };
     // this.fl = query;
   },
+
   mounted() {
     // this.getWishlist() // This was causing node undefined error when page is refreshed
   },
+
   methods: {
     // scrollToTop() {
     //   if (process.client) {
@@ -290,6 +293,7 @@ export default {
   },
 }
 </script>
+
 <style scoped>
 .pagination {
   list-style-type: none !important;

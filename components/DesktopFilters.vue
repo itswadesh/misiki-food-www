@@ -1,5 +1,5 @@
 <template>
-  <div v-if="facets" class="w-72 min-h-screen border-l border-r">
+  <div v-if="facets" class="w-72 min-h-screen border-r">
     <div
       v-if="megamenu && megamenu.length > 0"
       class="pt-4 border-b leading-3 xl:hidden"
@@ -109,7 +109,7 @@
       </ul>
     </div>
 
-    <div class="flex items-center justify-between p-4 border-b leading-3">
+    <div class="flex items-center justify-between px-4 py-4 border-b leading-3">
       <h5 class="font-bold uppercase tracking-wide">FILTERS</h5>
 
       <button

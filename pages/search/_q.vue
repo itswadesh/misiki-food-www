@@ -3,7 +3,7 @@
     <Megamenu class="hidden w-full xl:flex" />
 
     <MobileFilters
-      class="sticky top-0 z-20 flex-none mt-16 sm:hidden"
+      class="sticky top-0 z-20 flex-none mt-16 md:hidden"
       :count="productCount"
       :facets="facets"
       :fl="fl"
@@ -11,9 +11,9 @@
       @hide="showMobileFilter = false"
     />
 
-    <div class="flex sm:mt-6 xl:mt-0">
+    <div class="flex">
       <DesktopFilters
-        class="sticky top-20 flex-none hidden max-w-xs lg:block"
+        class="sticky top-0 hidden md:block"
         :facets="facets"
         :fl="fl"
         @clearAllFilters="clearAllFilters"
@@ -21,6 +21,7 @@
 
       <div class="relative w-full">
         <HeaderBody
+          class="hidden md:block"
           :category="{}"
           :count="productCount"
           :fl="fl"
@@ -37,7 +38,7 @@
               mx-auto
               px-3
               py-3
-              sm:py-0 sm:px-3
+              sm:px-3
               md:p-4
               grid grid-cols-2
               gap-3
@@ -59,6 +60,7 @@
               :product="p._source"
               :pid="p._id"
             />
+
             <!-- <infinite-loading @infinite="loadMore($route.query.page)"></infinite-loading> -->
           </div>
         </div>
@@ -73,6 +75,7 @@
     <!-- <RightSideBar /> -->
   </div>
 </template>
+
 <script>
 import Pagination from '~/shared/components/ui/Pagination'
 import c from '~/mixins/c.js'
