@@ -52,6 +52,17 @@ const SSH = new SSH2Shell(host)
 const callback = function (sessionText) {
   // console.log(sessionText)
 }
-
-// Start the process
-SSH.connect(callback)
+const prompt = require('password-prompt')
+const chalk = require('chalk')
+prompt('password: ').then((password) => {
+  if (password !== 'anne') {
+    console.log(chalk`
+        Invalid: {bgRed Password verification failed! Not deployed...}
+        `)
+    return
+  }
+  SSH.connect(callback)
+  console.log(chalk`
+    Success: {bgGreen Successfully deployed...}
+    `)
+})
