@@ -162,13 +162,13 @@
 import { mapMutations } from 'vuex'
 import { required } from 'vuelidate/lib/validators'
 import { validationMixin } from 'vuelidate'
-import { Textbox, Radio, ImageUpload } from '~/shared/components/ui'
+import { Textbox, Radio } from '~/shared/components/ui'
 import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
 import UPDATE_PROFILE from '~/gql/user/updateProfile.gql'
 import ME from '~/gql/user/me.gql'
 
 export default {
-  components: { Textbox, ImageUpload, Radio, PrimaryButtonRounded },
+  components: { Textbox, Radio, PrimaryButtonRounded },
 
   mixins: [validationMixin],
 

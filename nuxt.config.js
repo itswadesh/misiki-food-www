@@ -33,6 +33,7 @@ export default {
     // { src: '~/plugins/zoom.js', ssr: false },
     // { src: '~/plugins/agora.js', ssr: false },
     { src: '~/plugins/dir', ssr: true },
+    { src: '~/plugins/gtag', ssr: false },
     { src: '~/plugins/api.js' },
     // { src: '~/plugins/init', ssr: false },
     // { src: '~/plugins/directives.js', ssr:false },
