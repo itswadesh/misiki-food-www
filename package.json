@@ -32,6 +32,8 @@
     "anne-copy": "node devops/anne/copy",
     "anne-deploy": "node devops/anne/deploy",
     "anne": "run-s anne-copy-config build anne-copy anne-deploy",
+    "anne-deploy-next": "node devops/anne/next",
+    "next-anne": "run-s anne-copy-config build anne-copy anne-deploy-next",
     "edeal-copy-config": "node devops/edeal/copy-config",
     "edeal-copy": "node devops/edeal/copy",
     "edeal-deploy": "node devops/edeal/deploy",

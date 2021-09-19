@@ -4,7 +4,7 @@ require('dotenv').config()
 // Start Config
 const PM2_NAME = 'anne.biz:5500'
 const REMOTE_DIR = '/var/www/anne/www'
-const REMOTE_HOST = '206.189.38.137'
+const REMOTE_HOST = '143.110.244.136'
 const REMOTE_USER = 'root'
 const PRIVATE_KEY = process.env.LIVE_KEY
 const FILE_NAMES =
