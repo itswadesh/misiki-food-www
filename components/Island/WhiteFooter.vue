@@ -384,9 +384,10 @@
       </div>
     </div>
 
-    <div class="w-full my-4 border-b-2 border-gray-400"></div>
-    <div class="flex flex-row justify-between">
-      <div class="text-sm font-normal tracking-wider md:mt-0 whitespace-nowrap">
+    <hr class="w-full my-4 border-t-2" />
+
+    <div class="flex flex-row items-center justify-between">
+      <div class="text-sm font-normal tracking-wider whitespace-nowrap">
         © {{ year }} {{ store.name }}
         <span v-if="store.websiteEmail" class="ms-2">
           {{ store.websiteEmail }}</span
@@ -394,6 +395,8 @@
       </div>
 
       <!-- <LanguageSwitcher /> -->
+
+      <LanguageSwitch />
 
       <div class="flex flex-row items-center space-x-2">
         <div v-for="(i, ix) in icons" :key="ix" class="mb-1">
@@ -410,10 +413,12 @@
 <script>
 // import LanguageSwitcher from '~/components/LanguageSwitcher'
 import NuxtLink from '~/components/NuxtLink.vue'
+import LanguageSwitch from '~/components/LanguageSwitch.vue'
 
 export default {
   components: {
     NuxtLink,
+    LanguageSwitch,
     // LanguageSwitcher
   },
   data() {

@@ -59,7 +59,10 @@
     <OtpLogin v-if="showLoginModal" @showLogin="showLogin" />
 
     <Modal :show="store.closed" title="Store is not accepting orders now">
-      {{ store.closedMessage || 'Please visit back later' }}
+      <div class="flex flex-col items-center justify-center text-center">
+        <img v-lazy="`/store-closed.png?tr=h-384,fo-auto`" alt="" />
+        <span> {{ store.closedMessage || 'Please visit back later' }}</span>
+      </div>
     </Modal>
   </div>
 </template>
