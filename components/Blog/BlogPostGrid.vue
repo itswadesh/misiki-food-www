@@ -7,7 +7,7 @@
         class="block bg-white rounded-md shadow-md avatar zoom hover:shadow-lg"
       >
         <img
-          v-lazy="post.img"
+          v-lazy="`${post.img}?tr=w-100%,fo-auto`"
           :alt="post.title"
           class="object-cover min-w-full"
         />
@@ -18,7 +18,7 @@
             class="flex items-center text-xs author lg:text-sm"
           >
             <img
-              v-lazy="post.user.avatar"
+              v-lazy="`${post.user.avatar}?tr=w-64,h-64,fo-auto`"
               class="object-cover w-16 h-16 me-4 rounded-full"
               alt=""
             />

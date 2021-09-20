@@ -38,7 +38,7 @@
         @click="go(b.link)"
       >
         <img
-          v-lazy="`${b.img}?tr=w-1500,h-380,fo-auto`"
+          v-lazy="`${b.img}?tr=h-384,fo-auto`"
           class="
             bg-white
             h-48

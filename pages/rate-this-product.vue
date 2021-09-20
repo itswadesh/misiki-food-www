@@ -12,7 +12,7 @@
             <!-- <span class="flex justify-end text-xs text-secondary-200 text-end">{{product.price | currency(store.currencySymbol,2)}}</span>-->
           </div>
           <img
-            v-lazy="product.img"
+            v-lazy="`${product.img}?tr=w-64,h-64,fo-auto`"
             alt="product img"
             class="
               object-contain

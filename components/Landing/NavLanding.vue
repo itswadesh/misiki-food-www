@@ -16,7 +16,11 @@
               underline
               nuxt-link-active
             "
-            ><img src="/icon.png" alt="" class="h-10 mr-2" />
+            ><img
+              v-lazy="`/icon.png?tr=h-40,fo-auto`"
+              alt=""
+              class="h-10 mr-2"
+            />
           </nuxt-link>
         </div>
         <div

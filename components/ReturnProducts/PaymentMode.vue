@@ -81,7 +81,7 @@
                       clip-rule="evenodd"
                     />
                   </svg>
-                  <!-- <img src="/img/kisspng-bank-initial.jpg" alt="mastercard" class="w-6 h-6 my-auto ">  -->
+                  <!-- <img v-lazy="`/img/kisspng-bank-initial.jpg?tr=w-24,h-24,fo-auto`" alt="mastercard" class="w-6 h-6 my-auto ">  -->
                 </div>
               </div>
             </div>
@@ -125,17 +125,19 @@
                 </div>
                 <div class="flex flex-row">
                   <img
-                    v-lazy="'/img/phonepe-india.jpg'"
+                    v-lazy="`/img/phonepe-india.jpg?tr=w-24,h-24,fo-auto`"
                     alt="mastercard"
                     class="w-6 h-6 my-auto border rounded-full me-2"
                   />
                   <img
-                    v-lazy="'/img/Google-Pay-Logo-Icon-PNG.png'"
+                    v-lazy="
+                      `/img/Google-Pay-Logo-Icon-PNG.png?tr=w-24,h-24,fo-auto`
+                    "
                     alt="rupay"
                     class="w-6 h-6 p-1 my-auto border rounded-full me-2"
                   />
                   <img
-                    v-lazy="'/img/upi-logo.png'"
+                    v-lazy="`/img/upi-logo.png?tr=w-24,h-24,fo-auto`"
                     alt="ae"
                     class="w-10 h-6 p-1 my-auto border"
                   />

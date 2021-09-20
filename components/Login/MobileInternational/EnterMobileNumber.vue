@@ -13,7 +13,7 @@
       "
     >
       <img
-        v-lazy="store.logoMobile"
+        v-lazy="`${store.logoMobile}?tr=w-128,h-80,fo-auto`"
         alt=""
         class="object-contain w-32 h-20 -mt-10"
       />
@@ -25,7 +25,8 @@
     <form class="flex flex-col" @submit.prevent="requestOtp">
       <div class="flex flex-col space-y-1">
         <p class="my-3 text-gray-600">
-          <!-- <img src="/img/flag.png" alt="flag" class="w-8 h-5 me-3" /> -->
+          <!-- <img  v-lazy="`/img/flag.png?tr=w-32,h-20,fo-auto`"
+          alt="flag" class="w-8 h-5 me-3" /> -->
           <select
             v-model="countryCode"
             class="

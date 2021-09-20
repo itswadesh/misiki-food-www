@@ -125,7 +125,11 @@
               "
             >
               <img
-                v-lazy="product.img || (product.images && product.images[0])"
+                v-lazy="
+                  `${
+                    product.img || (product.images && product.images[0])
+                  }?tr=h-224,fo-auto`
+                "
                 alt=""
                 class="
                   object-cover

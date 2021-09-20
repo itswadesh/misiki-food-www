@@ -23,7 +23,7 @@
           <span class="mb-2 font-semibold">Your Rewards</span>
           <div class="flex flex-row">
             <img
-              v-lazy="'/img/lockinCoinNew.svg'"
+              v-lazy="`/img/lockinCoinNew.svg?tr=w-20,h-20,fo-auto`"
               alt="coin"
               class="w-5 h-5 my-auto me-4"
             />
@@ -43,7 +43,11 @@
         <div class="flex flex-col justify-around md:flex-row">
           <div class="flex flex-row me-12">
             <div class="me-8">
-              <img v-lazy="i.img" alt="mobile" class="w-16 h-24" />
+              <img
+                v-lazy="`${i.img}?tr=w-64,h-96,fo-auto`"
+                alt="mobile"
+                class="w-16 h-24"
+              />
             </div>
             <div class="flex flex-col">
               <span class="mb-2">{{ i.name }}</span>

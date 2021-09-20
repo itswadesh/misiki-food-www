@@ -156,6 +156,8 @@
       </div>
       <div class="hidden lg:absolute xl:block lg:inset-y-0 lg:right-0 lg:w-1/2">
         <img
+          v-lazy="`/img/home/fashion-designer.jpg?tr=h-384,fo-auto`"
+          alt=""
           class="
             object-contain object-center
             w-full
@@ -165,8 +167,6 @@
             md:h-96
             lg:w-full lg:h-full
           "
-          src="/img/home/fashion-designer.jpg"
-          alt=""
         />
       </div>
     </div>
@@ -221,7 +221,7 @@
           class="flex flex-row items-center justify-center"
         >
           <img
-            v-lazy="i"
+            v-lazy="`${i}?tr=w-128,h-128,fo-auto`"
             class="
               object-contain object-center
               w-32
@@ -390,7 +390,11 @@
             shadow-lg
           "
         >
-          <img class="object-center w-12 h-12" src="/suitcase.svg" alt="" />
+          <img
+            v-lazy="`/suitcase.svg?tr=w-48,h-48,fo-auto`"
+            alt=""
+            class="object-center w-12 h-12"
+          />
         </div>
         <span class="pt-4 text-xl font-bold text-gray-700 opacity-90"
           >15 positions open</span
@@ -436,7 +440,7 @@
               "
             >
               <div class="w-1/2 mt-1">
-                <img v-lazy="i.image" class="w-12 h-12 rounded-md" alt="" />
+                <img v-lazy="`${i.image}?tr=w-48,h-48,fo-auto`" class="w-12 h-12 rounded-md" alt="" />
               </div>
               <div class="absolute top-3 right-2">
                 <div class="relative cursor-pointer dropdown">
@@ -662,10 +666,9 @@
                     focus:outline-none
                   "
                 >
-                  <img
-                    class="w-6 h-6 pe-2"
-                    src="https://upload.wikimedia.org/wikipedia/commons/7/78/Dropbox_Icon.svg"
+                  <img v-lazy="`https://upload.wikimedia.org/wikipedia/commons/7/78/Dropbox_Icon.svg?tr=w-24,h-24,fo-auto`"
                     alt=""
+                    class="w-6 h-6 pe-2"
                   />
                   Drop your Cv
                 </button>
@@ -714,7 +717,7 @@
                 <div class="text-center c">
                   <div class="font-bold text-white wrap h-80 xl:h-92">
                     <img
-                      v-lazy="i.image"
+                      v-lazy="i.image"  
                       class="
                         object-contain
                         aspect-w-1 aspect-h-1

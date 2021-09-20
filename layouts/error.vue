@@ -17,14 +17,14 @@
 
         <img
           v-if="error.statusCode === 404"
-          v-lazy="'/no/404-error-animate.svg'"
+          v-lazy="`/no/404-error-animate.svg?tr=h-384,fo-auto`"
           alt="404 Error"
           class="object-contain h-80 md:h-96"
         />
 
         <img
           v-else
-          v-lazy="'/no/search-animate.svg'"
+          v-lazy="`/no/search-animate.svg?tr=h-384,fo-auto`"
           alt="404 Error"
           class="object-contain h-80 md:h-96"
         />

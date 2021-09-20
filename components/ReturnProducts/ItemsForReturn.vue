@@ -31,7 +31,7 @@
             <div class="flex flex-row">
               <div class="w-24 mx-2 md:w-20 md:h-20">
                 <img
-                  v-lazy="'/img/producttrack.jpg'"
+                  v-lazy="`/img/producttrack.jpg?tr=w-96,h-80,fo-auto`"
                   alt="pic"
                   class="object-contain w-full h-full overflow-hidden border"
                 />
@@ -84,7 +84,7 @@
                     <div class="text-gray-500">
                         <div class="flex flex-row">
                             <span class="w-20 mx-2">
-                                <img src="/img/producttrack.jpg" alt="pic" class="object-contain w-20 h-20 overflow-hidden border md:border-0 md:w-full">
+                                <img v-lazy="`/img/producttrack.jpg?tr=w-80,h-80,fo-auto`" alt="pic" class="object-contain w-20 h-20 overflow-hidden border md:border-0 md:w-full">
                             </span>
                             <span class="relative flex flex-col">
                                 <span class="font-medium text-gray-600 hover:text-primary-500">name</span>

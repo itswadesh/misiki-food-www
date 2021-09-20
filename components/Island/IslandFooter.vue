@@ -118,7 +118,11 @@
         class="mb-10 flex items-center justify-center space-x-5 md:space-x-10"
       >
         <a v-for="(s, sx) in socialmedia" :key="sx" :href="s.link" class="">
-          <img v-lazy="s.icon" :alt="s.name" class="h-6 w-6 md:h-8 md:w-8" />
+          <img
+            v-lazy="`${s.icon}?tr=w-32,h-32,fo-auto`"
+            :alt="s.name"
+            class="h-6 w-6 md:h-8 md:w-8"
+          />
         </a>
       </div>
 

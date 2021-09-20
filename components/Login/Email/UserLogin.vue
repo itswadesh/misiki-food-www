@@ -96,7 +96,7 @@
       <!--  -->
       <!-- <div class="flex items-center justify-center">
         <img
-          src="/img/69-512.png"
+          v-lazy="`/img/69-512.png?tr=w-128,h-128,fo-auto`"
           alt="login"
           class="absolute hidden object-contain w-32 h-32 z-1 lg:flex"
         />
@@ -104,9 +104,9 @@
 
       <!-- <div class="flex items-center justify-center">
         <img
-          src="/img/69-512.png"
+          v-lazy="`/icon.png?tr=w-112,h-128,fo-auto`"
           alt="login"
-          class="absolute object-contain w-28 h-30 z-1 md:hidden"
+          class="absolute object-contain w-28 h-32 z-1 md:hidden"
         />
       </div> -->
       <!--  -->
@@ -129,7 +129,7 @@
             :alt="store.name"
             class="object-contain h-40 w-44"
           />
-          <!-- <img v-lazy="store.logoMobile" alt="" class="w-32 h-20" /> -->
+          <!-- <img v-lazy="`/icon.png?tr=w-128,h-80,fo-auto`" alt="" class="w-32 h-20" /> -->
         </div>
         <span class="mb-4 font-medium text-center text-primary-500">
           SignIn using email and password
@@ -137,21 +137,21 @@
         <!-- <span class="flex flex-row items-center justify-center pb-3">
           <nuxt-link to="/">
             <img
-              src="/img/social-facebook.png"
+              v-lazy="`/img/social-facebook.png?tr=w-32,h-32,fo-auto`"
               alt="fb"
               class="object-contain w-8 h-8 border rounded-full shadow-lg hover:opacity-75"
             />
           </nuxt-link>
           <nuxt-link to="/">
             <img
-              src="/img/social-linkedin-circle.png"
+              v-lazy="`/img/social-linkedin-circle.png?tr=w-32,h-32,fo-auto`"
               alt="in"
               class="object-contain w-8 h-8 mx-4 border rounded-full shadow-lg hover:opacity-75"
             />
           </nuxt-link>
           <nuxt-link to="/">
             <img
-              src="/img/googl.jpg"
+              v-lazy="`/img/googl.jpg?tr=w-32,h-32,fo-auto`"
               alt="google"
               class="object-contain w-8 h-8 border rounded-full shadow-lg hover:opacity-75"
             />

@@ -132,7 +132,7 @@
                   <div v-if="v.img" class="w-1/6 my-auto">
                     <img
                       :key="v._id"
-                      v-lazy="v.img"
+                      v-lazy="`${v.img}?tr=w-h-40,fo-auto`"
                       alt=""
                       class="object-contain h-10 mx-auto my-auto"
                     />

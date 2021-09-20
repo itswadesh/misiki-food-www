@@ -15,7 +15,11 @@
             lazy-load="ondemand"
           >
             <div v-for="(i, ix) in data.banners.data" :key="ix">
-              <img v-lazy="i.img" class="object-cover w-full h-48" alt />
+              <img
+                v-lazy="`${i.img}?tr=h-192,fo-auto`"
+                class="object-cover w-full h-48"
+                alt
+              />
             </div>
           </VueSlickCarousel>
         </div>

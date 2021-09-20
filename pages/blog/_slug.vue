@@ -6,7 +6,7 @@
       </h1>
       <div class="flex items-center text-xs author lg:text-sm">
         <img
-          v-lazy="post.user.avatar"
+          v-lazy="`${post.user.avatar}?tr=w-64,h-64,fo-auto`"
           class="hidden object-cover w-16 h-16 me-4 rounded-full md:block"
           alt=""
         />
@@ -15,7 +15,11 @@
         </div>
         <div class="mx-2 text-gray-700">{{ post.updatedAt | date }}</div>
       </div>
-      <img v-lazy="post.img" class="object-cover h-48 w-full my-4" alt="" />
+      <img
+        v-lazy="`${post.img}?tr=h-192,fo-auto`"
+        class="object-cover h-48 w-full my-4"
+        alt=""
+      />
       <div>
         <div v-html="post.content" />
       </div>
@@ -37,7 +41,7 @@
                 class="flex items-center"
               >
                 <img
-                  v-lazy="i.img"
+                  v-lazy="`${i.img}?tr=w-64,h-64,fo-auto`"
                   class="w-16 h-16 me-2 rounded"
                   alt="{i.name}"
                 />

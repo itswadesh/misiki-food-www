@@ -33,7 +33,11 @@
       >
         <div v-for="b in brands.data" :key="b.id" class="mx-auto">
           <nuxt-link :to="localePath(`/search?brands=${b.name}`)" class="p-1">
-            <img v-lazy="b.img" alt="bab" class="object-contain h-12 sm:h-20" />
+            <img
+              v-lazy="`${b.img}?tr=h-80,fo-auto`"
+              alt="bab"
+              class="object-contain h-12 sm:h-20"
+            />
           </nuxt-link>
         </div>
       </div>
@@ -49,8 +53,7 @@
           v-for="b in brands.data"
           :key="b.id"
         >
-          <img
-            v-lazy="b.img"
+          <img v-lazy="`${b.img}?tr=h-80,fo-auto`"
             alt="bab"
             class="object-contain h-20 focus:outline-none"
           />

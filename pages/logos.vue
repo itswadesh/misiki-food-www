@@ -22,7 +22,7 @@
       <img
         v-for="img in 100"
         :key="img"
-        src="/img/visa.png"
+        v-lazy="`/img/visa.png?tr=h-64,fo-auto`"
         alt=""
         class="h-14 w-14 md:h-16 md:w-16 m-2 rounded bg-white object-contain"
       />

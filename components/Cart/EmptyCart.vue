@@ -3,8 +3,9 @@
     <div class="flex flex-col p-6">
       <span class="text-xl font-semibold">My Cart</span>
       <span class="flex flex-col items-center justify-center p-5">
+        <!-- v-lazy="`/no/empty-animate.svg?tr=w-,h-,fo-auto`" -->
         <img
-          v-lazy="'/no/empty-animate.svg'"
+          v-lazy="`/no/empty-animate.svg?tr=h-384,fo-auto`"
           alt="emptycart"
           class="object-contain h-80 md:h-96"
         />

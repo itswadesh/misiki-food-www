@@ -68,7 +68,7 @@
         :class="ix % 2 == !0 ? '' : 'lg:order-1 ms-auto  max-w-max'"
       >
         <img
-          v-lazy="product.img"
+          v-lazy="`${product.img}?tr=h-384,fo-auto`"
           class="
             md:h-96
             object-top object-cover

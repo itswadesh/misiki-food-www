@@ -19,12 +19,12 @@
           "
         >
           <!-- <img
-            v-lazy="store.logo"
+             v-lazy="`${store.logo}?tr=w-128,h-128,fo-auto`"
             :alt="store.name"
             class="absolute z-10 hidden object-contain w-32 h-32 md:flex -top-20"
                 /> -->
           <img
-            src="/img/69-512.png"
+            v-lazy="`/img/69-512.png?tr=w-128,h-128,fo-auto`"
             alt="login"
             class="
               absolute

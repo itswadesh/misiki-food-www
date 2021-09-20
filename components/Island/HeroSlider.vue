@@ -59,7 +59,7 @@
 
         <img
           v-else
-          v-lazy="b.img"
+          v-lazy="`${b.img}?tr=h-688,fo-auto`"
           class="
             object-cover
             w-full

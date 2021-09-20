@@ -31,7 +31,11 @@
       >
         Dinner
       </div>
-      <img v-lazy="`${p.img}`" alt class="object-cover w-full h-24 mb-2" />
+      <img
+        v-lazy="`${p.img}?tr=h-96,fo-auto`"
+        alt
+        class="object-cover w-full h-24 mb-2"
+      />
     </nuxt-link>
     <div class="px-2">
       <div v-if="p.ratings" class="flex items-center">
@@ -53,7 +57,9 @@
           <span v-if="p.stock < 6">Only</span> {{ p.stock }} left
         </div>
         <img
-          v-lazy="p.type === 'V' ? 'veg.png' : 'non-veg.png'"
+          v-lazy="
+            `${p.type === 'V' ? 'veg.png' : 'non-veg.png'}?tr=w-20,fo-auto`
+          "
           class="w-5 mt-1 me-1"
         />
       </div>

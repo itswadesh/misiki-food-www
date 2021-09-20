@@ -18,7 +18,7 @@
         hover:shadow-md
       "
     >
-      <img v-lazy="product.img" class="h-40 mx-auto" />
+      <img v-lazy="`${product.img}?tr=h-160,fo-auto`" class="h-40 mx-auto" />
       <div class="">
         <div class="my-5 text-xl font-bold text-center lg:text-2xl">
           {{ product.name }}

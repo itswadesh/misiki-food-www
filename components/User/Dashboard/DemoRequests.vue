@@ -81,7 +81,7 @@
                         "
                       >
                         <img
-                          v-lazy="w.product.img"
+                          v-lazy="`${w.product.img}?tr=h-224,fo-auto`"
                           alt="mobile"
                           class="
                             object-contain
@@ -185,7 +185,7 @@
             <div class="flex flex-col p-6">
               <div class="flex flex-col items-center justify-center p-5">
                 <img
-                  v-lazy="'/placeholder/empty-wish-list.png'"
+                  v-lazy="`/placeholder/empty-wish-list.png?tr=h-192,fo-auto`"
                   alt="emptycart"
                   class="object-contain h-48"
                 />

@@ -1,7 +1,11 @@
 <template>
   <section class="text-gray-800 bg-white">
     <div class="relative">
-      <img src="/img/mushroom.jpg" alt="" class="object-cover w-full h-96" />
+      <img
+        v-lazy="`/img/mushroom.jpg?tr=h-384,fo-auto`"
+        alt=""
+        class="object-cover w-full h-96"
+      />
       <div class="absolute inset-0 bg-black opacity-50"></div>
       <div class="absolute inset-0 px-5">
         <h1 class="mt-16 md:mt-32 text-white text-center text-4xl">
@@ -58,7 +62,7 @@
                 "
               ></div>
               <img
-                src="/img/step_1.png"
+                v-lazy="`/img/step_1.png?tr=h-160,fo-auto`"
                 alt=""
                 class="timeline-img relative z-10"
               />
@@ -102,7 +106,7 @@
                 "
               ></div>
               <img
-                src="/img/step_2.png"
+                v-lazy="`/img/step_2.png?tr=h-160,fo-auto`"
                 alt=""
                 class="timeline-img relative z-10"
               />
@@ -136,7 +140,7 @@
                 "
               ></div>
               <img
-                src="/img/step_3.png"
+                v-lazy="`/img/step_3.png?tr=h-160,fo-auto`"
                 alt=""
                 class="timeline-img relative z-10"
               />
@@ -179,7 +183,7 @@
                 "
               ></div>
               <img
-                src="/img/step_4.png"
+                v-lazy="`/img/step_4.png?tr=h-160,fo-auto`"
                 alt=""
                 class="timeline-img relative z-10"
               />

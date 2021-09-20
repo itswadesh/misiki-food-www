@@ -40,7 +40,7 @@
                   "
                 >
                   <img
-                    v-lazy="p.img"
+                    v-lazy="`${p.img}?tr=w-40,h-40,fo-auto`"
                     :alt="p.name"
                     class="w-10 h-10 rounded-full object-cover"
                   />
@@ -103,22 +103,22 @@
                 </div>
                 <div class="flex flex-row mt-1 md:mt-0">
                   <img
-                    src="/img/Mastercard-logo.png"
+                    v-lazy="`/img/Mastercard-logo.png?tr=w-40,h-24,fo-auto`"
                     alt="mastercard"
                     class="w-10 h-6 p-1 my-auto border me-2"
                   />
                   <img
-                    src="/img/rupay-logo.png"
+                    v-lazy="`/img/rupay-logo.png?tr=w-40,h-24,fo-auto`"
                     alt="rupay"
                     class="w-10 h-6 p-1 my-auto border me-2"
                   />
                   <img
-                    src="/img/visa.png"
+                    v-lazy="`/img/visa.png?tr=w-40,h-24,fo-auto`"
                     alt="visa"
                     class="w-10 h-6 p-1 my-auto border me-2"
                   />
                   <img
-                    src="/img/american.jpg"
+                    v-lazy="`/img/american.jpg?tr=w-40,h-24,fo-auto`
                     alt="ae"
                     class="w-10 h-6 p-1 my-auto border"
                   />
@@ -194,7 +194,7 @@
                 </div>
                 <div class="my-auto">
                   <img
-                    src="/img/paypal-logo-png-transparent.png"
+                    v-lazy="`/img/paypal-logo-png-transparent.png?tr=w-64,h-28,fo-auto`
                     alt="paypal"
                     class="w-16 p-1 my-auto border h-7"
                   />
@@ -256,17 +256,17 @@
                 </div>
                 <div class="flex flex-row">
                   <img
-                    src="/img/phonepe-india.jpg"
+                    v-lazy="`/img/phonepe-india.jpg?tr=w-24,h-24,fo-auto`
                     alt="mastercard"
                     class="w-6 h-6 my-auto border rounded-full me-2"
                   />
                   <img
-                    src="/img/Google-Pay-Logo-Icon-PNG.png"
+                    v-lazy="`/img/Google-Pay-Logo-Icon-PNG.png?tr=w-24,h-24,fo-auto`
                     alt="rupay"
                     class="w-6 h-6 p-1 my-auto border rounded-full me-2"
                   />
                   <img
-                    src="/img/upi-logo.png"
+                    v-lazy="`/img/upi-logo.png?tr=w-40,h-24,fo-auto`
                     alt="ae"
                     class="w-10 h-6 p-1 my-auto border"
                   />

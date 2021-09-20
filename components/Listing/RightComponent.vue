@@ -35,7 +35,7 @@
         <div v-if="products.count == 0" class>
           <div class="w-full m-5 mx-auto">
             <img
-              v-lazy="'img/noproduct.png'"
+              v-lazy="`img/noproduct.png?tr=w-416,h-352,fo-auto`"
               alt="noproduct"
               class="object-contain mx-auto height"
             />

@@ -17,12 +17,15 @@
     </div>-->
     <div v-if="p" class="z-0 flex px-1 py-2 m-2 bg-white rounded shadow">
       <nuxt-link :to="localePath(`/${p.slug}?id=${p.id}`)" class="p-2">
-        <img v-lazy="p.img" class="object-cover w-32 h-20 rounded" />
+        <img
+          v-lazy="`${p.img}?tr=w-128,h-80,fo-auto`"
+          class="object-cover w-32 h-20 rounded"
+        />
       </nuxt-link>
       <div class="relative w-full my-1">
         <nuxt-link v-if="p.vendor" :to="localePath(`/vendor/${p.vendor.slug}`)">
           <img
-            v-lazy="`/${p.vendor.img}`"
+            v-lazy="`${p.vendor.img}?tr=w-16,h-16,fo-auto`"
             class="absolute top-0 right-0 object-contain w-4 h-4"
           />
         </nuxt-link>

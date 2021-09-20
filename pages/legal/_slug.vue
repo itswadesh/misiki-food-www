@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto prose">
+  <div class="container mx-auto px-2 sm:px-10 prose">
     <div>
       <main>
         <Shortcode :content="page.content"></Shortcode>

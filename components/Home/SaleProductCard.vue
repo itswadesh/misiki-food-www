@@ -44,7 +44,7 @@
             "
           >
             <img
-              v-lazy="img"
+              v-lazy="`${img}?tr=h-192,fo-auto`"
               alt=""
               class="
                 object-cover

@@ -145,7 +145,7 @@
             >
               <img
                 v-if="!youtubeVideoId(im)"
-                v-lazy="im"
+                v-lazy="`${im}?tr=h-320,fo-auto`"
                 alt=""
                 class="object-contain w-full h-full bg-white"
                 @click="handleClick"
@@ -178,7 +178,7 @@
               @click="selectedImage = ig"
             >
               <img
-                v-lazy="imgVideo(ig)"
+                v-lazy="`${imgVideo(ig)}?tr=w-64,h-64,fo-auto`"
                 class="object-contain w-16 h-16 mx-auto bg-white"
               />
             </div>

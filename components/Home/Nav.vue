@@ -72,7 +72,7 @@
           <nuxt-link :to="localePath('/')">
             <img
               v-if="store.logo"
-              v-lazy="store.logo"
+              v-lazy="`${store.logo}?tr=h-40,fo-auto`"
               alt="store logo"
               class="object-contain h-8 md:h-10"
             />

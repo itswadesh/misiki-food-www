@@ -19,9 +19,9 @@
     <div class="flex flex-row justify-around py-16">
       <span class="hidden md:flex">
         <img
-          src="/img/location-ico.png"
+          v-lazy="`/img/location-ico.png?tr=w-256,h-288,fo-auto`"
           alt="location"
-          class="object-contain height"
+          class="object-contain w-64 h-72"
         />
       </span>
       <span class="flex flex-row">
@@ -39,7 +39,8 @@
                 clip-rule="evenodd"
               />
             </svg>
-            <!-- <img src="/img/pinkloc.png" alt="loc" class="object-contain w-5 h-5 mt-1 me-1" /> -->
+            <!-- <img v-lazy="`/img/pinkloc.png?tr=w-20,h-20,fo-auto`"
+            alt="loc" class="object-contain w-5 h-5 mt-1 me-1" /> -->
             <p class="my-auto text-lg font-semibold text-gray-700">Jordan</p>
           </h1>
           <h1 class="flex flex-row py-3">
@@ -55,7 +56,7 @@
                 clip-rule="evenodd"
               />
             </svg>
-            <!-- <img src="/img/pinkloc.png" alt="loc" class="object-contain w-5 h-5 mt-1 me-1" /> -->
+            <!-- <img v-lazy="`/img/pinkloc.png?tr=w-20,h-20,fo-auto`" alt="loc" class="object-contain w-5 h-5 mt-1 me-1" /> -->
             <p class="my-auto text-lg font-semibold text-gray-700">Libya</p>
           </h1>
           <h1 class="flex flex-row py-3">
@@ -71,7 +72,7 @@
                 clip-rule="evenodd"
               />
             </svg>
-            <!-- <img src="/img/pinkloc.png" alt="loc" class="object-contain w-5 h-5 mt-1 me-1" /> -->
+            <!-- <img v-lazy="`/img/pinkloc.png?tr=w-20,h-20,fo-auto`" alt="loc" class="object-contain w-5 h-5 mt-1 me-1" /> -->
             <p class="my-auto text-lg font-semibold text-gray-700">Morocco</p>
           </h1>
           <h1 class="flex flex-row py-3">
@@ -87,7 +88,7 @@
                 clip-rule="evenodd"
               />
             </svg>
-            <!-- <img src="/img/pinkloc.png" alt="loc" class="object-contain w-5 h-5 mt-1 me-1" /> -->
+            <!-- <img v-lazy="`/img/pinkloc.png?tr=w-20,h-20,fo-auto`" alt="loc" class="object-contain w-5 h-5 mt-1 me-1" /> -->
             <p class="my-auto text-lg font-semibold text-gray-700">Oman</p>
           </h1>
           <h1 class="flex flex-row py-3">
@@ -103,7 +104,7 @@
                 clip-rule="evenodd"
               />
             </svg>
-            <!-- <img src="/img/pinkloc.png" alt="loc" class="object-contain w-5 h-5 mt-1 me-1" /> -->
+            <!-- <img v-lazy="`/img/pinkloc.png?tr=w-20,h-20,fo-auto`" alt="loc" class="object-contain w-5 h-5 mt-1 me-1" /> -->
             <p class="my-auto text-lg font-semibold text-gray-700">Palestine</p>
           </h1>
         </h1>
@@ -122,7 +123,7 @@
                 clip-rule="evenodd"
               />
             </svg>
-            <!-- <img src="/img/pinkloc.png" alt="loc" class="object-contain w-5 h-5 mt-1 me-1" /> -->
+            <!-- <img v-lazy="`/img/pinkloc.png?tr=w-20,h-20,fo-auto`" alt="loc" class="object-contain w-5 h-5 mt-1 me-1" /> -->
             <p class="my-auto text-lg font-semibold text-gray-700">Qatar</p>
           </h1>
           <h1 class="flex flex-row py-3">
@@ -138,7 +139,7 @@
                 clip-rule="evenodd"
               />
             </svg>
-            <!-- <img src="/img/pinkloc.png" alt="loc" class="object-contain w-5 h-5 mt-1 me-1" /> -->
+            <!-- <img v-lazy="`/img/pinkloc.png?tr=w-20,h-20,fo-auto`" alt="loc" class="object-contain w-5 h-5 mt-1 me-1" /> -->
             <p class="my-auto text-lg font-semibold text-gray-700">Kuwait</p>
           </h1>
           <h1 class="flex flex-row py-3">
@@ -154,7 +155,7 @@
                 clip-rule="evenodd"
               />
             </svg>
-            <!-- <img src="/img/pinkloc.png" alt="loc" class="object-contain w-5 h-5 mt-1 me-1" /> -->
+            <!-- <img v-lazy="`/img/pinkloc.png?tr=w-20,h-20,fo-auto`" alt="loc" class="object-contain w-5 h-5 mt-1 me-1" /> -->
             <p class="my-auto text-lg font-semibold text-gray-700">Lebanon</p>
           </h1>
           <h1 class="flex flex-row py-3">
@@ -170,7 +171,7 @@
                 clip-rule="evenodd"
               />
             </svg>
-            <!-- <img src="/img/pinkloc.png" alt="loc" class="object-contain w-5 h-5 mt-1 me-1" /> -->
+            <!-- <img v-lazy="`/img/pinkloc.png?tr=w-20,h-20,fo-auto`" alt="loc" class="object-contain w-5 h-5 mt-1 me-1" /> -->
             <p class="my-auto text-lg font-semibold text-gray-700">Tunisia</p>
           </h1>
           <h1 class="flex flex-row py-3">
@@ -186,7 +187,7 @@
                 clip-rule="evenodd"
               />
             </svg>
-            <!-- <img src="/img/pinkloc.png" alt="loc" class="object-contain w-5 h-5 mt-1 me-1" /> -->
+            <!-- <img v-lazy="`/img/pinkloc.png?tr=w-20,h-20,fo-auto`" alt="loc" class="object-contain w-5 h-5 mt-1 me-1" /> -->
             <p class="my-auto text-lg font-semibold text-gray-700">Brazil</p>
           </h1>
         </h1>
@@ -195,9 +196,4 @@
   </div>
 </template>
 
-<style scoped>
-.height {
-  height: 18rem;
-  width: 16rem;
-}
-</style>
+<style scoped></style>

@@ -102,7 +102,11 @@
       </div>
       <div class="p-2 px-6 pt-4 bg-white md:mt-0 lg:p-5 lg:px-20 md:flex-1">
         <h3 class="flex justify-center lg:py-3">
-          <img v-lazy="store.logoMobile" alt="" class="w-32 h-20" />
+          <img
+            v-lazy="`${store.logoMobile}?tr=w-128,h-80,fo-auto`"
+            alt=""
+            class="w-32 h-20"
+          />
         </h3>
         <span class="my-6 font-medium text-center text-primary-500 lg:my-3">
           SignUp using social account
@@ -110,7 +114,7 @@
         <div class="flex flex-row items-center justify-center pb-2">
           <nuxt-link to="/">
             <img
-              v-lazy="'/img/social-facebook.png'"
+              v-lazy="`/img/social-facebook.png?tr=w-32,h-32,fo-auto`"
               alt="fb"
               class="
                 object-contain
@@ -125,7 +129,7 @@
           </nuxt-link>
           <nuxt-link to="/">
             <img
-              v-lazy="'/img/social-linkedin-circle.png'"
+              v-lazy="`/img/social-linkedin-circle.png?tr=w-32,h-32,fo-auto`"
               alt="in"
               class="
                 object-contain
@@ -141,7 +145,7 @@
           </nuxt-link>
           <nuxt-link to="/">
             <img
-              v-lazy="'/img/googl.jpg'"
+              v-lazy="`/img/googl.jpg?tr=w-32,h-32,fo-auto`"
               alt="google"
               class="
                 object-contain

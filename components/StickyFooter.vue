@@ -101,7 +101,7 @@
         href="https://api.whatsapp.com/send?phone=918249028220"
         target="_blank"
       >
-        <img src="/whatsapp.webp" style="width: 32px;" alt="9078571888" />
+        <img v-lazy="`/whatsapp.webp?tr=w-32,fo-auto`" style="width: 32px;" alt="9078571888" />
       </a> -->
     </div>
   </div>

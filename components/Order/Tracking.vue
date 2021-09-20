@@ -28,7 +28,7 @@
               <div class="flex flex-row md:flex-col">
                 <div class="w-24 h-24 mt-1 border me-4 md:w-40 md:h-40 md:mt-0">
                   <img
-                    v-lazy="'/img/producttrack.jpg'"
+                    v-lazy="`/img/producttrack.jpg?tr=w-96,h-96,fo-auto`"
                     alt="img"
                     class="object-contain w-full h-full"
                   />
@@ -222,7 +222,7 @@
                 <span class="flex flex-row my-2">
                   <div class="w-10 h-6 my-auto me-4">
                     <img
-                      v-lazy="'/img/visa.png'"
+                      v-lazy="`/img/visa.png?tr=w-40,h-24,fo-auto`"
                       alt="visa"
                       class="object-contain"
                     />

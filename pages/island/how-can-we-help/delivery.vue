@@ -2,9 +2,9 @@
   <section class="text-gray-800 bg-gray-100 min-h-screen">
     <div class="relative">
       <img
-        src="/island/help/group.jpg"
+        v-lazy="`/island/help/group.jpg?tr=h-384,fo-auto`"
         alt=""
-        class="h-rem object-cover object-top w-full"
+        class="object-cover object-top w-full h-96"
       />
 
       <div class="absolute inset-0 bg-black bg-opacity-30 flex justify-center">
@@ -187,8 +187,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.h-rem {
-  height: 24rem;
-}
-</style>
+<style scoped></style>

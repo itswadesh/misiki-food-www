@@ -14,7 +14,7 @@
 
             <div class="flex flex-col items-center justify-center p-5">
               <img
-                v-lazy="'/img/no-order.svg'"
+                v-lazy="`/img/no-order.svg?tr=w-192,h-208,fo-auto`"
                 alt="emptycart"
                 class="object-contain h-48 w-52"
               />
@@ -380,7 +380,7 @@
 
                     <td class="text-sm text-gray-900 text-start">
                       <img
-                        v-lazy="i.img"
+                        v-lazy="`${i.img}?tr=w-80,h-80,fo-auto`"
                         alt=""
                         class="object-cover w-20 h-20 p-1"
                       />
@@ -458,8 +458,7 @@
 
                       <span class="w-1/3 me-2">
                       
-                        <img
-                          src=""
+                        <img  v-lazy="`?tr=w-96,h-96,fo-auto`"
                           alt="pic"
                           class="object-contain w-24 h-24 mx-auto overflow-hidden border md:border-0 md:w-full"
                         />
@@ -555,7 +554,11 @@
                 <div
                   class="flex items-center justify-between my-3 text-gray-400"
                 >
-                  <img v-lazy="i.img" alt="" class="object-cover w-16" />
+                  <img
+                    v-lazy="`${i.img}?tr=w-64,fo-auto`"
+                    alt=""
+                    class="object-cover w-16"
+                  />
 
                   <div>
                     Price:

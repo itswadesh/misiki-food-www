@@ -2,12 +2,15 @@
   <div>
     <div class="relative flex px-1 py-2 m-2 bg-white rounded shadow">
       <div class="p-2">
-        <img v-lazy="`/loading.svg`" class="object-cover w-32 h-20 rounded" />
+        <img
+          v-lazy="`/loading.svg?tr=w-128,h-80,fo-auto`"
+          class="object-cover w-32 h-20 rounded"
+        />
       </div>
       <div class="w-full my-2">
         <div>
           <img
-            v-lazy="`/food-tray.svg`"
+            v-lazy="`/food-tray.svg?tr=w-32,h-32,fo-auto`"
             class="
               absolute
               top-0

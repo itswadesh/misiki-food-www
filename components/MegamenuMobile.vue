@@ -7,6 +7,7 @@
       :to="`/${c.slug}`"
       class="flex-1 bg-white circletag"
     >
+      <!-- v-lazy="`${store.state.settings.CDN_URL + c.img}?tr=h-40,fo-auto`" -->
       <img
         v-lazy="$store.state.settings.CDN_URL + c.img"
         :alt="c.name.toUpperCase()"

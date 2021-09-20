@@ -30,7 +30,10 @@
         class="w-full lg:w-1/2 pb-10"
         :class="ix % 2 == 0 ? '' : 'lg:order-1'"
       >
-        <img v-lazy="i.img" class="w-full h-96 lg:h-full object-contain" />
+        <img
+          v-lazy="`${i.img}?tr=h-384,fo-auto`"
+          class="w-full h-96 lg:h-full object-contain"
+        />
       </div>
       <!-- Image section end -->
 

@@ -92,7 +92,7 @@
                     "
                   >
                     <img
-                      v-lazy="store.logo"
+                      v-lazy="`${store.logo}?tr=w-192,h-80,fo-auto`"
                       class="object-contain w-48 h-20 my-auto lg:h-12 lg:w-44"
                     />
                   </nuxt-link>

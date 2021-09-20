@@ -2,7 +2,7 @@
   <section class="container mx-auto w-full">
     <div class="w-full mt-4 text-center text-gray-700">
       <img
-        v-lazy="'/no/search2-animate.svg'"
+        v-lazy="`/no/search2-animate.svg?tr=w-384,h-320,fo-auto`"
         class="object-contain mx-auto h-80 md:h-96"
         alt=""
       />

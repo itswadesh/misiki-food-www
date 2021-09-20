@@ -16,7 +16,7 @@
           <div class="flex flex-col w-full mt-3 sm:flex-row">
             <div v-if="r.pid" class="mx-auto h-36 sm:pe-5 sm:w-40">
               <img
-                v-lazy="r.pid.img"
+                v-lazy="`${r.pid.img}?tr=w-160,h-144,fo-auto`"
                 alt="mobile"
                 class="object-contain w-full h-full"
               />
@@ -137,7 +137,7 @@
         "
       >
         <img
-          v-lazy="`/img/review/review.jpg`"
+          v-lazy="`/img/review/review.jpg?tr=h-384,fo-auto`"
           alt=""
           class="object-contain h-60 sm:h-96 mb-5 sm:mb-10"
         />

@@ -192,7 +192,7 @@
                       class=""
                     >
                       <img
-                        v-lazy="item.img"
+                        v-lazy="`${item.img}?tr=w-112,fo-auto`"
                         alt="pro"
                         class="object-cover border w-28"
                       />
@@ -301,7 +301,7 @@
             <span class="text-lg font-medium">Billing Information</span>
             <span class="flex flex-row my-2">
               <h2 class="w-10 h-6 my-auto me-4">
-                <img src="/img/visa.png" alt="visa" class="object-contain" />
+                <img  v-lazy="`/img/visa.png?tr=w-40,h-24,fo-auto`" alt="visa" class="object-contain" />
               </h2>
               <h2 class="flex flex-col">
                 </span>XXXX XXXX XXXX XX36</span>

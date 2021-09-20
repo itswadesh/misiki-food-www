@@ -150,7 +150,7 @@
       "
     >
       <img
-        v-lazy="'/no/empty-animate.svg'"
+        v-lazy="`/no/empty-animate.svg?tr=h-320,fo-auto`"
         alt="Not found"
         class="object-contain w-full h-80"
       />

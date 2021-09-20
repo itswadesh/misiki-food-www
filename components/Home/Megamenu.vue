@@ -174,8 +174,7 @@
             <div v-for="b in parentBrands.data" :key="b.id" class="py-4 mx-6">
               <nuxt-link :to="localePath(`/brand/${b.slug}`)" class="p-3">
                 <img
-                  v-if="b.img"
-                  v-lazy="b.img"
+                  v-if="b.img"  v-lazy="`${b.img}?tr=h-64,fo-auto`"
                   alt="bab"
                   class="object-contain h-16"
                 />

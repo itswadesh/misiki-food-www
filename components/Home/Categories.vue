@@ -76,7 +76,7 @@
               "
             >
               <img
-                v-lazy="`${c.img}?tr=w-251,h-251,fo-auto`"
+                v-lazy="`${c.img}?tr=w-144,h-144,fo-auto`"
                 alt="categories"
                 class="
                   h-full

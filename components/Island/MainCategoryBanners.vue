@@ -13,7 +13,9 @@
         "
       >
         <img
-          src="/island/home/adorable-baby-beautiful-boy.jpg"
+          v-lazy="
+            `/island/home/adorable-baby-beautiful-boy.jpg?tr=h-640,fo-auto`
+          "
           alt=""
           class="
             object-cover object-top
@@ -76,7 +78,7 @@
         class="col-span-1 relative border-t md:border-t-2 border-white flex-1"
       >
         <img
-          src="/island/home/men.jpg"
+          v-lazy="`/island/home/men.jpg?tr=h-640,fo-auto`"
           alt=""
           class="
             object-cover object-top

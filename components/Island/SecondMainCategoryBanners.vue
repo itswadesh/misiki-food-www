@@ -4,7 +4,7 @@
       class="relative border-t md:border-t-2 md:border-r-2 border-white flex-1"
     >
       <img
-        src="/island/home/girl.jpg"
+        v-lazy="`/island/home/girl.jpg?tr=h-640,fo-auto`"
         alt="Girls"
         class="
           object-cover object-top
@@ -41,7 +41,7 @@
       class="relative border-t md:border-t-2 md:border-r-2 border-white flex-1"
     >
       <img
-        src="/island/home/boy.jpg"
+        v-lazy="`/island/home/boy.jpg?tr=h-640,fo-auto`"
         alt="Boys"
         class="
           object-cover object-top
@@ -76,7 +76,7 @@
 
     <div class="relative border-t md:border-t-2 border-white flex-1">
       <img
-        src="/island/home/men.jpg"
+        v-lazy="`/island/home/men.jpg?tr=h-640,fo-auto`"
         alt="Mens"
         class="
           object-cover object-top

@@ -17,7 +17,10 @@
       >
         {{ product.heading }}
       </button>
-      <img src="" class="object-cover object-top w-full h-40 md:h-60" />
+      <img
+        v-lazy="`?tr=h-240,fo-auto`"
+        class="object-cover object-top w-full h-40 md:h-60"
+      />
       <div class="px-6 py-4">
         <div class="mb-2 text-xl font-bold truncate">{{ product.name }}</div>
         <div class="flex justify-between mb-2 text-base text-gray-600 truncate">

@@ -306,7 +306,7 @@
               >
                 <div class="flex flex-col items-center justify-center">
                   <img
-                    v-lazy="i.image"
+                    v-lazy="`${i.image}?tr=w-64,h-64,fo-auto`"
                     class="w-16 h-16"
                     alt="Social Media Link"
                   />
