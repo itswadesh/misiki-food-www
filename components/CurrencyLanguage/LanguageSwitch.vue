@@ -16,7 +16,7 @@
             duration-300
             focus:outline-none
           "
-          @click="showcurrency"
+          @click="showCurrency = true"
         >
           <span class="uppercase font-bold tracking-wide text-gray-800"
             >INR</span
@@ -85,6 +85,7 @@
             focus:outline-none
             overflow-hidden
           "
+          @click="showLanguages = true"
         >
           <img
             v-lazy="`/flags/india-flag.png?tr=w-40,h-40,fo-auto`"
@@ -139,12 +140,30 @@
         </div>
       </div>
     </div>
+
+    <div v-if="showCurrency">
+      <Currency :show="showCurrency" @close="showCurrency = false" />
+    </div>
+
+    <div v-if="showLanguages">
+      <Languages :show="showLanguages" @close="showLanguages = false" />
+    </div>
   </section>
 </template>
 
 <script>
+import Currency from '~/components/CurrencyLanguage/Currency.vue'
+import Languages from '~/components/CurrencyLanguage/Languages.vue'
+
 export default {
-  components: {},
+  components: { Currency, Languages },
+
+  data() {
+    return {
+      showCurrency: false,
+      showLanguages: false,
+    }
+  },
 }
 </script>
 

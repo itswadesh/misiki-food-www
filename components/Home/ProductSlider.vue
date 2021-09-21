@@ -46,7 +46,7 @@
           <div
             class="
               absolute
-              z-20
+              z-10
               top-36
               left-0
               ml-5
@@ -94,7 +94,7 @@
           <div
             class="
               absolute
-              z-20
+              z-10
               top-36
               right-0
               mr-5

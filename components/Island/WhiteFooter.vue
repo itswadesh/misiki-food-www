@@ -413,7 +413,7 @@
 <script>
 // import LanguageSwitcher from '~/components/LanguageSwitcher'
 import NuxtLink from '~/components/NuxtLink.vue'
-import LanguageSwitch from '~/components/LanguageSwitch.vue'
+import LanguageSwitch from '~/components/CurrencyLanguage/LanguageSwitch.vue'
 
 export default {
   components: {
