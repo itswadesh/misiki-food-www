@@ -157,7 +157,7 @@
       <div class="hidden lg:absolute xl:block lg:inset-y-0 lg:right-0 lg:w-1/2">
         <img
           v-lazy="`/img/home/fashion-designer.jpg?tr=h-384,fo-auto`"
-          alt=""
+          alt="🚀"
           class="
             object-contain object-center
             w-full
@@ -360,7 +360,7 @@
             <img
               class="w-full"
               src="https://images.pexels.com/photos/301926/pexels-photo-301926.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-              alt=""
+              alt="🚀"
             />
           </div>
         </div>
@@ -368,7 +368,7 @@
           <img
             class="w-full"
             src="https://images.pexels.com/photos/301926/pexels-photo-301926.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            alt=""
+            alt="🚀"
           />
         </div>
       </div>
@@ -392,7 +392,7 @@
         >
           <img
             v-lazy="`/suitcase.svg?tr=w-48,h-48,fo-auto`"
-            alt=""
+            alt="🚀"
             class="object-center w-12 h-12"
           />
         </div>
@@ -440,7 +440,7 @@
               "
             >
               <div class="w-1/2 mt-1">
-                <img v-lazy="`${i.image}?tr=w-48,h-48,fo-auto`" class="w-12 h-12 rounded-md" alt="" />
+                <img v-lazy="`${i.image}?tr=w-48,h-48,fo-auto`" class="w-12 h-12 rounded-md" alt="🚀" />
               </div>
               <div class="absolute top-3 right-2">
                 <div class="relative cursor-pointer dropdown">
@@ -647,7 +647,7 @@
               </div>
 
               <div class="flex flex-row items-center justify-end">
-                <img src="" alt="" />
+                <img src="" alt="🚀" />
                 <button
                   type="submit"
                   class="
@@ -667,7 +667,7 @@
                   "
                 >
                   <img v-lazy="`https://upload.wikimedia.org/wikipedia/commons/7/78/Dropbox_Icon.svg?tr=w-24,h-24,fo-auto`"
-                    alt=""
+                    alt="🚀"
                     class="w-6 h-6 pe-2"
                   />
                   Drop your Cv
@@ -717,7 +717,7 @@
                 <div class="text-center c">
                   <div class="font-bold text-white wrap h-80 xl:h-92">
                     <img
-                      v-lazy="i.image"  
+                      v-lazy="i.image"  alt="🚀"
                       class="
                         object-contain
                         aspect-w-1 aspect-h-1

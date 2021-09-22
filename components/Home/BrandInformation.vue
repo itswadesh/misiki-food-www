@@ -4,7 +4,7 @@
       <div class="md:w-1/3 flex items-center">
         <img
           v-lazy="`${brand.img}?tr=h-176,fo-auto`"
-          alt=""
+          alt="🚀"
           class="h-44 object-contain"
         />
       </div>

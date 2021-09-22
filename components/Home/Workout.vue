@@ -10,6 +10,7 @@
       >
         <img
           v-lazy="banners.data[0].img"
+          alt="🚀"
           class="object-scale-down w-full h-full rounded"
         />
       </nuxt-link>
@@ -20,6 +21,7 @@
       >
         <img
           v-lazy="banners.data[1].img"
+          alt="🚀"
           class="object-scale-down w-full h-full rounded"
         />
       </nuxt-link>
@@ -30,6 +32,7 @@
       >
         <img
           v-lazy="banners.data[2].img"
+          alt="🚀"
           class="object-scale-down w-full h-full rounded"
         />
       </nuxt-link>
@@ -40,6 +43,7 @@
       >
         <img
           v-lazy="banners.data[3].img"
+          alt="🚀"
           class="object-scale-down w-full h-full rounded"
         />
       </nuxt-link>
@@ -50,6 +54,7 @@
       >
         <img
           v-lazy="banners.data[4].img"
+          alt="🚀"
           class="object-scale-down w-full h-full rounded"
         />
       </nuxt-link>

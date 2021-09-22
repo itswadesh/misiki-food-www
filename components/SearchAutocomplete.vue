@@ -111,7 +111,7 @@
               v-if="v.img"
               :key="i"
               v-lazy="`${v.img}?tr=w-48,h-40,fo-auto`"
-              alt=""
+              alt="🚀"
               class="object-contain w-12 h-10 mx-2"
             /> -->
             <span class="p-3 text-sm font-light text-gray-600 truncate">

@@ -8,7 +8,7 @@
         <img
           v-lazy="`${post.user.avatar}?tr=w-64,h-64,fo-auto`"
           class="hidden object-cover w-16 h-16 me-4 rounded-full md:block"
-          alt=""
+          alt="🚀"
         />
         <div class="mx-2 font-bold tracking-wide">
           {{ post.user.firstName }} {{ post.user.lastName }}
@@ -18,7 +18,7 @@
       <img
         v-lazy="`${post.img}?tr=h-192,fo-auto`"
         class="object-cover h-48 w-full my-4"
-        alt=""
+        alt="🚀"
       />
       <div>
         <div v-html="post.content" />

@@ -104,7 +104,7 @@
         <h3 class="flex justify-center lg:py-3">
           <img
             v-lazy="`${store.logoMobile}?tr=w-128,h-80,fo-auto`"
-            alt=""
+            alt="🚀"
             class="w-32 h-20"
           />
         </h3>

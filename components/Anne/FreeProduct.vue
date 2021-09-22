@@ -20,6 +20,7 @@
       <img
         v-lazy="`?tr=h-240,fo-auto`"
         class="object-cover object-top w-full h-40 md:h-60"
+        alt="🚀"
       />
       <div class="px-6 py-4">
         <div class="mb-2 text-xl font-bold truncate">{{ product.name }}</div>

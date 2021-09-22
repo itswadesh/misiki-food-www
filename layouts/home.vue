@@ -19,7 +19,7 @@
       >
         <img
           v-lazy="`/no/dog-png-1.png?tr=h-384,fo-auto`"
-          alt=""
+          alt="🚀"
           class="mb-5 mx-auto w-full h-96 object-contain"
         />
         <p>Oops! Store not found</p>

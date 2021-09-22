@@ -4,7 +4,7 @@
       <img
         v-lazy="`/no/search2-animate.svg?tr=w-384,h-320,fo-auto`"
         class="object-contain mx-auto h-80 md:h-96"
-        alt=""
+        alt="🚀"
       />
 
       <div class="text-xl md:text-2xl lg:text-3xl">

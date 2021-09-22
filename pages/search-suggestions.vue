@@ -133,7 +133,7 @@
                     <img
                       :key="v._id"
                       v-lazy="`${v.img}?tr=w-h-40,fo-auto`"
-                      alt=""
+                      alt="🚀"
                       class="object-contain h-10 mx-auto my-auto"
                     />
                   </div>

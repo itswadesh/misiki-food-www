@@ -27,7 +27,7 @@
         >
           <img
             v-lazy="`/no/dog-png-1.png?tr=h-384,fo-auto`"
-            alt=""
+            alt="🚀"
             class="mb-5 mx-auto w-full h-96 object-contain"
           />
           <p>Oops! Store not found</p>
@@ -60,7 +60,7 @@
 
     <Modal :show="store.closed" title="Store is not accepting orders now">
       <div class="flex flex-col items-center justify-center text-center">
-        <img v-lazy="`/store-closed.png?tr=h-384,fo-auto`" alt="" />
+        <img v-lazy="`/store-closed.png?tr=h-384,fo-auto`" alt="🚀" />
         <span> {{ store.closedMessage || 'Please visit back later' }}</span>
       </div>
     </Modal>

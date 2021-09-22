@@ -77,6 +77,7 @@
             transform
             hover:scale-105
           "
+          alt="🚀"
         />
       </div>
       <!-- Image section end -->

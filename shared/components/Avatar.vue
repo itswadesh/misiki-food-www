@@ -48,7 +48,7 @@
           </button>
           <img
             v-lazy="`${img}?tr=w-64,h-64,fo-auto`"
-            alt
+            alt="🚀"
             class="object-cover w-16 h-16 rounded-full"
           />
         </div>

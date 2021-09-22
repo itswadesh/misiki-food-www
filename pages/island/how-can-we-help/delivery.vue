@@ -3,7 +3,7 @@
     <div class="relative">
       <img
         v-lazy="`/island/help/group.jpg?tr=h-384,fo-auto`"
-        alt=""
+        alt="🚀"
         class="object-cover object-top w-full h-96"
       />
 

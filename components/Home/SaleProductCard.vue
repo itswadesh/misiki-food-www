@@ -45,7 +45,7 @@
           >
             <img
               v-lazy="`${img}?tr=h-192,fo-auto`"
-              alt=""
+              alt="🚀"
               class="
                 object-cover
                 w-full

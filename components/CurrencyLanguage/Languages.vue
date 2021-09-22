@@ -61,7 +61,7 @@
               <div class="h-8 w-8 rounded-full overflow-hidden">
                 <img
                   v-lazy="`${s.countryflag}?tr=w-32,h-32,fo-auto`"
-                  alt=""
+                  alt="🚀"
                   class="h-full w-full object-cover"
                 />
               </div>
@@ -93,7 +93,7 @@
               <div class="h-8 w-8 rounded-full overflow-hidden">
                 <img
                   v-lazy="`${a.countryflag}?tr=w-32,h-32,fo-auto`"
-                  alt=""
+                  alt="🚀"
                   class="h-full w-full object-cover"
                 />
               </div>

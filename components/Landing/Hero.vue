@@ -100,7 +100,7 @@
           <!-- <div
             class="flex justify-center pt-20 pb-20 lg:pt-6 lg:justify-start md:pt-8"
           >
-            <img src="/img/p.svg"  />
+            <img src="/img/p.svg" alt="🚀"  />
           </div> -->
 
           <!-- <br />
@@ -116,6 +116,7 @@
       <div class="pt-10 lg:pt-0 flex justify-center lg:justify-end lg:w-1/2">
         <img
           v-lazy="`/home/add-to-cart-animate.svg?tr=h-384,fo-auto`"
+          alt="🚀"
           class="w-full h-96 lg:h-full"
         />
         <!-- <video

@@ -130,7 +130,7 @@
                     product.img || (product.images && product.images[0])
                   }?tr=h-224,fo-auto`
                 "
-                alt=""
+                alt="🚀"
                 class="
                   object-cover
                   mx-auto

@@ -33,7 +33,7 @@
       </div>
       <img
         v-lazy="`${p.img}?tr=h-96,fo-auto`"
-        alt
+        alt="🚀"
         class="object-cover w-full h-24 mb-2"
       />
     </nuxt-link>
@@ -60,6 +60,7 @@
           v-lazy="
             `${p.type === 'V' ? 'veg.png' : 'non-veg.png'}?tr=w-20,fo-auto`
           "
+          alt="🚀"
           class="w-5 mt-1 me-1"
         />
       </div>

@@ -30,7 +30,7 @@
             v-if="!youtubeVideoId(selectedImage)"
             :key="selectedImage"
             v-lazy="selectedImage"
-            alt=""
+            alt="🚀"
             class="
               object-contain
               w-auto
@@ -89,7 +89,7 @@
           <img
             v-if="!youtubeVideoId(selectedImage)"
             v-lazy="selectedImage"
-            alt=""
+            alt="🚀"
             class="
               object-contain
               w-auto
@@ -146,7 +146,7 @@
               <img
                 v-if="!youtubeVideoId(im)"
                 v-lazy="`${im}?tr=h-320,fo-auto`"
-                alt=""
+                alt="🚀"
                 class="object-contain w-full h-full bg-white"
                 @click="handleClick"
               />
@@ -179,6 +179,7 @@
             >
               <img
                 v-lazy="`${imgVideo(ig)}?tr=w-64,h-64,fo-auto`"
+                alt="🚀"
                 class="object-contain w-16 h-16 mx-auto bg-white"
               />
             </div>

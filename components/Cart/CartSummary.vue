@@ -62,7 +62,7 @@
       <!-- <div class="p-2 my-2 text-xs text-gray-500 rounded bg-accent-100">
         <div class="flex items-center">
           <img v-lazy="`/shield.png?tr=w-48,fo-auto`"
-          class="w-12 pe-2" alt="" />
+          class="w-12 pe-2" alt="🚀" />
           <div class="ms-1 justify">
             Genuine products. 15 day returns. 100% secure payments.
             <span class="text-black">Know More</span>

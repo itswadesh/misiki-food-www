@@ -14,7 +14,7 @@
     >
       <img
         v-lazy="`${store.logoMobile}?tr=w-128,h-80,fo-auto`"
-        alt=""
+        alt="🚀"
         class="object-contain w-32 h-20 -mt-10"
       />
       <div class="my-6 text-2xl text-secondary-500">OTP Verification</div>

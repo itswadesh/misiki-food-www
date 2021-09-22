@@ -18,7 +18,7 @@
               <img
                 v-lazy="`${i.img}?tr=h-192,fo-auto`"
                 class="object-cover w-full h-48"
-                alt
+                alt="🚀"
               />
             </div>
           </VueSlickCarousel>

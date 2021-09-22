@@ -78,7 +78,7 @@
           <nuxt-link :to="localePath(`/${product.slug}?id=${pid}`)">
             <img
               v-lazy="`${product.img}?tr=h-256,fo-auto`"
-              alt=""
+              alt="🚀"
               class="
                 object-cover object-top
                 w-full

@@ -9,6 +9,7 @@
 
       <div class="absolute right-0 mr-2 lg:mr-3 top-0 flex">
         <button
+          aria-label="Show Previous"
           class="
             flex
             items-center
@@ -45,6 +46,7 @@
         </button>
 
         <button
+          aria-label="Show Next"
           class="
             flex
             items-center
@@ -85,11 +87,13 @@
       <button
         v-for="b in banners"
         :key="b.id"
+        aria-label="Picked Sliders"
         class="overflow-hidden focus:outline-none px-1 lg:px-3"
         @click="go(b.link)"
       >
         <img
           v-lazy="`${b.img}?tr=w-375,h-430,fo-auto`"
+          alt="🚀"
           class="h-full w-full object-cover rounded-2xl bg-white"
         />
       </button>

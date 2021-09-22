@@ -4,6 +4,7 @@
       <div class="p-2">
         <img
           v-lazy="`/loading.svg?tr=w-128,h-80,fo-auto`"
+          alt="🚀"
           class="object-cover w-32 h-20 rounded"
         />
       </div>
@@ -11,6 +12,7 @@
         <div>
           <img
             v-lazy="`/food-tray.svg?tr=w-32,h-32,fo-auto`"
+            alt="🚀"
             class="
               absolute
               top-0

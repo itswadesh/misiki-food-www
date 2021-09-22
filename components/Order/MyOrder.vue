@@ -381,7 +381,7 @@
                     <td class="text-sm text-gray-900 text-start">
                       <img
                         v-lazy="`${i.img}?tr=w-80,h-80,fo-auto`"
-                        alt=""
+                        alt="🚀"
                         class="object-cover w-20 h-20 p-1"
                       />
                     </td>
@@ -556,7 +556,7 @@
                 >
                   <img
                     v-lazy="`${i.img}?tr=w-64,fo-auto`"
-                    alt=""
+                    alt="🚀"
                     class="object-cover w-16"
                   />
 

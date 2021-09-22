@@ -72,13 +72,13 @@
               <img
                 v-if="!user.avatar"
                 v-lazy="`/leadership-profile.png?tr=w-96,h-96,fo-auto`"
-                alt=""
+                alt="🚀"
                 class="object-cover object-top w-full h-full"
               />
               <img
                 v-else
                 v-lazy="`${user.avatar}?tr=w-96,h-96,fo-auto`"
-                alt=""
+                alt="🚀"
                 class="object-cover object-top w-full h-full"
               />
             </div>

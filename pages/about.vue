@@ -29,13 +29,13 @@
       <div class="lg:relative mb-10 flex flex-col lg:flex-row">
         <img
           src="/island/about-us/models.webp"
-          alt=""
+          alt="🚀"
           class="hidden lg:block"
         />
 
         <img
           src="/island/about-us/model1.webp"
-          alt=""
+          alt="🚀"
           class="my-10 lg:hidden"
         />
 
@@ -65,7 +65,7 @@
 
         <img
           src="/island/about-us/model2.webp"
-          alt=""
+          alt="🚀"
           class="my-10 lg:hidden"
         />
 
@@ -156,18 +156,18 @@
         </div>
 
         <div class="lg:w-1/2">
-          <img src="/island/about-us/mall-1.jpg" alt="" />
+          <img src="/island/about-us/mall-1.jpg" alt="🚀" />
         </div>
       </nuxt-link>
 
       <nuxt-link to="##" class="relative mb-10 flex flex-col lg:flex-row">
         <img
           src="/island/about-us/sustainability.webp"
-          alt=""
+          alt="🚀"
           class="hidden lg:block"
         />
 
-        <img src="/island/about-us/family.webp" alt="" class="lg:hidden" />
+        <img src="/island/about-us/family.webp" alt="🚀" class="lg:hidden" />
 
         <div
           class="
@@ -304,7 +304,7 @@
 
       <div class="mb-10 grid grid-cols-1 gap-5 lg:grid-cols-4">
         <nuxt-link to="##" class="relative flex flex-col">
-          <img src="/island/about-us/model3.webp" alt="" />
+          <img src="/island/about-us/model3.webp" alt="🚀" />
 
           <div class="absolute inset-x-0 bottom-0 m-5">
             <div
@@ -325,7 +325,7 @@
         </nuxt-link>
 
         <nuxt-link to="##" class="relative flex flex-col">
-          <img src="/island/about-us/model4.webp" alt="" />
+          <img src="/island/about-us/model4.webp" alt="🚀" />
 
           <div class="absolute inset-x-0 bottom-0 m-5">
             <div
@@ -346,7 +346,7 @@
         </nuxt-link>
 
         <nuxt-link to="##" class="relative flex flex-col">
-          <img src="/island/about-us/model5.webp" alt="" />
+          <img src="/island/about-us/model5.webp" alt="🚀" />
 
           <div class="absolute inset-x-0 bottom-0 m-5">
             <div
@@ -367,7 +367,7 @@
         </nuxt-link>
 
         <nuxt-link to="##" class="relative flex flex-col">
-          <img src="/island/about-us/model6.webp" alt="" />
+          <img src="/island/about-us/model6.webp" alt="🚀" />
 
           <div class="absolute inset-x-0 bottom-0 m-5">
             <div

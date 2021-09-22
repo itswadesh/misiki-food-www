@@ -42,6 +42,7 @@
         >
           <img
             v-lazy="`${b.data[0].img}?tr=w-760,h-390,fo-auto`"
+            alt="🚀"
             class="h-full w-full object-cover rounded"
           />
         </a>
@@ -52,6 +53,7 @@
         >
           <img
             v-lazy="`${b.data[0].img}?tr=w-760,h-390,fo-auto`"
+            alt="🚀"
             class="h-full w-full object-cover rounded"
           />
         </nuxt-link>
@@ -63,6 +65,7 @@
         >
           <img
             v-lazy="`${b.data[1].img}?tr=w-760,h-390,fo-auto`"
+            alt="🚀"
             class="h-full w-full object-cover rounded"
           />
         </a>
@@ -73,6 +76,7 @@
         >
           <img
             v-lazy="`${b.data[1].img}?tr=w-760,h-390,fo-auto`"
+            alt="🚀"
             class="h-full w-full object-cover rounded"
           />
         </nuxt-link>
@@ -84,6 +88,7 @@
         >
           <img
             v-lazy="`${b.data[2].img}?tr=w-370,h-390,fo-auto`"
+            alt="🚀"
             class="h-full w-full object-cover rounded"
           />
         </a>
@@ -94,6 +99,7 @@
         >
           <img
             v-lazy="`${b.data[2].img}?tr=w-370,h-390,fo-auto`"
+            alt="🚀"
             class="h-full w-full object-cover rounded"
           />
         </nuxt-link>
@@ -106,6 +112,7 @@
         >
           <img
             v-lazy="`${b.data[3].img}?tr=w-370,h-390,fo-auto`"
+            alt="🚀"
             class="h-full w-full object-cover rounded"
           />
         </a>
@@ -116,6 +123,7 @@
         >
           <img
             v-lazy="`${b.data[3].img}?tr=w-370,h-390,fo-auto`"
+            alt="🚀"
             class="h-full w-full object-cover rounded"
           />
         </nuxt-link>
@@ -128,6 +136,7 @@
         >
           <img
             v-lazy="`${b.data[4].img}?tr=w-760,h-390,fo-auto`"
+            alt="🚀"
             class="h-full w-full object-cover rounded"
           />
         </a>
@@ -138,6 +147,7 @@
         >
           <img
             v-lazy="`${b.data[4].img}?tr=w-760,h-390,fo-auto`"
+            alt="🚀"
             class="h-full w-full object-cover rounded"
           />
         </nuxt-link>

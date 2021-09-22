@@ -79,6 +79,7 @@
                   my-auto
                   focus:outline-none
                 "
+                alt="🚀"
               />
             </nuxt-link>
           </div>

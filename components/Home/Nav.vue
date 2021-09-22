@@ -120,6 +120,7 @@
           <button
             v-if="!user"
             class="focus:outline-none"
+            aria-label="Login"
             @click="findLoginScreen"
           >
             <svg

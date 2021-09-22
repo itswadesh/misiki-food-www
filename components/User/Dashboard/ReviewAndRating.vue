@@ -138,7 +138,7 @@
       >
         <img
           v-lazy="`/img/review/review.jpg?tr=h-384,fo-auto`"
-          alt=""
+          alt="🚀"
           class="object-contain h-60 sm:h-96 mb-5 sm:mb-10"
         />
 
