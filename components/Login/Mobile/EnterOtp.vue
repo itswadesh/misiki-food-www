@@ -149,12 +149,12 @@ export default {
       try {
         this.loading = true
         const result = await this.$post('user/getOtp', {
-          phone: this.countryCode + this.phone,
+          phone: this.phone,
         })
         // const result = (
         //   await this.$apollo.mutate({
         //     mutation: GET_OTP,
-        //     variables: { phone: this.countryCode + this.phone },
+        //     variables: { phone: this.phone },
         //   })
         // ).data
         this.timerCount = result.getOtp.timer
@@ -173,7 +173,7 @@ export default {
         this.loading = true
         const user = await this.verifyOtp({
           otp: this.otp,
-          phone: this.countryCode + this.phone,
+          phone: this.phone,
         })
         this.$emit('success')
         let r = this.$route.query.ref || '/'

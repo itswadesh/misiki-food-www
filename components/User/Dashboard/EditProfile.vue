@@ -130,7 +130,7 @@
           </div>
 
           <div class="items-center p-4 md:flex">
-            <div class="w-full md:px-2 md:w-3/12">Your Profile Pictur</div>
+            <div class="w-full md:px-2 md:w-3/12">Your Profile Picture</div>
             <div class="w-full md:w-9/12">
               <div class="max-w-sm mt-2 md:mt-0">
                 <!-- <ImageUpload

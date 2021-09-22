@@ -110,7 +110,7 @@ export default {
       transition: 'page',
       loading: false,
       phone: null,
-      countryCode: '+91',
+      countryCode: '',
       title: 'aboutpage',
       isRequestSent: false,
     }
@@ -137,7 +137,7 @@ export default {
       this.loading = true
       try {
         await this.$post('user/getOtp', {
-          phone: this.countryCode + this.phone,
+          phone: this.phone,
         })
         // await this.$apollo.mutate({
         //   mutation: GET_OTP,
