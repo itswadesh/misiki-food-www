@@ -35,6 +35,7 @@ export default {
     { src: '~/plugins/dir', ssr: true },
     { src: '~/plugins/gtag', ssr: false },
     { src: '~/plugins/api.js' },
+    { src: '~/plugins/vue-mq.js' },
     // { src: '~/plugins/init', ssr: false },
     // { src: '~/plugins/directives.js', ssr:false },
   ],

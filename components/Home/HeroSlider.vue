@@ -15,7 +15,7 @@
     </div>
     <!-- <SlideBarSkeleton v-if="skeleton" /> -->
     <VueSlickCarousel
-      v-if="banners && banners.length"
+      v-if="mqBanners && mqBanners.length"
       v-bind="settings"
       class="relative focus:outline-none"
     >
@@ -31,14 +31,14 @@
       </template>
 
       <button
-        v-for="b in banners"
+        v-for="b in mqBanners"
         :key="b.id"
         class="z-auto my-auto focus:outline-none"
         aria-label="Slider Banners"
         @click="go(b.link)"
       >
-        <img
-          v-if="isMobile"
+        <!-- <img
+          v-if="!b.isMobile"
           v-lazy="`${b.img}?tr=h-384,fo-auto`"
           class="
             block
@@ -51,10 +51,9 @@
             bg-white
           "
           alt="Slider Banners"
-        />
+        /> -->
 
         <img
-          v-else
           v-lazy="`${b.img}?tr=h-384,fo-auto`"
           class="
             hidden
@@ -133,6 +132,13 @@ export default {
       skeleton: true,
       loading: false,
     }
+  },
+  computed: {
+    mqBanners() {
+      if (this.$mq === 'sm')
+        return this.banners && this.banners.filter((b) => b.isMobile)
+      else return this.banners && this.banners.filter((b) => !b.isMobile)
+    },
   },
   // async created() {
   // await this.getBanners()
