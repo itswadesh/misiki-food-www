@@ -38,8 +38,27 @@
         @click="go(b.link)"
       >
         <img
+          v-if="isMobile"
           v-lazy="`${b.img}?tr=h-384,fo-auto`"
           class="
+            block
+            sm:hidden
+            bg-white
+            h-48
+            w-full
+            object-cover
+            overflow-hidden
+            bg-white
+          "
+          alt="Slider Banners"
+        />
+
+        <img
+          v-else
+          v-lazy="`${b.img}?tr=h-384,fo-auto`"
+          class="
+            hidden
+            sm:block
             bg-white
             h-48
             md:h-64

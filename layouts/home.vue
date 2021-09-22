@@ -15,12 +15,12 @@
       class="px-8 py-12 flex flex-col min-h-screen items-center justify-center"
     >
       <div
-        class="mb-6 text-2xl font-bold text-center text-gray-800 md:text-3xl"
+        class="mb-10 text-2xl font-bold text-center text-gray-800 md:text-3xl"
       >
         <img
-          v-lazy="`/no/dog-png-1.png?tr=w-288,h-384,fo-auto`"
+          v-lazy="`/no/dog-png-1.png?tr=h-384,fo-auto`"
           alt=""
-          class="mx-auto h-96 w-72"
+          class="mb-5 mx-auto w-full h-96 object-contain"
         />
         <p>Oops! Store not found</p>
       </div>
