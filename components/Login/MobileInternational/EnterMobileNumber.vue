@@ -144,7 +144,7 @@ export default {
       transition: 'page',
       loading: false,
       phone: null,
-      countryCode: '+91',
+      countryCode: '',
       countries: null,
       title: 'aboutpage',
     }

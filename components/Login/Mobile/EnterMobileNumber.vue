@@ -60,7 +60,7 @@ export default {
       transition: 'page',
       loading: false,
       phone: null,
-      countryCode: '+91',
+      countryCode: '',
       title: 'aboutpage',
     }
   },

@@ -20,7 +20,7 @@
           <div class="text-sm">Enter the OTP sent to</div>
 
           <div class="flex text-xs space-x-2">
-            <b> {{ countryCode }}-{{ phone }} </b>
+            <b> {{ phone }} </b>
 
             <button
               type="button"
@@ -98,7 +98,7 @@ export default {
   props: {
     countryCode: {
       type: String,
-      default: '+91',
+      default: '',
     },
     phone: {
       type: String,

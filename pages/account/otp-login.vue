@@ -138,7 +138,7 @@
             <div class="flex justify-center">
               <Checkbox
                 ><div class="text-xs">
-                  When you click on an
+                  When you click on
                   <b class=""> "I agree to the terms and conditions" </b>
                   checkbox, it is seen by the legal authorities as the user's
                   assent
@@ -176,7 +176,7 @@ export default {
       transition: 'page',
       loading: false,
       phone: null,
-      countryCode: '+91',
+      countryCode: '',
       title: 'aboutpage',
       isRequestSent: false,
     }
