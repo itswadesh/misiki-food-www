@@ -394,10 +394,10 @@
         >
       </div>
 
-      <!-- <LanguageSwitcher /> -->
-
-      <LanguageSwitch />
-
+      <!-- <LanguageSwitch v-if="loadedTranslate" /> -->
+      <!-- <button @click="googleTranslateElementInit">
+        googleTranslateElementInit
+      </button> -->
       <div class="flex flex-row items-center space-x-2">
         <div v-for="(i, ix) in icons" :key="ix" class="mb-1">
           <img
@@ -408,21 +408,23 @@
         </div>
       </div>
     </div>
+    <div id="google_translate_element" class="w-full flex-shrink"></div>
   </div>
 </template>
 <script>
 // import LanguageSwitcher from '~/components/LanguageSwitcher'
+import { mapMutations } from 'vuex'
 import NuxtLink from '~/components/NuxtLink.vue'
-import LanguageSwitch from '~/components/CurrencyLanguage/LanguageSwitch.vue'
-
+// import LanguageSwitch from '~/components/CurrencyLanguage/LanguageSwitch.vue'
 export default {
   components: {
     NuxtLink,
-    LanguageSwitch,
+    // LanguageSwitch,
     // LanguageSwitcher
   },
   data() {
     return {
+      loadedTranslate: false,
       year: new Date().getFullYear(),
       // popularSearches: null,
       icons: [
@@ -452,7 +454,74 @@ export default {
       return this.$store.state.popularSearches || []
     },
   },
+  mounted() {
+    this.loadTranslate()
+    const vm = this
+    setTimeout(function () {
+      vm.googleTranslateInit()
+    }, 3000)
+  },
   methods: {
+    ...mapMutations({ setErr: 'setErr', clearErr: 'clearErr' }),
+    googleTranslateInit() {
+      const vm = this
+      const checkIfGoogleLoaded = setInterval(() => {
+        if (google.translate.TranslateElement != null) {
+          clearInterval(checkIfGoogleLoaded)
+
+          vm.googleTranslateElementInit('google_translate_element')
+        }
+      }, 1000)
+      this.googleTranslateElementInit()
+    },
+    googleTranslateElementInit() {
+      // eslint-disable-next-line no-new
+      new google.translate.TranslateElement(
+        { pageLanguage: 'en' },
+        'google_translate_element'
+      )
+    },
+    // googleTranslateElement(id) {
+    //   // eslint-disable-next-line no-new
+    //   new google.translate.TranslateElement(
+    //     {
+    //       pageLanguage: 'en',
+    //       layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+    //     },
+    //     id
+    //   )
+    // },
+    loadTranslate() {
+      try {
+        this.loading = true
+        this.clearErr()
+        if (process.browser) {
+          const domElement = document.createElement('script')
+          domElement.setAttribute(
+            'src',
+            '//translate.google.com/translate_a/element.js'
+          )
+          domElement.onload = () => {
+            this.loadedTranslate = true
+          }
+          document.body.appendChild(domElement)
+        }
+      } catch (e) {
+        this.setErr(e)
+      } finally {
+        this.loading = false
+      }
+    },
+    // googleTranslateElement(id) {
+    //   new google.translate.TranslateElement(
+    //     {
+    //       pageLanguage: 'en',
+    //       layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+    //     },
+    //     id
+    //   )
+    // },
+
     // async getPopularSearches() {
     //   try {
     //     this.loading = true

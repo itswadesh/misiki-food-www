@@ -96,6 +96,7 @@
     "push.js": "^1.0.12",
     "shortcode-tokenizer": "^0.6.1",
     "tailwindcss-rtl": "^0.7.0",
+    "v-google-translate": "^0.1.10",
     "vue-ctk-date-time-picker": "^2.5.0",
     "vue-gtag": "^1.16.1",
     "vue-image-magnifier": "^0.2.1",
