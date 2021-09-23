@@ -33,6 +33,8 @@
             'border-pink-500': i % 6 === 4,
             'border-blue-500': i % 6 === 5,
           }"
+          role="tabmultiple"
+          aria-labelledby="tabmultiple-label"
         >
           <input
             :id="'tab-multi-' + i"

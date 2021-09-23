@@ -9,7 +9,7 @@
       :to="localePath(`/${product.slug}?id=${product.id || pid}`)"
       class="block overflow-hidden"
     >
-      <div class="h-48 sm:h-72 bg-gray-100">
+      <div class="h-48 sm:h-56 desktop-height bg-gray-100">
         <img
           v-lazy="`${product.img}?tr=h-288,fo-auto`"
           alt="product"
@@ -352,6 +352,16 @@ export default {
 </script>
 
 <style scoped>
+@media (min-width: 1024px) {
+  .desktop-height {
+    height: 13.5rem;
+  }
+}
+@media (min-width: 1536px) {
+  .desktop-height {
+    height: 17rem;
+  }
+}
 .trans {
   transition: width 0.3s;
   overflow: hidden;

@@ -4,37 +4,29 @@
   >
     <CheckoutHeader selected="address" class="py-5 sm:py-10" />
 
-    <div class="flex flex-col lg:flex-row lg:space-x-5">
-      <div class="lg:w-2/3 lg:border-r lg:border-gray-200 lg:pr-5">
-        <div class="text-lg font-bold tracking-wide mb-3">Billing Details</div>
-
-        <EditAddress id="new" :return-url="'/checkout/address'" />
+    <div class="flex flex-col sm:items-center justify-center max-w-2xl mx-auto">
+      <div
+        class="text-lg font-bold tracking-wide mb-3 text-left sm:text-center"
+      >
+        Billing Details
       </div>
 
-      <!-- <AddAddressMobile class="py-4 bg-white sm:hidden" /> -->
-      <!-- <EditAddress go="checkout" id="add" class="w-2/3 bg-white border shadow rounded-xl" /> -->
-      <!-- <div class="lg:w-1/3">
-        <PriceDetails />
-      </div> -->
+      <EditAddress id="new" :return-url="'/checkout/address'" />
     </div>
-
-    <!-- <div class="flex justify-center">
-      <Footer class="absolute bottom-0 items-center" />
-    </div> -->
   </section>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import EditAddress from '~/components/User/EditAddress.vue'
-import PriceDetails from '~/components/Cart/PriceDetails.vue'
+// import PriceDetails from '~/components/Cart/PriceDetails.vue'
 const CheckoutHeader = () => import('~/components/Checkout/CheckoutHeader.vue')
 
 export default {
   components: {
     CheckoutHeader,
     EditAddress,
-    PriceDetails,
+    // PriceDetails,
   },
   middleware: ['isAuth'],
   data() {

@@ -143,10 +143,7 @@
       </div>
 
       <div v-for="(s, ix) in product.specifications" :key="ix + 'ds'">
-        <div
-          v-if="s"
-          class="flex-row hidden font-light text-gray-500 sm:flex text-sm"
-        >
+        <div v-if="s" class="flex-row font-light text-gray-500 mb-2 text-sm">
           <div class="w-1/3 p-1 my-auto ps-3">
             {{ s.name }}
           </div>
@@ -156,20 +153,13 @@
         </div>
       </div>
 
-      <!-- mobile screen  -->
+      <div
+        v-if="product.countryOfOrigin"
+        class="flex items-center mb-2 text-sm font-medium"
+      >
+        <span class="whitespace-nowrap w-36 me-2">Country Of Origin - </span>
 
-      <div v-for="(s, ix) in product.specifications" :key="ix + 'ms'">
-        <div
-          v-if="s"
-          class="flex flex-col font-light text-gray-600 sm:hidden text-sm"
-        >
-          <span class="w-full p-2 my-auto bg-white">
-            {{ s.name }}
-          </span>
-          <span class="w-full p-2 my-auto text-sm bg-gray-100">
-            {{ s.value }}
-          </span>
-        </div>
+        <span class="text-gray-500">{{ product.countryOfOrigin }}</span>
       </div>
     </div>
   </div>

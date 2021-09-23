@@ -1,5 +1,16 @@
 <template>
-  <div class="flex flex-col p-3 sm:p-10 rounded-md shadow-md border">
+  <div
+    class="
+      w-full
+      bg-white
+      flex flex-col
+      p-3
+      sm:p-10
+      rounded-md
+      shadow-md
+      border
+    "
+  >
     <div v-if="address">
       <form novalidate autocomplete="off" @submit.stop.prevent="submit">
         <!-- forms -->

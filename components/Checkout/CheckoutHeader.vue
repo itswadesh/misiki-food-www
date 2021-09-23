@@ -10,9 +10,13 @@
         font-semibold
         tracking-widest
         text-center
+        leading-3
       "
     >
-      <nuxt-link :to="localePath('/cart')" class="flex flex-col">
+      <nuxt-link
+        :to="localePath('/cart')"
+        class="w-16 flex flex-col items-center justify-center"
+      >
         <div
           class="
             flex
@@ -45,7 +49,10 @@
 
       <hr class="flex-1 mx-1 my-4 dashes text-gray-500" />
 
-      <div v-if="selected == 'address'">
+      <div
+        v-if="selected == 'address'"
+        class="w-16 flex flex-col items-center justify-center"
+      >
         <div
           class="
             flex
@@ -76,7 +83,11 @@
         </div>
       </div>
 
-      <nuxt-link v-else :to="localePath(`/checkout/address`)">
+      <nuxt-link
+        v-else
+        :to="localePath(`/checkout/address`)"
+        class="w-16 flex flex-col items-center justify-center"
+      >
         <div
           class="
             flex
@@ -111,7 +122,7 @@
 
       <!--  -->
 
-      <div>
+      <div class="w-16 flex flex-col items-center justify-center">
         <div
           class="
             flex

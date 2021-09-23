@@ -1,16 +1,12 @@
 <template>
   <!--  -->
-  <div class="mb-10 mx-auto lg:ps-8 lg:w-3/4">
+  <div class="mb-10 mx-auto lg:px-8 max-w-2xl">
     <div
       class="
         mb-5
         w-full
-        p-3
-        sm:p-5 sm:flex sm:items-center sm:justify-between
+        sm:flex sm:items-center sm:justify-between
         text-gray-800
-        border
-        rounded-md
-        shadow-md
       "
     >
       <h1 class="mb-2 sm:mb-0 font-semibold sm:text-xl">Add Address</h1>

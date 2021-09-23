@@ -54,38 +54,38 @@
           </svg>
         </button>
 
-        <div class="w-full px-2 py-10 border-b">
+        <div class="w-full px-4 py-10 border-b">
           <div v-if="user" class="flex flex-col items-center justify-center">
-            <div
-              class="
-                w-24
-                h-24
-                border-2 border-gray-300
-                rounded-full
-                overflow-hidden
-                flex
-                items-center
-                justify-center
-                bg-gray-100
-              "
-            >
+            <div class="overflow-hidden">
               <img
                 v-if="!user.avatar"
                 v-lazy="`/leadership-profile.png?tr=w-96,h-96,fo-auto`"
                 alt="🚀"
-                class="object-cover object-top w-full h-full"
+                class="
+                  w-24
+                  h-24
+                  object-cover object-top
+                  rounded-full
+                  bg-gray-100
+                "
               />
               <img
                 v-else
                 v-lazy="`${user.avatar}?tr=w-96,h-96,fo-auto`"
                 alt="🚀"
-                class="object-cover object-top w-full h-full"
+                class="
+                  w-24
+                  h-24
+                  object-cover object-top
+                  rounded-full
+                  bg-gray-100
+                "
               />
             </div>
 
             <div class="flex flex-col my-auto mt-2 text-lg font-semibold">
               <span class="mb-2 text-center">
-                Hello, {{ user && user.firstName }}
+                Hey! {{ user && user.firstName }}
               </span>
 
               <span class="text-sm font-normal text-center text-gray-400">

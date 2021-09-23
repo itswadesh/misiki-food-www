@@ -401,9 +401,9 @@
       <div class="flex flex-row items-center space-x-2">
         <div v-for="(i, ix) in icons" :key="ix" class="mb-1">
           <img
-            v-lazy="`${i.img}?tr=w-48,h-28,fo-auto`"
+            v-lazy="`${i.img}?tr=w-36,h-36,fo-auto`"
             :alt="i.alt"
-            class="h-7 w-12 bg-white border p-1 object-contain"
+            class="h-9 w-9 bg-white"
           />
         </div>
       </div>
@@ -426,12 +426,12 @@ export default {
       year: new Date().getFullYear(),
       // popularSearches: null,
       icons: [
-        { img: '/img/mastercard-logo.png', alt: 'mastercard' },
-        { img: '/img/rupay-logo.png', alt: 'rupay' },
-        { img: '/img/visa.png', alt: 'visa' },
-        { img: '/img/american.jpg', alt: 'american-express' },
-        { img: '/img/paypal-logo-png-transparent.png', alt: 'paypal' },
-        { img: '/img/upi-logo.png', alt: 'upi' },
+        { img: '/img/payment/mastercard.svg', alt: 'mastercard' },
+        { img: '/img/payment/rupay.svg', alt: 'rupay' },
+        { img: '/img/payment/visa.svg', alt: 'visa' },
+        { img: '/img/payment/american-express.svg', alt: 'american-express' },
+        { img: '/img/payment/paypal.svg', alt: 'paypal' },
+        { img: '/img/payment/bhim-upi.png', alt: 'upi' },
       ],
     }
   },

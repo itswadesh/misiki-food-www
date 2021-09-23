@@ -135,10 +135,10 @@
         <div
           v-if="details && details.length"
           v-bind="settings"
-          class="flex flex-row items-start justify-start space-x-2"
+          class="flex flex-row items-start justify-start"
         >
           <div v-for="product in details" :key="product.id">
-            <HomePageProduct :product="product" class="w-36 sm:w-56" />
+            <HomePageProduct :product="product" class="w-48 sm:w-56 mr-2" />
           </div>
         </div>
       </div>
@@ -176,7 +176,7 @@ export default {
         focusOnSelect: false,
         infinite: true,
         arrows: false,
-        slidesToShow: 6,
+        slidesToShow: 5,
         slidesToScroll: 1,
         autoplay: false,
         speed: 500,
@@ -184,13 +184,13 @@ export default {
           {
             breakpoint: 1536,
             settings: {
-              slidesToShow: 6,
+              slidesToShow: 5,
             },
           },
           {
             breakpoint: 1280,
             settings: {
-              slidesToShow: 5,
+              slidesToShow: 4,
             },
           },
         ],
