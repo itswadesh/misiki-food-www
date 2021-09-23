@@ -1,6 +1,7 @@
 <template>
   <div>
     <button
+      aria-label="Share"
       type="button"
       :class="{ 'shadow-md border-gray-200': open == true }"
       class="

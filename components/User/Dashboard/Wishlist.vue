@@ -17,15 +17,16 @@
       >
         <WishlistSkeleton v-for="(p, ix) in 10" :key="ix + '-1'" />
       </div>
+
       <div v-if="myWishlist" class="container mx-auto">
         <!-- <div >{{ myWishlist.count }}</div> -->
+
         <div v-if="myWishlist.count != 0" class="relative">
           <div>
-            <div class="flex flex-shrink-0 bg-white rounded-sm shadow">
-              <div class="p-5 ps-8 text-lg font-normal text-gray-700">
-                My Wishlist({{ myWishlist.count }})
-              </div>
-            </div>
+            <h1 class="mb-2 sm:mb-5 font-semibold sm:text-xl">
+              My Wishlist ({{ myWishlist.count }})
+            </h1>
+
             <div
               class="
                 grid
@@ -34,109 +35,122 @@
                 gap-4
                 mt-4
                 sm:grid-cols-3
-                md:grid-cols-3
-                lg:grid-cols-3
                 xl:grid-cols-4
-                2xl:grid-cols-6
+                2xl:grid-cols-5
               "
             >
               <div
                 v-for="w in myWishlist.data"
                 :key="w.id"
-                class="shadow cursor-pointer hover:text-primary-500"
+                class="relative bg-white shadow-md rounded-md cursor-pointer"
               >
                 <div v-if="w.product">
-                  <div class="flex justify-end p-1 bg-white">
-                    <button
-                      class="z-30 flex justify-end focus:outline-none"
-                      @click="toggleWishlist(w.product.id)"
+                  <!-- Close button start -->
+
+                  <button
+                    type="button"
+                    class="
+                      absolute
+                      z-10
+                      p-1
+                      transition
+                      duration-300
+                      transform
+                      rounded-full
+                      hover:bg-opacity-50 hover:bg-gray-900 hover:shadow-md
+                      top-2
+                      right-2
+                      focus:outline-none focus:scale-75
+                      group
+                    "
+                    @click="toggleWishlist(w.product.id)"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="
+                        w-5
+                        h-5
+                        transition
+                        duration-100
+                        group-hover:text-white
+                      "
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="w-6 h-6 text-gray-400 hover:text-gray-600"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
-                          clip-rule="evenodd"
-                        />
-                      </svg>
-                    </button>
-                  </div>
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+
+                  <!-- Close button end -->
+
                   <nuxt-link
                     v-if="w.product"
                     :to="localePath(`/${w.product.slug}?id=${w.product.id}`)"
                     class="cols-span-1"
                   >
                     <div class="">
-                      <div
-                        class="
-                          flex flex-row
-                          w-full
-                          mx-auto
-                          overflow-hidden
-                          bg-white
-                          focus:outline-none
-                        "
-                      >
+                      <div class="overflow-hidden">
                         <img
                           v-lazy="`${w.product.img}?tr=h-224,fo-auto`"
                           alt="mobile"
                           class="
                             object-contain
                             w-full
-                            h-40
+                            h-48
+                            sm:h-56
+                            md:h-64
+                            lg:h-72
                             transition
                             duration-500
                             ease-in-out
                             transform
-                            md:h-56
-                            hover:-translate-y-1 hover:scale-110
                           "
                         />
                       </div>
-                      <div
-                        class="
-                          p-2
-                          mx-auto
-                          text-sm text-center
-                          rounded-b
-                          bg-accent-100
-                        "
-                      >
-                        <div>
-                          <div class="truncate text-medium">
-                            {{ w.product.name }}
+
+                      <div class="p-2 sm:p-4 mx-auto text-sm text-center">
+                        <div class="mb-2 line-clamp-2 font-medium">
+                          {{ w.product.name }}
+                        </div>
+
+                        <div
+                          class="
+                            flex flex-row
+                            justify-center
+                            items-center
+                            overflow-hidden
+                            whitespace-nowrap
+                            overflow-ellipsis
+                          "
+                        >
+                          <div class="mr-2">
+                            <b>{{
+                              w.product.price | currency(store.currencySymbol)
+                            }}</b>
                           </div>
-                          <div class="text-secondary-200">Shop Now</div>
-                          <div class="flex flex-row justify-center m-2 mx-auto">
-                            <div class="text-accent-900">
-                              {{
-                                w.product.price
-                                  | currency(store.currencySymbol, 2)
-                              }}
-                            </div>
-                            <strike
-                              v-if="w.product.price < w.product.mrp"
-                              class="mx-2"
-                            >
-                              {{
-                                w.product.mrp
-                                  | currency(store.currencySymbol, 2)
-                              }}
-                            </strike>
-                            <div
-                              v-if="w.product.price < w.product.mrp"
-                              class="my-auto text-xs text-secondary-200"
-                            >
-                              {{
-                                Math.floor(
-                                  (w.product.price * 100) / w.product.mrp
-                                )
-                              }}% off
-                            </div>
+
+                          <strike
+                            v-if="w.product.price < w.product.mrp"
+                            class="mr-2 text-gray-500"
+                          >
+                            {{ w.product.mrp | currency(store.currencySymbol) }}
+                          </strike>
+
+                          <div
+                            v-if="w.product.price < w.product.mrp"
+                            class="text-secondary-500"
+                          >
+                            {{
+                              Math.floor(
+                                (w.product.price * 100) / w.product.mrp
+                              )
+                            }}% off
                           </div>
                         </div>
                       </div>
@@ -146,8 +160,10 @@
               </div>
             </div>
           </div>
+
           <!-- if there is no items in cart -->
         </div>
+
         <div v-else>
           <div class="bg-white rounded-lg shadow">
             <div class="flex flex-col p-6">
@@ -157,10 +173,13 @@
                   alt="emptycart"
                   class="object-contain h-48"
                 />
+
                 <div class="p-3 text-xl">Empty Wishlist!</div>
+
                 <div class="text-xs text-center">
                   You have no items in your Wishlist. Start adding
                 </div>
+
                 <nuxt-link :to="localePath('/')">
                   <button
                     class="
@@ -199,8 +218,10 @@ import WishlistSkeleton from '~/components/AllSkeletons/WishlistSkeleton.vue'
 import NuxtLink from '~/components/NuxtLink.vue'
 import MY_WISHLIST from '~/gql/wishlist/myWishlist.gql'
 import TOGGLE from '~/gql/wishlist/toggleWishlist.gql'
+
 export default {
   components: { WishlistSkeleton, NuxtLink },
+
   data() {
     return {
       loading: false,

@@ -1,13 +1,13 @@
 <template>
-  <div class="container mx-auto bg-white rounded-lg">
-    <div class="h-full max-w-full p-2 sm:p-3 lg:p-8">
-      <div class="flex flex-col">
-        <div class="p-2 sm:p-4 lg:mt-12 lg:p-12">
-          <div class="">
-            <div
-              class="flex items-center justify-center rounded-full lg:-mt-28"
-            >
-              <svg
+  <section class="container mx-auto bg-white px-2 py-5 sm:p-10 text-gray-700">
+    <div class="flex items-center justify-center rounded-full">
+      <img
+        v-lazy="`/img/payment/green-tick.gif?tr=w-112,h-112,fo-auto`"
+        alt="🚀"
+        class="mb-5 w-24 h-24 text-secondary-200 md:w-28 md:h-28"
+      />
+
+      <!-- <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="w-24 h-24 text-secondary-200 md:w-28 md:h-28"
                 fill="none"
@@ -20,24 +20,20 @@
                   stroke-width="2"
                   d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
                 />
-              </svg>
-            </div>
-            <h2 v-if="order" class="text-3xl font-bold text-center">
-              Paid:
-              {{ order.amount.total | currency(store.currencySymbol, 2) }}
-            </h2>
-            <h3
-              class="
-                flex flex-row
-                justify-center
-                pt-4 pt:mt-0
-                lg:justify-between
-              "
-            >
-              <div class="text-2xl font-medium text-gray-700">
-                Thanks for your Order!!
-              </div>
-              <!-- <div
+              </svg> -->
+    </div>
+
+    <h2 v-if="order" class="mb-5 text-3xl font-bold text-center">
+      Paid:
+      {{ order.amount.total | currency(store.currencySymbol, 2) }}
+    </h2>
+
+    <h3 class="flex flex-row justify-center lg:justify-between">
+      <div class="mb-5 text-2xl text-center font-medium text-gray-700">
+        Thanks for your Order !!
+      </div>
+
+      <!-- <div
                 class="flex-row hidden -mt-6 text-secondary-500 px-auto lg:flex"
               >
                 <h3
@@ -75,172 +71,154 @@
                   </svg>
                 </h3>
               </div> -->
-            </h3>
-            <OrderSuccessSkeleton v-if="!order && loading" />
-            <div v-else-if="order">
-              <h3
-                class="
-                  flex flex-row
-                  justify-center
-                  mt-1
-                  font-medium
-                  lg:justify-start
-                "
+    </h3>
+    <OrderSuccessSkeleton v-if="!order && loading" />
+    <div v-else-if="order">
+      <h3
+        class="mb-5 flex flex-row justify-center font-medium lg:justify-start"
+      >
+        <div class="text-gray-500 me-2">Order Number:</div>
+        <div class="underline text-secondary-500 underline-secondary-500">
+          {{ order.orderNo }}
+        </div>
+      </h3>
+
+      <!-- {{ order.createdAt }} -->
+
+      <div
+        class="
+          flex flex-col
+          justify-center
+          items-center
+          w-full
+          lg:justify-between lg:flex-row
+        "
+      >
+        <div
+          class="
+            mb-2
+            lg:mb-0
+            w-full
+            text-sm
+            font-light
+            text-center text-gray-500
+            lg:text-start lg:me-10
+          "
+        >
+          Your Order was place on <b>{{ order.createdAt | date }}</b> . A
+          Confirmation e-mail will be sent to the e-mail Address(es) that you
+          specified in Order details.
+        </div>
+
+        <div class="flex flex-row space-x-5 items-center text-sm">
+          <nuxt-link :to="localePath('/my/orders')" rel="noopener">
+            <PrimaryButtonRounded class="whitespace-nowrap">
+              View Order Details
+            </PrimaryButtonRounded>
+          </nuxt-link>
+
+          <nuxt-link :to="localePath('/')" rel="noopener">
+            <button
+              class="
+                flex
+                items-center
+                justify-center
+                px-4
+                py-2
+                space-x-1
+                font-semibold
+                text-gray-700
+                bg-white
+                border border-gray-700
+                whitespace-nowrap
+                tracking-wide
+                transition
+                duration-300
+                transform
+                rounded-md
+                shadow-md
+                active:scale-95
+                hover:shadow hover:bg-opacity-80
+                focus:outline-none
+                focus:ring-2
+                focus:ring-gray-300
+                focus:ring-offset-2
+              "
+            >
+              Continue Shopping
+            </button>
+          </nuxt-link>
+        </div>
+      </div>
+
+      <!-- item details  -->
+      <div>
+        <div class="my-4 font-medium text-gray-700">Item Details</div>
+        <div
+          v-for="(item, ix) in order.items"
+          :key="ix"
+          class="flex flex-row justify-between w-full pb-6 lg:pb-0"
+          :class="{ 'border-b': ix != order.items.length - 1 }"
+        >
+          <div class="flex flex-row w-full my-3">
+            <nuxt-link
+              :to="localePath(`/${item.slug}?id=${item.pid}`)"
+              rel="noopener"
+              class=""
+            >
+              <img
+                v-lazy="`${item.img}?tr=w-112,fo-auto`"
+                alt="pro"
+                class="object-cover border w-28"
+              />
+            </nuxt-link>
+            <div class="relative flex flex-col w-4/5 ms-3 lg:w-10/12">
+              <nuxt-link
+                :to="localePath(`/${item.slug}?id=${item.pid}`)"
+                rel="noopener"
+                class="text-base font-normal text-gray-600 truncate"
               >
-                <div class="text-gray-500 me-2">Order Number:</div>
-                <div
-                  class="underline text-secondary-500 underline-secondary-500"
-                >
-                  {{ order.orderNo }}
-                </div>
-              </h3>
-              <div
-                class="
-                  flex flex-col
-                  justify-center
-                  w-full
-                  lg:justify-between lg:flex-row
-                  py-7
-                "
-              >
-                <!-- {{ order.createdAt }} -->
-                <div
-                  class="
-                    w-full
-                    text-sm
-                    font-light
-                    text-center text-gray-500
-                    lg:text-start lg:w-3/5
-                  "
-                >
-                  Your Order was place on <b>{{ order.createdAt | date }}</b> .
-                  A Confirmation e-mail will be sent to the e-mail Address(es)
-                  that you specified in Order details.
-                </div>
-                <div class="flex flex-row justify-center mt-6 text-sm lg:mt-0">
-                  <nuxt-link :to="localePath('/my/orders')">
-                    <button
-                      class="
-                        p-2
-                        text-white
-                        bg-primary-500
-                        border-primary-500 border
-                        rounded
-                        shadow
-                        px-4
-                        lg:px-3 lg:p-2
-                        focus:outline-none
-                        duration-200
-                        hover:-translate-y-0.5
-                        transition
-                        transform
-                        ease-in-out
-                        focus:ring-opacity-50
-                        focus:ring
-                        focus:ring-offset-2
-                        focus:ring-primary-500
-                      "
-                    >
-                      View Order Details
-                    </button>
-                  </nuxt-link>
-                  <nuxt-link :to="localePath('/')">
-                    <button
-                      class="
-                        p-2
-                        my-auto
-                        ms-4
-                        text-secondary-200
-                        border border-secondary-200
-                        rounded
-                        shadow
-                        focus:outline-none
-                        md:py-2
-                        px-4
-                        lg:px-3 lg:p-2
-                        duration-200
-                        hover:-translate-y-0.5
-                        transition
-                        transform
-                        ease-in-out
-                        focus:ring-opacity-50
-                        hover:opacity-8
-                        focus:ring focus:ring-offset-2 focus:ring-green-500
-                      "
-                    >
-                      Continue Shopping
-                    </button>
-                  </nuxt-link>
-                </div>
+                {{ item.name }}
+              </nuxt-link>
+              <div class="mt-2 text-xs text-primary-500 lg:text-sm">
+                {{ item.brandName }}
               </div>
-              <!-- item details  -->
-              <div>
-                <div class="my-4 font-medium text-gray-700">Item Details</div>
-                <div
-                  v-for="(item, ix) in order.items"
-                  :key="ix"
-                  class="flex flex-row justify-between w-full pb-6 lg:pb-0"
-                  :class="{ 'border-b': ix != order.items.length - 1 }"
-                >
-                  <div class="flex flex-row w-full my-3">
-                    <nuxt-link
-                      :to="localePath(`/${item.slug}?id=${item.pid}`)"
-                      class=""
-                    >
-                      <img
-                        v-lazy="`${item.img}?tr=w-112,fo-auto`"
-                        alt="pro"
-                        class="object-cover border w-28"
-                      />
-                    </nuxt-link>
-                    <div class="relative flex flex-col w-4/5 ms-3 lg:w-10/12">
-                      <nuxt-link
-                        :to="localePath(`/${item.slug}?id=${item.pid}`)"
-                        class="text-base font-normal text-gray-600 truncate"
-                      >
-                        {{ item.name }}
-                      </nuxt-link>
-                      <div class="mt-2 text-xs text-primary-500 lg:text-sm">
-                        {{ item.brandName }}
-                      </div>
-                      <!-- <div class="mt-1 text-xs text-primary-500 lg:text-sm">
+              <!-- <div class="mt-1 text-xs text-primary-500 lg:text-sm">
                     <div v-for="(v, k) in JSON.parse(item.options)" :key="v">
                       {{ k }}={{ v }}
                     </div>
                   </div> -->
-                      <div
-                        class="
-                          flex
-                          items-center
-                          justify-start
-                          w-full
-                          mt-2
-                          text-sm
-                          font-medium
-                          text-gray-500
-                        "
-                      >
-                        <div class="me-4">Qty: {{ item.qty }}</div>
-                        <div
-                          class="
-                            flex flex-row
-                            text-base
-                            font-medium
-                            justify-self-end
-                            md:my-auto
-                          "
-                        >
-                          <div class="font-light text-gray-400 me-1">
-                            Price:
-                          </div>
-                          <div class="text-secondary-200">
-                            {{ item.price | currency(store.currencySymbol, 2) }}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+              <div
+                class="
+                  flex
+                  items-center
+                  justify-start
+                  w-full
+                  mt-2
+                  text-sm
+                  font-medium
+                  text-gray-500
+                "
+              >
+                <div class="me-4">Qty: {{ item.qty }}</div>
+                <div
+                  class="
+                    flex flex-row
+                    text-base
+                    font-medium
+                    justify-self-end
+                    md:my-auto
+                  "
+                >
+                  <div class="font-light text-gray-400 me-1">Price:</div>
+                  <div class="text-secondary-200">
+                    {{ item.price | currency(store.currencySymbol, 2) }}
                   </div>
-                  <!-- <div
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div
                 class="flex-row hidden text-sm font-medium justify-self-end md:flex md:my-auto"
               >
                 <div class="text-gray-400 me-1">Price:</div>
@@ -248,10 +226,10 @@
                   {{ item.price | currency(store.currencySymbol,2) }}
                 </div>
               </div> -->
-                </div>
-              </div>
-              <div class="flex flex-row pt-3 text-secondary-500 lg:hidden">
-                <!-- <h3 class="flex flex-row me-6">
+        </div>
+      </div>
+      <div class="flex flex-row pt-3 text-secondary-500 lg:hidden">
+        <!-- <h3 class="flex flex-row me-6">
               <div class="me-1">Invoice</div>
               <svg
                 class="w-4 h-4 my-auto"
@@ -281,19 +259,13 @@
                 />
               </svg>
             </h3> -->
-              </div>
-            </div>
-            <div
-              v-if="order"
-              class="
-                flex flex-col
-                w-full
-                mt-6
-                text-sm text-gray-500
-                lg:flex-row
-              "
-            >
-              <!-- <div class="w-full p-6 bg-white border shadow me-6 lg:w-1/2">
+      </div>
+    </div>
+    <div
+      v-if="order"
+      class="flex flex-col w-full mt-6 text-sm text-gray-500 lg:flex-row"
+    >
+      <!-- <div class="w-full p-6 bg-white border shadow me-6 lg:w-1/2">
             <span class="text-lg font-medium">Billing Information</span>
             <span class="flex flex-row my-2">
               <h2 class="w-10 h-6 my-auto me-4">
@@ -314,73 +286,61 @@
             <span class="underline">+1 1256 121 121</span>
             <span class="mt-2 underline">vipin.b8896@outlok.vom</span>
           </div> -->
-              <div
-                v-if="order && order.address"
-                class="w-full p-6 mt-6 me-2 shadow lg:mt-0 lg:w-1/2"
-              >
-                <div class="pb-2 text-lg font-medium border-b">
-                  Shipping Information
-                </div>
-                <div class="my-4 text-base font-light">
-                  <div v-if="order.address.firstName">
-                    <strong> Name:</strong> {{ order.address.firstName }}
-                    {{ order.address.lastName }}
-                  </div>
-                  <div v-if="order.address.address" class="w-2/3 my-2">
-                    <strong> Address:</strong> {{ order.address.address }},
-                  </div>
-                  <div v-if="order.address.city">
-                    {{ order.address.city }},{{ order.address.country }}
-                  </div>
-                  <div v-if="order.address.zip" class="my-2">
-                    <strong> Pincode: </strong> {{ order.address.zip }}
-                  </div>
-                  <div v-if="order.address.phone" class="underline">
-                    <strong>Phone:</strong> {{ order.address.phone }}
-                  </div>
-                  <div v-if="order.address.email" class="my-1 underline">
-                    <strong>Email:</strong> {{ order.address.email }}
-                  </div>
-                </div>
-              </div>
-              <div
-                v-if="order && order.amount"
-                class="w-full p-6 mt-6 shadow lg:mt-0 lg:w-1/2"
-              >
-                <div class="pb-2 text-lg font-medium border-b">
-                  Payment Information
-                </div>
-                <div class="my-4 text-base font-light">
-                  <div v-if="order.amount.subtotal">
-                    <strong> Subtotal:</strong>
-                    {{
-                      order.amount.subtotal | currency(store.currencySymbol, 2)
-                    }}
-                  </div>
-                  <div v-if="order.amount.discount" class="w-2/3 my-2">
-                    <strong> Discount:</strong>
-                    {{
-                      order.amount.discount | currency(store.currencySymbol, 2)
-                    }},
-                  </div>
-                  <div v-if="order.amount.shipping" class="my-2">
-                    <strong> Shipping: </strong>
-                    {{
-                      order.amount.shipping | currency(store.currencySymbol, 2)
-                    }}
-                  </div>
-                  <div v-if="order.amount.total" class="underline">
-                    <strong>Total:</strong>
-                    {{ order.amount.total | currency(store.currencySymbol, 2) }}
-                  </div>
-                </div>
-              </div>
-            </div>
+      <div
+        v-if="order && order.address"
+        class="w-full p-6 mt-6 me-2 shadow lg:mt-0 lg:w-1/2"
+      >
+        <div class="pb-2 text-lg font-medium border-b">
+          Shipping Information
+        </div>
+        <div class="my-4 text-base font-light">
+          <div v-if="order.address.firstName">
+            <strong> Name:</strong> {{ order.address.firstName }}
+            {{ order.address.lastName }}
+          </div>
+          <div v-if="order.address.address" class="w-2/3 my-2">
+            <strong> Address:</strong> {{ order.address.address }},
+          </div>
+          <div v-if="order.address.city">
+            {{ order.address.city }},{{ order.address.country }}
+          </div>
+          <div v-if="order.address.zip" class="my-2">
+            <strong> Pincode: </strong> {{ order.address.zip }}
+          </div>
+          <div v-if="order.address.phone" class="underline">
+            <strong>Phone:</strong> {{ order.address.phone }}
+          </div>
+          <div v-if="order.address.email" class="my-1 underline">
+            <strong>Email:</strong> {{ order.address.email }}
+          </div>
+        </div>
+      </div>
+      <div
+        v-if="order && order.amount"
+        class="w-full p-6 mt-6 shadow lg:mt-0 lg:w-1/2"
+      >
+        <div class="pb-2 text-lg font-medium border-b">Payment Information</div>
+        <div class="my-4 text-base font-light">
+          <div v-if="order.amount.subtotal">
+            <strong> Subtotal:</strong>
+            {{ order.amount.subtotal | currency(store.currencySymbol, 2) }}
+          </div>
+          <div v-if="order.amount.discount" class="w-2/3 my-2">
+            <strong> Discount:</strong>
+            {{ order.amount.discount | currency(store.currencySymbol, 2) }},
+          </div>
+          <div v-if="order.amount.shipping" class="my-2">
+            <strong> Shipping: </strong>
+            {{ order.amount.shipping | currency(store.currencySymbol, 2) }}
+          </div>
+          <div v-if="order.amount.total" class="underline">
+            <strong>Total:</strong>
+            {{ order.amount.total | currency(store.currencySymbol, 2) }}
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -390,8 +350,10 @@ import PAY_SUCCESS_PAGE_HIT from '~/gql/order/paySuccessPageHit.gql'
 // import SUBSCRIPTION_ORDER_UPDATED from '~/gql/order/SUBSCRIPTION_ORDER_UPDATED.gql'
 import NuxtLink from '~/components/NuxtLink.vue'
 import OrderSuccessSkeleton from '~/components/Order/SuccessSkeleton.vue'
+import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
+
 export default {
-  components: { OrderSuccessSkeleton, NuxtLink },
+  components: { OrderSuccessSkeleton, PrimaryButtonRounded, NuxtLink },
   data() {
     return {
       order: null,

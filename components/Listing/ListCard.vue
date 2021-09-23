@@ -204,6 +204,7 @@
               class="container absolute flex flex-col items-center mx-auto mt-1"
             >
               <button
+                aria-label="Add to cart"
                 :disabled="isDisabled"
                 class="focus:outline-none"
                 @click="
@@ -259,6 +260,7 @@
           <div class="h-12 mt-1 overflow-hidden md:hidden">
             <div class="container absolute flex flex-col items-center mx-auto">
               <button
+                aria-label="Added to cart"
                 :disabled="isDisabled"
                 class="mb-1 focus:outline-none"
                 @click="

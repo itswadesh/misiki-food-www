@@ -1,6 +1,7 @@
 <template>
   <button
     v-ripple="'rgba(255, 0,0, 0.5)'"
+    aria-label="Wishlist"
     :disabled="isDisabled"
     class="
       flex

@@ -10,6 +10,7 @@
       space-x-1
       font-semibold
       text-white
+      border
       tracking-wide
       transition
       duration-300
@@ -23,7 +24,7 @@
     :class="
       loading
         ? ' bg-gray-400 border-gray-400 cursor-not-allowed'
-        : 'bg-primary-500'
+        : 'bg-primary-500 border-primary-400'
     "
     :disabled="loading"
     @click="$emit('click')"

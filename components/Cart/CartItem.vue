@@ -99,6 +99,7 @@
               <div class="flex flex-row">
                 <button
                   v-ripple="'rgba(243, 244, 246, 0.5)'"
+                  aria-label="decrease count"
                   class="
                     w-8
                     h-8
@@ -156,6 +157,7 @@
 
                 <button
                   v-ripple="'rgba(243, 244, 246, 0.5)'"
+                  aria-label="increase count"
                   class="
                     w-8
                     h-8
@@ -266,6 +268,7 @@
 
             <button
               v-ripple="'rgba(229, 231, 235, 0.5)'"
+              aria-label="delete product"
               class="
                 flex
                 items-center
