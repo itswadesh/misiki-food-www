@@ -1,6 +1,6 @@
 <template>
   <section>
-    <Dashboard class="" />
+    <Dashboard />
   </section>
 </template>
 

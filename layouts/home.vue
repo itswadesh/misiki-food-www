@@ -45,8 +45,15 @@
     <WhiteFooter class="hidden sm:block" />
 
     <OtpLogin v-if="showLoginModal" @showLogin="showLogin" />
-    <Modal :show="store.closed" title="Store is not accepting orders now">
-      {{ store.closedMessage || 'Please visit back later' }}
+    <Modal
+      :show="store.closed"
+      type="info"
+      title="Store is not accepting orders now"
+    >
+      <div class="-mt-8 flex flex-col items-center justify-center text-center">
+        <img v-lazy="`/store-closed.png?tr=h-384,fo-auto`" alt="🚀" class="" />
+        <span> {{ store.closedMessage || 'Please visit back later' }}</span>
+      </div>
     </Modal>
   </div>
 </template>

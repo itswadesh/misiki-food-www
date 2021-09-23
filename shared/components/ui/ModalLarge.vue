@@ -1,7 +1,17 @@
 <template>
   <transition name="fade ">
     <div v-if="show" class="fixed inset-0 z-50 overflow-y-auto frosted">
-      <div class="flex items-center justify-center pt-10 sm:p-10 min-h-screen">
+      <div
+        class="
+          flex
+          items-end
+          justify-end
+          sm:items-center sm:justify-center
+          pt-10
+          sm:p-10
+          min-h-screen
+        "
+      >
         <div
           class="
             inline-block
@@ -11,7 +21,8 @@
             transition-all
             transform
             bg-white
-            rounded-lg
+            rounded-t-lg
+            sm:rounded-b-lg
             shadow-xl
             sm:my-auto sm:align-middle
             max-w-4xl

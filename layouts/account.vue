@@ -1,15 +1,5 @@
 <template>
-  <section
-    class="
-      flex flex-col
-      w-full
-      min-h-screen
-      font-sans
-      antialiased
-      text-gray-900
-      bg-gray-50
-    "
-  >
+  <section class="flex flex-col w-full min-h-screen bg-gray-50">
     <Nav class="fixed w-full top-0 z-50" />
 
     <div class="w-full h-full flex flex-row justify-center margin-top">

@@ -1,8 +1,29 @@
 <template>
-  <section v-if="faqs && faqs.count > 0" class="mb-32 md:mt-10 text-gray-800">
-    <div class="mb-3 text-lg font-semibold tracking-wide">
+  <section v-if="faqs && faqs.count > 0" class="text-gray-800">
+    <h1
+      v-if="bigHeading"
+      class="
+        mb-7
+        sm:mb-14
+        font-serif font-bold
+        text-2xl
+        sm:text-4xl
+        text-center
+        flex flex-col
+        items-center
+        sm:items-start
+        max-w-max
+        mx-auto
+      "
+    >
+      <span>Frequently Asked Questions</span>
+      <hr class="mt-2.5 border-t-4 border-gray-800 opacity-50 w-20" />
+    </h1>
+
+    <div v-else class="mb-3 text-lg font-semibold tracking-wide">
       Frequently Asked Questions
     </div>
+
     <div class="border-l border-t border-r rounded-lg overflow-hidden">
       <div
         v-for="(f, ix) in faqs.data"
@@ -68,6 +89,13 @@
 </template>
 <script>
 export default {
+  props: {
+    bigHeading: {
+      type: Boolean,
+      default: false,
+    },
+  },
+
   data() {
     return {
       faqs: null,
