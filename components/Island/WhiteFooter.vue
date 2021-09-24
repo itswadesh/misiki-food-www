@@ -408,22 +408,29 @@
         </div>
       </div>
     </div>
-    <div id="google_translate_element" class="w-full flex-shrink"></div>
+    <div class="w-full flex-shrink flex">
+      <div id="google_translate_element"></div>
+      <div v-if="visitorCount">Visitor Counter: {{ visitorCount }}</div>
+    </div>
+    <CookieConsent />
   </div>
 </template>
 <script>
 // import LanguageSwitcher from '~/components/LanguageSwitcher'
 import { mapMutations } from 'vuex'
 import NuxtLink from '~/components/NuxtLink.vue'
+import CookieConsent from '~/components/CookieConsent.vue'
 // import LanguageSwitch from '~/components/CurrencyLanguage/LanguageSwitch.vue'
 export default {
   components: {
     NuxtLink,
+    CookieConsent,
     // LanguageSwitch,
     // LanguageSwitcher
   },
   data() {
     return {
+      visitorCount: null,
       loadedTranslate: false,
       year: new Date().getFullYear(),
       // popularSearches: null,
@@ -459,10 +466,15 @@ export default {
     const vm = this
     setTimeout(function () {
       vm.googleTranslateInit()
+      vm.updateVisitorCount()
     }, 3000)
   },
   methods: {
     ...mapMutations({ setErr: 'setErr', clearErr: 'clearErr' }),
+
+    async updateVisitorCount() {
+      this.visitorCount = await this.$post('store/updateVisitorCount')
+    },
     googleTranslateInit() {
       const vm = this
       const checkIfGoogleLoaded = setInterval(() => {
