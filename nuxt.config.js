@@ -8,7 +8,7 @@ import {
   PORT,
 } from './shared/config/index'
 import { pwa } from './config/index'
-console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz', HTTP_ENDPOINT, WWW_URL)
+// console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz', HTTP_ENDPOINT, WWW_URL)
 // const whitelist = ['preview-img-item']
 const whitelistPatterns = [/^slick-/, /^swal2-/, /^mx-/] // mx- is for vue2-datepicker
 export default {
@@ -19,7 +19,7 @@ export default {
   head,
   css: [
     '~/shared/assets/css/form.css',
-    '~/assets/fonts.css',
+    // '~/assets/fonts.css',
     '~/shared/assets/css/animations.css',
   ],
   plugins: [
@@ -119,18 +119,18 @@ export default {
     '/auth': HTTP_ENDPOINT,
     '/images': HTTP_ENDPOINT,
   },
-  build: {
-    babel: {
-      presets({ isServer }) {
-        const targets = isServer ? { node: 'current' } : { ie: 11 }
-        return [[require.resolve('@babel/preset-env'), { targets }]]
-      },
-      plugins: [
-        '@babel/syntax-dynamic-import',
-        '@babel/transform-runtime',
-        '@babel/transform-async-to-generator',
-      ],
-    },
-    parallel: true,
-  },
+  // build: {
+  //   babel: {
+  //     presets({ isServer }) {
+  //       const targets = isServer ? { node: 'current' } : { ie: 11 }
+  //       return [[require.resolve('@babel/preset-env'), { targets }]]
+  //     },
+  //     plugins: [
+  //       '@babel/syntax-dynamic-import',
+  //       '@babel/transform-runtime',
+  //       '@babel/transform-async-to-generator',
+  //     ],
+  //   },
+  //   parallel: true,
+  // },
 }

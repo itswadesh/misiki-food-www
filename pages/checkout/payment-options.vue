@@ -475,7 +475,7 @@ export default {
     },
     async submit() {
       if (!this.paymentMethod || !this.paymentMethod.value) {
-        this.setErr('Payment Method Not Defined')
+        this.setErr('Please Select Payment Method')
       }
       const paymentMethod = this.paymentMethod.value
       if (this.loading) return
@@ -551,7 +551,7 @@ export default {
           this.busy(false)
         }
       } else {
-        this.setErr('Payment method not defined')
+        this.setErr('Please Select Payment Method')
       }
     },
     async getAddress() {
