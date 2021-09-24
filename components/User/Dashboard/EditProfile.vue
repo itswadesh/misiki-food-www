@@ -133,13 +133,13 @@
             <div class="w-full md:px-2 md:w-3/12">Your Profile Picture</div>
             <div class="w-full md:w-9/12">
               <div class="max-w-sm mt-2 md:mt-0">
-                <!-- <ImageUpload
+                <ImageUpload
                   name="avatar"
                   folder="user"
                   :image="profile.avatar"
                   @save="saveImage"
                   @remove="saveImage(profile.avatar, '')"
-                /> -->
+                />
               </div>
             </div>
           </div>
@@ -164,11 +164,12 @@ import { required } from 'vuelidate/lib/validators'
 import { validationMixin } from 'vuelidate'
 import { Textbox, Radio } from '~/shared/components/ui'
 import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
+import ImageUpload from '~/shared/components/ImageUpload.vue'
 import UPDATE_PROFILE from '~/gql/user/updateProfile.gql'
 import ME from '~/gql/user/me.gql'
 
 export default {
-  components: { Textbox, Radio, PrimaryButtonRounded },
+  components: { Textbox, Radio, PrimaryButtonRounded, ImageUpload },
 
   mixins: [validationMixin],
 
@@ -193,10 +194,15 @@ export default {
     await this.getMe()
   },
   methods: {
-    ...mapMutations({ success: 'success', setErr: 'setErr' }),
+    ...mapMutations({
+      success: 'success',
+      setErr: 'setErr',
+      setUser: 'auth/setUser',
+    }),
     async getMe() {
       try {
         this.profile = await this.$get('user/me', {})
+
         // this.profile = (
         //   await this.$apollo.query({
         //     query: ME,
@@ -207,6 +213,10 @@ export default {
         // console.log(e)
       }
     },
+    saveImage(name, image) {
+      this.profile.avatar = image
+      this.submit()
+    },
     async submit() {
       // console.log("update profile", this.profile)
       const msg = 'Profile Updated'
@@ -215,6 +225,20 @@ export default {
       delete this.profile.address
       try {
         const data = await this.$post('user/updateProfile', this.profile)
+        this.setUser({
+          phone: data.phone,
+          email: data.email,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          avatar: data.avatar,
+          gender: data.gender,
+          state: data.state,
+          city: data.city,
+          zip: data.zip,
+          role: data.role,
+          provider: data.provider,
+          verified: data.verified,
+        })
         // const data = (
         //   await this.$apollo.mutate({
         //     mutation: UPDATE_PROFILE,
@@ -223,7 +247,7 @@ export default {
         // ).data.updateProfile
         this.success(msg)
         const r = this.$route.query.ref || '/my'
-        this.$router.push(r)
+        // this.$router.push(r)
       } catch (e) {
         this.setErr(e)
       }
