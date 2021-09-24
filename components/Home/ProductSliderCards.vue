@@ -3,8 +3,8 @@
     <div
       class="
         border
-        sm:border-0 sm:mr-2 sm:mb-2
-        md:mr-4 md:mb-4
+        sm:border-0 sm:me-2 sm:mb-2
+        md:me-4 md:mb-4
         group
         hover:bg-white hover:shadow-md
         text-gray-800
@@ -98,7 +98,7 @@
 
             <!-- Size chart start-->
             <div class="mt-1.5 flex items-baseline justify-start">
-              <h5 class="mr-1 text-sm">Sizes:</h5>
+              <h5 class="me-1 text-sm">Sizes:</h5>
               <h6
                 class="
                   space-x-1
@@ -194,20 +194,20 @@
               justify-start
             "
           >
-            <h6 class="mr-1 text-xs sm:text-sm font-semibold whitespace-nowrap">
+            <h6 class="me-1 text-xs sm:text-sm font-semibold whitespace-nowrap">
               {{ product.price | currency(store.currencySymbol, 2) }}
             </h6>
 
             <h6
               v-if="product.price < product.mrp"
-              class="mr-1 text-xs text-gray-500 whitespace-nowrap line-through"
+              class="me-1 text-xs text-gray-500 whitespace-nowrap line-through"
             >
               {{ product.mrp | currency(store.currencySymbol, 2) }}
             </h6>
 
             <div
               v-if="product.price < product.mrp"
-              class="mr-1 text-xs text-primary-700 whitespace-nowrap"
+              class="me-1 text-xs text-primary-700 whitespace-nowrap"
             >
               <h6 class="hidden sm:block">({{ product.discount }}% off)</h6>
             </div>

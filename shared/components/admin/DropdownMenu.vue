@@ -44,7 +44,7 @@
     </button>
     <li
       v-if="submenu"
-      class="mr-4 overflow-hidden font-normal"
+      class="me-4 overflow-hidden font-normal"
       :class="this.class"
     >
       <slot></slot>

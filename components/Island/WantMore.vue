@@ -50,7 +50,7 @@
       </div>
 
       <h6 class="mt-5 md:mt-10 text-xs text-gray-400">
-        <span class="mr-0.5">
+        <span class="me-0.5">
           Your personal details are safe with us. For more info, read our</span
         >
         <nuxt-link to="#" class="underline font-semibold"

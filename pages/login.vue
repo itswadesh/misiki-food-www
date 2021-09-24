@@ -85,7 +85,7 @@
                   font-light
                   hover:underline hover:text-gray-800
                   focus:outline-none
-                  text-right
+                  text-end
                 "
               >
                 Forgot Password?

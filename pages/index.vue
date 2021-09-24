@@ -30,14 +30,14 @@
         :details="youMayLikeProducts"
         :pg="pg"
         :heading="'You May Like'"
-        class="mb-5 md:mb-10 pl-2 sm:pl-10 lg:pr-10"
+        class="mb-5 md:mb-10 ps-2 sm:ps-10 lg:pe-10"
       />
 
       <ProductSlider
         :details="hotProducts"
         :pg="pg"
         :heading="'Trending'"
-        class="mb-5 md:mb-10 pl-2 sm:pl-10 lg:pr-10"
+        class="mb-5 md:mb-10 ps-2 sm:ps-10 lg:pe-10"
       />
 
       <VideoBanner

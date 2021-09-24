@@ -34,7 +34,7 @@
               data[model].amount | currency(store.currencySymbol, 2)
             }}</span>
             <div class="flex items-center mt-4">
-              <div class="pr-2 text-xs">
+              <div class="pe-2 text-xs">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="w-6 h-6"

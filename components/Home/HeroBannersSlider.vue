@@ -7,7 +7,7 @@
       <h3 v-if="title" class="text-base md:text-xl font-medium">{{ title }}</h3>
       <div v-else class="h-6 md:h-8 w-full"></div>
 
-      <div class="absolute right-0 mr-2 lg:mr-3 top-0 flex">
+      <div class="absolute right-0 me-2 lg:me-3 top-0 flex">
         <button
           aria-label="Show Previous"
           class="
@@ -17,7 +17,7 @@
             w-6
             h-6
             md:w-8 md:h-8
-            mr-2
+            me-2
             text-gray-800
             transition
             duration-300

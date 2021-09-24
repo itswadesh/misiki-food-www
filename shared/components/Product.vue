@@ -40,7 +40,7 @@
     <div class="px-2">
       <div v-if="p.ratings" class="flex items-center">
         <Ratingcircle :rating="p.ratings" class="m-review" />
-        <div class="pl-2 text-xs">{{ p.reviews }}</div>
+        <div class="ps-2 text-xs">{{ p.reviews }}</div>
       </div>
       <nuxt-link :to="localePath(`/${p.slug}`)">
         <h2 class="text-xs font-bold tracking-wide">{{ p.name }}</h2>

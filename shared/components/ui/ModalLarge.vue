@@ -16,7 +16,7 @@
           class="
             inline-block
             overflow-hidden
-            text-left
+            text-start
             align-bottom
             transition-all
             transform
@@ -36,7 +36,7 @@
             <h1
               id="modal-headline"
               class="
-                ml-4
+                ms-4
                 mb-3
                 sm:mb-5
                 text-lg
@@ -54,7 +54,7 @@
           </div>
 
           <div v-if="okText || cancelText" class="px-4 pb-6 sm:px-6 sm:flex">
-            <div class="ml-auto flex space-x-5 items-center">
+            <div class="ms-auto flex space-x-5 items-center">
               <PrimaryButtonRounded
                 type="button"
                 class="text-sm px-8"
@@ -88,7 +88,7 @@
                   focus:outline-none
                   active:scale-90
                   focus:ring-2 focus:ring-offset-2 focus:ring-primary-500
-                  sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm
+                  sm:mt-0 sm:ms-3 sm:w-auto sm:text-sm
                 "
                 @click="cancel"
               >

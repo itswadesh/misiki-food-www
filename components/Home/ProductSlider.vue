@@ -49,7 +49,7 @@
               z-10
               top-36
               left-0
-              ml-5
+              ms-5
               flex
               items-center
               justify-center
@@ -84,7 +84,7 @@
               <div
                 v-for="product in details"
                 :key="product.id"
-                class="pr-5 w-full"
+                class="pe-5 w-full"
               >
                 <HomePageProduct :product="product" />
               </div>
@@ -97,7 +97,7 @@
               z-10
               top-36
               right-0
-              mr-5
+              me-5
               flex
               items-center
               justify-center
@@ -138,7 +138,7 @@
           class="flex flex-row items-start justify-start"
         >
           <div v-for="product in details" :key="product.id">
-            <HomePageProduct :product="product" class="w-48 sm:w-56 mr-2" />
+            <HomePageProduct :product="product" class="w-48 sm:w-56 me-2" />
           </div>
         </div>
       </div>

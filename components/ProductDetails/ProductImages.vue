@@ -112,7 +112,7 @@
         </div>
 
         <ProductImgThumbnails
-          class="md:mr-5"
+          class="md:me-5"
           :images="images"
           :selected-image="selectedImage || img"
           @selectedImage="popup"

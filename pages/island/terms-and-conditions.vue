@@ -20,7 +20,7 @@
           class="flex flex-col text-sm space-y-2 mb-3"
         >
           <q>{{ i.heading }}</q>
-          <span class="ml-8">{{ i.description }}</span>
+          <span class="ms-8">{{ i.description }}</span>
         </li>
       </ul>
 
@@ -253,7 +253,7 @@ export default {
               data: `We may undertake searches with credit reference agencies for the purpose of verifying Your identity and the Personal Information You submit as part of an Order. To do so the agencies may check Your Personal Information against any particulars on any database (public or otherwise) to which they have access. They may also Use Your details in the future to assist other companies for verification purposes. By submitting Your Order You agree to this. For details of the credit reference agencies We receive information from and share information with, write to General Data Protection Compliance Officer, River Island, Chelsea House, Westgate, London, W5 1DR, United Kingdom.`,
             },
             {
-              html: `<p><span class="mr-1">For information about placing an order using Klarna, please </span><nuxt-link to="#" class="text-blue-500 hover:text-blue-700 cursor-pointer">click here</nuxt-link></p>`,
+              html: `<p><span class="me-1">For information about placing an order using Klarna, please </span><nuxt-link to="#" class="text-blue-500 hover:text-blue-700 cursor-pointer">click here</nuxt-link></p>`,
             },
           ],
         },

@@ -107,7 +107,7 @@
                 overflow-ellipsis
               "
             >
-              <h5 class="mr-1 text-sm">Sizes:</h5>
+              <h5 class="me-1 text-sm">Sizes:</h5>
               <h6 class="space-x-1 text-xs text-gray-500 flex items-baseline">
                 <div
                   v-if="pg && pg.sizeGroup && pg.sizeGroup.length"
@@ -238,15 +238,15 @@
             justify-start
           "
         >
-          <h6 class="mr-1 sm:mr-1.5 text-sm font-semibold whitespace-nowrap">
+          <h6 class="me-1 sm:me-1.5 text-sm font-semibold whitespace-nowrap">
             {{ product.price | currency(store.currencySymbol) }}
           </h6>
 
           <h6
             v-if="product.price < product.mrp"
             class="
-              mr-1
-              sm:mr-1.5
+              me-1
+              sm:me-1.5
               text-xs text-gray-500
               font-light
               whitespace-nowrap

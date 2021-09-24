@@ -51,7 +51,7 @@
             lg:h-1/3
           "
         >
-          <div class="lg:max-w-xs p-5 lg:p-0 text-center lg:text-left">
+          <div class="lg:max-w-xs p-5 lg:p-0 text-center lg:text-start">
             <h1 class="mb-5 text-2xl sm:text-4xl font-medium">Love fashion.</h1>
             <p class="my-2 lg:text-sm">
               With over 60 years of fashion retailing experience, River Island
@@ -87,7 +87,7 @@
               p-5
               lg:p-0
               text-center
-              lg:text-left
+              lg:text-start
               flex flex-col-reverse
               lg:flex-col
             "
@@ -122,7 +122,7 @@
             p-10
             lg:p-0 lg:max-w-sm lg:float-right
             text-center
-            lg:text-left
+            lg:text-start
           "
         >
           <h1 class="mb-5 text-2xl sm:text-4xl font-medium">Shop Anywhere.</h1>
@@ -180,7 +180,7 @@
           "
         >
           <div
-            class="p-10 lg:p-0 lg:max-w-sm text-center lg:text-left text-white"
+            class="p-10 lg:p-0 lg:max-w-sm text-center lg:text-start text-white"
           >
             <h1 class="mb-5 text-2xl sm:text-4xl font-medium">
               Sustainability

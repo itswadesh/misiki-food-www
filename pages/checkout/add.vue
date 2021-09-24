@@ -6,7 +6,7 @@
 
     <div class="flex flex-col sm:items-center justify-center max-w-2xl mx-auto">
       <div
-        class="text-lg font-bold tracking-wide mb-3 text-left sm:text-center"
+        class="text-lg font-bold tracking-wide mb-3 text-start sm:text-center"
       >
         Billing Details
       </div>

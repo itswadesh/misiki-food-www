@@ -14,7 +14,7 @@
             mx-auto
           "
         >
-          <h6><i class="mr-1">#</i>ImWearIngRI gallery</h6>
+          <h6><i class="me-1">#</i>ImWearIngRI gallery</h6>
           <hr class="mt-0.5 border-t-2 border-gray-800 w-full" />
         </div>
       </section>
@@ -41,7 +41,7 @@
               z-20
               inset-y-0
               left-0
-              ml-5
+              ms-5
               flex
               items-center
               justify-center
@@ -136,7 +136,7 @@
               z-20
               inset-y-0
               right-0
-              mr-5
+              me-5
               flex
               items-center
               justify-center

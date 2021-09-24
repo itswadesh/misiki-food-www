@@ -111,8 +111,8 @@
             items-center
             justify-between
             flex-shrink-0
-            ml-10
-            mr-3
+            ms-10
+            me-3
             max-w-max
             space-x-5
           "

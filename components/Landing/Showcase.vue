@@ -45,7 +45,7 @@
           ix % 2 == 0 ? 'lg:order-2 lg:ms-auto lg:ps-5' : 'lg:me-auto lg:pe-5'
         "
       >
-        <div class="text-center lg:text-left tracking-wide leading-loose">
+        <div class="text-center lg:text-start tracking-wide leading-loose">
           <h5 class="uppercase text-gray-700 tracking-normal">
             {{ i.title }}
           </h5>

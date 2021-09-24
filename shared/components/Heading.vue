@@ -34,7 +34,7 @@
         font-semibold
         text-center
         bg-gray-50
-        md:bg-white md:text-left
+        md:bg-white md:text-start
       "
     >
       {{ title }}

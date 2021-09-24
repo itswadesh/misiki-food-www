@@ -5,7 +5,7 @@
     <CheckoutHeader selected="payment" class="py-5 sm:py-10" />
 
     <div class="flex flex-col lg:flex-row lg:space-x-5">
-      <div class="lg:w-2/3 lg:border-r lg:border-gray-200 lg:pr-5">
+      <div class="lg:w-2/3 lg:border-r lg:border-gray-200 lg:pe-5">
         <div class="text-lg font-bold tracking-wide mb-3">Payment Methods</div>
 
         <div v-if="paymentMethods && paymentMethods.length > 0" class="mb-5">

@@ -10,7 +10,7 @@
         rounded-lg
       "
     >
-      <h2 class="text-center lg:text-left lg:w-2/5 xl:w-1/2">
+      <h2 class="text-center lg:text-start lg:w-2/5 xl:w-1/2">
         <div class="text-2xl font-semibold">
           Fashion, food, toys or electronics...
         </div>

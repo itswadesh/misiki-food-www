@@ -129,7 +129,7 @@
                             overflow-ellipsis
                           "
                         >
-                          <div class="mr-2">
+                          <div class="me-2">
                             <b>{{
                               w.product.price | currency(store.currencySymbol)
                             }}</b>
@@ -137,7 +137,7 @@
 
                           <strike
                             v-if="w.product.price < w.product.mrp"
-                            class="mr-2 text-gray-500"
+                            class="me-2 text-gray-500"
                           >
                             {{ w.product.mrp | currency(store.currencySymbol) }}
                           </strike>

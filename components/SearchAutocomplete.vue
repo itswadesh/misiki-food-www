@@ -25,7 +25,7 @@
               w-full
               h-10
               px-10
-              pr-4
+              pe-4
               my-auto
               text-xs
               bg-gray-100
@@ -51,7 +51,7 @@
               w-full
               h-10
               px-10
-              pr-4
+              pe-4
               my-auto
               text-xs
               bg-gray-100

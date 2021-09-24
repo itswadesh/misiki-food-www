@@ -19,7 +19,7 @@
             ><img
               v-lazy="`/icon.png?tr=h-40,fo-auto`"
               alt="🚀"
-              class="h-10 mr-2"
+              class="h-10 me-2"
             />
           </nuxt-link>
         </div>
@@ -37,7 +37,7 @@
             <a
               :href="getLoginUrl()"
               title="Login"
-              class="mr-5 text-primary-500"
+              class="me-5 text-primary-500"
             >
               Login
             </a>

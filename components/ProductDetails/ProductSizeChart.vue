@@ -7,7 +7,7 @@
       flex flex-col
       items-center
       justify-center
-      ml-auto
+      ms-auto
       w-4/5
       overflow-x-hidden overflow-y-auto
       transition

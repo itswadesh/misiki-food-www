@@ -18,7 +18,7 @@
           <div
             v-for="(c, cx) in categories"
             :key="cx"
-            class="w-1/2 sm:w-48 pr-4 mb-5 sm:mr-12 sm:mb-12"
+            class="w-1/2 sm:w-48 pe-4 mb-5 sm:me-12 sm:mb-12"
           >
             <h1 class="mb-3 text-lg font-medium border-b border-gray-300 pb-3">
               {{ c.name }}

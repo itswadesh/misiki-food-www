@@ -15,7 +15,7 @@
         v-if="cart.items != 0"
         class="flex flex-col lg:flex-row lg:space-x-5"
       >
-        <div class="lg:w-2/3 lg:border-r lg:border-gray-200 lg:pr-5">
+        <div class="lg:w-2/3 lg:border-r lg:border-gray-200 lg:pe-5">
           <div class="flex items-baseline mb-3">
             <div class="text-2xl font-bold tracking-wide">Cart</div>
 

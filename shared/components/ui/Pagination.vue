@@ -11,7 +11,7 @@
         lg:text-sm
       "
     >
-      <div class="w-full lg:mr-2 text-base font-normal text-gray-600 lg:w-auto">
+      <div class="w-full lg:me-2 text-base font-normal text-gray-600 lg:w-auto">
         Page {{ current }} of {{ count }}
       </div>
       <div class="flex flex-row justify-center w-full lg:w-auto">

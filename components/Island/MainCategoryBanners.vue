@@ -42,7 +42,7 @@
               <div
                 class="
                   mb-10
-                  mr-20
+                  me-20
                   md:mb-20
                   bg-white
                   py-2
@@ -87,7 +87,7 @@
               <div
                 class="
                   mb-10
-                  ml-20
+                  ms-20
                   md:mb-20
                   bg-white
                   py-2

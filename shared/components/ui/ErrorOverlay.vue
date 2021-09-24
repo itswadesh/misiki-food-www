@@ -94,7 +94,7 @@
                   />
                 </svg>
               </div>
-              <div class="mt-3 text-center sm:mt-0 sm:ms-4 sm:text-left">
+              <div class="mt-3 text-center sm:mt-0 sm:ms-4 sm:text-start">
                 <div class="mt-2">
                   <p class="text-brand-700">
                     {{ err }}

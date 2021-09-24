@@ -14,7 +14,7 @@
               class="w-40 object-contain object-top mb-5 md:mb-0"
             />
           </nuxt-link>
-          <div class="flex-1 md:pr-5">
+          <div class="flex-1 md:pe-5">
             <nuxt-link
               class="text-xl font-medium"
               :to="`/${order.slug}?id=${order.pid}`"
@@ -22,7 +22,7 @@
               {{ order.name }}
             </nuxt-link>
             <div class="flex flex-wrap items-center text-sm whitespace-nowrap">
-              <h5 v-if="order.size != null && ''" class="mt-2 mr-5">
+              <h5 v-if="order.size != null && ''" class="mt-2 me-5">
                 Size: {{ order.size }}
               </h5>
               <h5 v-if="order.color != null && ''" class="mt-2">
@@ -96,7 +96,7 @@
               justify-center
               rounded
               flex-shrink-0
-              mr-4
+              me-4
             "
             style="background: #e1e1e1"
           >

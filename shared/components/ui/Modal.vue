@@ -16,7 +16,7 @@
           class="
             inline-block
             overflow-hidden
-            text-left
+            text-start
             align-bottom
             transition-all
             transform
@@ -59,7 +59,7 @@
           <div class="p-5 sm:p-10 w-full text-gray-700">
             <div class="flex flex-wrap items-center justify-center sm:mb-2">
               <svg
-                class="`h-6 w-6 mb-3 mr-2"
+                class="`h-6 w-6 mb-3 me-2"
                 :class="{
                   'text-brand-700': type == 'error',
 
@@ -98,7 +98,7 @@
           </div>
 
           <div v-if="okText || cancelText" class="px-4 pb-6 sm:px-6 sm:flex">
-            <div class="ml-auto flex space-x-5 items-center">
+            <div class="ms-auto flex space-x-5 items-center">
               <PrimaryButtonRounded
                 type="button"
                 class="text-sm px-8"
@@ -132,7 +132,7 @@
                   focus:outline-none
                   active:scale-90
                   focus:ring-2 focus:ring-offset-2 focus:ring-primary-500
-                  sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm
+                  sm:mt-0 sm:ms-3 sm:w-auto sm:text-sm
                 "
                 @click="cancel"
               >

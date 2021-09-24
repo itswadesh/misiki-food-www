@@ -48,7 +48,7 @@
               v-for="(i, ix) in items"
               :key="ix"
               to="##"
-              class="bg-gray-100 rounded-full mb-3 mr-3 py-2 px-6 max-w-max"
+              class="bg-gray-100 rounded-full mb-3 me-3 py-2 px-6 max-w-max"
             >
               <span class="text-sm font-semibold">{{ i.query }}</span>
             </nuxt-link>

@@ -61,7 +61,7 @@
       ></div>
     </div>
     <div
-      class="text-sm ml-2 font-semibold"
+      class="text-sm ms-2 font-semibold"
       :class="{
         green: color == 'green' && value === true,
         blue: color == 'blue' && value === true,

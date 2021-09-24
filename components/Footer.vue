@@ -11,7 +11,7 @@
       text-gray-500 text-sm text-center
     "
   >
-    <span class="text-base mr-1">©</span
+    <span class="text-base me-1">©</span
     ><span> Policy 2007-{{ year }} {{ store.name }}</span>
   </div>
 </template>

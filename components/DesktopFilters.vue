@@ -8,14 +8,14 @@
         CATEGORIES
       </h5>
 
-      <ul class="pl-2 overflow-y-auto max-h-72">
+      <ul class="ps-2 overflow-y-auto max-h-72">
         <li
           v-for="(c, i) in megamenu"
           :key="i"
           class="
             py-4
-            pl-2
-            pr-2
+            ps-2
+            pe-2
             flex-shrink-0
             font-light
             w-full

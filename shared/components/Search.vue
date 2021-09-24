@@ -34,7 +34,7 @@
           w-full
           h-10
           px-10
-          pr-4
+          pe-4
           text-xs
           bg-transparent
           border border-gray-300

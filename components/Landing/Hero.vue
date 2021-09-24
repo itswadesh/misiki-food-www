@@ -8,7 +8,7 @@
             font-black
             text-center text-gray-800
             md:text-6xl
-            lg:text-left
+            lg:text-start
             tracking-wide
             leading-tight
           "
@@ -16,12 +16,12 @@
           Start your
           <div class="my-0.5 md:my-2 lg:my-3">ecommerce</div>
           <div class="lg:flex mx-auto max-w-max lg:mx-0 items-start space-x-2">
-            <span class="text-5xl md:text-6xl mr-2"> under</span>
+            <span class="text-5xl md:text-6xl me-2"> under</span>
             <div class="pt-2 md:pt-0 my-2 flex items-baseline">
               <span class="text-5xl font-black md:text-8xl text-primary-500">
                 60
               </span>
-              <span class="ml-2 text-sm font-medium text-primary-500">
+              <span class="ms-2 text-sm font-medium text-primary-500">
                 seconds
               </span>
             </div>
@@ -51,16 +51,16 @@
             ></button>
           </div>
 
-          <div class="lg:text-xl lg:pl-2 mx-auto max-w-max">
+          <div class="lg:text-xl lg:ps-2 mx-auto max-w-max">
             <div
               class="
                 flex
                 px-5
                 text-center
-                lg:pl-0
+                lg:ps-0
                 start
                 md:text-lg md:text-center
-                lg:text-left
+                lg:text-start
                 max-w-lg
               "
             >
@@ -85,7 +85,7 @@
 
             <!-- <div class="flex mt-10 border-gray-100 lg:mt-20">
               <div
-                class="py-2 pl-5 pr-16 text-gray-600 bg-white lg:text-lg lg:pr-40 add md:pr-48 md:py-4"
+                class="py-2 ps-5 pe-16 text-gray-600 bg-white lg:text-lg lg:pe-40 add md:pe-48 md:py-4"
               >
                 Your email adress
               </div>

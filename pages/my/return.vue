@@ -14,14 +14,14 @@
               class="w-40 object-contain object-top mb-5 md:mb-0"
             />
           </nuxt-link>
-          <div class="flex-1 md:pr-5">
+          <div class="flex-1 md:pe-5">
             <nuxt-link :to="`/${order.slug}?id=${order.pid}`">
               <h4 class="text-xl font-medium">
                 {{ order.name }}
               </h4>
             </nuxt-link>
             <div class="flex flex-wrap items-center text-sm whitespace-nowrap">
-              <h5 class="mt-2 mr-5">Size: {{ order.size }}</h5>
+              <h5 class="mt-2 me-5">Size: {{ order.size }}</h5>
               <h5 class="mt-2">Color: {{ order.color }}</h5>
             </div>
             <h6

@@ -4,7 +4,7 @@
       w-full
       px-2
       mt-0
-      lg:w-2/4 lg:mt-10 lg:pr-20
+      lg:w-2/4 lg:mt-10 lg:pe-20
       xs:w-full
       lg:px-10
       headings
@@ -74,7 +74,7 @@
                   absolute
                   right-0
                   px-2
-                  text-xs text-right
+                  text-xs text-end
                   border border-gray-300
                   rounded
                   me-2
@@ -82,7 +82,7 @@
                 >Edit</nuxt-link
               >
               <!-- <span class="p-1 text-xs text-gray-700 bg-gray-200">HOME</span> -->
-              <!-- <nuxt-link :to="localePath(`address/add?id=${a._id}`)" class="absolute right-0 px-5 text-right" >
+              <!-- <nuxt-link :to="localePath(`address/add?id=${a._id}`)" class="absolute right-0 px-5 text-end" >
           <span class="w-1 h-1 m-1 bg-gray-500 rounded-full"></span>
           <span class="w-1 h-1 m-1 bg-gray-500 rounded-full"></span>
           <span class="w-1 h-1 m-1 bg-gray-500 rounded-full"></span>

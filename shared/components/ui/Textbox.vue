@@ -21,7 +21,7 @@
         focus:ring-1 focus:ring-primary-500
       "
       :class="[
-        right ? 'text-right' : 'text-left',
+        right ? 'text-end' : 'text-start',
         err ? 'border-2 border-brand-700 bg-brand-100' : '',
       ]"
       v-bind="$attrs"

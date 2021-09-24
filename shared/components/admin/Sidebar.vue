@@ -17,7 +17,7 @@
     "
   >
     <div class="flex items-start justify-between">
-      <div class="mt-6 mb-3 ml-2 text-3xl text-white">Litekart</div>
+      <div class="mt-6 mb-3 ms-2 text-3xl text-white">Litekart</div>
       <button
         type="button"
         class="
@@ -73,7 +73,7 @@
                   class="
                     block
                     py-2
-                    pl-5
+                    ps-5
                     text-sm
                     cursor-pointer
                     hover:bg-primary-500 hover:bg-opacity-20

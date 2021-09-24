@@ -39,7 +39,7 @@
 
       <div class="w-full text-gray-800">
         <div class="mb-5">
-          <h6 class="ml-4 mb-5 font-semibold">Suggested for you</h6>
+          <h6 class="ms-4 mb-5 font-semibold">Suggested for you</h6>
 
           <div class="grid grid-cols-3 md:grid-cols-4 gap-x-5">
             <button
@@ -49,7 +49,7 @@
                 px-4
                 py-3
                 w-full
-                text-sm text-left
+                text-sm text-start
                 flex flex-col
                 bg-transparent
                 hover:bg-gray-100
@@ -63,7 +63,7 @@
         </div>
 
         <div>
-          <h6 class="ml-4 mb-5 font-semibold">All currencies</h6>
+          <h6 class="ms-4 mb-5 font-semibold">All currencies</h6>
 
           <div class="grid grid-cols-3 md:grid-cols-4 gap-x-5">
             <button
@@ -73,7 +73,7 @@
                 px-4
                 py-3
                 w-full
-                text-sm text-left
+                text-sm text-start
                 flex flex-col
                 bg-transparent
                 hover:bg-gray-100

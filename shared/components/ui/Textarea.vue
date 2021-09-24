@@ -12,7 +12,7 @@
           <textarea
             class="
               pt-4
-              pl-2.5
+              ps-2.5
               p-2
               w-full
               bg-gray-50

@@ -14,7 +14,7 @@
         items-center
         justify-center
         text-center
-        sm:justify-start sm:items-start sm:text-left
+        sm:justify-start sm:items-start sm:text-start
       "
     >
       <svg
@@ -54,7 +54,7 @@
         items-center
         justify-center
         text-center
-        sm:justify-start sm:items-start sm:text-left
+        sm:justify-start sm:items-start sm:text-start
       "
     >
       <svg
@@ -89,7 +89,7 @@
         items-center
         justify-center
         text-center
-        sm:items-start sm:justify-start sm:text-left
+        sm:items-start sm:justify-start sm:text-start
       "
     >
       <svg

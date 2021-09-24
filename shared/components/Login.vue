@@ -99,7 +99,7 @@
                     name="otp"
                     class="
                       w-32
-                      pl-4
+                      ps-4
                       bg-transparent
                       border border-gray-400
                       outline-none

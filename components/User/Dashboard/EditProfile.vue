@@ -63,7 +63,7 @@
             <div class="max-w-sm mt-2 md:w-96 md:mt-0">
               <Textbox v-model="profile.username" @change="save(profile)" />
             </div>
-            <h6 class="my-2 text-xs text-gray-600 lg:ml-5">
+            <h6 class="my-2 text-xs text-gray-600 lg:ms-5">
               Username for community forums
             </h6>
           </div>
