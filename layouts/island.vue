@@ -19,17 +19,21 @@
     <IslandFooter />
 
     <OtpLogin v-if="showLoginModal" @showLogin="showLogin" />
+
+    <BackToTopDark />
   </div>
 </template>
 <script>
 import Nav from '~/components/Home/Nav.vue'
 import OtpLogin from '~/components/Login/Mobile/OtpLogin.vue'
 import IslandFooter from '~/components/Island/IslandFooter.vue'
+import BackToTopDark from '~/shared/components/ui/BackToTopDark.vue'
 
 export default {
   components: {
     Nav,
     IslandFooter,
+    BackToTopDark,
     OtpLogin,
   },
 

@@ -56,6 +56,8 @@
 
     <WhiteFooter class="hidden sm:block" />
 
+    <BackToTopDark />
+
     <OtpLogin v-if="showLoginModal" @showLogin="showLogin" />
 
     <Modal
@@ -70,14 +72,24 @@
     </Modal>
   </div>
 </template>
+
 <script>
 import OtpLogin from '~/components/Login/Mobile/OtpLogin.vue'
 import Nav from '~/components/Home/Nav.vue'
 import WhiteFooter from '~/components/Island/WhiteFooter.vue'
+import BackToTopDark from '~/shared/components/ui/BackToTopDark.vue'
 import { Modal } from '~/shared/components/ui'
 import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
+
 export default {
-  components: { Nav, OtpLogin, WhiteFooter, Modal, PrimaryButtonRounded },
+  components: {
+    Nav,
+    OtpLogin,
+    WhiteFooter,
+    BackToTopDark,
+    Modal,
+    PrimaryButtonRounded,
+  },
   data() {
     return {
       showLoginModal: false,

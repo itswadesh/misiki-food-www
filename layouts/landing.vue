@@ -18,6 +18,8 @@
       <div class="flex-1" />
     </div>
 
+    <BackToTopDark />
+
     <WhiteFooter class="hidden sm:block" />
 
     <OtpLogin v-if="showLoginModal" @showLogin="showLogin" />
@@ -28,9 +30,10 @@
 import OtpLogin from '~/components/Login/Mobile/OtpLogin.vue'
 import NavLanding from '~/components/Home/NavLanding.vue'
 import WhiteFooter from '~/components/Island/WhiteFooter.vue'
+import BackToTopDark from '~/shared/components/ui/BackToTopDark.vue'
 
 export default {
-  components: { NavLanding, OtpLogin, WhiteFooter },
+  components: { NavLanding, OtpLogin, BackToTopDark, WhiteFooter },
 
   data() {
     return {

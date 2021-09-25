@@ -10,7 +10,7 @@
       md:shadow-sm md:border
     "
   >
-    <div class="flex flex-row w-full overflow-hidden">
+    <div class="flex flex-row items-start w-full overflow-hidden">
       <nuxt-link
         :to="localePath(`/${item.slug}?id=${item.pid}`)"
         class="w-1/3 md:w-1/4 overflow-hidden"
@@ -22,21 +22,19 @@
         />
       </nuxt-link>
 
-      <div class="relative flex flex-col flex-1 w-2/3 ms-3 md:w-3/4">
-        <div
+      <div class="relative flex flex-col flex-1 leading-3 w-2/3 ms-3 md:w-3/4">
+        <h6
           class="
-            mb-1
-            sm:mb-2
+            mb-0.5
             text-base
             sm:text-lg
             font-semibold
-            leading-3
             capitalize
             text-start
           "
         >
-          {{ item.brandName || '--' }}
-        </div>
+          {{ item.brandName }}
+        </h6>
 
         <nuxt-link
           :to="localePath(`/${item.slug}?id=${item.pid}`)"
@@ -78,6 +76,7 @@
         <div
           class="
             mb-2
+            sm:mb-4
             flex flex-col
             text-xs text-gray-400
             md:text-sm md:font-thin
@@ -89,176 +88,137 @@
         </div>
 
         <!-- qty button  -->
-        <div
-          class="mt-auto flex flex-col sm:flex-row sm:justify-between w-full"
-        >
-          <div class="flex flex-row max-w-max text-xs mb-1 sm:mb-0">
-            <div class="flex flex-row me-4">
-              <span class="my-auto text-sm font-semibold me-2"> Qty : </span>
+        <div class="flex flex-row items-center justify-between w-full">
+          <div
+            class="
+              mb-1
+              flex flex-row
+              items-center
+              whitespace-nowrap
+              max-w-max
+              me-4
+            "
+          >
+            <span class="text-sm font-semibold me-2"> Qty : </span>
 
-              <div class="flex flex-row">
-                <button
-                  v-ripple="'rgba(243, 244, 246, 0.5)'"
-                  aria-label="decrease count"
-                  class="
-                    w-8
-                    h-8
-                    my-auto
-                    text-xl
-                    font-semibold
-                    text-gray-700
-                    bg-gray-100
-                    border border-gray-200
-                    rounded-full
-                    hover:bg-gray-300
-                    paddings
-                    focus:outline-none
-                  "
-                  @click="
-                    addToBag({
-                      pid: item.pid,
-                      vid: item.vid,
-                      qty: -1,
-                      options: item.options,
-                      vendor: item.vendor && item.vendor.id,
-                    })
-                  "
-                >
-                  <!-- minus icon  -->
-
-                  <svg
-                    class="w-4 h-4 mx-auto text-gray-600"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                </button>
-
-                <div class="my-auto count text-md focus:outline-none">
-                  <img
-                    v-if="loading"
-                    v-lazy="'/loading.svg'"
-                    class="mx-auto my-auto"
-                  />
-
-                  <div
-                    v-else
-                    class="container flex justify-center mx-auto my-auto mt-1"
-                  >
-                    <span class="text-sm text-gray-600">{{ item.qty }}</span>
-                  </div>
-                </div>
-
-                <button
-                  v-ripple="'rgba(243, 244, 246, 0.5)'"
-                  aria-label="increase count"
-                  class="
-                    w-8
-                    h-8
-                    my-auto
-                    text-xl
-                    font-semibold
-                    text-gray-700
-                    border
-                    rounded-full
-                    border-secondary-500
-                    bg-secondary-500
-                    paddings
-                    focus:outline-none
-                  "
-                  @click="
-                    addToBag({
-                      pid: item.pid,
-                      vid: item.vid,
-                      qty: 1,
-                      options: item.options,
-                      vendor: item.vendor && item.vendor.id,
-                    })
-                  "
-                >
-                  <!-- plus icon  -->
-                  <svg
-                    class="w-4 h-4 mx-auto text-white"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <!-- wishlist icon  -->
-            <div class="my-auto">
-              <WishButton
-                :pid="item.pid"
-                rounded
+            <div class="flex flex-row">
+              <button
+                v-ripple="'rgba(243, 244, 246, 0.5)'"
+                aria-label="decrease count"
                 class="
-                  hidden
-                  p-1.5
                   w-8
                   h-8
                   my-auto
+                  text-xl
                   font-semibold
-                  text-center
-                  rounded
-                  hover:bg-red-200
-                  bg-red-100
-                  md:flex
-                  px-auto
+                  text-gray-700
+                  bg-gray-100
+                  border border-gray-200
+                  rounded-full
+                  hover:bg-gray-300
+                  paddings
                   focus:outline-none
                 "
-              />
-              <!-- <button
-                    @click="toggleWishlist(item.pid)"
-                    :disabled="isDisabled"
-                    class="hidden my-auto font-semibold text-center rounded-sm icons bg-accent-100 md:flex px-auto hover:opacity-75 focus:outline-none"
-                  >
-                    <svg
-                      class="w-4 h-4 mx-auto text-accent-900"
-                      :class="{
-                        'text-accent-900 fill-current ': isWishlist == true,
-                      }"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                      />
-                    </svg>
-                  </button> -->
+                @click="
+                  addToBag({
+                    pid: item.pid,
+                    vid: item.vid,
+                    qty: -1,
+                    options: item.options,
+                    vendor: item.vendor && item.vendor.id,
+                  })
+                "
+              >
+                <!-- minus icon  -->
+
+                <svg
+                  class="w-4 h-4 mx-auto text-gray-600"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+
+              <div class="my-auto count text-md focus:outline-none">
+                <img
+                  v-if="loading"
+                  v-lazy="'/loading.svg'"
+                  class="mx-auto my-auto"
+                />
+
+                <div
+                  v-else
+                  class="container flex justify-center mx-auto my-auto mt-1"
+                >
+                  <span class="text-sm text-gray-600">{{ item.qty }}</span>
+                </div>
+              </div>
+
+              <button
+                v-ripple="'rgba(243, 244, 246, 0.5)'"
+                aria-label="increase count"
+                class="
+                  w-8
+                  h-8
+                  my-auto
+                  text-xl
+                  font-semibold
+                  text-gray-700
+                  border
+                  rounded-full
+                  border-secondary-500
+                  bg-secondary-500
+                  paddings
+                  focus:outline-none
+                "
+                @click="
+                  addToBag({
+                    pid: item.pid,
+                    vid: item.vid,
+                    qty: 1,
+                    options: item.options,
+                    vendor: item.vendor && item.vendor.id,
+                  })
+                "
+              >
+                <!-- plus icon  -->
+                <svg
+                  class="w-4 h-4 mx-auto text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
             </div>
           </div>
+
           <!-- {{ item.options }}=={{ item.vendor.id }} -->
 
           <!-- remove icon -->
-          <div class="flex flex-row max-w-max">
+          <div class="mb-1 flex flex-row items-center max-w-max">
             <WishButton
               :pid="item.pid"
               class="
+                me-1
+                sm:me-3
                 p-1.5
                 w-8
                 h-8
-                my-auto
                 font-semibold
                 text-center
                 rounded
-                md:hidden
                 hover:bg-red-200
                 bg-accent-100
                 px-auto
@@ -276,7 +236,6 @@
                 p-1.5
                 w-8
                 h-8
-                m-1
                 font-semibold
                 text-gray-600
                 bg-gray-200

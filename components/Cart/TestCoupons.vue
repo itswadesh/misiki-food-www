@@ -22,8 +22,6 @@
         <div
           class="
             inline-block
-            overflow-hidden
-            align-bottom
             transition-all
             transform
             bg-white
@@ -31,30 +29,30 @@
             sm:rounded-b-lg
             shadow-xl
             text-start
-            sm:my-8 sm:align-middle sm:max-w-lg sm:w-full
+            sm:my-8
+            overflow-hidden
+            align-bottom
+            sm:align-middle
+            w-full
+            sm:max-w-lg
           "
           role="dialog"
           aria-modal="true"
           aria-labelledby="modal-headline"
         >
-          <div v-if="coupons" class="bg-white text-sm sm:text-base">
+          <div v-if="coupons" class="bg-white text-sm text-gray-800">
             <div
               class="
                 flex flex-row
+                font-semibold
                 items-center
                 justify-between
                 p-3
                 sm:px-5
-                text-gray-500
                 border-b
               "
             >
-              <div v-if="coupons.count > 0">
-                Apply Coupon ({{ coupons.count }})
-              </div>
-              <div v-else class="text-accent-900">
-                No Coupon Are Available !!
-              </div>
+              <h6>APPLY COUPON</h6>
 
               <button
                 type="button"
@@ -119,9 +117,13 @@
                 type="text"
                 placeholder="Enter coupon Code"
                 class="
+                  py-2
+                  px-4
                   w-full
                   my-auto
+                  text-sm
                   rounded-md
+                  border-gray-300
                   ring-primary-600
                   focus:ring-primary-600
                 "
@@ -136,7 +138,7 @@
                   hover:bg-primary-500
                   transition
                   duration-300
-                  text-gray-500
+                  text-sm
                   hover:text-white
                   font-semibold
                   tracking-wide
@@ -223,7 +225,7 @@
                   <span class="mx-2 text">Applying...</span>
                 </div>
 
-                <span v-else> Apply Coupon</span>
+                <span v-else>APPLY</span>
               </PrimaryButtonRounded>
             </form>
           </div>
@@ -307,6 +309,6 @@ export default {
 <style scoped>
 .frosted {
   backdrop-filter: blur(12px);
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.75);
 }
 </style>

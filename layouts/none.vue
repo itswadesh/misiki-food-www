@@ -11,11 +11,20 @@
     "
   >
     <Nuxt />
+
+    <BackToTopDark />
+
     <div class="flex-1" />
   </div>
 </template>
 <script>
+import BackToTopDark from '~/shared/components/ui/BackToTopDark.vue'
+
 export default {
+  components: {
+    BackToTopDark,
+  },
+
   head() {
     return this.$nuxtI18nHead()
   },

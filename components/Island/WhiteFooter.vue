@@ -1,6 +1,6 @@
 <template>
   <div class="w-full p-8 text-gray-800 bg-white">
-    <div class="flex flex-col justify-between lg:flex-row">
+    <div class="flex flex-col justify-between lg:flex-row lg:space-x-10">
       <div class="w-full lg:w-4/5">
         <span class="ps-1 text-lg font-medium uppercase lg:mx-auto">
           Useful links
@@ -337,68 +337,104 @@
 
       <div
         class="
-          flex-row
           hidden
-          w-full
-          my-auto
-          font-light
-          lg:ps-6 lg:flex-col lg:w-2/5
           md:flex
+          flex-row
+          items-start
+          lg:flex-col
+          space-x-5
+          lg:space-x-0 lg:w-2/5
+          w-full
         "
       >
-        <div class="flex flex-col md:flex-row mb-2">
+        <div
+          class="w-1/2 lg:w-full flex flex-col md:flex-row items-center mb-2"
+        >
           <img
             v-lazy="`/img/footer/original.png?tr=w-48,h-48,fo-auto`"
-            alt="🚀"
-            class="object-contain w-12 h-12 p-1 my-auto bg-white rounded"
+            alt=" "
+            class="me-4 object-contain w-8 h-8"
           />
-          <span class="object-cover ps-4 my-auto lg:w-2/3">
-            <strong class="font-light"> 100% ORIGINAL </strong> guarantee for
-            all products at {{ store.name }}
-          </span>
+
+          <h6 class="flex-1 text-sm">
+            <strong> 100% Original </strong
+            ><span class="font-light">
+              guarantee for all products at {{ store.name }}</span
+            >
+          </h6>
+        </div>
+
+        <div
+          class="w-1/2 lg:w-full flex flex-col md:flex-row items-center mb-2"
+        >
+          <img
+            v-lazy="`/img/footer/free.png?tr=w-48,h-48,fo-auto`"
+            alt=" "
+            class="me-4 object-contain w-8 h-8"
+          />
+
+          <h6 class="flex-1 text-sm">
+            <strong>Get assured delivery</strong
+            ><span class="font-light"> for every order</span>
+          </h6>
         </div>
 
         <!-- <div class="flex flex-col my-8 md:flex-row">
           <img
             v-lazy="`/img/footer/return.png?tr=w-48,h-48,fo-auto`"
             alt="🚀"
-            class="object-contain w-12 h-12 p-1 my-auto bg-white rounded"
+            class="object-contain w-8 h-8 lg:w-12 lg:h-12 p-1 my-auto bg-white rounded"
           />
           <span class="object-cover ps-4 my-auto lg:w-2/3">
             <strong class="font-light">Return within 30days </strong> of
             receiving your order</span
           >
         </div> -->
-
-        <div class="flex flex-col md:flex-row mt-2">
-          <img
-            v-lazy="`/img/footer/free.png?tr=w-48,h-48,fo-auto`"
-            alt="🚀"
-            class="object-contain w-12 h-12 p-1 my-auto bg-white rounded"
-          />
-          <span class="object-cover ps-4 my-auto lg:w-2/3">
-            <strong class="font-light"> Get assured delivery </strong> for every
-            order
-          </span>
-        </div>
       </div>
     </div>
 
     <hr class="w-full my-4 border-t-2" />
 
-    <div class="flex flex-row items-center justify-between">
-      <div class="text-sm font-normal tracking-wider whitespace-nowrap">
+    <div
+      class="
+        flex flex-row
+        items-center
+        mb-3
+        lg:mb-0 lg:items-start
+        justify-between
+      "
+    >
+      <div
+        class="text-sm font-normal tracking-wider whitespace-nowrap max-w-max"
+      >
         © {{ year }} {{ store.name }}
         <span v-if="store.websiteEmail" class="ms-2">
           {{ store.websiteEmail }}</span
         >
       </div>
 
+      <div
+        class="
+          hidden
+          lg:flex
+          max-w-max
+          flex-shrink-0 flex-row
+          items-start
+          text-sm
+          space-x-5
+        "
+      >
+        <div id="google_translate_element"></div>
+
+        <div v-if="visitorCount">Visitors : {{ visitorCount }}</div>
+      </div>
+
       <!-- <LanguageSwitch v-if="loadedTranslate" /> -->
       <!-- <button @click="googleTranslateElementInit">
         googleTranslateElementInit
       </button> -->
-      <div class="flex flex-row items-center space-x-2">
+
+      <div class="flex flex-row items-center space-x-2 max-w-max">
         <div v-for="(i, ix) in icons" :key="ix" class="mb-1">
           <img
             v-lazy="`${i.img}?tr=w-36,h-36,fo-auto`"
@@ -408,13 +444,28 @@
         </div>
       </div>
     </div>
-    <div class="w-full flex-shrink flex">
-      <div id="google_translate_element"></div>
-      <div v-if="visitorCount">Visitor Counter: {{ visitorCount }}</div>
+
+    <div
+      class="
+        lg:hidden
+        max-w-max
+        flex-shrink-0 flex flex-row
+        items-start
+        text-sm
+        space-x-5
+      "
+    >
+      <div id="google_translate_element "></div>
+
+      <div v-if="visitorCount">
+        <span class="me-1">Visitors :</span> <b>{{ visitorCount }}</b>
+      </div>
     </div>
+
     <CookieConsent />
   </div>
 </template>
+
 <script>
 // import LanguageSwitcher from '~/components/LanguageSwitcher'
 import { mapMutations } from 'vuex'

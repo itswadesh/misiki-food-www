@@ -22,6 +22,7 @@
           alt="🚀"
           class="mb-5 mx-auto w-full h-96 object-contain"
         />
+
         <p>Oops! Store not found</p>
       </div>
 
@@ -42,9 +43,12 @@
       <Nuxt class="w-full mt-24 lg:mt-16" />
     </div>
 
+    <BackToTopDark />
+
     <WhiteFooter class="hidden sm:block" />
 
     <OtpLogin v-if="showLoginModal" @showLogin="showLogin" />
+
     <Modal
       :show="store.closed"
       type="info"
@@ -52,28 +56,42 @@
     >
       <div class="-mt-8 flex flex-col items-center justify-center text-center">
         <img v-lazy="`/store-closed.png?tr=h-384,fo-auto`" alt="🚀" class="" />
+
         <span> {{ store.closedMessage || 'Please visit back later' }}</span>
       </div>
     </Modal>
   </div>
 </template>
+
 <script>
 import OtpLogin from '~/components/Login/Mobile/OtpLogin.vue'
 import Nav from '~/components/Home/Nav.vue'
 import WhiteFooter from '~/components/Island/WhiteFooter.vue'
+import BackToTopDark from '~/shared/components/ui/BackToTopDark.vue'
 import { Modal } from '~/shared/components/ui'
 import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
+
 export default {
-  components: { Nav, OtpLogin, WhiteFooter, Modal, PrimaryButtonRounded },
+  components: {
+    Nav,
+    OtpLogin,
+    WhiteFooter,
+    BackToTopDark,
+    Modal,
+    PrimaryButtonRounded,
+  },
+
   data() {
     return {
       showLoginModal: false,
       loading: false,
     }
   },
+
   head() {
     return this.$nuxtI18nHead()
   },
+
   computed: {
     settings() {
       return this.$store.state.settings || {}
@@ -82,6 +100,7 @@ export default {
       return this.$store.state.store || {}
     },
   },
+
   methods: {
     showLogin(e) {
       this.showLoginModal = e

@@ -1,14 +1,15 @@
 <template>
-  <div class="bg-white h-48 md:h-64 lg:h-80 xl:h-96">
+  <div class="bg-white h-auto">
     <div class="flex items-center justify-center">
       <progress
         v-if="loading"
         class="
           absolute
           z-10
-          justify-center
-          block
           m-3
+          flex
+          items-center
+          justify-center
           material-progress-circular
         "
       />
@@ -59,12 +60,9 @@
             hidden
             sm:block
             bg-white
-            h-48
-            md:h-64
-            lg:h-80
-            xl:h-96
+            h-auto
             w-full
-            object-cover
+            object-contain
             overflow-hidden
             bg-white
           "

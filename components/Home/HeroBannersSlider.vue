@@ -27,7 +27,7 @@
             cursor-pointer
             focus:outline-none
             active:scale-90
-            hover:bg-gray-300 hover:shadow
+            hover:bg-gray-300
           "
           @click="showPrev"
         >
@@ -63,7 +63,7 @@
             cursor-pointer
             focus:outline-none
             active:scale-90
-            hover:bg-gray-300 hover:shadow
+            hover:bg-gray-300
           "
           @click="showNext"
         >

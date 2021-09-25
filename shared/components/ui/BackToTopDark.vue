@@ -3,24 +3,24 @@
     v-if="scrolled > 1000"
     class="
       fixed
-      bottom-0
-      right-0
+      bottom-3
+      right-3
       z-10
       flex
       items-center
+      space-x-2
       w-8
       h-8
-      mb-3
-      text-xl text-center text-gray-900
-      bg-gray-300
+      frosted
       border border-gray-600
       rounded-full
-      shadow-lg
-      outline-none
-      cursor-pointer
-      me-3
+      shadow-md
+      hover:shadow
+      transition-all
+      duration-700
+      transform
+      hover:-translate-y-0.5 hover:text-white
       focus:outline-none
-      hover:bg-gray-600 hover:text-white
     "
     @click="scrollToTop"
   >
@@ -66,3 +66,14 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.frosted {
+  backdrop-filter: blur(15px);
+  background-color: hsla(0, 0%, 100%, 0.75);
+}
+.frosted:hover {
+  backdrop-filter: blur(15px);
+  background-color: hsla(0, 0%, 0%, 0.75);
+}
+</style>
