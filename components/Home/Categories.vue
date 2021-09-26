@@ -97,6 +97,9 @@
                 text-center text-gray-500
                 group-hover:text-primary-500
                 capitalize
+                overflow-ellipsis
+                line-clamp-1
+                sm:line-clamp-2
               "
             >
               {{ c.name }}
