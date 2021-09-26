@@ -45,7 +45,7 @@ export default {
       const som = (
         await this.app.apolloProvider.defaultClient.query({
           query: INIT,
-          variables: { domain: 'next.anne.biz' },
+          variables: { domain },
           errorPolicy: 'all',
         })
       ).data
@@ -135,7 +135,7 @@ export default {
     // app.router.base = params.store || '/'
     // console.log('nuxtServerInit')
     // await dispatch('fetch', domain.hostname)
-    await dispatch('fetchOnce', domain.hostname)
+    await dispatch('fetchOnce', process.env.DOMAIN || domain.hostname)
     // await dispatch('auth/fetch', domain.hostname)
     // await dispatch('cart/fetch', domain.hostname)
   },

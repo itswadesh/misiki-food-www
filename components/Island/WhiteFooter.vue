@@ -299,6 +299,21 @@
           >
             Blog
           </nuxt-link>
+          <nuxt-link
+            v-if="store.domain === 'anne.biz'"
+            to="/social-impact"
+            class="
+              w-auto
+              px-1
+              mb-1
+              text-center
+              border-r border-gray-400
+              cursor-pointer
+              hover:bg-gray-800 hover:text-white
+            "
+          >
+            Social Impact
+          </nuxt-link>
         </div>
         <div v-if="popularSearches && popularSearches.length">
           <span class="ps-1 my-4 mt-6 text-lg font-medium uppercase lg:mx-auto">
