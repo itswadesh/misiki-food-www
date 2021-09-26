@@ -62,7 +62,12 @@ export default {
     },
     checkCookieConsent() {
       const cookieConsentContent = this.$cookies.get('cookieConsent')
-      if (!cookieConsentContent) this.showCookieConsent = true
+      if (
+        !cookieConsentContent &&
+        this.$store.state.store &&
+        this.$store.state.store.gdpr
+      )
+        this.showCookieConsent = true
     },
   },
 }
