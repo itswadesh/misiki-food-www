@@ -2,6 +2,7 @@ import { I18N } from './config/lang'
 import { firebaseConfig } from './config/firebase'
 import {
   HTTP_ENDPOINT,
+  DOMAIN,
   WWW_URL,
   head,
   tailwindcss,
@@ -70,6 +71,7 @@ export default {
   publicRuntimeConfig: {
     WWW_URL: `${WWW_URL}`,
     HTTP_ENDPOINT: `${HTTP_ENDPOINT}`,
+    DOMAIN: `${DOMAIN}`,
   },
   privateRuntimeConfig: {
     firebaseAppId: process.env.FIREBASE_APP_ID,
