@@ -1,9 +1,10 @@
 <template>
   <section class="text-gray-800">
     <div class="mb-5 sm:mb-10 relative">
-      <!-- v-lazy="`/img/social-impact/s1.png?tr=h-384,fo-auto`" -->
       <img
-        src="/img/social-impact/s1.png"
+        v-lazy="
+          `https://res.cloudinary.com/anne-biz/image/upload/v1632710825/social-impact/s1_zwxpgt.png?tr=h-384,fo-auto`
+        "
         alt=" "
         class="h-80 sm:h-96 w-full object-cover"
       />
@@ -89,9 +90,10 @@
       <div class="mb-5 sm:mb-10 space-y-2.5 sm:space-y-5">
         <h5>SEAGRASS</h5>
 
-        <!-- v-lazy="`/img/social-impact/s2.png?tr=h-384,fo-auto`" -->
         <img
-          src="/img/social-impact/s2.png"
+          v-lazy="
+            `https://res.cloudinary.com/anne-biz/image/upload/v1632710820/social-impact/s2_fa7bi4.png?tr=h-384,fo-auto`
+          "
           alt=" "
           class="sm:h-96 object-contain sm:object-cover"
         />
@@ -134,9 +136,10 @@
       <div class="mb-5 sm:mb-10 space-y-2.5 sm:space-y-5">
         <h5>+ Textiles</h5>
 
-        <!-- v-lazy="`/img/social-impact/s2.png?tr=h-384,fo-auto`" -->
         <img
-          src="/img/social-impact/s3.jpg"
+          v-lazy="
+            `https://res.cloudinary.com/anne-biz/image/upload/v1632710819/social-impact/s3_akvh64.jpg?tr=h-384,fo-auto`
+          "
           alt=" "
           class="sm:h-96 object-contain sm:object-cover"
         />
@@ -195,16 +198,18 @@
         <h5>+ Non-textile weaving</h5>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-5 max-w-max">
-          <!-- v-lazy="`/img/social-impact/s2.png?tr=h-384,fo-auto`" -->
           <img
-            src="/img/social-impact/s4.jpg"
+            v-lazy="
+              `https://res.cloudinary.com/anne-biz/image/upload/v1632710822/social-impact/s4_unpckm.jpg?tr=h-384,fo-auto`
+            "
             alt=" "
             class="sm:h-96 object-contain sm:object-cover w-full"
           />
 
-          <!-- v-lazy="`/img/social-impact/s2.png?tr=h-384,fo-auto`" -->
           <img
-            src="/img/social-impact/s5.jpg"
+            v-lazy="
+              `https://res.cloudinary.com/anne-biz/image/upload/v1632710823/social-impact/s5_sb7gaf.jpg?tr=h-384,fo-auto`
+            "
             alt=" "
             class="sm:h-96 object-contain sm:object-cover w-full"
           />
@@ -229,9 +234,10 @@
       <div class="mb-5 sm:mb-10 space-y-2.5 sm:space-y-5">
         <h5>+ Stone carving</h5>
 
-        <!-- v-lazy="`/img/social-impact/s2.png?tr=h-384,fo-auto`" -->
         <img
-          src="/img/social-impact/s6.jpg"
+          v-lazy="
+            `https://res.cloudinary.com/anne-biz/image/upload/v1632710822/social-impact/s6_sefmzx.jpg?tr=h-384,fo-auto`
+          "
           alt=" "
           class="sm:h-96 object-contain sm:object-cover"
         />
@@ -262,16 +268,18 @@
         <h5>+ Lacquerware</h5>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-5 max-w-max">
-          <!-- v-lazy="`/img/social-impact/s2.png?tr=h-384,fo-auto`" -->
           <img
-            src="/img/social-impact/s7.jpg"
+            v-lazy="
+              `https://res.cloudinary.com/anne-biz/image/upload/v1632710821/social-impact/s7_i8mncy.jpg?tr=h-384,fo-auto`
+            "
             alt=" "
             class="sm:h-96 object-contain sm:object-cover w-full"
           />
 
-          <!-- v-lazy="`/img/social-impact/s2.png?tr=h-384,fo-auto`" -->
           <img
-            src="/img/social-impact/s8.jpg"
+            v-lazy="
+              `https://res.cloudinary.com/anne-biz/image/upload/v1632710822/social-impact/s8_c1a83i.jpg?tr=h-384,fo-auto`
+            "
             alt=" "
             class="sm:h-96 object-contain sm:object-cover w-full"
           />
@@ -303,16 +311,18 @@
         <h5>+ Silversmithing</h5>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-5 max-w-max">
-          <!-- v-lazy="`/img/social-impact/s2.png?tr=h-384,fo-auto`" -->
           <img
-            src="/img/social-impact/s9.jpg"
+            v-lazy="
+              `https://res.cloudinary.com/anne-biz/image/upload/v1632710818/social-impact/s9_yrwimq.jpg?tr=h-384,fo-auto`
+            "
             alt=" "
             class="sm:h-96 object-contain sm:object-cover w-full"
           />
 
-          <!-- v-lazy="`/img/social-impact/s2.png?tr=h-384,fo-auto`" -->
           <img
-            src="/img/social-impact/s10.jpg"
+            v-lazy="
+              `https://res.cloudinary.com/anne-biz/image/upload/v1632710818/social-impact/s10_bmho4p.jpg?tr=h-384,fo-auto`
+            "
             alt=" "
             class="sm:h-96 object-contain sm:object-cover w-full"
           />
@@ -336,9 +346,10 @@
       <div class="mb-5 sm:mb-10 space-y-2.5 sm:space-y-5">
         <h5>+ Ceramics</h5>
 
-        <!-- v-lazy="`/img/social-impact/s2.png?tr=h-384,fo-auto`" -->
         <img
-          src="/img/social-impact/s11.jpg"
+          v-lazy="
+            `https://res.cloudinary.com/anne-biz/image/upload/v1632710817/social-impact/s11_lbsh8u.jpg?tr=h-384,fo-auto`
+          "
           alt=" "
           class="sm:h-96 object-contain sm:object-cover"
         />
@@ -376,9 +387,10 @@
       <div class="mb-5 sm:mb-10 space-y-2.5 sm:space-y-5">
         <h5>+ The Cambodian Stegosaurus</h5>
 
-        <!-- v-lazy="`/img/social-impact/s2.png?tr=h-384,fo-auto`" -->
         <img
-          src="/img/social-impact/s12.jpg"
+          v-lazy="
+            `https://res.cloudinary.com/anne-biz/image/upload/v1632710821/social-impact/s12_squyd1.jpg?tr=h-384,fo-auto`
+          "
           alt=" "
           class="sm:h-96 object-contain sm:object-cover"
         />
