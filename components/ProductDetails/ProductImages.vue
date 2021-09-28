@@ -85,10 +85,11 @@
               class="p-1 w-8 h-8"
             />
           </div>
-
-          <img
+          <Zoom
             v-if="!youtubeVideoId(selectedImage)"
-            v-lazy="selectedImage"
+            :img-normal="selectedImage"
+            :img-zoom="selectedImage"
+            :scale="3"
             alt="🚀"
             class="
               object-contain
@@ -202,6 +203,7 @@ import { getIdFromUrl } from 'vue-youtube'
 import ProductImgThumbnails from './ProductImgThumbnails.vue'
 import Share from '~/components/ProductDetails/Share.vue'
 import WishButton from '~/components/WishButton.vue'
+import Zoom from '~/components/ui/Zoom.vue'
 
 export default {
   components: {
@@ -209,6 +211,7 @@ export default {
     WishButton,
     // ImageMagnifier,
     Share,
+    Zoom,
   },
   props: {
     loading: { type: Boolean, default: false },

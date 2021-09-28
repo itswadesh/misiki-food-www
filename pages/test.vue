@@ -8,24 +8,37 @@
       @changed="changed"
     /> -->
     <!-- <PicZoom url="/img/american.jpg" :scale="3"></PicZoom> -->
-    <image-magnifier
-      v-lazy="image"
-      :zoom-src="image"
-      width="400"
-      height="300"
-      zoom-width="400"
-      zoom-height="300"
-    ></image-magnifier>
+    <div style="width: 400px">
+      <Zoom img-normal="zoom-demo.jpg" img-zoom="zoom-demo.jpg" :scale="3" />
+      <!-- <zoom-on-hover
+        img-normal="zoom-demo.jpg"
+        img-zoom="zoom-demo.jpg"
+        :scale="1.5"
+      ></zoom-on-hover> -->
+      <!-- <inner-image-zoom src="/zoom-demo.jpg" zoom-src="/zoom-demo.jpg" /> -->
+
+      <!-- <image-magnifier
+        src="/zoom-demo.jpg"
+        zoom-src="/zoom-demo.jpg"
+        width="400"
+        height="300"
+        zoom-width="400"
+        zoom-height="300"
+      ></image-magnifier> -->
+    </div>
   </div>
 </template>
 
 <script>
-import { ImageMagnifier } from 'vue-image-magnifier'
-// import PriceSlider from '~/shared/components/ui/PriceSlider.vue'
+// import { ImageMagnifier } from 'vue-image-magnifier'
+// import InnerImageZoom from 'vue-inner-image-zoom'
+
+import Zoom from '~/components/ui/Zoom.vue'
 export default {
   components: {
-    // PriceSlider,
-    ImageMagnifier,
+    Zoom,
+    // ImageMagnifier,
+    // 'inner-image-zoom': InnerImageZoom,
     // PicZoom,
   },
   layout: 'none',
