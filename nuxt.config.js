@@ -37,7 +37,7 @@ export default {
     { src: '~/plugins/gtag', ssr: false },
     { src: '~/plugins/api.js' },
     { src: '~/plugins/vue-mq.js' },
-    // { src: '~/plugins/init', ssr: false },
+    { src: '~/plugins/disable-right-click', ssr: false },
     // { src: '~/plugins/directives.js', ssr:false },
   ],
   // components: true,
