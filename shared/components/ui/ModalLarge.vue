@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade ">
+  <transition name="fade">
     <div v-if="show" class="fixed inset-0 z-50 overflow-y-auto frosted">
       <div
         class="

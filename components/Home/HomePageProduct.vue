@@ -1,13 +1,66 @@
 <template>
   <section
     v-if="product"
-    class="w-full border group hover:bg-white hover:shadow-md text-gray-800"
+    class="
+      relative
+      w-full
+      border
+      group
+      hover:bg-white hover:shadow-md
+      text-gray-800
+    "
     @mouseenter="showitems()"
     @mouseleave="hideitems()"
   >
+    <!-- Quick view button start-->
+
+    <div class="hidden group-hover:block absolute z-10 right-2 top-2">
+      <button
+        class="
+          flex
+          items-center
+          justify-center
+          bg-white
+          hover:bg-gray-800
+          text-gray-500
+          hover:text-white
+          transition
+          duration-300
+          h-7
+          w-7
+          rounded-md
+          focus:outline-none
+        "
+        @click="$emit('open')"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+          />
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Quick view button end-->
+
     <nuxt-link
       :to="localePath(`/${product.slug}?id=${product.id || pid}`)"
-      class="block overflow-hidden"
+      class="z-0 block overflow-hidden"
     >
       <div class="h-48 sm:h-56 desktop-height bg-gray-100">
         <img
@@ -22,9 +75,10 @@
       <div class="p-2 sm:p-4">
         <!-- For view above 640px start -->
 
-        <div v-if="show" class="sm:-mt-12">
-          <!-- View smilar button start-->
+        <div v-if="show" class="z-10 sm:-mt-12">
           <div class="hidden sm:block">
+            <!-- View smilar button start-->
+
             <nuxt-link
               :to="`/search/${product.brand && product.brand.name}`"
               class="flex justify-end"
@@ -59,9 +113,11 @@
                 <span class="ps-2 text-xs whitespace-nowrap">View similar</span>
               </div>
             </nuxt-link>
+
             <!-- View smilar button end-->
 
             <!-- Wishlist start-->
+
             <div class="h-rem w-full"></div>
             <!-- <button
               class="
@@ -95,9 +151,11 @@
                 ></path></svg
               ><span class="text-sm font-semibold">WISHLIST</span>
             </button> -->
+
             <!-- Wishlist end-->
 
-            <!-- Size chart start-->
+            <!-- Available sizes start-->
+
             <div
               class="
                 flex
@@ -124,7 +182,7 @@
               </h6>
             </div>
 
-            <!-- Size chart end-->
+            <!-- Available sizes end-->
           </div>
 
           <!-- For view above 640px end -->
@@ -285,7 +343,11 @@
 import { mapGetters, mapMutations } from 'vuex'
 import NuxtLink from '~/components/NuxtLink.vue'
 // import TOGGLE from '~/gql/wishlist/toggleWishlist.gql'
+
 export default {
+  components: { NuxtLink },
+  // ['id', 'slug', 'name', 'price', 'img'],
+
   // computed:{
   //   bgColor(){
   //     return{
@@ -293,13 +355,13 @@ export default {
   //     };
   //   }
   // },
-  components: { NuxtLink },
-  // ['id', 'slug', 'name', 'price', 'img'],
+
   props: {
     product: { type: Object, default: () => {} },
     pid: { type: String, default: null },
     pg: { type: Object, default: null },
   },
+
   data() {
     return {
       isActive: false,
@@ -307,8 +369,10 @@ export default {
       products: null,
       featuredImage: null,
       show: false,
+      openQuickView: false,
     }
   },
+
   computed: {
     ...mapGetters({
       store: 'store',
@@ -317,20 +381,24 @@ export default {
     //   return this.product.img
     // },
   },
+
   created() {
     this.featuredImage = this.product.img
   },
+
   methods: {
     ...mapMutations({ setErr: 'setErr', success: 'success' }),
     onMouseOutImage() {
       this.featuredImage = this.product.img
     },
+
     onMouseOverImage() {
       const secondImage = this.product.images.filter((f) => {
         return f !== this.product.img
       }, {})
       this.featuredImage = secondImage[0]
     },
+
     showitems() {
       this.show = true
     },

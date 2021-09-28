@@ -86,7 +86,10 @@
                 :key="product.id"
                 class="pe-5 w-full"
               >
-                <HomePageProduct :product="product" />
+                <HomePageProduct
+                  :product="product"
+                  @open="openQuickView = true"
+                />
               </div>
             </VueSlickCarousel>
           </div>
@@ -138,9 +141,128 @@
           class="flex flex-row items-start justify-start"
         >
           <div v-for="product in details" :key="product.id">
-            <HomePageProduct :product="product" class="w-48 sm:w-56 me-2" />
+            <HomePageProduct
+              :product="product"
+              class="w-48 sm:w-56 me-2"
+              @open="openQuickView = true"
+            />
           </div>
         </div>
+      </div>
+
+      <div v-if="openQuickView">
+        <ModalLarge :show="openQuickView" title="Quick View" type="info" noicon>
+          <!-- Close button start -->
+          <button
+            type="button"
+            class="
+              absolute
+              p-1
+              transition
+              duration-300
+              transform
+              rounded-md
+              hover:bg-opacity-50
+              group
+              hover:bg-gray-900 hover:shadow-md
+              top-3
+              right-3
+              focus:outline-none focus:scale-75
+            "
+            @click="openQuickView = false"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-6 h-6 transition duration-100 group-hover:text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+
+          <!-- Close button end -->
+
+          <div v-if="details && details.length" class="w-full">
+            <div class="grid grid-cols-2 gap-5">
+              <ProductImages :img="details[5].img" :product="details[5]" />
+
+              <ProductRight :product="details[5]" />
+            </div>
+
+            <!-- <ProductImages
+              :loading="$fetchState.pending"
+              class="h-auto mt-5 nowrap lg:mt-0 mb-5 md:mb-10"
+              :images="product && product.images"
+              :pid="product.id"
+              :img="product.img"
+              :host="host"
+              :product="product"
+              :exist-in-wishlist="checkWishlist"
+            /> -->
+
+            <!-- <div v-if="product && product.id" class="bg-white">
+              <ProductRight
+                ref="ProductRight"
+                class="w-full h-auto nowrap mb-5"
+                :host="host"
+                :product="product"
+                :pg="pg"
+                :review-summary="reviewSummary"
+                @variantChanged="variantChanged"
+                @optionChanged="optionChanged"
+              />
+
+              <div
+                class="
+                  mb-5
+                  px-2
+                  xl:ms-5
+                  md:flex
+                  items-center
+                  space-y-4
+                  md:space-y-0 md:space-x-5
+                  xl:hidden
+                "
+              >
+                <div class="w-full md:w-1/2">
+                  <AddToCart
+                    class=""
+                    :product="product"
+                    :user-selected-variant="userSelectedVariant"
+                    :options="product.options"
+                    :selected-options="selectedOptions"
+                    @alertToSelectMandatoryOptions="
+                      alertToSelectMandatoryOptions
+                    "
+                  />
+                </div>
+
+                <div class="w-full md:w-1/2">
+                  <BuyNow
+                    v-if="product.stock > 0"
+                    class=""
+                    :product="product"
+                    :user-selected-variant="userSelectedVariant"
+                    :options="product.options"
+                    :selected-options="selectedOptions"
+                    @alertToSelectMandatoryOptions="
+                      alertToSelectMandatoryOptions
+                    "
+                  />
+                </div>
+              </div>
+            </div>
+
+            <ProductDetailSpecs :product="product" class="mb-5" /> -->
+          </div>
+        </ModalLarge>
       </div>
     </section>
   </main>
@@ -149,11 +271,21 @@
 <script>
 import HomePageProduct from '~/components/Home/HomePageProduct.vue'
 // import ProductSliderSkeleton from '~/components/AllSkeletons/ProductSliderSkeleton'
+import ModalLarge from '~/shared/components/ui/ModalLarge.vue'
+import ProductImages from '~/components/ProductDetails/ProductImages.vue'
+import AddToCart from '~/components/ProductDetails/AddToCart.vue'
+import ProductRight from '~/components/ProductDetails/ProductRight.vue'
+import ProductDetailSpecs from '~/components/ProductDetails/ProductDetailSpecs.vue'
 
 export default {
   components: {
     // ProductSliderSkeleton,
     HomePageProduct,
+    ModalLarge,
+    ProductImages,
+    AddToCart,
+    ProductRight,
+    ProductDetailSpecs,
   },
 
   props: {
@@ -170,6 +302,7 @@ export default {
   data() {
     return {
       loading: false,
+      openQuickView: false,
 
       settings: {
         centerMode: false,
