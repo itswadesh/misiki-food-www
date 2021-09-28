@@ -38,7 +38,7 @@
           v-if="b.data[0] && ifUrl(b.data[0].link)"
           :href="b.data[0].link"
           target="blank"
-          class="w-auto col-span-2"
+          class="w-auto col-span-2 geeks"
         >
           <img
             v-lazy="`${b.data[0].img}?tr=w-760,h-390,fo-auto`"
@@ -49,7 +49,7 @@
         <nuxt-link
           v-else-if="b.data[0]"
           :to="localePath(b.data[0].link)"
-          class="w-auto col-span-2"
+          class="w-auto col-span-2 geeks"
         >
           <img
             v-lazy="`${b.data[0].img}?tr=w-760,h-390,fo-auto`"
@@ -61,7 +61,7 @@
           v-if="b.data[1] && ifUrl(b.data[1].link)"
           :href="b.data[1].link"
           target="blank"
-          class="w-auto col-span-2"
+          class="w-auto col-span-2 geeks"
         >
           <img
             v-lazy="`${b.data[1].img}?tr=w-760,h-390,fo-auto`"
@@ -72,7 +72,7 @@
         <nuxt-link
           v-else-if="b.data[1]"
           :to="localePath(b.data[1].link)"
-          class="w-auto col-span-2"
+          class="w-auto col-span-2 geeks"
         >
           <img
             v-lazy="`${b.data[1].img}?tr=w-760,h-390,fo-auto`"
@@ -84,7 +84,7 @@
           v-if="b.data[2] && ifUrl(b.data[2].link)"
           :href="b.data[2].link"
           target="blank"
-          class="w-auto col-span-1"
+          class="w-auto col-span-1 geeks"
         >
           <img
             v-lazy="`${b.data[2].img}?tr=w-370,h-390,fo-auto`"
@@ -95,7 +95,7 @@
         <nuxt-link
           v-else-if="b.data[2]"
           :to="localePath(b.data[2].link)"
-          class="w-auto col-span-1"
+          class="w-auto col-span-1 geeks"
         >
           <img
             v-lazy="`${b.data[2].img}?tr=w-370,h-390,fo-auto`"
@@ -108,7 +108,7 @@
           v-if="b.data[3] && ifUrl(b.data[3].link)"
           :href="b.data[3].link"
           target="blank"
-          class="w-auto col-span-1"
+          class="w-auto col-span-1 geeks"
         >
           <img
             v-lazy="`${b.data[3].img}?tr=w-370,h-390,fo-auto`"
@@ -119,7 +119,7 @@
         <nuxt-link
           v-else-if="b.data[3]"
           :to="localePath(b.data[3].link)"
-          class="w-auto col-span-1"
+          class="w-auto col-span-1 geeks"
         >
           <img
             v-lazy="`${b.data[3].img}?tr=w-370,h-390,fo-auto`"
@@ -132,7 +132,7 @@
           v-if="b.data[4] && ifUrl(b.data[4].link)"
           :href="b.data[4].link"
           target="blank"
-          class="w-auto col-span-2"
+          class="w-auto col-span-2 geeks"
         >
           <img
             v-lazy="`${b.data[4].img}?tr=w-760,h-390,fo-auto`"
@@ -143,7 +143,7 @@
         <nuxt-link
           v-else-if="b.data[4]"
           :to="localePath(b.data[4].link)"
-          class="w-auto col-span-2"
+          class="w-auto col-span-2 geeks"
         >
           <img
             v-lazy="`${b.data[4].img}?tr=w-760,h-390,fo-auto`"
@@ -203,3 +203,19 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.geeks {
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.geeks img {
+  width: 100%;
+  transition: 0.5s all ease-in-out;
+}
+
+.geeks:hover img {
+  transform: scale(1.03);
+}
+</style>
