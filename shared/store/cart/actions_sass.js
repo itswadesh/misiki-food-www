@@ -5,6 +5,7 @@ import CHECKOUT from '~/gql/cart/checkout.gql'
 import APPLY_COUPON from '~/gql/cart/applyCoupon.gql'
 import REMOVE_COUPON from '~/gql/cart/removeCoupon.gql'
 import CASHFREE_PAY_NOW from '~/gql/pay/cashfreePayNow.gql'
+import PAYPAL_PAY_NOW from '~/gql/pay/paypalPayNow.gql'
 import RAZORPAY from '~/gql/pay/razorpay.gql'
 import CAPTURE_PAY from '~/gql/pay/capturePay.gql'
 import VALIDATE_CART from '~/gql/cart/validateCart.gql'
@@ -261,6 +262,50 @@ export default {
           if (cashFreePayload !== null) {
             for (const [key, value] of Object.entries(cashFreePayload)) {
               if (value !== null && allowed.includes(key)) {
+                const input = document.createElement('input')
+                input.setAttribute('type', 'hidden')
+                input.setAttribute('name', key)
+                input.value = value
+                formI.append(input)
+              }
+            }
+          }
+          document.querySelector('body').append(formI)
+          formI.submit()
+          formI.remove()
+        } catch (e) {
+          commit('setErr', e, { root: true })
+          break
+        }
+        break
+      case 'Paypal':
+        try {
+          console.log('pay options............')
+          commit('clearErr', null, { root: true })
+          const paypalPayload = (
+            await this.app.apolloProvider.defaultClient.mutate({
+              mutation: PAYPAL_PAY_NOW,
+              variables: { address },
+            })
+          ).data.paypalPayNow
+          if (!paypalPayload) {
+            commit('setErr', 'Paypal not available', {
+              root: true,
+            })
+            break
+          }
+          const url = paypalPayload.redirect_url
+          delete paypalPayload.__typename
+          delete paypalPayload.redirect_url
+          delete paypalPayload.token
+          const formI = document.createElement('form')
+          formI.setAttribute('id', 'paypalForm')
+          formI.setAttribute('action', url)
+          formI.setAttribute('method', 'POST')
+          formI.setAttribute('style', 'display:none;')
+          if (paypalPayload !== null) {
+            for (const [key, value] of Object.entries(paypalPayload)) {
+              if (value !== null) {
                 const input = document.createElement('input')
                 input.setAttribute('type', 'hidden')
                 input.setAttribute('name', key)

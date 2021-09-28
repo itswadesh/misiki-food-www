@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="imgNormal">
     <div
       class="zoom-on-hover"
       @mousemove="move"

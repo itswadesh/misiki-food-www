@@ -536,6 +536,20 @@ export default {
           this.loading = false
           this.busy(false)
         }
+      } else if (paymentMethod === 'Paypal') {
+        try {
+          this.loading = true
+          this.clearErr()
+          await this.checkout({
+            paymentMethod: 'Paypal',
+            address: this.$route.query.address,
+          })
+        } catch (e) {
+          // this.setErr(e)
+        } finally {
+          this.loading = false
+          this.busy(false)
+        }
       } else if (paymentMethod === 'Razorpay') {
         try {
           const options = await this.checkout({

@@ -155,6 +155,21 @@
           >
             Become a merchant
           </a>
+          <a
+            href="https://anne.today"
+            class="
+              w-auto
+              px-1
+              mb-1
+              tracking-wider
+              text-center
+              border-r border-gray-400
+              cursor-pointer
+              hover:bg-gray-800 hover:text-white
+            "
+          >
+            Exclusive Furnitures
+          </a>
           <!-- <span
             class="
               w-auto
@@ -301,7 +316,7 @@
           >
             Blog
           </nuxt-link>
-          <nuxt-link
+          <!-- <nuxt-link
             v-if="store.domain === 'anne.biz'"
             to="/social-impact"
             class="
@@ -315,7 +330,7 @@
             "
           >
             Social Impact
-          </nuxt-link>
+          </nuxt-link> -->
         </div>
 
         <div v-if="popularSearches && popularSearches.length">
