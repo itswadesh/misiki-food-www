@@ -20,7 +20,7 @@
 
     <BackToTopDark />
 
-    <WhiteFooter class="hidden sm:block" />
+    <WhiteFooter />
 
     <OtpLogin v-if="showLoginModal" @showLogin="showLogin" />
   </div>

@@ -54,7 +54,7 @@
       </div>
     </div>
 
-    <WhiteFooter class="hidden sm:block" />
+    <WhiteFooter />
 
     <BackToTopDark />
 

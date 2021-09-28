@@ -1,34 +1,36 @@
 <template>
-  <div class="w-full p-8 text-gray-800 bg-white">
-    <div class="flex flex-col justify-between lg:flex-row lg:space-x-10">
+  <div class="w-full p-2.5 sm:p-5 text-gray-800 bg-white">
+    <div class="mb-2 flex flex-col justify-between lg:flex-row lg:space-x-10">
       <div class="w-full lg:w-4/5">
-        <span class="ps-1 text-lg font-medium uppercase lg:mx-auto">
-          Useful links
-        </span>
-
-        <div
+        <h1
           class="
-            flex flex-row flex-wrap
-            mt-4
             mb-4
-            text-xs
-            font-light
-            md:mt-2
-            lg:mx-auto
+            ps-1
+            text-base
+            sm:text-lg
+            font-medium
+            uppercase
+            border-b border-gray-400
+            max-w-max
+            pb-2
           "
         >
+          Useful links
+        </h1>
+
+        <div class="flex flex-row flex-wrap text-xs md:mt-2">
           <a
             :href="settings.ADMIN_PANEL_LINK"
             target="blank"
             class="
               w-auto
-              px-1
-              mb-1
+              px-1.5
+              mb-2
               tracking-wider
               text-center
               border-r border-gray-400
               cursor-pointer
-              hover:bg-gray-800 hover:text-white
+              hover:bg-gray-700 hover:text-white
             "
           >
             Merchant Dashboard
@@ -37,13 +39,13 @@
             to="/contact-us"
             class="
               w-auto
-              px-1
-              mb-1
+              px-1.5
+              mb-2
               tracking-wider
               text-center
               border-r border-gray-400
               cursor-pointer
-              hover:bg-gray-800 hover:text-white
+              hover:bg-gray-700 hover:text-white
             "
           >
             Contact Us
@@ -52,13 +54,13 @@
             to="/legal/about-us"
             class="
               w-auto
-              px-1
-              mb-1
+              px-1.5
+              mb-2
               tracking-wider
               text-center
               border-r border-gray-400
               cursor-pointer
-              hover:bg-gray-800 hover:text-white
+              hover:bg-gray-700 hover:text-white
             "
           >
             About Us
@@ -67,13 +69,13 @@
             to="/faq"
             class="
               w-auto
-              px-1
-              mb-1
+              px-1.5
+              mb-2
               tracking-wider
               text-center
               border-r border-gray-400
               cursor-pointer
-              hover:bg-gray-800 hover:text-white
+              hover:bg-gray-700 hover:text-white
             "
           >
             FAQ
@@ -82,13 +84,13 @@
             to="/legal/terms"
             class="
               w-auto
-              px-1
-              mb-1
+              px-1.5
+              mb-2
               tracking-wider
               text-center
               border-r border-gray-400
               cursor-pointer
-              hover:bg-gray-800 hover:text-white
+              hover:bg-gray-700 hover:text-white
             "
           >
             Terms Of Use
@@ -97,13 +99,13 @@
             to="/legal/shipping-policy"
             class="
               w-auto
-              px-1
-              mb-1
+              px-1.5
+              mb-2
               tracking-wider
               text-center
               border-r border-gray-400
               cursor-pointer
-              hover:bg-gray-800 hover:text-white
+              hover:bg-gray-700 hover:text-white
             "
           >
             Shipping Policy
@@ -112,13 +114,13 @@
             to="/my/orders"
             class="
               w-auto
-              px-1
-              mb-1
+              px-1.5
+              mb-2
               tracking-wider
               text-center
               border-r border-gray-400
               cursor-pointer
-              hover:bg-gray-800 hover:text-white
+              hover:bg-gray-700 hover:text-white
             "
           >
             Track Order
@@ -127,13 +129,13 @@
             to="/how-it-works"
             class="
               w-auto
-              px-1
-              mb-1
+              px-1.5
+              mb-2
               tracking-wider
               text-center
               border-r border-gray-400
               cursor-pointer
-              hover:bg-gray-800 hover:text-white
+              hover:bg-gray-700 hover:text-white
             "
           >
             How it works
@@ -142,13 +144,13 @@
             :href="`${settings.ADMIN_PANEL_LINK}/account/signup`"
             class="
               w-auto
-              px-1
-              mb-1
+              px-1.5
+              mb-2
               tracking-wider
               text-center
               border-r border-gray-400
               cursor-pointer
-              hover:bg-gray-800 hover:text-white
+              hover:bg-gray-700 hover:text-white
             "
           >
             Become a merchant
@@ -156,13 +158,13 @@
           <!-- <span
             class="
               w-auto
-              px-1
-              mb-1
+              px-1.5
+              mb-2
               tracking-wider
               text-center
               border-r border-gray-400
               cursor-pointer
-              hover:bg-gray-800
+              hover:bg-gray-700
               hover:text-white
             "
             >Shipping</span
@@ -170,13 +172,13 @@
           <span
             class="
               w-auto
-              px-1
-              mb-1
+              px-1.5
+              mb-2
               tracking-wider
               text-center
               border-r border-gray-400
               cursor-pointer
-              hover:bg-gray-800
+              hover:bg-gray-700
               hover:text-white
             "
           >
@@ -186,40 +188,40 @@
             to="/legal/return-policy"
             class="
               w-auto
-              px-1
-              mb-1
+              px-1.5
+              mb-2
               tracking-wider
               text-center
               border-r border-gray-400
               cursor-pointer
-              hover:bg-gray-800 hover:text-white
+              hover:bg-gray-700 hover:text-white
             "
           >
             Return Policy
           </nuxt-link>
           <!-- <span
-            class="w-auto px-1 mb-1 tracking-wider text-center border-r border-gray-400 cursor-pointer hover:bg-gray-800 hover:text-white"
+            class="w-auto px-1.5 mb-1 tracking-wider text-center border-r border-gray-400 cursor-pointer hover:bg-gray-700 hover:text-white"
             >Whitehat</span
           >
           <span
-            class="w-auto px-1 mb-1 tracking-wider text-center border-r border-gray-400 cursor-pointer hover:bg-gray-800 hover:text-white"
+            class="w-auto px-1.5 mb-1 tracking-wider text-center border-r border-gray-400 cursor-pointer hover:bg-gray-700 hover:text-white"
             >Blog</span
           >
           <span
-            class="w-auto px-1 mb-1 tracking-wider text-center border-r border-gray-400 cursor-pointer hover:bg-gray-800 hover:text-white"
+            class="w-auto px-1.5 mb-1 tracking-wider text-center border-r border-gray-400 cursor-pointer hover:bg-gray-700 hover:text-white"
             >Careers</span
           > -->
           <nuxt-link
             to="/legal/privacy-policy"
             class="
               w-auto
-              px-1
-              mb-1
+              px-1.5
+              mb-2
               tracking-wider
               text-center
               border-r border-gray-400
               cursor-pointer
-              hover:bg-gray-800 hover:text-white
+              hover:bg-gray-700 hover:text-white
             "
           >
             Privacy policy
@@ -228,13 +230,13 @@
             to="/career"
             class="
               w-auto
-              px-1
-              mb-1
+              px-1.5
+              mb-2
               tracking-wider
               text-center
               border-r border-gray-400
               cursor-pointer
-              hover:bg-gray-800 hover:text-white
+              hover:bg-gray-700 hover:text-white
             "
           >
             Career
@@ -243,13 +245,13 @@
             to="/contact-us"
             class="
               w-auto
-              px-1
-              mb-1
+              px-1.5
+              mb-2
               tracking-wider
               text-center
               border-r border-gray-400
               cursor-pointer
-              hover:bg-gray-800 hover:text-white
+              hover:bg-gray-700 hover:text-white
             "
           >
             Disputes
@@ -258,13 +260,13 @@
             to="/my/orders"
             class="
               w-auto
-              px-1
-              mb-1
+              px-1.5
+              mb-2
               tracking-wider
               text-center
               border-r border-gray-400
               cursor-pointer
-              hover:bg-gray-800 hover:text-white
+              hover:bg-gray-700 hover:text-white
             "
           >
             Contact Seller
@@ -273,13 +275,13 @@
             to="/features"
             class="
               w-auto
-              px-1
-              mb-1
+              px-1.5
+              mb-2
               tracking-wider
               text-center
               border-r border-gray-400
               cursor-pointer
-              hover:bg-gray-800 hover:text-white
+              hover:bg-gray-700 hover:text-white
             "
           >
             Features
@@ -289,12 +291,12 @@
             to="/blog"
             class="
               w-auto
-              px-1
-              mb-1
+              px-1.5
+              mb-2
               text-center
               border-r border-gray-400
               cursor-pointer
-              hover:bg-gray-800 hover:text-white
+              hover:bg-gray-700 hover:text-white
             "
           >
             Blog
@@ -304,44 +306,49 @@
             to="/social-impact"
             class="
               w-auto
-              px-1
-              mb-1
+              px-1.5
+              mb-2
               text-center
               border-r border-gray-400
               cursor-pointer
-              hover:bg-gray-800 hover:text-white
+              hover:bg-gray-700 hover:text-white
             "
           >
             Social Impact
           </nuxt-link>
         </div>
+
         <div v-if="popularSearches && popularSearches.length">
-          <span class="ps-1 my-4 mt-6 text-lg font-medium uppercase lg:mx-auto">
-            Popular searches
-          </span>
-          <div
+          <h1
             class="
-              flex flex-row flex-wrap
-              mt-4
-              text-xs
-              font-light
-              md:mt-2
-              lg:mx-auto
+              mb-4
+              ps-1
+              text-base
+              sm:text-lg
+              font-medium
+              uppercase
+              border-b border-gray-400
+              max-w-max
+              pb-2
             "
           >
+            Popular searches
+          </h1>
+
+          <div class="flex flex-row flex-wrap mb-4 text-xs md:mt-2">
             <nuxt-link
               v-for="(s, ix) in popularSearches"
               :key="ix"
               :to="`/search/${s.text}`"
               class="
                 w-auto
-                px-1
+                px-1.5
                 mb-1
                 tracking-wider
                 text-center
                 border-r border-gray-400
                 cursor-pointer
-                hover:bg-gray-800 hover:text-white
+                hover:bg-gray-700 hover:text-white
               "
             >
               {{ s.text }}
@@ -371,7 +378,7 @@
             class="me-4 object-contain w-8 h-8"
           />
 
-          <h6 class="flex-1 text-sm">
+          <h6 class="flex-1 text-xs">
             <strong> 100% Original </strong
             ><span class="font-light">
               guarantee for all products at {{ store.name }}</span
@@ -388,7 +395,7 @@
             class="me-4 object-contain w-8 h-8"
           />
 
-          <h6 class="flex-1 text-sm">
+          <h6 class="flex-1 text-xs">
             <strong>Get assured delivery</strong
             ><span class="font-light"> for every order</span>
           </h6>
@@ -408,19 +415,25 @@
       </div>
     </div>
 
-    <hr class="w-full my-4 border-t-2" />
+    <hr class="w-full mb-4 border-t border-gray-400" />
 
     <div
       class="
-        flex flex-row
+        flex flex-row flex-wrap
         items-center
-        mb-3
-        lg:mb-0 lg:items-start
+        lg:items-start
         justify-between
       "
     >
       <div
-        class="text-sm font-normal tracking-wider whitespace-nowrap max-w-max"
+        class="
+          mb-2
+          text-xs
+          font-normal
+          tracking-wider
+          whitespace-nowrap
+          max-w-max
+        "
       >
         © {{ year }} {{ store.name }}
         <span v-if="store.websiteEmail" class="ms-2">
@@ -430,12 +443,13 @@
 
       <div
         class="
+          mb-2
           hidden
           lg:flex
           max-w-max
           flex-shrink-0 flex-row
           items-start
-          text-sm
+          text-xs
           space-x-5
         "
       >
@@ -449,7 +463,7 @@
         googleTranslateElementInit
       </button> -->
 
-      <div class="flex flex-row items-center space-x-2 max-w-max">
+      <div class="mb-2 flex flex-row items-center space-x-2 max-w-max">
         <div v-for="(i, ix) in icons" :key="ix" class="mb-1">
           <img
             v-lazy="`${i.img}?tr=w-36,h-36,fo-auto`"
@@ -462,19 +476,19 @@
 
     <div
       class="
+        mb-2
+        flex
         lg:hidden
         max-w-max
-        flex-shrink-0 flex flex-row
+        flex-shrink-0 flex-row
         items-start
-        text-sm
+        text-xs
         space-x-5
       "
     >
-      <div id="google_translate_element "></div>
+      <div id="google_translate_element"></div>
 
-      <div v-if="visitorCount">
-        <span class="me-1">Visitors :</span> <b>{{ visitorCount }}</b>
-      </div>
+      <div v-if="visitorCount">Visitors : {{ visitorCount }}</div>
     </div>
 
     <CookieConsent />
@@ -487,6 +501,7 @@ import { mapMutations } from 'vuex'
 import NuxtLink from '~/components/NuxtLink.vue'
 import CookieConsent from '~/components/CookieConsent.vue'
 // import LanguageSwitch from '~/components/CurrencyLanguage/LanguageSwitch.vue'
+
 export default {
   components: {
     NuxtLink,
@@ -494,6 +509,7 @@ export default {
     // LanguageSwitch,
     // LanguageSwitcher
   },
+
   data() {
     return {
       visitorCount: null,
@@ -516,6 +532,7 @@ export default {
   //   await this.$get('search/popularSearches', { sort: '-popularity' })
   // ).data
   // },
+
   computed: {
     store() {
       return this.$store.state.store || {}
@@ -527,6 +544,7 @@ export default {
       return this.$store.state.popularSearches || []
     },
   },
+
   mounted() {
     this.loadTranslate()
     const vm = this
@@ -535,12 +553,14 @@ export default {
       vm.updateVisitorCount()
     }, 3000)
   },
+
   methods: {
     ...mapMutations({ setErr: 'setErr', clearErr: 'clearErr' }),
 
     async updateVisitorCount() {
       this.visitorCount = await this.$post('store/updateVisitorCount')
     },
+
     googleTranslateInit() {
       const vm = this
       const checkIfGoogleLoaded = setInterval(() => {
@@ -552,6 +572,7 @@ export default {
       }, 1000)
       this.googleTranslateElementInit()
     },
+
     googleTranslateElementInit() {
       // eslint-disable-next-line no-new
       new google.translate.TranslateElement(
@@ -559,6 +580,7 @@ export default {
         'google_translate_element'
       )
     },
+
     // googleTranslateElement(id) {
     //   // eslint-disable-next-line no-new
     //   new google.translate.TranslateElement(
@@ -569,6 +591,7 @@ export default {
     //     id
     //   )
     // },
+
     loadTranslate() {
       try {
         this.loading = true
@@ -590,6 +613,7 @@ export default {
         this.loading = false
       }
     },
+
     // googleTranslateElement(id) {
     //   new google.translate.TranslateElement(
     //     {
@@ -624,6 +648,7 @@ export default {
   },
 }
 </script>
+
 <style scoped>
 .icon {
   width: 40px;
