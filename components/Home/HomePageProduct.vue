@@ -11,9 +11,11 @@
     >
       <div class="h-48 sm:h-56 desktop-height bg-gray-100">
         <img
-          v-lazy="`${product.img}?tr=h-288,fo-auto`"
+          v-lazy="`${featuredImage}?tr=h-288,fo-auto`"
           alt="product"
           class="object-contain w-full h-full"
+          @mouseover="onMouseOverImage"
+          @mouseout="onMouseOutImage"
         />
       </div>
 
@@ -303,6 +305,7 @@ export default {
       isActive: false,
       // isWishlist:false,
       products: null,
+      featuredImage: null,
       show: false,
     }
   },
@@ -310,10 +313,24 @@ export default {
     ...mapGetters({
       store: 'store',
     }),
+    // featuredImage() {
+    //   return this.product.img
+    // },
+  },
+  created() {
+    this.featuredImage = this.product.img
   },
   methods: {
     ...mapMutations({ setErr: 'setErr', success: 'success' }),
-
+    onMouseOutImage() {
+      this.featuredImage = this.product.img
+    },
+    onMouseOverImage() {
+      const secondImage = this.product.images.filter((f) => {
+        return f !== this.product.img
+      }, {})
+      this.featuredImage = secondImage[0]
+    },
     showitems() {
       this.show = true
     },
