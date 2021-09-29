@@ -72,17 +72,6 @@ export default {
       ).data.blogs
       blogCount = posts.count
       facets = posts.facets && posts.facets.all_aggs
-      Object.keys(query).map(function (k, i) {
-        if (
-          query[k] &&
-          !Array.isArray(query[k]) &&
-          query[k] !== null &&
-          query[k] !== '' &&
-          k !== 'price' &&
-          k !== 'age'
-        )
-          query[k] = query[k].split(',')
-      })
       fl = { ...query } // For selected filters
       return {
         posts,
