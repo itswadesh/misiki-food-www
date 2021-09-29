@@ -88,7 +88,9 @@
         </div>
 
         <!-- qty button  -->
-        <div class="flex flex-row items-center justify-between w-full">
+        <div
+          class="flex flex-row flex-wrap items-center justify-between w-full"
+        >
           <div
             class="
               mb-1
