@@ -126,7 +126,6 @@ export default {
   },
   async nuxtServerInit({ state, commit, dispatch }, { params, app, req }) {
     const host = req.headers.host
-    // console.log('Host..............', host)
     // .replace('https://', '')
     // .replace('http://', '')
     const domain = new URL('http://' + host)

@@ -233,7 +233,6 @@
 
 <script>
 import { mapGetters, mapMutations, mapActions } from 'vuex'
-import googleOneTap from 'google-one-tap'
 import NuxtLink from '~/components/NuxtLink.vue'
 import SignupStep from '~/components/Login/Email/SignupStep.vue'
 import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
@@ -260,6 +259,7 @@ export default {
       password: null,
       resetpassword: false,
       otplogin: false,
+      isMounted: false,
     }
   },
 
@@ -278,16 +278,18 @@ export default {
     },
   },
   mounted() {
+    this.isMounted = true
+    const googleOneTap = require('google-one-tap')
     const options = {
-      client_id:
-        '414060469322-n4raqj2rdbjhegvrtdk6mhbdm4sd0oc7.apps.googleusercontent.com', // required
+      client_id: this.settings.GOOGLE_CLIENT_ID, // required
       auto_select: false, // optional
       cancel_on_tap_outside: false, // optional
       context: 'signin', // optional
     }
-    googleOneTap(options, (response) => {
-      // Send response to server
-      this.$post('googleOnetap', response)
+    googleOneTap.default(options, async (response) => {
+      //   // Send response to server
+      const onetap = await this.$post('user/googleOneTap', response)
+      await this.$store.dispatch('auth/fetch')
     })
   },
 

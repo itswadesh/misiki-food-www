@@ -156,12 +156,13 @@
             Become a merchant
           </a>
           <a
+            v-if="store.domain === 'anne.biz'"
             href="https://anne.today"
+            target="_blank"
             class="
               w-auto
               px-1
               mb-1
-              tracking-wider
               text-center
               border-r border-gray-400
               cursor-pointer
