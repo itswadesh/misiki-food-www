@@ -68,7 +68,7 @@
 
         <div class="flex items-center justify-center">
           <nuxt-link
-            to="/login?forced=true"
+            :to="`/login?forced=true&ref=${$route.query.ref}`"
             class="
               text-start text-primary-500
               hover:text-primary-700 hover:underline

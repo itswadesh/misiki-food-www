@@ -89,7 +89,7 @@
             v-if="!youtubeVideoId(selectedImage)"
             :img-normal="selectedImage"
             :img-zoom="selectedImage"
-            :scale="3"
+            :scale="2"
             alt="🚀"
             class="
               object-contain

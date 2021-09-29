@@ -112,7 +112,7 @@
             "
           >
             <nuxt-link
-              to="/otplogin"
+              :to="`/otplogin?ref=${$route.query.ref}`"
               class="
                 text-start text-primary-500
                 hover:text-primary-700 hover:underline
@@ -148,7 +148,7 @@
 
       <!-- Facebook svg -->
 
-      <!-- <div class="flex flex-row justify-center space-x-2 md:space-x-4">
+      <div class="flex mt-4 flex-row justify-center space-x-2 md:space-x-4">
         <a
           href="/auth/facebook"
           class="
@@ -179,11 +179,11 @@
               stroke-width="1.4"
             />
           </svg>
-        </a> -->
+        </a>
 
-      <!-- Google svg -->
+        <!-- Google svg -->
 
-      <!-- <a
+        <a
           href="/auth/google"
           class="
             transition
@@ -224,7 +224,7 @@
             />
           </svg>
         </a>
-      </div> -->
+      </div>
     </div>
 
     <!-- Email login end -->
@@ -233,10 +233,10 @@
 
 <script>
 import { mapGetters, mapMutations, mapActions } from 'vuex'
+import googleOneTap from 'google-one-tap'
 import NuxtLink from '~/components/NuxtLink.vue'
 import SignupStep from '~/components/Login/Email/SignupStep.vue'
 import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
-
 import { Textbox } from '~/shared/components/ui'
 
 export default {
@@ -250,7 +250,6 @@ export default {
   layout: 'none',
 
   middleware: ['isGuest', 'isEmailLogin'],
-
   data() {
     return {
       error: null,
@@ -277,6 +276,19 @@ export default {
     store() {
       return this.$store.state.store || {}
     },
+  },
+  mounted() {
+    const options = {
+      client_id:
+        '414060469322-n4raqj2rdbjhegvrtdk6mhbdm4sd0oc7.apps.googleusercontent.com', // required
+      auto_select: false, // optional
+      cancel_on_tap_outside: false, // optional
+      context: 'signin', // optional
+    }
+    googleOneTap(options, (response) => {
+      // Send response to server
+      this.$post('googleOnetap', response)
+    })
   },
 
   methods: {
