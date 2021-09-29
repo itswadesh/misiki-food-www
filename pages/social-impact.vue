@@ -108,13 +108,13 @@
         >
           <div v-if="i.img2" class="grid grid-rows-2 gap-2.5 sm:gap-5">
             <img
-              :v-lazy="i.img1"
+              v-lazy="i.img1"
               alt=" "
               class="sm:h-96 object-contain sm:object-cover w-full"
             />
 
             <img
-              :v-lazy="i.img2"
+              v-lazy="i.img2"
               alt=" "
               class="sm:h-96 object-contain sm:object-cover w-full"
             />
@@ -122,7 +122,7 @@
 
           <div v-else>
             <img
-              :v-lazy="i.img1"
+              v-lazy="i.img1"
               alt=" "
               class="sm:h-96 object-contain sm:object-cover"
             />
