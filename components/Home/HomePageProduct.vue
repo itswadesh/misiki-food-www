@@ -14,7 +14,7 @@
   >
     <!-- Quick view button start-->
 
-    <div class="hidden group-hover:block absolute z-10 right-2 top-2">
+    <!-- <div class="hidden group-hover:block absolute z-10 right-2 top-2">
       <button
         class="
           flex
@@ -54,7 +54,7 @@
           />
         </svg>
       </button>
-    </div>
+    </div> -->
 
     <!-- Quick view button end-->
 

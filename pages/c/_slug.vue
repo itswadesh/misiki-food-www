@@ -274,8 +274,8 @@ export default {
     return {
       title:
         (this.category && this.category.metaTitle) ||
-        (this.category && 'Category: ' + this.category.name) ||
-        'Category: ' + this.$route.path.substr(1),
+        (this.category && this.category.name) ||
+        'Categories ',
       meta: [
         {
           hid: 'og:description',

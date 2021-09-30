@@ -24,7 +24,7 @@
       <hr class="h-1 border-gray-300 flex-1" />
     </div>
 
-    <section v-if="details">
+    <section>
       <!-- Above 1024px  -->
 
       <div class="hidden lg:block">
@@ -137,7 +137,6 @@
       <div class="lg:hidden overflow-x-auto">
         <div
           v-if="details && details.length"
-          v-bind="settings"
           class="flex flex-row items-start justify-start"
         >
           <div v-for="product in details" :key="product.id">
