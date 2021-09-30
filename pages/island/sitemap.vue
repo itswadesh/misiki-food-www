@@ -2,31 +2,25 @@
   <section class="bg-white min-h-screen pb-10 text-gray-800">
     <div class="w-full max-w-7xl mx-auto px-3">
       <h1 class="text-2xl md:text-4xl tracking-wide text-center py-5 sm:py-10">
-        Sitemap
+        All Categories
       </h1>
 
-      <div v-if="categories && categories.length">
-        <div
-          class="
-            flex flex-col flex-wrap
-            justify-between
-            content-center
-            items-start
-            h-rem
-          "
-        >
+      <div v-if="megamenu">
+        <div class="flex flex-col flex-wrap content-center items-start h-rem">
           <div
-            v-for="(c, cx) in categories"
-            :key="cx"
-            class="w-1/2 sm:w-48 pe-4 mb-5 sm:me-12 sm:mb-12"
+            v-for="(m, mx) in megamenu"
+            :key="mx"
+            class="w-1/2 sm:w-1/4 lg:w-60 p-2.5 sm:mr-10 sm:mb-10"
           >
-            <h1 class="mb-3 text-lg font-medium border-b border-gray-300 pb-3">
-              {{ c.name }}
+            <h1
+              class="mb-3 sm:text-lg font-medium border-b border-gray-300 pb-3"
+            >
+              {{ m.name }}
             </h1>
 
-            <div v-if="c && c.children" class="flex flex-col space-y-2">
-              <div v-for="(cc, cxx) in c.children" :key="cxx">
-                <h2 class="text-sm font-light">{{ cc.name }}</h2>
+            <div v-if="m && m.children" class="flex flex-col space-y-2">
+              <div v-for="(mm, mxx) in m.children" :key="mxx">
+                <h2 class="text-sm font-light">{{ mm.name }}</h2>
               </div>
             </div>
           </div>
@@ -37,7 +31,8 @@
 </template>
 
 <script>
-import GET_MEGAMENU from '~/gql/category/megamenu.gql'
+import { mapGetters } from 'vuex'
+import MEGAMENU from '~/gql/category/megamenuAll.gql'
 
 export default {
   layout: 'island',
@@ -45,37 +40,61 @@ export default {
   data() {
     return {
       categories: null,
+      loading: false,
     }
   },
 
-  async created() {
-    await this.getCategories()
+  computed: {
+    ...mapGetters({ megamenu: 'megamenu' }),
   },
 
-  methods: {
-    async getCategories() {
-      // console.log('get categories')
-      try {
-        this.categories = (
-          await this.$apollo.query({
-            query: GET_MEGAMENU,
-            variables: { level: 0 },
-            fetchPolicy: 'no-cache',
-          })
-        ).data.megamenu
-        console.log(this.categories, 'categories')
-      } catch (e) {
-        // console.log(e)
-      }
-      //   finally {
-      //   }
-    },
-  },
+  // async created() {
+  //   await this.getCategories()
+  // },
+
+  // methods: {
+  //   async getCategories() {
+  //     try {
+  //       this.loading = true
+  //       this.categories = await this.$apollo.query({
+  //         query: MEGAMENU,
+  //         fetchPolicy: 'no-cache',
+  //       }).data
+  //       console.log(this.categories, 'categories')
+  //     } catch (e) {
+  //       // console.log(e)
+  //     } finally {
+  //       this.loading = false
+  //     }
+  //   },
+  // },
 }
 </script>
 
 <style scoped>
-.h-rem {
-  height: 42rem;
+@media (max-width: 640px) {
+  .h-rem {
+    height: 50rem;
+  }
+}
+@media (min-width: 640px) {
+  .h-rem {
+    height: 45rem;
+  }
+}
+@media (min-width: 768px) {
+  .h-rem {
+    height: 40rem;
+  }
+}
+@media (min-width: 1024px) {
+  .h-rem {
+    height: 35rem;
+  }
+}
+@media (min-width: 1280px) {
+  .h-rem {
+    height: 30rem;
+  }
 }
 </style>

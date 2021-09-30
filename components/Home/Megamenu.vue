@@ -46,7 +46,9 @@
           }"
         >
           {{ category.name }}
+
           <!-- chevron-down-icon -->
+
           <svg
             v-if="category.children != 0"
             class="w-4 h-4 my-auto"
@@ -63,6 +65,7 @@
             />
           </svg>
         </nuxt-link>
+
         <div
           class="w-auto mx-auto mt-1 mb-16 bg-white shadow-xl mega-menu sm:mb-0"
         >
@@ -97,6 +100,7 @@
                   {{ c.name }}
                 </div>
               </nuxt-link>
+
               <div class="flex py-1 text-sm font-light text-start">
                 <ul>
                   <li
@@ -132,24 +136,84 @@
           </div>
         </div>
       </li>
-      <!-- <li
+
+      <li
         class="
           h-auto
-          py-3
           mx-1
           my-auto
-          text-base
-          font-light
-          text-gray-600
           border-b-4 border-gray-100
+          hover:border-indigo-500
           cursor-pointer
-          hover:border-black hover:text-black
           hoverable
         "
       >
-        <div class="flex flex-row my-auto">
-          <p>Brands</p>
+        <div
+          class="
+            relative
+            flex flex-row
+            items-center
+            flex-shrink-0
+            p-2
+            py-3
+            mx-auto
+            my-auto
+            text-sm
+            font-light
+            text-gray-600
+          "
+        >
+          <p>CATEGORIES</p>
+
+          <!--  <svg
+            class="w-4 h-4 my-auto"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg> -->
+        </div>
+      </li>
+
+      <li
+        class="
+          h-auto
+          mx-1
+          my-auto
+          border-b-4 border-gray-100
+          hover:border-gray-700
+          cursor-pointer
+          hoverable
+        "
+      >
+        <div
+          class="
+            relative
+            flex flex-row
+            items-center
+            flex-shrink-0
+            p-2
+            py-3
+            mx-auto
+            my-auto
+            text-sm
+            font-light
+            text-gray-600
+          "
+        >
+          <p>BRANDS</p>
+
           <svg
+            v-if="
+              parentBrands && parentBrands.data && parentBrands.data.length > 0
+            "
             class="w-4 h-4 my-auto"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -164,20 +228,34 @@
             />
           </svg>
         </div>
+
         <div
-          class="w-auto mx-auto mt-5 mb-16 bg-white shadow-xl mega-menu sm:mb-0"
+          class="w-auto mx-auto mt-1 mb-16 bg-white shadow-xl mega-menu sm:mb-0"
         >
           <div
             v-if="parentBrands"
-            class="container flex flex-wrap px-2 lg:px-8 justify-center"
+            class="
+              p-5
+              container
+              mx-auto
+              flex flex-wrap
+              items-center
+              justify-center
+            "
           >
-            <div v-for="b in parentBrands.data" :key="b.id" class="py-4 mx-6">
-              <nuxt-link :to="localePath(`/brand/${b.slug}`)" class="p-3">
+            <div
+              v-for="b in parentBrands.data"
+              :key="b.id"
+              class="m-5 w-1/6 flex items-center justify-center"
+            >
+              <nuxt-link :to="localePath(`/brand/${b.slug}`)">
                 <img
-                  v-if="b.img"  v-lazy="`${b.img}?tr=h-64,fo-auto`"
+                  v-if="b.img"
+                  v-lazy="`${b.img}?tr=h-64,fo-auto`"
                   alt="bab"
                   class="object-contain h-16"
                 />
+
                 <div
                   v-else
                   class="
@@ -201,14 +279,14 @@
             </div>
           </div>
         </div>
-      </li> -->
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-// import PARENT_BRANDS from '~/gql/brand/parentBrands.gql'
+import PARENT_BRANDS from '~/gql/brand/parentBrands.gql'
 // import MEGAMENU from '~/gql/category/megamenu.gql'
 // import BRAND from '~/gql/brand/brand.gql'
 import NuxtLink from '~/components/NuxtLink.vue'
@@ -229,7 +307,7 @@ export default {
   },
   created() {
     // this.getMegamenu()
-    // this.getParentBrands()
+    this.getParentBrands()
   },
   methods: {
     // async getMegamenu() {
@@ -257,28 +335,28 @@ export default {
     //     // ).data.megamenu
     //   } catch (e) {}
     // },
-    // async getParentBrands() {
-    //   // this.loading = true
-    //   try {
-    //     this.parentBrands = await this.$get('brand/parentBrands', {
-    //       featured: true,
-    //       limit: 30,
-    //       page: 0,
-    //     })
-    //     // this.parentBrands = (
-    //     //   await this.$apollo.query({
-    //     //     query: PARENT_BRANDS,
-    //     //     variables: { featured: true, limit: 30, page: 0 },
-    //     //     fetchPolicy: 'no-cache',
-    //     //   })
-    //     // ).data.parentBrands
-    //     // console.log("brands to show", this.brands)
-    //   } catch (e) {
-    //     // console.log(e)
-    //   } finally {
-    //     // this.loading = false
-    //   }
-    // },
+    async getParentBrands() {
+      this.loading = true
+      try {
+        this.parentBrands = await this.$get('brand/parentBrands', {
+          featured: true,
+          limit: 30,
+          page: 0,
+        })
+        // this.parentBrands = (
+        //   await this.$apollo.query({
+        //     query: PARENT_BRANDS,
+        //     variables: { featured: true, limit: 30, page: 0 },
+        //     fetchPolicy: 'no-cache',
+        //   })
+        // ).data.parentBrands
+        // console.log("brands to show", this.brands)
+      } catch (e) {
+        // console.log(e)
+      } finally {
+        this.loading = false
+      }
+    },
   },
 }
 </script>
