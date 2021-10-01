@@ -13,9 +13,10 @@
     <div class="min-h-screen">
       <Nav class="fixed top-0 z-50 w-full" @showLogin="showLogin" />
 
-      <Nuxt class="container mx-auto w-full mt-24 xl:mt-16" />
-
-      <div class="flex-1" />
+      <Nuxt
+        class="w-full"
+        :class="!settings.id ? 'mt-36 lg:mt-28' : 'mt-28 lg:mt-20'"
+      />
     </div>
 
     <BackToTopDark class="mb-3" />

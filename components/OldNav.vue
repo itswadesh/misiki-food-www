@@ -1,5 +1,5 @@
 <template>
-  <section class="flex flex-col bg-white shadow frosted">
+  <div class="flex flex-col bg-white shadow frosted">
     <div
       v-if="!settings.id"
       class="
@@ -15,60 +15,66 @@
       We are upgrading. Will not take much time.
     </div>
 
-    <header
-      class="z-40 w-full px-2 pb-2 lg:pb-0 shadow-xs sm:shadow-md lg:px-3"
-    >
-      <div class="flex flex-row items-center justify-between">
-        <div class="flex flex-row items-center space-x-2">
-          <button
-            aria-label="Open Menu"
-            class="lg:hidden focus:outline-none"
-            @click="sidebar = !sidebar"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 text-primary-500 me-3"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+    <header class="z-40 w-full h-24 p-2 shadow-xs sm:shadow-md lg:p-3 lg:h-16">
+      <div class="relative flex justify-between mx-auto xl:container">
+        <div class="flex flex-row items-center my-auto">
+          <div class="hambargar menu lg:hidden">
+            <button
+              aria-label="Open Menu"
+              class="
+                overflow-x-hidden overflow-y-hidden
+                transition
+                ease-in-out
+                focus:outline-none
+                duration-1500
+              "
+              @click="sidebar = !sidebar"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 mt-1.5 text-primary-500 me-3"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
 
-          <div
-            v-if="sidebar"
-            class="
-              fixed
-              inset-0
-              z-30
-              w-screen
-              h-screen
-              bg-black
-              opacity-50
-              cursor-auto
-            "
-            @click="sidebar = false"
-          />
+            <div
+              v-if="sidebar"
+              class="
+                fixed
+                inset-0
+                z-30
+                w-screen
+                h-screen
+                bg-black
+                opacity-50
+                cursor-auto
+              "
+              @click="sidebar = false"
+            />
 
-          <LeftUserProfile
-            class="h-screen"
-            :show="sidebar"
-            :class="sidebar ? 'openSideBar' : 'closeSideBar'"
-            @hideSidebar="sidebar = false"
-          />
+            <LeftUserProfile
+              class="h-screen"
+              :show="sidebar"
+              :class="sidebar ? 'openSideBar' : 'closeSideBar'"
+              @hideSidebar="sidebar = false"
+            />
+          </div>
 
           <nuxt-link :to="localePath('/')">
             <img
               v-if="store.logo"
-              v-lazy="`${store.logo}?tr=h-80,fo-auto`"
+              v-lazy="`${store.logo}?tr=h-40,fo-auto`"
               alt="store logo"
-              class="object-contain h-16 md:h-20"
+              class="object-contain h-8 md:h-10"
             />
 
             <h1
@@ -94,7 +100,7 @@
           </nuxt-link>
         </div>
 
-        <SearchAutocomplete class="hidden lg:block" />
+        <SearchAutocomplete class="hidden my-auto lg:flex" />
 
         <!--right header with icons block start -->
 
@@ -119,7 +125,7 @@
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-6 mx-auto"
+              class="h-5 mx-auto"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -138,7 +144,7 @@
           <nuxt-link v-else class="w-auto" :to="localePath('/my')">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-6 mx-auto"
+              class="h-5 mx-auto"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -157,7 +163,7 @@
           <nuxt-link class="w-auto" :to="localePath('/my/wishlist')">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-6 mx-auto"
+              class="h-5 mx-auto"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -197,7 +203,7 @@
 
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-6 mx-auto"
+              class="h-5 mx-auto"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -219,7 +225,7 @@
 
       <SearchAutocomplete class="lg:hidden" />
     </header>
-  </section>
+  </div>
 </template>
 
 <script>

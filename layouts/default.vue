@@ -49,7 +49,7 @@
 
         <Nuxt
           class="w-full"
-          :class="!settings.id ? 'mt-32 lg:mt-24' : 'mt-24 lg:mt-16'"
+          :class="!settings.id ? 'mt-36 lg:mt-28' : 'mt-28 lg:mt-20'"
         />
       </div>
     </div>

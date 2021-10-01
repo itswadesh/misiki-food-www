@@ -94,7 +94,7 @@ export default {
         infinite: true,
         slidesToShow: 1,
         autoplay: true,
-        speed: 2000,
+        speed: 500,
         lazyLoad: 'progressive',
         responsive: [
           {

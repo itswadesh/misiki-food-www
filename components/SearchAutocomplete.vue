@@ -1,123 +1,118 @@
 <template>
-  <div class="w-full lg:pe-0 lg:w-2/3 lg:ms-44">
-    <div
-      v-if="isFocused"
-      class="fixed inset-0 w-screen h-screen lg:z-50"
-      @click="onUnfocused"
-    ></div>
-    <div class="z-50 flex flex-col justify-center w-full">
-      <div class="flex flex-wrap">
-        <form
-          novalidate
-          autocomplete="off"
-          class="flex flex-row w-full relative"
-          @submit.stop.prevent="submit"
-        >
-          <!-- tablet and desktop input -->
-          <input
-            v-model="selectedVal"
-            :placeholder="
-              (store && store.searchbarText) || 'Search for products, brands...'
-            "
-            class="
-              hidden
-              sm:flex
-              w-full
-              h-10
-              px-10
-              pe-4
-              my-auto
-              text-xs
-              bg-gray-100
-              border-0
-              rounded-sm
-              focus:bg-white focus:border focus:outline-none
-            "
-            @keyup.enter="
-              $event.target.blur()
-              $router.push(`/search/${selectedVal || ''}`)
-            "
-            @focus="onFocused()"
-            @input="getData()"
-            @keyup="onSelectValue($event)"
-          />
-          <!-- mobile view input -->
-          <input
-            :placeholder="
-              (store && store.searchbarText) || 'Search for products, brands...'
-            "
-            class="
-              sm:hidden
-              w-full
-              h-10
-              px-10
-              pe-4
-              my-auto
-              text-xs
-              bg-gray-100
-              border-0
-              rounded-sm
-              focus:bg-white focus:border focus:outline-none
-            "
-            @focus="onFocusedMobile()"
-          />
-          <div class="absolute left-3 h-full">
-            <!-- search icon -->
-            <svg
-              style="margin-top: 10px"
-              class="w-5 h-5 text-sm text-gray-500"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
-          </div>
-        </form>
-        <div
-          v-if="isFocused"
-          style="z-index: 9999"
-          class="
-            w-full
-            mt-1
-            overflow-auto
-            bg-white
-            border-gray-400
-            rounded
-            shadow
+  <div class="w-full lg:mx-5 lg:w-2/3 z-50">
+    <div v-if="isFocused" class="fixed inset-0" @click="onUnfocused"></div>
+
+    <div class="relative w-full">
+      <form
+        novalidate
+        autocomplete="off"
+        class="relative w-full"
+        @submit.stop.prevent="submit"
+      >
+        <!-- tablet and desktop input -->
+        <input
+          v-model="selectedVal"
+          :placeholder="
+            (store && store.searchbarText) || 'Search for products, brands...'
           "
-        >
-          <div
-            v-for="(v, i) in products"
-            :key="i"
-            :class="{ 'bg-gray-200': selectedIndex === i }"
-            class="
-              flex
-              items-center
-              w-full
-              border-b
-              cursor-pointer
-              hover:bg-gray-100
-            "
-            @click="onselect(v)"
+          class="
+            hidden
+            sm:flex
+            w-full
+            py-3
+            px-10
+            pe-4
+            text-xs
+            bg-gray-100
+            border border-transparent
+            rounded-sm
+            focus:bg-white focus:border-gray-200 focus:outline-none
+          "
+          @keyup.enter="
+            $event.target.blur()
+            $router.push(`/search/${selectedVal || ''}`)
+          "
+          @focus="onFocused()"
+          @input="getData()"
+          @keyup="onSelectValue($event)"
+        />
+
+        <!-- mobile view input -->
+        <input
+          :placeholder="
+            (store && store.searchbarText) || 'Search for products, brands...'
+          "
+          class="
+            sm:hidden
+            w-full
+            py-3
+            px-10
+            pe-4
+            text-xs
+            bg-gray-100
+            border-0
+            rounded-sm
+            focus:bg-white focus:border focus:outline-none
+          "
+          @focus="onFocusedMobile()"
+        />
+
+        <div class="absolute left-3 inset-y-0 flex items-center justify-center">
+          <!-- search icon -->
+          <svg
+            class="w-5 h-5 text-sm text-gray-500"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
           >
-            <!-- <img
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
+          </svg>
+        </div>
+      </form>
+
+      <div
+        v-if="isFocused"
+        style="z-index: 9999"
+        class="
+          absolute
+          top-11
+          inset-x-0
+          w-full
+          overflow-auto
+          bg-white
+          shadow-xl
+        "
+      >
+        <div
+          v-for="(v, i) in products"
+          :key="i"
+          :class="{ 'bg-gray-200': selectedIndex === i }"
+          class="
+            flex
+            items-center
+            w-full
+            border-b border-l border-r
+            cursor-pointer
+            hover:bg-gray-100
+          "
+          @click="onselect(v)"
+        >
+          <!-- <img
               v-if="v.img"
               :key="i"
               v-lazy="`${v.img}?tr=w-48,h-40,fo-auto`"
               alt="🚀"
               class="object-contain w-12 h-10 mx-2"
             /> -->
-            <span class="p-3 text-sm font-light text-gray-600 truncate">
-              {{ v.key }}
-            </span>
-          </div>
+          <span class="p-3 text-sm font-light text-gray-600 truncate">
+            {{ v.key }}
+          </span>
         </div>
       </div>
     </div>
