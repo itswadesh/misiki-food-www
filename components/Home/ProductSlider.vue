@@ -88,7 +88,10 @@
               >
                 <HomePageProduct
                   :product="product"
-                  @open="openQuickView = true"
+                  @open="
+                    quickViewProduct = product
+                    openQuickView = true
+                  "
                 />
               </div>
             </VueSlickCarousel>
@@ -143,12 +146,14 @@
             <HomePageProduct
               :product="product"
               class="w-48 sm:w-56 me-2"
-              @open="openQuickView = true"
+              @open="
+                quickViewProduct = product
+                openQuickView = true
+              "
             />
           </div>
         </div>
       </div>
-
       <div v-if="openQuickView">
         <ModalLarge :show="openQuickView" title="Quick View" type="info" noicon>
           <!-- Close button start -->
@@ -188,11 +193,14 @@
 
           <!-- Close button end -->
 
-          <div v-if="details && details.length" class="w-full">
+          <div v-if="quickViewProduct" class="w-full">
             <div class="grid grid-cols-2 gap-5">
-              <ProductImages :img="details[5].img" :product="details[5]" />
+              <ProductImages
+                :img="quickViewProduct.img"
+                :product="quickViewProduct"
+              />
 
-              <ProductRight :product="details[5]" />
+              <ProductRight :product="quickViewProduct" />
             </div>
 
             <!-- <ProductImages
@@ -302,7 +310,7 @@ export default {
     return {
       loading: false,
       openQuickView: false,
-
+      quickViewProduct: null,
       settings: {
         centerMode: false,
         focusOnSelect: false,
