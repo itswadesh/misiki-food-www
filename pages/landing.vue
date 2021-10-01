@@ -2,10 +2,10 @@
   <div class="bg-gray-100">
     <div class="relative justify-center w-full">
       <video
-        class="object-cover w-full h-48 md:h-96 lg:h-125"
         v-lazy="
           'https://res.cloudinary.com/anne-biz/video/upload/q_auto/v1631807948/video_wiaoqe_m9u8ih.mp4?q_auto'
         "
+        class="object-cover w-full h-48 md:h-96 lg:h-125"
         autoplay
         loop
         muted
@@ -31,46 +31,31 @@
         Enter Site
       </nuxt-link> -->
 
-      <div
-        class="
-          w-full
-          text-center
-          lg:bg-white lg:absolute lg:bg-opacity-60 lg:bottom-0
-        "
-      >
-        <div class="mx-4 lg:mx-auto lg:w-2/3">
+      <div class="w-full lg:bg-white lg:absolute lg:bg-opacity-60 lg:bottom-0">
+        <div
+          class="
+            mx-4
+            lg:mx-auto lg:w-2/3
+            flex flex-col
+            items-center
+            justify-center
+            text-center
+          "
+        >
           <h1 class="pt-5 text-2xl font-bold lg:text-4xl">
             Explore the world of Live Commerce
           </h1>
+
           <p class="mt-2 text-sm lg:mt-5">Livestram your products showcase</p>
-          <div class="my-5">
-            <button
-              class="
-                py-3
-                text-center text-white
-                rounded
-                shadow-lg
-                focus:outline-none
-                px-9
-                bg-primary-500
-                hover:bg-gray-200 hover:text-primary-500
-              "
-              @click="saveLanding()"
-            >
-              Enter Site
-            </button>
-          </div>
+
+          <PrimaryButtonRounded class="my-5 py-3 px-9" @click="saveLanding()">
+            Enter Site
+          </PrimaryButtonRounded>
         </div>
       </div>
     </div>
     <div class="mx-auto my-5 lg:container">
-      <HomeHeroCards
-        v-for="(i, ix) in items"
-        :key="ix"
-        :product="i"
-        :ix="ix"
-        class=""
-      />
+      <HomeHeroCards v-for="(i, ix) in items" :key="ix" :product="i" :ix="ix" />
     </div>
 
     <div
@@ -97,18 +82,23 @@
 <script>
 import HomeHeroCards from '~/components/Anne/HomeHeroCards.vue'
 import HowItWorks from '~/components/Anne/HowItWorks.vue'
+import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
+
 export default {
   components: {
     HomeHeroCards,
     HowItWorks,
+    PrimaryButtonRounded,
   },
+
   layout: 'landing',
+
   data() {
     return {
       items: [
         {
           id: 'live',
-          link: '/live',
+          link: 'https://live.anne.biz/',
           title: 'Live Now',
           img: '/img/home/live-now.jpg',
           name: 'Enjoy tech-enabled Live Shopping e-Commerce brands.',

@@ -4,31 +4,19 @@
     :id="product.id"
     class="container w-full mx-auto my-5 lg:my-20"
   >
-    <nuxt-link
-      :to="product.link"
-      rel="prefetch"
-      class="flex flex-col-reverse lg:flex-row"
-    >
+    <div class="flex flex-col-reverse lg:flex-row">
       <!-- Data section start  -->
+
       <div
         class="flex-1 max-w-md lg:mx-auto mt-5 lg:w-1/2 lg:mt-0"
         :class="ix % 2 == !0 ? 'lg:order-2 ms-auto' : 'mx-6'"
       >
         <div class="mx-4">
-          <button
-            class="
-              px-6
-              py-3
-              text-center text-white
-              rounded-md
-              shadow
-              focus:outline-none
-              bg-primary-500
-              hover:shadow
-            "
-          >
-            {{ product.title }}
-          </button>
+          <a :href="product.link" target="blank" rel="prefetch">
+            <PrimaryButtonRounded>
+              {{ product.title }}
+            </PrimaryButtonRounded>
+          </a>
 
           <div class="my-8">
             <div class="text-lg font-bold">{{ product.name }}</div>
@@ -51,18 +39,23 @@
                       bg-primary-500
                     "
                   ></div>
+
                   <span class="flex-1">{{ i.info }}</span>
                 </li>
               </ul>
             </div>
+
             <div class="text-lg font-bold lg:text-2xl text-primary-500">
               {{ product.footer }}
             </div>
           </div>
         </div>
       </div>
+
       <!-- Data section end -->
+
       <!-- Image section start  -->
+
       <div
         class="lg:w-1/2"
         :class="ix % 2 == !0 ? '' : 'lg:order-1 ms-auto  max-w-max'"
@@ -80,15 +73,19 @@
           alt="🚀"
         />
       </div>
+
       <!-- Image section end -->
-    </nuxt-link>
+    </div>
   </div>
 </template>
 
 <script>
 import NuxtLink from '~/components/NuxtLink.vue'
+import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
+
 export default {
-  components: { NuxtLink },
+  components: { NuxtLink, PrimaryButtonRounded },
+
   props: {
     product: { type: Object, default: null },
     ix: { type: Number, default: 0 },

@@ -13,9 +13,7 @@
     <div class="min-h-screen">
       <NavLanding class="fixed top-0 z-50 w-full" @showLogin="showLogin" />
 
-      <Nuxt class="w-full mt-24 lg:mt-16" />
-
-      <div class="flex-1" />
+      <Nuxt class="w-full mt-28 lg:mt-20" />
     </div>
 
     <BackToTopDark />

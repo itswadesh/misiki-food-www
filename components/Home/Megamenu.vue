@@ -235,19 +235,16 @@
           <div
             v-if="parentBrands"
             class="
-              p-5
+              p-10
               container
               mx-auto
-              flex flex-wrap
+              grid grid-cols-6
+              gap-5
+              justify-items-center
               items-center
-              justify-center
             "
           >
-            <div
-              v-for="b in parentBrands.data"
-              :key="b.id"
-              class="m-5 w-1/6 flex items-center justify-center"
-            >
+            <div v-for="b in parentBrands.data" :key="b.id">
               <nuxt-link :to="localePath(`/brand/${b.slug}`)">
                 <img
                   v-if="b.img"
