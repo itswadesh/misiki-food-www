@@ -156,7 +156,7 @@
               target="blank"
             >
               <img
-                v-lazy="`/img/socialmedia/facebook.png?tr=w-40,h-40,fo-auto`"
+                v-lazy="`/socialmedia/facebook.png?tr=w-40,h-40,fo-auto`"
                 alt="🚀"
                 class="w-10 h-10 me-5"
               />
@@ -167,7 +167,7 @@
               target="blank"
             >
               <img
-                v-lazy="`/img/socialmedia/twitter.png?tr=w-40,h-40,fo-auto`"
+                v-lazy="`/socialmedia/twitter.png?tr=w-40,h-40,fo-auto`"
                 alt="🚀"
                 class="w-10 h-10 me-5"
               />
@@ -178,7 +178,7 @@
               target="blank"
             >
               <img
-                v-lazy="`/img/socialmedia/instagram.png?tr=w-40,h-40,fo-auto`"
+                v-lazy="`/socialmedia/instagram.png?tr=w-40,h-40,fo-auto`"
                 alt="🚀"
                 class="w-10 h-10 me-5"
               />
@@ -189,7 +189,7 @@
               target="blank"
             >
               <img
-                v-lazy="`/img/socialmedia/linkedin.png?tr=w-40,h-40,fo-auto`"
+                v-lazy="`/socialmedia/linkedin.png?tr=w-40,h-40,fo-auto`"
                 alt="🚀"
                 class="w-10 h-10"
               />

@@ -75,27 +75,27 @@ export default {
         {
           // link: `https://www.facebook.com/${this.brand.facebookUrl}`,
           link: `${this.brand.facebookUrl}`,
-          img: '/img/socialmedia/facebook.png',
+          img: '/socialmedia/facebook.png',
         },
         {
           // link: `https://twitter.com/${this.brand.twitterUrl}`,
           link: `${this.brand.twitterUrl}`,
-          img: '/img/socialmedia/twitter.png',
+          img: '/socialmedia/twitter.png',
         },
         {
           // link: `https://www.instagram.com/${this.brand.instaUrl}`,
           link: `${this.brand.instaUrl}`,
-          img: '/img/socialmedia/instagram.png',
+          img: '/socialmedia/instagram.png',
         },
         {
           // link: `https://www.youtube.com/user/${this.brand.youtubeUrl}`,
           link: `${this.brand.linkedinUrl}`,
-          img: '/img/socialmedia/linkedin.png',
+          img: '/socialmedia/linkedin.png',
         },
         {
           // link: `https://www.youtube.com/user/${this.brand.youtubeUrl}`,
           link: `${this.brand.youtubeUrl}`,
-          img: '/img/socialmedia/youtube.png',
+          img: '/socialmedia/youtube.png',
         },
       ],
     }

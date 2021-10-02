@@ -1,5 +1,5 @@
 <template>
-  <section v-if="brand" class="mx-auto container flex justify-center">
+  <section v-if="brand" class="container mx-auto flex justify-center">
     <div class="md:flex items-center justify-center px-5">
       <div class="md:w-1/3 flex items-center">
         <img
