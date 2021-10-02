@@ -68,7 +68,7 @@ import HeroBanners from '~/components/Home/HeroBanners.vue'
 import Categories from '~/components/Home/Categories.vue'
 import Deals from '~/components/Home/Deals.vue'
 import ProductSlider from '~/components/Home/ProductSlider.vue'
-import ProductSlider2 from '~/components/Home/ProductSlider2.vue'
+// import ProductSlider2 from '~/components/Home/ProductSlider2.vue'
 import BrandBanners from '~/components/Home/BrandBanners.vue'
 import HeroBannersSlider from '~/components/Home/HeroBannersSlider.vue'
 import VideoBanner from '~/components/Home/VideoBanner.vue'
@@ -89,7 +89,7 @@ export default {
     Deals,
     HeroBannersSlider,
     ProductSlider,
-    ProductSlider2,
+    // ProductSlider2,
     BrandBanners,
     // Discounts,
     VideoBanner,

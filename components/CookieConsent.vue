@@ -219,8 +219,31 @@ export default {
 
   data() {
     return {
-      show: false,
+      showCookieConsent: false,
     }
+  },
+
+  mounted() {
+    const vm = this
+    setTimeout(function () {
+      vm.checkCookieConsent()
+    }, 3000)
+  },
+
+  methods: {
+    allowCookies() {
+      this.$cookies.set('cookieConsent', true, { path: '/' })
+      this.showCookieConsent = false
+    },
+    checkCookieConsent() {
+      const cookieConsentContent = this.$cookies.get('cookieConsent')
+      if (
+        !cookieConsentContent &&
+        this.$store.state.store &&
+        this.$store.state.store.gdpr
+      )
+        this.showCookieConsent = true
+    },
   },
 }
 </script>
