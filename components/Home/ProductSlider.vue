@@ -154,8 +154,9 @@
           </div>
         </div>
       </div>
+
       <div v-if="openQuickView">
-        <ModalLarge :show="openQuickView" title="Quick View" type="info" noicon>
+        <CleanModal :show="openQuickView" title="Quick View" type="info" noicon>
           <!-- Close button start -->
           <button
             type="button"
@@ -194,82 +195,16 @@
           <!-- Close button end -->
 
           <div v-if="quickViewProduct" class="w-full">
-            <div class="grid grid-cols-2 gap-5">
+            <div class="grid grid-cols-1 md:grid-cols-2">
               <ProductImages
                 :img="quickViewProduct.img"
                 :product="quickViewProduct"
               />
 
-              <ProductRight :product="quickViewProduct" />
+              <ProductRight :product="quickViewProduct" class="p-5 sm:p-10" />
             </div>
-
-            <!-- <ProductImages
-              :loading="$fetchState.pending"
-              class="h-auto mt-5 nowrap lg:mt-0 mb-5 md:mb-10"
-              :images="product && product.images"
-              :pid="product.id"
-              :img="product.img"
-              :host="host"
-              :product="product"
-              :exist-in-wishlist="checkWishlist"
-            /> -->
-
-            <!-- <div v-if="product && product.id" class="bg-white">
-              <ProductRight
-                ref="ProductRight"
-                class="w-full h-auto nowrap mb-5"
-                :host="host"
-                :product="product"
-                :pg="pg"
-                :review-summary="reviewSummary"
-                @variantChanged="variantChanged"
-                @optionChanged="optionChanged"
-              />
-
-              <div
-                class="
-                  mb-5
-                  px-2
-                  xl:ms-5
-                  md:flex
-                  items-center
-                  space-y-4
-                  md:space-y-0 md:space-x-5
-                  xl:hidden
-                "
-              >
-                <div class="w-full md:w-1/2">
-                  <AddToCart
-                    class=""
-                    :product="product"
-                    :user-selected-variant="userSelectedVariant"
-                    :options="product.options"
-                    :selected-options="selectedOptions"
-                    @alertToSelectMandatoryOptions="
-                      alertToSelectMandatoryOptions
-                    "
-                  />
-                </div>
-
-                <div class="w-full md:w-1/2">
-                  <BuyNow
-                    v-if="product.stock > 0"
-                    class=""
-                    :product="product"
-                    :user-selected-variant="userSelectedVariant"
-                    :options="product.options"
-                    :selected-options="selectedOptions"
-                    @alertToSelectMandatoryOptions="
-                      alertToSelectMandatoryOptions
-                    "
-                  />
-                </div>
-              </div>
-            </div>
-
-            <ProductDetailSpecs :product="product" class="mb-5" /> -->
           </div>
-        </ModalLarge>
+        </CleanModal>
       </div>
     </section>
   </main>
@@ -278,7 +213,7 @@
 <script>
 import HomePageProduct from '~/components/Home/HomePageProduct.vue'
 // import ProductSliderSkeleton from '~/components/AllSkeletons/ProductSliderSkeleton'
-import ModalLarge from '~/shared/components/ui/ModalLarge.vue'
+import CleanModal from '~/shared/components/ui/CleanModal.vue'
 import ProductImages from '~/components/ProductDetails/ProductImages.vue'
 import AddToCart from '~/components/ProductDetails/AddToCart.vue'
 import ProductRight from '~/components/ProductDetails/ProductRight.vue'
@@ -288,7 +223,7 @@ export default {
   components: {
     // ProductSliderSkeleton,
     HomePageProduct,
-    ModalLarge,
+    CleanModal,
     ProductImages,
     AddToCart,
     ProductRight,

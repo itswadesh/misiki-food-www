@@ -2,6 +2,8 @@
   <div class="bg-white">
     <Megamenu class="hidden xl:flex px-10" />
 
+    <TestCookie />
+
     <HeroSlider :banners="sliderBanners" class="mb-5 md:mb-10" />
 
     <div class="container mx-auto">
@@ -72,6 +74,7 @@ import ProductSlider2 from '~/components/Home/ProductSlider2.vue'
 import BrandBanners from '~/components/Home/BrandBanners.vue'
 import HeroBannersSlider from '~/components/Home/HeroBannersSlider.vue'
 import VideoBanner from '~/components/Home/VideoBanner.vue'
+import TestCookie from '~/components/Home/TestCookie.vue'
 import HOME from '~/gql/groupQueries/HOME.gql'
 import TRENDING from '~/gql/product/trending.gql'
 import BANNERS from '~/gql/banner/banners.gql'
@@ -93,6 +96,7 @@ export default {
     BrandBanners,
     // Discounts,
     VideoBanner,
+    TestCookie,
   },
 
   layout: 'home',
