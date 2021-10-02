@@ -474,6 +474,7 @@ export default {
       }
     },
     async submit() {
+      console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz', this.paymentMethod.value)
       if (!this.paymentMethod || !this.paymentMethod.value) {
         this.setErr('Please Select Payment Method')
       }

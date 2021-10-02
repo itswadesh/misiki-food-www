@@ -506,8 +506,9 @@
 
       <div v-if="visitorCount">Visitors : {{ visitorCount }}</div>
     </div>
-
-    <CookieConsent />
+    <client-only>
+      <CookieConsent />
+    </client-only>
   </div>
 </template>
 
@@ -562,12 +563,15 @@ export default {
   },
 
   mounted() {
-    this.loadTranslate()
-    const vm = this
-    setTimeout(function () {
-      vm.googleTranslateInit()
-      vm.updateVisitorCount()
-    }, 3000)
+    const getGDPR = localStorage.getItem('GDPR:accepted')
+    if (typeof getGDPR !== 'undefined' && getGDPR === 'true') {
+      this.loadTranslate()
+      const vm = this
+      setTimeout(function () {
+        vm.googleTranslateInit()
+        vm.updateVisitorCount()
+      }, 3000)
+    }
   },
 
   methods: {

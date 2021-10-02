@@ -62,10 +62,11 @@ export default {
     },
     checkCookieConsent() {
       const cookieConsentContent = this.$cookies.get('cookieConsent')
+      console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz', this.$store.state.store)
       if (
         !cookieConsentContent &&
         this.$store.state.store &&
-        this.$store.state.store.gdpr
+        this.$store.state.store.gdprCookieConsent
       )
         this.showCookieConsent = true
     },

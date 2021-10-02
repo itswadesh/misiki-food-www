@@ -220,6 +220,10 @@ export default {
   data() {
     return {
       showCookieConsent: false,
+      allowMarketingCookies: false,
+      allowNecessaryCookies: false,
+      allowPreferencesCookies: false,
+      allowAnalyticsCookies: false,
     }
   },
 
@@ -240,7 +244,7 @@ export default {
       if (
         !cookieConsentContent &&
         this.$store.state.store &&
-        this.$store.state.store.gdpr
+        this.$store.state.store.gdprCookieConsent
       )
         this.showCookieConsent = true
     },
