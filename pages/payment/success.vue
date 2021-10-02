@@ -126,7 +126,7 @@
           md:space-x-20
         "
       >
-        <div class="sm:w-1/2 flex flex-col justify-center max-w-lg">
+        <div class="sm:w-1/2 flex flex-col justify-center">
           <div class="mb-5">
             <h6
               class="
@@ -256,7 +256,7 @@
           </div>
         </div>
 
-        <div class="sm:w-1/2 flex flex-col justify-center max-w-lg">
+        <div class="sm:w-1/2 flex flex-col justify-center">
           <div v-if="order && order.address" class="text-sm">
             <h6
               class="

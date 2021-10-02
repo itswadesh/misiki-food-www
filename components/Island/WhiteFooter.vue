@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full p-2.5 sm:p-5 text-gray-800 bg-white">
+  <div class="container mx-auto w-full p-2.5 sm:p-10 text-gray-800 bg-white">
     <div class="mb-2 flex flex-col justify-between lg:flex-row lg:space-x-10">
       <div class="w-full lg:w-4/5">
         <h1
@@ -533,9 +533,9 @@ export default {
       year: new Date().getFullYear(),
       // popularSearches: null,
       icons: [
-        { img: '/img/payment/mastercard.svg', alt: 'mastercard' },
+        { img: '/img/payment/mastercard.png', alt: 'mastercard' },
         { img: '/img/payment/rupay.svg', alt: 'rupay' },
-        { img: '/img/payment/visa.svg', alt: 'visa' },
+        { img: '/img/payment/visa.png', alt: 'visa' },
         { img: '/img/payment/american-express.svg', alt: 'american-express' },
         { img: '/img/payment/paypal.svg', alt: 'paypal' },
         { img: '/img/payment/bhim-upi.png', alt: 'upi' },
