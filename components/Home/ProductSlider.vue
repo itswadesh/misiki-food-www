@@ -194,7 +194,7 @@
 
           <!-- Close button end -->
 
-          <div v-if="quickViewProduct" class="w-full">
+          <div v-if="quickViewProduct" class="w-full max-w-4xl">
             <div class="grid grid-cols-1 md:grid-cols-2">
               <ProductImages
                 :img="quickViewProduct.img"
