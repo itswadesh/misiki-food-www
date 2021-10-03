@@ -1,7 +1,6 @@
 <template>
   <div>
-    {{ showCookieConsent }}----------
-    <CleanModal v-if="showCookieConsent" title="Allow Cookies">
+    <CleanModal :show="showCookieConsent" title="Allow Cookies">
       <!-- Real Data section start  -->
 
       <div class="p-5 sm:p-10 max-w-2xl bg-blue-900 text-white">
@@ -11,19 +10,19 @@
           </h1>
 
           <p class="mb-2.5 sm:mb-5 text-sm font-light leading-relaxed">
-            When you visit e-resident.gov.ee, e-Residency and our partners use
-            cookies and other methods to process your personal data in order to
-            customize content and your site experience, provide social media
-            features, analyze our traffic, and personalize advertising on both
-            our family of websites and our partners' platforms.
+            When you visit anne.biz, Anne and our partners use cookies and other
+            methods to process your personal data in order to customize content
+            and your site experience, provide social media features, analyze our
+            traffic, and personalize advertising on both our family of websites
+            and our partners' platforms.
           </p>
 
           <p class="mb-2.5 sm:mb-5 text-sm font-light leading-relaxed">
             You may use the below interface to accept (or reject) specific
             categories of data processing, and to see some of the vendors
             undertaking those categories of data processing. You can click here
-            for a complete list of e-Residency’s data processing partners, and
-            the categories of processing undertaken by each. Please note that
+            for a complete list of Anne’s data processing partners, and the
+            categories of processing undertaken by each. Please note that
             withholding consent for processing may reduce or remove some
             functionality of our website.
           </p>
@@ -31,8 +30,10 @@
           <p class="mb-2.5 sm:mb-5 text-sm font-light leading-relaxed">
             For more information on how we process your personal data - or to
             update your preferences, personal data at any time - please visit
-            our Privacy Policy. You can review or update these preferences at
-            any time by following the link from that page.
+            our
+            <nuxt-link to="/legal/privacy-policy">Privacy Policy</nuxt-link>.
+            You can review or update these preferences at any time by following
+            the link from that page.
           </p>
         </div>
 
@@ -56,16 +57,18 @@
           </div>
 
           <ToggleSwitchWhite
+            v-model="necessaryCookies"
+            :disabled="true"
             color="blue"
             class="hidden sm:block"
-            @click="allowNecessaryCookies"
           />
 
           <ToggleSwitchWhite
+            v-model="necessaryCookies"
+            :disabled="true"
             color="blue"
             size="sm"
             class="sm:hidden"
-            @click="allowNecessaryCookies"
           />
         </div>
 
@@ -93,16 +96,16 @@
           </div>
 
           <ToggleSwitchWhite
+            v-model="preferencesCookies"
             color="blue"
             class="hidden sm:block"
-            @click="allowPreferencesCookies"
           />
 
           <ToggleSwitchWhite
+            v-model="preferencesCookies"
             color="blue"
             size="sm"
             class="sm:hidden"
-            @click="allowPreferencesCookies"
           />
         </div>
 
@@ -129,20 +132,20 @@
           </div>
 
           <ToggleSwitchWhite
+            v-model="analyticsCookies"
             color="blue"
             class="hidden sm:block"
-            @click="allowAnalyticsCookies"
           />
 
           <ToggleSwitchWhite
+            v-model="analyticsCookies"
             color="blue"
             size="sm"
             class="sm:hidden"
-            @click="allowAnalyticsCookies"
           />
         </div>
 
-        <hr class="mb-2.5 sm:mb-5 border-t border-white w-full" />
+        <!-- <hr class="mb-2.5 sm:mb-5 border-t border-white w-full" />
 
         <div
           class="
@@ -167,16 +170,16 @@
           <ToggleSwitchWhite
             color="blue"
             class="hidden sm:block"
-            @click="allowMarketingCookies"
+            v-model="marketingCookies"
           />
 
           <ToggleSwitchWhite
             color="blue"
             size="sm"
             class="sm:hidden"
-            @click="allowMarketingCookies"
+            v-model="marketingCookies"
           />
-        </div>
+        </div> -->
 
         <hr class="mb-2.5 sm:mb-5 border-t border-white w-full" />
 
@@ -195,6 +198,7 @@
               duration-300
               focus:outline-none
             "
+            @click="saveCookieConsent"
           >
             SAVE MY SETTINGS
           </button>
@@ -221,10 +225,10 @@ export default {
   data() {
     return {
       showCookieConsent: false,
-      allowMarketingCookies: false,
-      allowNecessaryCookies: false,
-      allowPreferencesCookies: false,
-      allowAnalyticsCookies: false,
+      marketingCookies: false,
+      necessaryCookies: true,
+      preferencesCookies: false,
+      analyticsCookies: false,
     }
   },
 
@@ -236,12 +240,27 @@ export default {
   },
 
   methods: {
+    saveCookieConsent() {
+      console.log(
+        'zzzzzzzzzzzzzzzzzzzzzzzzzzz',
+        this.necessaryCookies,
+        this.marketingCookies,
+        this.preferencesCookies,
+        this.analyticsCookies
+      )
+      this.allowCookies()
+    },
     allowCookies() {
-      this.$cookies.set('cookieConsent', true, { path: '/' })
+      // this.$cookies.set('cookieConsent', true, { path: '/' })
+      localStorage.setItem('GDPR:preference', this.preferencesCookies)
+      localStorage.setItem('GDPR:analytics', this.analyticsCookies)
+      localStorage.setItem('GDPR:marketing', this.marketingCookies)
+      console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz')
       this.showCookieConsent = false
     },
     checkCookieConsent() {
-      const cookieConsentContent = this.$cookies.get('cookieConsent')
+      // const cookieConsentContent = this.$cookies.get('cookieConsent')
+      const cookieConsentContent = localStorage.getItem('GDPR:preference')
       if (
         !cookieConsentContent &&
         this.$store.state.store &&

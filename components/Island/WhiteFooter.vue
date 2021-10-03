@@ -563,8 +563,12 @@ export default {
   },
 
   mounted() {
-    const getGDPR = localStorage.getItem('GDPR:accepted')
-    if (typeof getGDPR !== 'undefined' && getGDPR === 'true') {
+    const getGDPRPreference = localStorage.getItem('GDPR:preference')
+    console.log('getGDPRPreference...........', getGDPRPreference)
+    if (
+      typeof getGDPRPreference !== 'undefined' &&
+      getGDPRPreference === 'true'
+    ) {
       this.loadTranslate()
       const vm = this
       setTimeout(function () {
