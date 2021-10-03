@@ -25,7 +25,7 @@
           transition-all
           transform
           bg-white
-          rounded-lg
+          rounded-xl
           shadow-xl
           align-middle
         "

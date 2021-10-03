@@ -1,9 +1,43 @@
 <template>
-  <div>
-    <CleanModal :show="showCookieConsent" title="Allow Cookies">
+  <section>
+    <div
+      v-if="showCookieConsent"
+      class="
+        fixed
+        bottom-5
+        left-5
+        sm:bottom-10 sm:left-10
+        mr-5
+        sm:mr-10
+        p-5
+        sm:p-10
+        max-w-2xl
+        bg-gray-900
+        rounded-xl
+        shadow-xl
+        text-white text-center
+      "
+    >
+      <p class="mb-2.5 sm:mb-5 text-sm font-light leading-relaxed">
+        This website needs some cookies and similar means to function. If you
+        permit us, we will use those means to collect data on your visits for
+        aggregated statistics to improve our service. Moreover, we use YouTube
+        for showing videos, which will use cookies and similar means only if you
+        decide to watch them.
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center">
+        <button class="button" @click="showCookieSetting = true">
+          CHANGE COOKIE SETTING
+        </button>
+        <button class="button" @click="allowCookies">ACCEPT ALL COOKIES</button>
+      </div>
+    </div>
+
+    <CleanModal :show="showCookieSetting" title="Allow Cookies">
       <!-- Real Data section start  -->
 
-      <div class="p-5 sm:p-10 max-w-2xl bg-blue-900 text-white">
+      <div class="p-5 sm:p-10 max-w-2xl bg-gray-900 text-white">
         <div class="text-center">
           <h1 class="mb-2.5 sm:mb-10 text-xl font-medium tracking-wide">
             Cookie settings
@@ -59,14 +93,14 @@
           <ToggleSwitchWhite
             v-model="necessaryCookies"
             :disabled="true"
-            color="blue"
+            color="gray"
             class="hidden sm:block"
           />
 
           <ToggleSwitchWhite
             v-model="necessaryCookies"
             :disabled="true"
-            color="blue"
+            color="gray"
             size="sm"
             class="sm:hidden"
           />
@@ -97,13 +131,13 @@
 
           <ToggleSwitchWhite
             v-model="preferencesCookies"
-            color="blue"
+            color="gray"
             class="hidden sm:block"
           />
 
           <ToggleSwitchWhite
             v-model="preferencesCookies"
-            color="blue"
+            color="gray"
             size="sm"
             class="sm:hidden"
           />
@@ -133,13 +167,13 @@
 
           <ToggleSwitchWhite
             v-model="analyticsCookies"
-            color="blue"
+            color="gray"
             class="hidden sm:block"
           />
 
           <ToggleSwitchWhite
             v-model="analyticsCookies"
-            color="blue"
+            color="gray"
             size="sm"
             class="sm:hidden"
           />
@@ -168,13 +202,13 @@
           </div>
 
           <ToggleSwitchWhite
-            color="blue"
+            color="gray"
             class="hidden sm:block"
             v-model="marketingCookies"
           />
 
           <ToggleSwitchWhite
-            color="blue"
+            color="gray"
             size="sm"
             class="sm:hidden"
             v-model="marketingCookies"
@@ -193,7 +227,7 @@
               font-semibold
               tracking-wide
               text-white
-              hover:bg-white hover:text-blue-900
+              hover:bg-white hover:text-gray-900
               transition
               duration-300
               focus:outline-none
@@ -207,7 +241,7 @@
 
       <!-- Real Data section end -->
     </CleanModal>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -225,6 +259,7 @@ export default {
   data() {
     return {
       showCookieConsent: false,
+      showCookieSetting: false,
       marketingCookies: false,
       necessaryCookies: true,
       preferencesCookies: false,
@@ -272,4 +307,8 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.button {
+  @apply m-2.5 font-semibold py-2 px-8  border-2 border-white rounded-full bg-transparent hover:bg-white text-sm sm:text-base text-white hover:text-gray-900 transition duration-300 focus:outline-none tracking-wide;
+}
+</style>

@@ -43,7 +43,7 @@
           dot
           left-1
           top-1
-          bg-blue-900
+          bg-gray-900
         "
         :class="{
           'h-3 w-3': size == 'xs',
