@@ -413,7 +413,7 @@
 
           <h6 class="flex-1 text-xs">
             <strong>Get assured delivery</strong
-            ><span class="font-light"> for every order</span>
+            ><span class="font-light"> for every confirmed order</span>
           </h6>
         </div>
 

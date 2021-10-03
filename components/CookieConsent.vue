@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{ showCookieConsent }}----------
     <CleanModal v-if="showCookieConsent" title="Allow Cookies">
       <!-- Real Data section start  -->
 
