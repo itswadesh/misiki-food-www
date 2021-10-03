@@ -30,7 +30,9 @@
         <button class="button" @click="showCookieSetting = true">
           CHANGE COOKIE SETTING
         </button>
-        <button class="button" @click="allowCookies">ACCEPT ALL COOKIES</button>
+        <button class="button" @click="allowAllCookies">
+          ACCEPT ALL COOKIES
+        </button>
       </div>
     </div>
 
@@ -276,13 +278,6 @@ export default {
 
   methods: {
     saveCookieConsent() {
-      console.log(
-        'zzzzzzzzzzzzzzzzzzzzzzzzzzz',
-        this.necessaryCookies,
-        this.marketingCookies,
-        this.preferencesCookies,
-        this.analyticsCookies
-      )
       this.allowCookies()
     },
     allowCookies() {
@@ -290,8 +285,15 @@ export default {
       localStorage.setItem('GDPR:preference', this.preferencesCookies)
       localStorage.setItem('GDPR:analytics', this.analyticsCookies)
       localStorage.setItem('GDPR:marketing', this.marketingCookies)
-      console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz')
       this.showCookieConsent = false
+      this.showCookieSetting = false
+    },
+    allowAllCookies() {
+      localStorage.setItem('GDPR:preference', true)
+      localStorage.setItem('GDPR:analytics', true)
+      localStorage.setItem('GDPR:marketing', true)
+      this.showCookieConsent = false
+      this.showCookieSetting = false
     },
     checkCookieConsent() {
       // const cookieConsentContent = this.$cookies.get('cookieConsent')
