@@ -156,7 +156,7 @@
       </div>
 
       <div v-if="openQuickView">
-        <CleanModal :show="openQuickView" title="Quick View" type="info" noicon>
+        <CleanModal :show="openQuickView" title="Quick View">
           <!-- Close button start -->
           <button
             type="button"
