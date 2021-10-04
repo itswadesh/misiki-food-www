@@ -148,7 +148,8 @@
           hoverable
         "
       >
-        <div
+        <nuxt-link
+          to="/island/sitemap"
           class="
             relative
             flex flex-row
@@ -164,22 +165,7 @@
           "
         >
           <p>CATEGORIES</p>
-
-          <!--  <svg
-            class="w-4 h-4 my-auto"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M19 9l-7 7-7-7"
-            />
-          </svg> -->
-        </div>
+        </nuxt-link>
       </li>
 
       <li
@@ -193,7 +179,8 @@
           hoverable
         "
       >
-        <div
+        <nuxt-link
+          to="/all-brands"
           class="
             relative
             flex flex-row
@@ -227,7 +214,7 @@
               d="M19 9l-7 7-7-7"
             />
           </svg>
-        </div>
+        </nuxt-link>
 
         <div
           class="w-auto mx-auto mt-1 mb-16 bg-white shadow-xl mega-menu sm:mb-0"
@@ -245,7 +232,7 @@
             "
           >
             <div v-for="b in parentBrands.data" :key="b.id">
-              <nuxt-link :to="localePath(`/brand/${b.slug}`)">
+              <nuxt-link :to="localePath(`/c?brands=${b.name}`)">
                 <img
                   v-if="b.img"
                   v-lazy="`${b.img}?tr=h-64,fo-auto`"

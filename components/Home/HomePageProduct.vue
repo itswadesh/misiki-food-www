@@ -1,14 +1,7 @@
 <template>
   <section
     v-if="product"
-    class="
-      relative
-      w-full
-      border
-      group
-      hover:bg-white hover:shadow-md
-      text-gray-800
-    "
+    class="relative w-full border group hover:shadow-md text-gray-800"
     @mouseenter="showitems()"
     @mouseleave="hideitems()"
   >
@@ -64,7 +57,7 @@
       :to="localePath(`/${product.slug}?id=${product.id || pid}`)"
       class="z-0 block overflow-hidden"
     >
-      <div class="h-48 sm:h-56 desktop-height bg-gray-100">
+      <div class="h-48 sm:h-56 desktop-height bg-white">
         <img
           :key="featuredImage"
           v-lazy="`${featuredImage}?tr=h-288,fo-auto`"

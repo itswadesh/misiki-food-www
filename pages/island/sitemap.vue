@@ -1,8 +1,23 @@
 <template>
   <section class="bg-white min-h-screen pb-10 text-gray-800">
     <div class="w-full max-w-7xl mx-auto px-3">
-      <h1 class="text-2xl md:text-4xl tracking-wide text-center py-5 sm:py-10">
-        All Categories
+      <h1
+        class="
+          py-5
+          sm:py-10
+          font-serif font-bold
+          text-2xl
+          sm:text-4xl
+          text-center
+          flex flex-col
+          items-center
+          sm:items-start
+          max-w-max
+          mx-auto
+        "
+      >
+        <span> All Categories</span>
+        <hr class="mt-2.5 border-t-4 border-gray-800 opacity-50 w-20" />
       </h1>
 
       <div v-if="megamenu">
@@ -12,15 +27,27 @@
             :key="mx"
             class="w-1/2 sm:w-1/4 lg:w-60 p-2.5 sm:mr-10 sm:mb-10"
           >
-            <h1
-              class="mb-3 sm:text-lg font-medium border-b border-gray-300 pb-3"
-            >
-              {{ m.name }}
-            </h1>
+            <nuxt-link :to="localePath(`/c/${m.slug}`)"
+              ><div
+                class="
+                  mb-3
+                  sm:text-lg
+                  font-medium
+                  border-b border-gray-300
+                  pb-3
+                "
+              >
+                {{ m.name }}
+              </div>
+            </nuxt-link>
 
             <div v-if="m && m.children" class="flex flex-col space-y-2">
               <div v-for="(mm, mxx) in m.children" :key="mxx">
-                <h2 class="text-sm font-light">{{ mm.name }}</h2>
+                <nuxt-link :to="localePath(`/c/${mm.slug}`)">
+                  <div class="text-sm font-light">
+                    {{ mm.name }}
+                  </div>
+                </nuxt-link>
               </div>
             </div>
           </div>
@@ -33,8 +60,11 @@
 <script>
 import { mapGetters } from 'vuex'
 import MEGAMENU from '~/gql/category/megamenuAll.gql'
+import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
+  components: { NuxtLink },
+
   layout: 'island',
 
   data() {
