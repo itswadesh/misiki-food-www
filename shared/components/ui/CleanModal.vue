@@ -20,7 +20,7 @@
         class="
           max-height max-w-max
           text-gray-700
-          overflow-hidden overflow-y-auto
+          overflow-hidden
           inline-block
           transition-all
           transform

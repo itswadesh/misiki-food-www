@@ -195,14 +195,19 @@
           <!-- Close button end -->
 
           <div v-if="quickViewProduct" class="w-full max-w-4xl">
-            <div class="grid grid-cols-1 md:grid-cols-2">
+            <QuickView
+              :img="quickViewProduct.img"
+              :product="quickViewProduct"
+            />
+
+            <!-- <div class="grid grid-cols-1 md:grid-cols-2">
               <ProductImages
                 :img="quickViewProduct.img"
                 :product="quickViewProduct"
               />
 
               <ProductRight :product="quickViewProduct" class="p-5 sm:p-10" />
-            </div>
+            </div> -->
           </div>
         </CleanModal>
       </div>
@@ -218,6 +223,7 @@ import ProductImages from '~/components/ProductDetails/ProductImages.vue'
 import AddToCart from '~/components/ProductDetails/AddToCart.vue'
 import ProductRight from '~/components/ProductDetails/ProductRight.vue'
 import ProductDetailSpecs from '~/components/ProductDetails/ProductDetailSpecs.vue'
+import QuickView from '~/components/QuickView.vue'
 
 export default {
   components: {
@@ -228,6 +234,7 @@ export default {
     AddToCart,
     ProductRight,
     ProductDetailSpecs,
+    QuickView,
   },
 
   props: {

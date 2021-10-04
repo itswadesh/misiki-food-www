@@ -92,7 +92,7 @@
               </div>
             </div>
 
-            <div class="text-sm text-secondary-200 font-medium">
+            <div class="text-sm text-secondary-500 font-medium">
               inclusive of all taxes
             </div>
           </div>

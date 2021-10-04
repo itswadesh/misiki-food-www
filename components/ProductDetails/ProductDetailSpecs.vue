@@ -152,15 +152,6 @@
           </div>
         </div>
       </div>
-
-      <div
-        v-if="product.countryOfOrigin"
-        class="flex items-center mb-2 text-sm font-medium"
-      >
-        <span class="whitespace-nowrap w-36 me-2">Country Of Origin - </span>
-
-        <span class="text-gray-500">{{ product.countryOfOrigin }}</span>
-      </div>
     </div>
   </div>
 </template>
