@@ -76,6 +76,7 @@
             <HomePageProduct
               v-for="(p, ix) in products"
               :key="ix"
+              :quickview="false"
               class="slide-up-item"
               :product="p._source"
               :pid="p._id"

@@ -564,7 +564,7 @@ export default {
 
   mounted() {
     const getGDPRPreference = localStorage.getItem('GDPR:preference')
-    console.log('getGDPRPreference...........', getGDPRPreference)
+    // console.log('getGDPRPreference...........', getGDPRPreference)
     if (
       typeof getGDPRPreference !== 'undefined' &&
       getGDPRPreference === 'true'

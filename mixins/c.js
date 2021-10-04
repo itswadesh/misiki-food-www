@@ -23,6 +23,8 @@ export default {
   data() {
     return {
       showMobileFilter: false,
+      openQuickView: false,
+      quickViewProduct: null,
       fl: {
         brands: [],
         categories: [],

@@ -13,8 +13,10 @@
     @mouseleave="hideitems()"
   >
     <!-- Quick view button start-->
-
-    <div class="hidden group-hover:block absolute z-10 right-2 top-2">
+    <div
+      v-if="quickview"
+      class="hidden group-hover:block absolute z-10 right-2 top-2"
+    >
       <button
         class="
           flex
@@ -64,6 +66,7 @@
     >
       <div class="h-48 sm:h-56 desktop-height bg-gray-100">
         <img
+          :key="featuredImage"
           v-lazy="`${featuredImage}?tr=h-288,fo-auto`"
           alt="product"
           class="object-contain w-full h-full"
@@ -357,6 +360,7 @@ export default {
   // },
 
   props: {
+    quickview: { type: Boolean, default: false },
     product: { type: Object, default: () => {} },
     pid: { type: String, default: null },
     pg: { type: Object, default: null },
@@ -389,14 +393,16 @@ export default {
   methods: {
     ...mapMutations({ setErr: 'setErr', success: 'success' }),
     onMouseOutImage() {
-      this.featuredImage = this.product.img
+      if (this.product.images.length > 1) this.featuredImage = this.product.img
     },
 
     onMouseOverImage() {
-      const secondImage = this.product.images.filter((f) => {
-        return f !== this.product.img
-      }, {})
-      this.featuredImage = secondImage[0]
+      if (this.product.images.length > 1) {
+        const secondImage = this.product.images.filter((f) => {
+          return f !== this.product.img
+        }, {})
+        this.featuredImage = secondImage[0]
+      }
     },
 
     showitems() {

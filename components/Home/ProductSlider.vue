@@ -87,6 +87,7 @@
                 class="pe-5 w-full"
               >
                 <HomePageProduct
+                  :quickview="true"
                   :product="product"
                   @open="
                     quickViewProduct = product
@@ -144,6 +145,7 @@
         >
           <div v-for="product in details" :key="product.id">
             <HomePageProduct
+              :quickview="true"
               :product="product"
               class="w-48 sm:w-56 me-2"
               @open="

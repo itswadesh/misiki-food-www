@@ -56,9 +56,14 @@
               v-for="(p, ix) in products"
               v-else-if="products && products.length > 0"
               :key="ix"
+              :quickview="false"
               class="slide-up-item"
               :product="p._source"
               :pid="p._id"
+              @open="
+                quickViewProduct = p
+                openQuickView = true
+              "
             />
 
             <!-- <infinite-loading @infinite="loadMore($route.query.page)"></infinite-loading> -->
@@ -73,6 +78,47 @@
       </div>
     </div>
     <!-- <RightSideBar /> -->
+    <!-- <div v-if="openQuickView">
+      <CleanModal :show="openQuickView" title="Quick View">
+        <button
+          type="button"
+          class="
+            absolute
+            p-1
+            transition
+            duration-300
+            transform
+            rounded-md
+            hover:bg-opacity-50
+            group
+            hover:bg-gray-900 hover:shadow-md
+            top-3
+            right-3
+            focus:outline-none focus:scale-75
+          "
+          @click="openQuickView = false"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6 transition duration-100 group-hover:text-white"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+
+        <div v-if="quickViewProduct" class="w-full max-w-4xl">
+          <QuickView :img="quickViewProduct.img" :product="quickViewProduct" />
+        </div>
+      </CleanModal>
+    </div> -->
   </div>
 </template>
 
@@ -83,10 +129,13 @@ import HomePageProduct from '~/components/Home/HomePageProduct.vue'
 // import ProductCardEs from '~/components/Listing/ProductCardEs.vue'
 import Megamenu from '~/components/Home/Megamenu.vue'
 import HeaderBody from '~/components/HeaderBody.vue'
-
+import QuickView from '~/components/QuickView.vue'
+import CleanModal from '~/shared/components/ui/CleanModal.vue'
 export default {
   components: {
     Pagination,
+    CleanModal,
+    QuickView,
     //  ProductCardEs
     HomePageProduct,
     Megamenu,
@@ -95,76 +144,48 @@ export default {
 
   mixins: [c],
 
-  async asyncData({ params, query, $axios, store }) {
-    let products = []
+  asyncData({ params, app, store }) {
+    const { title, keywords, description, favicon, logoMobile } =
+      store.state.store || {} // err = null
+    return { title, keywords, description, favicon, logoMobile }
+  },
+
+  async fetch() {
     let facets = []
     let fl = {}
-    let err = null
-    let productCount = 0
-    try {
-      const q = params.q || null
-      const qry = { ...query }
-      qry.store = store.state.store && store.state.store.id
-      if (q) qry.q = q
-      const result = await $axios.$get('/api/products/es', {
-        params: { ...qry },
-      })
-      products = result.data
-      productCount = result.facets.style_count.value
-      facets = result.facets.all_aggs
-      Object.keys(qry).map(function (k, i) {
-        if (
-          qry[k] &&
-          !Array.isArray(qry[k]) &&
-          qry[k] !== null &&
-          qry[k] !== '' &&
-          k !== 'price' &&
-          k !== 'age' &&
-          k !== 'discount'
-        )
-          qry[k] = qry[k].split(',')
-      })
-      fl = qry // For selected filters
-      return { products, productCount, facets, fl, err: null }
-    } catch (e) {
-      if (e && e.response && e.response.data) {
-        err = e.response.data
-      } else if (e && e.response) {
-        err = e.response
-      } else {
-        err = e
-      }
-      // console.log('err...', `${err}`)
-      return { products, productCount, facets: [], fl: {}, err }
-    }
-  },
-  // watchQuery: true,
-  fetch() {
-    this.scrollToTop()
-    this.currentPage = parseInt(this.$route.query.page)
-    // let query = { ...this.$route.query };
-    // this.fl = query;
+    const storeId = this.$store.state.store && this.$store.state.store.id
+    const cslug = this.$route.params.q
+    const q = cslug || null
+    const query = this.$route.query
+    query.store = storeId || '23sdf43rfs5fdgsdf'
+    const qry = { ...query }
+    if (q) qry.q = q
+    const result = await this.$axios.$get('/api/products/es', {
+      params: { ...qry },
+    })
+    this.products = result.data
+    this.productCount = result.facets && result.facets.style_count.value
+    facets = result.facets && result.facets.all_aggs
+    Object.keys(qry).map(function (k, i) {
+      if (
+        qry[k] &&
+        !Array.isArray(qry[k]) &&
+        qry[k] !== null &&
+        qry[k] !== '' &&
+        k !== 'price' &&
+        k !== 'age' &&
+        k !== 'discount'
+      )
+        qry[k] = qry[k].split(',')
+    })
+    fl = { ...qry } // For selected filters
+    this.fl = fl
+    this.facets = facets
   },
   head() {
     return {
       title: 'Search Product',
     }
-  },
-  methods: {
-    // async getData(query) {
-    //   try {
-    //     this.loading = true
-    //     const products = await this.$axios.$get('/api/products/es', {
-    //       params: { ...query },
-    //     })
-    //     this.productCount = products.count
-    //     this.products = products.data
-    //     this.facets = products.facets.all_aggs
-    //   } catch (e) {
-    //   } finally {
-    //     this.loading = false
-    //   }
-    // },
   },
 }
 </script>
