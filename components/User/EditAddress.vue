@@ -144,19 +144,18 @@
             </div> -->
 
             <!-- :disabled="$v.address.$anyError && $v.address.$anyDirty" -->
-
-            <PrimaryButtonRounded
-              type="submit"
-              class="w-full md:w-1/2"
-              :loading="iconloading"
-              :disabled="
+            <!-- :disabled="
                 isDisabled ||
                 ($v.address.email.$invalid && $v.address.email.$dirty) ||
                 ($v.address.$anyError && $v.address.$anyDirty) ||
                 ($v.address.zip.$invalid && $v.address.zip.$dirty) ||
                 ($v.address.phone.$invalid && $v.address.phone.$dirty) ||
                 ($v.address.firstName.$invalid && $v.address.firstName.$dirty)
-              "
+              " -->
+            <PrimaryButtonRounded
+              type="submit"
+              class="w-full md:w-1/2"
+              :loading="iconloading"
               @click="loading = true"
             >
               SAVE ADDRESS
