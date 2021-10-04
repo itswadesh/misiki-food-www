@@ -415,7 +415,10 @@
 
       <!-- Key Features -->
 
-      <div class="flex flex-col mb-2 sm:mb-3 text-sm">
+      <div
+        v-if="product.keyFeatures && product.keyFeatures.length"
+        class="flex flex-col mb-2 sm:mb-3 text-sm"
+      >
         <div
           class="
             mb-2
@@ -511,14 +514,14 @@
           </div>
         </div>
 
-        <div
+        <!-- <div
           v-if="product.countryOfOrigin"
           class="flex items-center mb-2 text-sm font-medium"
         >
           <span class="whitespace-nowrap w-36 me-2">Country Of Origin - </span>
 
           <span class="text-gray-500">{{ product.countryOfOrigin }}</span>
-        </div>
+        </div> -->
       </div>
 
       <!-- Specifications -->
