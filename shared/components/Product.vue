@@ -48,7 +48,7 @@
       <span>{{ p.description }}</span>
       <div class="flex flex-wrap items-center justify-between my-2">
         <div class="font-bold">
-          {{ p.price | currency(store.currencySymbol, 2) }}
+          {{ p.price | currency(store.currencySymbol, store.currencyDecimals) }}
         </div>
         <div v-if="p.stock < 1" class="text-xs text-secondary-600">
           Out of stock

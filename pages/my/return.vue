@@ -32,7 +32,10 @@
               {{ order.vendorInfo.lastName }}
             </h6>
             <h4 class="mt-2 text-xl font-medium">
-              {{ order.price | currency(store.currencySymbol, 2) }}
+              {{
+                order.price
+                  | currency(store.currencySymbol, store.currencyDecimals)
+              }}
             </h4>
           </div>
         </div>

@@ -70,7 +70,10 @@
               <span class="text-gray-800">Shop Now</span>
               <h1 class="m-2 mx-auto">
                 <span class="font-semibold text-secondary-200 text">
-                  {{ price | currency(store.currencySymbol, 2) }}
+                  {{
+                    price
+                      | currency(store.currencySymbol, store.currencyDecimals)
+                  }}
                 </span>
               </h1>
             </span>

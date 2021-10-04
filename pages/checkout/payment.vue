@@ -21,7 +21,11 @@
             My Shopping Bag ({{ cart.qty }} Items)
           </div>
           <div class="w-1/2 text-end">
-            Total {{ cart.total | currency(store.currencySymbol, 2) }}
+            Total
+            {{
+              cart.total
+                | currency(store.currencySymbol, store.currencyDecimals)
+            }}
           </div>
         </div>
         <CartItem v-for="item in cart.items" :key="item._id" :item="item" />

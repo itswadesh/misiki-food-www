@@ -53,7 +53,9 @@
               <span class="mb-2">{{ i.name }}</span>
               <span class="text-sm text-gray-500">Color : color</span>
               <span class="text-sm text-gray-500">Quantity : {{ i.qty }}</span>
-              <span>{{ i.price | currency(store.currencySymbol, 2) }}</span>
+              <span>{{
+                i.price | currency(store.currencySymbol, store.currencyDecimals)
+              }}</span>
             </div>
           </div>
           <div class="flex flex-col mt-3 lg:flex-row md:mt-0">

@@ -42,7 +42,9 @@
             {{ p.vendor.info.restaurant }}
           </div>-->
           <div class="text-xl font-black text-gray-700">
-            {{ p.price | currency(store.currencySymbol, 2) }}
+            {{
+              p.price | currency(store.currencySymbol, store.currencyDecimals)
+            }}
           </div>
         </div>
         <div class="flex items-center justify-between">

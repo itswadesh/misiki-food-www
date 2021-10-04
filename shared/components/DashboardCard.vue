@@ -31,7 +31,8 @@
               {{ data[model].count }} orders
             </div>
             <span class="text-5xl font-bold text-gray-900">{{
-              data[model].amount | currency(store.currencySymbol, 2)
+              data[model].amount
+                | currency(store.currencySymbol, store.currencyDecimals)
             }}</span>
             <div class="flex items-center mt-4">
               <div class="pe-2 text-xs">

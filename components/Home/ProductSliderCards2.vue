@@ -187,14 +187,20 @@
             "
           >
             <h6 class="me-1 text-xs sm:text-sm font-semibold whitespace-nowrap">
-              {{ product.price | currency(store.currencySymbol, 2) }}
+              {{
+                product.price
+                  | currency(store.currencySymbol, store.currencyDecimals)
+              }}
             </h6>
 
             <h6
               v-if="product.price < product.mrp"
               class="me-1 text-xs text-gray-500 whitespace-nowrap line-through"
             >
-              {{ product.mrp | currency(store.currencySymbol, 2) }}
+              {{
+                product.mrp
+                  | currency(store.currencySymbol, store.currencyDecimals)
+              }}
             </h6>
 
             <div

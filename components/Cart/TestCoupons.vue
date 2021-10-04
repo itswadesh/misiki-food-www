@@ -170,12 +170,22 @@
                     </div>
                     <div class="mt-3 text-xs font-medium text-gray-700">
                       Save up to
-                      {{ c.maxAmount | currency(store.currencySymbol, 2) }}
+                      {{
+                        c.maxAmount
+                          | currency(
+                            store.currencySymbol,
+                            store.currencyDecimals
+                          )
+                      }}
                     </div>
                     <div class="mt-3 text-xs font-medium text-gray-700">
                       {{ c.text }} on minimum purchase of
                       {{
-                        c.minimumCartValue | currency(store.currencySymbol, 2)
+                        c.minimumCartValue
+                          | currency(
+                            store.currencySymbol,
+                            store.currencyDecimals
+                          )
                       }}
                       | Expires on {{ c.validToDate | date }}
                       {{ c.terms }}

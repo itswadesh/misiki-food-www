@@ -199,7 +199,13 @@
                     >
                       <div class="font-light text-gray-400 me-1">Price:</div>
                       <div class="text-secondary-200">
-                        {{ item.price | currency(store.currencySymbol, 2) }}
+                        {{
+                          item.price
+                            | currency(
+                              store.currencySymbol,
+                              store.currencyDecimals
+                            )
+                        }}
                       </div>
                     </div>
                   </div>
@@ -233,25 +239,37 @@
             <div v-if="order.amount.subtotal" class="mb-3">
               <span class="font-semibold"> Subtotal :</span>
 
-              {{ order.amount.subtotal | currency(store.currencySymbol, 2) }}
+              {{
+                order.amount.subtotal
+                  | currency(store.currencySymbol, store.currencyDecimals)
+              }}
             </div>
 
             <div v-if="order.amount.discount" class="mb-3">
               <span class="font-semibold"> Discount :</span>
 
-              {{ order.amount.discount | currency(store.currencySymbol, 2) }},
+              {{
+                order.amount.discount
+                  | currency(store.currencySymbol, store.currencyDecimals)
+              }},
             </div>
 
             <div v-if="order.amount.shipping" class="mb-3">
               <span class="font-semibold"> Shipping : </span>
 
-              {{ order.amount.shipping | currency(store.currencySymbol, 2) }}
+              {{
+                order.amount.shipping
+                  | currency(store.currencySymbol, store.currencyDecimals)
+              }}
             </div>
 
             <div v-if="order.amount.total" class="mb-3">
               <span class="font-semibold">Total :</span>
 
-              {{ order.amount.total | currency(store.currencySymbol, 2) }}
+              {{
+                order.amount.total
+                  | currency(store.currencySymbol, store.currencyDecimals)
+              }}
             </div>
           </div>
         </div>

@@ -144,12 +144,18 @@
 
             <div class="flex items-center h-8">
               <div class="font-semibold text-gray-800">
-                {{ product.price | currency(store.currencySymbol, 2) }}
+                {{
+                  product.price
+                    | currency(store.currencySymbol, store.currencyDecimals)
+                }}
               </div>
 
               <div v-if="product.price < product.mrp" class="flex flex-row">
                 <strike class="mx-3 my-auto text-xs font-light text-gray-400">
-                  {{ product.mrp | currency(store.currencySymbol, 2) }}
+                  {{
+                    product.mrp
+                      | currency(store.currencySymbol, store.currencyDecimals)
+                  }}
                 </strike>
 
                 <div

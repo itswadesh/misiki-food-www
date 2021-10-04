@@ -173,7 +173,10 @@
               <div class="flex justify-center mx-auto mt-2">
                 <div class="flex flex-row text-xs conatiner">
                   <div class="font-semibold text-gray-600 me-1 md:me-2">
-                    {{ product.price | currency(store.currencySymbol, 2) }}
+                    {{
+                      product.price
+                        | currency(store.currencySymbol, store.currencyDecimals)
+                    }}
                   </div>
                   <strike
                     class="
@@ -185,7 +188,8 @@
                       md:me-2
                     "
                     >{{
-                      product.mrp | currency(store.currencySymbol, 2)
+                      product.mrp
+                        | currency(store.currencySymbol, store.currencyDecimals)
                     }}</strike
                   >
                   <div

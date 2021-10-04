@@ -395,15 +395,33 @@
                     </td>
 
                     <td class="text-sm text-center text-gray-900" scope="col">
-                      {{ i.price | currency(store.currencySymbol, 2) }}
+                      {{
+                        i.price
+                          | currency(
+                            store.currencySymbol,
+                            store.currencyDecimals
+                          )
+                      }}
                     </td>
 
                     <td class="text-sm text-center text-gray-900" scope="col">
-                      {{ i.shippingCharge | currency(store.currencySymbol, 2) }}
+                      {{
+                        i.shippingCharge
+                          | currency(
+                            store.currencySymbol,
+                            store.currencyDecimals
+                          )
+                      }}
                     </td>
 
                     <td class="text-sm text-center text-gray-900" scope="col">
-                      {{ i.total | currency(store.currencySymbol, 2) }}
+                      {{
+                        i.total
+                          | currency(
+                            store.currencySymbol,
+                            store.currencyDecimals
+                          )
+                      }}
                     </td>
 
                     <td class="ps-4 text-sm text-gray-900" scope="col">
@@ -563,20 +581,38 @@
                   <div>
                     Price:
                     <b class="text-gray-500">
-                      {{ i.price | currency(store.currencySymbol, 2) }}
+                      {{
+                        i.price
+                          | currency(
+                            store.currencySymbol,
+                            store.currencyDecimals
+                          )
+                      }}
                       * {{ i.qty }}
                     </b>
                   </div>
                   <div>
                     Delivery:
                     <b class="text-gray-500">
-                      {{ i.shippingCharge | currency(store.currencySymbol, 2) }}
+                      {{
+                        i.shippingCharge
+                          | currency(
+                            store.currencySymbol,
+                            store.currencyDecimals
+                          )
+                      }}
                     </b>
                   </div>
                   <div>
                     Total:
                     <b class="text-gray-500">
-                      {{ i.total | currency(store.currencySymbol, 2) }}
+                      {{
+                        i.total
+                          | currency(
+                            store.currencySymbol,
+                            store.currencyDecimals
+                          )
+                      }}
                     </b>
                   </div>
                 </div>

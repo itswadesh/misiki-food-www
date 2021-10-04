@@ -13,7 +13,11 @@
 
       <div class="price">
         <div class="font-bold">
-          Price : {{ product.price | currency(store.currencySymbol, 2) }}
+          Price :
+          {{
+            product.price
+              | currency(store.currencySymbol, store.currencyDecimals)
+          }}
         </div>
       </div>
     </div>

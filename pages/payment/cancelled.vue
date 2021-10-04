@@ -24,7 +24,10 @@
             </div>
             <h2 v-if="order" class="text-3xl font-bold text-center">
               Total Amount:
-              {{ order.amount.total | currency(store.currencySymbol, 2) }}
+              {{
+                order.amount.total
+                  | currency(store.currencySymbol, store.currencyDecimals)
+              }}
             </h2>
             <h3
               class="
@@ -238,7 +241,13 @@
                             Price:
                           </div>
                           <div class="text-secondary-200">
-                            {{ item.price | currency(store.currencySymbol, 2) }}
+                            {{
+                              item.price
+                                | currency(
+                                  store.currencySymbol,
+                                  store.currencyDecimals
+                                )
+                            }}
                           </div>
                         </div>
                       </div>
@@ -358,24 +367,33 @@
                   <div v-if="order.amount.subtotal">
                     <strong> Subtotal:</strong>
                     {{
-                      order.amount.subtotal | currency(store.currencySymbol, 2)
+                      order.amount.subtotal
+                        | currency(store.currencySymbol, store.currencyDecimals)
                     }}
                   </div>
                   <div v-if="order.amount.discount" class="w-2/3 my-2">
                     <strong> Discount:</strong>
                     {{
-                      order.amount.discount | currency(store.currencySymbol, 2)
+                      order.amount.discount
+                        | currency(
+                          store.currencySymbol,
+                          store.currencyDecimals
+                        )
                     }},
                   </div>
                   <div v-if="order.amount.shipping" class="my-2">
                     <strong> Shipping: </strong>
                     {{
-                      order.amount.shipping | currency(store.currencySymbol, 2)
+                      order.amount.shipping
+                        | currency(store.currencySymbol, store.currencyDecimals)
                     }}
                   </div>
                   <div v-if="order.amount.total" class="underline">
                     <strong>Total:</strong>
-                    {{ order.amount.total | currency(store.currencySymbol, 2) }}
+                    {{
+                      order.amount.total
+                        | currency(store.currencySymbol, store.currencyDecimals)
+                    }}
                   </div>
                 </div>
               </div>

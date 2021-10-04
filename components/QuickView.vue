@@ -39,14 +39,20 @@
       <div class="mb-1.5 sm:mb-3">
         <div class="flex flex-row my-auto items-baseline mb-1">
           <b class="me-2 text-base sm:text-xl">
-            {{ product.price | currency(store.currencySymbol, 2) }}
+            {{
+              product.price
+                | currency(store.currencySymbol, store.currencyDecimals)
+            }}
           </b>
 
           <strike
             v-if="product.price < product.mrp"
             class="text-sm sm:text-base font-light me-2 text-gray-500"
           >
-            {{ product.mrp | currency(store.currencySymbol, 2) }}
+            {{
+              product.mrp
+                | currency(store.currencySymbol, store.currencyDecimals)
+            }}
           </strike>
 
           <div

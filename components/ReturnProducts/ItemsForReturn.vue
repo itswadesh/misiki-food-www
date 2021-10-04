@@ -73,7 +73,7 @@
           </div>
           <div class="w-1/4 px-6 text-end">22/02/2025</div>
           <div class="w-1/4 text-end">
-            {{ 125 | currency(store.currencySymbol, 2) }}
+            {{ 125 | currency(store.currencySymbol, store.currencyDecimals) }}
           </div>
         </div>
       </label>

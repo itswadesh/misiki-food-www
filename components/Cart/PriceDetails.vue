@@ -9,7 +9,10 @@
         <div class="flex justify-between mb-2">
           <span>Items Subtotal</span>
           <span>
-            {{ cart.subtotal | currency(store.currencySymbol, 2) }}
+            {{
+              cart.subtotal
+                | currency(store.currencySymbol, store.currencyDecimals)
+            }}
           </span>
         </div>
 
@@ -35,7 +38,10 @@
         >
           <span>Your Savings</span>
           <span class="text-secondary-500">
-            -{{ cart.discount.amount | currency(store.currencySymbol, 2) }}
+            -{{
+              cart.discount.amount
+                | currency(store.currencySymbol, store.currencyDecimals)
+            }}
           </span>
         </div>
 
@@ -65,7 +71,10 @@
           </nuxt-link>
 
           <span v-if="cart.shipping.charge > 0">
-            {{ cart.shipping.charge | currency(store.currencySymbol, 2) }}
+            {{
+              cart.shipping.charge
+                | currency(store.currencySymbol, store.currencyDecimals)
+            }}
           </span>
           <span v-else> FREE </span>
         </div>
@@ -101,7 +110,11 @@
 
       <div class="flex justify-between text-base sm:pb-5">
         <b>Total Amount</b>
-        <b> {{ cart.total | currency(store.currencySymbol, 2) }}</b>
+        <b>
+          {{
+            cart.total | currency(store.currencySymbol, store.currencyDecimals)
+          }}</b
+        >
       </div>
 
       <div class="fixed bottom-0 inset-x-0 w-full sm:static">

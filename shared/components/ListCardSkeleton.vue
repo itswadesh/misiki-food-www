@@ -32,7 +32,7 @@
             <div class="w-48 bg-gray-100 rounded">&nbsp;</div>
           </div>
           <div class="text-xl font-black text-gray-700">
-            {{ 0 | currency(store.currencySymbol, 2) }}
+            {{ 0 | currency(store.currencySymbol, store.currencyDecimals) }}
           </div>
         </div>
       </div>

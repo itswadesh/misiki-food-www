@@ -114,7 +114,10 @@
                             <div class="text-accent-900">
                               {{
                                 w.product.price
-                                  | currency(store.currencySymbol, 2)
+                                  | currency(
+                                    store.currencySymbol,
+                                    store.currencyDecimals
+                                  )
                               }}
                             </div>
                             <strike
@@ -123,7 +126,10 @@
                             >
                               {{
                                 w.product.mrp
-                                  | currency(store.currencySymbol, 2)
+                                  | currency(
+                                    store.currencySymbol,
+                                    store.currencyDecimals
+                                  )
                               }}
                             </strike>
                             <div
