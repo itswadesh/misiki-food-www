@@ -57,15 +57,34 @@
       :to="localePath(`/${product.slug}?id=${product.id || pid}`)"
       class="z-0 block overflow-hidden"
     >
-      <div class="h-48 sm:h-56 desktop-height bg-white">
-        <img
-          :key="featuredImage"
-          v-lazy="`${featuredImage}?tr=h-288,fo-auto`"
-          alt="product"
-          class="object-contain w-full h-full"
-          @mouseover="onMouseOverImage"
-          @mouseout="onMouseOutImage"
-        />
+      <div
+        class="h-48 sm:h-56 desktop-height bg-white"
+        @mouseenter="onMouseOverImage"
+        @mouseleave="onMouseOutImage"
+      >
+        <transition-group
+          class="div-slider h-48 sm:h-56"
+          tag="div"
+          :name="back ? 'slideback' : 'slide'"
+        >
+          <div v-if="currentIndex === 0" key="1" class="justify-center flex">
+            <img
+              v-lazy="`${product.img}?tr=h-288,fo-auto`"
+              alt="product"
+              class="card object-contain h-48 sm:h-56 slide"
+            />
+          </div>
+          <div v-if="currentIndex === 1" key="2" class="justify-center flex">
+            <img
+              v-lazy="`${product.images[1]}?tr=h-288,fo-auto`"
+              alt="product"
+              class="card object-contain h-48 sm:h-56 slide"
+            />
+          </div>
+        </transition-group>
+        <!-- <transition name="slide">
+          
+        </transition> -->
       </div>
 
       <div class="p-2 sm:p-4">
@@ -75,7 +94,7 @@
           <div class="hidden sm:block">
             <!-- View smilar button start-->
 
-            <nuxt-link
+            <!-- <nuxt-link
               :to="`/search/${product.brand && product.brand.name}`"
               class="flex justify-end"
             >
@@ -108,7 +127,7 @@
                 </svg>
                 <span class="ps-2 text-xs whitespace-nowrap">View similar</span>
               </div>
-            </nuxt-link>
+            </nuxt-link> -->
 
             <!-- View smilar button end-->
 
@@ -361,6 +380,8 @@ export default {
 
   data() {
     return {
+      back: false,
+      currentIndex: 0,
       isActive: false,
       // isWishlist:false,
       products: null,
@@ -386,15 +407,23 @@ export default {
   methods: {
     ...mapMutations({ setErr: 'setErr', success: 'success' }),
     onMouseOutImage() {
-      if (this.product.images.length > 1) this.featuredImage = this.product.img
+      if (this.product.images.length > 1) {
+        this.back = true
+        this.currentIndex = 0
+        // this.featuredImage = this.product.img
+      }
     },
 
     onMouseOverImage() {
+      console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz')
       if (this.product.images.length > 1) {
-        const secondImage = this.product.images.filter((f) => {
-          return f !== this.product.img
-        }, {})
-        this.featuredImage = secondImage[0]
+        this.back = false
+        this.currentIndex = 1
+
+        // const secondImage = this.product.images.filter((f) => {
+        //   return f !== this.product.img
+        // }, {})
+        // this.featuredImage = secondImage[0]
       }
     },
 
@@ -436,6 +465,36 @@ export default {
 </script>
 
 <style scoped>
+.div-slider {
+  overflow: hidden;
+  position: relative;
+}
+
+.div-slider .card {
+  position: absolute;
+}
+.slide-leave-active,
+.slide-enter-active {
+  transition: 1s;
+}
+.slide-enter {
+  transform: translate(100%, 0);
+}
+.slide-leave-to {
+  transform: translate(-100%, 0);
+}
+
+.slideback-leave-active,
+.slideback-enter-active {
+  transition: 1s;
+}
+.slideback-enter {
+  transform: translate(-100%, 0);
+}
+.slideback-leave-to {
+  transform: translate(100%, 0);
+}
+
 @media (min-width: 1024px) {
   .desktop-height {
     height: 13.5rem;
