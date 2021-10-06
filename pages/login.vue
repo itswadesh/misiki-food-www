@@ -290,6 +290,7 @@ export default {
       //   // Send response to server
       const onetap = await this.$post('user/googleOneTap', response)
       await this.$store.dispatch('auth/fetch')
+      await this.$store.dispatch('cart/fetch')
     })
   },
 
