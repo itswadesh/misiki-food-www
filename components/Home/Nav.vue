@@ -19,7 +19,7 @@
       class="z-40 w-full px-2 pb-2 lg:pb-0 shadow-xs sm:shadow-md lg:px-3"
     >
       <div class="flex flex-row items-center justify-between">
-        <div class="flex flex-row items-center space-x-2">
+        <div class="flex flex-row items-center">
           <button
             aria-label="Open Menu"
             class="lg:hidden focus:outline-none"

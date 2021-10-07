@@ -3,7 +3,7 @@
     <Megamenu class="hidden w-full xl:flex" :brand="$route.query.brand" />
 
     <MobileFilters
-      class="sticky top-0 z-20 flex-none mt-16 md:hidden"
+      class="sticky top-0 z-20 flex-none mt-16 lg:hidden"
       :count="productCount"
       :facets="facets"
       :fl="fl"
@@ -13,7 +13,7 @@
 
     <div class="flex">
       <DesktopFilters
-        class="sticky top-0 hidden md:block"
+        class="sticky top-0 hidden lg:block"
         :facets="facets"
         :fl="fl"
         @clearAllFilters="clearAllFilters"
@@ -21,7 +21,7 @@
 
       <div class="w-full">
         <HeaderBody
-          class="hidden md:block"
+          class="hidden lg:block"
           :category="category"
           :count="productCount"
           :fl="fl"
@@ -64,10 +64,10 @@
               px-3
               py-3
               sm:px-3
-              md:p-4
+              lg:p-4
               grid grid-cols-2
               gap-3
-              md:gap-4
+              lg:gap-4
               sm:grid-cols-3
               xl:grid-cols-4
               2xl:grid-cols-5

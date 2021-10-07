@@ -47,10 +47,7 @@
       <div v-else>
         <Nav class="fixed top-0 z-50 w-full" @showLogin="showLogin" />
 
-        <Nuxt
-          class="w-full"
-          :class="!settings.id ? 'mt-36 lg:mt-28' : 'mt-28 lg:mt-20'"
-        />
+        <Nuxt class="w-full mt-20" />
       </div>
     </div>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto w-full p-2.5 sm:p-10 text-gray-800 bg-white">
+  <div class="p-2 sm:p-3 text-gray-800 bg-transparent">
     <div class="mb-2 flex flex-col justify-between lg:flex-row lg:space-x-10">
       <div class="w-full lg:w-4/5">
         <h1
@@ -479,12 +479,12 @@
         googleTranslateElementInit
       </button> -->
 
-      <div class="mb-2 flex flex-row items-center space-x-2 max-w-max">
-        <div v-for="(i, ix) in icons" :key="ix" class="mb-1">
+      <div class="flex flex-row items-center space-x-2 max-w-max">
+        <div v-for="(i, ix) in icons" :key="ix" class="mb-2">
           <img
             v-lazy="`${i.img}?tr=w-36,h-36,fo-auto`"
             :alt="i.alt"
-            class="h-9 w-9 bg-white"
+            class="h-9 w-9 bg-white object-contain"
           />
         </div>
       </div>
@@ -534,8 +534,8 @@ export default {
       year: new Date().getFullYear(),
       // popularSearches: null,
       icons: [
-        { img: '/img/payment/mastercard.png', alt: 'mastercard' },
         { img: '/img/payment/rupay.svg', alt: 'rupay' },
+        { img: '/img/payment/mastercard.png', alt: 'mastercard' },
         { img: '/img/payment/visa.png', alt: 'visa' },
         { img: '/img/payment/american-express.svg', alt: 'american-express' },
         { img: '/img/payment/paypal.svg', alt: 'paypal' },
