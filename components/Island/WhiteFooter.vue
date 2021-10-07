@@ -562,7 +562,9 @@ export default {
     },
   },
 
-  mounted() {
+  async mounted() {
+    await this.$store.dispatch('cart/fetch')
+
     const getGDPRPreference = localStorage.getItem('GDPR:preference')
     // console.log('getGDPRPreference...........', getGDPRPreference)
     if (
