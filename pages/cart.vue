@@ -46,7 +46,7 @@
 
           <CartItem v-for="(item, ix) in cart.items" :key="ix" :item="item" />
 
-          <Weprovides />
+          <!-- <Weprovides /> -->
         </div>
 
         <div class="lg:w-1/3">
@@ -67,7 +67,7 @@
 import { mapGetters } from 'vuex'
 // import CartPageSkeleton from '~/components/AllSkeletons/CartPageSkeleton'
 import CartItem from '~/components/Cart/CartItem.vue'
-import Weprovides from '~/components/Weprovides.vue'
+// import Weprovides from '~/components/Weprovides.vue'
 import PriceDetails from '~/components/Cart/PriceDetails.vue'
 import EmptyCart from '~/components/Cart/EmptyCart.vue'
 const CheckoutHeader = () => import('~/components/Checkout/CheckoutHeader.vue')
@@ -77,7 +77,7 @@ export default {
     CheckoutHeader,
     // CartPageSkeleton,
     CartItem,
-    Weprovides,
+    // Weprovides,
     PriceDetails,
     EmptyCart,
   },
