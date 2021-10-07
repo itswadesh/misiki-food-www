@@ -1,6 +1,5 @@
 <template>
   <div class="z-auto pb-0 bg-gray-50">
-    <Megamenu class="hidden xl:flex" :brand="brand.id" />
     <HeroSlider
       v-if="sliderBanners && sliderBanners.length"
       :banners="sliderBanners"
@@ -31,7 +30,6 @@
 </template>
 
 <script>
-import Megamenu from '~/components/Home/Megamenu.vue'
 import HeroSlider from '~/components/Home/HeroSlider.vue'
 import AllBrands from '~/components/Home/AllBrands.vue'
 import HeroBanners from '~/components/Home/HeroBanners.vue'
@@ -48,7 +46,6 @@ import WeProvides from '~/components/Home/WeProvides.vue'
 import BrandInformation from '~/components/Home/BrandInformation.vue'
 export default {
   components: {
-    Megamenu,
     HeroSlider,
     AllBrands,
     HeroBanners,

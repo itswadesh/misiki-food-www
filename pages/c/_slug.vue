@@ -1,7 +1,5 @@
 <template>
   <section>
-    <Megamenu class="hidden w-full xl:flex" :brand="$route.query.brand" />
-
     <MobileFilters
       class="sticky top-0 z-20 flex-none mt-16 lg:hidden"
       :count="productCount"
@@ -120,7 +118,6 @@ import { DESCRIPTION, KEYWORDS } from '~/shared/config'
 // import ProductCardEs from '~/components/Listing/ProductCardEs.vue'
 import HomePageProduct from '~/components/Home/HomePageProduct.vue'
 import ProductSkeleton from '~/components/ProductSkeleton.vue'
-import Megamenu from '~/components/Home/Megamenu.vue'
 import HeaderBody from '~/components/HeaderBody.vue'
 import Pagination from '~/shared/components/ui/Pagination.vue'
 
@@ -130,7 +127,6 @@ export default {
     ProductSkeleton,
     HomePageProduct,
     // ProductCardEs,
-    Megamenu,
     HeaderBody,
   },
   mixins: [c],

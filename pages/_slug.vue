@@ -1,7 +1,5 @@
 <template>
   <div class="pb-10 bg-white sm:pb-32">
-    <Megamenu class="hidden border-b xl:flex" />
-
     <!-- <div v-if="loading"  class="flex flex-col mt-32 xl:flex-row sm:mt-5">
         <DetailsPageLeftSkeleton class="xl:w-2/5" />
         <DetailsSkeleton class="-mt-1 xl:w-3/5" />
@@ -178,7 +176,6 @@
 <script>
 import { mapMutations } from 'vuex'
 import Share from '~/components/ProductDetails/Share.vue'
-import Megamenu from '~/components/Home/Megamenu.vue'
 import ProductImages from '~/components/ProductDetails/ProductImages.vue'
 import ProductRight from '~/components/ProductDetails/ProductRight.vue'
 import ProductDetailSpecs from '~/components/ProductDetails/ProductDetailSpecs.vue'
@@ -201,7 +198,6 @@ export default {
     BuyNow,
     DetailsPageLeftSkeleton,
     RatingAndReviews,
-    Megamenu,
     ProductImages,
     ProductRight,
     ProductDetailSpecs,

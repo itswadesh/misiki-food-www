@@ -1,6 +1,5 @@
 <template>
   <div class="z-auto pb-0 bg-gray-50">
-    <Megamenu class="hidden xl:flex" :brand="brand.id" />
     <HeroSlider
       v-if="sliderBanners && sliderBanners.length"
       :banners="sliderBanners"
@@ -31,7 +30,6 @@
 </template>
 
 <script>
-import Megamenu from '~/components/Home/Megamenu.vue'
 import HeroSlider from '~/components/Home/HeroSlider.vue'
 import AllBrands from '~/components/Home/AllBrands.vue'
 import HeroBanners from '~/components/Home/HeroBanners.vue'
@@ -46,9 +44,9 @@ import VideoBanner from '~/components/Home/VideoBanner.vue'
 import HeroBannersSlider from '~/components/Home/HeroBannersSlider.vue'
 import WeProvides from '~/components/Home/WeProvides.vue'
 import BrandInformation from '~/components/Home/BrandInformation.vue'
+
 export default {
   components: {
-    Megamenu,
     HeroSlider,
     AllBrands,
     HeroBanners,
@@ -59,6 +57,7 @@ export default {
     VideoBanner,
     WeProvides,
   },
+
   async asyncData({ params, app, store, error }) {
     let brand = {}
     const client = app.apolloProvider.defaultClient
@@ -79,6 +78,7 @@ export default {
       store.state.store || {} // err = null
     return { brand, title, keywords, description, favicon, logoMobile }
   },
+
   data() {
     return {
       hotProducts: null,
@@ -94,6 +94,7 @@ export default {
       brand: null,
     }
   },
+
   head() {
     const host = process.server
       ? this.$ssrContext.req.headers.host
@@ -145,20 +146,24 @@ export default {
       ],
     }
   },
+
   computed: {
     user() {
       return this.$store.state.auth.user
     },
   },
+
   mounted() {
     window.addEventListener('scroll', this.scrollListener)
   },
+
   created() {
     this.getBanners()
     this.getHotProducts()
     this.getYouMayLikeProducts()
     this.getBrands()
   },
+
   methods: {
     async getBrands() {
       // this.loading = true
@@ -190,6 +195,7 @@ export default {
         // this.loading = false
       }
     },
+
     async getBanners() {
       this.loading = true
       // this.skeleton = true
@@ -252,6 +258,7 @@ export default {
         // this.skeleton = false
       }
     },
+
     scrollListener() {
       if (window.scrollY > 480) {
         // console.log('Naman')
@@ -260,6 +267,7 @@ export default {
         this.visible = false
       }
     },
+
     async getYouMayLikeProducts() {
       this.loading = true
       try {
@@ -281,6 +289,7 @@ export default {
         this.loading = false
       }
     },
+
     async getHotProducts() {
       this.loading = true
       try {

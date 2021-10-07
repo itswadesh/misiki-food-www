@@ -1,7 +1,5 @@
 <template>
   <div>
-    <Megamenu class="hidden w-full xl:flex" />
-
     <HeroSlider v-if="brand && brand.img" :banners="[{ img: brand.img }]" />
 
     <MobileFilters
@@ -117,7 +115,6 @@ import { DESCRIPTION, KEYWORDS, sharingLogo } from '~/shared/config'
 import HomePageProduct from '~/components/Home/HomePageProduct.vue'
 // import ProductCardEs from '~/components/Listing/ProductCardEs.vue'
 import ProductSkeleton from '~/components/ProductSkeleton.vue'
-import Megamenu from '~/components/Home/Megamenu.vue'
 import HeaderBody from '~/components/HeaderBody.vue'
 import Pagination from '~/shared/components/ui/Pagination.vue'
 import HeroSlider from '~/components/Home/HeroSlider.vue'
@@ -128,7 +125,6 @@ export default {
     ProductSkeleton,
     HomePageProduct,
     // ProductCardEs,
-    Megamenu,
     HeaderBody,
     HeroSlider,
   },

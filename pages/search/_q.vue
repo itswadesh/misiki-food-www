@@ -1,7 +1,5 @@
 <template>
   <div>
-    <Megamenu class="hidden w-full xl:flex" />
-
     <MobileFilters
       class="sticky top-0 z-20 flex-none mt-16 md:hidden"
       :count="productCount"
@@ -127,7 +125,6 @@ import Pagination from '~/shared/components/ui/Pagination'
 import c from '~/mixins/c.js'
 import HomePageProduct from '~/components/Home/HomePageProduct.vue'
 // import ProductCardEs from '~/components/Listing/ProductCardEs.vue'
-import Megamenu from '~/components/Home/Megamenu.vue'
 import HeaderBody from '~/components/HeaderBody.vue'
 import QuickView from '~/components/QuickView.vue'
 import CleanModal from '~/shared/components/ui/CleanModal.vue'
@@ -138,7 +135,6 @@ export default {
     QuickView,
     //  ProductCardEs
     HomePageProduct,
-    Megamenu,
     HeaderBody,
   },
 
