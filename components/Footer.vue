@@ -27,5 +27,8 @@ export default {
       return this.$store.state.store || {}
     },
   },
+  async mounted() {
+    await this.$store.dispatch('cart/fetch')
+  },
 }
 </script>
