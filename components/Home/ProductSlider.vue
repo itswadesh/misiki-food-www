@@ -300,24 +300,6 @@ export default {
 
 <style scoped>
 ::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  --tw-divide-opacity: 1;
-  border-color: rgba(209, 213, 219, var(--tw-divide-opacity));
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  --tw-divide-opacity: 1;
-  border-color: rgba(209, 213, 219, var(--tw-divide-opacity));
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  --tw-divide-opacity: 1;
-  border-color: rgba(209, 213, 219, var(--tw-divide-opacity));
+  width: 0px;
 }
 </style>

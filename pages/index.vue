@@ -1,7 +1,5 @@
 <template>
   <div class="bg-white">
-    <Megamenu class="hidden xl:flex px-10" />
-
     <HeroSlider :banners="sliderBanners" class="mb-5 md:mb-10" />
 
     <div class="container mx-auto">
@@ -62,7 +60,6 @@
 </template>
 
 <script>
-import Megamenu from '~/components/Home/Megamenu.vue'
 import HeroSlider from '~/components/Home/HeroSlider.vue'
 import HeroBanners from '~/components/Home/HeroBanners.vue'
 import Categories from '~/components/Home/Categories.vue'
@@ -82,7 +79,6 @@ import { TITLE, DESCRIPTION, KEYWORDS } from '~/shared/config'
 
 export default {
   components: {
-    Megamenu,
     HeroSlider,
     HeroBanners,
     Categories,

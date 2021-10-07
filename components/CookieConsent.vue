@@ -39,7 +39,17 @@
     <CleanModal :show="showCookieSetting" title="Allow Cookies">
       <!-- Real Data section start  -->
 
-      <div class="p-5 sm:p-10 max-w-2xl bg-gray-900 text-white">
+      <div
+        class="
+          p-5
+          sm:p-10
+          max-w-2xl
+          bg-gray-900
+          text-white
+          max-height
+          overflow-y-auto
+        "
+      >
         <div class="text-center">
           <h1 class="mb-2.5 sm:mb-10 text-xl font-medium tracking-wide">
             Cookie settings
@@ -312,5 +322,11 @@ export default {
 <style scoped>
 .button {
   @apply m-2.5 font-semibold py-2 px-8  border-2 border-white rounded-full bg-transparent hover:bg-white text-sm sm:text-base text-white hover:text-gray-900 transition duration-300 focus:outline-none tracking-wide;
+}
+.max-height {
+  max-height: 85vh;
+}
+::-webkit-scrollbar {
+  width: 0px;
 }
 </style>

@@ -469,15 +469,12 @@
           space-x-5
         "
       >
-        <div id="google_translate_element"></div>
+        <div id="google_translate_element" class="hidden lg:block"></div>
 
         <div v-if="visitorCount">Visitors : {{ visitorCount }}</div>
       </div>
 
       <!-- <LanguageSwitch v-if="loadedTranslate" /> -->
-      <!-- <button @click="googleTranslateElementInit">
-        googleTranslateElementInit
-      </button> -->
 
       <div class="flex flex-row items-center space-x-2 max-w-max">
         <div v-for="(i, ix) in icons" :key="ix" class="mb-2">
@@ -502,7 +499,7 @@
         space-x-5
       "
     >
-      <div id="google_translate_element"></div>
+      <div id="google_translate_element" class="lg:hidden"></div>
 
       <div v-if="visitorCount">Visitors : {{ visitorCount }}</div>
     </div>

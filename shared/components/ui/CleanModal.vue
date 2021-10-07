@@ -18,7 +18,7 @@
     >
       <div
         class="
-          max-height max-w-max
+          max-w-max
           text-gray-700
           overflow-hidden
           inline-block
@@ -51,11 +51,5 @@ export default {
 .frosted {
   backdrop-filter: blur(12px);
   background-color: rgba(0, 0, 0, 0.7);
-}
-.max-height {
-  max-height: 85vh;
-}
-::-webkit-scrollbar {
-  width: 0px;
 }
 </style>

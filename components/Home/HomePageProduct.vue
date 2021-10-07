@@ -94,6 +94,8 @@
           <div class="hidden sm:block">
             <!-- View smilar button start-->
 
+            <div class="h-rem-similar w-full"></div>
+
             <!-- <nuxt-link
               :to="`/search/${product.brand && product.brand.name}`"
               class="flex justify-end"
@@ -133,7 +135,7 @@
 
             <!-- Wishlist start-->
 
-            <div class="h-rem w-full"></div>
+            <div class="h-rem-wishlist w-full"></div>
             <!-- <button
               class="
                 z-30
@@ -516,7 +518,10 @@ export default {
   padding-left: 0px;
   justify-content: center;
 }
-.h-rem {
+.h-rem-wishlist {
   height: 2.75rem;
+}
+.h-rem-similar {
+  height: 1.75rem;
 }
 </style>
