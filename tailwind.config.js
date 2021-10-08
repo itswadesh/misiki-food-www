@@ -26,6 +26,7 @@ module.exports = {
         scale: 'scale 6s ease-in infinite',
         fade: 'fade 6s linear infinite',
         dropdown: 'dropdown 0.3s linear',
+        shiftup: 'dropdown 0.3s linear',
       },
 
       keyframes: {
@@ -51,6 +52,11 @@ module.exports = {
           '0%': { transform: 'translateY(-10px)', opacity: '0' },
           '50%': { transform: 'translateY(-5px)', opacity: '0.3' },
           '100%': { transform: 'translateY(0px)', opacity: '1' },
+        },
+        shiftup: {
+          '0%': { transform: 'translateY(0px)', opacity: '1' },
+          '50%': { transform: 'translateY(5px)', opacity: '0.3' },
+          '100%': { transform: 'translateY(10px)', opacity: '0' },
         },
       },
     },

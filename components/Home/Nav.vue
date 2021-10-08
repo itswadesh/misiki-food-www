@@ -15,10 +15,8 @@
       We are upgrading. Will not take much time.
     </div>
 
-    <header
-      class="z-40 w-full px-2 pb-2 lg:pb-0 shadow-xs sm:shadow-md lg:px-3"
-    >
-      <div class="flex flex-row items-center justify-between">
+    <header class="z-40 w-full p-2 lg:p-3 shadow-xs sm:shadow-md">
+      <div class="mb-2 lg:mb-0 flex flex-row items-center justify-between">
         <div class="flex flex-row items-center">
           <button
             aria-label="Open Menu"
@@ -68,16 +66,16 @@
               v-if="store.logo"
               v-lazy="`${store.logo}?tr=h-80,fo-auto`"
               alt="store logo"
-              class="object-contain h-16 md:h-20"
+              class="object-contain h-10 lg:h-16"
             />
 
             <h1
               v-else
               class="
                 w-28
-                md:w-40
+                lg:w-40
                 text-lg
-                md:text-2xl
+                lg:text-2xl
                 text-transparent
                 bg-clip-text bg-gradient-to-br
                 from-primary-500
@@ -106,7 +104,7 @@
             justify-between
             flex-shrink-0
             ms-10
-            me-3
+            me-1
             max-w-max
             space-x-5
           "

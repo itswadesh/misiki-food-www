@@ -2,7 +2,8 @@
   <aside
     class="
       fixed
-      lg:stickey lg:top-16
+      lg:stickey
+      top-rem
       inset-0
       lg:inset-y-0
       z-30
@@ -580,5 +581,11 @@ export default {
 .frosted {
   backdrop-filter: blur(15px);
   background-color: hsla(0, 0%, 100%, 0.75);
+}
+
+@media (min-width: 1024px) {
+  .top-rem {
+    top: 5.7rem;
+  }
 }
 </style>

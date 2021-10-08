@@ -1,67 +1,51 @@
 <template>
-  <section class="container mx-auto">
-    <!-- <nuxt-link
-      :to="'/'"
-      class="relative w-full py-2 mb-6 text-blue-500 underline top-2 sm:hidden"
-      >Back to home
-    </nuxt-link> -->
-
-    <div
+  <div
+    class="
+      grid grid-cols-1
+      gap-4
+      sm:gap-5 sm:grid-cols-2
+      lg:grid-cols-2
+      xl:grid-cols-3
+    "
+  >
+    <nuxt-link
+      v-for="(i, ix) in dashboardMenuItems"
+      :key="ix"
+      :to="i.link"
       class="
-        mb-5
-        sm:mb-10
-        grid grid-cols-1
-        gap-4
-        sm:gap-5 sm:grid-cols-2
-        lg:grid-cols-2
-        xl:grid-cols-3
+        transition
+        duration-300
+        ease-in-out
+        transform
+        bg-white
+        border
+        rounded-md
+        cursor-pointer
+        shadow-md
+        hover:shadow-lg
       "
     >
-      <nuxt-link
-        v-for="(i, ix) in dashboardMenuItems"
-        :key="ix"
-        :to="i.link"
-        class="
-          transition
-          duration-300
-          ease-in-out
-          transform
-          bg-white
-          border
-          rounded-md
-          cursor-pointer
-          shadow-md
-          hover:shadow-lg
-        "
-      >
-        <div class="flex flex-row items-start p-5">
-          <span
-            class="w-20 h-20 my-auto text-primary-500 me-5"
-            v-html="i.icon"
-          />
+      <div class="flex flex-row items-start p-5">
+        <span class="w-20 h-20 my-auto text-primary-500 me-5" v-html="i.icon" />
 
-          <div class="flex-1 flex flex-col">
-            <span class="mb-2 text-lg font-semibold text-primary-500">{{
-              i.text
-            }}</span>
+        <div class="flex-1 flex flex-col">
+          <span class="mb-2 text-lg font-semibold text-primary-500">{{
+            i.text
+          }}</span>
 
-            <span class="text-xs md:text-sm text-gray-500">
-              {{ i.description }}
-            </span>
-          </div>
+          <span class="text-xs md:text-sm text-gray-500">
+            {{ i.description }}
+          </span>
         </div>
-      </nuxt-link>
-    </div>
-
-    <FAQ />
-  </section>
+      </div>
+    </nuxt-link>
+  </div>
 </template>
 <script>
-import FAQ from '~/components/User/Dashboard/FAQ.vue'
 import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
-  components: { FAQ, NuxtLink },
+  components: { NuxtLink },
 
   middleware: ['isAuth'],
 

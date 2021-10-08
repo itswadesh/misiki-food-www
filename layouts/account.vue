@@ -8,7 +8,7 @@
       </div>
 
       <div class="flex-1 min-h-screen">
-        <nuxt class="container mx-auto p-2 sm:p-10 flex-1 h-full" />
+        <nuxt class="container mx-auto p-2 py-5 sm:p-10 flex-1 h-full" />
 
         <Footer class="mt-auto w-full" />
       </div>
@@ -41,12 +41,12 @@ export default {
 <style scoped>
 @media (max-width: 1024px) {
   .margin-top {
-    margin-top: 7rem;
+    margin-top: 6.5rem;
   }
 }
 @media (min-width: 1024px) {
   .margin-top {
-    margin-top: 5rem;
+    margin-top: 5.5rem;
   }
 }
 </style>

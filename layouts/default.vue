@@ -46,8 +46,8 @@
 
       <div v-else>
         <Nav class="fixed top-0 z-50 w-full" @showLogin="showLogin" />
-        <div class="mt-20">
-          <Megamenu class="hidden xl:flex px-10" />
+        <div class="mt-rem">
+          <Megamenu class="hidden lg:flex px-10" />
 
           <Nuxt class="w-full" />
         </div>
@@ -116,3 +116,16 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+@media (max-width: 1024px) {
+  .mt-rem {
+    margin-top: 6.55rem;
+  }
+}
+@media (min-width: 1024px) {
+  .mt-rem {
+    margin-top: 5.7rem;
+  }
+}
+</style>

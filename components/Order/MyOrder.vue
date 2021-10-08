@@ -1,7 +1,8 @@
 <template>
-  <div class="container w-full mx-auto">
+  <div class="container w-full mx-auto text-gray-800">
     <div class="z-0 lg:mx-auto lg:container">
       <!--  -->
+
       <OrderListSkeleton v-if="loading" />
 
       <div v-if="myOrders" class="w-full text-gray-800">
@@ -63,31 +64,8 @@
         <!--v-if="orders"  -->
 
         <div v-if="myOrders.count > 0">
-          <div
-            class="
-              relative
-              flex flex-row
-              justify-between
-              w-full
-              p-5
-              ps-8
-              mx-auto
-              bg-white
-              border
-              rounded-md
-              shadow-md
-            "
-          >
-            <div
-              class="
-                flex flex-row
-                justify-between
-                w-full
-                font-semibold
-                lg:justify-start lg:w-1/2
-              "
-            >
-              <!-- <div
+          <div class="mb-5 flex flex-row items-center justify-between w-full">
+            <!-- <div
                 class="relative flex-row flex-shrink-0 hidden lg:w-1/2 lg:flex"
               >
                 <input
@@ -114,19 +92,18 @@
                 </span>
               </div> -->
 
-              <nuxt-link
-                :to="localePath('cart')"
-                class="my-auto text-sm text-blue-400 underline lg:hidden"
-              >
-                Back to Cart
-              </nuxt-link>
+            <h2 class="text-xl sm:text-2xl font-semibold tracking-wide">
+              {{ myOrders.count }} Orders Placed
+            </h2>
 
-              <div class="flex flex-row">
-                <div class="tracking-wide">
-                  {{ myOrders.count }} Orders Placed
-                </div>
+            <nuxt-link
+              :to="localePath('cart')"
+              class="text-sm text-blue-400 underline lg:hidden"
+            >
+              Back to Cart
+            </nuxt-link>
 
-                <!-- <select
+            <!-- <select
                   name=""
                   id=""
                   class="text-sm bg-gray-200 border-0 rounded cursor-pointer ring-1 ring-gray-600 hover:shadow focus:outline-none lg:bg-white focus:ring-2 focus:ring-yellow-600"
@@ -135,10 +112,9 @@
                   <option value="1">2017-2018</option>
                   <option value="1">2018-2019</option>
                 </select> -->
-              </div>
-            </div>
+          </div>
 
-            <!-- <span
+          <!-- <span
               class="flex-row hidden my-auto text-sm bg-gray-200 border rounded lg:flex"
             >
               <select
@@ -157,7 +133,6 @@
                 <option class="mx-2 my-auto text-gray-600">Filter</option>
               </select>
             </span> -->
-          </div>
 
           <!-- v-ripple="'rgba(255, 255, 255, 0.5)'" -->
           <!-- <div class="flex flex-row justify-between p-1 my-4 lg:hidden">
@@ -183,180 +158,93 @@
               </div>
             </div>
           </div> -->
-          <!-- desktop view starts -->
 
-          <div v-if="myOrders" class="">
+          <div v-if="myOrders">
+            <!-- desktop view starts -->
+
             <div
               v-for="(order, ix) in myOrders.data"
               :key="ix + 's'"
-              class="hidden w-full mx-auto mb-2 lg:container lg:block"
+              class="hidden xl:block mb-5 sm:mb-10"
             >
-              <div class="flex items-center p-3 sm:p-5 text-sm text-gray-500">
-                <div>Order No: {{ order.orderNo }}</div>
+              <div
+                class="
+                  flex
+                  items-center
+                  justify-between
+                  mb-3
+                  sm:mb-5
+                  text-sm text-gray-500
+                "
+              >
+                <h6>Order No : {{ order.orderNo }}</h6>
 
-                <div class="ms-2 text-xs text-gray-400">
-                  Order Date: {{ order.createdAt | date }}
-                </div>
+                <h6>Order Date : {{ order.createdAt | date }}</h6>
               </div>
 
               <table
                 class="
                   min-w-full
+                  text-gray-500 text-start
+                  border border-gray-200
                   divide-y divide-gray-200
-                  border
                   rounded-md
                   shadow-md
                 "
               >
-                <thead class="bg-gray-50">
+                <thead
+                  class="
+                    text-xs
+                    rounded-t-md
+                    bg-gray-100
+                    whitespace-nowrap
+                    uppercase
+                  "
+                >
                   <tr>
                     <th
-                      scope="col"
-                      class="
-                        px-6
-                        py-3
-                        text-xs
-                        font-medium
-                        tracking-wider
-                        text-gray-500
-                        uppercase
-                        text-start
-                      "
+                      class="px-5 py-3 font-medium tracking-wider text-gray-500"
                     >
                       #
                     </th>
 
-                    <th
-                      scope="col"
-                      class="
-                        px-6
-                        py-3
-                        text-xs
-                        font-medium
-                        tracking-wider
-                        text-gray-500
-                        uppercase
-                        text-start
-                      "
-                    >
+                    <th class="p-3 font-medium tracking-wider text-gray-500">
                       Image
                     </th>
 
-                    <th
-                      scope="col"
-                      class="
-                        py-3
-                        pe-6
-                        text-xs
-                        font-medium
-                        tracking-wider
-                        text-gray-500
-                        uppercase
-                        text-start
-                      "
-                    >
+                    <th class="p-3 font-medium tracking-wider text-gray-500">
                       Name
                     </th>
 
-                    <th
-                      scope="col"
-                      class="
-                        px-6
-                        py-3
-                        text-xs
-                        font-medium
-                        tracking-wider
-                        text-gray-500
-                        uppercase
-                        text-start
-                      "
-                    >
+                    <th class="p-3 font-medium tracking-wider text-gray-500">
                       Qty
                     </th>
 
-                    <th
-                      scope="col"
-                      class="
-                        px-6
-                        py-3
-                        text-xs
-                        font-medium
-                        tracking-wider
-                        text-gray-500
-                        uppercase
-                        text-start
-                      "
-                    >
+                    <th class="p-3 font-medium tracking-wider text-gray-500">
                       Price
                     </th>
 
-                    <th
-                      scope="col"
-                      class="
-                        px-6
-                        py-3
-                        text-xs
-                        font-medium
-                        tracking-wider
-                        text-gray-500
-                        uppercase
-                        text-start
-                      "
-                    >
+                    <th class="p-3 font-medium tracking-wider text-gray-500">
                       Shipping
                     </th>
 
-                    <th
-                      scope="col"
-                      class="
-                        px-6
-                        py-3
-                        text-xs
-                        font-medium
-                        tracking-wider
-                        text-gray-500
-                        uppercase
-                        text-start
-                      "
-                    >
+                    <th class="p-3 font-medium tracking-wider text-gray-500">
                       Total
                     </th>
 
-                    <th
-                      scope="col"
-                      class="
-                        px-6
-                        py-3
-                        text-xs
-                        font-medium
-                        tracking-wider
-                        text-gray-500
-                        uppercase
-                        text-start
-                      "
-                    >
+                    <th class="p-3 font-medium tracking-wider text-gray-500">
                       Status
                     </th>
 
-                    <!-- <th
-                      scope="col"
-                      class="
-                        px-6
-                        py-3
-                        text-xs
-                        font-medium
-                        tracking-wider
-                        text-gray-500
-                        uppercase
-                        text-start
-                      "
-                    >
+                    <!-- <th  class=" p-3 font-medium tracking-wider text-gray-500">
                       Reviewed
                     </th> -->
                   </tr>
                 </thead>
 
-                <tbody class="bg-white divide-y divide-gray-200">
+                <tbody
+                  class="text-sm rounded-b-md bg-white divide-y divide-gray-200"
+                >
                   <!-- :class="{ 'bg-gray-100': ix % 2 == 0 }" -->
                   <tr
                     v-for="(i, iix) in order.orderItems"
@@ -366,35 +254,27 @@
                       go(`/my/order-details?orderId=${order.id}&itemId=${i.id}`)
                     "
                   >
-                    <td
-                      class="
-                        px-6
-                        py-4
-                        text-sm text-gray-900 text-start
-                        whitespace-nowrap
-                        hover:bg-gray-50
-                      "
-                    >
+                    <td class="px-5 py-3 whitespace-nowrap hover:bg-gray-50">
                       {{ iix + 1 }}
                     </td>
 
-                    <td class="text-sm text-gray-900 text-start">
+                    <td class="p-3">
                       <img
                         v-lazy="`${i.img}?tr=w-80,h-80,fo-auto`"
                         alt="🚀"
-                        class="object-cover w-20 h-20 p-1"
+                        class="object-contain w-20 h-20"
                       />
                     </td>
 
-                    <td class="text-sm text-gray-900 text-start" scope="col">
+                    <td class="p-3 w-60">
                       {{ i.name }}
                     </td>
 
-                    <td class="text-sm text-center text-gray-900" scope="col">
+                    <td class="p-3 whitespace-nowrap">
                       {{ i.qty }}
                     </td>
 
-                    <td class="text-sm text-center text-gray-900" scope="col">
+                    <td class="p-3 whitespace-nowrap">
                       {{
                         i.price
                           | currency(
@@ -404,7 +284,7 @@
                       }}
                     </td>
 
-                    <td class="text-sm text-center text-gray-900" scope="col">
+                    <td class="p-3 whitespace-nowrap">
                       {{
                         i.shippingCharge
                           | currency(
@@ -414,7 +294,7 @@
                       }}
                     </td>
 
-                    <td class="text-sm text-center text-gray-900" scope="col">
+                    <td class="p-3 whitespace-nowrap">
                       {{
                         i.total
                           | currency(
@@ -424,8 +304,10 @@
                       }}
                     </td>
 
-                    <td class="ps-4 text-sm text-gray-900" scope="col">
-                      <span class="text-primary-500">{{ i.status }}</span>
+                    <td class="p-3">
+                      <span class="text-primary-500 whitespace-nowrap">{{
+                        i.status
+                      }}</span>
 
                       <!-- <a
                         v-if="settings.liveCommerce"
@@ -438,7 +320,7 @@
                       <!-- :class="showDemoScheduler ? 'open' : 'close'" -->
                     </td>
 
-                    <!-- <td class="text-sm text-center text-gray-900" scope="col">
+                    <!-- <td class="p-3  whitespace-nowrap " >
                      
                     </td> -->
                   </tr>
@@ -527,111 +409,129 @@
               </div>
             </div> -->
             </div>
+
             <!-- desktop view ends -->
+
             <!-- mobile view starts -->
+
             <!-- {{select}} -->
+
             <div
               v-for="order in myOrders.data"
               :key="order.id"
-              class="
-                w-full
-                p-4
-                mt-3
-                text-sm text-gray-600
-                bg-white
-                rounded-lg
-                shadow
-                lg:hidden
-              "
+              class="xl:hidden"
             >
+              <div
+                class="
+                  flex
+                  items-center
+                  justify-between
+                  mb-3
+                  sm:mb-5
+                  text-sm text-gray-500
+                "
+              >
+                <h6>
+                  <span class="hidden sm:block">Order No :</span>
+                  {{ order.orderNo }}
+                </h6>
+
+                <h6>
+                  <span class="hidden sm:block">Order Date :</span>
+                  {{ order.createdAt | date }}
+                </h6>
+              </div>
+
               <div
                 v-for="i in order.orderItems"
                 :key="i.pid"
-                class=""
+                class="
+                  w-full
+                  p-4
+                  mb-5
+                  sm:mb-10
+                  text-sm text-gray-600
+                  bg-white
+                  border
+                  rounded-md
+                  shadow-md
+                "
                 @click="
                   go(`/my/order-details?orderId=${order.id}&itemId=${i.id}`)
                 "
               >
-                <div class="my-2">
-                  <div class="text-sm">
-                    <div class="text-sm">
-                      {{ i.name }}
-                    </div>
-                    <div class="flex flex-row text-xs w-full justify-between">
-                      <div class="text-gray-400">
-                        {{ order.createdAt | date }}
-                      </div>
-                      <div class="text-gray-400 ms-3">
-                        OrderNo: {{ order.orderNo }}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- v-if="order.tracking" -->
-
-                <div
-                  class="flex items-center justify-between my-3 text-gray-400"
-                >
+                <div class="flex items-start space-x-2 sm:space-x-5">
                   <img
                     v-lazy="`${i.img}?tr=w-64,fo-auto`"
                     alt="🚀"
-                    class="object-cover w-16"
+                    class="object-contain object-top w-12 h-12 sm:w-20 sm:h-20"
                   />
 
                   <div>
-                    Price:
-                    <b class="text-gray-500">
-                      {{
-                        i.price
-                          | currency(
-                            store.currencySymbol,
-                            store.currencyDecimals
-                          )
-                      }}
-                      * {{ i.qty }}
-                    </b>
-                  </div>
-                  <div>
-                    Delivery:
-                    <b class="text-gray-500">
-                      {{
-                        i.shippingCharge
-                          | currency(
-                            store.currencySymbol,
-                            store.currencyDecimals
-                          )
-                      }}
-                    </b>
-                  </div>
-                  <div>
-                    Total:
-                    <b class="text-gray-500">
-                      {{
-                        i.total
-                          | currency(
-                            store.currencySymbol,
-                            store.currencyDecimals
-                          )
-                      }}
-                    </b>
-                  </div>
-                </div>
-                <div
-                  class="flex items-center justify-between my-3 mt-5 text-sm"
-                >
-                  <div class="flex flex-row">
-                    Status:
-                    <span
-                      class="
-                        px-3
-                        my-auto
-                        text-primary-500
-                        focus:outline-none
-                        rounded-2xl
-                      "
-                    >
-                      {{ i.status }}
-                    </span>
+                    <h6 class="mb-3">
+                      {{ i.name }}
+                    </h6>
+
+                    <div class="flex flex-wrap text-sm">
+                      <div
+                        class="flex items-center mb-1 sm:mb-2 me-5 space-x-2"
+                      >
+                        <h6>Price :</h6>
+
+                        <b class="text-gray-500">
+                          {{
+                            i.price
+                              | currency(
+                                store.currencySymbol,
+                                store.currencyDecimals
+                              )
+                          }}
+                          * {{ i.qty }}
+                        </b>
+                      </div>
+
+                      <div
+                        class="flex items-center mb-1 sm:mb-2 me-5 space-x-2"
+                      >
+                        <h6>Delivery :</h6>
+
+                        <b class="text-gray-500">
+                          {{
+                            i.shippingCharge
+                              | currency(
+                                store.currencySymbol,
+                                store.currencyDecimals
+                              )
+                          }}
+                        </b>
+                      </div>
+
+                      <div
+                        class="flex items-center mb-1 sm:mb-2 me-5 space-x-2"
+                      >
+                        <h6>Total :</h6>
+
+                        <b class="text-gray-500">
+                          {{
+                            i.total
+                              | currency(
+                                store.currencySymbol,
+                                store.currencyDecimals
+                              )
+                          }}
+                        </b>
+                      </div>
+
+                      <div
+                        class="flex items-center mb-1 sm:mb-2 me-5 space-x-2"
+                      >
+                        <h6>Status :</h6>
+
+                        <b class="text-primary-500">
+                          {{ i.status }}
+                        </b>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -17,37 +17,32 @@
       "
     >
       <span>Frequently Asked Questions</span>
-      <hr class="mt-2.5 border-t-4 border-gray-800 opacity-50 w-20" />
+
+      <hr class="mt-5 border-t-4 border-gray-800 opacity-50 w-20" />
     </h1>
 
-    <div v-else class="mb-3 text-lg font-semibold tracking-wide">
+    <div
+      v-else
+      class="mb-3 sm:mb-5 text-xl sm:text-2xl font-semibold tracking-wide"
+    >
       Frequently Asked Questions
     </div>
 
-    <div class="border-l border-t border-r rounded-lg overflow-hidden">
+    <div
+      class="border-l border-t border-r rounded-md shadow-md overflow-hidden"
+    >
       <div
         v-for="(f, ix) in faqs.data"
         :key="ix"
-        class="border-b"
-        :class="f.opened ? 'bg-white' : 'bg-gray-50'"
-        @click="f.opened = !f.opened"
+        class="px-5 sm:px-8 border-b bg-white text-gray-700"
       >
         <div
-          class="
-            px-4
-            sm:px-8
-            pt-4
-            sm:pt-8
-            cursor-pointer
-            flex
-            items-start
-            justify-between
-          "
-          :class="f.opened ? 'pb-1' : 'pb-4 sm:pb-8'"
+          class="py-5 sm:py-8 flex items-center justify-between cursor-pointer"
+          @click="f.opened = !f.opened"
         >
-          <span class="flex-1 text-sm sm:text-base font-medium">
+          <h1 class="flex-1 text-sm sm:text-base font-medium me-2 sm:me-5">
             {{ f.question }}
-          </span>
+          </h1>
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -70,23 +65,20 @@
 
         <div
           v-if="f.opened"
-          class="
-            px-4
-            sm:px-8
-            pt-4
-            pb-4
-            sm:pb-8
-            text-gray-500 text-xs
-            sm:text-sm
-            animate-dropdown
+          class="overflow-hidden transition-all duration-1000 ease-in-out"
+          :class="
+            f.opened ? 'max-h-32 animate-dropdown' : 'max-h-0 animate-shiftup'
           "
         >
           {{ f.answer }}
+
+          <div class="h-5 sm:h-8 w-full bg-transparent"></div>
         </div>
       </div>
     </div>
   </section>
 </template>
+
 <script>
 export default {
   props: {
@@ -114,3 +106,5 @@ export default {
   },
 }
 </script>
+
+<style scoped></style>
