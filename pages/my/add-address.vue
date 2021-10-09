@@ -9,7 +9,9 @@
         text-gray-800
       "
     >
-      <h1 class="mb-2 sm:mb-0 font-semibold sm:text-xl">Add Address</h1>
+      <h1 class="mb-2 sm:mb-0 text-xl sm:text-2xl font-semibold tracking-wide">
+        Add Address
+      </h1>
 
       <nuxt-link :to="localePath('/my/manage-address')">
         <PrimaryButtonRounded

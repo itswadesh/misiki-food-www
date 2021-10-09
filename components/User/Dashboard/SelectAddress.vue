@@ -24,7 +24,7 @@
           <label class="flex flex-row items-start w-full cursor-pointer">
             <Radio
               v-model="selectedAddress"
-              class="mt-1.5"
+              class="mt-1"
               :value="a.id"
               name="group"
               @change="addressChanged"
@@ -262,7 +262,6 @@ export default {
       }).then(async (result) => {
         if (result.value) {
           try {
-            this.iconloading = true
             // this.$store.commit('clearErr')
             this.clearErr()
             await this.$post('address/deleteAddress', { id })
@@ -280,7 +279,6 @@ export default {
             // this.$store.commit('setErr', e)
             this.setErr(e)
           } finally {
-            this.iconloading = false
             // this.$store.commit('busy', false)
             this.busy(false)
           }

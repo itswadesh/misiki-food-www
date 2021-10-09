@@ -481,7 +481,7 @@
           <img
             v-lazy="`${i.img}?tr=w-36,h-36,fo-auto`"
             :alt="i.alt"
-            class="h-9 w-9 bg-white object-contain"
+            class="h-9 w-9 object-contain"
           />
         </div>
       </div>

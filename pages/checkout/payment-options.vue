@@ -319,11 +319,7 @@
           </div>
         </div>
 
-        <CheckoutSummary
-          class="bg-white rounded sm:hidden"
-          :loading="loading"
-          @submit="submit"
-        >
+        <CheckoutSummary class="sm:hidden" :loading="loading" @submit="submit">
           <span v-if="paymentMethod && paymentMethod.value === 'COD'"
             >Place Order</span
           >

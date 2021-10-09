@@ -11,9 +11,10 @@
         lg:text-sm
       "
     >
-      <div class="w-full lg:me-2 text-base font-normal text-gray-600 lg:w-auto">
+      <div class="w-full mb-2 text-base font-normal text-gray-600 lg:w-auto">
         Page {{ current }} of {{ count }}
       </div>
+
       <div class="flex flex-row justify-center w-full lg:w-auto">
         <button
           v-if="current > 1"
@@ -49,8 +50,10 @@
               d="M10 19l-7-7m0 0l7-7m-7 7h18"
             /></svg
           >&nbsp;
+
           <span>Previous</span>
         </button>
+
         <button
           v-for="i in pages"
           :key="i"
@@ -80,7 +83,9 @@
             {{ i }}
           </div>
         </button>
+
         <!-- inline-flex -->
+
         <button
           v-if="current < count"
           class="
@@ -103,7 +108,9 @@
           @click="$emit('change', current + 1)"
         >
           <span>Next</span>
+
           &nbsp;
+
           <svg
             class="w-5 h-5 me-1"
             xmlns="http://www.w3.org/2000/svg"
