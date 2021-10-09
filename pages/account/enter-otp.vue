@@ -204,7 +204,7 @@
               </div>
             </div>
 
-            <div class="flex justify-center">
+            <!-- <div class="flex justify-center">
               <Checkbox
                 ><div class="text-xs">
                   When you click on an
@@ -213,7 +213,7 @@
                   assent
                 </div>
               </Checkbox>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

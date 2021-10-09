@@ -485,11 +485,16 @@ export default {
         this.loading = true
         this.clearErr()
         const { paymentId, PayerID, token } = this.$route.query
-        this.order = await this.$post('pay/paypalExecute', {
-          PayerID,
-          paymentId,
-          token,
-        })
+        if (!PayerID || !paymentId)
+          this.order = await this.$post('pay/paypalCancel', {
+            token,
+          })
+        else
+          this.order = await this.$post('pay/paypalExecute', {
+            PayerID,
+            paymentId,
+            token,
+          })
         // this.order = (
         //   await this.$apollo.query({
         //     query: ORDER,

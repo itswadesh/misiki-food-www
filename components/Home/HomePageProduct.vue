@@ -417,7 +417,6 @@ export default {
     },
 
     onMouseOverImage() {
-      console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz')
       if (this.product.images.length > 1) {
         this.back = false
         this.currentIndex = 1

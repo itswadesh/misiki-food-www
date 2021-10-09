@@ -123,7 +123,7 @@
             </nuxt-link>
 
             <nuxt-link
-              to="/account/signup"
+              :to="`/account/signup?ref=${$route.query.ref}`"
               class="
                 text-end text-primary-500
                 hover:text-primary-700 hover:underline
