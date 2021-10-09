@@ -89,11 +89,16 @@
 
         <!-- qty button  -->
         <div
-          class="flex flex-row flex-wrap items-center justify-between w-full"
+          class="
+            flex flex-col
+            sm:flex-row sm:items-center sm:justify-between
+            w-full
+          "
         >
           <div
             class="
-              mb-1
+              mb-2
+              sm:mb-0
               flex flex-row
               items-center
               whitespace-nowrap
@@ -209,7 +214,7 @@
           <!-- {{ item.options }}=={{ item.vendor.id }} -->
 
           <!-- remove icon -->
-          <div class="mb-1 flex flex-row items-center max-w-max">
+          <div class="flex flex-row items-center max-w-max">
             <WishButton
               :pid="item.pid"
               class="
