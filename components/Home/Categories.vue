@@ -43,7 +43,7 @@
           justify-items-center
         "
       >
-        <div v-for="c in categories.data" v-if="c.img" :key="c.id">
+        <div v-for="c in categories.data" v-if="c.imgCdn" :key="c.id">
           <nuxt-link
             :to="localePath(`/c/${c.slug}`)"
             class="
@@ -76,7 +76,7 @@
               "
             >
               <img
-                v-lazy="`${c.img}?tr=w-144,h-144,fo-auto`"
+                v-lazy="`${c.imgCdn}?tr=w-144,h-144,fo-auto`"
                 alt="categories"
                 class="
                   h-full

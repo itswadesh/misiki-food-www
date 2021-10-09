@@ -1,7 +1,7 @@
 <template>
   <div class="product">
-    <div v-if="'/images' + product.img" class="image pull-up">
-      <img v-lazy="`${product.img}?tr=w-300,h-200,fo-auto`" alt="🚀" />
+    <div v-if="'/images' + product.imgCdn" class="image pull-up">
+      <img v-lazy="`${product.imgCdn}?tr=w-300,h-200,fo-auto`" alt="" />
     </div>
     <div class="product-name">
       <strong>{{ product.name }}</strong>

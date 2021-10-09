@@ -106,15 +106,15 @@
           class="w-full lg:w-1/2"
           :class="ix % 2 === 0 ? 'lg:pe-5' : 'lg:order-1 lg:ps-5'"
         >
-          <div v-if="i.img2" class="grid grid-rows-2 gap-2.5 sm:gap-5">
+          <div v-if="i.imgCdn2" class="grid grid-rows-2 gap-2.5 sm:gap-5">
             <img
-              v-lazy="i.img1"
+              v-lazy="i.imgCdn1"
               alt=" "
               class="sm:h-96 object-contain sm:object-cover w-full"
             />
 
             <img
-              v-lazy="i.img2"
+              v-lazy="i.imgCdn2"
               alt=" "
               class="sm:h-96 object-contain sm:object-cover w-full"
             />
@@ -122,7 +122,7 @@
 
           <div v-else>
             <img
-              v-lazy="i.img1"
+              v-lazy="i.imgCdn1"
               alt=" "
               class="sm:h-96 object-contain sm:object-cover"
             />

@@ -39,7 +39,7 @@
       >
         <!-- <img
           v-if="!b.isMobile"
-          v-lazy="`${b.img}?tr=h-384,fo-auto`"
+          v-lazy="`${b.imgCdn}?tr=h-384,fo-auto`"
           class="
             block
             sm:hidden
@@ -54,7 +54,7 @@
         /> -->
 
         <img
-          v-lazy="`${b.img}?tr=h-384,fo-auto`"
+          v-lazy="`${b.imgCdn}?tr=h-384,fo-auto`"
           class="
             hidden
             sm:block

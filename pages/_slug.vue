@@ -31,9 +31,9 @@
               v-if="product"
               :loading="$fetchState.pending"
               class="h-auto mt-5 nowrap lg:mt-0 mb-5 md:mb-10"
-              :images="product && product.images"
+              :images="product && product.imagesCdn"
               :pid="product.id"
-              :img="product.img"
+              :img="product.imgCdn"
               :host="host"
               :product="product"
               :exist-in-wishlist="checkWishlist"
@@ -260,7 +260,7 @@ export default {
         name: product.name,
         description: product.description,
         sku: product.sku,
-        image: product.img,
+        image: product.imgCdn,
         gtin8: product.id,
         brand: product.brand && product.brand.name,
         aggregateRating: {
@@ -379,7 +379,7 @@ export default {
           {
             name: 'og_image',
             property: 'og:image',
-            content: this.product.img || this.logoMobile,
+            content: this.product.imgCdn || this.logoMobile,
           },
           {
             property: 'og:image:width',
@@ -403,7 +403,7 @@ export default {
           },
           {
             name: 'twitter:imagev-lazy',
-            content: this.product.img || this.logoMobile,
+            content: this.product.imgCdn || this.logoMobile,
           },
           // Google / Schema.org markup:
           {
@@ -422,7 +422,7 @@ export default {
           {
             hid: 'product_image',
             itemprop: 'image',
-            content: this.product.img || this.logoMobile,
+            content: this.product.imgCdn || this.logoMobile,
           },
           {
             hid: 'product_price',

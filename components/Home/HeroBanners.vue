@@ -41,8 +41,8 @@
           class="w-auto col-span-2 geeks rounded"
         >
           <img
-            v-lazy="`${b.data[0].img}?tr=w-760,h-390,fo-auto`"
-            alt="🚀"
+            v-lazy="`${b.data[0].imgCdn}?tr=w-760,h-390,fo-auto`"
+            alt=""
             class="h-full w-full object-cover rounded"
           />
         </a>
@@ -52,8 +52,8 @@
           class="w-auto col-span-2 geeks rounded"
         >
           <img
-            v-lazy="`${b.data[0].img}?tr=w-760,h-390,fo-auto`"
-            alt="🚀"
+            v-lazy="`${b.data[0].imgCdn}?tr=w-760,h-390,fo-auto`"
+            alt=""
             class="h-full w-full object-cover rounded"
           />
         </nuxt-link>
@@ -64,8 +64,8 @@
           class="w-auto col-span-2 geeks rounded"
         >
           <img
-            v-lazy="`${b.data[1].img}?tr=w-760,h-390,fo-auto`"
-            alt="🚀"
+            v-lazy="`${b.data[1].imgCdn}?tr=w-760,h-390,fo-auto`"
+            alt=""
             class="h-full w-full object-cover rounded"
           />
         </a>
@@ -75,8 +75,8 @@
           class="w-auto col-span-2 geeks rounded"
         >
           <img
-            v-lazy="`${b.data[1].img}?tr=w-760,h-390,fo-auto`"
-            alt="🚀"
+            v-lazy="`${b.data[1].imgCdn}?tr=w-760,h-390,fo-auto`"
+            alt=""
             class="h-full w-full object-cover rounded"
           />
         </nuxt-link>
@@ -87,8 +87,8 @@
           class="w-auto col-span-1 geeks rounded"
         >
           <img
-            v-lazy="`${b.data[2].img}?tr=w-370,h-390,fo-auto`"
-            alt="🚀"
+            v-lazy="`${b.data[2].imgCdn}?tr=w-370,h-390,fo-auto`"
+            alt=""
             class="h-full w-full object-cover rounded"
           />
         </a>
@@ -98,8 +98,8 @@
           class="w-auto col-span-1 geeks rounded"
         >
           <img
-            v-lazy="`${b.data[2].img}?tr=w-370,h-390,fo-auto`"
-            alt="🚀"
+            v-lazy="`${b.data[2].imgCdn}?tr=w-370,h-390,fo-auto`"
+            alt=""
             class="h-full w-full object-cover rounded"
           />
         </nuxt-link>
@@ -111,8 +111,8 @@
           class="w-auto col-span-1 geeks rounded"
         >
           <img
-            v-lazy="`${b.data[3].img}?tr=w-370,h-390,fo-auto`"
-            alt="🚀"
+            v-lazy="`${b.data[3].imgCdn}?tr=w-370,h-390,fo-auto`"
+            alt=""
             class="h-full w-full object-cover rounded"
           />
         </a>
@@ -122,8 +122,8 @@
           class="w-auto col-span-1 geeks rounded"
         >
           <img
-            v-lazy="`${b.data[3].img}?tr=w-370,h-390,fo-auto`"
-            alt="🚀"
+            v-lazy="`${b.data[3].imgCdn}?tr=w-370,h-390,fo-auto`"
+            alt=""
             class="h-full w-full object-cover rounded"
           />
         </nuxt-link>
@@ -135,8 +135,8 @@
           class="w-auto col-span-2 geeks rounded"
         >
           <img
-            v-lazy="`${b.data[4].img}?tr=w-760,h-390,fo-auto`"
-            alt="🚀"
+            v-lazy="`${b.data[4].imgCdn}?tr=w-760,h-390,fo-auto`"
+            alt=""
             class="h-full w-full object-cover rounded"
           />
         </a>
@@ -146,8 +146,8 @@
           class="w-auto col-span-2 geeks rounded"
         >
           <img
-            v-lazy="`${b.data[4].img}?tr=w-760,h-390,fo-auto`"
-            alt="🚀"
+            v-lazy="`${b.data[4].imgCdn}?tr=w-760,h-390,fo-auto`"
+            alt=""
             class="h-full w-full object-cover rounded"
           />
         </nuxt-link>

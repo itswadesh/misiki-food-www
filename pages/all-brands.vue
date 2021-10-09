@@ -39,8 +39,8 @@
         <div v-for="b in parentBrands.data" :key="b.id">
           <nuxt-link :to="localePath(`/c?brands=${b.name}`)">
             <img
-              v-if="b.img"
-              v-lazy="`${b.img}?tr=h-64,fo-auto`"
+              v-if="b.imgCdn"
+              v-lazy="`${b.imgCdn}?tr=h-64,fo-auto`"
               alt="bab"
               class="object-contain h-16"
             />

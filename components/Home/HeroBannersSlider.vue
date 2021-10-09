@@ -92,8 +92,8 @@
         @click="go(b.link)"
       >
         <img
-          v-lazy="`${b.img}?tr=w-375,h-430,fo-auto`"
-          alt="🚀"
+          v-lazy="`${b.imgCdn}?tr=w-375,h-430,fo-auto`"
+          alt=""
           class="h-full w-full object-cover rounded-2xl bg-white"
         />
       </button>

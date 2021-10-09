@@ -85,8 +85,8 @@
               >
                 <div class="relative zoom">
                   <img
-                    v-lazy="`${b.img}?tr=h-384,fo-auto`"
-                    alt="🚀"
+                    v-lazy="`${b.imgCdn}?tr=h-384,fo-auto`"
+                    alt=""
                     class="
                       object-cover
                       w-full

@@ -18,7 +18,7 @@
       >
         <div class="">
           <img
-            v-lazy="`${product.img}?tr=h-288,fo-auto`"
+            v-lazy="`${product.imgCdn}?tr=h-288,fo-auto`"
             alt="product.name"
             class="object-cover object-top w-full h-72 bg-black"
           />

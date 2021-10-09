@@ -2,7 +2,7 @@
   <img
     ref="lazyload"
     v-lazy="imageSrc"
-    alt="🚀"
+    alt=""
     :class="fitLoader"
     draggable="false"
     @click="$emit('click')"

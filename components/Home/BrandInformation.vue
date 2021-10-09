@@ -3,8 +3,8 @@
     <div class="md:flex items-center justify-center px-5">
       <div class="md:w-1/3 flex items-center">
         <img
-          v-lazy="`${brand.img}?tr=h-176,fo-auto`"
-          alt="🚀"
+          v-lazy="`${brand.imgCdn}?tr=h-176,fo-auto`"
+          alt=""
           class="h-44 object-contain"
         />
       </div>

@@ -10,7 +10,7 @@
           :key="i"
           class="flex justify-center w-full py-2 lg:w-1/3"
         >
-          <img v-lazy="p.img" alt="🚀" class="object-cover w-1/2 h-48" />
+          <img v-lazy="p.imgCdn" alt="" class="object-cover w-1/2 h-48" />
         </div>
       </div>
     </div>

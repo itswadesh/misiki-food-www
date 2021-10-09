@@ -31,8 +31,8 @@
         :class="ix % 2 == 0 ? '' : 'lg:order-1'"
       >
         <img
-          v-lazy="`${i.img}?tr=h-384,fo-auto`"
-          alt="🚀"
+          v-lazy="`${i.imgCdn}?tr=h-384,fo-auto`"
+          alt=""
           class="w-full h-96 lg:h-full object-contain"
         />
       </div>

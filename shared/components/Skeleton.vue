@@ -9,7 +9,7 @@
         <img
           v-lazy="`?tr=h-280,fo-auto`"
           style="height: 280px"
-          alt="🚀"
+          alt=""
           class="w-full border-0"
         />
         <div>

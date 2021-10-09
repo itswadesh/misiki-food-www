@@ -69,14 +69,14 @@
         >
           <div v-if="currentIndex === 0" key="1" class="justify-center flex">
             <img
-              v-lazy="`${product.img}?tr=h-288,fo-auto`"
+              v-lazy="`${product.imgCdn}?tr=h-288,fo-auto`"
               alt="product"
               class="card object-contain h-48 sm:h-56 slide"
             />
           </div>
           <div v-if="currentIndex === 1" key="2" class="justify-center flex">
             <img
-              v-lazy="`${product.images[1]}?tr=h-288,fo-auto`"
+              v-lazy="`${product.imagesCdn[1]}?tr=h-288,fo-auto`"
               alt="product"
               class="card object-contain h-48 sm:h-56 slide"
             />
@@ -191,7 +191,7 @@
                   class="font-medium"
                 >
                   <span v-for="(s, sx) in pg.sizeGroup" :key="sx + 's'">
-                    {{ s.size.nam }}
+                    {{ s.size.name }}
                   </span>
                 </div>
 
@@ -398,31 +398,39 @@ export default {
       store: 'store',
     }),
     // featuredImage() {
-    //   return this.product.img
+    //   return this.product.imgCdn
     // },
   },
 
   created() {
-    this.featuredImage = this.product.img
+    this.featuredImage = this.product.imgCdn
   },
 
   methods: {
     ...mapMutations({ setErr: 'setErr', success: 'success' }),
     onMouseOutImage() {
-      if (this.product.images.length > 1) {
+      if (
+        this.product &&
+        this.product.imagesCdn &&
+        this.product.imagesCdn.length > 1
+      ) {
         this.back = true
         this.currentIndex = 0
-        // this.featuredImage = this.product.img
+        // this.featuredImage = this.product.imgCdn
       }
     },
 
     onMouseOverImage() {
-      if (this.product.images.length > 1) {
+      if (
+        this.product &&
+        this.product.imagesCdn &&
+        this.product.imagesCdn.length > 1
+      ) {
         this.back = false
         this.currentIndex = 1
 
-        // const secondImage = this.product.images.filter((f) => {
-        //   return f !== this.product.img
+        // const secondImage = this.product.imagesCdn.filter((f) => {
+        //   return f !== this.product.imgCdn
         // }, {})
         // this.featuredImage = secondImage[0]
       }

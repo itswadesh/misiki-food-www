@@ -44,7 +44,7 @@
           <div class="flex flex-row me-12">
             <div class="me-8">
               <img
-                v-lazy="`${i.img}?tr=w-64,h-96,fo-auto`"
+                v-lazy="`${i.imgCdn}?tr=w-64,h-96,fo-auto`"
                 alt="mobile"
                 class="w-16 h-24"
               />

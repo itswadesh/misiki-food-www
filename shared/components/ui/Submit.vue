@@ -21,7 +21,7 @@
       <!-- <img
         v-lazy="`/loading.svg`"
         :class="{ loading: loading }"
-        alt="🚀"
+        alt=""
       /> -->
       <span v-if="loading">&nbsp;</span>
       <slot v-else />

@@ -35,7 +35,7 @@
         <img
           :key="img"
           v-lazy="imgVideo(img)"
-          alt="🚀"
+          alt=""
           class="
             object-cover
             overflow-hidden

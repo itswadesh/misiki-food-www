@@ -18,7 +18,7 @@
             "
             ><img
               v-lazy="`/icon.png?tr=h-40,fo-auto`"
-              alt="🚀"
+              alt=""
               class="h-10 me-2"
             />
           </nuxt-link>

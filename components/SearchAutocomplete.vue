@@ -104,10 +104,10 @@
           @click="onselect(v)"
         >
           <!-- <img
-              v-if="v.img"
+              v-if="v.imgCdn"
               :key="i"
-              v-lazy="`${v.img}?tr=w-48,h-40,fo-auto`"
-              alt="🚀"
+              v-lazy="`${v.imgCdn}?tr=w-48,h-40,fo-auto`"
+              alt=""
               class="object-contain w-12 h-10 mx-2"
             /> -->
           <span class="p-3 text-sm font-light text-gray-600 truncate">

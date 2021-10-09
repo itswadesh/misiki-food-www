@@ -16,7 +16,7 @@
         class="w-1/3 md:w-1/4 overflow-hidden"
       >
         <img
-          v-lazy="item.img"
+          v-lazy="item.imgCdn"
           alt="mobile"
           class="object-contain object-top w-full h-auto"
         />

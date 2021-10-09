@@ -260,8 +260,8 @@
 
                     <td class="p-3">
                       <img
-                        v-lazy="`${i.img}?tr=w-80,h-80,fo-auto`"
-                        alt="🚀"
+                        v-lazy="`${i.imgCdn}?tr=w-80,h-80,fo-auto`"
+                        alt=""
                         class="object-contain w-20 h-20"
                       />
                     </td>
@@ -464,8 +464,8 @@
                 >
                   <div class="p-4 flex items-start space-x-2 sm:space-x-5">
                     <img
-                      v-lazy="`${i.img}?tr=w-64,fo-auto`"
-                      alt="🚀"
+                      v-lazy="`${i.imgCdn}?tr=w-64,fo-auto`"
+                      alt=""
                       class="
                         object-contain object-top
                         w-12

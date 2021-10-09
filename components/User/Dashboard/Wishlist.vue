@@ -114,7 +114,7 @@
                     <div class="">
                       <div class="overflow-hidden">
                         <img
-                          v-lazy="`${w.product.img}?tr=h-224,fo-auto`"
+                          v-lazy="`${w.product.imgCdn}?tr=h-224,fo-auto`"
                           alt="mobile"
                           class="object-contain object-top w-full h-48 sm:h-56"
                         />
@@ -175,7 +175,7 @@
 
           <img
             src="/img/wishlist/wishlist.png"
-            alt="🚀"
+            alt=""
             class="object-contain object-top height w-full mx-auto"
           />
 

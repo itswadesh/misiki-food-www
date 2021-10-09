@@ -61,7 +61,7 @@
         :class="ix % 2 == !0 ? '' : 'lg:order-1 ms-auto  max-w-max'"
       >
         <img
-          v-lazy="`${product.img}?tr=h-384,fo-auto`"
+          v-lazy="`${product.imgCdn}?tr=h-384,fo-auto`"
           class="
             md:h-96
             object-top object-cover
@@ -70,7 +70,7 @@
             transform
             hover:scale-105
           "
-          alt="🚀"
+          alt=""
         />
       </div>
 

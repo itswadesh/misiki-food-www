@@ -3,7 +3,7 @@
     <div class="relative">
       <img
         v-lazy="`/img/mushroom.jpg?tr=h-384,fo-auto`"
-        alt="🚀"
+        alt=""
         class="object-cover w-full h-96"
       />
       <div class="absolute inset-0 bg-black opacity-50"></div>
@@ -63,7 +63,7 @@
               ></div>
               <img
                 v-lazy="`/img/step_1.png?tr=h-160,fo-auto`"
-                alt="🚀"
+                alt=""
                 class="timeline-img relative z-10"
               />
             </div>
@@ -107,7 +107,7 @@
               ></div>
               <img
                 v-lazy="`/img/step_2.png?tr=h-160,fo-auto`"
-                alt="🚀"
+                alt=""
                 class="timeline-img relative z-10"
               />
             </div>
@@ -141,7 +141,7 @@
               ></div>
               <img
                 v-lazy="`/img/step_3.png?tr=h-160,fo-auto`"
-                alt="🚀"
+                alt=""
                 class="timeline-img relative z-10"
               />
             </div>
@@ -184,7 +184,7 @@
               ></div>
               <img
                 v-lazy="`/img/step_4.png?tr=h-160,fo-auto`"
-                alt="🚀"
+                alt=""
                 class="timeline-img relative z-10"
               />
             </div>

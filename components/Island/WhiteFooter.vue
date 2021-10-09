@@ -420,7 +420,7 @@
         <!-- <div class="flex flex-col my-8 md:flex-row">
           <img
             v-lazy="`/img/footer/return.png?tr=w-48,h-48,fo-auto`"
-            alt="🚀"
+            alt=""
             class="object-contain w-8 h-8 lg:w-12 lg:h-12 p-1 my-auto bg-white rounded"
           />
           <span class="object-cover ps-4 my-auto lg:w-2/3">
@@ -479,7 +479,7 @@
       <div class="flex flex-row items-center space-x-2 max-w-max">
         <div v-for="(i, ix) in icons" :key="ix" class="mb-2">
           <img
-            v-lazy="`${i.img}?tr=w-36,h-36,fo-auto`"
+            v-lazy="`${i.imgCdn}?tr=w-36,h-36,fo-auto`"
             :alt="i.alt"
             class="h-9 w-9 bg-white object-contain"
           />
@@ -561,7 +561,7 @@ export default {
 
   async mounted() {
     await this.$store.dispatch('cart/fetch')
-    console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz')
+    console.log('Cart fetch footer mount............')
     const getGDPRPreference = localStorage.getItem('GDPR:preference')
     // console.log('getGDPRPreference...........', getGDPRPreference)
     if (

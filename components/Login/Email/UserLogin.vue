@@ -129,7 +129,7 @@
             :alt="store.name"
             class="object-contain h-40 w-44"
           />
-          <!-- <img v-lazy="`/icon.png?tr=w-128,h-80,fo-auto`" alt="🚀" class="w-32 h-20" /> -->
+          <!-- <img v-lazy="`/icon.png?tr=w-128,h-80,fo-auto`" alt="" class="w-32 h-20" /> -->
         </div>
         <span class="mb-4 font-medium text-center text-primary-500">
           SignIn using email and password

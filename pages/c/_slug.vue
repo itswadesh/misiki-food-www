@@ -304,7 +304,7 @@ export default {
         },
         {
           property: 'og:image',
-          content: (this.category && this.category.img) || this.logoMobile,
+          content: (this.category && this.category.imgCdn) || this.logoMobile,
         },
         {
           property: 'og:image:width',

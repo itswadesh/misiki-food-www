@@ -9,8 +9,8 @@
         class="w-auto col-span-2 m-2 sm:m-3"
       >
         <img
-          v-lazy="banners.data[0].img"
-          alt="🚀"
+          v-lazy="banners.data[0].imgCdn"
+          alt=""
           class="object-scale-down w-full h-full rounded"
         />
       </nuxt-link>
@@ -20,8 +20,8 @@
         class="w-auto col-span-2 m-3"
       >
         <img
-          v-lazy="banners.data[1].img"
-          alt="🚀"
+          v-lazy="banners.data[1].imgCdn"
+          alt=""
           class="object-scale-down w-full h-full rounded"
         />
       </nuxt-link>
@@ -31,8 +31,8 @@
         class="w-auto col-span-1 m-2 sm:m-3"
       >
         <img
-          v-lazy="banners.data[2].img"
-          alt="🚀"
+          v-lazy="banners.data[2].imgCdn"
+          alt=""
           class="object-scale-down w-full h-full rounded"
         />
       </nuxt-link>
@@ -42,8 +42,8 @@
         class="w-auto col-span-1 m-2 sm:m-3"
       >
         <img
-          v-lazy="banners.data[3].img"
-          alt="🚀"
+          v-lazy="banners.data[3].imgCdn"
+          alt=""
           class="object-scale-down w-full h-full rounded"
         />
       </nuxt-link>
@@ -53,8 +53,8 @@
         class="w-auto col-span-2 m-3"
       >
         <img
-          v-lazy="banners.data[4].img"
-          alt="🚀"
+          v-lazy="banners.data[4].imgCdn"
+          alt=""
           class="object-scale-down w-full h-full rounded"
         />
       </nuxt-link>

@@ -16,7 +16,7 @@
           <div class="col-span-1 relative">
             <img
               v-lazy="`/island/home/beautiful-boy.jpg?tr=h-640,fo-auto`"
-              alt="🚀"
+              alt=""
               class="
                 object-cover object-right
                 w-full
@@ -61,7 +61,7 @@
           <div class="col-span-1 relative">
             <img
               v-lazy="`/island/home/adorable-baby.jpg?tr=h-640,fo-auto`"
-              alt="🚀"
+              alt=""
               class="
                 object-cover object-left
                 w-full
@@ -110,7 +110,7 @@
       >
         <img
           v-lazy="`/island/home/men.jpg?tr=h-640,fo-auto`"
-          alt="🚀"
+          alt=""
           class="
             object-cover object-top
             w-full

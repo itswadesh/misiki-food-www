@@ -23,8 +23,8 @@
     >
       <!-- <i :class="`fa fa-${c.icon}`" /> -->
       <img
-        v-lazy="`${c.img}?tr=w-64,h-64,fo-auto`"
-        alt="🚀"
+        v-lazy="`${c.imgCdn}?tr=w-64,h-64,fo-auto`"
+        alt=""
         class="w-8 h-8 rounded-full"
       />
       <span class="text-xs">{{ c.name }}</span>

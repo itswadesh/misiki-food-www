@@ -113,7 +113,7 @@
         </button>
 
         <div v-if="quickViewProduct" class="w-full max-w-4xl">
-          <QuickView :img="quickViewProduct.img" :product="quickViewProduct" />
+          <QuickView :img="quickViewProduct.imgCdn" :product="quickViewProduct" />
         </div>
       </CleanModal>
     </div> -->

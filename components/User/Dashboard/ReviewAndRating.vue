@@ -22,7 +22,7 @@
         <div class="flex flex-col w-full mt-3 sm:flex-row">
           <div v-if="r.pid" class="mx-auto h-36 sm:pe-5 sm:w-40">
             <img
-              v-lazy="`${r.pid.img}?tr=w-160,h-144,fo-auto`"
+              v-lazy="`${r.pid.imgCdn}?tr=w-160,h-144,fo-auto`"
               alt="mobile"
               class="object-contain w-full h-full"
             />
@@ -123,7 +123,7 @@
       <!-- v-lazy="`/img/review/review.png?tr=h-384,fo-auto`" -->
       <img
         src="/img/review/review.png"
-        alt="🚀"
+        alt=""
         class="object-contain object-top height w-full mx-auto"
       />
 

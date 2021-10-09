@@ -59,7 +59,7 @@
           <div class="flex items-center justify-center">
             <img
               v-lazy="`/img/green-bg-check.png?tr=w-80,h-80,fo-auto`"
-              alt="🚀"
+              alt=""
               class="w-20 h-20 rounded-full"
             />
           </div>

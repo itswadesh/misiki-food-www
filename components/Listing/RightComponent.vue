@@ -24,7 +24,7 @@
             :id="product.id"
             :name="product.name"
             :slug="product.slug"
-            :img="product.img"
+            :img="product.imgCdn"
             :price="product.price"
             :mrp="product.mrp"
             class="focus:outline-none"

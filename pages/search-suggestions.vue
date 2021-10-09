@@ -129,11 +129,11 @@
                 @click="onselect(v)"
               >
                 <div class="flex flex-row w-10/12">
-                  <div v-if="v.img" class="w-1/6 my-auto">
+                  <div v-if="v.imgCdn" class="w-1/6 my-auto">
                     <img
                       :key="v._id"
-                      v-lazy="`${v.img}?tr=w-h-40,fo-auto`"
-                      alt="🚀"
+                      v-lazy="`${v.imgCdn}?tr=w-h-40,fo-auto`"
+                      alt=""
                       class="object-contain h-10 mx-auto my-auto"
                     />
                   </div>

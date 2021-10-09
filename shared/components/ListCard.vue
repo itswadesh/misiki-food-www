@@ -7,7 +7,7 @@
         name="search"
       />
       <img
-        v-lazy="`img/banners.svg`" alt="🚀"
+        v-lazy="`img/banners.svg`" alt=""
         class="w-8 h-8 bg-gray-300 rounded-full ms-2"
       />
     </div>
@@ -18,16 +18,16 @@
     <div v-if="p" class="z-0 flex px-1 py-2 m-2 bg-white rounded shadow">
       <nuxt-link :to="localePath(`/${p.slug}?id=${p.id}`)" class="p-2">
         <img
-          v-lazy="`${p.img}?tr=w-128,h-80,fo-auto`"
-          alt="🚀"
+          v-lazy="`${p.imgCdn}?tr=w-128,h-80,fo-auto`"
+          alt=""
           class="object-cover w-32 h-20 rounded"
         />
       </nuxt-link>
       <div class="relative w-full my-1">
         <nuxt-link v-if="p.vendor" :to="localePath(`/vendor/${p.vendor.slug}`)">
           <img
-            v-lazy="`${p.vendor.img}?tr=w-16,h-16,fo-auto`"
-            alt="🚀"
+            v-lazy="`${p.vendor.imgCdn}?tr=w-16,h-16,fo-auto`"
+            alt=""
             class="absolute top-0 right-0 object-contain w-4 h-4"
           />
         </nuxt-link>

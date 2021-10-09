@@ -1,6 +1,9 @@
 <template>
   <div>
-    <HeroSlider v-if="brand && brand.img" :banners="[{ img: brand.img }]" />
+    <HeroSlider
+      v-if="brand && brand.imgCdn"
+      :banners="[{ img: brand.imgCdn }]"
+    />
 
     <MobileFilters
       class="sticky top-0 z-20 flex-none mt-16 md:hidden"
@@ -223,7 +226,7 @@ export default {
         },
         {
           property: 'og:image',
-          content: host + ((this.brand && this.brand.img) || sharingLogo),
+          content: host + ((this.brand && this.brand.imgCdn) || sharingLogo),
         },
         {
           property: 'og:image:width',

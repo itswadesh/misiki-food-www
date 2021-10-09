@@ -7,8 +7,8 @@
         class="items-center hidden my-auto me-5 lg:flex"
       >
         <img
-          v-lazy="`${i.img}?tr=w-32,h-32,fo-auto`"
-          alt="🚀"
+          v-lazy="`${i.imgCdn}?tr=w-32,h-32,fo-auto`"
+          alt=""
           class="w-4 h-4 rounded-full lg:h-6 lg:w-6 xl:h-8 xl:w-8"
         />
         <h6
@@ -29,8 +29,8 @@
           :href="s.link"
         >
           <img
-            v-lazy="`${s.img}?tr=w-32,h-32,fo-auto`"
-            alt="🚀"
+            v-lazy="`${s.imgCdn}?tr=w-32,h-32,fo-auto`"
+            alt=""
             class="
               w-4
               h-4

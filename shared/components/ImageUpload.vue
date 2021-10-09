@@ -2,8 +2,8 @@
   <div class="mx-auto mt-4 bg-gray-100">
     <div v-if="$apollo.loading">Loading...</div>
     <div
-      v-if="img"
-      v-lazy:background-image="`${img}`"
+      v-if="imgCdn"
+      v-lazy:background-image="`${imgCdn}`"
       class="relative h-48 bg-no-repeat bg-contain"
     >
       <button
@@ -124,12 +124,12 @@ export default {
   },
   watch: {
     image() {
-      this.img = this.image
-      // console.log(this.img)
+      this.imgCdn = this.image
+      // console.log(this.imgCdn)
     },
   },
   mounted() {
-    this.img = this.image
+    this.imgCdn = this.image
   },
   methods: {
     ...mapMutations({
@@ -154,8 +154,8 @@ export default {
         // ).data.fileUpload
         images = images.map((o) => o.filename)
         if (!this.multi) {
-          this.img = images[0]
-          this.$emit('save', this.name, this.img)
+          this.imgCdn = images[0]
+          this.$emit('save', this.name, this.imgCdn)
         } else {
           this.$emit('save', this.name, images)
         }
@@ -167,7 +167,7 @@ export default {
       return `${i}?a=${Math.random()}`
     },
     save(imagePath) {
-      this.img = imagePath
+      this.imgCdn = imagePath
       this.$emit('save', this.name, imagePath)
     },
     removeImage(image) {
@@ -189,7 +189,7 @@ export default {
     async deleteConfirmed(image) {
       try {
         this.clearErr()
-        this.img = ''
+        this.imgCdn = ''
         await this.$apollo.mutate({
           mutation: DELETE_FILE,
           variables: { path: image },

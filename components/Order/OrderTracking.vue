@@ -52,7 +52,7 @@
             <div>
               <img
                 v-lazy="`${t.icon}?tr=w-24,h-24,fo-auto`"
-                alt="🚀"
+                alt=""
                 class="absolute inset-0 h-6 w-6 m-1.5 opacity-70"
               />
             </div>

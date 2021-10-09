@@ -195,7 +195,7 @@
                       class=""
                     >
                       <img
-                        v-lazy="`${item.img}?tr=w-112,fo-auto`"
+                        v-lazy="`${item.imgCdn}?tr=w-112,fo-auto`"
                         alt="pro"
                         class="object-cover border w-28"
                       />

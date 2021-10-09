@@ -70,7 +70,7 @@
               class="my-auto focus:outline-none"
             >
               <img
-                v-lazy="`${b.img}?tr=w-96,h-48,fo-auto`"
+                v-lazy="`${b.imgCdn}?tr=w-96,h-48,fo-auto`"
                 class="
                   w-12
                   h-6
@@ -79,7 +79,7 @@
                   my-auto
                   focus:outline-none
                 "
-                alt="🚀"
+                alt=""
               />
             </nuxt-link>
           </div>

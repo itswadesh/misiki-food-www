@@ -9,8 +9,8 @@
         <div class="md:flex md:space-x-5">
           <nuxt-link :to="`/${order.slug}?id=${order.pid}`">
             <img
-              v-lazy="`${order.img}?tr=w-160,fo-auto`"
-              alt="🚀"
+              v-lazy="`${order.imgCdn}?tr=w-160,fo-auto`"
+              alt=""
               class="w-40 object-contain object-top mb-5 md:mb-0"
             />
           </nuxt-link>

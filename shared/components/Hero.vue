@@ -16,9 +16,9 @@
           >
             <div v-for="(i, ix) in data.banners.data" :key="ix">
               <img
-                v-lazy="`${i.img}?tr=h-192,fo-auto`"
+                v-lazy="`${i.imgCdn}?tr=h-192,fo-auto`"
                 class="object-cover w-full h-48"
-                alt="🚀"
+                alt=""
               />
             </div>
           </VueSlickCarousel>

@@ -6,7 +6,7 @@
         :class="$i18n.locale == 'hi' ? 'bg-white' : 'bg-gray-200'"
       >
         <span class="px-1"> HI </span>
-        <img v-lazy="`/flags/india.png?tr=w-16,fo-auto`" alt="🚀" class="w-4" />
+        <img v-lazy="`/flags/india.png?tr=w-16,fo-auto`" alt="" class="w-4" />
       </div>
     </nuxt-link>
 

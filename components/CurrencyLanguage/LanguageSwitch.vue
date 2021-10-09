@@ -89,7 +89,7 @@
         >
           <img
             v-lazy="`/flags/india-flag.png?tr=w-40,h-40,fo-auto`"
-            alt="🚀"
+            alt=""
             class="h-8 w-8 rounded-full object-cover"
           />
         </button>

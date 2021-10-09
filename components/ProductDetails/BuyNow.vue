@@ -85,7 +85,7 @@ export default {
         .show(
           `
       <div class="items-center hidden lg:flex w-72">
-        <img class="object-cover w-12 h-12" v-lazy="${this.product.img}" alt="🚀" />
+        <img class="object-cover w-12 h-12" v-lazy="${this.product.imgCdn}" alt="" />
         <div class="items-center toasted-text">
           <div class="text-xs text-gray-600">Added to your cart</div>
         </div>

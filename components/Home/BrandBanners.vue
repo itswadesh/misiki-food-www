@@ -46,9 +46,9 @@
       <div v-for="b in brands" :key="b.id" class="mx-auto">
         <button class="p-1" @click="go(b.slug)">
           <img
-            v-if="b.img"
-            v-lazy="`${b.img}?tr=h-80,fo-auto`"
-            alt="bab"
+            v-if="b.imgCdn"
+            v-lazy="`${b.imgCdn}?tr=h-80,fo-auto`"
+            alt=""
             class="object-contain h-12 sm:h-20"
           />
           <div
@@ -86,7 +86,7 @@
           v-for="b in brands.data"
           :key="b.id"
         >
-          <img v-lazy="`${b.img}?tr=h-80,fo-auto`"
+          <img v-lazy="`${b.imgCdn}?tr=h-80,fo-auto`"
             alt="bab"
             class="object-contain h-20 focus:outline-none"
           />

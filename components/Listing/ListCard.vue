@@ -127,10 +127,11 @@
               <img
                 v-lazy="
                   `${
-                    product.img || (product.images && product.images[0])
+                    product.imgCdn ||
+                    (product.imagesCdn && product.imagesCdn[0])
                   }?tr=h-224,fo-auto`
                 "
-                alt="🚀"
+                alt=""
                 class="
                   object-cover
                   mx-auto

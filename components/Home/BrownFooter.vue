@@ -341,7 +341,7 @@
         <div class="flex flex-col md:flex-row mb-2">
           <img
             v-lazy="`/img/footer/original.png?tr=w-48,h-48,fo-auto`"
-            alt="🚀"
+            alt=""
             class="object-contain w-12 h-12 p-1 my-auto bg-white rounded"
           />
           <span class="object-cover ps-4 my-auto lg:w-2/3">
@@ -351,7 +351,7 @@
         </div>
         <!-- <div class="flex flex-col my-8 md:flex-row">
           <img v-lazy="`/img/footer/return.png?tr=w-48,h-48,fo-auto`"
-            alt="🚀"
+            alt=""
             class="object-contain w-12 h-12 p-1 my-auto bg-white rounded"
           />
           <span class="object-cover ps-4 my-auto lg:w-2/3">
@@ -362,7 +362,7 @@
         <div class="flex flex-col md:flex-row mt-2">
           <img
             v-lazy="`/img/footer/free.png?tr=w-48,h-48,fo-auto`"
-            alt="🚀"
+            alt=""
             class="object-contain w-12 h-12 p-1 my-auto bg-white rounded"
           />
           <span class="object-cover ps-4 my-auto lg:w-2/3">
@@ -384,7 +384,7 @@
       <div class="flex flex-row items-center space-x-2">
         <div v-for="(i, ix) in icons" :key="ix" class="mb-1">
           <img
-            v-lazy="`${i.img}?tr=w-48,h-28,fo-auto`"
+            v-lazy="`${i.imgCdn}?tr=w-48,h-28,fo-auto`"
             :alt="i.alt"
             class="h-7 w-12 bg-white border p-1 object-contain"
           />

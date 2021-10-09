@@ -40,7 +40,7 @@
                   "
                 >
                   <img
-                    v-lazy="`${p.img}?tr=w-40,h-40,fo-auto`"
+                    v-lazy="`${p.imgCdn}?tr=w-40,h-40,fo-auto`"
                     :alt="p.name"
                     class="w-10 h-10 rounded-full object-cover"
                   />
@@ -474,7 +474,7 @@ export default {
       }
     },
     async submit() {
-      console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz', this.paymentMethod.value)
+      // console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz', this.paymentMethod.value)
       if (!this.paymentMethod || !this.paymentMethod.value) {
         this.setErr('Please Select Payment Method')
       }

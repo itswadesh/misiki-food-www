@@ -24,7 +24,7 @@
                 :id="p.id"
                 :name="p.name"
                 :slug="p.slug"
-                :img="p.img"
+                :img="p.imgCdn"
                 :price="p.price"
                 class="focus:outline-none"
               />

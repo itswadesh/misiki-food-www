@@ -13,7 +13,7 @@
           rounded-full
         "
       >
-        <div v-if="img" class="flex">
+        <div v-if="imgCdn" class="flex">
           <button
             type="button"
             class="
@@ -29,7 +29,7 @@
               ms-12
               hover:bg-gray-200
             "
-            @click="removeImage(img)"
+            @click="removeImage(imgCdn)"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,7 @@
           </button>
           <img
             v-lazy="`${img}?tr=w-64,h-64,fo-auto`"
-            alt="🚀"
+            alt=""
             class="object-cover w-16 h-16 rounded-full"
           />
         </div>
@@ -111,11 +111,11 @@ export default {
   },
   watch: {
     image() {
-      this.img = this.image
+      this.imgCdn = this.image
     },
   },
   mounted() {
-    this.img = this.image
+    this.imgCdn = this.image
   },
   methods: {
     ...mapMutations({
@@ -140,8 +140,8 @@ export default {
         // ).data.fileUpload
         images = images.map((o) => o.filename)
         if (!this.multi) {
-          this.img = images[0]
-          this.$emit('save', this.name, this.img)
+          this.imgCdn = images[0]
+          this.$emit('save', this.name, this.imgCdn)
         } else {
           this.$emit('save', this.name, images)
         }
@@ -153,7 +153,7 @@ export default {
       return `${i}?a=${Math.random()}`
     },
     save(imagePath) {
-      this.img = imagePath
+      this.imgCdn = imagePath
       this.$emit('save', this.name, imagePath)
     },
     removeImage(image) {
@@ -175,7 +175,7 @@ export default {
     async deleteConfirmed(image) {
       try {
         this.clearErr()
-        this.img = ''
+        this.imgCdn = ''
         await this.$post('product/deleteFile', { path: image })
         // await this.$apollo.mutate({
         //   mutation: DELETE_FILE,
