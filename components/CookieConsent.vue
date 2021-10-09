@@ -105,6 +105,7 @@
           <ToggleSwitchWhite
             v-model="necessaryCookies"
             docheck
+            disabled
             color="gray"
             class="hidden sm:block"
           />
@@ -112,6 +113,7 @@
           <ToggleSwitchWhite
             v-model="necessaryCookies"
             docheck
+            disabled
             color="gray"
             size="sm"
             class="sm:hidden"
