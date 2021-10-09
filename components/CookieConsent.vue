@@ -104,14 +104,14 @@
 
           <ToggleSwitchWhite
             v-model="necessaryCookies"
-            :disabled="true"
+            docheck
             color="gray"
             class="hidden sm:block"
           />
 
           <ToggleSwitchWhite
             v-model="necessaryCookies"
-            :disabled="true"
+            docheck
             color="gray"
             size="sm"
             class="sm:hidden"

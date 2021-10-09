@@ -1,7 +1,7 @@
 <template>
-  <section class="container max-w-7xl mx-auto px-2 md:px-10 h-screen">
-    <div class="flex flex-col p-6">
-      <span class="text-xl font-semibold">My Cart</span>
+  <section class="p-2 py-5 sm:p-10 h-screen">
+    <div class="flex flex-col">
+      <span class="text-xl font-semibold text-center">My Cart</span>
       <span class="flex flex-col items-center justify-center p-5">
         <!-- v-lazy="`/no/empty-animate.svg?tr=w-,h-,fo-auto`" -->
         <img
