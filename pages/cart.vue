@@ -57,7 +57,7 @@
         </div>
       </div>
 
-      <div v-else class="mt-32 lg:mt-20">
+      <div v-else>
         <EmptyCart />
       </div>
     </div>

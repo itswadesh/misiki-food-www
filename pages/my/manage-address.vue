@@ -1,18 +1,15 @@
 <template>
-  <div class="container mx-auto4">
+  <div class="container mx-auto text-gray-800">
     <div
       class="
         mb-5
-        w-full
-        p-3
-        sm:p-5 sm:flex sm:items-center sm:justify-between
-        text-gray-800
-        border
-        rounded-md
-        shadow-md
+        flex flex-col
+        sm:flex-row sm:items-center sm:justify-between sm:space-x-5
       "
     >
-      <h1 class="mb-2 sm:mb-0 font-semibold sm:text-xl">Profile Details</h1>
+      <h2 class="mb-2 sm:mb-0 text-xl sm:text-2xl font-semibold tracking-wide">
+        Profile Details
+      </h2>
 
       <nuxt-link :to="localePath('/my/add-address')">
         <PrimaryButtonRounded
@@ -20,8 +17,7 @@
             text-xs
             sm:text-sm
             whitespace-nowrap
-            w-full
-            sm:w-60
+            w-60
             font-semibold
             tracking-wide
           "

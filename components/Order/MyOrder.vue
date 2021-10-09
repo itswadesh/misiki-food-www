@@ -97,10 +97,10 @@
             </h2>
 
             <nuxt-link
-              :to="localePath('cart')"
+              :to="localePath('/')"
               class="text-sm text-blue-400 underline lg:hidden"
             >
-              Back to Cart
+              Shop More
             </nuxt-link>
 
             <!-- <select
@@ -443,103 +443,114 @@
               </div>
 
               <div
-                v-for="i in order.orderItems"
-                :key="i.pid"
                 class="
                   w-full
-                  p-4
                   mb-5
                   sm:mb-10
                   text-sm text-gray-600
                   bg-white
+                  divide-y divide-gray-200
                   border
                   rounded-md
                   shadow-md
                 "
-                @click="
-                  go(`/my/order-details?orderId=${order.id}&itemId=${i.id}`)
-                "
               >
-                <div class="flex items-start space-x-2 sm:space-x-5">
-                  <img
-                    v-lazy="`${i.img}?tr=w-64,fo-auto`"
-                    alt="🚀"
-                    class="object-contain object-top w-12 h-12 sm:w-20 sm:h-20"
-                  />
+                <div
+                  v-for="i in order.orderItems"
+                  :key="i.pid"
+                  @click="
+                    go(`/my/order-details?orderId=${order.id}&itemId=${i.id}`)
+                  "
+                >
+                  <div class="p-4 flex items-start space-x-2 sm:space-x-5">
+                    <img
+                      v-lazy="`${i.img}?tr=w-64,fo-auto`"
+                      alt="🚀"
+                      class="
+                        object-contain object-top
+                        w-12
+                        h-12
+                        sm:w-20 sm:h-20
+                      "
+                    />
 
-                  <div>
-                    <h6 class="mb-3">
-                      {{ i.name }}
-                    </h6>
+                    <div>
+                      <h6 class="mb-3">
+                        {{ i.name }}
+                      </h6>
 
-                    <div class="flex flex-wrap text-sm">
-                      <div
-                        class="flex items-center mb-1 sm:mb-2 me-5 space-x-2"
-                      >
-                        <h6>Price :</h6>
+                      <div class="flex flex-wrap text-sm">
+                        <div
+                          class="flex items-center mb-1 sm:mb-2 me-5 space-x-2"
+                        >
+                          <h6>Price :</h6>
 
-                        <b class="text-gray-500">
-                          {{
-                            i.price
-                              | currency(
-                                store.currencySymbol,
-                                store.currencyDecimals
-                              )
-                          }}
-                          * {{ i.qty }}
-                        </b>
-                      </div>
+                          <b class="text-gray-500">
+                            {{
+                              i.price
+                                | currency(
+                                  store.currencySymbol,
+                                  store.currencyDecimals
+                                )
+                            }}
 
-                      <div
-                        class="flex items-center mb-1 sm:mb-2 me-5 space-x-2"
-                      >
-                        <h6>Delivery :</h6>
+                            * {{ i.qty }}
+                          </b>
+                        </div>
 
-                        <b class="text-gray-500">
-                          {{
-                            i.shippingCharge
-                              | currency(
-                                store.currencySymbol,
-                                store.currencyDecimals
-                              )
-                          }}
-                        </b>
-                      </div>
+                        <div
+                          class="flex items-center mb-1 sm:mb-2 me-5 space-x-2"
+                        >
+                          <h6>Delivery :</h6>
 
-                      <div
-                        class="flex items-center mb-1 sm:mb-2 me-5 space-x-2"
-                      >
-                        <h6>Total :</h6>
+                          <b class="text-gray-500">
+                            {{
+                              i.shippingCharge
+                                | currency(
+                                  store.currencySymbol,
+                                  store.currencyDecimals
+                                )
+                            }}
+                          </b>
+                        </div>
 
-                        <b class="text-gray-500">
-                          {{
-                            i.total
-                              | currency(
-                                store.currencySymbol,
-                                store.currencyDecimals
-                              )
-                          }}
-                        </b>
-                      </div>
+                        <div
+                          class="flex items-center mb-1 sm:mb-2 me-5 space-x-2"
+                        >
+                          <h6>Total :</h6>
 
-                      <div
-                        class="flex items-center mb-1 sm:mb-2 me-5 space-x-2"
-                      >
-                        <h6>Status :</h6>
+                          <b class="text-gray-500">
+                            {{
+                              i.total
+                                | currency(
+                                  store.currencySymbol,
+                                  store.currencyDecimals
+                                )
+                            }}
+                          </b>
+                        </div>
 
-                        <b class="text-primary-500">
-                          {{ i.status }}
-                        </b>
+                        <div
+                          class="flex items-center mb-1 sm:mb-2 me-5 space-x-2"
+                        >
+                          <h6>Status :</h6>
+
+                          <b class="text-primary-500">
+                            {{ i.status }}
+                          </b>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+
             <!-- mobile view ends -->
           </div>
         </div>
       </div>
+
       <!-- if no product found -->
     </div>
   </div>

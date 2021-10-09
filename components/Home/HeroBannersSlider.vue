@@ -131,6 +131,7 @@ export default {
         infinite: true,
         speed: 500,
         arrows: false,
+        autoplay: true,
         slidesToScroll: 1,
         slidesToShow: 4,
         centerMode: false,

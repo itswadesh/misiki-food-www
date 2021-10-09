@@ -12,6 +12,7 @@
         :id="uniqueId"
         v-bind="$attrs"
         :checked="value"
+        :docheck="checked"
         type="checkbox"
         :name="name || uniqueId"
         :disabled="disabled"
@@ -69,6 +70,8 @@
 <script>
 export default {
   props: {
+    docheck: { type: Boolean, default: false, required: false },
+
     id: { type: String, default: null, required: false },
 
     dotcolor: { type: String, default: 'green', required: false },

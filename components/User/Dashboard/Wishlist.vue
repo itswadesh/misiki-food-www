@@ -23,7 +23,16 @@
 
         <div v-if="myWishlist.count != 0" class="relative">
           <div>
-            <h1 class="mb-2 sm:mb-5 font-semibold sm:text-xl">
+            <h1
+              class="
+                mb-3
+                sm:mb-5
+                text-xl
+                sm:text-2xl
+                font-semibold
+                tracking-wide
+              "
+            >
               My Wishlist ({{ myWishlist.count }})
             </h1>
 
@@ -42,7 +51,14 @@
               <div
                 v-for="w in myWishlist.data"
                 :key="w.id"
-                class="relative bg-white shadow-md rounded-md cursor-pointer"
+                class="
+                  relative
+                  border
+                  bg-white
+                  shadow-md
+                  rounded-md
+                  cursor-pointer
+                "
               >
                 <div v-if="w.product">
                   <!-- Close button start -->
@@ -71,7 +87,8 @@
                         w-5
                         h-5
                         transition
-                        duration-100
+                        duration-300
+                        text-gray-500
                         group-hover:text-white
                       "
                       fill="none"
@@ -99,18 +116,7 @@
                         <img
                           v-lazy="`${w.product.img}?tr=h-224,fo-auto`"
                           alt="mobile"
-                          class="
-                            object-contain
-                            w-full
-                            h-48
-                            sm:h-56
-                            md:h-64
-                            lg:h-72
-                            transition
-                            duration-500
-                            ease-in-out
-                            transform
-                          "
+                          class="object-contain object-top w-full h-48 sm:h-56"
                         />
                       </div>
 
@@ -164,47 +170,35 @@
           <!-- if there is no items in cart -->
         </div>
 
-        <div v-else>
-          <div class="bg-white rounded-lg shadow">
-            <div class="flex flex-col p-6">
-              <div class="flex flex-col items-center justify-center p-5">
-                <img
-                  v-lazy="`/placeholder/empty-wish-list.png?tr=h-192,fo-auto`"
-                  alt="emptycart"
-                  class="object-contain h-48"
-                />
+        <div v-else class="h-screen w-full">
+          <!-- v-lazy="`/img/review/review.png?tr=h-384,fo-auto`" -->
 
-                <div class="p-3 text-xl">Empty Wishlist!</div>
+          <img
+            src="/img/wishlist/wishlist.png"
+            alt="🚀"
+            class="object-contain object-top height w-full mx-auto"
+          />
 
-                <div class="text-xs text-center">
-                  You have no items in your Wishlist. Start adding
-                </div>
+          <div class="flex flex-col text-center">
+            <h2
+              class="
+                mb-2
+                text-lg
+                sm:text-xl
+                font-medium font-serif
+                tracking-wide
+              "
+            >
+              Empty Wishlist !!
+            </h2>
 
-                <nuxt-link :to="localePath('/')">
-                  <button
-                    class="
-                      p-2
-                      px-8
-                      m-3
-                      text-sm
-                      font-semibold
-                      text-center text-white
-                      border
-                      rounded
-                      shadow
-                      focus:ring-opacity-50
-                      hover:bg-yellow-600
-                      focus:ring focus:ring-offset-2 focus:ring-yellow-600
-                      bg-primary-500
-                      border-primary-500
-                      focus:outline-none
-                    "
-                  >
-                    Shop Now
-                  </button>
-                </nuxt-link>
-              </div>
-            </div>
+            <p class="text-xs mb-5">
+              You have no items in your Wishlist. Start adding
+            </p>
+
+            <nuxt-link :to="localePath('/')" class="mb-5 mx-auto">
+              <GrnIndGradiantButton>Shop Now</GrnIndGradiantButton>
+            </nuxt-link>
           </div>
         </div>
       </div>
@@ -216,11 +210,12 @@
 import { mapGetters } from 'vuex'
 import WishlistSkeleton from '~/components/AllSkeletons/WishlistSkeleton.vue'
 import NuxtLink from '~/components/NuxtLink.vue'
+import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
 import MY_WISHLIST from '~/gql/wishlist/myWishlist.gql'
 import TOGGLE from '~/gql/wishlist/toggleWishlist.gql'
 
 export default {
-  components: { WishlistSkeleton, NuxtLink },
+  components: { WishlistSkeleton, NuxtLink, GrnIndGradiantButton },
 
   data() {
     return {
@@ -284,3 +279,16 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+@media (max-width: 768px) {
+  .height {
+    height: 55%;
+  }
+}
+@media (min-width: 768px) {
+  .height {
+    height: 60%;
+  }
+}
+</style>
