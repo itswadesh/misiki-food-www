@@ -7,7 +7,6 @@
     <div class="flex flex-col lg:flex-row lg:space-x-5">
       <div class="lg:w-2/3 lg:border-r lg:border-gray-200 lg:pe-5">
         <div class="text-lg font-bold tracking-wide mb-3">Payment Methods</div>
-        {{ settings.stripePublishableKey }}
         <div v-if="paymentMethods && paymentMethods.length > 0" class="mb-5">
           <div v-for="p in paymentMethods" :key="p.id">
             <label
