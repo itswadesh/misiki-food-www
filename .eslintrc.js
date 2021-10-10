@@ -7,20 +7,12 @@ module.exports = {
   parserOptions: {
     parser: 'babel-eslint',
   },
-  extends: [
-    '@nuxtjs',
-    'plugin:prettier/recommended',
-    'plugin:nuxt/recommended',
-  ],
+  extends: ['plugin:prettier/recommended', 'plugin:nuxt/recommended'],
   plugins: [],
 
   // add your custom rules here
   rules: {
-    'prettier/prettier': [
-      'warn',
-      { endOfLine: 'auto' },
-      { usePrettierrc: true },
-    ],
+    'prettier/prettier': ['warn', { usePrettierrc: true }],
     'vue/no-mutating-props': 'off', // Remove in future
     'vue/require-prop-type-constructor': 'off', // Remove in future
     'vue/no-use-v-if-with-v-for': 'off', // Remove in future

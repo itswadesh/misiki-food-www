@@ -40,7 +40,7 @@ export const { AGORA_APP_TOKEN = 'AGORA_APP_TOKEN' } = process.env
 export const { AGORA_CHANNEL_NAME = 'AGORA_CHANNEL_NAME' } = process.env
 
 export const head = {
-  titleTemplate: `%s`,
+  titleTemplate: '%s',
   htmlAttrs: { lang: 'en' },
   meta: [
     { charset: 'utf-8' },
@@ -57,5 +57,4 @@ export const tailwindcss = {
   // configPath: '~/shared/config/tailwind.config.js',
   // cssPath: '~/shared/assets/css/tailwind.css',
   exposeConfig: false,
-  jit: true,
 }
