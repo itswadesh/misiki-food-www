@@ -320,9 +320,9 @@
         </div>
 
         <CheckoutSummary class="sm:hidden" :loading="loading" @submit="submit">
-          <span v-if="paymentMethod && paymentMethod.value === 'COD'"
-            >Place Order</span
-          >
+          <span v-if="paymentMethod && paymentMethod.value === 'COD'">
+            Place Order
+          </span>
           <span v-else-if="razorpayReady && loadedStripe">Pay Now</span>
         </CheckoutSummary>
         <!-- <Footer class="hidden sm:flex" /> -->
@@ -333,6 +333,7 @@
 
 <script>
 import { mapGetters, mapActions, mapMutations } from 'vuex'
+// import { StripeElementCard } from '@vue-stripe/vue-stripe'
 import { Radio } from '~/shared/components/ui'
 import ADDRESS from '~/gql/address/address.gql'
 // import DebitCreditCard from '~/components/Checkout/PaymentOptions/DebitCreditCard'
@@ -451,14 +452,19 @@ export default {
         document.head.appendChild(razorpayScript)
         this.razorpayReady = true
 
-        if (process.browser) {
-          const domElement = document.createElement('script')
-          domElement.setAttribute('src', 'https://js.stripe.com/v3/')
-          domElement.onload = () => {
-            this.loadedStripe = true
-          }
-          document.body.appendChild(domElement)
-        }
+        // if (process.browser) {
+        //   const domElement = document.createElement('script')
+        //   domElement.setAttribute('src', 'https://js.stripe.com/v3/')
+        //   domElement.onload = () => {
+        //     this.loadedStripe = true
+        //     // const {
+        //     //   Card,
+        //     //   createToken,
+        //     //   CardNumber,
+        //     // } = require('vue-stripe-elements-plus')
+        //   }
+        //   document.body.appendChild(domElement)
+        // }
         // let stripeScript = document.createElement('script')
         // stripeScript.setAttribute('src', 'https://js.stripe.com/v3/')
         // document.head.appendChild(stripeScript)
@@ -498,7 +504,11 @@ export default {
       } else if (paymentMethod === 'Stripe') {
         try {
           this.loading = true
-          const { token } = await createToken()
+          // const groupComponent = this.$refs.elms
+          // const cardComponent = this.$refs.card
+          // const cardElement = cardComponent.stripeElement
+          // const { token } = await groupComponent.instance.createToken()
+          // import { StripeElementCard } from '@vue-stripe/vue-stripe'
           if (!token) return this.setErr('Invalid card number')
           const capture = await this.$post('pay/stripe', {
             address: this.$route.query.address,

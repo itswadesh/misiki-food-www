@@ -38,6 +38,7 @@ export default {
     { src: '~/plugins/api.js' },
     { src: '~/plugins/vue-mq.js' },
     { src: '~/plugins/disable-right-click', ssr: false },
+    { src: '~/plugins/vue-stripe.js', ssr: false },
     // { src: '~/plugins/directives.js', ssr:false },
   ],
   // components: true,
