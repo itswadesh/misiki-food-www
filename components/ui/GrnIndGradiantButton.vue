@@ -12,13 +12,15 @@
       duration-300
       transform
       bg-white
-      rounded-md
       shadow-md
       hover:shadow
       focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2
       active:scale-95
     "
-    :class="loading ? ' bg-gray-400 cursor-not-allowed' : 'gradient'"
+    :class="[
+      square ? 'rounded-md' : '',
+      loading ? ' bg-gray-400 cursor-not-allowed' : 'gradient',
+    ]"
     :disabled="loading"
     @click="$emit('click')"
   >
@@ -64,6 +66,10 @@ export default {
       default: false,
     },
     loadingringsize: {
+      type: String,
+      default: 'base',
+    },
+    square: {
       type: String,
       default: 'base',
     },

@@ -12,10 +12,12 @@
         border-b border-gray-200
       "
     >
-      <div class="h-11 sm:h-12 flex flex-row justify-between p-2 px-3 text-sm">
-        <div class="my-auto text-sm font-light text-gray-500">
-          <span v-if="count == 0" class="font-bold">No</span>
+      <div class="h-11 sm:h-12 flex flex-row justify-between p-2 text-sm">
+        <div class="my-auto text-sm font-light text-gray-500 space-x-1">
+          <span v-if="count === 0" class="font-bold">No</span>
+
           <span v-else class="font-bold"> {{ count }} </span>
+
           <span>products found</span>
         </div>
 
@@ -102,51 +104,43 @@
     </div>
 
     <SortSlideUp
-      v-if="!!showMobileSort"
-      class="fixed"
+      v-if="showMobileSort"
+      :class="showMobileSort ? 'slideUp' : 'slideDown'"
       @hideSort="showMobileSort = false"
     />
+
     <div
       v-if="facets && showMobileFilter"
-      class="
-        py-2\1
-        shadow
-        h-full
-        bg-white
-        z-50
-        top-24
-        fixed
-        w-full
-        filters-demo
-      "
+      class="z-50 fixed inset-0 bg-white text-sm mt-rem"
+      :class="showMobileSort ? 'slideUp' : 'slideDown'"
     >
-      <div
-        class="
-          flex
-          w-full
-          px-4
-          py-4
-          text-base
-          font-light
-          text-gray-600
-          bg-white
-          shadow-md
-        "
-      >
-        <div class="flex-1 text-start" @click="hideFilter">
-          CLOSE
-          <i class="ms-2 fa fa-times" aria-hidden="true"></i>
-        </div>
-        <div class="flex-1 font-medium text-center text-primary-500">
-          FILTER
-        </div>
-        <button class="flex-1 text-end focus:outline-none" @click="clearAll">
+      <div class="h-11 sm:h-12 flex flex-row justify-between p-2 text-sm">
+        <button
+          type="button"
+          aria-label="Close"
+          class="font-medium text-primary-500 focus:outline-none"
+          @click="hideFilter"
+        >
+          Close
+        </button>
+
+        <h6>FILTER</h6>
+
+        <button
+          type="button"
+          aria-label="Clear all"
+          class="font-medium text-primary-500 focus:outline-none"
+          @click="clearAll"
+        >
           Clear all
         </button>
       </div>
-      <div class="flex w-full h-full mt-2">
-        <div class="w-2/5">
-          <ul class="h-full bg-gray-200">
+
+      <hr class="border-t border-gray-200 w-full" />
+
+      <div class="flex w-full h-full">
+        <div class="w-2/5 border-r border-gray-200">
+          <ul class="h-full bg-gray-100 divide-y divide-gray-200">
             <li
               v-if="
                 facets.brands &&
@@ -154,15 +148,16 @@
                 facets.brands.all.buckets &&
                 facets.brands.all.buckets.length > 0
               "
-              class="p-2 text-base font-normal text-gray-500"
+              class="p-2 font-normal text-gray-500 border-l-4"
               :class="{
-                'bg-white text-primary-500 border-l-4 border-primary-500':
-                  selected == 'brands',
+                'bg-white text-primary-500  border-primary-500':
+                  selected === 'brands',
               }"
               @click="selected = 'brands'"
             >
               Brands
             </li>
+
             <li
               v-if="
                 facets.genders &&
@@ -170,15 +165,16 @@
                 facets.genders.all.buckets &&
                 facets.genders.all.buckets.length > 0
               "
-              class="p-2 text-base font-normal text-gray-500"
+              class="p-2 font-normal text-gray-500 border-l-4"
               :class="{
-                'bg-white text-primary-500 border-l-4 border-primary-500':
-                  selected == 'genders',
+                'bg-white text-primary-500  border-primary-500':
+                  selected === 'genders',
               }"
               @click="selected = 'genders'"
             >
               Gender
             </li>
+
             <li
               v-if="
                 facets.colors &&
@@ -186,15 +182,16 @@
                 facets.colors.all.buckets &&
                 facets.colors.all.buckets.length > 0
               "
-              class="p-2 text-base font-normal text-gray-500"
+              class="p-2 font-normal text-gray-500 border-l-4"
               :class="{
-                'bg-white text-primary-500 border-l-4 border-primary-500':
-                  selected == 'colors',
+                'bg-white text-primary-500  border-primary-500':
+                  selected === 'colors',
               }"
               @click="selected = 'colors'"
             >
               Color
             </li>
+
             <li
               v-if="
                 facets.sizes &&
@@ -202,15 +199,16 @@
                 facets.sizes.all.buckets &&
                 facets.sizes.all.buckets.length > 0
               "
-              class="p-2 text-base font-normal text-gray-500"
+              class="p-2 font-normal text-gray-500 border-l-4"
               :class="{
-                'bg-white text-primary-500 border-l-4 border-primary-500':
-                  selected == 'sizes',
+                'bg-white text-primary-500  border-primary-500':
+                  selected === 'sizes',
               }"
               @click="selected = 'sizes'"
             >
               Sizes
             </li>
+
             <li
               v-if="
                 facets.price &&
@@ -218,15 +216,16 @@
                 facets.price.all.buckets &&
                 facets.price.all.buckets.length > 0
               "
-              class="p-2 text-base font-normal text-gray-500"
+              class="p-2 font-normal text-gray-500 border-l-4"
               :class="{
-                'bg-white text-primary-500 border-l-4 border-primary-500':
-                  selected == 'price',
+                'bg-white text-primary-500  border-primary-500':
+                  selected === 'price',
               }"
               @click="selected = 'price'"
             >
               Price
             </li>
+
             <li
               v-if="
                 facets.age &&
@@ -234,15 +233,16 @@
                 facets.age.all.buckets &&
                 facets.age.all.buckets.length > 0
               "
-              class="p-2 text-base font-normal text-gray-500"
+              class="p-2 font-normal text-gray-500 border-l-4"
               :class="{
-                'bg-white text-primary-500 border-l-4 border-primary-500':
-                  selected == 'age',
+                'bg-white text-primary-500  border-primary-500':
+                  selected === 'age',
               }"
               @click="selected = 'age'"
             >
               Age
             </li>
+
             <li
               v-if="
                 facets.discount &&
@@ -250,10 +250,10 @@
                 facets.discount.all.buckets &&
                 facets.discount.all.buckets.length > 0
               "
-              class="p-2 text-base font-normal text-gray-500"
+              class="p-2 font-normal text-gray-500 border-l-4"
               :class="{
-                'bg-white text-primary-500 border-l-4 border-primary-500':
-                  selected == 'discount',
+                'bg-white text-primary-500  border-primary-500':
+                  selected === 'discount',
               }"
               @click="selected = 'discount'"
             >
@@ -261,10 +261,11 @@
             </li>
           </ul>
         </div>
-        <div class="w-full overflow-y-auto pb-56">
+
+        <div class="w-full max-height overflow-y-auto">
           <!-- <ul
-            class="w-full px-5 py-2 ms-2"
-            v-if="selected == 'categories' && facets.categories && facets.categories.all && facets.categories.all.buckets"
+            class="w-full p-2"
+            v-if="selected === 'categories' && facets.categories && facets.categories.all && facets.categories.all.buckets"
           >
             <li
               v-for="b in facets.categories && facets.categories.all && facets.categories.all.buckets"
@@ -280,19 +281,19 @@
           </ul> -->
           <ul
             v-if="
-              selected == 'brands' &&
+              selected === 'brands' &&
               facets.brands &&
               facets.brands.all &&
               facets.brands.all.buckets
             "
-            class="w-full px-5 py-2 ms-2 overflow-x-auto"
+            class="w-full p-2"
           >
             <li
               v-for="b in facets.brands &&
               facets.brands.all &&
               facets.brands.all.buckets"
               :key="b.key"
-              class="py-1"
+              class="pb-2"
             >
               <Checkbox
                 v-model="fl.brands"
@@ -306,19 +307,19 @@
           </ul>
           <ul
             v-if="
-              selected == 'genders' &&
+              selected === 'genders' &&
               facets.genders &&
               facets.genders.all &&
               facets.genders.all.buckets
             "
-            class="w-full px-5 py-2 ms-2"
+            class="w-full p-2"
           >
             <li
               v-for="b in facets.genders &&
               facets.genders.all &&
               facets.genders.all.buckets"
               :key="b.key"
-              class="py-1"
+              class="pb-2"
             >
               <Checkbox
                 v-model="fl.genders"
@@ -332,19 +333,19 @@
           </ul>
           <ul
             v-if="
-              selected == 'colors' &&
+              selected === 'colors' &&
               facets.colors &&
               facets.colors.all &&
               facets.colors.all.buckets
             "
-            class="w-full px-5 py-2 ms-2"
+            class="w-full p-2"
           >
             <li
               v-for="b in facets.colors &&
               facets.colors.all &&
               facets.colors.all.buckets"
               :key="b.key"
-              class="py-1"
+              class="pb-2"
             >
               <Checkbox
                 v-model="fl.colors"
@@ -358,18 +359,19 @@
           </ul>
           <ul
             v-if="
-              selected == 'sizes' &&
+              selected === 'sizes' &&
               facets.sizes &&
               facets.sizes.all.buckets &&
               facets.sizes.all.buckets.length > 0
             "
-            class="w-full px-5 py-2 ms-2"
+            class="w-full p-2"
           >
             <li
               v-for="b in facets.sizes &&
               facets.sizes.all &&
               facets.sizes.all.buckets"
               :key="b.key"
+              class="pb-2"
             >
               <Checkbox
                 v-model="fl.sizes"
@@ -383,18 +385,19 @@
           </ul>
           <ul
             v-if="
-              selected == 'price' &&
+              selected === 'price' &&
               facets.price &&
               facets.price.all.buckets &&
               facets.price.all.buckets.length > 0
             "
-            class="w-full px-5 py-2 ms-2"
+            class="w-full p-2"
           >
             <li
               v-for="b in facets.price &&
               facets.price.all &&
               facets.price.all.buckets"
               :key="b.key"
+              class="pb-2"
             >
               <Radio
                 v-model="fl.price"
@@ -408,18 +411,19 @@
           </ul>
           <ul
             v-if="
-              selected == 'age' &&
+              selected === 'age' &&
               facets.age &&
               facets.age.all.buckets &&
               facets.age.all.buckets.length > 0
             "
-            class="w-full px-5 py-2 ms-2"
+            class="w-full p-2"
           >
             <li
               v-for="b in facets.age &&
               facets.age.all &&
               facets.age.all.buckets"
               :key="b.key"
+              class="pb-2"
             >
               <Radio
                 v-model="fl.age"
@@ -433,19 +437,20 @@
           </ul>
           <ul
             v-if="
-              selected == 'discount' &&
+              selected === 'discount' &&
               facets.discount &&
               facets.discount.all &&
               facets.discount.all.buckets &&
               facets.discount.all.buckets.length > 0
             "
-            class="w-full px-5 py-2 ms-2"
+            class="w-full p-2"
           >
             <li
               v-for="b in facets.discount &&
               facets.discount.all &&
               facets.discount.all.buckets"
               :key="b.key"
+              class="pb-2"
             >
               <Radio
                 v-model="fl.discount"
@@ -459,68 +464,39 @@
           </ul>
         </div>
       </div>
-      <div
-        class="
-          fixed
-          inset-x-0
-          bottom-0
-          z-10
-          flex flex-row
-          p-1
-          bg-white
-          border
-          shadow
-        "
+
+      <GrnIndGradiantButton
+        square
+        class="fixed inset-x-0 bottom-0 w-full py-3"
+        @click="hideFilter"
       >
-        <!-- <button
-            @click="hideFilter"
-            class="w-1/3 h-12 p-1 tracking-wider text-gray-700 bg-gray-300 rounded me-3 focus:outline-none text-medium"
-          >
-            CLOSE
-          </button> -->
-        <Button
-          class="
-            w-full
-            h-12
-            p-1
-            text-xl
-            font-light
-            tracking-wider
-            text-white
-            rounded
-            hover:bg-accent-500
-            focus:outline-none
-            bg-primary-500
-            text-medium
-          "
-          @click="hideFilter"
-        >
-          APPLY
-        </Button>
-      </div>
-      <!-- <div class="absolute bottom-0 w-full text-center primary">
-        <button class="w-full p-3 font-bold text-white shadow-md cursor-pointer hover:bg-yellow-600 bg-primary-500 focus:outline-none">APPLY</button>
-      </div> -->
+        APPLY
+      </GrnIndGradiantButton>
     </div>
   </div>
 </template>
 <script>
-import { Checkbox, Button, Radio } from '~/shared/components/ui'
+import { Checkbox, Radio } from '~/shared/components/ui'
+import GrnIndGradiantButton from '~/components/ui/GrnIndGradiantButton.vue'
 import SortSlideUp from '~/components/Listing/Mobile/SortSlideUp'
 import { constructURL } from '~/lib/'
 
 export default {
-  components: { Checkbox, Radio, SortSlideUp, Button },
+  components: { Checkbox, Radio, SortSlideUp, GrnIndGradiantButton },
+
   props: {
     count: {
       type: Number,
       default: null,
     },
+
     clear: Boolean,
+
     fl: {
       type: [Object, Array],
       default: () => {},
     },
+
     facets: {
       type: [Object, Array],
       default: () => {
@@ -528,6 +504,7 @@ export default {
       },
     },
   },
+
   data() {
     return {
       isFilter: false,
@@ -537,27 +514,34 @@ export default {
       showMobileSort: false,
     }
   },
+
   created() {
     // console.log(this.facets)
   },
+
   methods: {
     hideFilter(e) {
       this.showMobileFilter = false
       // this.$emit('hide', true)
     },
+
     Changed(i) {
       console.error('categoryChanged', i)
     },
+
     changed(e) {
       this.fl[e.model] = e.checked
       // this.fl.pilot = e.checked;
       const url = constructURL(`/search`, this.fl)
       this.$router.push(url)
     },
+
     checkCategory() {},
+
     go(slug) {
       this.$router.push(`/` + slug)
     },
+
     clearAll() {
       this.$router.push({ query: null })
       this.$emit('hide')
@@ -565,3 +549,23 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.slideUp {
+  top: 100%;
+  transition: 0.3s all;
+}
+
+.slideDown {
+  bottom: -100%;
+  transition: 0.3s all;
+}
+
+.mt-rem {
+  margin-top: 6.5rem;
+}
+
+.max-height {
+  height: 70vh;
+}
+</style>

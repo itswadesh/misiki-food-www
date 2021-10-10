@@ -304,8 +304,6 @@
           class="
             mt-1.5
             sm:mt-2.5
-            mb-1
-            sm:mb-1.5
             leading-4
             flex flex-row
             overflow-hidden
@@ -348,7 +346,10 @@
 
         <!-- Price section for all view end -->
 
-        <div v-if="product.stock < 1" class="text-xs text-red-500">
+        <div
+          v-if="product.stock < 1"
+          class="mt-1 sm:mt-1.5 text-xs text-red-500"
+        >
           Out of stock
         </div>
       </div>

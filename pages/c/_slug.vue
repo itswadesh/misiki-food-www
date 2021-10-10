@@ -35,12 +35,8 @@
             class="
               container
               mx-auto
-              px-3
-              py-3
-              sm:px-3
               md:p-4
               grid grid-cols-2
-              gap-3
               md:gap-4
               sm:grid-cols-3
               xl:grid-cols-4

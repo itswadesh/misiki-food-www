@@ -1,6 +1,6 @@
 <template>
   <label
-    class="flex items-start cursor-pointer hover:bg-none"
+    class="flex items-center cursor-pointer hover:bg-none"
     :class="activategrouphover ? 'group' : ''"
     :for="id || uniqueId"
   >

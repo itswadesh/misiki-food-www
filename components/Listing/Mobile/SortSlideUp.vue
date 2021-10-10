@@ -1,6 +1,6 @@
 <template>
-  <div class="">
-    <div class="fixed inset-0 bg-white opacity-80 frosted" @click="hideSort" />
+  <div>
+    <div class="fixed inset-0 frosted" @click="hideSort" />
     <div
       class="
         fixed
@@ -10,48 +10,43 @@
         mx-auto
         transition
         bg-white
-        border-2
+        text-sm text-gray-800
+        border
         shadow
         conatiner
-        rounded-t-2xl
+        rounded-t-md
       "
     >
       <!-- short by row -->
-      <div class="container flex flex-row justify-between p-3 border-b">
-        <span class="text-lg text-gray-700">SORT BY</span>
+
+      <div class="flex items-center justify-between p-4">
+        <span>SORT BY</span>
+
         <button
+          type="button"
           aria-label="Open sort"
-          class="
-            z-10
-            p-1
-            font-semibold
-            rounded
-            text-primary-500
-            focus:outline-none
-          "
+          class="font-medium text-primary-500 focus:outline-none"
           @click="hideSort"
         >
           Close
         </button>
       </div>
+
+      <hr class="border-t border-gray-200 w-full" />
+
       <!-- radios -->
-      <div v-for="(s, ix) in sorts" v-if="s" :key="ix">
-        <label
-          :value="s.val"
-          class="
-            flex flex-row
-            justify-between
-            w-full
-            px-3
-            m-3
-            mx-auto
-            font-medium
-            text-gray-600
-          "
-        >
-          <span>{{ s.name }}</span>
-          <Radio v-model="sortBy" :value="s.val" @change="sortNow" />
-        </label>
+
+      <div class="px-4 py-2 flex flex-col">
+        <div v-for="(s, ix) in sorts" v-if="s" :key="ix">
+          <label
+            :value="s.val"
+            class="flex flex-row items-center justify-between w-full py-2"
+          >
+            <span>{{ s.name }}</span>
+
+            <Radio v-model="sortBy" :value="s.val" @change="sortNow" />
+          </label>
+        </div>
       </div>
     </div>
   </div>
@@ -61,6 +56,7 @@
 import { Radio } from '~/shared/components/ui'
 import { constructURL } from '~/lib/'
 import { sorts } from '~/shared/config'
+
 export default {
   components: { Radio },
   props: {
@@ -132,6 +128,6 @@ export default {
 <style scoped>
 .frosted {
   backdrop-filter: blur(15px);
-  background-color: hsla(0, 0%, 100%, 0.75);
+  background-color: hsla(0, 0%, 0%, 0.75);
 }
 </style>

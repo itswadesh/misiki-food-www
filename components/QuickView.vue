@@ -36,7 +36,7 @@
 
       <!-- Pricing  -->
 
-      <div class="mb-1.5 sm:mb-3">
+      <div v-if="product.price" class="mb-1.5 sm:mb-3">
         <div class="flex flex-row my-auto items-baseline mb-1">
           <b class="me-2 text-base sm:text-xl">
             {{
@@ -177,7 +177,10 @@
 
       <!-- Availability -->
 
-      <div class="flex flex-row items-center mb-2 sm:mb-3 text-sm">
+      <div
+        v-if="product.stock"
+        class="flex flex-row items-center mb-2 sm:mb-3 text-sm"
+      >
         <div
           class="
             flex flex-row
@@ -224,30 +227,36 @@
 
       <!-- Return Info -->
 
-      <div v-if="product.returnInfo" class="flex flex-wrap items-center">
-        <div class="me-3">
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M13.64 2.35C12.19 0.9 10.2 0 7.99 0C3.57 0 0 3.58 0 8C0 12.42 3.57 16 7.99 16C11.72 16 14.83 13.45 15.72 10H13.64C12.82 12.33 10.6 14 7.99 14C4.68 14 1.99 11.31 1.99 8C1.99 4.69 4.68 2 7.99 2C9.65 2 11.13 2.69 12.21 3.78L8.99 7H15.99V0L13.64 2.35Z"
-              fill="#4A4A4A"
-            />
-          </svg>
-        </div>
+      <div
+        v-if="product.returnInfo"
+        class="flex flex-wrap items-center mb-2 sm:mb-3"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="me-2 h-5 w-5 text-gray-500"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"
+          />
+        </svg>
 
-        <div class="font-light text-gray-500">
+        <p class="flex-1 font-light text-gray-500">
           {{ product.returnInfo }}
-        </div>
+        </p>
       </div>
 
       <!-- Get it by -->
 
-      <div class="flex flex-row items-center mb-2.5 sm:mb-5 text-sm">
+      <div
+        v-if="deliveryDate"
+        class="flex flex-row items-center mb-2.5 sm:mb-5 text-sm"
+      >
         <div
           class="
             flex flex-row
@@ -377,7 +386,10 @@
 
       <!-- Description -->
 
-      <div class="flex flex-col mb-2 sm:mb-3 text-sm">
+      <div
+        v-if="product.description && product.description.length"
+        class="flex flex-col mb-2 sm:mb-3 text-sm"
+      >
         <div
           class="
             mb-2
@@ -448,24 +460,23 @@
           <span> Key Features </span>
         </div>
 
-        <ul class="font-light text-sm sm:text-base">
+        <ul class="font-light text-gray-500 text-sm">
           <li v-for="(kf, ix) in product.keyFeatures" :key="ix + 'kf'">
-            <div v-if="kf" class="flex flex-row py-2">
-              <div class="w-5 h-5">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="w-5 h-5 text-gray-500"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </div>
-              <span class="leading-5 ms-2"> {{ kf }}</span>
+            <div v-if="kf" class="flex flex-row mb-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="me-2 w-5 h-5 text-gray-500"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+
+              <span class="flex-1"> {{ kf }}</span>
             </div>
           </li>
         </ul>
@@ -473,7 +484,10 @@
 
       <!-- Product Details -->
 
-      <div class="flex flex-col mb-2 sm:mb-3 text-sm">
+      <div
+        v-if="product.productDetails && product.productDetails.length"
+        class="flex flex-col mb-2 sm:mb-3 text-sm"
+      >
         <div
           class="
             mb-2
@@ -504,7 +518,10 @@
         </div>
 
         <div v-for="(s, ix) in product.productDetails" :key="ix + 'pdd'">
-          <div v-if="s" class="flex-row font-light text-gray-500 mb-2 text-sm">
+          <div
+            v-if="s"
+            class="flex flex-row font-light text-gray-500 mb-2 text-sm"
+          >
             <div class="w-1/3 p-1 my-auto ps-3">
               {{ s.name }}
             </div>
@@ -513,21 +530,15 @@
             </div>
           </div>
         </div>
-
-        <!-- <div
-          v-if="product.countryOfOrigin"
-          class="flex items-center mb-2 text-sm font-medium"
-        >
-          <span class="whitespace-nowrap w-36 me-2">Country Of Origin - </span>
-
-          <span class="text-gray-500">{{ product.countryOfOrigin }}</span>
-        </div> -->
       </div>
 
       <!-- Specifications -->
 
       <div
-        v-if="product.specifications && product.specifications.length"
+        v-if="
+          (product.specifications && product.specifications.length) ||
+          product.countryOfOrigin
+        "
         class="flex flex-col mb-2 sm:mb-3 text-sm"
       >
         <div
@@ -559,8 +570,15 @@
           <span> Specifications </span>
         </div>
 
-        <div v-for="(s, ix) in product.specifications" :key="ix + 'ds'">
-          <div v-if="s" class="flex-row font-light text-gray-500 mb-2 text-sm">
+        <div
+          v-for="(s, ix) in product.specifications"
+          v-if="product.specifications && product.specifications.length"
+          :key="ix + 'ds'"
+        >
+          <div
+            v-if="s"
+            class="flex flex-row font-light text-gray-500 mb-2 text-sm"
+          >
             <div class="w-1/3 p-1 my-auto ps-3">
               {{ s.name }}
             </div>
