@@ -110,14 +110,14 @@
         <b>
           {{
             cart.total | currency(store.currencySymbol, store.currencyDecimals)
-          }}</b
-        >
+          }}
+        </b>
       </div>
 
       <div class="fixed bottom-0 inset-x-0 w-full sm:static">
         <PrimaryButton
           class="w-full"
-          @click=";[$emit('submit'), (loading = true)]"
+          @click=";[$emit('submit'), (proceedLoading = true)]"
         >
           Proceed
         </PrimaryButton>
@@ -142,6 +142,7 @@ export default {
     return {
       showOffers: false,
       hide: false,
+      proceedLoading: false,
     }
   },
   computed: {
