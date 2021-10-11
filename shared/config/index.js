@@ -42,6 +42,7 @@ export const { AGORA_CHANNEL_NAME = 'AGORA_CHANNEL_NAME' } = process.env
 export const head = {
   titleTemplate: '%s',
   htmlAttrs: { lang: 'en' },
+  script: [{ src: 'https://js.stripe.com/v3' }],
   meta: [
     { charset: 'utf-8' },
     { hid: 'description', name: 'description', content: '' },

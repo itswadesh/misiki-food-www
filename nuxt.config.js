@@ -3,6 +3,7 @@ import { firebaseConfig } from './config/firebase'
 import {
   HTTP_ENDPOINT,
   DOMAIN,
+  STRIPE_PUBLISHABLE_KEY,
   WWW_URL,
   head,
   tailwindcss,
@@ -39,6 +40,7 @@ export default {
     { src: '~/plugins/vue-mq.js' },
     { src: '~/plugins/disable-right-click', ssr: false },
     { src: '~/plugins/vue-stripe.js', ssr: false },
+    { src: '~/plugins/vue-stripe-plugin.js', ssr: false },
     // { src: '~/plugins/directives.js', ssr:false },
   ],
   // components: true,
@@ -73,6 +75,7 @@ export default {
     WWW_URL: `${WWW_URL}`,
     HTTP_ENDPOINT: `${HTTP_ENDPOINT}`,
     DOMAIN: `${DOMAIN}`,
+    STRIPE_PUBLISHABLE_KEY: `${STRIPE_PUBLISHABLE_KEY}`,
   },
   privateRuntimeConfig: {
     firebaseAppId: process.env.FIREBASE_APP_ID,

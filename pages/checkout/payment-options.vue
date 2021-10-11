@@ -480,7 +480,7 @@ export default {
       }
     },
     async stripeTokenCreated(token) {
-      console.log('token...........', token)
+      console.log('token...........', token, this.$stripe.confirmCardPayment)
       try {
         this.loading = true
         // const groupComponent = this.$refs.elms
