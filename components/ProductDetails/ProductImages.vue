@@ -64,6 +64,7 @@
       </div> -->
 
       <!-- desktop view -->
+
       <div
         v-if="img"
         class="
@@ -76,7 +77,7 @@
         "
       >
         <div class="relative z-10 overflow-hidden bg-white widths">
-          <div class="z-50 absolute top-0 right-0">
+          <div class="z-50 absolute top-2 right-2">
             <WishButton
               v-if="product.id"
               rounded
@@ -85,6 +86,7 @@
               class="p-1 w-8 h-8"
             />
           </div>
+
           <Zoom
             v-if="!youtubeVideoId(selectedImage)"
             :img-normal="selectedImage"
@@ -124,7 +126,7 @@
 
       <div v-if="images && images.length" class="container mx-auto sm:hidden">
         <div class="relative z-10 overflow-hidden bg-white widths">
-          <div class="z-50 absolute top-0 right-0">
+          <div class="z-50 absolute top-2 right-2">
             <WishButton
               v-if="product.id"
               rounded
@@ -188,11 +190,12 @@
         </div>
       </div>
     </div>
+
     <!-- <ShareMobile
-        :open="showSharePanel"
-            @close="showSharePanel=!showSharePanel"
-            :class="showSharePanel ? 'open' : 'close'"
-          /> -->
+      :open="showSharePanel"
+      :class="showSharePanel ? 'open' : 'close'"
+      @close="showSharePanel = !showSharePanel"
+    /> -->
   </div>
 </template>
 

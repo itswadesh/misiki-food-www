@@ -531,12 +531,13 @@ export default {
       year: new Date().getFullYear(),
       // popularSearches: null,
       icons: [
-        { img: '/img/payment/rupay.svg', alt: 'rupay' },
+        // { img: '/img/payment/rupay.svg', alt: 'rupay' },
+        { img: '/img/payment/stripe.png', alt: 'stripe' },
         { img: '/img/payment/mastercard.png', alt: 'mastercard' },
         { img: '/img/payment/visa.png', alt: 'visa' },
         { img: '/img/payment/american-express.svg', alt: 'american-express' },
         { img: '/img/payment/paypal.svg', alt: 'paypal' },
-        { img: '/img/payment/bhim-upi.png', alt: 'upi' },
+        // { img: '/img/payment/bhim-upi.png', alt: 'upi' },
       ],
     }
   },
