@@ -62,12 +62,9 @@
                 ms:mb-4
                 w-24
                 h-24
-                md:w-32 md:h-32
-                xl:w-40 xl:h-40
+                md:h-28 md:w-28
+                xl:w-36 xl:h-36
                 rounded-full
-                flex
-                items-center
-                justify-center
                 border-2 border-gray-300
                 group-hover:border-primary-500
                 flex-shrink-0
@@ -78,14 +75,7 @@
               <img
                 v-lazy="`${c.imgCdn}?tr=w-144,h-144,fo-auto`"
                 alt="categories"
-                class="
-                  h-full
-                  w-full
-                  object-cover
-                  md:h-28 md:w-28
-                  xl:w-36 xl:h-36
-                  rounded-full
-                "
+                class="w-full h-full object-cover"
               />
             </div>
 
