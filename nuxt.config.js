@@ -72,10 +72,10 @@ export default {
     ['@nuxtjs/firebase', firebaseConfig],
   ],
   publicRuntimeConfig: {
-    WWW_URL: `${WWW_URL}`,
-    HTTP_ENDPOINT: `${HTTP_ENDPOINT}`,
-    DOMAIN: `${DOMAIN}`,
-    STRIPE_PUBLISHABLE_KEY: `${STRIPE_PUBLISHABLE_KEY}`,
+    WWW_URL,
+    HTTP_ENDPOINT,
+    DOMAIN,
+    STRIPE_PUBLISHABLE_KEY,
   },
   privateRuntimeConfig: {
     firebaseAppId: process.env.FIREBASE_APP_ID,
