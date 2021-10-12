@@ -23,7 +23,8 @@
       </svg>
     </nuxt-link>
 
-    <span class="transform rotate-12 mx-1">/</span>
+    <span class="transform rotate-6 mx-1 opacity-50">/</span>
+
     <div
       v-for="(p, ix) in path"
       v-if="p && p.name"
@@ -44,10 +45,10 @@
         {{ p.name }}
       </nuxt-link>
 
-      <span class="transform rotate-12 mx-1">/</span>
+      <span class="transform rotate-6 mx-1 opacity-50">/</span>
     </div>
 
-    <span class="my-auto capitalize text-primary-500">
+    <span class="my-auto capitalize text-primary-500 truncate">
       {{ name }}
     </span>
   </div>
@@ -55,8 +56,10 @@
 
 <script>
 import NuxtLink from '~/components/NuxtLink.vue'
+
 export default {
   components: { NuxtLink },
+
   props: {
     path: { type: Array, default: () => [] },
     name: { type: String, default: null },

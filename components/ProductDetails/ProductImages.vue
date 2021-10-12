@@ -76,7 +76,7 @@
           sm:flex sm:flex-col
         "
       >
-        <div class="relative z-10 overflow-hidden bg-white widths">
+        <div class="mb-5 md:mb-0 relative z-10 overflow-hidden bg-white widths">
           <div class="z-50 absolute top-2 right-2">
             <WishButton
               v-if="product.id"
@@ -92,15 +92,6 @@
             :img-normal="selectedImage"
             :img-zoom="selectedImage"
             :scale="2"
-            alt=""
-            class="
-              object-contain
-              w-auto
-              h-full
-              mx-auto
-              my-auto
-              preview-img-item
-            "
             @click="handleClick"
           />
 

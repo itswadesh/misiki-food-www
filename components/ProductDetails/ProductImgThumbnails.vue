@@ -37,7 +37,7 @@
           v-lazy="imgVideo(img)"
           alt=""
           class="
-            object-cover
+            object-contain
             overflow-hidden
             bg-white
             border
@@ -67,7 +67,7 @@
             rounded-sm
             smallimg
             hover:border-primary-500
-            md:w-full md:object-cover md:w-auto
+            md:w-full md:object-contain md:w-auto
           "
           :class="{ 'border-primary-500': img === selectedImage }"
           @mouseenter="$emit('selectedImage', img)"
@@ -180,18 +180,15 @@ export default {
     z-index: 20;
   }
   .prev-arrow-product-image-thumbnails {
-    margin-left: 1px;
     margin-right: 25px;
     margin-top: -248px;
     z-index: 999;
     transform: rotate(90deg);
   }
   .next-arrow-product-image-thumbnails {
-    margin-right: 55px;
-    margin-left: 25px;
-    right: -1px;
+    margin-right: 84px;
     z-index: 999;
-    margin-top: 175px;
+    margin-top: 163px;
     transform: rotate(90deg);
   }
 

@@ -4,6 +4,7 @@
     aria-label="Wishlist"
     :disabled="isDisabled"
     class="
+      p-1
       flex
       items-center
       justify-center

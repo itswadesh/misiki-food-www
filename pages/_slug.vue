@@ -13,7 +13,7 @@
           items-center
           justify-between
           space-x-4
-          py-2
+          py-3
           sm:py-5
         "
       >
