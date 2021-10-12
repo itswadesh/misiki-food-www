@@ -25,12 +25,14 @@
         </h2>
 
         <div class="py-4">
-          <div class="items-center p-4 md:flex">
-            <div class="w-full md:px-2 md:w-3/12">First Name</div>
-            <div class="w-full md:w-9/12">
-              <div class="max-w-sm mt-2 md:mt-0">
+          <div class="items-center p-2 sm:px-4 sm:flex">
+            <div class="w-full text-sm sm:w-4/12 md:w-3/12">First Name</div>
+
+            <div class="w-full sm:w-8/12 md:w-9/12">
+              <div class="max-w-sm mt-2 sm:mt-0">
                 <Textbox
                   v-model="profile.firstName"
+                  type="text"
                   placeholder="First Name"
                   class="w-full"
                   required
@@ -46,12 +48,14 @@
             </div>
           </div>
 
-          <div class="items-center p-4 md:flex">
-            <div class="w-full md:px-2 md:w-3/12">Last Name</div>
-            <div class="w-full md:w-9/12">
-              <div class="max-w-sm mt-2 md:mt-0">
+          <div class="items-center p-2 sm:px-4 sm:flex">
+            <div class="w-full text-sm sm:w-4/12 md:w-3/12">Last Name</div>
+
+            <div class="w-full sm:w-8/12 md:w-9/12">
+              <div class="max-w-sm mt-2 sm:mt-0">
                 <Textbox
                   v-model="profile.lastName"
+                  type="text"
                   placeholder="Last Name"
                   class="w-full"
                   required
@@ -61,23 +65,27 @@
           </div>
 
           <!-- <div class="p-2 md:flex lg:items-center">
-          <div class="w-full  md:px-2 md:w-3/12">Community username</div>
-          <div class="items-center w-full lg:flex md:w-9/12">
-            <div class="max-w-sm mt-2 md:w-96 md:mt-0">
-              <Textbox v-model="profile.username" @change="save(profile)" />
-            </div>
-            <h6 class="my-2 text-xs text-gray-600 lg:ms-5">
-              Username for community forums
-            </h6>
-          </div>
-        </div> -->
+            <div class="w-full md:px-2 md:w-3/12">Community username</div>
 
-          <div class="items-center p-4 md:flex">
-            <div class="w-full md:px-2 md:w-3/12">Your Email</div>
-            <div class="w-full md:w-9/12">
-              <div class="max-w-sm mt-2 md:mt-0">
+            <div class="items-center w-full lg:flex md:w-9/12">
+              <div class="max-w-sm mt-2 md:w-96 md:mt-0">
+                <Textbox v-model="profile.username" @change="save(profile)" />
+              </div>
+
+              <h6 class="my-2 text-xs text-gray-600 lg:ms-5">
+                Username for community forums
+              </h6>
+            </div>
+          </div> -->
+
+          <div class="items-center p-2 sm:px-4 sm:flex">
+            <div class="w-full text-sm sm:w-4/12 md:w-3/12">Your Email</div>
+
+            <div class="w-full sm:w-8/12 md:w-9/12">
+              <div class="max-w-sm mt-2 sm:mt-0">
                 <Textbox
                   v-model="profile.email"
+                  type="email"
                   placeholder="Email"
                   class="w-full"
                   required
@@ -86,13 +94,15 @@
             </div>
           </div>
 
-          <div class="items-center p-4 md:flex">
-            <div class="w-full md:px-2 md:w-3/12">Your Phone</div>
-            <div class="w-full md:w-9/12">
-              <div class="max-w-sm mt-2 md:mt-0">
+          <div class="items-center p-2 sm:px-4 sm:flex">
+            <div class="w-full text-sm sm:w-4/12 md:w-3/12">Your Phone</div>
+
+            <div class="w-full sm:w-8/12 md:w-9/12">
+              <div class="max-w-sm mt-2 sm:mt-0">
                 <Textbox
                   v-model="profile.phone"
-                  placeholder="Email"
+                  type="tel"
+                  placeholder="Mobile number"
                   class="w-full"
                   required
                 />
@@ -100,10 +110,10 @@
             </div>
           </div>
 
-          <div class="items-center p-4 md:flex">
-            <div class="w-full md:px-2 md:w-3/12">Gender</div>
+          <div class="items-center p-2 sm:px-4 sm:flex">
+            <div class="w-full text-sm sm:w-4/12 md:w-3/12">Gender</div>
 
-            <div class="w-full md:w-9/12">
+            <div class="w-full sm:w-8/12 md:w-9/12">
               <div class="flex mt-2 md:mt-0">
                 <label class="flex flex-row cursor-pointer me-4">
                   <Radio
@@ -132,10 +142,13 @@
             </div>
           </div>
 
-          <div class="items-center p-4 md:flex">
-            <div class="w-full md:px-2 md:w-3/12">Your Profile Picture</div>
-            <div class="w-full md:w-9/12">
-              <div class="max-w-sm mt-2 md:mt-0">
+          <div class="p-2 sm:px-4 sm:flex">
+            <div class="w-full text-sm sm:w-4/12 md:w-3/12">
+              Your Profile Picture
+            </div>
+
+            <div class="w-full sm:w-8/12 md:w-9/12">
+              <div class="max-w-sm mt-2 sm:mt-0">
                 <ImageUpload
                   name="avatar"
                   folder="user"
@@ -146,33 +159,42 @@
               </div>
             </div>
           </div>
+
+          <div class="items-center p-2 sm:px-4 sm:flex">
+            <div class="w-full text-sm sm:w-4/12 md:w-3/12"></div>
+
+            <div class="w-full sm:w-8/12 md:w-9/12">
+              <div class="max-w-sm mt-2 sm:mt-0">
+                <PrimaryButtonRounded
+                  type="submit"
+                  class="w-full text-sm sm:text-base"
+                  :disabled="$v.profile.$anyError && $v.profile.$anyDirty"
+                >
+                  Submit
+                </PrimaryButtonRounded>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Profile name and credentials end  -->
-
-      <PrimaryButtonRounded
-        class="w-full p-3 md:px-6 md:p-2 md:w-1/3 sm:w-1/2"
-        type="submit"
-        :disabled="$v.profile.$anyError && $v.profile.$anyDirty"
-        >UPDATE
-      </PrimaryButtonRounded>
     </form>
 
     <!-- Edit profile end -->
 
     <!-- Close account start  -->
 
-    <div class="text-gray-800 bg-gray-200 rounded-sm">
+    <div class="mb-5 text-gray-800 bg-gray-200 rounded-sm">
       <h2
         class="p-4 text-lg font-semibold tracking-wider border-b border-gray-50"
       >
-        Close account
+        Close Account
       </h2>
 
-      <div class="py-4 pl-6">
+      <div class="p-4">
         <h6 class="text-xs text-gray-600">
-          Your account will be closed permanently. Your
+          account will be closed permanently.
           {{ settings.websiteName }} store will be shut down.
         </h6>
         <button
@@ -189,7 +211,7 @@
             border-2 border-gray-400
             rounded-md
             shadow-md
-            hover:border-brand-700
+            hover:border-red-500
             focus:outline-none
             hover:text-white hover:bg-red-500
           "
@@ -242,6 +264,7 @@
       <!-- Close button end -->
 
       <!-- Data for delete account start -->
+
       <div class="width">
         <h5 class="px-5 sm:px-10 pt-3.5 mb-3 font-semibold text-lg">
           Close Account ?
@@ -268,9 +291,13 @@
               "
             >
               <option :value="null">Select an option</option>
+
               <option>I was testing the website.</option>
+
               <option>Website is very slow.</option>
+
               <option>Don't know how to use.</option>
+
               <option>Don't want to add profile details.</option>
             </select>
           </label>
@@ -311,6 +338,7 @@
           </button>
         </div>
       </div>
+
       <!-- Data for delete account end -->
     </CleanModal>
   </section>
@@ -353,6 +381,7 @@ export default {
       openDeleteAccountModal: false,
     }
   },
+
   validations: {
     profile: {
       firstName: { required },
@@ -369,12 +398,14 @@ export default {
   async created() {
     await this.getMe()
   },
+
   methods: {
     ...mapMutations({
       success: 'success',
       setErr: 'setErr',
       setUser: 'auth/setUser',
     }),
+
     async getMe() {
       try {
         this.profile = await this.$get('user/me', {})
@@ -389,10 +420,12 @@ export default {
         // console.log(e)
       }
     },
+
     saveImage(name, image) {
       this.profile.avatar = image
       this.submit()
     },
+
     async submit() {
       // console.log("update profile", this.profile)
       const msg = 'Profile Updated'

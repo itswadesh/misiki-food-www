@@ -1,28 +1,60 @@
 <template>
-  <div class="mx-auto mt-4 bg-gray-100">
-    <div v-if="$apollo.loading">Loading...</div>
+  <div class="mx-auto text-gray-800">
     <div
-      v-if="imgCdn"
-      v-lazy:background-image="`${imgCdn}`"
-      class="relative h-48 bg-no-repeat bg-contain"
+      v-if="$apollo.loading"
+      class="
+        p-2
+        h-64
+        bg-gray-50
+        flex
+        items-center
+        justify-center
+        text-center
+        rounded-md
+        shadow-md
+      "
     >
+      <span> Loading...</span>
+    </div>
+
+    <div
+      v-if="img"
+      class="
+        relative
+        h-64
+        bg-no-repeat bg-contain bg-gray-50
+        border
+        rounded-md
+        shadow-md
+        preview-img-item
+        flex
+        justify-center
+        items-center
+        group
+      "
+    >
+      <img v-lazy="img" class="w-full h-full object-contain object-center" />
+
+      <!-- Delete button start -->
+
       <button
         v-if="!multi"
         type="button"
         class="
+          hidden
+          group-hover:block
           absolute
-          top-0
-          right-0
-          flex
-          items-center
-          justify-center
-          w-8
-          h-8
-          bg-gray-300
-          rounded-full
-          cursor-pointer
-          fab
-          hover:bg-gray-200
+          p-1
+          transition
+          duration-300
+          transform
+          rounded-md
+          hover:bg-opacity-50 hover:bg-gray-900 hover:shadow-md
+          text-gray-500
+          hover:text-white
+          top-3
+          right-3
+          focus:outline-none focus:scale-75
         "
         @click="removeImage(img)"
       >
@@ -41,43 +73,69 @@
           />
         </svg>
       </button>
+
+      <!-- Delete button end -->
     </div>
+
     <form v-else enctype="multipart/form-data" novalidate>
       <div
         class="
           relative
-          flex
-          items-center
-          justify-center
           h-48
-          p-4
-          text-center text-gray-600
-          border-2 border-gray-200 border-dashed
+          p-2
+          text-gray-600
+          bg-gray-50
+          hover:bg-primary-100
+          transition
+          duration-300
+          rounded-md
+          shadow-md
           cursor-pointer
-          bg-cgray-200
-          hover:bg-primary-200
+          border border-gray-300
         "
       >
-        <input
-          :multiple="multi"
-          type="file"
-          name="photos"
-          :disabled="isSaving"
-          accept="image/*"
-          class="absolute w-full h-48 opacity-0 cursor-pointer"
-          @change="uploadPhoto"
-        />
-        <span v-if="isInitial">
-          Drag {{ name }} here to upload <br />or click to browse
-        </span>
-        <span v-if="isSaving">Uploading {{ fileCount }} files...</span>
-        <span v-if="isSuccess">
-          {{ fileCount }} files uploaded successfully...
-        </span>
-        <span v-if="isFailed">
-          Upload failed. Please
-          <a @click="currentStatus = 0">try again</a>
-        </span>
+        <div
+          class="
+            border-2 border-gray-300 border-dashed
+            w-full
+            h-full
+            rounded-md
+            flex
+            items-center
+            justify-center
+          "
+        >
+          <input
+            ref="file"
+            :multiple="multi"
+            type="file"
+            name="photos"
+            :disabled="isSaving"
+            accept="image/*"
+            class="absolute w-full h-48 opacity-0 cursor-pointer"
+            @change="uploadPhoto"
+          />
+
+          <div
+            class="p-2 flex items-center justify-center text-center text-base"
+          >
+            <p v-if="isInitial">
+              Drag {{ name }} here to upload <br />or click to browse
+            </p>
+
+            <p v-if="isSaving">Uploading {{ fileCount }} files...</p>
+
+            <p v-if="isSuccess">
+              {{ fileCount }} files uploaded successfully...
+            </p>
+
+            <p v-if="isFailed">
+              Upload failed. Please
+
+              <a @click="currentStatus = 0">try again</a>
+            </p>
+          </div>
+        </div>
       </div>
     </form>
   </div>
@@ -85,91 +143,114 @@
 
 <script>
 import { mapMutations } from 'vuex'
-import FILE_UPLOAD from '~/gql/file/fileUpload.gql'
-import DELETE_FILE from '~/gql/product/deleteFile.gql'
+import fileUpload from '~/gql/file/fileUpload.gql'
+import deleteFile from '~/gql/product/deleteFile.gql'
 const STATUS_INITIAL = 0
 const STATUS_SAVING = 1
 const STATUS_SUCCESS = 2
 const STATUS_FAILED = 3
+
 export default {
   // name required for removing
+
   props: {
+    placeholder: { type: String, required: false, default: 'img' },
     image: { type: String, required: false, default: null },
     name: { type: String, required: false, default: 'banner' },
     folder: { type: String, required: false, default: 'img' },
     crunch: { type: Boolean, required: false, default: false },
     multi: { type: Boolean, required: false, default: false },
   },
+
   data() {
     return {
       img: null,
       currentStatus: 0,
       data: null,
       error: null,
+      loading: false,
     }
   },
+
   computed: {
     isInitial() {
       return this.currentStatus === STATUS_INITIAL
     },
+
     isSaving() {
       return this.currentStatus === STATUS_SAVING
     },
+
     isSuccess() {
       return this.currentStatus === STATUS_SUCCESS
     },
+
     isFailed() {
       return this.currentStatus === STATUS_FAILED
     },
   },
+
   watch: {
     image() {
-      this.imgCdn = this.image
-      // console.log(this.imgCdn)
+      this.img = this.image
     },
   },
+
   mounted() {
-    this.imgCdn = this.image
+    this.img = this.image
   },
+
   methods: {
     ...mapMutations({
-      clearErr: 'clearErr',
       setErr: 'setErr',
+      clearErr: 'clearErr',
       success: 'success',
       busy: 'busy',
     }),
+
     async uploadPhoto({ target }) {
       try {
         this.clearErr()
+        this.loading = true
         let images = await this.$post('file/fileUpload', {
           files: target.files,
           folder: this.folder,
         })
         // let images = (
         //   await this.$apollo.mutate({
-        //     mutation: FILE_UPLOAD,
+        //     mutation: fileUpload,
         //     variables: { files: target.files, folder: this.folder },
         //     fetchPolicy: 'no-cache',
         //   })
         // ).data.fileUpload
-        images = images.map((o) => o.filename)
+        // console.log(images)
+        if (!images) return this.setErr('Error uploading image')
+        images = images.map((o) => o.url)
+        // console.log(images[0])
         if (!this.multi) {
-          this.imgCdn = images[0]
-          this.$emit('save', this.name, this.imgCdn)
+          this.img = images[0]
+          this.$emit('save', this.name, this.img)
         } else {
           this.$emit('save', this.name, images)
         }
+        this.$refs.file.value = ''
       } catch (e) {
+        // console.log('err... ', e)
         this.setErr(e)
+      } finally {
+        this.loading = false
       }
     },
+
     imgPath(i) {
       return `${i}?a=${Math.random()}`
     },
+
     save(imagePath) {
-      this.imgCdn = imagePath
+      this.img = imagePath
       this.$emit('save', this.name, imagePath)
     },
+
     removeImage(image) {
       const vm = this
       this.$swal({
@@ -185,17 +266,20 @@ export default {
           vm.deleteConfirmed(image)
         }
       })
+      vm.deleteConfirmed(image)
     },
+
     async deleteConfirmed(image) {
       try {
         this.clearErr()
-        this.imgCdn = ''
-        await this.$apollo.mutate({
-          mutation: DELETE_FILE,
-          variables: { path: image },
-          fetchPolicy: 'no-cache',
-        })
-        this.$emit('remove', this.name)
+        this.img = ''
+        await this.$post('product/deleteFile', { url: image })
+        // await this.$apollo.mutate({
+        //   mutation: deleteFile,
+        //   variables: { url: image },
+        //   fetchPolicy: 'no-cache',
+        // })
+        this.$emit('remove', this.name, this.img)
       } catch (e) {
         this.setErr(e)
       } finally {

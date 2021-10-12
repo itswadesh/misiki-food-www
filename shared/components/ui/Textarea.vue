@@ -15,7 +15,6 @@
     v-bind="$attrs"
     :value="value"
     :type="type"
-    :aria-label="label"
     :rows="rows"
     @input="$emit('input', $event.target.value)"
     @blur="$emit('blur', $event.target.value)"

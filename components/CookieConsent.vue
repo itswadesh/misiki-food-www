@@ -229,7 +229,7 @@
           />
         </div> -->
 
-        <hr class="mb-2.5 sm:mb-5 border-t border-white w-full" />
+        <hr class="mb-5 sm:mb-10 border-t border-white w-full" />
 
         <div class="flex justify-center">
           <button

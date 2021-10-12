@@ -7,7 +7,7 @@
         p-2
         text-sm
         placeholder-gray-400
-        border border-gray-400
+        border border-gray-300
         rounded-md
         bg-gray-50
         hover:bg-white hover:border-primary-500
