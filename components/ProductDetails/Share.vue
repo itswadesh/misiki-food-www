@@ -6,6 +6,7 @@
       :class="{ 'shadow-md border-gray-200': open == true }"
       class="
         flex flex-row
+        items-center
         px-4
         py-2
         rounded-full
@@ -20,7 +21,7 @@
       @click="open = true"
     >
       <svg
-        class="my-auto text-gray-500"
+        class="text-gray-500"
         width="24"
         height="16"
         viewBox="0 0 24 16"
@@ -33,7 +34,7 @@
         />
       </svg>
 
-      <span class="hidden my-auto ms-1 md:flex">Share</span>
+      <span class="hidden ms-1 sm:flex text-sm">Share</span>
     </button>
 
     <div v-if="open && product" class="">
@@ -59,14 +60,14 @@
           class="
             flex flex-col
             h-full
-            xl:justify-around xl:my-auto xl:flex-wrap xl:flex-row
+            xl:justify-around xl: xl:flex-wrap xl:flex-row xl:items-center
           "
         >
           <div class="py-3 px-5 bg-gray-200 border-b xl:hidden">
             <span class="font-semibold text-center">Share Via</span>
           </div>
 
-          <div class="flex flex-col w-full xl:flex-row">
+          <div class="flex flex-col w-full xl:flex-row xl:items-center">
             <!-- fb -->
             <ShareNetwork
               :url="`${host}/${product.slug}?id=${product.id}`"
@@ -78,7 +79,7 @@
               style="color: #3b5998"
               class="
                 flex flex-row
-                items-center
+                items-center items-center
                 w-full
                 mx-auto
                 border-b
@@ -97,7 +98,7 @@
                   my-2
                   rounded-full
                   cursor-pointer
-                  xl:my-auto
+                  xl:
                   group-hover:shadow-md
                 "
                 width="50"
@@ -116,7 +117,6 @@
 
               <span
                 class="
-                  my-auto
                   font-light
                   text-gray-500
                   group-hover:text-primary-500 group-hover:font-normal
@@ -139,7 +139,7 @@
               style="color: #53a8e7"
               class="
                 flex flex-row
-                items-center
+                items-center items-center
                 w-full
                 mx-auto
                 border-b
@@ -158,7 +158,7 @@
                   my-2
                   rounded-full
                   cursor-pointer
-                  xl:my-auto
+                  xl:
                   group-hover:shadow-md
                 "
                 width="50"
@@ -176,7 +176,6 @@
               </svg>
               <span
                 class="
-                  my-auto
                   font-light
                   text-gray-500
                   group-hover:text-primary-500 group-hover:font-normal
@@ -198,7 +197,7 @@
               style="color: #54cc61"
               class="
                 flex flex-row
-                items-center
+                items-center items-center
                 w-full
                 mx-auto
                 border-b
@@ -217,7 +216,7 @@
                   my-2
                   rounded-full
                   cursor-pointer
-                  xl:my-auto
+                  xl:
                   group-hover:shadow-md
                 "
                 width="50"
@@ -235,7 +234,6 @@
               </svg>
               <span
                 class="
-                  my-auto
                   font-light
                   text-gray-500
                   group-hover:text-primary-500 group-hover:font-normal
@@ -255,7 +253,7 @@
               style="color: #54cc61"
               class="
                 flex flex-row
-                items-center
+                items-center items-center
                 w-full
                 mx-auto
                 border-b
@@ -324,7 +322,6 @@
               </svg>
               <span
                 class="
-                  my-auto
                   font-light
                   text-gray-500
                   group-hover:text-primary-500 group-hover:font-normal
@@ -346,7 +343,7 @@
               style="color: #54cc61"
               class="
                 flex flex-row
-                items-center
+                items-center items-center
                 w-full
                 mx-auto
                 border-b
@@ -418,7 +415,6 @@
 
               <span
                 class="
-                  my-auto
                   font-light
                   text-gray-500
                   group-hover:text-primary-500 group-hover:font-normal
@@ -433,7 +429,7 @@
             <button
               class="
                 flex flex-row
-                items-center
+                items-center items-center
                 w-full
                 mx-auto
                 border-b
@@ -471,7 +467,6 @@
               </svg>
               <span
                 class="
-                  my-auto
                   font-light
                   text-gray-500
                   group-hover:text-primary-500 group-hover:font-normal

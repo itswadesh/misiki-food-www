@@ -535,12 +535,13 @@ export default {
         { img: '/img/payment/stripe.png', alt: 'stripe' },
         { img: '/img/payment/mastercard.png', alt: 'mastercard' },
         { img: '/img/payment/visa.png', alt: 'visa' },
-        { img: '/img/payment/american-express.svg', alt: 'american-express' },
+        { img: '/img/payment/american-express.png', alt: 'american express' },
         { img: '/img/payment/paypal.svg', alt: 'paypal' },
         // { img: '/img/payment/bhim-upi.png', alt: 'upi' },
       ],
     }
   },
+
   // async fetch() {
   // this.getPopularSearches()
   // this.popularSearches = (
