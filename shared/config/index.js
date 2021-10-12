@@ -19,7 +19,7 @@ export const { WWW_URL = `http://localhost:${PORT}` } = process.env
 export const { GOOGLE_ANALYTICS_ID = 'UA-1234567-1' } = process.env
 
 export const {
-  STRIPE_PUBLISHABLE_KEY = 'pk_test_96u8xKulOOGOLoyc2Jt167fH00DENCsyyF',
+  STRIPE_PUBLISHABLE_KEY = 'pk_test_51Jj5DHSEaRwuFSJKGARPZpU4MOhCLVxa8ZjIgMIbbmZeeCMrxzWwhxWEANZCOjuP93CVOoiAgY7M5NiH5UMj9Je200acRFRXb7',
 } = process.env
 
 export const { ONESIGNAL_APP_ID = '' } = process.env

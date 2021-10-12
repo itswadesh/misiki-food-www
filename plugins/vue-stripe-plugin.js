@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import { StripePlugin } from '@vue-stripe/vue-stripe'
-
+import { STRIPE_PUBLISHABLE_KEY } from '~/shared/config/index'
 const options = {
-  pk: process.env.STRIPE_PUBLISHABLE_KEY,
+  pk: STRIPE_PUBLISHABLE_KEY,
 }
 
 Vue.use(StripePlugin, options)

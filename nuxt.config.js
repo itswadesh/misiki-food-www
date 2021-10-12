@@ -10,7 +10,12 @@ import {
   PORT,
 } from './shared/config/index'
 import { pwa } from './config/index'
-// console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz', HTTP_ENDPOINT, WWW_URL)
+// console.log(
+//   'zzzzzzzzzzzzzzzzzzzzzzzzzzz',
+//   HTTP_ENDPOINT,
+//   WWW_URL,
+//   STRIPE_PUBLISHABLE_KEY
+// )
 // const whitelist = ['preview-img-item']
 const whitelistPatterns = [/^slick-/, /^swal2-/, /^mx-/] // mx- is for vue2-datepicker
 export default {

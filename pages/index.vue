@@ -260,32 +260,32 @@ export default {
         // this.loading = false
       }
     },
-    async getBanners() {
-      this.loading = true
-      // this.skeleton = true
-      try {
-        // const banners = await this.$get('banner/banners', {
-        //   sort: 'sort',
-        //   pageId: 'home',
-        //   active: true,
-        // })
-        // this.sliderBanners = banners.data.filter((b) => b.type === 'slider')
-        // this.videoBanners = banners.data.filter((b) => b.type === 'video')
-        this.heroBanners = await this.$get('banner/groupByBanner', {
-          pageId: 'home',
-          type: 'hero',
-        })
-        this.pickedBanners = await this.$get('banner/groupByBanner', {
-          pageId: 'home',
-          type: 'picked',
-        })
-      } catch (e) {
-        // console.log(e)
-      } finally {
-        this.loading = false
-        // this.skeleton = false
-      }
-    },
+    // async getBanners() {
+    //   this.loading = true
+    //   // this.skeleton = true
+    //   try {
+    //     // const banners = await this.$get('banner/banners', {
+    //     //   sort: 'sort',
+    //     //   pageId: 'home',
+    //     //   active: true,
+    //     // })
+    //     // this.sliderBanners = banners.data.filter((b) => b.type === 'slider')
+    //     // this.videoBanners = banners.data.filter((b) => b.type === 'video')
+    //     this.heroBanners = await this.$get('banner/groupByBanner', {
+    //       pageId: 'home',
+    //       type: 'hero',
+    //     })
+    //     this.pickedBanners = await this.$get('banner/groupByBanner', {
+    //       pageId: 'home',
+    //       type: 'picked',
+    //     })
+    //   } catch (e) {
+    //     // console.log(e)
+    //   } finally {
+    //     this.loading = false
+    //     // this.skeleton = false
+    //   }
+    // },
     scrollListener() {
       if (window.scrollY > 480) {
         // console.log('Naman')
