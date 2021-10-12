@@ -7,6 +7,7 @@
     <div class="flex flex-col lg:flex-row lg:space-x-5">
       <div class="lg:w-2/3 lg:border-r lg:border-gray-200 lg:pe-5">
         <div class="text-lg font-bold tracking-wide mb-3">Payment Methods</div>
+
         <div v-if="paymentMethods && paymentMethods.length > 0" class="mb-5">
           <div v-for="p in paymentMethods" :key="p.id">
             <label
@@ -25,7 +26,12 @@
               "
             >
               <div class="flex items-center space-x-5">
-                <Radio v-model="paymentMethod" :value="p" :color="p.color" />
+                <Radio
+                  v-model="paymentMethod"
+                  :value="p"
+                  :color="p.color"
+                  @change="setupStripeElement"
+                />
 
                 <div
                   class="
@@ -65,19 +71,12 @@
                 </span>
               </div>
             </label>
+
             <div
-              v-if="
-                paymentMethod.value == 'Stripe' &&
-                p.name == 'Stripe' &&
-                loadedStripe
-              "
+              v-show="paymentMethod.value == 'Stripe'"
               class="px-6 py-4 my-2 rounded shadow-lg"
             >
-              <stripe-element-card
-                ref="stripeElementRef"
-                :pk="settings.stripePublishableKey"
-                @token="stripeTokenCreated"
-              />
+              <div id="card" ref="card">Loading Stripe</div>
             </div>
           </div>
         </div>
@@ -354,10 +353,20 @@ export default {
   middleware({ store, redirect }) {
     if (store.state.cart.qty < 1) return redirect('/cart')
   },
+  async asyncData({ $get }) {
+    const paymentMethods = await $get('payment/paymentMethods', {
+      active: true,
+    })
+    // if (paymentMethods && paymentMethods.data) {
+    //       paymentMethods = paymentMethods.data
+    // }
+    return { paymentMethods: paymentMethods.data }
+  },
   data() {
     return {
+      card: null,
       pulishableKey: null,
-      paymentMethods: null,
+      // paymentMethods: null,
       loading: false,
       paymentMethod: null,
       razorpayReady: false,
@@ -396,17 +405,23 @@ export default {
       cart: 'cart/cart',
       settings: 'settings',
     }),
-    disable() {
-      if (this.paymentMethod.value === 'Stripe')
-        return !this.complete || this.errors.any()
-      else return this.errors.any()
-    },
+    // disable() {
+    //   if (this.paymentMethod.value === 'Stripe')
+    //     return !this.complete || this.errors.any()
+    //   else return this.errors.any()
+    // },
   },
   async created() {
     this.$store.dispatch('cart/fetch')
-    await this.getPaymentMethods()
+    // await this.getPaymentMethods()
+    this.paymentMethod = this.paymentMethods[0] && this.paymentMethods[0].value
+    // this.paymentMethod =
+    //   this.paymentMethods.data[0] && this.paymentMethods.data[0].value
     await this.loadStripe()
     // this.pulishableKey = this.settings.stripePublishableKey
+  },
+  mounted() {
+    this.setupStripeElement()
   },
   methods: {
     ...mapActions({
@@ -419,28 +434,64 @@ export default {
       success: 'success',
       busy: 'busy',
     }),
-    async getPaymentMethods() {
-      try {
-        this.loading = true
-        const paymentMethods = await this.$get('payment/paymentMethods', {
-          active: true,
+    setupStripeElement() {
+      if (this.$stripe) {
+        const elements = this.$stripe.elements()
+        this.card = elements.create('card', {})
+        // Add an instance of the card Element into the `card-element` <div>
+        this.card.mount('#card')
+        this.card.on('change', ({ error, complete, value }) => {
+          if (complete) {
+            this.purchase()
+          }
         })
-        // const paymentMethods = (
-        //   await this.$apollo.query({
-        //     query: PAYMENT_METHODS,
-        //     variables: { active: true },
-        //   })
-        // ).data.paymentMethods
-        if (paymentMethods && paymentMethods.data) {
-          this.paymentMethods = paymentMethods.data
-          this.paymentMethod =
-            paymentMethods.data[0] && paymentMethods.data[0].value
-        }
-      } catch (e) {
-      } finally {
-        this.loading = false
       }
     },
+    async purchase() {
+      let pm
+      try {
+        pm = await this.$stripe.createPaymentMethod({
+          type: 'card',
+          card: this.card,
+        })
+      } catch (e) {}
+      console.log('card...................', pm.paymentMethod.id)
+      // this.$stripe.confirmCardPayment()
+      if (pm.paymentMethod) {
+        try {
+          const res = await this.$get('pay/stripe', {
+            paymentMethodId: pm.paymentMethod.id,
+            address: this.$route.query.address,
+          })
+          console.log('pay/stripe', res)
+        } catch (e) {
+          this.setErr(e)
+        }
+      }
+    },
+    // async getPaymentMethods() {
+    //   try {
+    //     this.loading = true
+    //     const paymentMethods = await this.$get('payment/paymentMethods', {
+    //       active: true,
+    //     })
+    //     // const paymentMethods = (
+    //     //   await this.$apollo.query({
+    //     //     query: PAYMENT_METHODS,
+    //     //     variables: { active: true },
+    //     //   })
+    //     // ).data.paymentMethods
+    //     if (paymentMethods && paymentMethods.data) {
+    //       this.paymentMethods = paymentMethods.data
+    //       this.paymentMethod =
+    //         paymentMethods.data[0] && paymentMethods.data[0].value
+    //       this.setupStripeElement()
+    //     }
+    //   } catch (e) {
+    //   } finally {
+    //     this.loading = false
+    //   }
+    // },
     async loadStripe() {
       try {
         this.loading = true

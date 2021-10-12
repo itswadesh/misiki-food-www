@@ -45,7 +45,7 @@ export default {
     { src: '~/plugins/vue-mq.js' },
     { src: '~/plugins/disable-right-click', ssr: false },
     { src: '~/plugins/vue-stripe.js', ssr: false },
-    { src: '~/plugins/vue-stripe-plugin.js', ssr: false },
+    // { src: '~/plugins/vue-stripe-plugin.js', ssr: false },
     // { src: '~/plugins/directives.js', ssr:false },
   ],
   // components: true,
@@ -59,6 +59,12 @@ export default {
     '@nuxt/image',
     '@nuxtjs/pwa',
     'vue-social-sharing/nuxt',
+    [
+      'nuxt-stripe-module',
+      {
+        publishableKey: STRIPE_PUBLISHABLE_KEY,
+      },
+    ],
     // 'nuxt-vite',
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
