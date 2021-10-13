@@ -45,6 +45,7 @@ export default {
     { src: '~/plugins/vue-mq.js' },
     { src: '~/plugins/disable-right-click', ssr: false },
     { src: '~/plugins/vue-stripe.js', ssr: false },
+    // { src: '~/plugins/vue-braintree.js', ssr: false },
     // { src: '~/plugins/vue-stripe-plugin.js', ssr: false },
     // { src: '~/plugins/directives.js', ssr:false },
   ],

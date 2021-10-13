@@ -42,7 +42,11 @@ export const { AGORA_CHANNEL_NAME = 'AGORA_CHANNEL_NAME' } = process.env
 export const head = {
   titleTemplate: '%s',
   htmlAttrs: { lang: 'en' },
-  script: [{ src: 'https://js.stripe.com/v3' }],
+  script: [
+    // {
+    //   src: 'https://js.braintreegateway.com/web/dropin/1.32.0/js/dropin.min.js',
+    // },
+  ],
   meta: [
     { charset: 'utf-8' },
     { hid: 'description', name: 'description', content: '' },

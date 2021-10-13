@@ -347,18 +347,34 @@
         </CheckoutSummary>
         <!-- <Footer class="hidden sm:flex" /> -->
       </div>
+      <div id="dropin-container" />
+      <!-- <form id="payment-form" action="/route/on/your/server" method="post">
+        <button type="submit">Make Payment</button>
+        <input id="nonce" type="hidden" name="payment_method_nonce" />
+      </form> -->
+      <!-- <v-braintree
+        authorization="sandbox_s9rx6c2c_x742hzxzgx6gk233"
+        :paypal="{ flow: 'vault' }"
+        @load="onBraintreeLoad"
+        @loadFail="onBraintreeLoadFail"
+        @success="onBraintreeSuccess"
+        @error="onBraintreeError"
+      ></v-braintree> -->
     </div>
   </section>
 </template>
 
 <script>
 import { mapGetters, mapActions, mapMutations } from 'vuex'
-// import { StripeElementCard } from '@vue-stripe/vue-stripe'
+
 import { Radio } from '~/shared/components/ui'
 import ADDRESS from '~/gql/address/address.gql'
 // import DebitCreditCard from '~/components/Checkout/PaymentOptions/DebitCreditCard'
 import STRIPE_MUTATION from '~/gql/pay/stripe.gql'
 import PAYMENT_METHODS from '~/gql/payment/paymentMethods.gql'
+// import { StripeElementCard } from '@vue-stripe/vue-stripe'
+// import braintree from 'braintree-web-drop-in'
+const dropin = require('braintree-web-drop-in')
 const CheckoutHeader = () => import('~/components/Checkout/CheckoutHeader.vue')
 const CheckoutSummary = () =>
   import('~/components/Checkout/CheckoutSummary.vue')
@@ -383,6 +399,9 @@ export default {
   },
   data() {
     return {
+      braintreeToken: null,
+      braintreeInstance: null,
+      dropinInstance: null,
       loadingStripe: false,
       card: null,
       pulishableKey: null,
@@ -445,6 +464,7 @@ export default {
   },
   mounted() {
     this.setupStripeElement()
+    this.getDropinInstance()
   },
   methods: {
     ...mapActions({
@@ -457,6 +477,26 @@ export default {
       success: 'success',
       busy: 'busy',
     }),
+    // onBraintreeLoad(instance) {
+    //   this.braintreeInstance = instance
+    // },
+    // onBraintreeLoadFail() {
+    //   alert('load fail')
+    // },
+    // onBraintreeSuccess() {
+    //   const nonce = payload.nonce
+    //   console.log('Success!', payload.nonce)
+    // },
+    // onBraintreeError() {
+    //   const message = error.message
+    //   console.log('Error!', error)
+    // },
+
+    // clearBraintreePaymentSelection() {
+    //   if (this.instance != null) {
+    //     this.instance.clearSelectedPaymentMethod()
+    //   }
+    // },
     setupStripeElement() {
       if (this.$stripe) {
         const elements = this.$stripe.elements()
@@ -674,19 +714,37 @@ export default {
           this.busy(false)
         }
       } else if (paymentMethod === 'Paypal') {
-        try {
-          this.loading = true
-          this.clearErr()
-          await this.checkout({
-            paymentMethod: 'Paypal',
-            address: this.$route.query.address,
-          })
-        } catch (e) {
-          // this.setErr(e)
-        } finally {
-          this.loading = false
-          this.busy(false)
-        }
+        const vm = this
+        console.log('dropinInstance.............', this.dropinInstance)
+        this.dropinInstance.requestPaymentMethod(function (err, payload) {
+          if (err) {
+            console.log('err...............', err)
+            vm.setErr(err)
+            // Handle errors in requesting payment method
+          }
+
+          // await vm.$get('pay/')
+          console.log(
+            'Send to server..............',
+            payload.nonce,
+            vm.braintreeToken
+          )
+          // Send payload.nonce to your server
+        })
+        // } else if (paymentMethod === 'Paypal') {
+        //   try {
+        //     this.loading = true
+        //     this.clearErr()
+        //     await this.checkout({
+        //       paymentMethod: 'Paypal',
+        //       address: this.$route.query.address,
+        //     })
+        //   } catch (e) {
+        //     // this.setErr(e)
+        //   } finally {
+        //     this.loading = false
+        //     this.busy(false)
+        //   }
       } else if (paymentMethod === 'Razorpay') {
         try {
           const options = await this.checkout({
@@ -703,6 +761,49 @@ export default {
         }
       } else {
         this.setErr('Please Select Payment Method')
+      }
+    },
+    async getDropinInstance() {
+      try {
+        // const submitButton = (this.$refs.this.loading = true)
+        this.clearErr()
+        const braintreeT = await this.$get('pay/braintreeToken', {
+          address: this.$route.query.address,
+        })
+        this.braintreeToken = braintreeT.token
+        const dropinInstance = await dropin.create({
+          // Step three: get client token from your server, such as via
+          //    templates or async http request
+          authorization: this.braintreeToken,
+          container: '#dropin-container',
+        })
+        // .then((dropinInstance) => {
+        this.dropinInstance = dropinInstance
+        // if (err) {
+        //   // Handle any errors that might've occurred when creating Drop-in
+        //   console.error(err)
+        //   return
+        // }
+        // submitButton.addEventListener('click', function () {
+        //   dropinInstance.requestPaymentMethod(function (err, payload) {
+        //     if (err) {
+        //       console.log('err..........', err)
+        //       // Handle errors in requesting payment method
+        //     }
+        //     console.log('submitButton success')
+        //     // Send payload.nonce to your server
+        //   })
+        // })
+        // Use `dropinInstance` here
+        // Methods documented at https://braintree.github.io/braintree-web-drop-in/docs/current/Dropin.html
+        // })
+        // .catch((error) => {})
+      } catch (e) {
+        console.log('rrrrrrrrrrrrrrrrrrr', e)
+        // this.setErr(e)
+      } finally {
+        this.loading = false
+        this.busy(false)
       }
     },
     async getAddress() {
