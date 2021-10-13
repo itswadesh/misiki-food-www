@@ -4,6 +4,7 @@
       <div class="text-sm">
         <div class="flex items-center justify-between mb-2">
           <span>Items Subtotal</span>
+
           <span>{{
             cart.subtotal
               | currency(store.currencySymbol, store.currencyDecimals)
@@ -12,6 +13,7 @@
 
         <div class="flex items-center justify-between mb-2">
           <span>Total Item</span>
+
           <span>{{ cart.qty }}</span>
         </div>
 
@@ -20,9 +22,11 @@
           class="flex items-center justify-between mb-2"
         >
           <span>Applied Coupon</span>
+
           <span class="text-primary-500">
             {{ cart.discount.code }}
           </span>
+
           <button @click="removeCoupon">Remove</button>
         </div>
 
@@ -31,6 +35,7 @@
           class="flex items-center justify-between mb-2"
         >
           <span>Your Savings</span>
+
           <span class="text-secondary-500">
             -{{
               cart.discount.amount
@@ -73,6 +78,7 @@
                 | currency(store.currencySymbol, store.currencyDecimals)
             }}
           </span>
+
           <span v-else> FREE </span>
         </div>
 
@@ -107,6 +113,7 @@
 
       <div class="flex justify-between text-base sm:pb-5">
         <b>Total Amount</b>
+
         <b>
           {{
             cart.total | currency(store.currencySymbol, store.currencyDecimals)
@@ -121,7 +128,6 @@
           :class="`bg-gray-100`"
           @click=";[$emit('submit'), (proceedLoading = true)]"
         >
-          {{ disabled }}
           <slot />
         </PrimaryButton>
       </div>
@@ -132,16 +138,17 @@
 <script>
 import { mapGetters } from 'vuex'
 import TestCoupons from '~/components/Cart/TestCoupons.vue'
-import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
 import PrimaryButton from '~/components/ui/PrimaryButton.vue'
 
 export default {
-  components: { TestCoupons, PrimaryButtonRounded, PrimaryButton },
+  components: { TestCoupons, PrimaryButton },
+
   props: {
-    loading: { type: Boolean },
+    loading: { type: Boolean, default: false },
     disabled: { type: Boolean, default: false },
     selectedAddress: { type: Object, default: null },
   },
+
   data() {
     return {
       showOffers: false,

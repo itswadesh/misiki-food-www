@@ -9,6 +9,24 @@
         <div class="text-lg font-bold tracking-wide mb-3">Payment Methods</div>
 
         <div v-if="paymentMethods && paymentMethods.length > 0" class="mb-5">
+          <div
+            v-if="errorMessage"
+            class="
+              mb-3
+              sm:mb-5
+              bg-red-50
+              p-3
+              sm:p-5
+              text-red-500 text-sm
+              font-light
+              tracking-wide
+              border border-red-300
+              rounded
+            "
+          >
+            {{ errorMessage }}
+          </div>
+
           <div v-for="p in paymentMethods" :key="p.id">
             <label
               class="
@@ -18,7 +36,8 @@
                 items-center
                 space-x-5
                 w-full
-                my-2
+                mb-3
+                sm:mb-5
                 border
                 rounded
                 shadow-md
@@ -78,10 +97,16 @@
                 paymentMethod.value === 'Stripe' &&
                 p.value === 'Stripe'
               "
-              class="px-6 py-4 my-2 rounded shadow-lg"
+              class="px-6 py-4 mb-3 sm:mb-5 border rounded shadow-md"
             >
-              <div v-if="loadingStripe">Loading Stripe</div>
-              <div id="card" ref="card"></div>
+              <h6
+                v-if="loadingStripe"
+                class="text-sm text-center text-gray-500"
+              >
+                Loading Stripe ...
+              </h6>
+
+              <div v-else id="card" ref="card"></div>
             </div>
           </div>
         </div>
@@ -288,8 +313,8 @@
       <div class="lg:w-1/3 pb-10">
         <div class="text-lg font-bold tracking-wide mb-3">Cart Summary</div>
 
-        <hr class="border-t border-gray-200 mb-2" />
-        {{ paymentMethod.value === 'Stripe' && !enableStripeCheckoutButton }}
+        <hr class="border-t border-gray-200 mb-3 sm:mb-5" />
+
         <CheckoutSummary
           :loading="loading"
           class="mb-5"
@@ -299,6 +324,7 @@
           <span v-if="paymentMethod && paymentMethod.value == 'COD'">
             Place Order
           </span>
+
           <span
             v-else-if="
               paymentMethod.value === 'Stripe' && !enableStripeCheckoutButton
@@ -306,6 +332,7 @@
           >
             Please fill credit card details
           </span>
+
           <span v-else>Pay Now</span>
         </CheckoutSummary>
 
@@ -315,28 +342,35 @@
 
         <hr class="border-t border-gray-200 my-3" />
 
-        <h5 v-if="address" class="mb-2 capitalize font-semibold tracking-wide">
+        <h5
+          v-if="address"
+          class="mb-3 sm:mb-5 capitalize font-semibold tracking-wide"
+        >
           {{ address.firstName }}
+
           {{ address.lastName }}
         </h5>
 
         <div>
           <div class="mb-3 text-xs font-light flex flex-wrap">
             {{ address.address }}, {{ address.city }}, {{ address.state }},
+
             {{ address.country }} - {{ address.zip }}
           </div>
 
           <div class="mb-3 text-xs space-x-2">
             <span>Mobile : </span>
+
             <span class="font-semibold"> {{ address.phone }}</span>
           </div>
 
           <div class="mb-5 text-xs space-x-2">
             <span>Email : </span>
+
             <span class="font-semibold"> {{ address.email }}</span>
           </div>
         </div>
-        Complete::::::::: {{ complete }}
+
         <CheckoutSummary
           class="sm:hidden"
           :loading="loading"
@@ -346,6 +380,7 @@
           <span v-if="paymentMethod && paymentMethod.value === 'COD'">
             Place Order
           </span>
+
           <span
             v-else-if="
               paymentMethod.value === 'Stripe' && !enableStripeCheckoutButton
@@ -353,8 +388,57 @@
           >
             Please fill credit card details
           </span>
+
           <span v-else>Pay Now</span>
         </CheckoutSummary>
+
+        <div v-if="complete" class="fixed bottom-0 inset-x-0 m-5 pop">
+          <div
+            class="
+              mx-auto
+              max-w-max
+              flex
+              items-center
+              justify-center
+              space-x-4
+              bg-gray-800
+              py-2
+              px-6
+            "
+          >
+            <div
+              class="
+                bg-secondary-500
+                flex
+                items-center
+                justify-center
+                h-5
+                w-5
+                rounded-full
+              "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="3"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+            </div>
+
+            <span class="flex-1 text-sm text-white"
+              >Stripe Credit Card Details Addition Completed
+            </span>
+          </div>
+        </div>
+
         <!-- <Footer class="hidden sm:flex" /> -->
       </div>
     </div>
@@ -402,6 +486,7 @@ export default {
       razorpayReady: false,
       stripeReady: false,
       loadedStripe: false,
+      errorMessage: null,
       complete: false,
       isOpen: false,
       picked: false,
@@ -487,6 +572,7 @@ export default {
         const result = await this.$stripe.confirmCardPayment(clientSecret, {
           payment_method: { card: this.card },
         })
+        this.errorMessage = result.error.message
         console.log(
           'confirmCardPayment..............',
           result.error,
@@ -739,3 +825,32 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.pop {
+  opacity: 1;
+  animation-name: pop;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-duration: 5s;
+}
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(-30px);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+</style>

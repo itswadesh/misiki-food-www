@@ -21,12 +21,12 @@
       hover:shadow hover:bg-opacity-80
       focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
     "
-    :class="
+    :class="[
+      disabled ? 'bg-gray-400 border-gray-400 cursor-not-allowed' : '',
       loading
         ? ' bg-gray-400 border-gray-400 cursor-not-allowed'
-        : 'bg-primary-500 border-primary-400'
-    "
-    :disabled="loading"
+        : 'bg-primary-500 border-primary-400 ',
+    ]"
     @click="$emit('click')"
   >
     <div v-if="!loading" class="flex items-center justify-center space-x-1">
@@ -68,6 +68,10 @@
 export default {
   props: {
     loading: {
+      type: Boolean,
+      default: false,
+    },
+    disabled: {
       type: Boolean,
       default: false,
     },
