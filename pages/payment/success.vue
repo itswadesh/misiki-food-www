@@ -498,16 +498,16 @@ export default {
     }),
   },
   async mounted() {
-    const paySuccessPageHit = await this.getPaySuccessPageHit()
-    if (paySuccessPageHit < 2) {
-      await this.clearCart()
-      // await this.fetchCart()
-    }
-    await this.refresh()
+    const order = await this.getorder()
+    // if (order.paySuccess < 2) {
+    //   await this.clearCart()
+    //   // await this.fetchCart()
+    // }
+    // await this.refresh()
     try {
       this.$refs.map.route(
-        `${this.order.delivery.start.lat},${this.order.delivery.start.lng}`,
-        `${this.order.delivery.finish.lat},${this.order.delivery.finish.lng}`
+        `${order.delivery.start.lat},${order.delivery.start.lng}`,
+        `${order.delivery.finish.lat},${order.delivery.finish.lng}`
       )
     } catch (e) {
     } finally {
@@ -526,43 +526,38 @@ export default {
       clearCart: 'cart/clear',
     }),
     async getPaySuccessPageHit() {
-      if (!this.$route.query.id) return
+      const { id, paymentReferenceId } = this.$route.query
+      if (!id && !paymentReferenceId) return
+      const payOrOrderid = paymentReferenceId || id
+      const params = { id: payOrOrderid }
+
       try {
-        return await this.$post('order/paySuccessPageHit', {
-          id: this.$route.query.id,
-        })
-        // return (
-        //   await this.$apollo.mutate({
-        //     mutation: PAY_SUCCESS_PAGE_HIT,
-        //     variables: { id: this.$route.query.id },
-        //     fetchPolicy: 'no-cache',
-        //   })
-        // ).data.paySuccessPageHit
+        return await this.$post('order/paySuccessPageHit', params)
       } catch (e) {
-        return 0
+        return {}
       }
     },
-    async refresh() {
-      try {
-        this.loading = true
-        this.clearErr()
-        this.order = await this.$get('order/order', {
-          id: this.$route.query.id,
-        })
-        // this.order = (
-        //   await this.$apollo.query({
-        //     query: ORDER,
-        //     variables: { id: this.$route.query.id },
-        //     fetchPolicy: 'no-cache',
-        //   })
-        // ).data.order
-      } catch (e) {
-        this.setErr(e)
-      } finally {
-        this.busy(false)
-        this.loading = false
-      }
-    },
+    // async refresh() {
+    //   try {
+    //     this.loading = true
+    //     this.clearErr()
+    //     this.order = await this.$get('order/order', {
+    //       id: this.$route.query.id,
+    //     })
+    //     // this.order = (
+    //     //   await this.$apollo.query({
+    //     //     query: ORDER,
+    //     //     variables: { id: this.$route.query.id },
+    //     //     fetchPolicy: 'no-cache',
+    //     //   })
+    //     // ).data.order
+    //   } catch (e) {
+    //     this.setErr(e)
+    //   } finally {
+    //     this.busy(false)
+    //     this.loading = false
+    //   }
+    // },
   },
 }
 </script>

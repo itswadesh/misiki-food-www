@@ -286,10 +286,17 @@
         <hr class="border-t border-gray-200 mb-2" />
 
         <CheckoutSummary :loading="loading" class="mb-5" @submit="submit">
-          <span v-if="paymentMethod && paymentMethod.value == 'COD'"
-            >Place Order</span
-          >
+          <span v-if="paymentMethod && paymentMethod.value == 'COD'">
+            Place Order
+          </span>
           <span v-else-if="razorpayReady && loadedStripe">Pay Now</span>
+          <span
+            v-else-if="
+              paymentMethod.value === 'Stripe' && !enableStripeCheckoutButton
+            "
+          >
+            Please fill credit card details
+          </span>
         </CheckoutSummary>
 
         <div class="text-lg font-bold tracking-wide mb-3">
@@ -366,6 +373,7 @@ export default {
     return {
       card: null,
       pulishableKey: null,
+      enableStripeCheckoutButton: false,
       // paymentMethods: null,
       loading: false,
       paymentMethod: null,
@@ -442,31 +450,28 @@ export default {
         this.card.mount('#card')
         this.card.on('change', ({ error, complete, value }) => {
           if (complete) {
-            this.purchase()
+            this.enableStripeCheckoutButton = true
           }
         })
       }
     },
-    async purchase() {
-      let pm
+    // async purchase() {
+
+    // },
+    async payWithCard(clientSecret) {
+      this.loading = true
       try {
-        pm = await this.$stripe.createPaymentMethod({
-          type: 'card',
-          card: this.card,
+        const result = await this.$stripe.confirmCardPayment(clientSecret, {
+          payment_method: { card: this.card },
         })
-      } catch (e) {}
-      console.log('card...................', pm.paymentMethod.id)
-      // this.$stripe.confirmCardPayment()
-      if (pm.paymentMethod) {
-        try {
-          const res = await this.$get('pay/stripe', {
-            paymentMethodId: pm.paymentMethod.id,
-            address: this.$route.query.address,
-          })
-          console.log('pay/stripe', res)
-        } catch (e) {
-          this.setErr(e)
-        }
+        // console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz', result.paymentIntent.id)
+        this.$router.push(
+          `/payment/success?paymentReferenceId=${result.paymentIntent.id}`
+        )
+      } catch (e) {
+        this.setErr(e)
+      } finally {
+        this.loading = false
       }
     },
     // async getPaymentMethods() {
@@ -586,7 +591,28 @@ export default {
           this.loading = false
         }
       } else if (paymentMethod === 'Stripe') {
-        this.$refs.stripeElementRef[0].submit()
+        let pm
+        try {
+          pm = await this.$stripe.createPaymentMethod({
+            type: 'card',
+            card: this.card,
+          })
+        } catch (e) {}
+        console.log('card...................', pm.paymentMethod.id)
+        // this.$stripe.confirmCardPayment()
+        if (pm.paymentMethod) {
+          try {
+            const res = await this.$get('pay/stripe', {
+              paymentMethodId: pm.paymentMethod.id,
+              address: this.$route.query.address,
+            })
+            this.payWithCard(res.clientSecret)
+            console.log('pay/stripe', res)
+          } catch (e) {
+            this.setErr(e)
+          }
+        }
+        // this.$refs.stripeElementRef[0].submit()
         // try {
         //   this.loading = true
         //   // const groupComponent = this.$refs.elms
