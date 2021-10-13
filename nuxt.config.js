@@ -135,7 +135,8 @@ export default {
     '/graphql': HTTP_ENDPOINT,
     '/api': HTTP_ENDPOINT,
     '/auth': HTTP_ENDPOINT,
-    '/images': HTTP_ENDPOINT,
+    // '/images': HTTP_ENDPOINT,
+    '/assets': HTTP_ENDPOINT,
   },
   // build: {
   //   babel: {
