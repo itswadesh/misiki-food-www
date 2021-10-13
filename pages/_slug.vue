@@ -31,7 +31,7 @@
               v-if="product"
               :loading="$fetchState.pending"
               class="h-auto mt-5 nowrap lg:mt-0 mb-5 md:mb-10"
-              :images="product && product.imagesCdn"
+              :images="product && product.images"
               :pid="product.id"
               :img="product.imgCdn"
               :host="host"
@@ -233,6 +233,7 @@ export default {
       checkWishlist = pw.checkWishlist
       reviewSummary = pw.reviewSummary
       if (!product) error('Not found')
+      // console.log(pw.product)
       // for (let v of product && product.variants) {
       //   if (v.stock > 0) {
       //     selectedVariant = v
