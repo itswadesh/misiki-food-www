@@ -116,9 +116,12 @@
 
       <div class="fixed bottom-0 inset-x-0 w-full sm:static">
         <PrimaryButton
+          :disabled="disabled"
           class="w-full"
+          :class="`bg-gray-100`"
           @click=";[$emit('submit'), (proceedLoading = true)]"
         >
+          {{ disabled }}
           <slot />
         </PrimaryButton>
       </div>
@@ -136,6 +139,7 @@ export default {
   components: { TestCoupons, PrimaryButtonRounded, PrimaryButton },
   props: {
     loading: { type: Boolean },
+    disabled: { type: Boolean, default: false },
     selectedAddress: { type: Object, default: null },
   },
   data() {

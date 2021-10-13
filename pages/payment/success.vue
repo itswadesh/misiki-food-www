@@ -59,7 +59,7 @@
 
         <p class="mb-4 sm:mb-9 text-sm">
           Your Order was place on <b>{{ order.createdAt | date }}</b> <br />
-          A Confirmation e-mail will be sent to the e-mail Address(es) that you
+          A Confirmation e-mail will be sent to the e-mail address that you
           specified in Order details.
         </p>
 
@@ -497,8 +497,8 @@ export default {
       cart: 'cart/cart',
     }),
   },
-  mounted() {
-    this.order = this.getorder()
+  async mounted() {
+    this.order = await this.getPaySuccessPageHit()
     // if (order.paySuccess < 2) {
     //   await this.clearCart()
     //   // await this.fetchCart()
@@ -525,7 +525,7 @@ export default {
       fetchCart: 'cart/fetch',
       clearCart: 'cart/clear',
     }),
-    async getPaySuccessPageHit() {
+    getPaySuccessPageHit() {
       const { id, paymentReferenceId } = this.$route.query
       if (!id && !paymentReferenceId) return
       let params = {}
@@ -533,7 +533,7 @@ export default {
       else if (id) params = { orderId: id }
 
       try {
-        return await this.$post('order/paySuccessPageHit', params)
+        return this.$post('order/paySuccessPageHit', params)
       } catch (e) {
         return {}
       }

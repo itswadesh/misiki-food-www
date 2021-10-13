@@ -290,7 +290,12 @@
 
         <hr class="border-t border-gray-200 mb-2" />
         {{ paymentMethod.value === 'Stripe' && !enableStripeCheckoutButton }}
-        <CheckoutSummary :loading="loading" class="mb-5" @submit="submit">
+        <CheckoutSummary
+          :loading="loading"
+          class="mb-5"
+          :disabled="!enableStripeCheckoutButton"
+          @submit="submit"
+        >
           <span v-if="paymentMethod && paymentMethod.value == 'COD'">
             Place Order
           </span>
@@ -331,8 +336,13 @@
             <span class="font-semibold"> {{ address.email }}</span>
           </div>
         </div>
-
-        <CheckoutSummary class="sm:hidden" :loading="loading" @submit="submit">
+        Complete::::::::: {{ complete }}
+        <CheckoutSummary
+          class="sm:hidden"
+          :loading="loading"
+          :disabled="!enableStripeCheckoutButton"
+          @submit="submit"
+        >
           <span v-if="paymentMethod && paymentMethod.value === 'COD'">
             Place Order
           </span>
@@ -386,7 +396,6 @@ export default {
       loadingStripe: false,
       card: null,
       pulishableKey: null,
-      enableStripeCheckoutButton: false,
       // paymentMethods: null,
       loading: false,
       paymentMethod: {},
@@ -426,11 +435,10 @@ export default {
       cart: 'cart/cart',
       settings: 'settings',
     }),
-    // disable() {
-    //   if (this.paymentMethod.value === 'Stripe')
-    //     return !this.complete || this.errors.any()
-    //   else return this.errors.any()
-    // },
+    enableStripeCheckoutButton() {
+      if (this.paymentMethod.value === 'Stripe') return this.complete
+      else return true
+    },
   },
   async created() {
     this.$store.dispatch('cart/fetch')
@@ -465,7 +473,7 @@ export default {
         this.card.mount('#card')
         this.card.on('change', ({ error, complete, value }) => {
           if (complete) {
-            this.enableStripeCheckoutButton = true
+            this.complete = true
           }
         })
       }
@@ -479,10 +487,14 @@ export default {
         const result = await this.$stripe.confirmCardPayment(clientSecret, {
           payment_method: { card: this.card },
         })
-        console.log('confirmCardPayment..............', result.error)
+        console.log(
+          'confirmCardPayment..............',
+          result.error,
+          result.paymentIntent
+        )
         if (result.error) {
           this.setErr(result.error.message)
-        } else {
+        } else if (result.paymentIntent) {
           this.$router.push(
             `/payment/success?paymentReferenceId=${result.paymentIntent.id}`
           )
@@ -617,7 +629,8 @@ export default {
             card: this.card,
           })
         } catch (e) {}
-        console.log('card...................', pm.paymentMethod.id)
+        if (!pm.paymentMethod)
+          return this.setErr('Credit card details incorrect.')
         // this.$stripe.confirmCardPayment()
         if (pm.paymentMethod) {
           try {
