@@ -497,8 +497,8 @@ export default {
       cart: 'cart/cart',
     }),
   },
-  async mounted() {
-    const order = await this.getorder()
+  mounted() {
+    this.order = this.getorder()
     // if (order.paySuccess < 2) {
     //   await this.clearCart()
     //   // await this.fetchCart()
@@ -506,8 +506,8 @@ export default {
     // await this.refresh()
     try {
       this.$refs.map.route(
-        `${order.delivery.start.lat},${order.delivery.start.lng}`,
-        `${order.delivery.finish.lat},${order.delivery.finish.lng}`
+        `${this.order.delivery.start.lat},${this.order.delivery.start.lng}`,
+        `${this.order.delivery.finish.lat},${this.order.delivery.finish.lng}`
       )
     } catch (e) {
     } finally {
@@ -528,8 +528,9 @@ export default {
     async getPaySuccessPageHit() {
       const { id, paymentReferenceId } = this.$route.query
       if (!id && !paymentReferenceId) return
-      const payOrOrderid = paymentReferenceId || id
-      const params = { id: payOrOrderid }
+      let params = {}
+      if (paymentReferenceId) params = { paymentReferenceId }
+      else if (id) params = { orderId: id }
 
       try {
         return await this.$post('order/paySuccessPageHit', params)

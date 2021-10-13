@@ -73,10 +73,15 @@
             </label>
 
             <div
-              v-show="paymentMethod.value == 'Stripe'"
+              v-show="
+                paymentMethod &&
+                paymentMethod.value === 'Stripe' &&
+                p.value === 'Stripe'
+              "
               class="px-6 py-4 my-2 rounded shadow-lg"
             >
-              <div id="card" ref="card">Loading Stripe</div>
+              <div v-if="loadingStripe">Loading Stripe</div>
+              <div id="card" ref="card"></div>
             </div>
           </div>
         </div>
@@ -284,12 +289,11 @@
         <div class="text-lg font-bold tracking-wide mb-3">Cart Summary</div>
 
         <hr class="border-t border-gray-200 mb-2" />
-
+        {{ paymentMethod.value === 'Stripe' && !enableStripeCheckoutButton }}
         <CheckoutSummary :loading="loading" class="mb-5" @submit="submit">
           <span v-if="paymentMethod && paymentMethod.value == 'COD'">
             Place Order
           </span>
-          <span v-else-if="razorpayReady && loadedStripe">Pay Now</span>
           <span
             v-else-if="
               paymentMethod.value === 'Stripe' && !enableStripeCheckoutButton
@@ -297,6 +301,7 @@
           >
             Please fill credit card details
           </span>
+          <span v-else>Pay Now</span>
         </CheckoutSummary>
 
         <div class="text-lg font-bold tracking-wide mb-3">
@@ -331,7 +336,14 @@
           <span v-if="paymentMethod && paymentMethod.value === 'COD'">
             Place Order
           </span>
-          <span v-else-if="razorpayReady && loadedStripe">Pay Now</span>
+          <span
+            v-else-if="
+              paymentMethod.value === 'Stripe' && !enableStripeCheckoutButton
+            "
+          >
+            Please fill credit card details
+          </span>
+          <span v-else>Pay Now</span>
         </CheckoutSummary>
         <!-- <Footer class="hidden sm:flex" /> -->
       </div>
@@ -371,12 +383,13 @@ export default {
   },
   data() {
     return {
+      loadingStripe: false,
       card: null,
       pulishableKey: null,
       enableStripeCheckoutButton: false,
       // paymentMethods: null,
       loading: false,
-      paymentMethod: null,
+      paymentMethod: {},
       razorpayReady: false,
       stripeReady: false,
       loadedStripe: false,
@@ -421,11 +434,13 @@ export default {
   },
   async created() {
     this.$store.dispatch('cart/fetch')
+    this.address = await this.getAddress()
+
     // await this.getPaymentMethods()
-    this.paymentMethod = this.paymentMethods[0] && this.paymentMethods[0].value
+    // this.paymentMethod = this.paymentMethods[0] && this.paymentMethods[0].value
     // this.paymentMethod =
     //   this.paymentMethods.data[0] && this.paymentMethods.data[0].value
-    await this.loadStripe()
+    // await this.loadRazorpay()
     // this.pulishableKey = this.settings.stripePublishableKey
   },
   mounted() {
@@ -464,11 +479,16 @@ export default {
         const result = await this.$stripe.confirmCardPayment(clientSecret, {
           payment_method: { card: this.card },
         })
-        // console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz', result.paymentIntent.id)
-        this.$router.push(
-          `/payment/success?paymentReferenceId=${result.paymentIntent.id}`
-        )
+        console.log('confirmCardPayment..............', result.error)
+        if (result.error) {
+          this.setErr(result.error.message)
+        } else {
+          this.$router.push(
+            `/payment/success?paymentReferenceId=${result.paymentIntent.id}`
+          )
+        }
       } catch (e) {
+        console.log('erorrrr............', e)
         this.setErr(e)
       } finally {
         this.loading = false
@@ -497,74 +517,73 @@ export default {
     //     this.loading = false
     //   }
     // },
-    async loadStripe() {
-      try {
-        this.loading = true
-        this.clearErr()
-        // const id = this.$route.query.address
-        // if(!id)
-        this.address = await this.getAddress()
-        const razorpayScript = document.createElement('script')
-        razorpayScript.setAttribute(
-          'src',
-          'https://checkout.razorpay.com/v1/checkout.js'
-        )
-        document.head.appendChild(razorpayScript)
-        this.razorpayReady = true
-        this.loadedStripe = true
-        // if (process.browser) {
-        //   const domElement = document.createElement('script')
-        //   domElement.setAttribute('src', 'https://js.stripe.com/v3/')
-        //   domElement.onload = () => {
-        //     this.loadedStripe = true
-        //     // const {
-        //     //   Card,
-        //     //   createToken,
-        //     //   CardNumber,
-        //     // } = require('vue-stripe-elements-plus')
-        //   }
-        //   document.body.appendChild(domElement)
-        // }
-        // let stripeScript = document.createElement('script')
-        // stripeScript.setAttribute('src', 'https://js.stripe.com/v3/')
-        // document.head.appendChild(stripeScript)
-        // this.stripeReady = true
-      } catch (e) {
-        this.setErr(e)
-      } finally {
-        this.loading = false
-      }
-    },
-    async stripeTokenCreated(token) {
-      console.log('token...........', token, this.$stripe.confirmCardPayment)
-      try {
-        this.loading = true
-        // const groupComponent = this.$refs.elms
-        // const cardComponent = this.$refs.card
-        // const cardElement = cardComponent.stripeElement
-        // const { token } = await groupComponent.instance.createToken()
-        // import { StripeElementCard } from '@vue-stripe/vue-stripe'
-        if (!token) return this.setErr('Invalid card number')
-        const capture = await this.$post('pay/stripe', {
-          address: this.$route.query.address,
-          token: token.id,
-        })
-        // const capture = (
-        //   await this.$apollo.mutate({
-        //     mutation: STRIPE_MUTATION,
-        //     variables: {
-        //       address: this.$route.query.address,
-        //       token: token.id,
-        //     },
-        //   })
-        // ).data.stripe
-        this.$router.push(`/payment/success?id=${capture.id}`)
-      } catch (e) {
-        this.setErr(e)
-      } finally {
-        this.loading = false
-      }
-    },
+    // loadRazorpay() {
+    //   try {
+    //     this.loading = true
+    //     this.clearErr()
+    //     // const id = this.$route.query.address
+    //     // if(!id)
+    //     const razorpayScript = document.createElement('script')
+    //     razorpayScript.setAttribute(
+    //       'src',
+    //       'https://checkout.razorpay.com/v1/checkout.js'
+    //     )
+    //     document.head.appendChild(razorpayScript)
+    //     this.razorpayReady = true
+    //     // this.loadedStripe = true
+    //     // if (process.browser) {
+    //     //   const domElement = document.createElement('script')
+    //     //   domElement.setAttribute('src', 'https://js.stripe.com/v3/')
+    //     //   domElement.onload = () => {
+    //     //     this.loadedStripe = true
+    //     //     // const {
+    //     //     //   Card,
+    //     //     //   createToken,
+    //     //     //   CardNumber,
+    //     //     // } = require('vue-stripe-elements-plus')
+    //     //   }
+    //     //   document.body.appendChild(domElement)
+    //     // }
+    //     // let stripeScript = document.createElement('script')
+    //     // stripeScript.setAttribute('src', 'https://js.stripe.com/v3/')
+    //     // document.head.appendChild(stripeScript)
+    //     // this.stripeReady = true
+    //   } catch (e) {
+    //     this.setErr(e)
+    //   } finally {
+    //     this.loading = false
+    //   }
+    // },
+    // async stripeTokenCreated(token) {
+    //   console.log('token...........', token, this.$stripe.confirmCardPayment)
+    //   try {
+    //     this.loading = true
+    //     // const groupComponent = this.$refs.elms
+    //     // const cardComponent = this.$refs.card
+    //     // const cardElement = cardComponent.stripeElement
+    //     // const { token } = await groupComponent.instance.createToken()
+    //     // import { StripeElementCard } from '@vue-stripe/vue-stripe'
+    //     if (!token) return this.setErr('Invalid card number')
+    //     const capture = await this.$post('pay/stripe', {
+    //       address: this.$route.query.address,
+    //       token: token.id,
+    //     })
+    //     // const capture = (
+    //     //   await this.$apollo.mutate({
+    //     //     mutation: STRIPE_MUTATION,
+    //     //     variables: {
+    //     //       address: this.$route.query.address,
+    //     //       token: token.id,
+    //     //     },
+    //     //   })
+    //     // ).data.stripe
+    //     this.$router.push(`/payment/success?id=${capture.id}`)
+    //   } catch (e) {
+    //     this.setErr(e)
+    //   } finally {
+    //     this.loading = false
+    //   }
+    // },
     async submit() {
       if (!this.paymentMethod || !this.paymentMethod.value) {
         this.setErr('Please Select Payment Method')
@@ -607,7 +626,7 @@ export default {
               address: this.$route.query.address,
             })
             this.payWithCard(res.clientSecret)
-            console.log('pay/stripe', res)
+            // console.log('pay/stripe', res)
           } catch (e) {
             this.setErr(e)
           }

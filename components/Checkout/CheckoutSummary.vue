@@ -119,7 +119,7 @@
           class="w-full"
           @click=";[$emit('submit'), (proceedLoading = true)]"
         >
-          Proceed
+          <slot />
         </PrimaryButton>
       </div>
     </div>
