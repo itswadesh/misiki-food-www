@@ -109,6 +109,11 @@
               <div v-else id="card" ref="card"></div>
             </div>
           </div>
+
+          <div
+            v-show="paymentMethod && paymentMethod.value === 'Paypal'"
+            id="dropin-container"
+          />
         </div>
 
         <!-- <label
@@ -441,7 +446,7 @@
 
         <!-- <Footer class="hidden sm:flex" /> -->
       </div>
-      <div id="dropin-container" />
+
       <!-- <form id="payment-form" action="/route/on/your/server" method="post">
         <button type="submit">Make Payment</button>
         <input id="nonce" type="hidden" name="payment_method_nonce" />
@@ -460,7 +465,6 @@
 
 <script>
 import { mapGetters, mapActions, mapMutations } from 'vuex'
-
 import { Radio } from '~/shared/components/ui'
 import ADDRESS from '~/gql/address/address.gql'
 // import DebitCreditCard from '~/components/Checkout/PaymentOptions/DebitCreditCard'
@@ -468,10 +472,14 @@ import STRIPE_MUTATION from '~/gql/pay/stripe.gql'
 import PAYMENT_METHODS from '~/gql/payment/paymentMethods.gql'
 // import { StripeElementCard } from '@vue-stripe/vue-stripe'
 // import braintree from 'braintree-web-drop-in'
+
 const dropin = require('braintree-web-drop-in')
+
 const CheckoutHeader = () => import('~/components/Checkout/CheckoutHeader.vue')
+
 const CheckoutSummary = () =>
   import('~/components/Checkout/CheckoutSummary.vue')
+
 export default {
   components: {
     CheckoutHeader,
@@ -479,9 +487,11 @@ export default {
     // DebitCreditCard,
     Radio,
   },
+
   middleware({ store, redirect }) {
     if (store.state.cart.qty < 1) return redirect('/cart')
   },
+
   async asyncData({ $get }) {
     const paymentMethods = await $get('payment/paymentMethods', {
       active: true,
@@ -491,6 +501,7 @@ export default {
     // }
     return { paymentMethods: paymentMethods.data }
   },
+
   data() {
     return {
       braintreeToken: null,
@@ -523,27 +534,32 @@ export default {
       },
     }
   },
+
   head() {
     return {
       title: 'Payment',
     }
   },
+
   //  async mounted() {
   // this.address = await this.$axios.$get(
   //   `api/addresses/${this.$route.query.address}`
   // );
   // },
+
   computed: {
     ...mapGetters({
       user: 'auth/user',
       cart: 'cart/cart',
       settings: 'settings',
     }),
+
     enableStripeCheckoutButton() {
       if (this.paymentMethod.value === 'Stripe') return this.complete
       else return true
     },
   },
+
   async created() {
     this.$store.dispatch('cart/fetch')
     this.address = await this.getAddress()
@@ -555,21 +571,25 @@ export default {
     // await this.loadRazorpay()
     // this.pulishableKey = this.settings.stripePublishableKey
   },
+
   mounted() {
     this.setupStripeElement()
     this.getDropinInstance()
   },
+
   methods: {
     ...mapActions({
       applyDiscount: 'cart/applyDiscount',
       checkout: 'cart/checkout',
     }),
+
     ...mapMutations({
       clearErr: 'clearErr',
       setErr: 'setErr',
       success: 'success',
       busy: 'busy',
     }),
+
     // onBraintreeLoad(instance) {
     //   this.braintreeInstance = instance
     // },
@@ -590,6 +610,7 @@ export default {
     //     this.instance.clearSelectedPaymentMethod()
     //   }
     // },
+
     setupStripeElement() {
       if (this.$stripe) {
         const elements = this.$stripe.elements()
@@ -603,6 +624,7 @@ export default {
         })
       }
     },
+
     // async purchase() {
 
     // },
@@ -632,6 +654,7 @@ export default {
         this.loading = false
       }
     },
+
     // async getPaymentMethods() {
     //   try {
     //     this.loading = true
@@ -655,6 +678,7 @@ export default {
     //     this.loading = false
     //   }
     // },
+
     // loadRazorpay() {
     //   try {
     //     this.loading = true
@@ -692,6 +716,7 @@ export default {
     //     this.loading = false
     //   }
     // },
+
     // async stripeTokenCreated(token) {
     //   console.log('token...........', token, this.$stripe.confirmCardPayment)
     //   try {
@@ -722,6 +747,7 @@ export default {
     //     this.loading = false
     //   }
     // },
+
     async submit() {
       if (!this.paymentMethod || !this.paymentMethod.value) {
         this.setErr('Please Select Payment Method')

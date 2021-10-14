@@ -1,5 +1,5 @@
 <template>
-  <div class="pb-10 bg-white sm:pb-32">
+  <div class="bg-white">
     <!-- <div v-if="loading"  class="flex flex-col mt-32 xl:flex-row sm:mt-5">
         <DetailsPageLeftSkeleton class="xl:w-2/5" />
         <DetailsSkeleton class="-mt-1 xl:w-3/5" />
@@ -26,7 +26,7 @@
         <div class="xl:w-3/5">
           <!-- <DetailsPageLeftSkeleton v-if="loading" class="hidden sm:block" /> -->
 
-          <div v-if="product && product.id" class="sticky top-20">
+          <div v-if="product && product.id" class="sticky top-24">
             <ProductImages
               v-if="product"
               :loading="$fetchState.pending"
@@ -131,45 +131,45 @@
           <RatingAndReviews />
         </div>
       </div>
-    </div>
 
-    <div
-      v-if="!product && !product.id"
-      class="
-        container
-        mx-auto
-        flex flex-col
-        items-center
-        justify-center
-        w-4/5
-        pt-16
-        text-center
-        sm:pt-10 sm:w-1/2
-      "
-    >
-      <img
-        v-lazy="`/no/empty-animate.svg?tr=h-320,fo-auto`"
-        alt="Not found"
-        class="object-contain w-full h-80"
-      />
+      <div
+        v-if="!product && !product.id"
+        class="
+          container
+          mx-auto
+          flex flex-col
+          items-center
+          justify-center
+          w-4/5
+          pt-16
+          text-center
+          sm:pt-10 sm:w-1/2
+        "
+      >
+        <img
+          v-lazy="`/no/empty-animate.svg?tr=h-320,fo-auto`"
+          alt="Not found"
+          class="object-contain w-full h-80"
+        />
 
-      <div class="mt-10 text-xl font-semibold text-red-500">
-        Product not found!!
+        <div class="mt-10 text-xl font-semibold text-red-500">
+          Product not found!!
+        </div>
       </div>
-    </div>
 
-    <div
-      v-if="
-        recommendedProducts &&
-        recommendedProducts.data &&
-        recommendedProducts.data.length
-      "
-      class="container mx-auto my-10"
-    >
-      <ProductSlider
-        :details="recommendedProducts.data"
-        :heading="'Recommended For You'"
-      />
+      <div
+        v-if="
+          recommendedProducts &&
+          recommendedProducts.data &&
+          recommendedProducts.data.length
+        "
+        class="container mx-auto my-10"
+      >
+        <ProductSlider
+          :details="recommendedProducts.data"
+          :heading="'Recommended For You'"
+        />
+      </div>
     </div>
   </div>
 </template>

@@ -12,7 +12,9 @@
         tracking-wide
       "
     >
-      <div class="max-w-max">
+      <div
+        class="max-w-max flex flex-col items-center justify-center text-center"
+      >
         <span class="mb-5 font-semibold text-red-500">ERROR! </span>
 
         <img
