@@ -347,32 +347,55 @@
 
         <hr class="border-t border-gray-200 my-3" />
 
-        <h5
-          v-if="address"
-          class="mb-3 sm:mb-5 capitalize font-semibold tracking-wide"
-        >
-          {{ address.firstName }}
+        <div v-if="address">
+          <div v-if="loading" class="w-full animate-pulse">
+            <div class="mb-2 bg-gray-200 h-4 w-2/3"></div>
 
-          {{ address.lastName }}
-        </h5>
+            <div class="mb-2 bg-gray-200 h-4 w-1/3"></div>
 
-        <div>
-          <div class="mb-3 text-xs font-light flex flex-wrap">
-            {{ address.address }}, {{ address.city }}, {{ address.state }},
+            <div class="mb-2 bg-gray-200 h-4 w-1/2"></div>
 
-            {{ address.country }} - {{ address.zip }}
+            <div class="mb-2 bg-gray-200 h-4 w-3/4"></div>
           </div>
 
-          <div class="mb-3 text-xs space-x-2">
-            <span>Mobile : </span>
+          <div v-else>
+            <h5 class="mb-3 capitalize font-semibold tracking-wide">
+              {{ address.firstName }}
 
-            <span class="font-semibold"> {{ address.phone }}</span>
-          </div>
+              {{ address.lastName }}
+            </h5>
 
-          <div class="mb-5 text-xs space-x-2">
-            <span>Email : </span>
+            <div class="mb-3 text-xs font-light flex flex-wrap">
+              <span v-show="address.address" class="me-1"
+                >{{ address.address }},</span
+              >
 
-            <span class="font-semibold"> {{ address.email }}</span>
+              <span v-show="address.city" class="me-1"
+                >{{ address.city }},</span
+              >
+
+              <span v-show="address.state" class="me-1"
+                >{{ address.state }},</span
+              >
+
+              <span v-show="address.country" class="me-1">{{
+                address.country
+              }}</span>
+
+              <span v-show="address.zip">- {{ address.zip }}</span>
+            </div>
+
+            <div v-show="address.phone" class="mb-3 text-xs space-x-2">
+              <span>Mobile : </span>
+
+              <span class="font-semibold"> {{ address.phone }}</span>
+            </div>
+
+            <div v-show="address.email" class="mb-5 text-xs space-x-2">
+              <span>Email : </span>
+
+              <span class="font-semibold"> {{ address.email }}</span>
+            </div>
           </div>
         </div>
 
