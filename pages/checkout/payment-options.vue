@@ -420,9 +420,9 @@
           <span v-else>Pay Now</span>
         </CheckoutSummary>
 
-        <Toast v-if="true">
+        <!-- <Toast v-if="true">
           Stripe Credit Card Details Addition Completed
-        </Toast>
+        </Toast> -->
 
         <!-- <Footer class="hidden sm:flex" /> -->
 

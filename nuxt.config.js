@@ -97,6 +97,8 @@ export default {
   pwa,
   toast: {
     singleton: true,
+    theme: 'toasted-primary',
+    position: 'bottom-center',
   },
   purgeCSS: {
     // whitelist,
