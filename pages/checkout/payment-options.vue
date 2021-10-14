@@ -420,61 +420,17 @@
           <span v-else>Pay Now</span>
         </CheckoutSummary>
 
-        <div v-if="complete" class="fixed bottom-0 inset-x-0 m-5 pop">
-          <div
-            class="
-              mx-auto
-              max-w-max
-              flex
-              items-center
-              justify-center
-              space-x-4
-              bg-gray-800
-              py-2
-              px-6
-            "
-          >
-            <div
-              class="
-                bg-secondary-500
-                flex
-                items-center
-                justify-center
-                h-5
-                w-5
-                rounded-full
-              "
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-4 text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="3"
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
-            </div>
-
-            <span class="flex-1 text-sm text-white"
-              >Stripe Credit Card Details Addition Completed
-            </span>
-          </div>
-        </div>
+        <Toast v-if="true">
+          Stripe Credit Card Details Addition Completed
+        </Toast>
 
         <!-- <Footer class="hidden sm:flex" /> -->
-      </div>
 
-      <!-- <form id="payment-form" action="/route/on/your/server" method="post">
+        <!-- <form id="payment-form" action="/route/on/your/server" method="post">
         <button type="submit">Make Payment</button>
         <input id="nonce" type="hidden" name="payment_method_nonce" />
       </form> -->
-      <!-- <v-braintree
+        <!-- <v-braintree
         authorization="sandbox_s9rx6c2c_x742hzxzgx6gk233"
         :paypal="{ flow: 'vault' }"
         @load="onBraintreeLoad"
@@ -482,13 +438,14 @@
         @success="onBraintreeSuccess"
         @error="onBraintreeError"
       ></v-braintree> -->
+      </div>
     </div>
   </section>
 </template>
 
 <script>
 import { mapGetters, mapActions, mapMutations } from 'vuex'
-import { Radio } from '~/shared/components/ui'
+import { Radio, Toast } from '~/shared/components/ui'
 import ADDRESS from '~/gql/address/address.gql'
 // import DebitCreditCard from '~/components/Checkout/PaymentOptions/DebitCreditCard'
 import STRIPE_MUTATION from '~/gql/pay/stripe.gql'
@@ -509,6 +466,7 @@ export default {
     CheckoutSummary,
     // DebitCreditCard,
     Radio,
+    Toast,
   },
 
   middleware({ store, redirect }) {
@@ -657,14 +615,9 @@ export default {
         const result = await this.$stripe.confirmCardPayment(clientSecret, {
           payment_method: { card: this.card },
         })
-        this.errorMessage = result.error.message
-        console.log(
-          'confirmCardPayment..............',
-          result.error,
-          result.paymentIntent
-        )
         if (result.error) {
-          this.setErr(result.error.message)
+          this.errorMessage = result.error.message
+          // this.setErr(result.error.message)
         } else if (result.paymentIntent) {
           this.$router.push(
             `/payment/success?paymentReferenceId=${result.paymentIntent.id}`
@@ -864,24 +817,24 @@ export default {
       } else if (paymentMethod === 'Paypal') {
         const vm = this
         console.log('dropinInstance.............', this.dropinInstance)
-        this.dropinInstance.requestPaymentMethod(async function (err, payload) {
+        this.dropinInstance.requestPaymentMethod(function (err, payload) {
           if (err) {
             console.log('err...............', err)
             vm.setErr(err)
             // Handle errors in requesting payment method
           }
-          try {
-            const result = await vm.$get('pay/braintreeMakePayment', {
-              nonce: payload.nonce,
-              token: vm.braintreeToken,
-            })
-            vm.$router.push(`/payment/success?id=${result.id}`)
-          } catch (e) {}
-          // console.log(
-          //   'Send to server..............',
-          //   payload.nonce,
-          //   vm.braintreeToken
-          // )
+          console.log(
+            'Send to server..............',
+            payload.nonce,
+            vm.braintreeToken
+          )
+          // try {
+          //   const result = await vm.$get('pay/braintreeMakePayment', {
+          //     nonce: payload.nonce,
+          //     token: vm.braintreeToken,
+          //   })
+          //   vm.$router.push(`/payment/success?id=${result.id}`)
+          // } catch (e) {}
           // Send payload.nonce to your server
         })
         // } else if (paymentMethod === 'Paypal') {
@@ -980,32 +933,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.pop {
-  opacity: 1;
-  animation-name: pop;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in-out;
-  animation-duration: 5s;
-}
-
-@keyframes pop {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  10% {
-    opacity: 1;
-    transform: translateY(-30px);
-  }
-  80% {
-    opacity: 1;
-    transform: translateY(-30px);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-}
-</style>

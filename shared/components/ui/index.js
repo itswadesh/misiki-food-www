@@ -23,6 +23,7 @@ import ListSkeleton from './ListSkeleton'
 import GMap from './GMap'
 import BackButton from './BackButton'
 import Modal from './Modal'
+import Toast from './Toast'
 
 export {
   BackToTopDark,
@@ -50,4 +51,5 @@ export {
   BackButton,
   GMap,
   Modal,
+  Toast,
 }
