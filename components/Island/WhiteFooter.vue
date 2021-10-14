@@ -5,7 +5,6 @@
         <h1
           class="
             mb-4
-            ps-1
             text-base
             sm:text-lg
             font-medium
@@ -19,166 +18,84 @@
         </h1>
 
         <div class="flex flex-row flex-wrap text-xs md:mt-2">
-          <a
-            :href="settings.ADMIN_PANEL_LINK"
-            target="blank"
-            class="
-              w-auto
-              px-1.5
-              mb-2
-              tracking-wider
-              text-center
-              border-r border-gray-400
-              cursor-pointer
-              hover:bg-gray-700 hover:text-white
-            "
+          <div class="mb-2 pr-2 mr-2 border-r border-gray-400">
+            <a
+              :href="settings.ADMIN_PANEL_LINK"
+              target="blank"
+              class="
+                whitespace-nowrap
+                max-w-max
+                tracking-wider
+                text-center
+                cursor-pointer
+              "
+            >
+              Merchant Dashboard
+            </a>
+          </div>
+
+          <div
+            v-for="(f, fx) in footerLink"
+            :key="fx"
+            class="mb-2 pr-2 mr-2 border-r border-gray-400"
           >
-            Merchant Dashboard
-          </a>
-          <nuxt-link
-            to="/contact-us"
-            class="
-              w-auto
-              px-1.5
-              mb-2
-              tracking-wider
-              text-center
-              border-r border-gray-400
-              cursor-pointer
-              hover:bg-gray-700 hover:text-white
-            "
-          >
-            Contact Us
-          </nuxt-link>
-          <nuxt-link
-            to="/legal/about-us"
-            class="
-              w-auto
-              px-1.5
-              mb-2
-              tracking-wider
-              text-center
-              border-r border-gray-400
-              cursor-pointer
-              hover:bg-gray-700 hover:text-white
-            "
-          >
-            About Us
-          </nuxt-link>
-          <nuxt-link
-            to="/faq"
-            class="
-              w-auto
-              px-1.5
-              mb-2
-              tracking-wider
-              text-center
-              border-r border-gray-400
-              cursor-pointer
-              hover:bg-gray-700 hover:text-white
-            "
-          >
-            FAQ
-          </nuxt-link>
-          <nuxt-link
-            to="/legal/terms"
-            class="
-              w-auto
-              px-1.5
-              mb-2
-              tracking-wider
-              text-center
-              border-r border-gray-400
-              cursor-pointer
-              hover:bg-gray-700 hover:text-white
-            "
-          >
-            Terms Of Use
-          </nuxt-link>
-          <nuxt-link
-            to="/legal/shipping-policy"
-            class="
-              w-auto
-              px-1.5
-              mb-2
-              tracking-wider
-              text-center
-              border-r border-gray-400
-              cursor-pointer
-              hover:bg-gray-700 hover:text-white
-            "
-          >
-            Shipping Policy
-          </nuxt-link>
-          <nuxt-link
-            to="/my/orders"
-            class="
-              w-auto
-              px-1.5
-              mb-2
-              tracking-wider
-              text-center
-              border-r border-gray-400
-              cursor-pointer
-              hover:bg-gray-700 hover:text-white
-            "
-          >
-            Track Order
-          </nuxt-link>
-          <nuxt-link
-            to="/how-it-works"
-            class="
-              w-auto
-              px-1.5
-              mb-2
-              tracking-wider
-              text-center
-              border-r border-gray-400
-              cursor-pointer
-              hover:bg-gray-700 hover:text-white
-            "
-          >
-            How it works
-          </nuxt-link>
-          <a
-            :href="`${settings.ADMIN_PANEL_LINK}/account/signup`"
-            class="
-              w-auto
-              px-1.5
-              mb-2
-              tracking-wider
-              text-center
-              border-r border-gray-400
-              cursor-pointer
-              hover:bg-gray-700 hover:text-white
-            "
-          >
-            Become a merchant
-          </a>
-          <a
+            <nuxt-link
+              :to="f.link"
+              class="
+                whitespace-nowrap
+                max-w-max
+                tracking-wider
+                text-center
+                cursor-pointer
+              "
+            >
+              {{ f.name }}
+            </nuxt-link>
+          </div>
+
+          <div class="mb-2 pr-2 mr-2 border-r border-gray-400">
+            <a
+              :href="`${settings.ADMIN_PANEL_LINK}/account/signup`"
+              target="blank"
+              class="
+                whitespace-nowrap
+                max-w-max
+                tracking-wider
+                text-center
+                cursor-pointer
+              "
+            >
+              Become a merchant
+            </a>
+          </div>
+
+          <div
             v-if="store.domain === 'anne.biz'"
-            href="https://anne.today"
-            target="_blank"
-            class="
-              w-auto
-              px-1
-              mb-1
-              text-center
-              border-r border-gray-400
-              cursor-pointer
-              hover:bg-gray-800 hover:text-white
-            "
+            class="mb-2 pr-2 mr-2 border-r border-gray-400"
           >
-            Exclusive Furnitures
-          </a>
+            <a
+              href="https://anne.today"
+              target="blank"
+              class="
+                whitespace-nowrap
+                max-w-max
+                tracking-wider
+                text-center
+                cursor-pointer
+              "
+            >
+              Exclusive Furnitures
+            </a>
+          </div>
+
           <!-- <span
             class="
               w-auto
-              px-1.5
+              
               mb-2
               tracking-wider
               text-center
-              border-r border-gray-400
+              
               cursor-pointer
               hover:bg-gray-700
               hover:text-white
@@ -188,11 +105,11 @@
           <span
             class="
               w-auto
-              px-1.5
+              
               mb-2
               tracking-wider
               text-center
-              border-r border-gray-400
+              
               cursor-pointer
               hover:bg-gray-700
               hover:text-white
@@ -200,134 +117,31 @@
           >
             Cancellation
           </span> -->
-          <nuxt-link
-            to="/legal/return-policy"
-            class="
-              w-auto
-              px-1.5
-              mb-2
-              tracking-wider
-              text-center
-              border-r border-gray-400
-              cursor-pointer
-              hover:bg-gray-700 hover:text-white
-            "
-          >
-            Return Policy
-          </nuxt-link>
+
           <!-- <span
-            class="w-auto px-1.5 mb-1 tracking-wider text-center border-r border-gray-400 cursor-pointer hover:bg-gray-700 hover:text-white"
+            class="w-auto  mb-1 tracking-wider text-center  cursor-pointer "
             >Whitehat</span
           >
           <span
-            class="w-auto px-1.5 mb-1 tracking-wider text-center border-r border-gray-400 cursor-pointer hover:bg-gray-700 hover:text-white"
+            class="w-auto  mb-1 tracking-wider text-center  cursor-pointer "
             >Blog</span
           >
           <span
-            class="w-auto px-1.5 mb-1 tracking-wider text-center border-r border-gray-400 cursor-pointer hover:bg-gray-700 hover:text-white"
+            class="w-auto  mb-1 tracking-wider text-center  cursor-pointer "
             >Careers</span
           > -->
-          <nuxt-link
-            to="/legal/privacy-policy"
-            class="
-              w-auto
-              px-1.5
-              mb-2
-              tracking-wider
-              text-center
-              border-r border-gray-400
-              cursor-pointer
-              hover:bg-gray-700 hover:text-white
-            "
-          >
-            Privacy policy
-          </nuxt-link>
-          <nuxt-link
-            to="/career"
-            class="
-              w-auto
-              px-1.5
-              mb-2
-              tracking-wider
-              text-center
-              border-r border-gray-400
-              cursor-pointer
-              hover:bg-gray-700 hover:text-white
-            "
-          >
-            Career
-          </nuxt-link>
-          <nuxt-link
-            to="/contact-us"
-            class="
-              w-auto
-              px-1.5
-              mb-2
-              tracking-wider
-              text-center
-              border-r border-gray-400
-              cursor-pointer
-              hover:bg-gray-700 hover:text-white
-            "
-          >
-            Disputes
-          </nuxt-link>
-          <nuxt-link
-            to="/my/orders"
-            class="
-              w-auto
-              px-1.5
-              mb-2
-              tracking-wider
-              text-center
-              border-r border-gray-400
-              cursor-pointer
-              hover:bg-gray-700 hover:text-white
-            "
-          >
-            Contact Seller
-          </nuxt-link>
-          <nuxt-link
-            to="/features"
-            class="
-              w-auto
-              px-1.5
-              mb-2
-              tracking-wider
-              text-center
-              border-r border-gray-400
-              cursor-pointer
-              hover:bg-gray-700 hover:text-white
-            "
-          >
-            Features
-          </nuxt-link>
 
-          <nuxt-link
-            to="/blog"
-            class="
-              w-auto
-              px-1.5
-              mb-2
-              text-center
-              border-r border-gray-400
-              cursor-pointer
-              hover:bg-gray-700 hover:text-white
-            "
-          >
-            Blog
-          </nuxt-link>
           <!-- <nuxt-link
             v-if="store.domain === 'anne.biz'"
             to="/social-impact"
             class="
               w-auto
-              px-1.5
+              
               mb-2
               text-center
-              border-r border-gray-400
+              
               cursor-pointer
-              hover:bg-gray-700 hover:text-white
+              
             "
           >
             Social Impact
@@ -356,16 +170,7 @@
               v-for="(s, ix) in popularSearches"
               :key="ix"
               :to="`/search/${s.text}`"
-              class="
-                w-auto
-                px-1.5
-                mb-1
-                tracking-wider
-                text-center
-                border-r border-gray-400
-                cursor-pointer
-                hover:bg-gray-700 hover:text-white
-              "
+              class="w-auto mb-1 tracking-wider text-center cursor-pointer"
             >
               {{ s.text }}
             </nuxt-link>
@@ -452,6 +257,7 @@
         "
       >
         © {{ year }} {{ store.name }}
+
         <span v-if="store.websiteEmail" class="ms-2">
           {{ store.websiteEmail }}</span
         >
@@ -503,6 +309,7 @@
 
       <div v-if="visitorCount">Visitors : {{ visitorCount }}</div>
     </div>
+
     <client-only>
       <CookieConsent />
     </client-only>
@@ -530,6 +337,24 @@ export default {
       loadedTranslate: false,
       year: new Date().getFullYear(),
       // popularSearches: null,
+
+      footerLink: [
+        { link: '/contact-us', name: 'Contact Us' },
+        { link: '/legal/about-us', name: 'About Us' },
+        { link: '/faq', name: 'FAQ' },
+        { link: '/legal/terms', name: 'Terms Of Use' },
+        { link: '/legal/shipping-policy', name: 'Shipping Policy' },
+        { link: '/my/orders', name: 'Track Order' },
+        { link: '/how-it-works', name: 'How it works' },
+        { link: '/legal/return-policy', name: 'Return Policy' },
+        { link: '/legal/privacy-policy', name: 'Privacy policy' },
+        { link: '/career', name: 'Career' },
+        { link: '/contact-us', name: 'Disputes' },
+        { link: '/my/orders', name: 'Contact Seller' },
+        { link: '/features', name: 'Features' },
+        { link: '/blog', name: 'Blog' },
+      ],
+
       icons: [
         // { img: '/img/payment/rupay.svg', alt: 'rupay' },
         { img: '/img/payment/stripe.png', alt: 'stripe' },
@@ -678,5 +503,26 @@ export default {
 .icon {
   width: 40px;
   height: 23px;
+}
+
+a {
+  position: relative;
+}
+
+a::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(156, 163, 175, 1);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+a:hover::before {
+  transform: scaleX(1);
 }
 </style>
