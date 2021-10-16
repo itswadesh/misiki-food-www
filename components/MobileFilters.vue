@@ -114,7 +114,17 @@
       class="z-50 fixed inset-0 bg-white text-sm mt-rem"
       :class="showMobileSort ? 'slideUp' : 'slideDown'"
     >
-      <div class="h-11 sm:h-12 flex flex-row justify-between p-2 text-sm">
+      <div
+        class="
+          h-11
+          sm:h-12
+          flex flex-row
+          items-center
+          justify-between
+          p-2
+          text-sm
+        "
+      >
         <button
           type="button"
           aria-label="Close"
@@ -124,7 +134,7 @@
           Close
         </button>
 
-        <h6>FILTER</h6>
+        <h6 class="font-semibold">FILTER</h6>
 
         <button
           type="button"

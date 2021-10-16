@@ -1,6 +1,15 @@
 <template>
   <div class="w-full padding text-sm border-b">
-    <div class="grid grid-cols-3 items-center gap-5 place-content-between">
+    <div
+      class="
+        grid grid-cols-3
+        items-center
+        gap-5
+        place-content-between
+        px-3
+        lg:px-4
+      "
+    >
       <div class="col-span-1 justify-self-start">
         <Breadcrumb
           v-if="category && category.name"
@@ -38,7 +47,7 @@
       </div>
 
       <div class="col-span-1 justify-self-end flex items-center">
-        <h6 class="hidden lg:block text-xs font-light tracking-wide me-2">
+        <h6 class="hidden lg:block text-xs font-light tracking-wide me-1">
           SORT BY :
         </h6>
 
@@ -144,12 +153,14 @@ export default {
 <style scoped>
 @media (max-width: 1280px) {
   .padding {
-    padding: 7px;
+    padding-top: 7px;
+    padding-bottom: 7px;
   }
 }
 @media (min-width: 1280px) {
   .padding {
-    padding: 9px;
+    padding-top: 9px;
+    padding-bottom: 9px;
   }
 }
 </style>
