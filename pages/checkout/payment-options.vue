@@ -323,7 +323,7 @@
         <CheckoutSummary
           :loading="loading"
           class="mb-5"
-          :disabled="!enableStripeCheckoutButton || !enablePaypalCheckoutButton"
+          :disabled="!enableStripeCheckoutButton"
           @submit="submit"
         >
           <span v-if="paymentMethod && paymentMethod.value == 'COD'">
@@ -336,16 +336,6 @@
             "
           >
             Please fill credit card details
-          </span>
-
-          <span
-            v-else-if="
-              paymentMethod &&
-              paymentMethod.value === 'Paypal' &&
-              !enablePaypalCheckoutButton
-            "
-          >
-            Please fill card details
           </span>
 
           <div v-else>Pay Now</div>
@@ -526,11 +516,6 @@ export default {
 
     enableStripeCheckoutButton() {
       if (this.paymentMethod.value === 'Stripe') return this.complete
-      else return true
-    },
-
-    enablePaypalCheckoutButton() {
-      if (this.paymentMethod.value === 'Paypal') return this.complete
       else return true
     },
   },

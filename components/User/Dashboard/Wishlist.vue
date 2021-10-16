@@ -1,206 +1,182 @@
 <template>
-  <div class="h-full max-w-full mx-auto">
-    <div class="text-gray-600">
-      <div
-        v-if="listLoading"
-        class="
-          grid
-          w-auto
-          grid-cols-2
-          gap-2
-          sm:gap-4 sm:grid-cols-3
-          md:grid-cols-3
-          lg:grid-cols-3
-          xl:grid-cols-4
-          2xl:grid-cols-6
-        "
-      >
-        <WishlistSkeleton v-for="(p, ix) in 10" :key="ix + '-1'" />
+  <div class="h-full max-w-full mx-auto text-gray-800">
+    <div
+      v-if="listLoading"
+      class="
+        grid
+        w-auto
+        grid-cols-2
+        gap-2
+        sm:gap-4 sm:grid-cols-3
+        md:grid-cols-3
+        lg:grid-cols-3
+        xl:grid-cols-4
+        2xl:grid-cols-6
+      "
+    >
+      <WishlistSkeleton v-for="(p, ix) in 10" :key="ix + '-1'" />
+    </div>
+
+    <div v-if="myWishlist">
+      <div v-if="myWishlist.count === 0" class="h-screen w-full">
+        <!-- v-lazy="`/img/review/review.png?tr=h-384,fo-auto`" -->
+
+        <img
+          src="/img/wishlist/wishlist.png"
+          alt=""
+          class="object-contain object-top height w-full mx-auto"
+        />
+
+        <div class="flex flex-col text-center">
+          <h2
+            class="mb-2 text-lg sm:text-xl font-medium font-serif tracking-wide"
+          >
+            Empty Wishlist !!
+          </h2>
+
+          <p class="text-xs mb-5">
+            You have no items in your Wishlist. Start adding
+          </p>
+
+          <nuxt-link :to="localePath('/')" class="mb-5 mx-auto">
+            <GrnIndGradiantButton>Shop Now</GrnIndGradiantButton>
+          </nuxt-link>
+        </div>
       </div>
 
-      <div v-if="myWishlist" class="container mx-auto">
-        <!-- <div >{{ myWishlist.count }}</div> -->
+      <div v-else class="relative">
+        <div>
+          <h1
+            class="mb-3 sm:mb-5 text-xl sm:text-2xl font-semibold tracking-wide"
+          >
+            My Wishlist ({{ myWishlist.count }})
+          </h1>
 
-        <div v-if="myWishlist.count != 0" class="relative">
-          <div>
-            <h1
-              class="
-                mb-3
-                sm:mb-5
-                text-xl
-                sm:text-2xl
-                font-semibold
-                tracking-wide
-              "
-            >
-              My Wishlist ({{ myWishlist.count }})
-            </h1>
-
+          <div
+            class="
+              grid
+              w-auto
+              grid-cols-2
+              gap-4
+              mt-4
+              sm:grid-cols-3
+              xl:grid-cols-4
+              2xl:grid-cols-5
+            "
+          >
             <div
+              v-for="w in myWishlist.data"
+              :key="w.id"
               class="
-                grid
-                w-auto
-                grid-cols-2
-                gap-4
-                mt-4
-                sm:grid-cols-3
-                xl:grid-cols-4
-                2xl:grid-cols-5
+                relative
+                border
+                bg-white
+                shadow-md
+                rounded-md
+                cursor-pointer
               "
             >
-              <div
-                v-for="w in myWishlist.data"
-                :key="w.id"
-                class="
-                  relative
-                  border
-                  bg-white
-                  shadow-md
-                  rounded-md
-                  cursor-pointer
-                "
-              >
-                <div v-if="w.product">
-                  <!-- Close button start -->
+              <div v-if="w.product" class="group">
+                <!-- Close button start -->
 
-                  <button
-                    type="button"
-                    class="
-                      absolute
-                      z-10
-                      p-1
-                      transition
-                      duration-300
-                      transform
-                      rounded-full
-                      hover:bg-opacity-50 hover:bg-gray-900 hover:shadow-md
-                      top-2
-                      right-2
-                      focus:outline-none focus:scale-75
-                      group
-                    "
-                    @click="toggleWishlist(w.product.id)"
+                <button
+                  type="button"
+                  class="
+                    hidden
+                    group-hover:block
+                    absolute
+                    z-10
+                    p-1
+                    transition
+                    duration-300
+                    transform
+                    rounded-md
+                    hover:bg-opacity-50 hover:bg-gray-900 hover:shadow-md
+                    top-2
+                    right-2
+                    focus:outline-none focus:scale-75
+                    hovereffect
+                  "
+                  @click="toggleWishlist(w.product.id)"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-5 h-5 text-gray-500"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="
-                        w-5
-                        h-5
-                        transition
-                        duration-300
-                        text-gray-500
-                        group-hover:text-white
-                      "
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M6 18L18 6M6 6l12 12"
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+
+                <!-- Close button end -->
+
+                <nuxt-link
+                  v-if="w.product"
+                  :to="localePath(`/${w.product.slug}?id=${w.product.id}`)"
+                  class="cols-span-1"
+                >
+                  <div class="">
+                    <div class="overflow-hidden">
+                      <img
+                        v-lazy="`${w.product.imgCdn}?tr=h-224,fo-auto`"
+                        alt="mobile"
+                        class="object-contain object-top w-full h-48 sm:h-56"
                       />
-                    </svg>
-                  </button>
+                    </div>
 
-                  <!-- Close button end -->
-
-                  <nuxt-link
-                    v-if="w.product"
-                    :to="localePath(`/${w.product.slug}?id=${w.product.id}`)"
-                    class="cols-span-1"
-                  >
-                    <div class="">
-                      <div class="overflow-hidden">
-                        <img
-                          v-lazy="`${w.product.imgCdn}?tr=h-224,fo-auto`"
-                          alt="mobile"
-                          class="object-contain object-top w-full h-48 sm:h-56"
-                        />
+                    <div class="p-2 sm:p-4 mx-auto text-sm text-center">
+                      <div class="mb-2 line-clamp-2 font-medium">
+                        {{ w.product.name }}
                       </div>
 
-                      <div class="p-2 sm:p-4 mx-auto text-sm text-center">
-                        <div class="mb-2 line-clamp-2 font-medium">
-                          {{ w.product.name }}
+                      <div
+                        class="
+                          flex flex-row
+                          justify-center
+                          items-center
+                          overflow-hidden
+                          whitespace-nowrap
+                          overflow-ellipsis
+                        "
+                      >
+                        <div class="me-2">
+                          <b>{{
+                            w.product.price | currency(store.currencySymbol)
+                          }}</b>
                         </div>
 
-                        <div
-                          class="
-                            flex flex-row
-                            justify-center
-                            items-center
-                            overflow-hidden
-                            whitespace-nowrap
-                            overflow-ellipsis
-                          "
+                        <strike
+                          v-if="w.product.price < w.product.mrp"
+                          class="me-2 text-gray-500"
                         >
-                          <div class="me-2">
-                            <b>{{
-                              w.product.price | currency(store.currencySymbol)
-                            }}</b>
-                          </div>
+                          {{ w.product.mrp | currency(store.currencySymbol) }}
+                        </strike>
 
-                          <strike
-                            v-if="w.product.price < w.product.mrp"
-                            class="me-2 text-gray-500"
-                          >
-                            {{ w.product.mrp | currency(store.currencySymbol) }}
-                          </strike>
-
-                          <div
-                            v-if="w.product.price < w.product.mrp"
-                            class="text-secondary-500"
-                          >
-                            {{
-                              Math.floor(
-                                (w.product.price * 100) / w.product.mrp
-                              )
-                            }}% off
-                          </div>
+                        <div
+                          v-if="w.product.price < w.product.mrp"
+                          class="text-secondary-500"
+                        >
+                          {{
+                            Math.floor((w.product.price * 100) / w.product.mrp)
+                          }}% off
                         </div>
                       </div>
                     </div>
-                  </nuxt-link>
-                </div>
+                  </div>
+                </nuxt-link>
               </div>
             </div>
           </div>
-
-          <!-- if there is no items in cart -->
         </div>
 
-        <div v-else class="h-screen w-full">
-          <!-- v-lazy="`/img/review/review.png?tr=h-384,fo-auto`" -->
-
-          <img
-            src="/img/wishlist/wishlist.png"
-            alt=""
-            class="object-contain object-top height w-full mx-auto"
-          />
-
-          <div class="flex flex-col text-center">
-            <h2
-              class="
-                mb-2
-                text-lg
-                sm:text-xl
-                font-medium font-serif
-                tracking-wide
-              "
-            >
-              Empty Wishlist !!
-            </h2>
-
-            <p class="text-xs mb-5">
-              You have no items in your Wishlist. Start adding
-            </p>
-
-            <nuxt-link :to="localePath('/')" class="mb-5 mx-auto">
-              <GrnIndGradiantButton>Shop Now</GrnIndGradiantButton>
-            </nuxt-link>
-          </div>
-        </div>
+        <!-- if there is no items in cart -->
       </div>
     </div>
   </div>
@@ -281,11 +257,16 @@ export default {
 </script>
 
 <style scoped>
+.hovereffect:hover svg {
+  @apply text-white transition duration-300;
+}
+
 @media (max-width: 768px) {
   .height {
     height: 55%;
   }
 }
+
 @media (min-width: 768px) {
   .height {
     height: 60%;
