@@ -76,7 +76,18 @@
           sm:flex sm:flex-col
         "
       >
-        <div class="mb-5 md:mb-0 relative z-10 overflow-hidden bg-white widths">
+        <div
+          class="
+            mb-5
+            md:mb-0
+            relative
+            z-10
+            overflow-hidden
+            bg-white
+            widths
+            border
+          "
+        >
           <div class="z-50 absolute top-2 right-2">
             <WishButton
               v-if="product.id"
@@ -87,13 +98,21 @@
             />
           </div>
 
-          <Zoom
+          <img
+            v-if="!youtubeVideoId(selectedImage)"
+            v-lazy="selectedImage"
+            alt=""
+            class="object-contain w-auto h-full mx-auto my-auto"
+            @click="handleClick"
+          />
+
+          <!-- <Zoom
             v-if="!youtubeVideoId(selectedImage)"
             :img-normal="selectedImage"
             :img-zoom="selectedImage"
             :scale="2"
             @click="handleClick"
-          />
+          /> -->
 
           <div v-else>
             <youtube
