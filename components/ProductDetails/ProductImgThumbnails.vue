@@ -132,7 +132,7 @@ export default {
     imgVideo(url) {
       return this.youtubeVideoId(url)
         ? `https://img.youtube.com/vi/${this.youtubeVideoId(url)}/1.jpg`
-        : url
+        : `${url}?tr=w-64`
     },
     youtubeVideoId(url) {
       return getIdFromUrl(url)

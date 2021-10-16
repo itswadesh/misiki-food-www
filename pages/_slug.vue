@@ -31,7 +31,7 @@
               v-if="product"
               :loading="$fetchState.pending"
               class="h-auto mt-5 nowrap lg:mt-0 mb-5 md:mb-10"
-              :images="product && product.images"
+              :images="product && product.imagesCdn"
               :pid="product.id"
               :img="product.imgCdn"
               :host="host"

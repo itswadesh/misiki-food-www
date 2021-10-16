@@ -100,8 +100,8 @@
 
           <Zoom
             v-if="!youtubeVideoId(selectedImage)"
-            :img-normal="selectedImage"
-            :img-zoom="selectedImage"
+            :img-normal="`${selectedImage}?tr=h-720,fo-auto`"
+            :img-zoom="`${selectedImage}?tr=h-720,fo-auto`"
             :scale="2"
             @click="handleClick"
           />
