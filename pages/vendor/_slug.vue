@@ -1,299 +1,391 @@
 <template>
-  <div class="z-auto pb-0 bg-gray-50">
-    <HeroSlider
-      v-if="sliderBanners && sliderBanners.length"
-      :banners="sliderBanners"
-      class="md:mb-12 lg:mb-16"
+  <section>
+    <MobileFilters
+      class="sticky top-0 z-20 flex-none mt-16 lg:hidden"
+      :count="productCount"
+      :facets="facets"
+      :fl="fl"
+      @showFilter="showMobileFilter = true"
+      @hide="showMobileFilter = false"
     />
-    <div class="max-w-6xl mx-auto w-full">
-      <AllBrands
-        v-if="childBrands && childBrands.data && childBrands.data.length"
-        :brands="childBrands && childBrands.data"
-        class="mt-5"
+
+    <div class="flex">
+      <DesktopFilters
+        class="sticky top-0 hidden lg:block"
+        :facets="facets"
+        :fl="fl"
+        @clearAllFilters="clearAllFilters"
       />
-      <div v-if="pickedBanners && pickedBanners.length" class="my-5">
-        <div v-for="(p, ix) in pickedBanners" :key="ix">
-          <HeroBannersSlider
-            class=""
-            :banners="p && p.data"
-            :title="p._id && p._id.title"
+
+      <div class="w-full">
+        <div class="container mx-auto pb-2 sm:p-4 sm:border-b">
+          <img
+            src="/test-1.gif"
+            alt=" "
+            class="w-full h-auto object-contain object-top"
           />
         </div>
+
+        <HeaderBody
+          class="hidden lg:block"
+          :category="category"
+          :count="productCount"
+          :fl="fl"
+          @removed="facetRemoved"
+          @showFilters="showMobileFilter = true"
+        />
+
+        <!-- <ProductSkeleton /> -->
+
+        <div>
+          <div
+            v-if="$fetchState.pending"
+            class="
+              container
+              mx-auto
+              sm:p-4
+              grid grid-cols-2
+              sm:grid-cols-3
+              xl:grid-cols-4
+              2xl:grid-cols-5
+              sm:gap-4
+            "
+          >
+            <ProductSkeleton v-for="(p, ix) in 10" :key="ix + '-1'" />
+          </div>
+
+          <p v-else-if="$fetchState.error" class="p-5 sm:p-10 text-center">
+            Error while fetching products
+          </p>
+
+          <div
+            v-else-if="products && products.length > 0"
+            class="
+              container
+              mx-auto
+              sm:p-4
+              grid grid-cols-2
+              sm:grid-cols-3
+              xl:grid-cols-4
+              2xl:grid-cols-5
+              sm:gap-4
+            "
+          >
+            <HomePageProduct
+              v-for="(p, ix) in products"
+              :key="ix"
+              :quickview="false"
+              class="slide-up-item"
+              :product="p._source"
+              :pid="p._id"
+            />
+          </div>
+
+          <NoProduct v-else />
+
+          <!-- <infinite-loading @infinite="loadMore($route.query.page)"></infinite-loading> -->
+
+          <!-- <div class="pagination_box">
+            <v-pagination
+              v-if="noOfPages>1"
+              v-model="currentPage"
+              @change="changePage(currentPage)"
+              :page-count="noOfPages"
+              :disabled="loading"
+              :classes="bootstrapPaginationClasses"
+              :labels="paginationAnchorTexts"
+            ></v-pagination>     
+          </div>-->
+        </div>
+
+        <Pagination
+          class="mt-5"
+          :count="noOfPages"
+          :current="parseInt($route.query.page || 1)"
+          @change="changePage"
+        />
       </div>
-      <HeroBanners :banners="heroBanners" class="my-5" />
-      <BrandInformation :brand="brand" class="my-5" />
     </div>
-    <!-- <BrandBanners :brands="childBrands && childBrands.data" /> -->
-    <VideoBanner :banners="videoBanners" />
-    <WeProvides :brand="brand" class="lg:mb-5 max-w-6xl mx-auto w-full" />
-  </div>
+
+    <!-- <RightSideBar /> -->
+  </section>
 </template>
 
 <script>
-import HeroSlider from '~/components/Home/HeroSlider.vue'
-import AllBrands from '~/components/Home/AllBrands.vue'
-import HeroBanners from '~/components/Home/HeroBanners.vue'
-import PRODUCTS from '~/gql/product/products.gql'
-import { TITLE, DESCRIPTION, KEYWORDS, sharingLogo } from '~/shared/config'
-import BANNERS from '~/gql/banner/banners.gql'
-import BRANDS from '~/gql/brand/brands.gql'
+import CATEGORY from '~/gql/category/category.gql'
+import c from '~/mixins/c.js'
+import { DESCRIPTION, KEYWORDS } from '~/shared/config'
+// import ProductCardEs from '~/components/Listing/ProductCardEs.vue'
+import HomePageProduct from '~/components/Home/HomePageProduct.vue'
+import ProductSkeleton from '~/components/ProductSkeleton.vue'
+import HeaderBody from '~/components/HeaderBody.vue'
+import Pagination from '~/shared/components/ui/Pagination.vue'
 import BRAND from '~/gql/brand/brand.gql'
-import GROUP_BY_BANNER from '~/gql/banner/groupByBanner.gql'
-// import BrandBanners from '~/components/Home/BrandBanners'
-import VideoBanner from '~/components/Home/VideoBanner.vue'
-import HeroBannersSlider from '~/components/Home/HeroBannersSlider.vue'
-import WeProvides from '~/components/Home/WeProvides.vue'
-import BrandInformation from '~/components/Home/BrandInformation.vue'
+
 export default {
   components: {
-    HeroSlider,
-    AllBrands,
-    HeroBanners,
-    // BrandBanners,
-    HeroBannersSlider,
-    BrandInformation,
-    // Discounts,
-    VideoBanner,
-    WeProvides,
+    Pagination,
+    ProductSkeleton,
+    HomePageProduct,
+    // ProductCardEs,
+    HeaderBody,
   },
-  async asyncData({ params, app, store, error }) {
-    let brand = {}
-    const { title, keywords, description, logoMobile } = store.state.store || {} // err = null
-    const client = app.apolloProvider.defaultClient
-    try {
-      brand = (
-        await client.query({
-          query: BRAND,
-          variables: {
-            slug: params.slug,
-            store: store.state.store && store.state.store.id,
-          },
-          fetchPolicy: 'no-cache',
-        })
-      ).data.brand
-      if (!brand || !brand.id) error('Brand not found')
-    } catch (e) {
-      error('Brand not found')
-    }
-    return { brand, title, keywords, description, logoMobile }
+
+  mixins: [c],
+
+  asyncData({ params, app, store }) {
+    const { title, keywords, description, favicon, logoMobile } =
+      store.state.store || {} // err = null
+    return { title, keywords, description, favicon, logoMobile }
   },
+
   data() {
     return {
-      hotProducts: null,
-      youMayLikeProducts: null,
-      visible: false,
-      banners: null,
-      childBrands: null,
-      sliderBanners: null,
-      heroBanners: null,
-      pickedBanners: null,
-      videoBanners: null,
-      loadingVideoBanners: false,
       brand: null,
     }
   },
+
+  async fetch() {
+    let facets = []
+    let fl = {}
+    // let err = null
+    // let productCount = 0
+    // const client = app.apolloProvider.defaultClient
+    const storeId = this.$store.state.store && this.$store.state.store.id
+    // try {
+    const cslug = this.$route.params.slug
+    if (cslug) {
+      this.category = await this.$get('category/category', {
+        slug: cslug,
+      })
+      // this.category = (
+      //   await client.query({
+      //     query: CATEGORY,
+      //     variables: {
+      //       slug: cslug,
+      //       store: storeId,
+      //     },
+      //     fetchPolicy: 'no-cache',
+      //   })
+      // ).data.category
+    }
+    const q = cslug || null
+    const query = this.$route.query
+    query.store = storeId || '23sdf43rfs5fdgsdf'
+    const qry = { ...query }
+    delete qry.brand
+    if (q) qry.categories = q
+    // if (cslug) qry.categories = cslug
+    const result = await this.$axios.$get('/api/products/es', {
+      params: { ...qry },
+    })
+    this.products = result.data
+    this.productCount = result.facets && result.facets.style_count.value
+    facets = result.facets && result.facets.all_aggs
+    Object.keys(qry).map(function (k, i) {
+      if (
+        qry[k] &&
+        !Array.isArray(qry[k]) &&
+        qry[k] !== null &&
+        qry[k] !== '' &&
+        k !== 'price' &&
+        k !== 'age' &&
+        k !== 'discount'
+      )
+        qry[k] = qry[k].split(',')
+    })
+    fl = { ...qry } // For selected filters
+    this.fl = fl
+    this.facets = facets
+    // return { products, category, productCount, facets, fl, err: null }
+    // } catch (e) {
+    //   if (e && e.response && e.response.data) {
+    //     err = e.response.data
+    //   } else if (e && e.response) {
+    //     err = e.response
+    //   } else {
+    //     err = e
+    //   }
+    //   console.log('/c/_slug err...', e)
+    //   return { products, category, productCount, facets: [], fl: {}, err }
+    // }
+  },
+  // async asyncData({ route, query, params, $axios, app, store }) {
+  //   let products = []
+  //   let category = {}
+  //   let facets = []
+  //   let fl = {}
+  //   let err = null
+  //   let productCount = 0
+  //   const client = app.apolloProvider.defaultClient
+  //   const storeId = store.state.store && store.state.store.id
+  //   try {
+  //     const cslug = route.params.slug
+  //     if (cslug) {
+  //       category = (
+  //         await client.query({
+  //           query: CATEGORY,
+  //           variables: {
+  //             slug: cslug,
+  //             store: storeId,
+  //           },
+  //           fetchPolicy: 'no-cache',
+  //         })
+  //       ).data.category
+  //     }
+  //     const q = params.slug || null
+  //     query.store = storeId || '23sdf43rfs5fdgsdf'
+  //     const qry = { ...query }
+  //     delete qry.brand
+  //     if (q) qry.categories = q
+  //     // if (cslug) qry.categories = cslug
+  //     const result = await $axios.$get('/api/products/es', {
+  //       params: { ...qry },
+  //     })
+  //     products = result.data
+  //     productCount = result.facets && result.facets.style_count.value
+  //     facets = result.facets && result.facets.all_aggs
+  //     Object.keys(qry).map(function (k, i) {
+  //       if (
+  //         qry[k] &&
+  //         !Array.isArray(qry[k]) &&
+  //         qry[k] !== null &&
+  //         qry[k] !== '' &&
+  //         k !== 'price' &&
+  //         k !== 'age' &&
+  //         k !== 'discount'
+  //       )
+  //         qry[k] = qry[k].split(',')
+  //     })
+  //     fl = { ...qry } // For selected filters
+  //     return { products, category, productCount, facets, fl, err: null }
+  //   } catch (e) {
+  //     if (e && e.response && e.response.data) {
+  //       err = e.response.data
+  //     } else if (e && e.response) {
+  //       err = e.response
+  //     } else {
+  //       err = e
+  //     }
+  //     console.log('/c/_slug err...', e)
+  //     return { products, category, productCount, facets: [], fl: {}, err }
+  //   }
+  // },
+
   head() {
     const host = process.server
       ? this.$ssrContext.req.headers.host
       : window.location.host
     return {
-      title: this.brand.title || this.brand.name || TITLE,
+      title:
+        (this.category && this.category.metaTitle) ||
+        (this.category && this.category.name) ||
+        'Categories ',
       meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.brand.description || DESCRIPTION,
-        },
         {
           hid: 'og:description',
           name: 'Description',
           property: 'og:description',
-          content: this.brand.description || DESCRIPTION,
+          content:
+            (this.category && this.category.metaDescription) || DESCRIPTION,
         },
         {
+          hid: 'keywords',
           name: 'Keywords',
-          content: this.brand.keywords || KEYWORDS,
+          property: 'keywords',
+          content: (this.category && this.category.metaKeywords) || KEYWORDS,
         },
         {
           hid: 'og:title',
           name: 'og_title',
           property: 'og:title',
-          content: this.brand.title || TITLE,
+          content:
+            (this.category && this.category.metaTitle) ||
+            (this.category && 'Category: ' + this.category.name) ||
+            'Category: ' + this.$route.path.substr(1),
         },
+        // Google+ / Schema.org
         {
           name: 'og_url',
           property: 'og:url',
-          content: host,
+          content: host + '/' + this.$route.path.substr(1) || '',
         },
         {
-          name: 'og_image',
           property: 'og:image',
-          content: this.logoMobile,
+          content: (this.category && this.category.imgCdn) || this.logoMobile,
         },
-
+        {
+          property: 'og:image:width',
+          content: '600',
+        },
+        {
+          property: 'og:image:height',
+          content: '600',
+        },
+        // Twitter
         {
           name: 'twitter:title',
-          content: this.brand.title || TITLE,
+          content:
+            (this.category && this.category.metaTitle) ||
+            (this.category && 'Category: ' + this.category.name) ||
+            'Category: ' + this.$route.path.substr(1),
         },
         {
-          hid: 'twitter_description',
           name: 'twitter:description',
-          content: this.brand.description || DESCRIPTION,
+          content:
+            (this.category && this.category.metaDescription) || DESCRIPTION,
         },
       ],
     }
   },
-  computed: {
-    user() {
-      return this.$store.state.auth.user
-    },
-  },
+  // watchQuery: true,
+  // fetch() {
+  // this.scrollToTop()
+  // let query = { ...this.$route.query };
+  // this.fl = query;
+  // },
+
   mounted() {
-    window.addEventListener('scroll', this.scrollListener)
+    // this.getWishlist() // This was causing node undefined error when page is refreshed
   },
-  created() {
-    this.getBanners()
-    this.getHotProducts()
-    this.getYouMayLikeProducts()
-    this.getBrands()
+
+  async created() {
+    await this.getBrand()
   },
+
   methods: {
-    async getBrands() {
-      // this.loading = true
+    // scrollToTop() {
+    //   if (process.client) {
+    //     window.scroll({ behavior: 'smooth', left: 0, top: 80 })
+    //   }
+    // },
+    // async getData() {
+    //   const q = this.$route.query || {}
+    //   // q.categories = this.$route.path.substr(1)
+    //   try {
+    //     this.loading = true
+    //     const p = params.slug || null
+    //     q.categories = p
+    //     const products = await this.$axios.$get('/api/products/es', {
+    //       params: q,
+    //     })
+    //     this.productCount = products.count
+    //     this.products = products.data
+    //     this.facets = products.facets && products.facets.all_aggs
+    //   } catch (e) {
+    //   } finally {
+    //     this.loading = false
+    //   }
+    // },
+
+    async getBrand() {
       try {
-        this.childBrands = await this.$get('brand/brands', {
-          limit: 10,
-          page: 0,
-          sort: 'sort',
-          parent: this.brand.id,
-          featured: true,
+        this.loading = true
+        this.brand = await this.$apollo.query({
+          query: BRAND,
         })
-        // this.childBrands = (
-        //   await this.$apollo.query({
-        //     query: BRANDS,
-        //     variables: {
-        //       limit: 10,
-        //       page: 0,
-        //       sort: 'sort',
-        //       parent: this.brand.id,
-        //       featured: true,
-        //     },
-        //     fetchPolicy: 'no-cache',
-        //   })
-        // ).data.brands
-        // console.log('brands to show', this.childBrands)
+        console.log(this.brand)
       } catch (e) {
-        // console.log(e)
-      } finally {
-        // this.loading = false
-      }
-    },
-    async getBanners() {
-      this.loading = true
-      // this.skeleton = true
-      try {
-        const banners = await this.$get('banner/banners', {
-          sort: 'sort',
-          pageId: this.brand.id,
-          active: true,
-        })
-        // const banners = (
-        //   await this.$apollo.query({
-        //     query: BANNERS,
-        //     variables: {
-        //       sort: 'sort',
-        //       pageId: this.brand.id,
-        //       active: true,
-        //     },
-        //     fetchPolicy: 'no-cache',
-        //   })
-        // ).data.banners
-        this.sliderBanners = banners.data.filter((b) => b.type === 'slider')
-        // this.heroBanners = banners.data.filter((b) => b.type === 'hero')
-        this.videoBanners = banners.data.filter((b) => b.type === 'video')
-        this.heroBanners = await this.$get('banner/groupByBanner', {
-          pageId: this.brand.id,
-          type: 'hero',
-          sort: 'sort',
-        })
-        this.pickedBanners = await this.$get('banner/groupByBanner', {
-          pageId: this.brand.id,
-          type: 'hero',
-          sort: 'sort',
-        })
-        // this.heroBanners = (
-        //   await this.$apollo.query({
-        //     query: GROUP_BY_BANNER,
-        //     variables: {
-        //       pageId: this.brand.id,
-        //       type: 'hero',
-        //       sort: 'sort',
-        //     },
-        //     fetchPolicy: 'no-cache',
-        //   })
-        // ).data.groupByBanner
-        // this.pickedBanners = (
-        //   await this.$apollo.query({
-        //     query: GROUP_BY_BANNER,
-        //     variables: {
-        //       pageId: this.brand.id,
-        //       type: 'picked',
-        //       sort: 'sort',
-        //     },
-        //     fetchPolicy: 'no-cache',
-        //   })
-        // ).data.groupByBanner
-      } catch (e) {
-        // console.log(e)
-      } finally {
-        this.loading = false
-        // this.skeleton = false
-      }
-    },
-    scrollListener() {
-      if (window.scrollY > 480) {
-        // console.log('Naman')
-        this.visible = true
-      } else {
-        this.visible = false
-      }
-    },
-    async getYouMayLikeProducts() {
-      this.loading = true
-      try {
-        this.youMayLikeProducts = await this.$get('product/products', {
-          sale: true,
-        })
-        // this.youMayLikeProducts = (
-        //   await this.$apollo.query({
-        //     query: PRODUCTS,
-        //     variables: {
-        //       sale: true,
-        //     },
-        //     fetchPolicy: 'no-cache',
-        //   })
-        // ).data.products
-      } catch (e) {
-        // console.log(e)
-      } finally {
-        this.loading = false
-      }
-    },
-    async getHotProducts() {
-      this.loading = true
-      try {
-        this.hotProducts = await this.$get('product/products', { hot: true })
-        // this.hotProducts = (
-        //   await this.$apollo.query({
-        //     query: PRODUCTS,
-        //     variables: {
-        //       hot: true,
-        //     },
-        //     fetchPolicy: 'no-cache',
-        //   })
-        // ).data.products
-      } catch (e) {
-        // console.log(e)
       } finally {
         this.loading = false
       }
@@ -301,3 +393,41 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+/* .pagination {
+  list-style-type: none !important;
+  display: flex !important;
+  padding-left: 0 !important;
+  border-radius: 0.25rem !important;
+}
+.page-link {
+  position: relative !important;
+  display: block !important;
+  padding: 0.5rem 0.75rem !important;
+  margin-left: -1px !important;
+  line-height: 1.25 !important;
+  color: #007bff !important;
+  background-color: #fff !important;
+  border: 1px solid #dee2e6 !important;
+}
+.page-item.disabled .page-link {
+  color: #6c757d !important;
+  pointer-events: none !important;
+  cursor: auto !important;
+  background-color: #fff !important;
+  border-color: #dee2e6 !important;
+  height: 34px !important;
+}
+.page-item:first-child .page-link {
+  margin-left: 0 !important;
+  border-top-left-radius: 0.25rem !important;
+  border-bottom-left-radius: 0.25rem !important;
+}
+.page-item.active .page-link {
+  z-index: 1 !important;
+  color: #fff !important;
+  background-color: #007bff !important;
+  border-color: #007bff !important;
+} */
+</style>
