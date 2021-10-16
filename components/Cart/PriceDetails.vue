@@ -110,16 +110,23 @@
 
       <div class="flex justify-between text-base sm:pb-5">
         <b>Total Amount</b>
+
         <b>
           {{
             cart.total | currency(store.currencySymbol, store.currencyDecimals)
-          }}</b
-        >
+          }}
+        </b>
       </div>
 
       <div class="fixed bottom-0 inset-x-0 w-full sm:static">
         <nuxt-link v-if="nextpage" :to="nextpage">
-          <PrimaryButton class="w-full"> {{ btnname }}</PrimaryButton>
+          <PrimaryButton
+            class="w-full"
+            :loading="loading"
+            @click="loading = true"
+          >
+            {{ btnname }}</PrimaryButton
+          >
         </nuxt-link>
       </div>
     </div>
@@ -131,10 +138,11 @@ import { mapGetters } from 'vuex'
 import PrimaryButton from '~/components/ui/PrimaryButton.vue'
 import TestCoupons from '~/components/Cart/TestCoupons.vue'
 import NuxtLink from '~/components/NuxtLink.vue'
-
 // import CART from "~/gql/cart/cart.gql"
+
 export default {
   components: { TestCoupons, PrimaryButton, NuxtLink },
+
   props: {
     selectedAddress: { type: String, default: null },
     details: {
@@ -150,6 +158,7 @@ export default {
       default: null,
     },
   },
+
   data() {
     return {
       showOffers: false,
@@ -162,6 +171,7 @@ export default {
   // async created(){
   //   await this.getCart()
   // },
+
   computed: {
     ...mapGetters({
       cart: 'cart/cart',
@@ -169,6 +179,7 @@ export default {
       store: 'store',
     }),
   },
+
   methods: {
     proceed() {
       if (!this.selectedAddress) {
@@ -179,6 +190,7 @@ export default {
         `/checkout/payment-options?address=${this.selectedAddress}`
       )
     },
+
     hideOffers() {
       // console.log("hide offers")
       this.showOffers = false
@@ -186,6 +198,7 @@ export default {
   },
 }
 </script>
+
 <style scoped>
 .close {
   /* left: -100%; */

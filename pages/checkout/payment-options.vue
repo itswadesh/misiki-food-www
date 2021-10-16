@@ -323,7 +323,7 @@
         <CheckoutSummary
           :loading="loading"
           class="mb-5"
-          :disabled="!enableStripeCheckoutButton"
+          :disabled="!enableStripeCheckoutButton || !enablePaypalCheckoutButton"
           @submit="submit"
         >
           <span v-if="paymentMethod && paymentMethod.value == 'COD'">
@@ -338,7 +338,17 @@
             Please fill credit card details
           </span>
 
-          <span v-else>Pay Now</span>
+          <span
+            v-else-if="
+              paymentMethod &&
+              paymentMethod.value === 'Paypal' &&
+              !enablePaypalCheckoutButton
+            "
+          >
+            Please fill card details
+          </span>
+
+          <div v-else>Pay Now</div>
         </CheckoutSummary>
 
         <div class="text-lg font-bold tracking-wide mb-3">
@@ -398,27 +408,6 @@
             </div>
           </div>
         </div>
-
-        <CheckoutSummary
-          class="sm:hidden"
-          :loading="loading"
-          :disabled="!enableStripeCheckoutButton"
-          @submit="submit"
-        >
-          <span v-if="paymentMethod && paymentMethod.value === 'COD'">
-            Place Order
-          </span>
-
-          <span
-            v-else-if="
-              paymentMethod.value === 'Stripe' && !enableStripeCheckoutButton
-            "
-          >
-            Please fill credit card details
-          </span>
-
-          <span v-else>Pay Now</span>
-        </CheckoutSummary>
 
         <!-- <Toast v-if="true">
           Stripe Credit Card Details Addition Completed
@@ -537,6 +526,11 @@ export default {
 
     enableStripeCheckoutButton() {
       if (this.paymentMethod.value === 'Stripe') return this.complete
+      else return true
+    },
+
+    enablePaypalCheckoutButton() {
+      if (this.paymentMethod.value === 'Paypal') return this.complete
       else return true
     },
   },

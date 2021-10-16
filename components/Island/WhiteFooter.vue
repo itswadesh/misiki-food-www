@@ -1,5 +1,5 @@
 <template>
-  <div class="p-2 sm:p-3 text-gray-800 bg-transparent">
+  <div class="p-2 sm:p-3 text-gray-800">
     <div class="mb-2 flex flex-col justify-between lg:flex-row lg:space-x-10">
       <div class="w-full lg:w-4/5">
         <h1

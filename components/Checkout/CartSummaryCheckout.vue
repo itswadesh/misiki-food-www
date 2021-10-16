@@ -121,7 +121,11 @@
       </div>
 
       <div class="fixed bottom-0 inset-x-0 w-full sm:static">
-        <PrimaryButton class="w-full" @click="proceed()">
+        <PrimaryButton
+          class="w-full"
+          :loading="loading || proceedLoading"
+          @click=";[proceed(), (proceedLoading = true)]"
+        >
           Proceed
         </PrimaryButton>
       </div>
@@ -132,22 +136,25 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import TestCoupons from '~/components/Cart/TestCoupons.vue'
-import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
 import PrimaryButton from '~/components/ui/PrimaryButton.vue'
 
 // import CART from "~/gql/cart/cart.gql"
 export default {
-  components: { TestCoupons, PrimaryButtonRounded, PrimaryButton },
+  components: { TestCoupons, PrimaryButton },
+
   props: {
     selectedAddress: { type: String, default: null },
-    loading: { type: Boolean },
+    loading: { type: Boolean, default: false },
   },
+
   data() {
     return {
       showOffers: false,
       hide: false,
+      proceedLoading: false,
     }
   },
+
   computed: {
     ...mapGetters({
       store: 'store',
@@ -155,8 +162,10 @@ export default {
       getItemQty: 'cart/getItemQty',
     }),
   },
+
   methods: {
     ...mapActions({ removeCoupon: 'cart/removeCoupon' }),
+
     proceed() {
       if (!this.selectedAddress) {
         this.$router.push(`/checkout/add`)
@@ -165,7 +174,9 @@ export default {
       this.$router.push(
         `/checkout/payment-options?address=${this.selectedAddress}`
       )
+      // console.log('proceed function runned')
     },
+
     hideOffers() {
       // console.log("hide offers")
       this.showOffers = false

@@ -123,10 +123,10 @@
 
       <div class="fixed bottom-0 inset-x-0 w-full sm:static">
         <PrimaryButton
+          :loading="loading"
           :disabled="disabled"
           class="w-full"
-          :class="`bg-gray-100`"
-          @click=";[$emit('submit'), (proceedLoading = true)]"
+          @click="$emit('submit')"
         >
           <slot />
         </PrimaryButton>
