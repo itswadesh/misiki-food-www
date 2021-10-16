@@ -392,7 +392,6 @@ export default {
 
   async mounted() {
     await this.$store.dispatch('cart/fetch')
-    console.log('Cart fetch footer mount............')
     const getGDPRPreference = localStorage.getItem('GDPR:preference')
     // console.log('getGDPRPreference...........', getGDPRPreference)
     if (

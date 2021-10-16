@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col flex-shrink-0 bg-white hfull nowrap">
+  <div class="flex flex-col flex-shrink-0 bg-white nowrap">
     <div class="sm:ms-3 xl:me-0">
       <!-- desktop xl and above -->
 
@@ -98,21 +98,13 @@
             />
           </div>
 
-          <img
-            v-if="!youtubeVideoId(selectedImage)"
-            v-lazy="selectedImage"
-            alt=""
-            class="object-contain w-auto h-full mx-auto my-auto"
-            @click="handleClick"
-          />
-
-          <!-- <Zoom
+          <Zoom
             v-if="!youtubeVideoId(selectedImage)"
             :img-normal="selectedImage"
             :img-zoom="selectedImage"
             :scale="2"
             @click="handleClick"
-          /> -->
+          />
 
           <div v-else>
             <youtube
@@ -154,13 +146,13 @@
             <div
               v-for="(im, ix) in images"
               :key="ix"
-              class="bg-white h-80 focus:outline-none"
+              class="bg-white focus:outline-none"
             >
               <img
                 v-if="!youtubeVideoId(im)"
                 v-lazy="`${im}?tr=h-320,fo-auto`"
                 alt=""
-                class="object-contain w-full h-full bg-white"
+                class="object-contain w-full bg-white"
                 @click="handleClick"
               />
 
@@ -182,18 +174,18 @@
             :as-nav-for="$refs.c1"
             :slides-to-show="4"
             :focus-on-select="true"
-            class="mx-auto"
+            class=""
           >
             <div
               v-for="(ig, ix) in images"
               :key="ix"
-              class="h-16 w-16 mx-auto focus:outline-none"
+              class="h-16 focus:outline-none"
               @click="selectedImage = ig"
             >
               <img
-                v-lazy="`${imgVideo(ig)}?tr=w-64,h-64,fo-auto`"
+                v-lazy="`${imgVideo(ig)}?tr=h-64,fo-auto`"
                 alt=""
-                class="object-contain w-16 h-16 mx-auto bg-white"
+                class="h-16 bg-white"
               />
             </div>
           </VueSlickCarousel>
@@ -391,20 +383,20 @@ export default {
 @media only screen and (min-width: 640px) {
   .widths {
     width: 470px;
-    height: 370px;
+    /* height: 370px; */
   }
 }
 
 @media only screen and (min-width: 768px) {
   .widths {
     width: 90%;
-    height: 29.2rem;
+    /* height: 29.2rem; */
   }
 }
 @media only screen and (min-width: 1024px) {
   .widths {
     width: 100%;
-    height: 28.2rem;
+    /* height: 28.2rem; */
   }
 }
 </style>
