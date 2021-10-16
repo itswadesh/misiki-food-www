@@ -811,25 +811,24 @@ export default {
       } else if (paymentMethod === 'Paypal') {
         const vm = this
         console.log('dropinInstance.............', this.dropinInstance)
-        this.dropinInstance.requestPaymentMethod(function (err, payload) {
+        this.dropinInstance.requestPaymentMethod(async function (err, payload) {
           if (err) {
             console.log('err...............', err)
             vm.setErr(err)
             // Handle errors in requesting payment method
           }
-          console.log(
-            'Send to server..............',
-            payload.nonce,
-            vm.braintreeToken
-          )
-          // try {
-          //   const result = await vm.$get('pay/braintreeMakePayment', {
-          //     nonce: payload.nonce,
-          //     token: vm.braintreeToken,
-          //   })
-          //   vm.$router.push(`/payment/success?id=${result.id}`)
-          // } catch (e) {}
-          // Send payload.nonce to your server
+          // console.log(
+          //   'Send to server..............',
+          //   payload.nonce,
+          //   vm.braintreeToken
+          // )
+          try {
+            const result = await vm.$get('pay/braintreeMakePayment', {
+              nonce: payload.nonce,
+              token: vm.braintreeToken,
+            })
+            vm.$router.push(`/payment/success?id=${result.id}`)
+          } catch (e) {}
         })
         // } else if (paymentMethod === 'Paypal') {
         //   try {

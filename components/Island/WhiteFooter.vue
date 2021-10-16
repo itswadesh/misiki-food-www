@@ -194,7 +194,9 @@
           class="w-1/2 lg:w-full flex flex-col md:flex-row items-center mb-2"
         >
           <img
-            v-lazy="`/img/footer/original.png?tr=w-48,h-48,fo-auto`"
+            v-lazy="
+              `${settings.CDN_URL}/img/footer/original.png?tr=w-48,h-48,fo-auto`
+            "
             alt=" "
             class="me-4 object-contain w-8 h-8"
           />
@@ -211,7 +213,9 @@
           class="w-1/2 lg:w-full flex flex-col md:flex-row items-center mb-2"
         >
           <img
-            v-lazy="`/img/footer/free.png?tr=w-48,h-48,fo-auto`"
+            v-lazy="
+              `${settings.CDN_URL}/img/footer/free.png?tr=w-48,h-48,fo-auto`
+            "
             alt=" "
             class="me-4 object-contain w-8 h-8"
           />
@@ -263,7 +267,7 @@
         >
       </div>
 
-      <div
+      <!-- <div
         class="
           mb-2
           hidden
@@ -278,14 +282,14 @@
         <div id="google_translate_element" class="hidden lg:block"></div>
 
         <div v-if="visitorCount">Visitors : {{ visitorCount }}</div>
-      </div>
+      </div> -->
 
       <!-- <LanguageSwitch v-if="loadedTranslate" /> -->
 
       <div class="flex flex-row items-center space-x-2 max-w-max">
         <div v-for="(i, ix) in icons" :key="ix" class="mb-2">
           <img
-            v-lazy="`${i.img}?tr=w-36,h-36,fo-auto`"
+            v-lazy="`${settings.CDN_URL}/${i.img}?tr=w-36,h-36,fo-auto`"
             :alt="i.alt"
             class="h-9 w-9 object-contain"
           />
@@ -293,7 +297,7 @@
       </div>
     </div>
 
-    <div
+    <!-- <div
       class="
         mb-2
         flex
@@ -308,7 +312,7 @@
       <div id="google_translate_element" class="lg:hidden"></div>
 
       <div v-if="visitorCount">Visitors : {{ visitorCount }}</div>
-    </div>
+    </div> -->
 
     <client-only>
       <CookieConsent />
