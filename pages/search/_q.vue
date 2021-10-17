@@ -1,7 +1,7 @@
 <template>
   <section class="container mx-auto">
     <MobileFilters
-      class="sticky top-0 z-20 flex-none mt-16 md:hidden"
+      class="sticky top-0 z-20 flex-none mt-16 lg:hidden"
       :count="productCount"
       :facets="facets"
       :fl="fl"
@@ -11,26 +11,27 @@
 
     <div class="flex">
       <DesktopFilters
-        class="sticky top-0 hidden md:block"
+        class="sticky top-0 hidden lg:block"
         :facets="facets"
         :fl="fl"
         @clearAllFilters="clearAllFilters"
       />
 
-      <div class="relative w-full">
+      <div class="w-full">
         <HeaderBody
-          class="hidden md:block"
-          :category="{}"
+          class="hidden lg:block"
+          :category="category"
           :count="productCount"
           :fl="fl"
           @removed="facetRemoved"
           @showFilters="showMobileFilter = true"
         />
 
-        <NoProduct v-if="(!products || !products.length) && !loading" />
+        <!-- <ProductSkeleton /> -->
 
-        <div v-else>
+        <div>
           <div
+            v-if="$fetchState.pending"
             class="
               md:p-4
               grid grid-cols-2
@@ -40,78 +41,61 @@
               2xl:grid-cols-5
             "
           >
-            <div v-if="loading" class="flex flex-wrap justify-between">
-              <ProductSkeleton v-for="(p, ix) in 30" :key="ix + '-1'" />
-            </div>
+            <ProductSkeleton v-for="(p, ix) in 30" :key="ix + '-1'" />
+          </div>
 
+          <p v-else-if="$fetchState.error" class="p-5 sm:p-10 text-center">
+            Error while fetching products
+          </p>
+
+          <div
+            v-else-if="products && products.length > 0"
+            class="
+              md:p-4
+              grid grid-cols-2
+              md:gap-4
+              sm:grid-cols-3
+              xl:grid-cols-4
+              2xl:grid-cols-5
+            "
+          >
             <HomePageProduct
               v-for="(p, ix) in products"
-              v-else-if="products && products.length > 0"
               :key="ix"
               :quickview="false"
               class="slide-up-item"
               :product="p._source"
               :pid="p._id"
-              @open="
-                quickViewProduct = p
-                openQuickView = true
-              "
             />
-
-            <!-- <infinite-loading @infinite="loadMore($route.query.page)"></infinite-loading> -->
           </div>
+
+          <NoProduct v-else />
+
+          <!-- <infinite-loading @infinite="loadMore($route.query.page)"></infinite-loading> -->
+
+          <!-- <div class="pagination_box">
+            <v-pagination
+              v-if="noOfPages>1"
+              v-model="currentPage"
+              @change="changePage(currentPage)"
+              :page-count="noOfPages"
+              :disabled="loading"
+              :classes="bootstrapPaginationClasses"
+              :labels="paginationAnchorTexts"
+            ></v-pagination>     
+          </div>-->
         </div>
 
         <Pagination
+          class="mt-5"
           :count="noOfPages"
           :current="parseInt($route.query.page || 1)"
           @change="changePage"
         />
       </div>
     </div>
-    <!-- <RightSideBar /> -->
-    <!-- <div v-if="openQuickView">
-      <CleanModal :show="openQuickView" title="Quick View">
-        <button
-          type="button"
-          class="
-            absolute
-            p-1
-            transition
-            duration-300
-            transform
-            rounded-md
-            hover:bg-opacity-50
-            group
-            hover:bg-gray-900 hover:shadow-md
-            top-3
-            right-3
-                  focus:outline-none focus:ring-0 focus:ring-offset-0
- focus:scale-75
-          "
-          @click="openQuickView = false"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-6 h-6 transition duration-100 group-hover:text-white"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
 
-        <div v-if="quickViewProduct" class="w-full max-w-4xl">
-          <QuickView :img="quickViewProduct.imgCdn" :product="quickViewProduct" />
-        </div>
-      </CleanModal>
-    </div> -->
+    <!-- <RightSideBar /> -->
   </section>
 </template>
 

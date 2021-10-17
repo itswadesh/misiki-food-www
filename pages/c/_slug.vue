@@ -138,16 +138,6 @@ export default {
       this.category = await this.$get('category/category', {
         slug: cslug,
       })
-      // this.category = (
-      //   await client.query({
-      //     query: CATEGORY,
-      //     variables: {
-      //       slug: cslug,
-      //       store: storeId,
-      //     },
-      //     fetchPolicy: 'no-cache',
-      //   })
-      // ).data.category
     }
     const q = cslug || null
     const query = this.$route.query

@@ -612,7 +612,7 @@ export default {
           )
         }
       } catch (e) {
-        console.log('erorrrr............', e)
+        // console.log('erorrrr............', e)
         this.setErr(e)
       } finally {
         this.loading = false
@@ -819,8 +819,8 @@ export default {
         }
       } else if (paymentMethod === 'Paypal') {
         const vm = this
-        console.log('dropinInstance.............', this.dropinInstance)
-        this.dropinInstance.requestPaymentMethod(async function (err, payload) {
+        console.log('dropinInstance.............', vm.dropinInstance)
+        vm.dropinInstance.requestPaymentMethod(async function (err, payload) {
           if (err) {
             console.log('err...............', err)
             vm.setErr(err)
@@ -832,16 +832,16 @@ export default {
           //   vm.braintreeToken
           // )
           try {
-            this.loading = true
+            vm.loading = true
             const result = await vm.$get('pay/braintreeMakePayment', {
               nonce: payload.nonce,
               token: vm.braintreeToken,
             })
             vm.$router.push(`/payment/success?id=${result.id}`)
           } catch (e) {
-            this.setErr(e)
+            vm.setErr(e)
           } finally {
-            this.loading = false
+            vm.loading = false
           }
         })
         // } else if (paymentMethod === 'Paypal') {

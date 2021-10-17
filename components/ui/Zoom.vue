@@ -28,7 +28,8 @@ export default {
   mounted() {
     if (this.scale) {
       this.scaleFactor = this.scale
-      this.$refs.zoom.style.transform = 'scale(' + this.scaleFactor + ')'
+      if (this.$refs.zoom)
+        this.$refs.zoom.style.transform = 'scale(' + this.scaleFactor + ')'
     }
     this.initEventLoaded()
     this.initEventResized()
@@ -42,18 +43,19 @@ export default {
   methods: {
     zoom() {
       if (this.disabled) return
-      this.$refs.zoom.style.opacity = 1
-      this.$refs.normal.style.opacity = 0
+      if (this.$refs.zoom) this.$refs.zoom.style.opacity = 1
+      if (this.$refs.normal) this.$refs.normal.style.opacity = 0
     },
     unzoom() {
       if (this.disabled) return
-      this.$refs.zoom.style.opacity = 0
-      this.$refs.normal.style.opacity = 1
+      if (this.$refs.zoom) this.$refs.zoom.style.opacity = 0
+      if (this.$refs.normal) this.$refs.normal.style.opacity = 1
     },
     move(event) {
       if (this.disabled) return
       const offset = pageOffset(this.$el)
       const zoom = this.$refs.zoom
+      if (!zoom) return
       const normal = this.$refs.normal
       const relativeX = event.clientX - offset.x + window.pageXOffset
       const relativeY = event.clientY - offset.y + window.pageYOffset

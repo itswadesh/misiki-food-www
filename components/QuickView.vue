@@ -12,7 +12,11 @@
     <!-- Image  -->
 
     <div v-if="img" class="overflow-hidden">
-      <img :src="`${img}`" alt="products" class="h-full w-full object-cover" />
+      <img
+        :src="`${img}`"
+        alt="products"
+        class="h-full w-full object-contain"
+      />
     </div>
 
     <div
