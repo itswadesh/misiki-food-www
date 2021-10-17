@@ -341,7 +341,7 @@
             <div v-else>Pay Now</div>
           </div>
 
-          <div v-else>Select Any Payment Methode</div>
+          <div v-else>Select Any Payment Method</div>
         </CheckoutSummary>
 
         <div class="text-lg font-bold tracking-wide mb-3">
@@ -453,7 +453,8 @@ export default {
   },
 
   middleware({ store, redirect }) {
-    if (store.state.cart.qty < 1) return redirect('/cart')
+    if (!store.state.cart.qty || +store.state.cart.qty < 1)
+      return redirect('/cart')
   },
 
   async asyncData({ $get }) {
@@ -576,6 +577,7 @@ export default {
     // },
 
     setupStripeElement() {
+      this.loading = true
       if (this.$stripe) {
         const elements = this.$stripe.elements()
         this.card = elements.create('card', {})
@@ -589,14 +591,15 @@ export default {
           }
         })
       }
+      this.loading = false
     },
 
     // async purchase() {
 
     // },
     async payWithCard(clientSecret) {
-      this.loading = true
       try {
+        this.loading = true
         const result = await this.$stripe.confirmCardPayment(clientSecret, {
           payment_method: { card: this.card },
         })
@@ -711,8 +714,12 @@ export default {
 
     async submit() {
       this.errorMessage = false
+      // if (this.cart.qty < 1) {
+      //   this.errorMessage = 'No items in cart'
+      //   return
+      // }
       if (!this.paymentMethod || !this.paymentMethod.value) {
-        this.setErr('Please Select Payment Method')
+        this.errorMessage = 'Please Select Payment Method'
       }
       const paymentMethod = this.paymentMethod.value
       if (this.loading) return
@@ -724,36 +731,48 @@ export default {
       }
       this.clearErr()
       if (paymentMethod === 'COD') {
-        this.loading = true
         try {
+          this.loading = true
           await this.checkout({
             paymentMethod: 'COD',
             address: this.$route.query.address,
           })
         } catch (e) {
           // this.setErr(e)
+        } finally {
+          this.loading = false
         }
       } else if (paymentMethod === 'Stripe') {
         let pm
         try {
+          this.loading = true
           pm = await this.$stripe.createPaymentMethod({
             type: 'card',
             card: this.card,
           })
-        } catch (e) {}
-        if (!pm.paymentMethod)
-          return this.setErr('Credit card details incorrect.')
+        } catch (e) {
+          this.setErr(e)
+        } finally {
+          this.loading = false
+        }
+        if (!pm.paymentMethod) {
+          this.errorMessage = 'Credit card details incorrect.'
+          return
+        }
         // this.$stripe.confirmCardPayment()
         if (pm.paymentMethod) {
           try {
+            this.loading = true
             const res = await this.$get('pay/stripe', {
               paymentMethodId: pm.paymentMethod.id,
               address: this.$route.query.address,
             })
-            this.payWithCard(res.clientSecret)
+            await this.payWithCard(res.clientSecret)
             // console.log('pay/stripe', res)
           } catch (e) {
             this.setErr(e)
+          } finally {
+            this.loading = false
           }
         }
         // this.$refs.stripeElementRef[0].submit()
@@ -813,12 +832,17 @@ export default {
           //   vm.braintreeToken
           // )
           try {
+            this.loading = true
             const result = await vm.$get('pay/braintreeMakePayment', {
               nonce: payload.nonce,
               token: vm.braintreeToken,
             })
             vm.$router.push(`/payment/success?id=${result.id}`)
-          } catch (e) {}
+          } catch (e) {
+            this.setErr(e)
+          } finally {
+            this.loading = false
+          }
         })
         // } else if (paymentMethod === 'Paypal') {
         //   try {
@@ -836,6 +860,7 @@ export default {
         //   }
       } else if (paymentMethod === 'Razorpay') {
         try {
+          this.loading = true
           const options = await this.checkout({
             paymentMethod: 'Razorpay',
             address: this.$route.query.address,
@@ -854,6 +879,7 @@ export default {
     },
     async getDropinInstance() {
       try {
+        this.loading = true
         // const submitButton = (this.$refs.this.loading = true)
         this.clearErr()
         const braintreeT = await this.$get('pay/braintreeToken', {
@@ -888,7 +914,6 @@ export default {
         // })
         // .catch((error) => {})
       } catch (e) {
-        console.log('rrrrrrrrrrrrrrrrrrr', e)
         // this.setErr(e)
       } finally {
         this.loading = false
@@ -909,6 +934,7 @@ export default {
         //   })
         // ).data.address
       } catch (e) {
+        this.setErr(e)
       } finally {
         this.loading = false
       }

@@ -18,9 +18,12 @@
       />
 
       <div class="w-full">
-        <div class="container mx-auto pb-2 sm:p-4 sm:border-b">
+        <div
+          v-if="category && category.bannerCdn"
+          class="container mx-auto pb-2 sm:p-4 sm:border-b"
+        >
           <img
-            v-lazy="`${category.bannerCdn}?tr=h-320`"
+            :src="`${category.bannerCdn}?tr=h-320`"
             alt=" "
             class="w-full h-60 sm:h-80 object-cover"
           />
@@ -156,13 +159,14 @@ export default {
     const cslug = this.$route.params.slug
     if (cslug) {
       this.category = await this.$get('brand/brand', {
-        slug: cslug,
+        name: cslug,
       })
     }
     const q = cslug || null
     const query = this.$route.query
     query.store = storeId || '23sdf43rfs5fdgsdf'
     const qry = { ...query }
+    if (q) qry.brands = q
     const result = await this.$axios.$get('/api/products/es', {
       params: { ...qry },
     })
