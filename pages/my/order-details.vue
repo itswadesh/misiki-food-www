@@ -46,6 +46,7 @@
             <button
               v-if="settings.liveCommerce"
               type="button"
+              class="focus:outline-none focus:ring-0 focus:ring-offset-0"
               @click="
                 populateDemoScheduler({ id: order.pid, name: order.name })
               "

@@ -28,6 +28,7 @@
               cursor-pointer
               ms-12
               hover:bg-gray-200
+              focus:outline-none focus:ring-0 focus:ring-offset-0
             "
             @click="removeImage(imgCdn)"
           >

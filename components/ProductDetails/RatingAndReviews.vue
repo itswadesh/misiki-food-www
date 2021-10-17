@@ -129,7 +129,8 @@
       >
         <div>Have doubts regarding this product?</div>
         <button
-          class="px-4 py-2 mt-4 text-base font-light text-gray-600 bg-gray-300 border-none rounded sm:mt-0 ring-1 ring-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:outline-none hover:bg-gray-200"
+          class="px-4 py-2 mt-4 text-base font-light text-gray-600 bg-gray-300 border-none rounded sm:mt-0 ring-1 ring-gray-300       focus:outline-none focus:ring-0 focus:ring-offset-0
+ hover:bg-gray-200"
         >
           Post Your Question
         </button>

@@ -31,7 +31,7 @@
         hover:bg-gray-300
         transition
         duration-300
-        focus:outline-none
+        focus:outline-none focus:ring-0 focus:ring-offset-0
       "
       @click="hideSidebar(null)"
     >

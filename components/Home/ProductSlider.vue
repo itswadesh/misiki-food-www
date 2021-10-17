@@ -55,7 +55,10 @@
               justify-center
             "
           >
-            <button class="focus:outline-none" @click="showPrev">
+            <button
+              class="focus:outline-none focus:ring-0 focus:ring-offset-0"
+              @click="showPrev"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="
@@ -110,7 +113,10 @@
               justify-center
             "
           >
-            <button class="focus:outline-none" @click="showNext">
+            <button
+              class="focus:outline-none focus:ring-0 focus:ring-offset-0"
+              @click="showNext"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="
@@ -174,7 +180,7 @@
               hover:bg-gray-900 hover:shadow-md
               top-3
               right-3
-              focus:outline-none focus:scale-75
+              focus:outline-none focus:ring-0 focus:ring-offset-0 focus:scale-75
             "
             @click="openQuickView = false"
           >

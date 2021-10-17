@@ -39,9 +39,8 @@
                     shadow
                     focus:ring-opacity-50
                     hover:bg-yellow-600
-                    focus:ring focus:ring-offset-2 focus:ring-yellow-600
+                    focus:outline-none focus:ring-0 focus:ring-offset-0
                     bg-primary-500
-                    focus:outline-none
                     border-primary-500
                   "
                 >
@@ -145,13 +144,15 @@
                 <button
                   v-ripple="'rgba(255, 255, 255, 0.2)'"
                   v-if="select == index"
-                  class="p-1 px-4 text-sm font-medium text-center text-white uppercase bg-accent-700 border-accent-700 rounded-2xl focus:outline-none"
+                  class="p-1 px-4 text-sm font-medium text-center text-white uppercase bg-accent-700 border-accent-700 rounded-2xl       focus:outline-none focus:ring-0 focus:ring-offset-0
+"
                 >
                   {{ b.b }}
                 </button>
                 <button
                   v-else
-                  class="p-1 px-4 text-sm font-medium text-center text-gray-500 uppercase bg-white border-gray-300 hover:shadow rounded-2xl hover:text-primary-500 focus:outline-none hover:border-primary-500"
+                  class="p-1 px-4 text-sm font-medium text-center text-gray-500 uppercase bg-white border-gray-300 hover:shadow rounded-2xl hover:text-primary-500       focus:outline-none focus:ring-0 focus:ring-offset-0
+ hover:border-primary-500"
                 >
                   {{ b.b }}
                 </button>
@@ -393,13 +394,15 @@
                     <span class="flex flex-col my-auto space-y-2">
                       <nuxt-link :to="localePath('/order-tracking')">
                         <button
-                          class="p-2 px-4 font-semibold text-white border track bg-accent-700 border-accent-700 focus:outline-none"
+                          class="p-2 px-4 font-semibold text-white border track bg-accent-700 border-accent-700       focus:outline-none focus:ring-0 focus:ring-offset-0
+"
                         >
                           Track Order
                         </button>
                       </nuxt-link>
                       <button
-                        class="p-2 px-4 font-semibold bg-white border reorder hover:bg-gray-50 text-secondary-400 border-secondary-400 focus:outline-none"
+                        class="p-2 px-4 font-semibold bg-white border reorder hover:bg-gray-50 text-secondary-400 border-secondary-400       focus:outline-none focus:ring-0 focus:ring-offset-0
+"
                       >
                         Re Order
                       </button>

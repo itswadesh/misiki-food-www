@@ -39,7 +39,7 @@
             rounded-full
             shadow
             hover:bg-gray-300
-            focus:outline-none
+            focus:outline-none focus:ring-0 focus:ring-offset-0
             active:scale-95
           "
           rel="prev"
@@ -64,7 +64,7 @@
         <button
           v-for="i in count"
           :key="i"
-          class="flex focus:outline-none"
+          class="flex focus:outline-none focus:ring-0 focus:ring-offset-0"
           @click="$emit('change', i)"
         >
           <div
@@ -109,7 +109,7 @@
             rounded-full
             shadow
             hover:bg-gray-300
-            focus:outline-none
+            focus:outline-none focus:ring-0 focus:ring-offset-0
             active:scale-95
           "
           rel="next"

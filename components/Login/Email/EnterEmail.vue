@@ -45,7 +45,7 @@
                 font-light
                 text-gray-400
                 underline
-                focus:outline-none
+                focus:outline-none focus:ring-0 focus:ring-offset-0
                 text-end
               "
             >
@@ -66,7 +66,7 @@
               rounded-md
               shadow
               border-primary-500
-              focus:outline-none focus:ring-primary-500 focus:ring-2
+              focus:outline-none focus:ring-0 focus:ring-offset-0
             "
             :class="
               loading ? 'text-white bg-gray-500' : 'bg-primary-500 text-white'
@@ -119,7 +119,7 @@
               border-none
               rounded-md
               shadow
-              focus:outline-none focus:ring-primary-500 focus:ring-2
+              focus:outline-none focus:ring-0 focus:ring-offset-0
               ring-1 ring-primary-500
               text-primary-500
             "

@@ -13,6 +13,7 @@
           rounded-t-md
           bg-primary-500
           hover:bg-gray-200 hover:text-primary-500
+          focus:outline-none focus:ring-0 focus:ring-offset-0
         "
       >
         {{ product.heading }}

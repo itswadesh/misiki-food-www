@@ -150,7 +150,7 @@
           bg-gray-300
           rounded
           me-3
-          focus:outline-none
+          focus:outline-none focus:ring-0 focus:ring-offset-0
           text-medium
         "
         @click="hideFilter"
@@ -166,7 +166,7 @@
           text-white
           rounded
           hover:bg-accent-500
-          focus:outline-none
+          focus:outline-none focus:ring-0 focus:ring-offset-0
           bg-primary-500
           text-medium
         "

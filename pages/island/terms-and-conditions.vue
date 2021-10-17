@@ -60,7 +60,7 @@
               justify-center
               rounded-full
               shadow-md
-              focus:outline-none
+              focus:outline-none focus:ring-0 focus:ring-offset-0
             "
             @click="toTop"
           >

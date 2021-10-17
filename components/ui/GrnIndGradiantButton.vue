@@ -14,7 +14,7 @@
       bg-white
       shadow-md
       hover:shadow
-      focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2
+      focus:outline-none focus:ring-0 focus:ring-offset-0
       active:scale-95
     "
     :class="[

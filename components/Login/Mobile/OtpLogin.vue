@@ -61,7 +61,8 @@
                   <button
                     type="button"
                     @click="hide(null)"
-                    class="flex justify-end m-1 focus:outline-none"
+                    class="flex justify-end m-1       focus:outline-none focus:ring-0 focus:ring-offset-0
+"
                   >
                     <svg
                       width="27"
@@ -139,6 +140,7 @@
                     rounded-full
                     me-2
                     hover:bg-gray-200
+                    focus:outline-none focus:ring-0 focus:ring-offset-0
                   "
                   @click="$emit('showLogin', false)"
                 >

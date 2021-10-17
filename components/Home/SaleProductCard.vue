@@ -19,7 +19,8 @@
           <button
             @click="toggleWishlist(id)"
             v-ripple="'rgba(255, 0,0, 0.5)'"
-            class="relative z-10 p-1 m-1 border border-gray-500 rounded-full hover:opacity-75 focus:outline-none"
+            class="relative z-10 p-1 m-1 border border-gray-500 rounded-full hover:opacity-75       focus:outline-none focus:ring-0 focus:ring-offset-0
+"
           >
             <heart-icon
               v-bind:class="[

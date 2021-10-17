@@ -62,7 +62,14 @@
                     <span class="text-xs font-bold">
                       {{ countryCode }}-{{ phone }}
                     </span>
-                    <button class="text-xs link" @click="$emit('reRequest')">
+                    <button
+                      class="
+                        text-xs
+                        link
+                        focus:outline-none focus:ring-0 focus:ring-offset-0
+                      "
+                      @click="$emit('reRequest')"
+                    >
                       Change
                     </button>
                   </nuxt-link>
@@ -99,7 +106,7 @@
                       text-sm
                       font-semibold
                       uppercase
-                      focus:outline-none
+                      focus:outline-none focus:ring-0 focus:ring-offset-0
                       link
                     "
                     @click="requestOtp"

@@ -212,7 +212,7 @@
             rounded-md
             shadow-md
             hover:border-red-500
-            focus:outline-none
+            focus:outline-none focus:ring-0 focus:ring-offset-0
             hover:text-white hover:bg-red-500
           "
           @click="openDeleteAccountModal = true"
@@ -241,7 +241,7 @@
           hover:bg-gray-900 hover:shadow-md
           top-3
           right-3
-          focus:outline-none focus:scale-75
+          focus:outline-none focus:ring-0 focus:ring-offset-0 focus:scale-75
         "
         @click="openDeleteAccountModal = false"
       >
@@ -330,7 +330,7 @@
               hover:bg-opacity-100
               transition
               duration-300
-              focus:outline-none
+              focus:outline-none focus:ring-0 focus:ring-offset-0
             "
             @click="openDeleteAccountModal = true"
           >

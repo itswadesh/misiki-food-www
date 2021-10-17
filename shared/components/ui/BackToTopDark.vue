@@ -20,7 +20,7 @@
       duration-700
       transform
       hover:-translate-y-0.5 hover:text-white
-      focus:outline-none
+      focus:outline-none focus:ring-0 focus:ring-offset-0
     "
     @click="scrollToTop"
   >

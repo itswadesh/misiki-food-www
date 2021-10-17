@@ -27,7 +27,7 @@
           text-lg
           bg-primary-500
           cursor-pointer
-          focus:outline-none
+          focus:outline-none focus:ring-0 focus:ring-offset-0
           hover:bg-primary-700
         "
         @click="hideSidebar('forceClose')"
@@ -96,7 +96,7 @@
       <!-- <button
         type="button"
         class="
-          focus:outline-none
+      focus:outline-none focus:ring-0 focus:ring-offset-0
           hover:text-primary-700
           py-2
           text-xs
@@ -111,7 +111,7 @@
         v-if="user"
         type="button"
         class="
-          focus:outline-none
+          focus:outline-none focus:ring-0 focus:ring-offset-0
           hover:text-primary-700
           py-2
           text-xs
@@ -129,7 +129,7 @@
       class="
         flex
         justify-start
-        focus:outline-none
+        focus:outline-none focus:ring-0 focus:ring-offset-0
         hover:text-primary-700
         py-2
         text-xs

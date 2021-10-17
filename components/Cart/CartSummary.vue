@@ -14,7 +14,7 @@
           mt-2
           text-sm text-gray-500
           cursor-pointer
-          focus:outline-none
+          focus:outline-none focus:ring-0 focus:ring-offset-0
           hover:text-gray-600
         "
       >

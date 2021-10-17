@@ -120,10 +120,7 @@
                 rounded-md
                 shadow-sm
                 hover:bg-brand-800
-                focus:ring-brand-800
-                focus:outline-none
-                focus:ring-2
-                focus:ring-offset-2
+                focus:outline-none focus:ring-0 focus:ring-offset-0
                 sm:ms-3 sm:w-auto sm:text-sm
               "
               @click="submit"

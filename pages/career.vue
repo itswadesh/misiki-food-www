@@ -129,7 +129,7 @@
                     shadow-md
                     transition
                     duration-300
-                    focus:outline-none
+                    focus:outline-none focus:ring-0 focus:ring-offset-0
                     group
                   "
                 >
@@ -279,7 +279,7 @@
             shadow-md
             transition
             duration-300
-            focus:outline-none
+            focus:outline-none focus:ring-0 focus:ring-offset-0
             group
           "
         >
@@ -450,7 +450,7 @@
                       inline-block
                       text-gray-700
                       rounded
-                      focus:outline-none
+      focus:outline-none focus:ring-0 focus:ring-offset-0
                     "
                   >
                     <svg
@@ -662,8 +662,8 @@
                     w-36
                     hover:text-white
                     hover:bg-gray-500
-                    focus:bg-indigo-600
-                    focus:outline-none
+                      focus:outline-none focus:ring-0 focus:ring-offset-0
+
                   "
                 >
                   <img v-lazy="`https://upload.wikimedia.org/wikipedia/commons/7/78/Dropbox_Icon.svg?tr=w-24,h-24,fo-auto`"

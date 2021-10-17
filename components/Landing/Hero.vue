@@ -47,7 +47,12 @@
         <div class="flex pt-6">
           <div class="">
             <button
-              class="h-2 rounded-l lg:border lg:bg-red-500 lg:px-4 lg:rounded-r"
+              class="
+                h-2
+                rounded-l
+                lg:border lg:bg-red-500 lg:px-4 lg:rounded-r
+                focus:outline-none focus:ring-0 focus:ring-offset-0
+              "
             ></button>
           </div>
 
@@ -92,7 +97,8 @@
               <div
                 class="px-8 py-2 text-lg text-white bg-brand-700 ss lg:pt-4 md:pt-3 "
               >
-                <button>Get started</button>
+                <button class="      focus:outline-none focus:ring-0 focus:ring-offset-0
+">Get started</button>
               </div>
             </div> -->
           </div>

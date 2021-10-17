@@ -1,8 +1,8 @@
 <template>
-  <div v-if="facets" class="w-72 min-h-screen border-r">
+  <div v-if="facets" class="w-72">
     <div
       v-if="megamenu && megamenu.length > 0"
-      class="pt-4 border-b leading-3 xl:hidden"
+      class="pt-4 border-b border-r border-l leading-3 xl:hidden"
     >
       <h5 class="px-4 pb-4 font-bold uppercase tracking-wide border-b">
         CATEGORIES
@@ -28,7 +28,7 @@
             has: c.children.length,
             'border-yellow-500': i % 6 === 0,
             'border-purple-500': i % 6 === 1,
-            'border-red-500': i % 6 === 2,
+            'border-r border-led-500': i % 6 === 2,
             'border-green-500': i % 6 === 3,
             'border-pink-500': i % 6 === 4,
             'border-blue-500': i % 6 === 5,
@@ -111,7 +111,17 @@
       </ul>
     </div>
 
-    <div class="flex items-center justify-between px-4 py-4 border-b leading-3">
+    <div
+      class="
+        flex
+        items-center
+        justify-between
+        px-4
+        py-4
+        border-b border-r border-l
+        leading-3
+      "
+    >
       <h5 class="font-bold uppercase tracking-wide">FILTERS</h5>
 
       <button
@@ -119,8 +129,7 @@
           text-end text-xs
           cursor-pointer
           text-primary-500
-          focus:outline-none
-          hover:text-yellow-600
+          focus:outline-none focus:ring-0 focus:ring-offset-0
         "
         @click="$emit('clearAllFilters')"
       >
@@ -189,7 +198,7 @@
         facets.brands.all.buckets &&
         facets.brands.all.buckets.length > 0
       "
-      class="p-4 border-b"
+      class="p-4 border-b border-r border-l"
     >
       <h5 class="mb-4 text-sm font-bold uppercase leading-3 tracking-wide">
         BRAND
@@ -230,7 +239,7 @@
         facets.genders.all.buckets &&
         facets.genders.all.buckets.length > 0
       "
-      class="p-4 border-b"
+      class="p-4 border-b border-r border-l"
     >
       <h5 class="mb-4 text-sm font-bold uppercase leading-3 tracking-wide">
         GENDER
@@ -271,7 +280,7 @@
         facets.colors.all.buckets &&
         facets.colors.all.buckets.length > 0
       "
-      class="p-4 border-b"
+      class="p-4 border-b border-r border-l"
     >
       <h5 class="mb-4 text-sm font-bold uppercase leading-3 tracking-wide">
         COLOR
@@ -314,7 +323,7 @@
         facets.sizes.all.buckets.length > 0
       "
       color="primary"
-      class="p-4 border-b"
+      class="p-4 border-b border-r border-l"
     >
       <h5 class="mb-4 text-sm font-bold uppercase leading-3 tracking-wide">
         SIZES
@@ -358,7 +367,7 @@
         getTotalDocCount(facets.price.all.buckets) > 0
       "
       color="primary"
-      class="p-4 border-b"
+      class="p-4 border-b border-r border-l"
     >
       <h5 class="mb-4 text-sm font-bold uppercase leading-3 tracking-wide">
         PRICE RANGE
@@ -403,7 +412,7 @@
         getTotalDocCount(facets.age.all.buckets) > 0
       "
       color="primary"
-      class="p-4 border-b"
+      class="p-4 border-b border-r border-l"
     >
       <h5 class="mb-4 text-sm font-bold uppercase leading-3 tracking-wide">
         AGE GROUP
@@ -446,7 +455,7 @@
         getTotalDocCount(facets.discount.all.buckets) > 0
       "
       color="primary"
-      class="p-4 border-b"
+      class="p-4 border-b border-r border-l"
     >
       <h5 class="mb-4 text-sm font-bold uppercase leading-3 tracking-wide">
         Discount

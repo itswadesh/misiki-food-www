@@ -25,7 +25,11 @@
         <button
           type="button"
           aria-label="Open sort"
-          class="font-medium text-primary-500 focus:outline-none"
+          class="
+            font-medium
+            text-primary-500
+            focus:outline-none focus:ring-0 focus:ring-offset-0
+          "
           @click="hideSort"
         >
           Close

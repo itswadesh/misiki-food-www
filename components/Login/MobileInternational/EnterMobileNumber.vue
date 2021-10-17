@@ -96,7 +96,7 @@
             duration-300
             rounded-md
             shadow
-            focus:outline-none focus:ring-secondary-500 focus:ring-4
+            focus:outline-none focus:ring-0 focus:ring-offset-0
           "
           :class="
             loading ? 'text-gray-600 bg-gray-200' : 'bg-primary-500 text-white'

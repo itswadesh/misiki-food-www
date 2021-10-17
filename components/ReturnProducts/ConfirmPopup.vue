@@ -38,7 +38,10 @@
         aria-labelledby="modal-headline"
       >
         <div class="flex flex-row justify-end p-3 text-gray-500">
-          <button class="focus:outline-none" @click="hide(null)">
+          <button
+            class="focus:outline-none focus:ring-0 focus:ring-offset-0"
+            @click="hide(null)"
+          >
             <svg
               class="w-6 h-6 text-gray-500 hover:text-gray-800"
               xmlns="http://www.w3.org/2000/svg"

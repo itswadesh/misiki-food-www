@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="container mx-auto">
     <MobileFilters
       class="sticky top-0 z-20 flex-none mt-16 lg:hidden"
       :count="productCount"
@@ -33,8 +33,6 @@
           <div
             v-if="$fetchState.pending"
             class="
-              container
-              mx-auto
               md:p-4
               grid grid-cols-2
               md:gap-4
@@ -43,7 +41,7 @@
               2xl:grid-cols-5
             "
           >
-            <ProductSkeleton v-for="(p, ix) in 10" :key="ix + '-1'" />
+            <ProductSkeleton v-for="(p, ix) in 30" :key="ix + '-1'" />
           </div>
 
           <p v-else-if="$fetchState.error" class="p-5 sm:p-10 text-center">
@@ -53,15 +51,9 @@
           <div
             v-else-if="products && products.length > 0"
             class="
-              container
-              mx-auto
-              px-3
-              py-3
-              sm:px-3
-              lg:p-4
+              md:p-4
               grid grid-cols-2
-              gap-3
-              lg:gap-4
+              md:gap-4
               sm:grid-cols-3
               xl:grid-cols-4
               2xl:grid-cols-5

@@ -11,7 +11,7 @@
         px-5
         py-2
         rounded
-        outline-none
+        focus:outline-none focus:ring-0 focus:ring-offset-0
       "
       :class="{
         'primary text-white': !loading,

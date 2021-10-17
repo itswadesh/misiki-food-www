@@ -128,7 +128,11 @@
         <button
           type="button"
           aria-label="Close"
-          class="font-medium text-primary-500 focus:outline-none"
+          class="
+            font-medium
+            text-primary-500
+            focus:outline-none focus:ring-0 focus:ring-offset-0
+          "
           @click="hideFilter"
         >
           Close
@@ -139,7 +143,11 @@
         <button
           type="button"
           aria-label="Clear all"
-          class="font-medium text-primary-500 focus:outline-none"
+          class="
+            font-medium
+            text-primary-500
+            focus:outline-none focus:ring-0 focus:ring-offset-0
+          "
           @click="clearAll"
         >
           Clear all

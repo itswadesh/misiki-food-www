@@ -78,7 +78,7 @@
                 rounded-full
                 hover:border-gray-400
                 similar
-                focus:outline-none
+                focus:outline-none focus:ring-0 focus:ring-offset-0
               "
               @click="toggleWishlist(product.id)"
             >
@@ -211,7 +211,7 @@
               <button
                 aria-label="Add to cart"
                 :disabled="isDisabled"
-                class="focus:outline-none"
+                class="focus:outline-none focus:ring-0 focus:ring-offset-0"
                 @click="
                   addToBag({
                     pid: product.pid || product.id,
@@ -267,7 +267,7 @@
               <button
                 aria-label="Added to cart"
                 :disabled="isDisabled"
-                class="mb-1 focus:outline-none"
+                class="mb-1 focus:outline-none focus:ring-0 focus:ring-offset-0"
                 @click="
                   addToBag({
                     pid: product.pid || product.id,

@@ -1,6 +1,11 @@
 <template>
   <div>
-    <button @click="showToast = !showToast">Show {{ showToast }}</button>
+    <button
+      class="focus:outline-none focus:ring-0 focus:ring-offset-0"
+      @click="showToast = !showToast"
+    >
+      Show {{ showToast }}
+    </button>
     <transition name="pop">
       <div v-if="showToast" class="fixed bottom-0 inset-x-0 m-5">
         <div

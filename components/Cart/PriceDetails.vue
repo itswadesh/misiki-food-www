@@ -29,7 +29,12 @@
           <span class="text-primary-500">
             {{ cart.discount.code }}
           </span>
-          <button @click="removeCoupon">Remove</button>
+          <button
+            class="focus:outline-none focus:ring-0 focus:ring-offset-0"
+            @click="removeCoupon"
+          >
+            Remove
+          </button>
         </div>
 
         <div
@@ -82,7 +87,7 @@
 
       <div class="mb-2">
         <button
-          class="flex flex-row focus:outline-none"
+          class="focus:outline-none focus:ring-0 focus:ring-offset-0"
           @click="showOffers = !showOffers"
         >
           <span

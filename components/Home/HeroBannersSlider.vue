@@ -25,7 +25,7 @@
             bg-gray-200
             rounded-l-full rounded-r-md
             cursor-pointer
-            focus:outline-none
+            focus:outline-none focus:ring-0 focus:ring-offset-0
             active:scale-90
             hover:bg-gray-300
           "
@@ -61,7 +61,7 @@
             bg-gray-200
             rounded-r-full rounded-l-md
             cursor-pointer
-            focus:outline-none
+            focus:outline-none focus:ring-0 focus:ring-offset-0
             active:scale-90
             hover:bg-gray-300
           "
@@ -88,7 +88,12 @@
         v-for="b in banners"
         :key="b.id"
         aria-label="Picked Sliders"
-        class="overflow-hidden focus:outline-none px-1 lg:px-3"
+        class="
+          overflow-hidden
+          focus:outline-none focus:ring-0 focus:ring-offset-0
+          px-1
+          lg:px-3
+        "
         @click="go(b.link)"
       >
         <img

@@ -66,7 +66,7 @@
               w-4/5
               p-2
               mx-auto
-              focus:ring-2 focus:ring-primary-500
+              focus:outline-none focus:ring-0 focus:ring-offset-0
               bg-primary-500
             "
           >

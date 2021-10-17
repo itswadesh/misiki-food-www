@@ -102,17 +102,12 @@
                   rounded
                   shadow
                   lg:text-xl
-                  md:text-lg
-                  focus:outline-none
-                  md:h-12
+                  md:text-lg md:h-12
                   hover:-translate-y-0.5
                   transition
                   transform
                   ease-in-out
-                  focus:ring-opacity-50
-                  focus:ring
-                  focus:ring-offset-2
-                  focus:ring-yellow-600
+                  focus:outline-none focus:ring-0 focus:ring-offset-0
                 "
               >
                 SUBMIT

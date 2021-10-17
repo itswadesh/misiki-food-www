@@ -17,7 +17,14 @@
     >
       <!-- <ChevronLeftIcon  class="text-gray-600 me-1" /> -->
       <svg
-        class="w-6 h-6 transition-all ease-out transition-medium"
+        class="
+          w-6
+          h-6
+          transition-all
+          ease-out
+          transition-medium
+          focus:outline-none focus:ring-0 focus:ring-offset-0
+        "
         viewBox="0 0 24 24"
         fill="currentColor"
       >

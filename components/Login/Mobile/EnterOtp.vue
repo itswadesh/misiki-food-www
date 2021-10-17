@@ -27,7 +27,7 @@
               class="
                 text-primary-500
                 hover:text-primary-700 hover:underline
-                focus:outline-none
+                focus:outline-none focus:ring-0 focus:ring-offset-0
               "
               @click="$emit('reRequest')"
             >
@@ -64,7 +64,7 @@
                 uppercase
                 text-primary-500
                 hover:text-primary-700 hover:underline
-                focus:outline-none
+                focus:outline-none focus:ring-0 focus:ring-offset-0
               "
               @click="requestOtp"
             >

@@ -10,7 +10,7 @@
         px-4
         py-2
         rounded-full
-        focus:outline-none
+        focus:outline-none focus:ring-0 focus:ring-offset-0
         hover:shadow-md
         border border-transparent
         hover:border-gray-200
@@ -429,12 +429,12 @@
             <button
               class="
                 flex flex-row
-                items-center items-center
+                items-center
                 w-full
                 mx-auto
                 border-b
                 xl:flex-col
-                focus:outline-none
+                focus:outline-none focus:ring-0 focus:ring-offset-0
                 xl:border-b-0 xl:ps-0
                 ps-4
                 group

@@ -323,7 +323,7 @@ export default {
 
 <style scoped>
 .button {
-  @apply m-2.5 font-semibold py-2 px-8  border-2 border-white rounded-full bg-transparent hover:bg-white text-sm sm:text-base text-white hover:text-gray-900 transition duration-300 focus:outline-none tracking-wide;
+  @apply m-2.5 font-semibold py-2 px-8  border-2 border-white rounded-full bg-transparent hover:bg-white text-sm sm:text-base text-white hover:text-gray-900 transition duration-300 focus:outline-none focus:ring-0 focus:ring-offset-0 tracking-wide;
 }
 .max-height {
   max-height: 85vh;

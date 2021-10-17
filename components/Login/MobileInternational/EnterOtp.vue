@@ -19,7 +19,12 @@
       <label for="email" class="text-xs text-center text-gray-800">
         Enter The OTP sent to
         <span class="text-xs font-bold"> {{ country_code }}-{{ phone }} </span>
-        <button class="text-xs" @click="$emit('reRequest')">Change</button>
+        <button
+          class="text-xs focus:outline-none focus:ring-0 focus:ring-offset-0"
+          @click="$emit('reRequest')"
+        >
+          Change
+        </button>
       </label>
       <!-- otp Enter -->
       <!-- <OtpDesign @verifyOtp="VerifyOtp" /> -->
@@ -40,7 +45,13 @@
         <button
           v-else
           button
-          class="text-sm font-semibold text-orange-500 uppercase"
+          class="
+            text-sm
+            font-semibold
+            text-orange-500
+            uppercase
+            focus:outline-none focus:ring-0 focus:ring-offset-0
+          "
           @click="requestOtp"
         >
           Resend otp

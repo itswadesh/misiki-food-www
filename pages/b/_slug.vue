@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <section class="container mx-auto">
     <HeroSlider
       v-if="brand && brand.imgCdn"
       :banners="[{ img: brand.imgCdn }]"
@@ -39,14 +39,8 @@
         <div v-else>
           <div
             class="
-              container
-              mx-auto
-              px-3
-              py-3
-              sm:px-3
               md:p-4
               grid grid-cols-2
-              gap-3
               md:gap-4
               sm:grid-cols-3
               xl:grid-cols-4
@@ -54,7 +48,7 @@
             "
           >
             <div v-if="loading" class="flex flex-wrap justify-between">
-              <ProductSkeleton v-for="(p, ix) in 10" :key="ix + '-1'" />
+              <ProductSkeleton v-for="(p, ix) in 30" :key="ix + '-1'" />
             </div>
 
             <HomePageProduct
@@ -108,7 +102,7 @@
     </div>
 
     <!-- <RightSideBar /> -->
-  </div>
+  </section>
 </template>
 
 <script>

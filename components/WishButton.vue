@@ -12,7 +12,7 @@
       text-center
       bg-accent-100
       hover:opacity-75
-      focus:outline-none
+      focus:outline-none focus:ring-0 focus:ring-offset-0
     "
     :class="rounded ? 'rounded-full' : 'rounded-sm'"
     @click="toggleWishlist(pid)"

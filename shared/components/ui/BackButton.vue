@@ -1,5 +1,14 @@
 <template>
-  <button type="button" class="btn nav hover:bg-gray-100" @click="go()">
+  <button
+    type="button"
+    class="
+      btn
+      nav
+      hover:bg-gray-100
+      focus:outline-none focus:ring-0 focus:ring-offset-0
+    "
+    @click="go()"
+  >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       class="w-6 h-6 ms-4"

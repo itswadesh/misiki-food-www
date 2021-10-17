@@ -129,7 +129,8 @@
             bg-black
             hover:opacity-80
             transition
-            duration-300`
+            duration-300
+            focus:outline-none focus:ring-0 focus:ring-offset-0
           "
         >
           START A RETURN
@@ -153,7 +154,8 @@
               bg-black
               hover:opacity-80
               transition
-              duration-300`
+              duration-300
+              focus:outline-none focus:ring-0 focus:ring-offset-0
             "
           >
             SEE OUR FAQS

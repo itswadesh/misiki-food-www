@@ -136,16 +136,12 @@
                         shadow
                         px-4
                         lg:px-3 lg:p-2
-                        focus:outline-none
                         duration-200
                         hover:-translate-y-0.5
                         transition
                         transform
                         ease-in-out
-                        focus:ring-opacity-50
-                        focus:ring
-                        focus:ring-offset-2
-                        focus:ring-primary-500
+                        focus:outline-none focus:ring-0 focus:ring-offset-0
                       "
                     >
                       View Order Details

@@ -124,7 +124,7 @@
                   rounded-full
                   hover:bg-gray-300
                   paddings
-                  focus:outline-none
+                  focus:outline-none focus:ring-0 focus:ring-offset-0
                 "
                 @click="
                   addToBag({
@@ -182,7 +182,7 @@
                   border-secondary-500
                   bg-secondary-500
                   paddings
-                  focus:outline-none
+                  focus:outline-none focus:ring-0 focus:ring-offset-0
                 "
                 @click="
                   addToBag({
@@ -248,9 +248,8 @@
                 bg-gray-200
                 rounded
                 icons
-                focus:outline-none
                 hover:bg-gray-300
-                focus:outline-noe
+                focus:outline-none focus:ring-0 focus:ring-offset-0
               "
               @click="
                 addToBag({

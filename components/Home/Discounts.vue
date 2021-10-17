@@ -60,7 +60,7 @@
             md:px-6
             bg-secondary-500
             rounded-e-3xl
-            focus:outline-none
+            focus:outline-none focus:ring-0 focus:ring-offset-0
             hover:shadow-2xl
           "
         >

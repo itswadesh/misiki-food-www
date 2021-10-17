@@ -35,7 +35,7 @@
           bg-gray-200
           rounded-l-full rounded-r-md
           cursor-pointer
-          focus:outline-none
+          focus:outline-none focus:ring-0 focus:ring-offset-0
           active:scale-90
           hover:bg-gray-300 hover:shadow
         "
@@ -145,7 +145,7 @@
           bg-gray-200
           rounded-r-full rounded-l-md
           cursor-pointer
-          focus:outline-none
+          focus:outline-none focus:ring-0 focus:ring-offset-0
           active:scale-90
           hover:bg-gray-300 hover:shadow
         "

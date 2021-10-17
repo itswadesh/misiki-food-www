@@ -131,7 +131,7 @@
                   hover:bg-gray-500
                   focus:outline-none
                   active:scale-90
-                  focus:ring-2 focus:ring-offset-2 focus:ring-primary-500
+                  focus:outline-none focus:ring-0 focus:ring-offset-0
                   sm:mt-0 sm:ms-3 sm:w-auto sm:text-sm
                 "
                 @click="cancel"

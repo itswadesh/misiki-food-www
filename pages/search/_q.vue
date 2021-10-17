@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <section class="container mx-auto">
     <MobileFilters
       class="sticky top-0 z-20 flex-none mt-16 md:hidden"
       :count="productCount"
@@ -32,8 +32,6 @@
         <div v-else>
           <div
             class="
-              container
-              mx-auto
               md:p-4
               grid grid-cols-2
               md:gap-4
@@ -43,7 +41,7 @@
             "
           >
             <div v-if="loading" class="flex flex-wrap justify-between">
-              <ProductSkeleton v-for="(p, ix) in 10" :key="ix + '-1'" />
+              <ProductSkeleton v-for="(p, ix) in 30" :key="ix + '-1'" />
             </div>
 
             <HomePageProduct
@@ -88,7 +86,8 @@
             hover:bg-gray-900 hover:shadow-md
             top-3
             right-3
-            focus:outline-none focus:scale-75
+                  focus:outline-none focus:ring-0 focus:ring-offset-0
+ focus:scale-75
           "
           @click="openQuickView = false"
         >
@@ -113,7 +112,7 @@
         </div>
       </CleanModal>
     </div> -->
-  </div>
+  </section>
 </template>
 
 <script>

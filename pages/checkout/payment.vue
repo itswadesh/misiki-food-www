@@ -79,6 +79,7 @@
             text-white
             rounded
             bg-accent-900
+            focus:outline-none focus:ring-0 focus:ring-offset-0
           "
           @click="placeOrder()"
         >

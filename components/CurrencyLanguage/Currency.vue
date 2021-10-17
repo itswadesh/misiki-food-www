@@ -16,7 +16,7 @@
           hover:bg-gray-900 hover:shadow-md
           top-3
           right-3
-          focus:outline-none focus:scale-75
+          focus:outline-none focus:ring-0 focus:ring-offset-0 focus:scale-75
         "
         @click="$emit('close')"
       >
@@ -53,7 +53,7 @@
                 flex flex-col
                 bg-transparent
                 hover:bg-gray-100
-                focus:outline-none
+                focus:outline-none focus:ring-0 focus:ring-offset-0
               "
             >
               <span> {{ s.currencyname }}</span>
@@ -77,7 +77,7 @@
                 flex flex-col
                 bg-transparent
                 hover:bg-gray-100
-                focus:outline-none
+                focus:outline-none focus:ring-0 focus:ring-offset-0
               "
             >
               <span> {{ a.currencyname }}</span>

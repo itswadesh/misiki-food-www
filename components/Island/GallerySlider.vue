@@ -47,7 +47,10 @@
               justify-center
             "
           >
-            <button class="focus:outline-none" @click="showPrev">
+            <button
+              class="focus:outline-none focus:ring-0 focus:ring-offset-0"
+              @click="showPrev"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="
@@ -80,7 +83,11 @@
               <button
                 v-for="b in banners"
                 :key="b.id"
-                class="p-1 md:p-3 focus:outline-none"
+                class="
+                  p-1
+                  md:p-3
+                  focus:outline-none focus:ring-0 focus:ring-offset-0
+                "
                 @click="go(b.link)"
               >
                 <div class="relative zoom">
@@ -142,7 +149,10 @@
               justify-center
             "
           >
-            <button class="focus:outline-none" @click="showNext">
+            <button
+              class="focus:outline-none focus:ring-0 focus:ring-offset-0"
+              @click="showNext"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="

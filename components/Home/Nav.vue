@@ -20,7 +20,10 @@
         <div class="flex flex-row items-center">
           <button
             aria-label="Open Menu"
-            class="lg:hidden focus:outline-none"
+            class="
+              lg:hidden
+              focus:outline-none focus:ring-0 focus:ring-offset-0
+            "
             @click="sidebar = !sidebar"
           >
             <svg
@@ -111,7 +114,7 @@
         >
           <button
             v-if="!user"
-            class="focus:outline-none"
+            class="focus:outline-none focus:ring-0 focus:ring-offset-0"
             aria-label="Login"
             @click="findLoginScreen"
           >

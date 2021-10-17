@@ -67,6 +67,7 @@
               rounded-full
               border-2 border-primary-500
               text-2xl
+              focus:outline-none focus:ring-0 focus:ring-offset-0
             "
           >
             {{ b.name | first }}

@@ -11,7 +11,7 @@
         py-1.5
         px-2
         cursor-pointer
-        focus:outline-none
+        focus:outline-none focus:ring-0 focus:ring-offset-0
       "
       @click="toggleShow"
     >

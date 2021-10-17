@@ -49,7 +49,7 @@
             <div>Schedule a live demo</div>
             <button
               type="button"
-              class="focus:outline-none"
+              class="focus:outline-none focus:ring-0 focus:ring-offset-0"
               @click="hide(null)"
             >
               <svg
@@ -118,7 +118,7 @@
                 w-4/5
                 p-2
                 mx-auto
-                focus:ring-2 focus:ring-primary-500
+                focus:outline-none focus:ring-0 focus:ring-offset-0
                 bg-secondary-500
               "
             >

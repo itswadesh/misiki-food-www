@@ -35,7 +35,7 @@
             rounded
             hover:bg-gray-200
             lg:hidden
-            focus:outline-none
+            focus:outline-none focus:ring-0 focus:ring-offset-0
           "
           @click="hideSidebar(null)"
         >
@@ -153,6 +153,7 @@
                 hover:bg-gray-100
                 hover:text-primary-500
                 hover:border-primary-500
+                focus:outline-none focus:ring-0 focus:ring-offset-0
               "
               @click="Logout"
             >

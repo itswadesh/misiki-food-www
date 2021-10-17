@@ -5,7 +5,7 @@
       v-for="i in 5"
       :key="i"
       type="button"
-      class="focus:outline-none"
+      class="focus:outline-none focus:ring-0 focus:ring-offset-0"
       :class="{ 'me-1': i < 5 }"
       @click="$emit('input', i)"
     >

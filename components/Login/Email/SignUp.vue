@@ -65,7 +65,7 @@
               rounded-md
               shadow
               border-primary-500
-              focus:outline-none focus:ring-primary-500 focus:ring-2
+              focus:outline-none focus:ring-0 focus:ring-offset-0
             "
             :class="
               loading ? 'text-white bg-gray-500' : 'bg-primary-500 text-white'
@@ -102,7 +102,10 @@
         </div>
       </form>
       <div class="flex justify-center">
-        <button class="px-12 my-1 focus:outline-none" @click="signin = !signin">
+        <button
+          class="px-12 my-1 focus:outline-none focus:ring-0 focus:ring-offset-0"
+          @click="signin = !signin"
+        >
           <span
             class="
               p-1

@@ -137,16 +137,12 @@
                         shadow
                         px-4
                         lg:px-3 lg:p-2
-                        focus:outline-none
+                        focus:outline-none focus:ring-0 focus:ring-offset-0
                         duration-200
                         hover:-translate-y-0.5
                         transition
                         transform
                         ease-in-out
-                        focus:ring-opacity-50
-                        focus:ring
-                        focus:ring-offset-2
-                        focus:ring-primary-500
                       "
                     >
                       View Order Details
@@ -162,7 +158,6 @@
                         border border-secondary-200
                         rounded
                         shadow
-                        focus:outline-none
                         md:py-2
                         px-4
                         lg:px-3 lg:p-2
@@ -171,9 +166,8 @@
                         transition
                         transform
                         ease-in-out
-                        focus:ring-opacity-50
                         hover:opacity-8
-                        focus:ring focus:ring-offset-2 focus:ring-green-500
+                        focus:outline-none focus:ring-0 focus:ring-offset-0
                       "
                     >
                       Continue Shopping

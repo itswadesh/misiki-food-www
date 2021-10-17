@@ -104,15 +104,18 @@
         <!-- <div
               class="flex flex-row justify-end mt-4 text-sm text-secondary-500"
             >
-              <button class="font-semibold cursor-pointer focus:outline-none">
+              <button class="font-semibold cursor-pointer       focus:outline-none focus:ring-0 focus:ring-offset-0
+">
                 Edit
               </button>
               <button
-                class="mx-3 font-semibold cursor-pointer focus:outline-none"
+                class="mx-3 font-semibold cursor-pointer       focus:outline-none focus:ring-0 focus:ring-offset-0
+"
               >
                 Delete
               </button>
-              <button class="font-semibold cursor-pointer focus:outline-none">
+              <button class="font-semibold cursor-pointer       focus:outline-none focus:ring-0 focus:ring-offset-0
+">
                 Share
               </button>
             </div> -->

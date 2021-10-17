@@ -328,7 +328,7 @@
               duration-300
               p-2
               sm:p-3
-              focus:outline-none
+              focus:outline-none focus:ring-0 focus:ring-offset-0
             "
           >
             <svg
@@ -357,7 +357,7 @@
               duration-300
               p-2
               sm:p-3
-              focus:outline-none
+              focus:outline-none focus:ring-0 focus:ring-offset-0
             "
           >
             <svg

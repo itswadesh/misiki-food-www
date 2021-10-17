@@ -56,7 +56,8 @@
 
           <!-- <button
             aria-label="Open Menu"
-            class="p-2 bg-gray-100 rounded focus:outline-none lg:hidden"
+            class="p-2 bg-gray-100 rounded       focus:outline-none focus:ring-0 focus:ring-offset-0
+ lg:hidden"
           >
             <svg
               fill="none"

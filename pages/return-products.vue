@@ -125,7 +125,7 @@
                             rounded-full
                             text-primary-500
                             border-primary-500
-                            focus:outline-none
+                            focus:outline-none focus:ring-0 focus:ring-offset-0
                           "
                           :class="{
                             'ring-pink-200 ring-4': select > index - 1,

@@ -38,6 +38,7 @@
             md:py-3
             px-6
             md:px-9
+            focus:outline-none focus:ring-0 focus:ring-offset-0
           "
         >
           Subscribe

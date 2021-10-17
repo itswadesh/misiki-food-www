@@ -47,7 +47,8 @@
                 <div v-if="w.product">
                   <!-- <div class="flex justify-end p-1 bg-white">
                     <button
-                      class="z-30 flex justify-end focus:outline-none"
+                      class="z-30 flex justify-end       focus:outline-none focus:ring-0 focus:ring-offset-0
+"
                       @click="toggleDemoRequests(w.product.id)"
                     >
                       <svg
@@ -213,10 +214,9 @@
                       shadow
                       focus:ring-opacity-50
                       hover:bg-yellow-600
-                      focus:ring focus:ring-offset-2 focus:ring-yellow-600
                       bg-primary-500
                       border-primary-500
-                      focus:outline-none
+                      focus:outline-none focus:ring-0 focus:ring-offset-0
                     "
                   >
                     Shop Now

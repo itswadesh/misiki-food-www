@@ -71,16 +71,13 @@
                 text-white
                 ease-in-out
                 border border-white
-                focus:outline-none
                 rounded-3xl
-                focus:ring-opacity-50
-                focus:ring
-                focus:ring-offset-2
-                focus:ring-yellow-600
+                focus:ring-opacity-50 focus:ring-yellow-600
                 duration-200
                 hover:-translate-y-0.5
                 transition
                 transform
+                focus:outline-none focus:ring-0 focus:ring-offset-0
               "
             >
               Sign up
@@ -247,15 +244,12 @@
                 duration-200
                 rounded-3xl
                 shadow
-                focus:outline-none
                 hover:-translate-y-0.5
                 transition
                 transform
                 ease-in-out
-                focus:ring-opacity-50
-                hover:opacity-8
-                focus:ring focus:ring-offset-2 focus:ring-yellow-600
-                hover:opacity-80
+                hover:opacity-8 hover:opacity-80
+                focus:outline-none focus:ring-0 focus:ring-offset-0
               "
             >
               <span>Sign In</span>

@@ -33,7 +33,11 @@
       <button
         v-for="b in mqBanners"
         :key="b.id"
-        class="z-auto my-auto focus:outline-none"
+        class="
+          z-auto
+          my-auto
+          focus:outline-none focus:ring-0 focus:ring-offset-0
+        "
         aria-label="Slider Banners"
         @click="go(b.link)"
       >

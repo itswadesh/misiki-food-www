@@ -27,7 +27,7 @@
             border border-gray-400
             rounded
             shadow
-            focus:outline-none
+            focus:outline-none focus:ring-0 focus:ring-offset-0
             lg:inline-flex lg:mx-5
             hover:bg-gray-100
             text-primary
@@ -57,7 +57,7 @@
         <button
           v-for="i in pages"
           :key="i"
-          class="flex focus:outline-none"
+          class="flex focus:outline-none focus:ring-0 focus:ring-offset-0"
           @click="$emit('change', i)"
         >
           <div
@@ -99,7 +99,7 @@
             rounded
             shadow
             lg:mx-5
-            focus:outline-none
+            focus:outline-none focus:ring-0 focus:ring-offset-0
             lg:inline-flex
             hover:bg-gray-100
             text-primary

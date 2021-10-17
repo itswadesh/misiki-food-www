@@ -34,13 +34,21 @@
             tracking-widest
             text-blue-500
             border-r border-gray-200
+            focus:outline-none focus:ring-0 focus:ring-offset-0
           "
           @click="go(`/checkout/address`)"
         >
           Edit/Change
         </button>
         <button
-          class="w-1/2 py-1 mt-1 tracking-widest text-blue-500"
+          class="
+            w-1/2
+            py-1
+            mt-1
+            tracking-widest
+            text-blue-500
+            focus:outline-none focus:ring-0 focus:ring-offset-0
+          "
           @click="go(`/checkout/add`)"
         >
           Add New Address

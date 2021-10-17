@@ -23,7 +23,7 @@
             sm:border-b-4
             border-transparent
             hover:border-primary-500
-            focus:outline-none
+            focus:outline-none focus:ring-0 focus:ring-offset-0
           "
           @click="scrollTo('live-now-section')"
         >
@@ -40,7 +40,7 @@
             sm:border-b-4
             border-transparent
             hover:border-primary-500
-            focus:outline-none
+            focus:outline-none focus:ring-0 focus:ring-offset-0
           "
           @click="scrollTo('stored-videos-section')"
         >
@@ -57,7 +57,7 @@
             sm:border-b-4
             border-transparent
             hover:border-primary-500
-            focus:outline-none
+            focus:outline-none focus:ring-0 focus:ring-offset-0
           "
           @click="scrollTo('prime-streaming-section')"
         >

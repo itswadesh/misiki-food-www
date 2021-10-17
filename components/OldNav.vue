@@ -25,7 +25,7 @@
                 overflow-x-hidden overflow-y-hidden
                 transition
                 ease-in-out
-                focus:outline-none
+                focus:outline-none focus:ring-0 focus:ring-offset-0
                 duration-1500
               "
               @click="sidebar = !sidebar"
@@ -119,7 +119,7 @@
         >
           <button
             v-if="!user"
-            class="focus:outline-none"
+            class="focus:outline-none focus:ring-0 focus:ring-offset-0"
             aria-label="Login"
             @click="findLoginScreen"
           >

@@ -106,10 +106,7 @@
                 shadow-md
                 active:scale-95
                 hover:shadow hover:bg-opacity-80
-                focus:outline-none
-                focus:ring-2
-                focus:ring-gray-400
-                focus:ring-offset-2
+                focus:outline-none focus:ring-0 focus:ring-offset-0
               "
             >
               Continue Shopping

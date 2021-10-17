@@ -18,7 +18,7 @@
       shadow-md
       active:scale-95
       hover:shadow hover:bg-primary-100
-      focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2
+      focus:outline-none focus:ring-0 focus:ring-offset-0
     "
     :class="
       loading ? ' bg-gray-400 border-gray-400 cursor-not-allowed' : 'bg-white'

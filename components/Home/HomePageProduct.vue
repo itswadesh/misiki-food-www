@@ -24,7 +24,7 @@
           h-7
           w-7
           rounded-md
-          focus:outline-none
+          focus:outline-none focus:ring-0 focus:ring-offset-0
         "
         @click="$emit('open', product)"
       >
@@ -150,7 +150,7 @@
                 items-center
                 justify-center
                 space-x-2
-                focus:outline-none
+      focus:outline-none focus:ring-0 focus:ring-offset-0
               "
             >
               <svg
@@ -215,7 +215,8 @@
 
               <!-- Heart icon start  -->
 
-              <!-- <button class="z-30 focus:outline-none">
+              <!-- <button class="z-30       focus:outline-none focus:ring-0 focus:ring-offset-0
+">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-4"

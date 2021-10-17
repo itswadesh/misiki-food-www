@@ -32,6 +32,7 @@
                 cursor-pointer
                 me-4
                 hover:bg-gray-300
+                focus:outline-none focus:ring-0 focus:ring-offset-0
               "
               @click="saveLocaion(c)"
             >

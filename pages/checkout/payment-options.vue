@@ -406,7 +406,8 @@
         <!-- <Footer class="hidden sm:flex" /> -->
 
         <!-- <form id="payment-form" action="/route/on/your/server" method="post">
-        <button type="submit">Make Payment</button>
+        <button type="submit" class="      focus:outline-none focus:ring-0 focus:ring-offset-0
+">Make Payment</button>
         <input id="nonce" type="hidden" name="payment_method_nonce" />
       </form> -->
         <!-- <v-braintree

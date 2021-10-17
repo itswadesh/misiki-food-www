@@ -140,7 +140,7 @@
                 rounded
                 font-medium
                 py-2
-                focus:outline-none
+                focus:outline-none focus:ring-0 focus:ring-offset-0
                 w-48
               "
             >
@@ -148,7 +148,14 @@
             </button>
 
             <button
-              class="bg-white rounded font-medium py-2 focus:outline-none w-48"
+              class="
+                bg-white
+                rounded
+                font-medium
+                py-2
+                focus:outline-none focus:ring-0 focus:ring-offset-0
+                w-48
+              "
             >
               Shop Now
             </button>
@@ -202,7 +209,7 @@
                   py-2
                   sm:py-3
                   lg:py-2
-                  focus:outline-none
+                  focus:outline-none focus:ring-0 focus:ring-offset-0
                   w-48
                   sm:w-60
                   lg:w-48
@@ -256,6 +263,7 @@
                 w-full
                 max-w-xs
                 mx-auto
+                focus:outline-none focus:ring-0 focus:ring-offset-0
               "
             >
               CAREERS AT RI
@@ -294,6 +302,7 @@
                 w-full
                 max-w-xs
                 mx-auto
+                focus:outline-none focus:ring-0 focus:ring-offset-0
               "
             >
               Partner with Us

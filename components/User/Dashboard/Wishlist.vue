@@ -94,7 +94,10 @@
                     hover:bg-opacity-50 hover:bg-gray-900 hover:shadow-md
                     top-2
                     right-2
-                    focus:outline-none focus:scale-75
+                    focus:outline-none
+                    focus:ring-0
+                    focus:ring-offset-0
+                    focus:scale-75
                     hovereffect
                   "
                   @click="toggleWishlist(w.product.id)"
@@ -125,7 +128,7 @@
                   <div class="">
                     <div class="overflow-hidden">
                       <img
-                        v-lazy="`${w.product.imgCdn}?tr=h-224,fo-auto`"
+                        v-lazy="`${w.product.img}?tr=h-224,fo-auto`"
                         alt="mobile"
                         class="object-contain object-top w-full h-48 sm:h-56"
                       />

@@ -30,7 +30,8 @@
               overflow-x-hidden overflow-y-hidden
               transition
               ease-in-out
-              focus:outline-none
+            focus:outline-none focus:ring-0 focus:ring-offset-0
+ focus:ring-0 focus:ring-offset-0
               duration-1500
             "
             @click="sidebar = !sidebar"
@@ -188,7 +189,8 @@
                               ? ` border-primary-500 bg-primary-500 text-white`
                               : `bg-gray-100 border-gray-400`
                           "
-                          class="flex items-center justify-center w-12 h-12 m-1 text-gray-500 border-2 rounded-full cursor-pointer hover:text-primary-500 hover:border-primary-500 rouned-md focus:outline-none hover:font-bold"
+                          class="flex items-center justify-center w-12 h-12 m-1 text-gray-500 border-2 rounded-full cursor-pointer hover:text-primary-500 hover:border-primary-500 rouned-md       focus:outline-none focus:ring-0 focus:ring-offset-0
+ hover:font-bold"
                         >
                           <div class="text-xs uppercase sm:text-sm">
                             {{ i.name }}
@@ -219,7 +221,8 @@
                           "
                           v-for="(i, ix) in o.values"
                           :key="ix + 'c'"
-                          class="flex items-center justify-center w-12 h-12 m-1 border-2 rounded-full cursor-pointer focus:outline-none hover:font-bold"
+                          class="flex items-center justify-center w-12 h-12 m-1 border-2 rounded-full cursor-pointer       focus:outline-none focus:ring-0 focus:ring-offset-0
+ hover:font-bold"
                         >
                           <div class="text-xs">{{ i.name }}</div>
                           <input
@@ -283,7 +286,8 @@
                               v.id ==
                               (userSelectedVariant && userSelectedVariant.id),
                           }"
-                          class="items-center justify-center w-12 h-12 m-1 border border-gray-400 rounded-full cursor-pointer focus:outline-none hover:border-secondary-500 hover:font-bold"
+                          class="items-center justify-center w-12 h-12 m-1 border border-gray-400 rounded-full cursor-pointer       focus:outline-none focus:ring-0 focus:ring-offset-0
+ hover:border-secondary-500 hover:font-bold"
                           v-if="v.stock > 0"
                         >
                           <div class="text-xs">{{ v.size }}</div>
@@ -299,7 +303,8 @@
                         </button>
                         <button
                           v-else
-                          class="w-12 h-12 m-1 text-gray-600 bg-gray-300 rounded-full cursor-not-allowed focus:outline-none"
+                          class="w-12 h-12 m-1 text-gray-600 bg-gray-300 rounded-full cursor-not-allowed       focus:outline-none focus:ring-0 focus:ring-offset-0
+"
                         >
                           <div class="text-xs">
                             {{ v.options[0].name }} {{ v.options[0].val }}
@@ -344,7 +349,7 @@
                       <button
                         aria-label="Open Menu"
                         class="
-                          focus:outline-none
+                          focus:outline-none focus:ring-0 focus:ring-offset-0
                           duration-1500
                           text-primary-500
                           font-semibold
@@ -412,7 +417,7 @@
                         border
                         rounded-full
                         cursor-pointer
-                        focus:outline-none
+                        focus:outline-none focus:ring-0 focus:ring-offset-0
                       "
                     >
                       <div v-if="i.stock < 1" class="absolute inset-x-0">
@@ -471,7 +476,7 @@
                         hover:border-primary-500
                         rounded-full
                         cursor-pointer
-                        focus:outline-none
+                        focus:outline-none focus:ring-0 focus:ring-offset-0
                         tooltip
                       "
                     >
@@ -523,7 +528,8 @@
                             (userSelectedVariant && userSelectedVariant.size),
                         }"
                         v-if="v.stock > 0"
-                        class="w-12 h-12 m-1 border border-gray-400 rounded-full focus:outline-none hover:border-secondary-500 hover:font-bold"
+                        class="w-12 h-12 m-1 border border-gray-400 rounded-full       focus:outline-none focus:ring-0 focus:ring-offset-0
+ hover:border-secondary-500 hover:font-bold"
                       >
                         <div class="text-xs">{{ v.size }}</div>
                         <div
@@ -535,7 +541,8 @@
                       </button>
                       <button
                         v-else
-                        class="w-12 h-12 m-1 text-gray-600 bg-gray-300 rounded-full cursor-not-allowed focus:outline-none"
+                        class="w-12 h-12 m-1 text-gray-600 bg-gray-300 rounded-full cursor-not-allowed       focus:outline-none focus:ring-0 focus:ring-offset-0
+"
                       >
                         <div class="text-xs">{{ v.size }}</div>
                         <div

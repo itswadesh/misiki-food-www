@@ -68,7 +68,7 @@
                   transition
                   duration-300
                   group
-                  focus:outline-none
+                  focus:outline-none focus:ring-0 focus:ring-offset-0
                 "
                 @click="hide(null)"
               >
@@ -144,7 +144,7 @@
                   tracking-wide
                   rounded-md
                   hover:shadow-md
-                  focus:outline-none
+                  focus:outline-none focus:ring-0 focus:ring-offset-0
                 "
               >
                 Apply

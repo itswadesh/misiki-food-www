@@ -26,7 +26,7 @@
       <button
         v-for="b in banners"
         :key="b.id"
-        class="rounded-2xl focus:outline-none"
+        class="rounded-2xl focus:outline-none focus:ring-0 focus:ring-offset-0"
         @click="go(b.link)"
       >
         <div

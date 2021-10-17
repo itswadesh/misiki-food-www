@@ -14,7 +14,7 @@
         hover:bg-gray-900 hover:shadow-md
         top-3
         right-3
-        focus:outline-none focus:scale-75
+        focus:outline-none focus:ring-0 focus:ring-offset-0 focus:scale-75
       "
       @click="$emit('close')"
     >
@@ -117,7 +117,7 @@
           w-4/5
           p-2
           mx-auto
-          focus:ring-2 focus:ring-primary-500
+          focus:outline-none focus:ring-0 focus:ring-offset-0
           bg-secondary-500
         "
       >
