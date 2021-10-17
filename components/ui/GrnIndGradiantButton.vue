@@ -24,7 +24,7 @@
     :disabled="loading"
     @click="$emit('click')"
   >
-    <div v-if="!loading" class="flex items-center justify-center space-x-1">
+    <div v-if="!loading" class="flex items-center justify-center space-x-2">
       <slot></slot>
     </div>
     <div v-else>

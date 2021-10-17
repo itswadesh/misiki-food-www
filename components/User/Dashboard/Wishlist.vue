@@ -76,14 +76,12 @@
                 cursor-pointer
               "
             >
-              <div v-if="w.product" class="group">
+              <div v-if="w.product">
                 <!-- Close button start -->
 
                 <button
                   type="button"
                   class="
-                    hidden
-                    group-hover:block
                     absolute
                     z-10
                     p-1
@@ -104,7 +102,7 @@
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="w-5 h-5 text-gray-500"
+                    class="h-6 text-gray-500"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"

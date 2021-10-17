@@ -126,7 +126,7 @@
         </b>
       </div>
 
-      <div class="fixed bottom-0 inset-x-0 w-full sm:static">
+      <div class="fixed bottom-0 z-10 inset-x-0 w-full sm:static">
         <PrimaryButton
           :loading="loading"
           :disabled="disabled"

@@ -7,7 +7,7 @@
       justify-center
       px-4
       py-2
-      space-x-1
+      space-x-2
       font-semibold
       text-white
       border

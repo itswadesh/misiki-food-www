@@ -1,5 +1,5 @@
 <template>
-  <div class="p-2 sm:p-3 text-gray-800">
+  <div class="p-2 sm:p-3 text-gray-800 mb-10 sm:mb-0">
     <div class="mb-2 flex flex-col justify-between lg:flex-row lg:space-x-10">
       <div class="w-full lg:w-4/5">
         <h1
@@ -508,24 +508,26 @@ export default {
   height: 23px;
 }
 
-a {
-  position: relative;
-}
+@media (min-width: 640px) {
+  a {
+    position: relative;
+  }
 
-a::before {
-  content: '';
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 1px;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(156, 163, 175, 1);
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
+  a::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(156, 163, 175, 1);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
 
-a:hover::before {
-  transform: scaleX(1);
+  a:hover::before {
+    transform: scaleX(1);
+  }
 }
 </style>

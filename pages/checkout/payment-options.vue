@@ -323,22 +323,22 @@
         <CheckoutSummary
           :loading="loading"
           class="mb-5"
-          :disabled="!enableStripeCheckoutButton"
+          :disabled="!enableStripeCheckoutButton || !paymentMethod.value"
           @submit="submit"
         >
-          <span v-if="paymentMethod && paymentMethod.value == 'COD'">
-            Place Order
-          </span>
+          <div v-if="paymentMethod && paymentMethod.value">
+            <span v-if="paymentMethod && paymentMethod.value == 'COD'">
+              Place Order
+            </span>
 
-          <span
-            v-else-if="
-              paymentMethod.value === 'Stripe' && !enableStripeCheckoutButton
-            "
-          >
-            Please fill credit card details
-          </span>
+            <span v-else-if="!enableStripeCheckoutButton">
+              Please Fill Credit Card Details
+            </span>
 
-          <div v-else>Pay Now</div>
+            <div v-else>Pay Now</div>
+          </div>
+
+          <div v-else>Select Any Payment Methode</div>
         </CheckoutSummary>
 
         <div class="text-lg font-bold tracking-wide mb-3">
@@ -446,7 +446,7 @@ export default {
     CheckoutSummary,
     // DebitCreditCard,
     Radio,
-    Toast,
+    // Toast,
   },
 
   middleware({ store, redirect }) {
@@ -581,6 +581,8 @@ export default {
         this.card.on('change', ({ error, complete, value }) => {
           if (complete) {
             this.complete = true
+          } else {
+            this.complete = false
           }
         })
       }
@@ -718,16 +720,14 @@ export default {
       }
       this.clearErr()
       if (paymentMethod === 'COD') {
+        this.loading = true
         try {
-          this.loading = true
           await this.checkout({
             paymentMethod: 'COD',
             address: this.$route.query.address,
           })
         } catch (e) {
           // this.setErr(e)
-        } finally {
-          this.loading = false
         }
       } else if (paymentMethod === 'Stripe') {
         let pm
