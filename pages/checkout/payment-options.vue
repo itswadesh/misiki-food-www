@@ -520,7 +520,8 @@ export default {
     }),
 
     enableStripeCheckoutButton() {
-      if (this.paymentMethod.value === 'Stripe') return this.complete
+      if (this.paymentMethod && this.paymentMethod.value === 'Stripe')
+        return this.complete
       else return true
     },
   },
