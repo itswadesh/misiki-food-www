@@ -36,12 +36,12 @@
 
         <span>items found for</span>
 
-        <span
+        <q
           v-if="category && category.name && category.name !== ''"
           class="font-bold"
         >
           {{ category.name }}
-        </span>
+        </q>
 
         <q v-else class="font-bold"> {{ $route.params.q }} </q>
       </div>
