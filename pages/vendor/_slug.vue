@@ -20,9 +20,9 @@
       <div class="w-full">
         <div class="container mx-auto pb-2 sm:p-4 sm:border-b">
           <img
-            src="/test-1.gif"
+            v-lazy="`${category.bannerCdn}?tr=h-320`"
             alt=" "
-            class="w-full h-auto object-contain object-top"
+            class="w-full h-80 object-cover"
           />
         </div>
 

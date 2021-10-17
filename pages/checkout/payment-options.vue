@@ -323,7 +323,10 @@
         <CheckoutSummary
           :loading="loading"
           class="mb-5"
-          :disabled="!enableStripeCheckoutButton || !paymentMethod.value"
+          :disabled="
+            !enableStripeCheckoutButton ||
+            !(paymentMethod && paymentMethod.value)
+          "
           @submit="submit"
         >
           <div v-if="paymentMethod && paymentMethod.value">
@@ -707,6 +710,7 @@ export default {
     // },
 
     async submit() {
+      this.errorMessage = false
       if (!this.paymentMethod || !this.paymentMethod.value) {
         this.setErr('Please Select Payment Method')
       }
