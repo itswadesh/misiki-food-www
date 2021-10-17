@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="container mx-auto">
     <MobileFilters
       class="sticky top-0 z-20 flex-none mt-16 lg:hidden"
       :count="productCount"
@@ -20,7 +20,7 @@
       <div class="w-full">
         <div
           v-if="category && category.bannerCdn"
-          class="container mx-auto pb-2 sm:p-4 sm:border-b"
+          class="pb-2 sm:p-4 sm:border-b"
         >
           <img
             :src="`${category.bannerCdn}?tr=h-320`"
@@ -44,8 +44,6 @@
           <div
             v-if="$fetchState.pending"
             class="
-              container
-              mx-auto
               sm:p-4
               grid grid-cols-2
               sm:grid-cols-3
@@ -64,8 +62,6 @@
           <div
             v-else-if="products && products.length > 0"
             class="
-              container
-              mx-auto
               sm:p-4
               grid grid-cols-2
               sm:grid-cols-3

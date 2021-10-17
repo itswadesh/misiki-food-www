@@ -1,6 +1,6 @@
 <template>
-  <section class="bg-white min-h-screen pb-10 text-gray-800">
-    <div class="w-full max-w-7xl mx-auto px-3">
+  <section class="bg-white min-h-screen">
+    <div class="container mx-auto max-w-7xl px-3">
       <h1
         class="
           py-5
@@ -64,8 +64,6 @@ import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
   components: { NuxtLink },
-
-  layout: 'island',
 
   data() {
     return {
