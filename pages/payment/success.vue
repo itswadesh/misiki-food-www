@@ -28,6 +28,7 @@
               r="25"
               fill="none"
             />
+
             <path
               class="checkmark__check"
               fill="none"
@@ -52,6 +53,7 @@
           "
         >
           <span class="text-gray-500">Order Number:</span>
+
           <b>
             {{ order.orderNo }}
           </b>
@@ -59,6 +61,7 @@
 
         <p class="mb-4 sm:mb-9 text-sm">
           Your Order was place on <b>{{ order.createdAt | date }}</b> <br />
+
           A Confirmation e-mail will be sent to the e-mail address that you
           specified in Order details.
         </p>
@@ -117,13 +120,15 @@
 
       <div
         class="
+          max-w-7xl
+          mx-auto
           sm:flex sm:items-start sm:justify-center
           space-y-5
           sm:space-y-0 sm:space-x-10
           md:space-x-20
         "
       >
-        <div class="sm:w-1/2 flex flex-col justify-center">
+        <div class="sm:w-1/2">
           <div class="mb-5">
             <h6
               class="
@@ -156,64 +161,67 @@
                     class="object-cover border w-28"
                   />
                 </nuxt-link>
+
                 <div class="relative flex flex-col w-4/5 ms-3 lg:w-10/12">
                   <nuxt-link
                     :to="localePath(`/${item.slug}?id=${item.pid}`)"
                     rel="noopener"
-                    class="text-base font-normal text-gray-600 truncate"
+                    class="text-sm font-normal text-gray-600"
                   >
                     {{ item.name }}
                   </nuxt-link>
-                  <div class="mt-2 text-xs text-primary-500 lg:text-sm">
+
+                  <b v-if="item.brandName" class="mt-2 text-sm">
                     {{ item.brandName }}
-                  </div>
+                  </b>
+
                   <!-- <div class="mt-1 text-xs text-primary-500 lg:text-sm">
                     <div v-for="(v, k) in JSON.parse(item.options)" :key="v">
                       {{ k }}={{ v }}
                     </div>
                   </div> -->
+
                   <div
-                    class="
-                      flex
-                      items-center
-                      justify-start
-                      w-full
-                      mt-2
-                      text-sm
-                      font-medium
-                      text-gray-500
-                    "
+                    class="flex items-center justify-start w-full mt-2 text-sm"
                   >
-                    <div class="me-4">Qty: {{ item.qty }}</div>
-                    <div
-                      class="
-                        flex flex-row
-                        text-base
-                        font-medium
-                        justify-self-end
-                        md:my-auto
-                      "
-                    >
-                      <div class="font-light text-gray-400 me-1">Price:</div>
-                      <div class="text-secondary-200">
+                    <div class="me-4">
+                      <span class="me-2 font-medium text-gray-500">Qty :</span>
+                      <b>{{ item.qty }}</b>
+                    </div>
+
+                    <div>
+                      <span class="me-2 font-medium text-gray-500"
+                        >Price :</span
+                      >
+                      <b>
                         {{
                           item.price
                             | currency(
                               store.currencySymbol,
+
                               store.currencyDecimals
                             )
-                        }}
-                      </div>
+                        }}</b
+                      >
                     </div>
                   </div>
                 </div>
               </div>
+
               <!-- <div
-                class="flex-row hidden text-sm font-medium justify-self-end md:flex md:my-auto"
+                class="
+                  flex-row
+                  hidden
+                  text-sm
+                  font-medium
+                  justify-self-end
+                  md:flex md:my-auto
+                "
               >
                 <div class="text-gray-400 me-1">Price:</div>
+
                 <div class="text-green-400">
-                  {{ item.price | currency(store.currencySymbol,2) }}
+                  {{ item.price | currency(store.currencySymbol, 2) }}
                 </div>
               </div> -->
             </div>
@@ -234,44 +242,46 @@
             </h6>
 
             <div v-if="order.amount.subtotal" class="mb-3">
-              <span class="font-semibold"> Subtotal :</span>
-
-              {{
+              <span class="me-2 font-medium text-gray-500">Subtotal :</span>
+              <b>{{
                 order.amount.subtotal
                   | currency(store.currencySymbol, store.currencyDecimals)
-              }}
+              }}</b>
             </div>
 
             <div v-if="order.amount.discount" class="mb-3">
-              <span class="font-semibold"> Discount :</span>
-
-              {{
-                order.amount.discount
-                  | currency(store.currencySymbol, store.currencyDecimals)
-              }},
+              <span class="me-2 font-medium text-gray-500">Discount :</span>
+              <b>
+                {{
+                  order.amount.discount
+                    | currency(store.currencySymbol, store.currencyDecimals)
+                }}</b
+              >
             </div>
 
             <div v-if="order.amount.shipping" class="mb-3">
-              <span class="font-semibold"> Shipping : </span>
-
-              {{
-                order.amount.shipping
-                  | currency(store.currencySymbol, store.currencyDecimals)
-              }}
+              <span class="me-2 font-medium text-gray-500">Shipping :</span>
+              <b>
+                {{
+                  order.amount.shipping
+                    | currency(store.currencySymbol, store.currencyDecimals)
+                }}</b
+              >
             </div>
 
-            <div v-if="order.amount.total" class="mb-3">
-              <span class="font-semibold">Total :</span>
-
-              {{
-                order.amount.total
-                  | currency(store.currencySymbol, store.currencyDecimals)
-              }}
+            <div v-if="order.amount.total" class="mb-3 text-base">
+              <span class="me-2 font-medium text-gray-500">Total :</span>
+              <b>
+                {{
+                  order.amount.total
+                    | currency(store.currencySymbol, store.currencyDecimals)
+                }}</b
+              >
             </div>
           </div>
         </div>
 
-        <div class="sm:w-1/2 flex flex-col justify-center">
+        <div class="sm:w-1/2">
           <div v-if="order && order.address" class="text-sm">
             <h6
               class="
@@ -453,17 +463,20 @@ import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
 
 export default {
   components: { OrderSuccessSkeleton, PrimaryButtonRounded, NuxtLink },
+
   data() {
     return {
       order: null,
       loading: false,
     }
   },
+
   head() {
     return {
       title: 'Thank You',
     }
   },
+
   // apollo: {
   //   $subscribe: {
   //     orderUpdated: {
@@ -487,6 +500,7 @@ export default {
   //     },
   //   },
   // },
+
   computed: {
     ...mapGetters({
       store: 'store',
@@ -494,6 +508,7 @@ export default {
       cart: 'cart/cart',
     }),
   },
+
   async mounted() {
     this.order = await this.getPaySuccessPageHit()
     // if (order.paySuccess < 2) {
@@ -501,6 +516,7 @@ export default {
     //   // await this.fetchCart()
     // }
     // await this.refresh()
+
     try {
       this.$refs.map.route(
         `${this.order.delivery.start.lat},${this.order.delivery.start.lng}`,
@@ -511,6 +527,7 @@ export default {
       this.loading = false
     }
   },
+
   methods: {
     ...mapMutations({
       clearErr: 'clearErr',
@@ -518,10 +535,12 @@ export default {
       success: 'success',
       busy: 'busy',
     }),
+
     ...mapActions({
       fetchCart: 'cart/fetch',
       clearCart: 'cart/clear',
     }),
+
     getPaySuccessPageHit() {
       const { id, paymentReferenceId } = this.$route.query
       if (!id && !paymentReferenceId) return
@@ -535,6 +554,7 @@ export default {
         return {}
       }
     },
+
     // async refresh() {
     //   try {
     //     this.loading = true
@@ -581,6 +601,7 @@ export default {
   right: 5px;
   margin: 0 auto;
 }
+
 .checkmark__circle {
   stroke-dasharray: 166;
   stroke-dashoffset: 166;

@@ -193,6 +193,7 @@
 
     <div
       v-if="
+        !dontShowBrand &&
         facets.brands &&
         facets.brands &&
         facets.brands.all.buckets &&
@@ -579,6 +580,10 @@ export default {
       default: () => {
         return {}
       },
+    },
+    dontShowBrand: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {

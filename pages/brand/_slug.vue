@@ -12,6 +12,7 @@
     <div class="flex">
       <DesktopFilters
         class="sticky top-0 hidden lg:block"
+        dont-show-brand
         :facets="facets"
         :fl="fl"
         @clearAllFilters="clearAllFilters"
