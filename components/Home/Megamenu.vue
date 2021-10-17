@@ -270,7 +270,6 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import PARENT_BRANDS from '~/gql/brand/parentBrands.gql'
 // import MEGAMENU from '~/gql/category/megamenu.gql'
 // import BRAND from '~/gql/brand/brand.gql'
 import NuxtLink from '~/components/NuxtLink.vue'

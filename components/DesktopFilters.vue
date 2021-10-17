@@ -562,9 +562,6 @@
 import { mapGetters } from 'vuex'
 import { Checkbox, Radio } from '~/shared/components/ui'
 import { constructURL } from '~/lib/'
-import PARENT_BRANDS from '~/gql/brand/parentBrands.gql'
-import GET_MEGAMENU from '~/gql/category/megamenu.gql'
-import BRAND from '~/gql/brand/brand.gql'
 import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
@@ -681,28 +678,6 @@ export default {
     go(slug) {
       this.$router.push('/' + slug)
     },
-    // async getParentBrands() {
-    //   // this.loading = true
-    //   try {
-    //     this.parentBrands = await this.$get('brand/parentBrands', {
-    //       featured: true,
-    //       limit: 5,
-    //       page: 0,
-    //     })
-    //     // this.parentBrands = (
-    //     //   await this.$apollo.query({
-    //     //     query: PARENT_BRANDS,
-    //     //     variables: { featured: true, limit: 5, page: 0 },
-    //     //     fetchPolicy: 'no-cache',
-    //     //   })
-    //     // ).data.parentBrands
-    //     // console.log("brands to show", this.brands)
-    //   } catch (e) {
-    //     // console.log(e)
-    //   } finally {
-    //     // this.loading = false
-    //   }
-    // },
   },
 }
 </script>

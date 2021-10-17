@@ -20,7 +20,7 @@
       <div class="w-full">
         <div class="container mx-auto pb-2 sm:p-4 sm:border-b">
           <img
-            src="/test-1.gif"
+            v-lazy="`${category.bannerCdn}?tr=h-360`"
             alt=" "
             class="w-full h-auto object-contain object-top"
           />
@@ -155,27 +155,14 @@ export default {
     // try {
     const cslug = this.$route.params.slug
     if (cslug) {
-      this.category = await this.$get('category/category', {
+      this.category = await this.$get('brand/brand', {
         slug: cslug,
       })
-      // this.category = (
-      //   await client.query({
-      //     query: CATEGORY,
-      //     variables: {
-      //       slug: cslug,
-      //       store: storeId,
-      //     },
-      //     fetchPolicy: 'no-cache',
-      //   })
-      // ).data.category
     }
     const q = cslug || null
     const query = this.$route.query
     query.store = storeId || '23sdf43rfs5fdgsdf'
     const qry = { ...query }
-    delete qry.brand
-    if (q) qry.categories = q
-    // if (cslug) qry.categories = cslug
     const result = await this.$axios.$get('/api/products/es', {
       params: { ...qry },
     })
@@ -280,7 +267,7 @@ export default {
       title:
         (this.category && this.category.metaTitle) ||
         (this.category && this.category.name) ||
-        'Categories ',
+        'Brand ',
       meta: [
         {
           hid: 'og:description',

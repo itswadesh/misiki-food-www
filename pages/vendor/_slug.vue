@@ -155,26 +155,17 @@ export default {
     // try {
     const cslug = this.$route.params.slug
     if (cslug) {
-      this.category = await this.$get('category/category', {
+      this.category = await this.$get('user/user', {
         slug: cslug,
       })
-      // this.category = (
-      //   await client.query({
-      //     query: CATEGORY,
-      //     variables: {
-      //       slug: cslug,
-      //       store: storeId,
-      //     },
-      //     fetchPolicy: 'no-cache',
-      //   })
-      // ).data.category
     }
+    console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz', cslug, this.category)
     const q = cslug || null
     const query = this.$route.query
     query.store = storeId || '23sdf43rfs5fdgsdf'
     const qry = { ...query }
     delete qry.brand
-    if (q) qry.categories = q
+    if (q) qry.vendor = q
     // if (cslug) qry.categories = cslug
     const result = await this.$axios.$get('/api/products/es', {
       params: { ...qry },
@@ -280,7 +271,7 @@ export default {
       title:
         (this.category && this.category.metaTitle) ||
         (this.category && this.category.name) ||
-        'Categories ',
+        'Vendor ',
       meta: [
         {
           hid: 'og:description',
@@ -348,86 +339,5 @@ export default {
   mounted() {
     // this.getWishlist() // This was causing node undefined error when page is refreshed
   },
-
-  async created() {
-    await this.getBrand()
-  },
-
-  methods: {
-    // scrollToTop() {
-    //   if (process.client) {
-    //     window.scroll({ behavior: 'smooth', left: 0, top: 80 })
-    //   }
-    // },
-    // async getData() {
-    //   const q = this.$route.query || {}
-    //   // q.categories = this.$route.path.substr(1)
-    //   try {
-    //     this.loading = true
-    //     const p = params.slug || null
-    //     q.categories = p
-    //     const products = await this.$axios.$get('/api/products/es', {
-    //       params: q,
-    //     })
-    //     this.productCount = products.count
-    //     this.products = products.data
-    //     this.facets = products.facets && products.facets.all_aggs
-    //   } catch (e) {
-    //   } finally {
-    //     this.loading = false
-    //   }
-    // },
-
-    async getBrand() {
-      try {
-        this.loading = true
-        this.brand = await this.$apollo.query({
-          query: BRAND,
-        })
-        console.log(this.brand)
-      } catch (e) {
-      } finally {
-        this.loading = false
-      }
-    },
-  },
 }
 </script>
-
-<style scoped>
-/* .pagination {
-  list-style-type: none !important;
-  display: flex !important;
-  padding-left: 0 !important;
-  border-radius: 0.25rem !important;
-}
-.page-link {
-  position: relative !important;
-  display: block !important;
-  padding: 0.5rem 0.75rem !important;
-  margin-left: -1px !important;
-  line-height: 1.25 !important;
-  color: #007bff !important;
-  background-color: #fff !important;
-  border: 1px solid #dee2e6 !important;
-}
-.page-item.disabled .page-link {
-  color: #6c757d !important;
-  pointer-events: none !important;
-  cursor: auto !important;
-  background-color: #fff !important;
-  border-color: #dee2e6 !important;
-  height: 34px !important;
-}
-.page-item:first-child .page-link {
-  margin-left: 0 !important;
-  border-top-left-radius: 0.25rem !important;
-  border-bottom-left-radius: 0.25rem !important;
-}
-.page-item.active .page-link {
-  z-index: 1 !important;
-  color: #fff !important;
-  background-color: #007bff !important;
-  border-color: #007bff !important;
-} */
-</style>
