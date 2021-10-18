@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade ">
+  <transition name="slideTop">
     <div v-if="show" class="fixed inset-0 z-50 overflow-y-auto frosted">
       <div
         class="
@@ -175,6 +175,6 @@ export default {
 <style scoped>
 .frosted {
   backdrop-filter: blur(12px);
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 </style>

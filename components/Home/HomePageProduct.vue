@@ -173,7 +173,9 @@
 
             <!-- Available sizes start-->
 
-            <div
+            <div class="h-rem-size w-full"></div>
+
+            <!-- <div
               class="
                 flex
                 mt-1.5
@@ -197,7 +199,7 @@
 
                 <div v-else class="font-light truncate">Not available</div>
               </h6>
-            </div>
+            </div> -->
 
             <!-- Available sizes end-->
           </div>
@@ -527,10 +529,13 @@ export default {
   padding-left: 0px;
   justify-content: center;
 }
+.h-rem-similar {
+  height: 1.75rem;
+}
 .h-rem-wishlist {
   height: 2.75rem;
 }
-.h-rem-similar {
-  height: 1.75rem;
+.h-rem-size {
+  height: 1.6rem;
 }
 </style>

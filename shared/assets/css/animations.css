@@ -157,3 +157,30 @@ img[lazy='loading'],
     transform: translate3d(4px, 0, 0);
   }
 }
+
+.slideTop-enter-active {
+  animation: top-bottom 0.5s;
+}
+.slideTop-leave-active {
+  animation: bottom-top 0.5s;
+}
+@keyframes top-bottom {
+  0% {
+    opacity: 0;
+    top: -100%;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
+@keyframes bottom-top {
+  0% {
+    opacity: 1;
+    top: 0;
+  }
+  100% {
+    opacity: 0;
+    top: -100%;
+  }
+}

@@ -105,12 +105,7 @@
             </span>
           </button>
 
-          <span v-if="showOffers">
-            <TestCoupons
-              :class="showOffers ? 'open' : 'close'"
-              @hide="hideOffers"
-            />
-          </span>
+          <TestCoupons :show="showOffers" @hide="hideOffers" />
         </div>
       </div>
 
@@ -175,13 +170,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.close {
-  /* left: -100%; */
-  transition: 0.3s all;
-}
-.open {
-  /* left: 0; */
-  transition: 0.3s all;
-}
-</style>
+<style scoped></style>

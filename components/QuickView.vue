@@ -299,7 +299,7 @@
 
       <!-- Add To Cart and QTY -->
 
-      <div
+      <!-- <div
         class="
           flex flex-col
           sm:flex-row
@@ -379,14 +379,15 @@
               />
             </svg>
           </button>
-        </div>
+        </div> -->
 
-        <AddToCart :product="product" />
-        <!-- :user-selected-variant="userSelectedVariant"
+      <!-- :user-selected-variant="userSelectedVariant"
           :options="product.options"
           :selected-options="selectedOptions" 
           @alertToSelectMandatoryOptions="alertToSelectMandatoryOptions" -->
-      </div>
+      <!-- </div> -->
+
+      <AddToCart :product="product" class="mb-2.5 sm:mb-5" />
 
       <!-- Description -->
 

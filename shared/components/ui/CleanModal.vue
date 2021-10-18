@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade">
+  <transition name="slideTop">
     <div
       v-if="show"
       class="
@@ -50,6 +50,9 @@ export default {
 <style scoped>
 .frosted {
   backdrop-filter: blur(12px);
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+::-webkit-scrollbar {
+  width: 0px;
 }
 </style>
