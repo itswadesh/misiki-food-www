@@ -27,7 +27,7 @@
                 max-w-max
                 tracking-wider
                 text-center
-                cursor-pointer
+                hovereffect
               "
             >
               Merchant Dashboard
@@ -46,7 +46,7 @@
                 max-w-max
                 tracking-wider
                 text-center
-                cursor-pointer
+                hovereffect
               "
             >
               {{ f.name }}
@@ -62,7 +62,7 @@
                 max-w-max
                 tracking-wider
                 text-center
-                cursor-pointer
+                hovereffect
               "
             >
               Become a merchant
@@ -81,7 +81,7 @@
                 max-w-max
                 tracking-wider
                 text-center
-                cursor-pointer
+                hovereffect
               "
             >
               Exclusive Furnitures
@@ -170,7 +170,14 @@
               v-for="(s, ix) in popularSearches"
               :key="ix"
               :to="`/search/${s.text}`"
-              class="w-auto mb-1 tracking-wider text-center cursor-pointer"
+              class="
+                w-auto
+                mb-1
+                tracking-wider
+                text-center
+                cursor-pointer
+                hovereffect
+              "
             >
               {{ s.text }}
             </nuxt-link>
@@ -250,21 +257,29 @@
         justify-between
       "
     >
-      <div
-        class="
-          mb-2
-          text-xs
-          font-normal
-          tracking-wider
-          whitespace-nowrap
-          max-w-max
-        "
-      >
-        © {{ year }} {{ store.name }}
-
-        <span v-if="store.websiteEmail" class="ms-2">
-          {{ store.websiteEmail }}</span
+      <div class="mb-2">
+        <div
+          class="
+            mb-5
+            text-xs
+            font-normal
+            tracking-wider
+            whitespace-nowrap
+            max-w-max
+          "
         >
+          © {{ year }} {{ store.name }}
+
+          <span v-if="store.websiteEmail" class="ms-2">
+            {{ store.websiteEmail }}</span
+          >
+        </div>
+
+        <div class="flex flex-row items-center space-x-4">
+          <nuxt-link v-for="(i, ix) in items" :key="ix" to="##">
+            <img :src="i.img" :alt="i.alt" class="h-4 object-contain" />
+          </nuxt-link>
+        </div>
       </div>
 
       <div id="google_translate_element" class="hidden lg:block"></div>
@@ -290,7 +305,7 @@
           <img
             v-lazy="`${settings.CDN_URL}/${i.img}?tr=w-36,h-36,fo-auto`"
             :alt="i.alt"
-            class="h-9 w-9 object-contain"
+            class="h-9 object-contain"
           />
         </div>
       </div>
@@ -356,6 +371,15 @@ export default {
         { link: '/my/orders', name: 'Contact Seller' },
         { link: '/features', name: 'Features' },
         { link: '/blog', name: 'Blog' },
+      ],
+
+      items: [
+        { img: '/img/social-media/facebook.png', alt: 'facebook' },
+        { img: '/img/social-media/twitter.png', alt: 'twitter' },
+        { img: '/img/social-media/instagram.png', alt: 'instagram' },
+        { img: '/img/social-media/linkedin.png', alt: 'linkedin' },
+        { img: '/img/social-media/pinterest.png', alt: 'pinterest' },
+        { img: '/img/social-media/youtube.png', alt: 'youtube' },
       ],
 
       icons: [
@@ -508,11 +532,11 @@ export default {
 }
 
 @media (min-width: 640px) {
-  a {
+  .hovereffect {
     position: relative;
   }
 
-  a::before {
+  .hovereffect::before {
     content: '';
     position: absolute;
     display: block;
@@ -525,7 +549,7 @@ export default {
     transition: transform 0.3s ease;
   }
 
-  a:hover::before {
+  .hovereffect:hover::before {
     transform: scaleX(1);
   }
 }

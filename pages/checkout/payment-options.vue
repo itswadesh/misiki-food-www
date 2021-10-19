@@ -830,6 +830,7 @@ export default {
           // console.log(
           //   'Send to server..............',
           //   payload.nonce,
+          //   '<<<>>>',
           //   vm.braintreeToken
           // )
           try {
