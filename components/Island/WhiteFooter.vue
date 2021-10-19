@@ -250,12 +250,7 @@
     <hr class="w-full mb-4 border-t border-gray-400" />
 
     <div
-      class="
-        flex flex-row flex-wrap
-        items-center
-        lg:items-start
-        justify-between
-      "
+      class="flex flex-col sm:flex-row flex-wrap items-start justify-between"
     >
       <div class="mb-2">
         <div
@@ -282,7 +277,8 @@
         </div>
       </div>
 
-      <div id="google_translate_element" class="hidden lg:block"></div>
+      <div id="google_translate_element" class="mb-2"></div>
+
       <!-- <LanguageSwitch v-if="loadedTranslate" /> -->
       <!-- <div
         class="
