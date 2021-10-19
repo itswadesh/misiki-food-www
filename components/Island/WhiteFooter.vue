@@ -267,6 +267,8 @@
         >
       </div>
 
+      <div id="google_translate_element" class="hidden lg:block"></div>
+      <!-- <LanguageSwitch v-if="loadedTranslate" /> -->
       <!-- <div
         class="
           mb-2
@@ -279,12 +281,9 @@
           space-x-5
         "
       >
-        <div id="google_translate_element" class="hidden lg:block"></div>
 
         <div v-if="visitorCount">Visitors : {{ visitorCount }}</div>
       </div> -->
-
-      <!-- <LanguageSwitch v-if="loadedTranslate" /> -->
 
       <div class="flex flex-row items-center space-x-2 max-w-max">
         <div v-for="(i, ix) in icons" :key="ix" class="mb-2">
@@ -402,7 +401,7 @@ export default {
       const vm = this
       setTimeout(function () {
         vm.googleTranslateInit()
-        vm.updateVisitorCount()
+        // vm.updateVisitorCount()
       }, 3000)
     }
   },
@@ -420,7 +419,7 @@ export default {
         if (google.translate.TranslateElement != null) {
           clearInterval(checkIfGoogleLoaded)
 
-          vm.googleTranslateElementInit('google_translate_element')
+          vm.googleTranslateElementInit()
         }
       }, 1000)
       this.googleTranslateElementInit()
