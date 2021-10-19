@@ -69,6 +69,7 @@ export default {
   data() {
     return {
       address: null,
+      loading: false,
     }
   },
   head() {
