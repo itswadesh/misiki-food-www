@@ -76,7 +76,7 @@
           </div>
           <div v-if="currentIndex === 1" key="2" class="justify-center flex">
             <img
-              v-lazy="`${product.imagesCdn[1]}?tr=h-288,fo-auto`"
+              :src="`${product.imagesCdn[1]}?tr=h-288,fo-auto`"
               alt="product"
               class="card object-contain h-48 sm:h-56 slide"
             />
