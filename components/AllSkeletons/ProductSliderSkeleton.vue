@@ -1,146 +1,76 @@
 <template>
-  <VueSlickCarousel v-bind="settings">
-    <div class="flex flex-col w-1/2 m-2 animate-pulse lg:w-1/5 md:w-1/4">
-      <span
-        class="
-          flex flex-col
-          h-40
-          mx-2
-          bg-gray-300
-          lg:h-64
-          md:h-56
-          rounded-t-2xl
-        "
-      ></span>
-      <span class="flex flex-col mx-2 bg-gray-300 rounded-b-2xl">
-        <div class="w-11/12 h-4 m-1 mx-auto bg-gray-100"></div>
-        <div class="w-1/3 h-4 m-1 mx-auto bg-gray-100"></div>
-        <div class="w-1/2 h-4 m-1 mx-auto bg-gray-100"></div>
-      </span>
+  <div
+    class="
+      grid grid-cols-2
+      sm:grid-cols-3
+      md:grid-cols-4
+      lg:grid-cols-5
+      gap-2
+      sm:gap-5
+    "
+  >
+    <div class="flex flex-col bg-gray-200 animate-pulse">
+      <div class="h-40 md:h-56 lg:h-64 mx-2"></div>
+
+      <div class="flex flex-col p-4">
+        <div class="w-1/2 h-2 sm:h-4 mb-1.5 sm:mb-2.5 bg-gray-100"></div>
+
+        <div class="w-11/12 h-2 sm:h-4 mb-1.5 sm:mb-2.5 bg-gray-100"></div>
+
+        <div class="w-2/3 h-2 sm:h-4 bg-gray-100"></div>
+      </div>
     </div>
-    <div class="flex flex-col w-1/2 m-2 animate-pulse lg:w-1/5 md:w-1/4">
-      <span
-        class="
-          flex flex-col
-          h-40
-          mx-2
-          bg-gray-300
-          lg:h-64
-          md:h-56
-          rounded-t-2xl
-        "
-      ></span>
-      <span class="flex flex-col mx-2 bg-gray-300 rounded-b-2xl">
-        <div class="w-11/12 h-4 m-1 mx-auto bg-gray-100"></div>
-        <div class="w-1/3 h-4 m-1 mx-auto bg-gray-100"></div>
-        <div class="w-1/2 h-4 m-1 mx-auto bg-gray-100"></div>
-      </span>
+
+    <div class="flex flex-col bg-gray-200 animate-pulse">
+      <div class="h-40 md:h-56 lg:h-64 mx-2"></div>
+
+      <div class="flex flex-col p-4">
+        <div class="w-1/2 h-2 sm:h-4 mb-1.5 sm:mb-2.5 bg-gray-100"></div>
+
+        <div class="w-11/12 h-2 sm:h-4 mb-1.5 sm:mb-2.5 bg-gray-100"></div>
+
+        <div class="w-2/3 h-2 sm:h-4 bg-gray-100"></div>
+      </div>
     </div>
-    <div class="flex flex-col w-1/2 m-2 animate-pulse lg:w-1/5 md:w-1/4">
-      <span
-        class="
-          flex flex-col
-          h-40
-          mx-2
-          bg-gray-300
-          lg:h-64
-          md:h-56
-          rounded-t-2xl
-        "
-      ></span>
-      <span class="flex flex-col mx-2 bg-gray-300 rounded-b-2xl">
-        <div class="w-11/12 h-4 m-1 mx-auto bg-gray-100"></div>
-        <div class="w-1/3 h-4 m-1 mx-auto bg-gray-100"></div>
-        <div class="w-1/2 h-4 m-1 mx-auto bg-gray-100"></div>
-      </span>
+
+    <div class="hidden sm:flex flex-col bg-gray-200 animate-pulse">
+      <div class="h-40 md:h-56 lg:h-64 mx-2"></div>
+
+      <div class="flex flex-col p-4">
+        <div class="w-1/2 h-2 sm:h-4 mb-1.5 sm:mb-2.5 bg-gray-100"></div>
+
+        <div class="w-11/12 h-2 sm:h-4 mb-1.5 sm:mb-2.5 bg-gray-100"></div>
+
+        <div class="w-2/3 h-2 sm:h-4 bg-gray-100"></div>
+      </div>
     </div>
-    <div class="flex flex-col w-1/2 m-2 animate-pulse lg:w-1/5 md:w-1/4">
-      <span
-        class="
-          flex flex-col
-          h-40
-          mx-2
-          bg-gray-300
-          lg:h-64
-          md:h-56
-          rounded-t-2xl
-        "
-      ></span>
-      <span class="flex flex-col mx-2 bg-gray-300 rounded-b-2xl">
-        <div class="w-11/12 h-4 m-1 mx-auto bg-gray-100"></div>
-        <div class="w-1/3 h-4 m-1 mx-auto bg-gray-100"></div>
-        <div class="w-1/2 h-4 m-1 mx-auto bg-gray-100"></div>
-      </span>
+
+    <div class="hidden md:flex flex-col bg-gray-200 animate-pulse">
+      <div class="h-40 md:h-56 lg:h-64 mx-2"></div>
+
+      <div class="flex flex-col p-4">
+        <div class="w-1/2 h-2 sm:h-4 mb-1.5 sm:mb-2.5 bg-gray-100"></div>
+
+        <div class="w-11/12 h-2 sm:h-4 mb-1.5 sm:mb-2.5 bg-gray-100"></div>
+
+        <div class="w-2/3 h-2 sm:h-4 bg-gray-100"></div>
+      </div>
     </div>
-    <div class="flex flex-col w-1/2 m-2 animate-pulse lg:w-1/5 md:w-1/4">
-      <span
-        class="
-          flex flex-col
-          h-40
-          mx-2
-          bg-gray-300
-          lg:h-64
-          md:h-56
-          rounded-t-2xl
-        "
-      ></span>
-      <span class="flex flex-col mx-2 bg-gray-300 rounded-b-2xl">
-        <div class="w-11/12 h-4 m-1 mx-auto bg-gray-100"></div>
-        <div class="w-1/3 h-4 m-1 mx-auto bg-gray-100"></div>
-        <div class="w-1/2 h-4 m-1 mx-auto bg-gray-100"></div>
-      </span>
+
+    <div class="hidden lg:flex flex-col bg-gray-200 animate-pulse">
+      <div class="h-40 md:h-56 lg:h-64 mx-2"></div>
+
+      <div class="flex flex-col p-4">
+        <div class="w-1/2 h-2 sm:h-4 mb-1.5 sm:mb-2.5 bg-gray-100"></div>
+
+        <div class="w-11/12 h-2 sm:h-4 mb-1.5 sm:mb-2.5 bg-gray-100"></div>
+
+        <div class="w-2/3 h-2 sm:h-4 bg-gray-100"></div>
+      </div>
     </div>
-  </VueSlickCarousel>
+  </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      settings: {
-        dots: false,
-        infinite: false,
-        speed: 500,
-        slidesToShow: 5,
-        slidesToScroll: 2,
-        initialSlide: 0,
-        responsive: [
-          {
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 3,
-              infinite: true,
-              dots: false,
-            },
-          },
-          {
-            breakpoint: 600,
-            settings: {
-              centerMode: true,
-              centerPadding: '120px',
-              centerMargin: '20px',
-              slidesToScroll: 1,
-              focusOnSelect: true,
-              infinite: false,
-              slidesToShow: 1,
-            },
-          },
-          {
-            breakpoint: 480,
-            settings: {
-              centerMode: true,
-              centerPadding: '60px',
-              centerMargin: '15px',
-              slidesToScroll: 1,
-              focusOnSelect: true,
-              infinite: false,
-              slidesToShow: 1,
-            },
-          },
-        ],
-      },
-    }
-  },
-}
+export default {}
 </script>

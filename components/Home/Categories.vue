@@ -1,8 +1,5 @@
 <template>
-  <main
-    v-if="categories && categories.count > 0"
-    class="container mx-auto bg-white px-2 sm:px-10 text-gray-700"
-  >
+  <section class="container mx-auto bg-white px-2 sm:px-10 text-gray-700">
     <div class="pb-5 lg:pb-10 flex items-center justify-center space-x-2">
       <hr class="h-1 border-gray-300 flex-1" />
 
@@ -27,9 +24,9 @@
       <hr class="h-1 border-gray-300 flex-1" />
     </div>
 
-    <BagSkelton v-if="loading" />
+    <CategoriesSkeleton v-if="loading" />
 
-    <section v-else>
+    <div v-else-if="categories && categories.count > 0">
       <div
         class="
           grid grid-cols-3
@@ -97,32 +94,36 @@
           </nuxt-link>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 </template>
 
 <script>
-import BagSkelton from '~/components/AllSkeletons/BagSkelton.vue'
 import CATEGORIES from '~/gql/category/categories.gql'
 import NuxtLink from '~/components/NuxtLink.vue'
+import CategoriesSkeleton from '~/components/AllSkeletons/CategoriesSkeleton.vue'
 
 export default {
   components: {
-    BagSkelton,
     NuxtLink,
+    CategoriesSkeleton,
   },
+
   props: {
+    loading: { type: Boolean, default: false },
     categories: { type: Object, default: null },
   },
+
   data() {
     return {
       // categories: null,
-      loading: false,
     }
   },
+
   created() {
     // this.getCategories()
   },
+
   methods: {
     // async getCategories() {
     //   this.loading = true

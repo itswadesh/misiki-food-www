@@ -1,11 +1,12 @@
 <template>
-  <div
-    v-if="banners && banners.length > 0"
-    class="container mx-auto bg-white px-2 sm:px-10 text-gray-700"
-  >
-    <HeroBannerSkeleton v-if="loading" />
+  <div class="container mx-auto bg-white px-2 sm:px-10 text-gray-700">
+    <HeroBannersSkeleton v-if="loading" />
 
-    <div v-for="(b, ix) of banners" :key="ix">
+    <div
+      v-for="(b, ix) of banners"
+      v-else-if="banners && banners.length > 0"
+      :key="ix"
+    >
       <div
         v-if="b._id.title"
         class="pb-5 lg:pb-10 flex items-center justify-center space-x-2"
@@ -157,23 +158,28 @@
 </template>
 
 <script>
-import HeroBannerSkeleton from '~/components/AllSkeletons/HeroBannerSkeleton'
+import HeroBannersSkeleton from '~/components/AllSkeletons/HeroBannersSkeleton'
 import NuxtLink from '~/components/NuxtLink.vue'
 // import BANNERS from '~/gql/banner/banners.gql'
+
 export default {
-  components: { HeroBannerSkeleton, NuxtLink },
+  components: { HeroBannersSkeleton, NuxtLink },
+
   props: {
+    loading: { type: Boolean, default: false },
     banners: { type: Array, default: null },
   },
+
   data() {
     return {
       // banners: null,
-      loading: false,
     }
   },
+
   created() {
     // this.getBanners()
   },
+
   methods: {
     ifUrl(url) {
       if (!url || url === '') return false
@@ -181,6 +187,7 @@ export default {
       const isUrl = pattern.test(url)
       return isUrl
     },
+
     // async getBanners() {
     //   this.loading = true
     //   try {

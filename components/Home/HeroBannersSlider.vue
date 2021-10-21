@@ -1,9 +1,9 @@
 <template>
-  <div
-    v-if="banners && banners.length"
-    class="container mx-auto bg-white sm:px-10 text-gray-700"
-  >
-    <div class="mb-5 relative flex px-2 lg:px-3">
+  <div class="container mx-auto bg-white sm:px-10 text-gray-700">
+    <div
+      v-if="banners && banners.length"
+      class="mb-5 relative flex px-2 lg:px-3"
+    >
       <h3 v-if="title" class="text-base md:text-xl font-medium">{{ title }}</h3>
       <div v-else class="h-6 md:h-8 w-full"></div>
 
@@ -116,7 +116,9 @@ export default {
   components: {
     VueSlickCarousel,
   },
+
   props: {
+    loading: { type: Boolean, default: false },
     title: { type: String, default: '' },
     banners: {
       type: Array,
@@ -125,7 +127,7 @@ export default {
       },
     },
   },
-  // components: { SlideBarSkeleton },
+
   data() {
     return {
       path: null,
@@ -175,14 +177,17 @@ export default {
       },
     }
   },
+
   computed: {
     settings() {
       return this.$store.state.settings || {}
     },
   },
+
   // async created() {
   // await this.getBanners()
   // },
+
   methods: {
     go(url) {
       if (this.ifUrl(url)) window.open(url, '_blank')
@@ -195,13 +200,16 @@ export default {
       const isUrl = pattern.test(url)
       return isUrl
     },
+
     showNext() {
       this.$refs.carousel.next()
     },
+
     showPrev() {
       this.$refs.carousel.prev()
     },
   },
 }
 </script>
+
 <style scoped></style>

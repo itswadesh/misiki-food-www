@@ -1,21 +1,11 @@
 <template>
   <div class="bg-white h-56 md:h-64 lg:h-80 xl:h-96">
-    <div class="flex items-center justify-center">
-      <progress
-        v-if="loading"
-        class="
-          absolute
-          z-10
-          justify-center
-          block
-          m-3
-          material-progress-circular
-        "
-      />
-    </div>
+    <HeroSliderSkeleton v-if="loading" />
+
     <!-- <SlideBarSkeleton v-if="skeleton" /> -->
+
     <VueSlickCarousel
-      v-if="mqBanners && mqBanners.length"
+      v-else-if="mqBanners && mqBanners.length"
       v-bind="settings"
       class="relative focus:outline-none"
     >
@@ -24,6 +14,7 @@
           {{ arrowOption.currentSlide }}/{{ arrowOption.slideCount }}
         </div>
       </template>
+
       <template #nextArrow="arrowOption">
         <div class="invisible custom-arrow md:visible hover:shadow-xl">
           {{ arrowOption.currentSlide }}/{{ arrowOption.slideCount }}
@@ -75,19 +66,23 @@
           alt="Slider Banners"
         />
       </button>
+
       <!-- v-if="loading" -->
     </VueSlickCarousel>
   </div>
 </template>
 
 <script>
-// import SlideBarSkeleton from '~/components/AllSkeletons/SlideBarSkeleton'
+import HeroSliderSkeleton from '~/components/AllSkeletons/HeroSliderSkeleton.vue'
 
 export default {
+  components: { HeroSliderSkeleton },
+
   props: {
+    loading: { type: Boolean, default: false },
     banners: { type: Array, default: null },
   },
-  // components: { SlideBarSkeleton },
+
   data() {
     return {
       settings: {
@@ -134,9 +129,9 @@ export default {
         ],
       },
       skeleton: true,
-      loading: false,
     }
   },
+
   computed: {
     mqBanners() {
       if (this.$mq === 'sm')
@@ -144,9 +139,11 @@ export default {
       else return this.banners && this.banners.filter((b) => !b.isMobile)
     },
   },
+
   // async created() {
   // await this.getBanners()
   // },
+
   methods: {
     go(url) {
       if (this.ifUrl(url)) window.open(url, '_blank')
@@ -162,6 +159,7 @@ export default {
   },
 }
 </script>
+
 <style scoped>
 .custom-arrow {
   height: 80px;
@@ -173,18 +171,23 @@ export default {
   opacity: 0.75;
   z-index: 1;
 }
+
 .slick-prev {
   left: 30px;
 }
+
 .slick-next {
   right: 30px;
 }
+
 .slick-prev:hover {
   background: #777;
 }
+
 .slick-next:hover {
   background: #777;
 }
+
 .slick-prev::before,
 .slick-next::before {
   font-size: 40px;

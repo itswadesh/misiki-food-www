@@ -271,9 +271,53 @@
         </div>
 
         <div class="flex flex-row items-center space-x-4">
-          <nuxt-link v-for="(i, ix) in items" :key="ix" to="##">
-            <img :src="i.img" :alt="i.alt" class="h-4 object-contain" />
-          </nuxt-link>
+          <a
+            v-if="store.facebook != null && store.facebook != ''"
+            :href="store.facebook"
+            target="blank"
+          >
+            <img
+              v-lazy="`/img/social-media/facebook.png?tr=h-16,fo-auto`"
+              alt="facebook"
+              class="h-4 object-contain"
+            />
+          </a>
+
+          <a
+            v-if="store.twitter != null && store.twitter != ''"
+            :href="store.twitter"
+            target="blank"
+          >
+            <img
+              v-lazy="`/img/social-media/twitter.png?tr=h-16,fo-auto`"
+              alt=""
+              class="h-4 object-contain"
+            />
+          </a>
+
+          <a
+            v-if="store.instagram != null && store.instagram != ''"
+            :href="store.instagram"
+            target="blank"
+          >
+            <img
+              v-lazy="`/img/social-media/instagram.png?tr=h-16,fo-auto`"
+              alt=""
+              class="h-4 object-contain"
+            />
+          </a>
+
+          <a
+            v-if="store.linkedin != null && store.linkedin != ''"
+            :href="store.linkedin"
+            target="blank"
+          >
+            <img
+              v-lazy="`/img/social-media/linkedin.png?tr=h-16,fo-auto`"
+              alt=""
+              class="h-4 object-contain"
+            />
+          </a>
         </div>
       </div>
 
@@ -367,15 +411,6 @@ export default {
         { link: '/my/orders', name: 'Contact Seller' },
         { link: '/features', name: 'Features' },
         { link: '/blog', name: 'Blog' },
-      ],
-
-      items: [
-        { img: '/img/social-media/facebook.png', alt: 'facebook' },
-        { img: '/img/social-media/twitter.png', alt: 'twitter' },
-        { img: '/img/social-media/instagram.png', alt: 'instagram' },
-        { img: '/img/social-media/linkedin.png', alt: 'linkedin' },
-        { img: '/img/social-media/pinterest.png', alt: 'pinterest' },
-        { img: '/img/social-media/youtube.png', alt: 'youtube' },
       ],
 
       icons: [

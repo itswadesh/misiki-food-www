@@ -1,82 +1,76 @@
 <template>
-  <div
-    v-if="brands && brands.length"
-    class="
-      container
-      mx-auto
-      flex flex-col
-      md:flex-row md:items-center
-      bg-white
-      px-2
-      sm:px-10
-      text-gray-700
-    "
-  >
-    <h1
-      class="
-        w-full
-        mb-5
-        md:mb-0
-        text-base
-        md:text-lg
-        lg:text-xl
-        antialiased
-        font-semibold
-        tracking-widest
-        text-center
-        transform
-        md:-rotate-90
-        text-secondary-500
-        lg:w-1/6
-        md:w-1/4
-      "
-    >
-      BRANDS
-    </h1>
+  <div class="container mx-auto bg-white px-2 sm:px-10 text-gray-700">
+    <BrandLogoSkeleton v-if="loading" />
 
     <div
-      class="
-        w-full
-        grid grid-cols-3
-        md:grid-cols-4
-        lg:grid-cols-5 lg:w-5/6
-        md:w-3/4
-      "
+      v-else-if="brands && brands.length"
+      class="flex flex-col md:flex-row md:items-center"
     >
-      <div v-for="b in brands" :key="b.id" class="mx-auto">
-        <button class="p-1" @click="go(b.slug)">
-          <img
-            v-if="b.imgCdn"
-            v-lazy="`${b.imgCdn}?tr=h-80,fo-auto`"
-            alt=""
-            class="object-contain h-12 sm:h-20"
-          />
-          <div
-            v-else
-            class="
-              h-12
-              w-12
-              sm:h-20 sm:w-20
-              flex
-              justify-center
-              items-center
-              text-center
-              my-auto
-              text-primary-500
-              font-semibold
-              rounded-full
-              border-2 border-primary-500
-              text-2xl
-              focus:outline-none focus:ring-0 focus:ring-offset-0
-            "
-          >
-            {{ b.name | first }}
-          </div>
-        </button>
-      </div>
-    </div>
+      <h1
+        class="
+          w-full
+          mb-5
+          md:mb-0
+          text-base
+          md:text-lg
+          lg:text-xl
+          antialiased
+          font-semibold
+          tracking-widest
+          text-center
+          transform
+          md:-rotate-90
+          text-secondary-500
+          lg:w-1/6
+          md:w-1/4
+        "
+      >
+        BRANDS
+      </h1>
 
-    <!-- <div class="bg-yellow-300 md:hidden" v-if="brands && brands.data && brands.data.length">
+      <div
+        class="
+          w-full
+          grid grid-cols-3
+          md:grid-cols-4
+          lg:grid-cols-5 lg:w-5/6
+          md:w-3/4
+        "
+      >
+        <div v-for="b in brands" :key="b.id" class="mx-auto">
+          <button class="p-1" @click="go(b.slug)">
+            <img
+              v-if="b.imgCdn"
+              v-lazy="`${b.imgCdn}?tr=h-80,fo-auto`"
+              alt=""
+              class="object-contain h-12 sm:h-20"
+            />
+            <div
+              v-else
+              class="
+                h-12
+                w-12
+                sm:h-20 sm:w-20
+                flex
+                justify-center
+                items-center
+                text-center
+                my-auto
+                text-primary-500
+                font-semibold
+                rounded-full
+                border-2 border-primary-500
+                text-2xl
+                focus:outline-none focus:ring-0 focus:ring-offset-0
+              "
+            >
+              {{ b.name | first }}
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- <div class="bg-yellow-300 md:hidden" v-if="brands && brands.data && brands.data.length">
       <VueSlickCarousel
         v-bind="settings"
         class=" focus:outline-none"
@@ -94,17 +88,23 @@
         </nuxt-link>
       </VueSlickCarousel>
     </div> -->
+    </div>
   </div>
 </template>
 
 <script>
 // import BRANDS from '~/gql/brand/brands.gql'
+import BrandLogoSkeleton from '~/components/AllSkeletons/BrandLogoSkeleton.vue'
 
 export default {
+  components: { BrandLogoSkeleton },
+
   props: {
+    loading: { type: Boolean, default: false },
     ishome: { type: Boolean, default: false },
     brands: { type: Array, default: null },
   },
+
   data() {
     return {
       settings: {

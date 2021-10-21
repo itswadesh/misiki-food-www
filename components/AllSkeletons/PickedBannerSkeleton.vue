@@ -1,0 +1,63 @@
+<template>
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-5">
+    <div
+      class="
+        w-auto
+        col-span-1
+        bg-gray-200
+        rounded
+        h-56
+        md:h-64
+        lg:h-80
+        xl:h-96
+        animate-pulse
+      "
+    ></div>
+
+    <div
+      class="
+        w-auto
+        col-span-1
+        bg-gray-200
+        rounded
+        h-56
+        md:h-64
+        lg:h-80
+        xl:h-96
+        animate-pulse
+      "
+    ></div>
+
+    <div
+      class="
+        hidden
+        sm:block
+        w-auto
+        col-span-1
+        bg-gray-200
+        rounded
+        h-56
+        md:h-64
+        lg:h-80
+        xl:h-96
+        animate-pulse
+      "
+    ></div>
+
+    <div
+      class="
+        hidden
+        md:block
+        w-auto
+        col-span-1
+        bg-gray-200
+        rounded
+        h-56
+        md:h-64
+        lg:h-80
+        xl:h-96
+        animate-pulse
+      "
+    ></div>
+  </div>
+</template>

@@ -1,5 +1,5 @@
 <template>
-  <main v-if="details && details.length" class="bg-white text-gray-700">
+  <section class="bg-white text-gray-700">
     <div class="pb-5 md:pb-10 flex items-center justify-center space-x-2">
       <hr class="h-1 border-gray-300 flex-1" />
 
@@ -24,7 +24,9 @@
       <hr class="h-1 border-gray-300 flex-1" />
     </div>
 
-    <section>
+    <ProductSliderSkeleton v-if="loading" />
+
+    <div v-else-if="details">
       <!-- Above 1024px  -->
 
       <div class="hidden lg:block">
@@ -208,13 +210,13 @@
           />
         </div>
       </CleanModal>
-    </section>
-  </main>
+    </div>
+  </section>
 </template>
 
 <script>
 import HomePageProduct from '~/components/Home/HomePageProduct.vue'
-// import ProductSliderSkeleton from '~/components/AllSkeletons/ProductSliderSkeleton'
+import ProductSliderSkeleton from '~/components/AllSkeletons/ProductSliderSkeleton'
 import CleanModal from '~/shared/components/ui/CleanModal.vue'
 import ProductImages from '~/components/ProductDetails/ProductImages.vue'
 import AddToCart from '~/components/ProductDetails/AddToCart.vue'
@@ -224,7 +226,7 @@ import QuickView from '~/components/QuickView.vue'
 
 export default {
   components: {
-    // ProductSliderSkeleton,
+    ProductSliderSkeleton,
     HomePageProduct,
     CleanModal,
     ProductImages,
@@ -235,6 +237,10 @@ export default {
   },
 
   props: {
+    loading: {
+      type: Boolean,
+      default: false,
+    },
     details: {
       type: Array,
       default: () => [],
@@ -247,7 +253,6 @@ export default {
 
   data() {
     return {
-      loading: false,
       openQuickView: false,
       quickViewProduct: null,
       settings: {

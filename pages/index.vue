@@ -1,31 +1,59 @@
 <template>
   <div class="bg-white">
-    <HeroSlider :banners="sliderBanners" class="mb-5 md:mb-10" />
+    <HeroSlider
+      :banners="sliderBanners"
+      :loading="loading"
+      class="mb-5 md:mb-10"
+    />
 
     <div class="container mx-auto">
       <Categories
         :categories="shopByCategory"
+        :loading="loading"
         class="px-2 sm:px-10 mb-5 md:mb-10"
       />
 
-      <HeroBanners :banners="heroBanners" class="px-2 sm:px-10 mb-5 md:mb-10" />
+      <HeroBanners
+        :banners="heroBanners"
+        :loading="loading"
+        class="px-2 sm:px-10 mb-5 md:mb-10"
+      />
 
       <Deals class="px-2 sm:px-10 mb-5 md:mb-10" />
 
-      <div
-        v-for="(p, ix) in pickedBanners"
-        v-if="pickedBanners && pickedBanners.length"
-        :key="ix"
-      >
-        <HeroBannersSlider
-          :banners="p && p.data"
-          :title="p._id && p._id.title"
-          class="sm:px-10 lg:px-7 mb-5 md:mb-10"
+      <div>
+        <PickedBannerSkeleton
+          v-if="loading"
+          class="container mx-auto sm:px-10 lg:px-7 mb-5 md:mb-10"
         />
+
+        <PickedBannerSkeleton
+          v-if="loading"
+          class="container mx-auto sm:px-10 lg:px-7 mb-5 md:mb-10"
+        />
+
+        <PickedBannerSkeleton
+          v-if="loading"
+          class="container mx-auto sm:px-10 lg:px-7 mb-5 md:mb-10"
+        />
+
+        <div
+          v-for="(p, ix) in pickedBanners"
+          :key="ix"
+          v-elseif="pickedBanners && pickedBanners.length"
+        >
+          <HeroBannersSlider
+            :banners="p && p.data"
+            :title="p._id && p._id.title"
+            :loading="loading"
+            class="sm:px-10 lg:px-7 mb-5 md:mb-10"
+          />
+        </div>
       </div>
 
       <ProductSlider
         :details="youMayLikeProducts"
+        :loading="loading"
         :pg="pg"
         :heading="'You May Like'"
         class="mb-5 md:mb-10 ps-2 sm:ps-10 lg:pe-10"
@@ -33,6 +61,7 @@
 
       <ProductSlider
         :details="hotProducts"
+        :loading="loading"
         :pg="pg"
         :heading="'Trending'"
         class="mb-5 md:mb-10 ps-2 sm:ps-10 lg:pe-10"
@@ -40,11 +69,14 @@
 
       <VideoBanner
         :banners="videoBanners"
+        :loading="loading"
         class="px-2 sm:px-10 mb-5 md:mb-10"
       />
+
       <BrandBanners
         :ishome="true"
         :brands="brandBanners && brandBanners.data"
+        :loading="loading"
         class="px-2 sm:px-10 mb-5 md:mb-10"
       />
     </div>
@@ -69,6 +101,7 @@ import ProductSlider from '~/components/Home/ProductSlider.vue'
 import BrandBanners from '~/components/Home/BrandBanners.vue'
 import HeroBannersSlider from '~/components/Home/HeroBannersSlider.vue'
 import VideoBanner from '~/components/Home/VideoBanner.vue'
+import PickedBannerSkeleton from '~/components/AllSkeletons/PickedBannerSkeleton'
 import HOME from '~/gql/groupQueries/HOME.gql'
 import TRENDING from '~/gql/product/trending.gql'
 import BANNERS from '~/gql/banner/banners.gql'
@@ -89,6 +122,7 @@ export default {
     BrandBanners,
     // Discounts,
     VideoBanner,
+    PickedBannerSkeleton,
   },
 
   layout: 'home',
@@ -112,6 +146,7 @@ export default {
       sliderBanners: null,
       heroBanners: null,
       videoBanners: null,
+      loading: false,
       loadingVideoBanners: false,
       pickedBanners: null,
       shopByCategory: null,
@@ -182,6 +217,7 @@ export default {
     user() {
       return this.$store.state.auth.user
     },
+
     store() {
       return this.$store.state.store || {}
     },
@@ -198,9 +234,11 @@ export default {
   mounted() {
     window.addEventListener('scroll', this.scrollListener)
   },
+
   methods: {
     async getAllRecommendations() {
       try {
+        this.loading = true
         const productDetailRecommendations = (
           await this.$apollo.query({
             query: HOME,
@@ -229,11 +267,14 @@ export default {
         this.pg = productDetailRecommendations.pg
       } catch (e) {
         console.log('err...........', e)
+      } finally {
+        this.loading = false
       }
     },
+
     async getBrands() {
-      // this.loading = true
       try {
+        this.loading = true
         this.brandBanners = await this.$get('brand/brands', {
           parent: null,
           limit: 30,
@@ -257,7 +298,7 @@ export default {
       } catch (e) {
         // console.log(e)
       } finally {
-        // this.loading = false
+        this.loading = false
       }
     },
     // async getBanners() {
