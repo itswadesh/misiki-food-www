@@ -1,40 +1,40 @@
 <template>
-  <div>
-    <div>
-      <main in:fadeIn out:fadeOut class="bg-gray-100 mt-18">
-        <div class="p-12 pattern">
-          <h1
-            class="
-              items-center
-              my-2
-              text-xl
-              font-hairline
-              text-gray-700
-              font-bold
-            "
-          >
-            <span class="text-3xl font-bold">{{ posts.count }}</span>
-            awesome collection of posts
-          </h1>
-          <h2>About furnitures and manufacturing</h2>
-        </div>
-        <div
-          v-if="posts && posts.data"
-          class="container flex flex-wrap justify-center m-2 mx-auto"
+  <section>
+    <Megamenu class="hidden lg:flex px-10" />
+
+    <main in:fadeIn out:fadeOut class="bg-gray-100 mt-18">
+      <div class="p-12 pattern">
+        <h1
+          class="
+            items-center
+            my-2
+            text-xl
+            font-hairline
+            text-gray-700
+            font-bold
+          "
         >
-          <div v-for="post in posts.data" :key="post.id">
-            <BlogPostGrid :post="post" />
-          </div>
-          <Pagination
-            class="mt-5"
-            :count="noOfPages"
-            :current="parseInt($route.query.page || 1)"
-            @change="changePage"
-          />
+          <span class="text-3xl font-bold">{{ posts.count }}</span>
+          awesome collection of posts
+        </h1>
+        <h2>About furnitures and manufacturing</h2>
+      </div>
+      <div
+        v-if="posts && posts.data"
+        class="container flex flex-wrap justify-center m-2 mx-auto"
+      >
+        <div v-for="post in posts.data" :key="post.id">
+          <BlogPostGrid :post="post" />
         </div>
-      </main>
-    </div>
-  </div>
+        <Pagination
+          class="mt-5"
+          :count="noOfPages"
+          :current="parseInt($route.query.page || 1)"
+          @change="changePage"
+        />
+      </div>
+    </main>
+  </section>
 </template>
 <script>
 import BLOGS from '~/gql/blog/blogs.gql'
@@ -42,12 +42,10 @@ import c from '~/mixins/c.js'
 import { DESCRIPTION, KEYWORDS } from '~/shared/config'
 import Pagination from '~/shared/components/ui/Pagination.vue'
 import BlogPostGrid from '~/components/Blog/BlogPostGrid.vue'
+import Megamenu from '~/components/Home/Megamenu.vue'
 
 export default {
-  components: {
-    Pagination,
-    BlogPostGrid,
-  },
+  components: { Megamenu, Pagination, BlogPostGrid },
 
   mixins: [c],
 

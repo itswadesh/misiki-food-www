@@ -1,5 +1,7 @@
 <template>
   <section class="bg-white min-h-screen">
+    <Megamenu class="hidden lg:flex px-10" />
+
     <div
       class="
         container
@@ -40,14 +42,12 @@
 </template>
 
 <script>
+import Megamenu from '~/components/Home/Megamenu.vue'
 import WantMore from '~/components/Island/WantMore.vue'
 import WhiteFooter from '~/components/Island/WhiteFooter.vue'
 
 export default {
-  components: {
-    WantMore,
-    WhiteFooter,
-  },
+  components: { Megamenu, WantMore, WhiteFooter },
 
   data() {
     return {

@@ -1,5 +1,7 @@
 <template>
-  <div class="bg-gray-50">
+  <section class="bg-gray-50">
+    <Megamenu class="hidden lg:flex px-10" />
+
     <div class="m-2 text-gray-500 bg-white rounded shadow">
       <div class="flex flex-col justify-between md:flex-row">
         <h1 class="p-4 my-auto text-2xl font-medium md:ms-5">
@@ -117,17 +119,18 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
+import Megamenu from '~/components/Home/Megamenu.vue'
 import REVIEW from '~/gql/review/saveReview.gql'
 import PRODUCT from '~/gql/product/product.gql'
 import { StarRating } from '~/shared/components/ui'
 
 export default {
-  components: { StarRating },
+  components: { Megamenu, StarRating },
   middleware: ['isAuth'],
   data() {
     return {

@@ -1,68 +1,74 @@
 <template>
-  <div class="pt-8 container mx-auto prose">
-    <div v-if="post" class="w-full p-4 pt-0">
-      <h1 class="mt-0 text-4xl font-black leading-tight lg:text-5xl">
-        {{ post.title }}
-      </h1>
-      <div class="flex items-center text-xs author lg:text-sm">
+  <section>
+    <Megamenu class="hidden lg:flex px-10" />
+
+    <div class="pt-8 container mx-auto prose">
+      <div v-if="post" class="w-full p-4 pt-0">
+        <h1 class="mt-0 text-4xl font-black leading-tight lg:text-5xl">
+          {{ post.title }}
+        </h1>
+        <div class="flex items-center text-xs author lg:text-sm">
+          <img
+            v-lazy="`${post.user.avatar}?tr=w-64,h-64,fo-auto`"
+            class="hidden object-cover w-16 h-16 me-4 rounded-full md:block"
+            alt=""
+          />
+          <div class="mx-2 font-bold tracking-wide">
+            {{ post.user.firstName }} {{ post.user.lastName }}
+          </div>
+          <div class="mx-2 text-gray-700">{{ post.updatedAt | date }}</div>
+        </div>
         <img
-          v-lazy="`${post.user.avatar}?tr=w-64,h-64,fo-auto`"
-          class="hidden object-cover w-16 h-16 me-4 rounded-full md:block"
+          v-lazy="`${post.imgCdn}?tr=h-192,fo-auto`"
+          class="object-cover h-48 w-full my-4"
           alt=""
         />
-        <div class="mx-2 font-bold tracking-wide">
-          {{ post.user.firstName }} {{ post.user.lastName }}
+        <div>
+          <div v-html="post.content" />
         </div>
-        <div class="mx-2 text-gray-700">{{ post.updatedAt | date }}</div>
-      </div>
-      <img
-        v-lazy="`${post.imgCdn}?tr=h-192,fo-auto`"
-        class="object-cover h-48 w-full my-4"
-        alt=""
-      />
-      <div>
-        <div v-html="post.content" />
-      </div>
-      <div class="w-full px-4">
-        <div class="ms-0 lg:ms-4">
-          <div class="px-4 py-4 text-center pattern">
-            <h3 class="my-0 text-3xl font-bold">Latest Posts</h3>
-          </div>
-          <ul v-if="latestPosts">
-            <li
-              v-for="(i, ix) in latestPosts.data"
-              :key="ix"
-              class="py-4 text-gray-800 border-b"
-            >
-              <nuxt-link
-                rel="prefetch"
-                :to="`/blog/${i.slug}`"
-                :title="i.name"
-                class="flex items-center"
+        <div class="w-full px-4">
+          <div class="ms-0 lg:ms-4">
+            <div class="px-4 py-4 text-center pattern">
+              <h3 class="my-0 text-3xl font-bold">Latest Posts</h3>
+            </div>
+            <ul v-if="latestPosts">
+              <li
+                v-for="(i, ix) in latestPosts.data"
+                :key="ix"
+                class="py-4 text-gray-800 border-b"
               >
-                <img
-                  v-lazy="`${i.imgCdn}?tr=w-64,h-64,fo-auto`"
-                  class="w-16 h-16 me-2 rounded"
-                  alt="{i.name}"
-                />
-                <span class="font-semibold">{{ i.title }}</span>
-              </nuxt-link>
-            </li>
-          </ul>
+                <nuxt-link
+                  rel="prefetch"
+                  :to="`/blog/${i.slug}`"
+                  :title="i.name"
+                  class="flex items-center"
+                >
+                  <img
+                    v-lazy="`${i.imgCdn}?tr=w-64,h-64,fo-auto`"
+                    class="w-16 h-16 me-2 rounded"
+                    alt="{i.name}"
+                  />
+                  <span class="font-semibold">{{ i.title }}</span>
+                </nuxt-link>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
 import BLOGS from '~/gql/blog/blogs.gql'
 import BLOG from '~/gql/blog/blog.gql'
 import NuxtLink from '~/components/NuxtLink.vue'
+import Megamenu from '~/components/Home/Megamenu.vue'
 
 export default {
   components: {
     NuxtLink,
+    Megamenu,
   },
   async asyncData({ route, query, params, $axios, app, store }) {
     let post = null

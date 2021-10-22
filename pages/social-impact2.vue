@@ -1,5 +1,7 @@
 <template>
   <section class="text-gray-800">
+    <Megamenu class="hidden lg:flex px-10" />
+
     <div class="mb-5 sm:mb-10 relative">
       <img
         v-lazy="
@@ -450,7 +452,13 @@
 </template>
 
 <script>
-export default {}
+import Megamenu from '~/components/Home/Megamenu.vue'
+
+export default {
+  components: {
+    Megamenu,
+  },
+}
 </script>
 
 <style scoped>

@@ -1,5 +1,7 @@
 <template>
   <section class="text-gray-800">
+    <Megamenu class="hidden lg:flex px-10" />
+
     <div class="container max-w-5xl mx-auto px-4 md:px-10 lg:px-16">
       <h1
         class="
@@ -105,12 +107,11 @@
 </template>
 
 <script>
+import Megamenu from '~/components/Home/Megamenu.vue'
 import WantMore from '~/components/Island/WantMore.vue'
 
 export default {
-  components: {
-    WantMore,
-  },
+  components: { Megamenu, WantMore },
 
   data() {
     return {

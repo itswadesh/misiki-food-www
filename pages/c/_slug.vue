@@ -1,79 +1,82 @@
 <template>
-  <section class="container mx-auto">
-    <MobileFilters
-      class="sticky top-0 z-20 flex-none mt-16 lg:hidden"
-      :count="productCount"
-      :facets="facets"
-      :fl="fl"
-      @showFilter="showMobileFilter = true"
-      @hide="showMobileFilter = false"
-    />
+  <section>
+    <Megamenu class="hidden lg:flex px-10" />
 
-    <div class="flex">
-      <DesktopFilters
-        class="sticky top-0 hidden lg:block"
+    <div class="container mx-auto">
+      <MobileFilters
+        class="sticky top-0 z-20 flex-none mt-16 lg:hidden"
+        :count="productCount"
         :facets="facets"
         :fl="fl"
-        @clearAllFilters="clearAllFilters"
+        @showFilter="showMobileFilter = true"
+        @hide="showMobileFilter = false"
       />
 
-      <div class="w-full">
-        <HeaderBody
-          class="hidden lg:block"
-          :category="category"
-          :count="productCount"
+      <div class="flex">
+        <DesktopFilters
+          class="sticky top-0 hidden lg:block"
+          :facets="facets"
           :fl="fl"
-          @removed="facetRemoved"
-          @showFilters="showMobileFilter = true"
+          @clearAllFilters="clearAllFilters"
         />
 
-        <!-- <ProductSkeleton /> -->
+        <div class="w-full">
+          <HeaderBody
+            class="hidden lg:block"
+            :category="category"
+            :count="productCount"
+            :fl="fl"
+            @removed="facetRemoved"
+            @showFilters="showMobileFilter = true"
+          />
 
-        <div>
-          <div
-            v-if="$fetchState.pending"
-            class="
-              md:p-4
-              grid grid-cols-2
-              md:gap-4
-              sm:grid-cols-3
-              xl:grid-cols-4
-              2xl:grid-cols-5
-            "
-          >
-            <ProductSkeleton v-for="(p, ix) in 30" :key="ix + '-1'" />
-          </div>
+          <!-- <ProductSkeleton /> -->
 
-          <p v-else-if="$fetchState.error" class="p-5 sm:p-10 text-center">
-            Error while fetching products
-          </p>
+          <div>
+            <div
+              v-if="$fetchState.pending"
+              class="
+                md:p-4
+                grid grid-cols-2
+                md:gap-4
+                sm:grid-cols-3
+                xl:grid-cols-4
+                2xl:grid-cols-5
+              "
+            >
+              <ProductSkeleton v-for="(p, ix) in 30" :key="ix + '-1'" />
+            </div>
 
-          <div
-            v-else-if="products && products.length > 0"
-            class="
-              md:p-4
-              grid grid-cols-2
-              md:gap-4
-              sm:grid-cols-3
-              xl:grid-cols-4
-              2xl:grid-cols-5
-            "
-          >
-            <HomePageProduct
-              v-for="(p, ix) in products"
-              :key="ix"
-              :quickview="false"
-              class="slide-up-item"
-              :product="p._source"
-              :pid="p._id"
-            />
-          </div>
+            <p v-else-if="$fetchState.error" class="p-5 sm:p-10 text-center">
+              Error while fetching products
+            </p>
 
-          <NoProduct v-else />
+            <div
+              v-else-if="products && products.length > 0"
+              class="
+                md:p-4
+                grid grid-cols-2
+                md:gap-4
+                sm:grid-cols-3
+                xl:grid-cols-4
+                2xl:grid-cols-5
+              "
+            >
+              <HomePageProduct
+                v-for="(p, ix) in products"
+                :key="ix"
+                :quickview="false"
+                class="slide-up-item"
+                :product="p._source"
+                :pid="p._id"
+              />
+            </div>
 
-          <!-- <infinite-loading @infinite="loadMore($route.query.page)"></infinite-loading> -->
+            <NoProduct v-else />
 
-          <!-- <div class="pagination_box">
+            <!-- <infinite-loading @infinite="loadMore($route.query.page)"></infinite-loading> -->
+
+            <!-- <div class="pagination_box">
             <v-pagination
               v-if="noOfPages>1"
               v-model="currentPage"
@@ -84,22 +87,24 @@
               :labels="paginationAnchorTexts"
             ></v-pagination>     
           </div>-->
+          </div>
+
+          <Pagination
+            class="mt-5"
+            :count="noOfPages"
+            :current="parseInt($route.query.page || 1)"
+            @change="changePage"
+          />
         </div>
-
-        <Pagination
-          class="mt-5"
-          :count="noOfPages"
-          :current="parseInt($route.query.page || 1)"
-          @change="changePage"
-        />
       </div>
-    </div>
 
-    <!-- <RightSideBar /> -->
+      <!-- <RightSideBar /> -->
+    </div>
   </section>
 </template>
 
 <script>
+import Megamenu from '~/components/Home/Megamenu.vue'
 import CATEGORY from '~/gql/category/category.gql'
 import c from '~/mixins/c.js'
 import { DESCRIPTION, KEYWORDS } from '~/shared/config'
@@ -111,6 +116,7 @@ import Pagination from '~/shared/components/ui/Pagination.vue'
 
 export default {
   components: {
+    Megamenu,
     Pagination,
     ProductSkeleton,
     HomePageProduct,

@@ -1,5 +1,7 @@
 <template>
   <section class="bg-white min-h-screen">
+    <Megamenu class="hidden lg:flex px-10" />
+
     <div
       class="
         container
@@ -405,16 +407,13 @@
 </template>
 
 <script>
+import Megamenu from '~/components/Home/Megamenu.vue'
 import GallerySlider from '~/components/Island/GallerySlider.vue'
 import WantMore from '~/components/Island/WantMore.vue'
 import WhiteFooter from '~/components/Island/WhiteFooter.vue'
 
 export default {
-  components: {
-    GallerySlider,
-    WantMore,
-    WhiteFooter,
-  },
+  components: { Megamenu, GallerySlider, WantMore, WhiteFooter },
 
   layout: 'none',
 

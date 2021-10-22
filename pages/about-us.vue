@@ -1,5 +1,7 @@
 <template>
-  <main>
+  <section>
+    <Megamenu class="hidden lg:flex px-10" />
+
     <div
       class="
         flex
@@ -318,17 +320,18 @@
         </VueSlickCarousel>
       </div>
     </div>
-  </main>
+  </section>
 </template>
 
 <script>
 import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+import Megamenu from '~/components/Home/Megamenu.vue'
 import NuxtLink from '~/components/NuxtLink.vue'
 export default {
   name: 'MyComponent',
-  components: { VueSlickCarousel, NuxtLink },
+  components: { VueSlickCarousel, Megamenu, NuxtLink },
   data() {
     return {
       settings: {

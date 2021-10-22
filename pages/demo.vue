@@ -1,5 +1,7 @@
 <template>
   <div>
+    <Megamenu class="hidden lg:flex px-10" />
+
     <div class="w-full p-8 mx-auto md:w-3/5">
       <p>Open <strong>multiple</strong></p>
       <div class="shadow-md">
@@ -42,7 +44,13 @@
 </template>
 
 <script>
+import Megamenu from '~/components/Home/Megamenu.vue'
+
 export default {
+  components: {
+    Megamenu,
+  },
+
   head() {
     return {
       title: 'Demo',

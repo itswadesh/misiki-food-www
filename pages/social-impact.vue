@@ -1,198 +1,209 @@
 <template>
-  <section class="sm:pb-20 text-gray-800">
-    <div class="mb-5 sm:mb-10 relative">
-      <img
-        v-lazy="
-          `https://res.cloudinary.com/anne-biz/image/upload/v1632710825/social-impact/s1_zwxpgt.png?tr=h-384,fo-auto`
-        "
-        alt=" "
-        class="h-80 sm:h-96 w-full object-cover"
-      />
+  <section>
+    <Megamenu class="hidden lg:flex px-10" />
 
-      <div
-        class="
-          absolute
-          inset-0
-          bg-black bg-opacity-50
-          flex
-          items-center
-          justify-center
-        "
-      >
-        <h1
+    <div class="sm:pb-20 text-gray-800">
+      <div class="mb-5 sm:mb-10 relative">
+        <img
+          v-lazy="
+            `https://res.cloudinary.com/anne-biz/image/upload/v1632710825/social-impact/s1_zwxpgt.png?tr=h-384,fo-auto`
+          "
+          alt=" "
+          class="h-80 sm:h-96 w-full object-cover"
+        />
+
+        <div
           class="
-            text-white
-            font-bold
-            tracking-widest
-            text-2xl
-            sm:text-4xl
-            text-center
+            absolute
+            inset-0
+            bg-black bg-opacity-50
+            flex
+            items-center
+            justify-center
           "
         >
-          Social Impact
-        </h1>
-      </div>
-    </div>
-
-    <div class="container mx-auto max-w-7xl px-2 sm:px-10">
-      <div class="mb-5 sm:mb-10 sm:text-center space-y-2.5 sm:space-y-5">
-        <h4 class="mb-5 sm:mb-10 text-xl sm:text-3xl tracking-wide font-bold">
-          Cambodia The Kingdom of Wonder!
-        </h4>
-
-        <p>
-          The history of Cambodian art stretches back centuries to ancient
-          pottery, silk weaving, and stone carving. The height of Khmer art
-          occurred during the Angkor period; much of the era's stone carving and
-          architecture survives to the present. In pre-colonial Cambodia, art
-          and crafts were generally produced either by rural non-specialists for
-          practical use or by skilled artists producing works for the Royal
-          Palace. In modern Cambodia, many artistic traditions entered a period
-          of decline or even ceased to be practiced, but the country has
-          experienced a recent artistic revival as the tourist market has
-          increased and governments and NGOs have contributed to the
-          preservation of Cambodian culture.
-        </p>
-
-        <p>
-          HANDMADE history from local to international with each product you
-          purchase at <b>Anne.biz</b> will help contribute to a positive impact
-          and change in the local community. The local artisans will feel a
-          sense of great pride when putting in their effort, commitment and time
-          to create these magnificent products. Also, this will help support
-          their traditional craft skills as a means of employment, help to
-          generate income and economic self-sufficiency with this positive
-          change. <b>Anne.biz</b> try to empower local artisan to participate in
-          global marketplace and also create sustainable livelihood by using
-          nature resource in their respective village. Also, this will help
-          support their traditional craft skills as a means of employment, help
-          to generate income and economic self-sufficiency with this positive
-          change. <b>Anne.biz</b> try to empower local artisan to participate in
-          global marketplace and also create sustainable livelihood by using
-          nature resource in their respective village.
-        </p>
+          <h1
+            class="
+              text-white
+              font-bold
+              tracking-widest
+              text-2xl
+              sm:text-4xl
+              text-center
+            "
+          >
+            Social Impact
+          </h1>
+        </div>
       </div>
 
-      <div class="mb-5 sm:mb-10 space-y-2.5 sm:space-y-5 sm:text-center">
-        <h5 class="text-lg sm:text-xl tracking-wide font-bold">
-          CRAFT COMMUNITY
-        </h5>
+      <div class="container mx-auto max-w-7xl px-2 sm:px-10">
+        <div class="mb-5 sm:mb-10 sm:text-center space-y-2.5 sm:space-y-5">
+          <h4 class="mb-5 sm:mb-10 text-xl sm:text-3xl tracking-wide font-bold">
+            Cambodia The Kingdom of Wonder!
+          </h4>
 
-        <p>
-          CRAFT COMMUNITY The local community is present in every province in
-          the Kingdom. They have gained generations of knowledge and experience
-          to help perfect their techniques and skills to weave and to dye
-          fabrics by using natural resources such as indigo flowers, mud and
-          more…
-        </p>
-      </div>
+          <p>
+            The history of Cambodian art stretches back centuries to ancient
+            pottery, silk weaving, and stone carving. The height of Khmer art
+            occurred during the Angkor period; much of the era's stone carving
+            and architecture survives to the present. In pre-colonial Cambodia,
+            art and crafts were generally produced either by rural
+            non-specialists for practical use or by skilled artists producing
+            works for the Royal Palace. In modern Cambodia, many artistic
+            traditions entered a period of decline or even ceased to be
+            practiced, but the country has experienced a recent artistic revival
+            as the tourist market has increased and governments and NGOs have
+            contributed to the preservation of Cambodian culture.
+          </p>
 
-      <div
-        v-for="(i, ix) in items"
-        :key="ix"
-        rel="prefetch"
-        class="
-          flex flex-col-reverse
-          lg:flex-row
-          justify-center
-          lg:justify-between
-          mb-10
-          md:mb-20
-        "
-      >
-        <!-- Image section start  -->
-
-        <div
-          class="w-full lg:w-1/2"
-          :class="ix % 2 === 0 ? 'lg:pe-5' : 'lg:order-1 lg:ps-5'"
-        >
-          <div v-if="i.imgCdn2" class="grid grid-rows-2 gap-2.5 sm:gap-5">
-            <img
-              v-lazy="i.imgCdn1"
-              alt=" "
-              class="sm:h-96 object-contain sm:object-cover w-full"
-            />
-
-            <img
-              v-lazy="i.imgCdn2"
-              alt=" "
-              class="sm:h-96 object-contain sm:object-cover w-full"
-            />
-          </div>
-
-          <div v-else>
-            <img
-              v-lazy="i.imgCdn1"
-              alt=" "
-              class="sm:h-96 object-contain sm:object-cover"
-            />
-          </div>
+          <p>
+            HANDMADE history from local to international with each product you
+            purchase at <b>Anne.biz</b> will help contribute to a positive
+            impact and change in the local community. The local artisans will
+            feel a sense of great pride when putting in their effort, commitment
+            and time to create these magnificent products. Also, this will help
+            support their traditional craft skills as a means of employment,
+            help to generate income and economic self-sufficiency with this
+            positive change. <b>Anne.biz</b> try to empower local artisan to
+            participate in global marketplace and also create sustainable
+            livelihood by using nature resource in their respective village.
+            Also, this will help support their traditional craft skills as a
+            means of employment, help to generate income and economic
+            self-sufficiency with this positive change. <b>Anne.biz</b> try to
+            empower local artisan to participate in global marketplace and also
+            create sustainable livelihood by using nature resource in their
+            respective village.
+          </p>
         </div>
 
-        <!-- Image section end -->
+        <div class="mb-5 sm:mb-10 space-y-2.5 sm:space-y-5 sm:text-center">
+          <h5 class="text-lg sm:text-xl tracking-wide font-bold">
+            CRAFT COMMUNITY
+          </h5>
 
-        <!-- Data section start  -->
-
-        <div
-          class="w-full lg:w-1/2"
-          :class="ix % 2 === 0 ? 'lg:ps-5 lg:order-2 ' : 'lg:pe-5'"
-        >
-          <div class="flex flex-col space-y-4 text-left leading-loose">
-            <h5>{{ i.heading }}</h5>
-
-            <div class="text-sm leading-loose" v-html="i.data"></div>
-          </div>
+          <p>
+            CRAFT COMMUNITY The local community is present in every province in
+            the Kingdom. They have gained generations of knowledge and
+            experience to help perfect their techniques and skills to weave and
+            to dye fabrics by using natural resources such as indigo flowers,
+            mud and more…
+          </p>
         </div>
 
-        <!-- Data section end -->
+        <div
+          v-for="(i, ix) in items"
+          :key="ix"
+          rel="prefetch"
+          class="
+            flex flex-col-reverse
+            lg:flex-row
+            justify-center
+            lg:justify-between
+            mb-10
+            md:mb-20
+          "
+        >
+          <!-- Image section start  -->
+
+          <div
+            class="w-full lg:w-1/2"
+            :class="ix % 2 === 0 ? 'lg:pe-5' : 'lg:order-1 lg:ps-5'"
+          >
+            <div v-if="i.imgCdn2" class="grid grid-rows-2 gap-2.5 sm:gap-5">
+              <img
+                v-lazy="i.imgCdn1"
+                alt=" "
+                class="sm:h-96 object-contain sm:object-cover w-full"
+              />
+
+              <img
+                v-lazy="i.imgCdn2"
+                alt=" "
+                class="sm:h-96 object-contain sm:object-cover w-full"
+              />
+            </div>
+
+            <div v-else>
+              <img
+                v-lazy="i.imgCdn1"
+                alt=" "
+                class="sm:h-96 object-contain sm:object-cover"
+              />
+            </div>
+          </div>
+
+          <!-- Image section end -->
+
+          <!-- Data section start  -->
+
+          <div
+            class="w-full lg:w-1/2"
+            :class="ix % 2 === 0 ? 'lg:ps-5 lg:order-2 ' : 'lg:pe-5'"
+          >
+            <div class="flex flex-col space-y-4 text-left leading-loose">
+              <h5>{{ i.heading }}</h5>
+
+              <div class="text-sm leading-loose" v-html="i.data"></div>
+            </div>
+          </div>
+
+          <!-- Data section end -->
+        </div>
+
+        <ul
+          class="
+            mb-5
+            sm:mb-10
+            space-y-2.5
+            sm:space-y-5
+            text-gray-500
+            sm:text-center
+          "
+        >
+          <li>
+            <p>
+              At <b>Anne.biz</b> we emphasize in empowering Cambodian local
+              artisan and alleviate the poverty in local area by creating
+              sustainable livelihood in their respective village and using their
+              nature resources and also creating the opportunity for foreign
+              customer to entry fair trade and crafted product which has
+              beautiful background story behind it.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Moreover, we have developed the platform to make it easier for
+              Cambodian local artisan in communicating, developing skills and
+              working with us. For price, we emphasize fair trade systems by
+              asking price from local artisan base on true cost with their
+              profit and also, we do work in hands with the local artisan in a
+              supportive manner.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Additionally, we do preserve these handcraft masterpiece and folk
+              wisdom those has been passing from generation to generation and
+              alleviate the poverty in local area.
+            </p>
+          </li>
+        </ul>
       </div>
-
-      <ul
-        class="
-          mb-5
-          sm:mb-10
-          space-y-2.5
-          sm:space-y-5
-          text-gray-500
-          sm:text-center
-        "
-      >
-        <li>
-          <p>
-            At <b>Anne.biz</b> we emphasize in empowering Cambodian local
-            artisan and alleviate the poverty in local area by creating
-            sustainable livelihood in their respective village and using their
-            nature resources and also creating the opportunity for foreign
-            customer to entry fair trade and crafted product which has beautiful
-            background story behind it.
-          </p>
-        </li>
-
-        <li>
-          <p>
-            Moreover, we have developed the platform to make it easier for
-            Cambodian local artisan in communicating, developing skills and
-            working with us. For price, we emphasize fair trade systems by
-            asking price from local artisan base on true cost with their profit
-            and also, we do work in hands with the local artisan in a supportive
-            manner.
-          </p>
-        </li>
-
-        <li>
-          <p>
-            Additionally, we do preserve these handcraft masterpiece and folk
-            wisdom those has been passing from generation to generation and
-            alleviate the poverty in local area.
-          </p>
-        </li>
-      </ul>
     </div>
   </section>
 </template>
 
 <script>
+import Megamenu from '~/components/Home/Megamenu.vue'
+
 export default {
+  components: {
+    Megamenu,
+  },
+
   data() {
     return {
       items: [

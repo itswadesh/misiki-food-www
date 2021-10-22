@@ -1,11 +1,13 @@
 <template>
-  <div class="bg-white">
+  <section>
+    <Megamenu class="hidden lg:flex px-10" />
+
     <!-- <div v-if="loading"  class="flex flex-col mt-32 xl:flex-row sm:mt-5">
         <DetailsPageLeftSkeleton class="xl:w-2/5" />
         <DetailsSkeleton class="-mt-1 xl:w-3/5" />
      </div> -->
 
-    <div class="container mx-auto px-2 sm:px-10">
+    <div class="container mx-auto bg-white px-2 sm:px-10">
       <div
         v-if="product && product.id"
         class="
@@ -171,10 +173,12 @@
         />
       </div>
     </div>
-  </div>
+  </section>
 </template>
+
 <script>
 import { mapMutations } from 'vuex'
+import Megamenu from '~/components/Home/Megamenu.vue'
 import Share from '~/components/ProductDetails/Share.vue'
 import ProductImages from '~/components/ProductDetails/ProductImages.vue'
 import ProductRight from '~/components/ProductDetails/ProductRight.vue'
@@ -192,8 +196,10 @@ import PRODUCT_GROUP from '~/gql/product/product_group.gql'
 // import CHECK_WISHLIST from '~/gql/wishlist/checkWishlist.gql'
 import DetailsPageLeftSkeleton from '~/components/AllSkeletons/DetailsPageLeftSkeleton.vue'
 import { ReviewSummary } from '~/shared/components'
+
 export default {
   components: {
+    Megamenu,
     Share,
     BuyNow,
     DetailsPageLeftSkeleton,
@@ -209,6 +215,7 @@ export default {
   // validate({ query }) {
   //   if (!query.id) return false
   // },
+
   async asyncData({ params, query, app, req, error, store }) {
     const client = app.apolloProvider.defaultClient
     let product = {}

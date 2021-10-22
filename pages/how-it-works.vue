@@ -1,5 +1,7 @@
 <template>
   <section class="text-gray-800 bg-white">
+    <Megamenu class="hidden lg:flex px-10" />
+
     <div class="relative">
       <img
         v-lazy="`/img/mushroom.jpg?tr=h-384,fo-auto`"
@@ -232,7 +234,13 @@
 </template>
 
 <script>
+import Megamenu from '~/components/Home/Megamenu.vue'
+
 export default {
+  components: {
+    Megamenu,
+  },
+
   head() {
     return {
       title: 'How it works',

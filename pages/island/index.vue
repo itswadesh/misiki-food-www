@@ -1,5 +1,7 @@
 <template>
   <section class="min-h-screen overflow-hidden bg-white">
+    <Megamenu class="hidden lg:flex px-10" />
+
     <HeroSlider :banners="sliderBanners" />
 
     <MainCategoryBanners class="mt-px" />
@@ -35,6 +37,7 @@
 </template>
 
 <script>
+import Megamenu from '~/components/Home/Megamenu.vue'
 import HeroSlider from '~/components/Island/HeroSlider.vue'
 import MainCategoryBanners from '~/components/Island/MainCategoryBanners.vue'
 import SecondMainCategoryBanners from '~/components/Island/SecondMainCategoryBanners.vue'
@@ -47,6 +50,7 @@ import WantMore from '~/components/Island/WantMore.vue'
 
 export default {
   components: {
+    Megamenu,
     HeroSlider,
     MainCategoryBanners,
     SecondMainCategoryBanners,

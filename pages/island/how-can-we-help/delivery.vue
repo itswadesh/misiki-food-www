@@ -1,5 +1,7 @@
 <template>
   <section class="text-gray-800 bg-gray-100 min-h-screen">
+    <Megamenu class="hidden lg:flex px-10" />
+
     <div class="relative">
       <img
         v-lazy="`/island/help/group.jpg?tr=h-384,fo-auto`"
@@ -160,14 +162,12 @@
 </template>
 
 <script>
+import Megamenu from '~/components/Home/Megamenu.vue'
 import WantMore from '~/components/Island/WantMore.vue'
 import WhiteFooter from '~/components/Island/WhiteFooter.vue'
 
 export default {
-  components: {
-    WantMore,
-    WhiteFooter,
-  },
+  components: { Megamenu, WantMore, WhiteFooter },
 
   data() {
     return {

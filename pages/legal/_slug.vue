@@ -1,17 +1,23 @@
 <template>
-  <div class="container mx-auto px-2 sm:px-10 prose">
-    <div>
-      <main>
-        <Shortcode :content="page.content"></Shortcode>
-      </main>
+  <section>
+    <Megamenu class="hidden lg:flex px-10" />
+
+    <div class="container mx-auto px-2 sm:px-10 prose">
+      <div>
+        <main>
+          <Shortcode :content="page.content"></Shortcode>
+        </main>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
+
 <script>
+import Megamenu from '~/components/Home/Megamenu.vue'
 const Shortcode = () => import('~/components/Shortcode')
 
 export default {
-  components: { Shortcode },
+  components: { Megamenu, Shortcode },
   data() {
     return {
       page: {},

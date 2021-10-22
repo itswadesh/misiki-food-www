@@ -1,5 +1,7 @@
 <template>
   <div class="bg-white">
+    <Megamenu class="hidden lg:flex px-10" />
+
     <div class="relative mt-4 overflow-hidden bg-white xl:mt-0 max-h-112">
       <div class="">
         <div
@@ -810,11 +812,10 @@
 import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+import Megamenu from '~/components/Home/Megamenu.vue'
 
 export default {
-  components: {
-    VueSlickCarousel,
-  },
+  components: { Megamenu, VueSlickCarousel },
 
   props: ['details', 'type', 'title'],
 

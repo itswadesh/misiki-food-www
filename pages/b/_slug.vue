@@ -1,85 +1,88 @@
 <template>
-  <section class="container mx-auto">
-    <HeroSlider
-      v-if="brand && brand.imgCdn"
-      :banners="[{ img: brand.imgCdn }]"
-    />
+  <section>
+    <Megamenu class="hidden lg:flex px-10" />
 
-    <MobileFilters
-      class="sticky top-0 z-20 flex-none mt-16 md:hidden"
-      :count="productCount"
-      :facets="facets"
-      :fl="fl"
-      @showFilter="showMobileFilter = true"
-      @hide="showMobileFilter = false"
-    />
-
-    <div class="flex">
-      <DesktopFilters
-        class="sticky top-0 hidden md:block"
-        :facets="facets"
-        :fl="fl"
-        @clearAllFilters="clearAllFilters"
+    <div class="container mx-auto">
+      <HeroSlider
+        v-if="brand && brand.imgCdn"
+        :banners="[{ img: brand.imgCdn }]"
       />
 
-      <div class="relative w-full">
-        <HeaderBody
-          class="hidden md:block"
-          :category="category"
-          :count="productCount"
+      <MobileFilters
+        class="sticky top-0 z-20 flex-none mt-16 md:hidden"
+        :count="productCount"
+        :facets="facets"
+        :fl="fl"
+        @showFilter="showMobileFilter = true"
+        @hide="showMobileFilter = false"
+      />
+
+      <div class="flex">
+        <DesktopFilters
+          class="sticky top-0 hidden md:block"
+          :facets="facets"
           :fl="fl"
-          @removed="facetRemoved"
-          @showFilters="showMobileFilter = true"
+          @clearAllFilters="clearAllFilters"
         />
 
-        <!-- <ProductSkeleton /> -->
+        <div class="relative w-full">
+          <HeaderBody
+            class="hidden md:block"
+            :category="category"
+            :count="productCount"
+            :fl="fl"
+            @removed="facetRemoved"
+            @showFilters="showMobileFilter = true"
+          />
 
-        <NoProduct v-if="(!products || !products.length) && !loading" />
+          <!-- <ProductSkeleton /> -->
 
-        <div v-else>
-          <div
-            class="
-              md:p-4
-              grid grid-cols-2
-              md:gap-4
-              sm:grid-cols-3
-              xl:grid-cols-4
-              2xl:grid-cols-5
-            "
-          >
-            <div v-if="loading" class="flex flex-wrap justify-between">
-              <ProductSkeleton v-for="(p, ix) in 30" :key="ix + '-1'" />
+          <NoProduct v-if="(!products || !products.length) && !loading" />
+
+          <div v-else>
+            <div
+              class="
+                md:p-4
+                grid grid-cols-2
+                md:gap-4
+                sm:grid-cols-3
+                xl:grid-cols-4
+                2xl:grid-cols-5
+              "
+            >
+              <div v-if="loading" class="flex flex-wrap justify-between">
+                <ProductSkeleton v-for="(p, ix) in 30" :key="ix + '-1'" />
+              </div>
+
+              <HomePageProduct
+                v-for="(p, ix) in products"
+                v-else-if="products && products.length > 0"
+                :key="ix"
+                class="slide-up-item"
+                :product="p._source"
+                :pid="p._id"
+              />
+
+              <!-- <infinite-loading @infinite="loadMore($route.query.page)"></infinite-loading> -->
             </div>
 
-            <HomePageProduct
-              v-for="(p, ix) in products"
-              v-else-if="products && products.length > 0"
-              :key="ix"
-              class="slide-up-item"
-              :product="p._source"
-              :pid="p._id"
-            />
+            <div
+              v-if="loading"
+              class="
+                grid grid-cols-2
+                gap-4
+                sm:grid-cols-3
+                lg:grid-cols-3
+                xl:grid-cols-4
+                2xl:grid-cols-5
+              "
+            >
+              <ProductSkeleton v-for="(p, ix) in 10" :key="ix + '-1'" />
+            </div>
 
             <!-- <infinite-loading @infinite="loadMore($route.query.page)"></infinite-loading> -->
-          </div>
 
-          <div
-            v-if="loading"
-            class="
-              grid grid-cols-2
-              gap-4
-              sm:grid-cols-3
-              lg:grid-cols-3
-              xl:grid-cols-4
-              2xl:grid-cols-5
-            "
-          >
-            <ProductSkeleton v-for="(p, ix) in 10" :key="ix + '-1'" />
-          </div>
-
-          <!-- <infinite-loading @infinite="loadMore($route.query.page)"></infinite-loading> -->
-
-          <!-- <div class="pagination_box">
+            <!-- <div class="pagination_box">
             <v-pagination
               v-if="noOfPages>1"
               v-model="currentPage"
@@ -90,22 +93,24 @@
               :labels="paginationAnchorTexts"
             ></v-pagination>
           </div>-->
+          </div>
+
+          <Pagination
+            class="mt-5"
+            :count="noOfPages"
+            :current="parseInt($route.query.page || 1)"
+            @change="changePage"
+          />
         </div>
-
-        <Pagination
-          class="mt-5"
-          :count="noOfPages"
-          :current="parseInt($route.query.page || 1)"
-          @change="changePage"
-        />
       </div>
-    </div>
 
-    <!-- <RightSideBar /> -->
+      <!-- <RightSideBar /> -->
+    </div>
   </section>
 </template>
 
 <script>
+import Megamenu from '~/components/Home/Megamenu.vue'
 import BRAND from '~/gql/brand/brand.gql'
 import c from '~/mixins/c.js'
 import { DESCRIPTION, KEYWORDS, sharingLogo } from '~/shared/config'
@@ -118,6 +123,7 @@ import HeroSlider from '~/components/Home/HeroSlider.vue'
 
 export default {
   components: {
+    Megamenu,
     Pagination,
     ProductSkeleton,
     HomePageProduct,

@@ -1,5 +1,7 @@
 <template>
   <section class="bg-white min-h-screen">
+    <Megamenu class="hidden lg:flex px-10" />
+
     <div
       class="container max-w-7xl mx-auto px-4 md:px-10 lg:px-16 text-gray-800"
     >
@@ -91,16 +93,13 @@
 </template>
 
 <script>
+import Megamenu from '~/components/Home/Megamenu.vue'
 import WantMore from '~/components/Island/WantMore.vue'
 import WhiteFooter from '~/components/Island/WhiteFooter.vue'
 import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
-  components: {
-    WantMore,
-    WhiteFooter,
-    NuxtLink,
-  },
+  components: { Megamenu, WantMore, WhiteFooter, NuxtLink },
 
   data() {
     return {

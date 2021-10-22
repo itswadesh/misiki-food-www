@@ -47,8 +47,6 @@
       <div v-else>
         <Nav class="fixed top-0 z-50 w-full" @showLogin="showLogin" />
         <div class="mt-rem">
-          <Megamenu class="hidden lg:flex px-10" />
-
           <Nuxt class="w-full" />
         </div>
       </div>
@@ -78,7 +76,6 @@
 </template>
 
 <script>
-import Megamenu from '~/components/Home/Megamenu.vue'
 import OtpLogin from '~/components/Login/Mobile/OtpLogin.vue'
 import Nav from '~/components/Home/Nav.vue'
 import WhiteFooter from '~/components/Island/WhiteFooter.vue'
@@ -88,7 +85,6 @@ import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
 
 export default {
   components: {
-    Megamenu,
     Nav,
     OtpLogin,
     WhiteFooter,

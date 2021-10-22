@@ -3,6 +3,8 @@
     v-if="parentBrands && parentBrands.data && parentBrands.data.length > 0"
     class="bg-white min-h-screen"
   >
+    <Megamenu class="hidden lg:flex px-10" />
+
     <div class="container mx-auto max-w-7xl px-3">
       <h1
         class="
@@ -76,10 +78,11 @@ import { mapGetters } from 'vuex'
 import PARENT_BRANDS from '~/gql/brand/parentBrands.gql'
 // import MEGAMENU from '~/gql/category/megamenu.gql'
 // import BRAND from '~/gql/brand/brand.gql'
+import Megamenu from '~/components/Home/Megamenu.vue'
 import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
-  components: { NuxtLink },
+  components: { Megamenu, NuxtLink },
 
   props: {
     brand: { type: String, default: null },

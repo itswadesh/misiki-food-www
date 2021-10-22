@@ -1,5 +1,7 @@
 <template>
   <section class="bg-white min-h-screen">
+    <Megamenu class="hidden lg:flex px-10" />
+
     <div class="container mx-auto max-w-7xl px-3">
       <h1
         class="
@@ -59,11 +61,12 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import Megamenu from '~/components/Home/Megamenu.vue'
 import MEGAMENU from '~/gql/category/megamenuAll.gql'
 import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
-  components: { NuxtLink },
+  components: { Megamenu, NuxtLink },
 
   data() {
     return {
