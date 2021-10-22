@@ -471,13 +471,14 @@ export default {
     googleTranslateInit() {
       const vm = this
       const checkIfGoogleLoaded = setInterval(() => {
-        if (google.translate.TranslateElement != null) {
+        console.log('checkIfGoogleLoaded')
+        if (google !== null && google.translate.TranslateElement != null) {
           clearInterval(checkIfGoogleLoaded)
 
           vm.googleTranslateElementInit()
         }
       }, 1000)
-      this.googleTranslateElementInit()
+      // vm.checkIfGoogleLoaded()
     },
 
     googleTranslateElementInit() {
