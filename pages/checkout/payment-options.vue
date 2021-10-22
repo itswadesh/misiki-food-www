@@ -843,7 +843,7 @@ export default {
           try {
             vm.loading = true
             const result = await vm.$get('pay/braintreeMakePayment', {
-              nonce: 'fake-three-d-secure-visa-failed-signature-nonce', // payload.nonce,
+              nonce: payload.nonce, // 'fake-three-d-secure-visa-failed-signature-nonce', // payload.nonce,
               token: vm.braintreeToken,
             })
             vm.$router.push(`/payment/success?id=${result.id}`)
