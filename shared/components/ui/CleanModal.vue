@@ -13,12 +13,52 @@
         items-center
         justify-center
         p-3
+        pr-6
         sm:p-10
       "
     >
+      <button
+        type="button"
+        class="
+          fixed
+          top-0
+          right-0
+          mx-6
+          my-1
+          md:my-3
+          p-1
+          transform
+          rounded-md
+          hover:text-white
+          transition
+          duration-300
+          hover:bg-opacity-50 hover:bg-gray-900 hover:shadow-md
+          focus:outline-none focus:scale-75
+        "
+        :class="hideCloseButton ? 'hidden' : 'block'"
+        @click="$emit('close')"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-6 h-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+
       <div
         class="
           max-w-max
+          height
+          overflow-y-auto
           text-gray-700
           overflow-hidden
           inline-block
@@ -33,42 +73,6 @@
         aria-modal="true"
         aria-labelledby="modal-headline"
       >
-        <button
-          type="button"
-          class="
-            fixed
-            top-0
-            right-0
-            mt-3
-            mr-5
-            p-1
-            transform
-            rounded-md
-            hover:text-white
-            transition
-            duration-300
-            hover:bg-opacity-50 hover:bg-gray-900 hover:shadow-md
-            focus:outline-none focus:scale-75
-          "
-          :class="hideCloseButton ? 'hidden' : 'block'"
-          @click="$emit('close')"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-6 h-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
-
         <slot />
       </div>
     </div>
@@ -89,7 +93,8 @@ export default {
   backdrop-filter: blur(12px);
   background-color: rgba(0, 0, 0, 0.2);
 }
-::-webkit-scrollbar {
-  width: 0px;
+
+.height {
+  max-height: 85vh;
 }
 </style>

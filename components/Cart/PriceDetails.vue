@@ -85,26 +85,19 @@
         </div>
       </div>
 
-      <div class="mb-2">
-        <button
-          class="focus:outline-none focus:ring-0 focus:ring-offset-0"
-          @click="showOffers = !showOffers"
-        >
-          <span
-            class="
-              text-sm
-              font-medium
-              cursor-pointer
-              text-primary-500
-              hover:text-primary-700
-            "
-          >
-            See Available Offer
-          </span>
-        </button>
-
-        <TestCoupons :show="showOffers" @hide="hideOffers" />
-      </div>
+      <button
+        class="
+          focus:outline-none focus:ring-0 focus:ring-offset-0
+          text-sm
+          font-medium
+          cursor-pointer
+          text-primary-500
+          hover:text-primary-700
+        "
+        @click="showOffers = true"
+      >
+        See Available Offer
+      </button>
 
       <hr class="border-t border-gray-200 my-3" />
 
@@ -130,6 +123,8 @@
         </nuxt-link>
       </div>
     </div>
+
+    <TestCoupons :show="showOffers" @hide="hideOffers" />
   </section>
 </template>
 

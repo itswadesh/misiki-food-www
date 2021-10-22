@@ -18,7 +18,7 @@
       shadow-md
       sm:rounded-md
       active:scale-95
-      hover:shadow hover:bg-opacity-80
+      hover:shadow
       focus:outline-none focus:ring-0 focus:ring-offset-0
     "
     :class="[

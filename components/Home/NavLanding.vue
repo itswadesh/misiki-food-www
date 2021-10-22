@@ -1,13 +1,15 @@
 <template>
   <header class="fixed z-20 w-full shadow-lg frosted">
-    <nav class="container mx-auto flex flex-wrap justify-center items-center">
+    <nav
+      class="container mx-auto flex flex-wrap justify-center items-center p-3"
+    >
       <div class="order-1">
         <nuxt-link to="/" class="flex items-center">
           <img
             v-if="store.logo"
-            v-lazy="`${store.logo}?tr=h-80,fo-auto`"
+            v-lazy="`${store.logo}?tr=h-64,fo-auto`"
             alt="store logo"
-            class="object-contain h-16 md:h-20"
+            class="object-contain h-12 md:h-16"
           />
         </nuxt-link>
       </div>

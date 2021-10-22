@@ -1,5 +1,5 @@
 <template>
-  <CleanModal :show="show" title="Available Offer" @close="show = false">
+  <CleanModal :show="show" title="Available Offer" @close="hide()">
     <!-- Data for delete account start -->
 
     <div v-if="coupons">
