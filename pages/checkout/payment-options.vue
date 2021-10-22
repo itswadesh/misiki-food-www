@@ -49,7 +49,7 @@
                   v-model="paymentMethod"
                   :value="p"
                   :color="p.color"
-                  @change="setupStripeElement"
+                  @change="setUpStripeAndPaypal"
                 />
 
                 <div
@@ -539,8 +539,7 @@ export default {
   },
 
   mounted() {
-    this.setupStripeElement()
-    this.getDropinInstance()
+    this.setUpStripeAndPaypal()
   },
 
   methods: {
@@ -548,7 +547,6 @@ export default {
       applyDiscount: 'cart/applyDiscount',
       checkout: 'cart/checkout',
     }),
-
     ...mapMutations({
       clearErr: 'clearErr',
       setErr: 'setErr',
@@ -556,6 +554,11 @@ export default {
       busy: 'busy',
     }),
 
+    setUpStripeAndPaypal() {
+      this.setErr = null
+      this.setupStripeElement()
+      this.getDropinInstance()
+    },
     // onBraintreeLoad(instance) {
     //   this.braintreeInstance = instance
     // },
@@ -820,11 +823,15 @@ export default {
         }
       } else if (paymentMethod === 'Paypal') {
         const vm = this
+        vm.errorMessage = null
         console.log('dropinInstance.............', vm.dropinInstance)
+        if (!vm.dropinInstance)
+          return (vm.errorMessage = 'Enter payment card details')
         vm.dropinInstance.requestPaymentMethod(async function (err, payload) {
           if (err) {
             console.log('err...............', err)
-            vm.setErr(err)
+            vm.errorMessage = err
+            // vm.setErr(err)
             // Handle errors in requesting payment method
           }
           // console.log(
@@ -836,7 +843,7 @@ export default {
           try {
             vm.loading = true
             const result = await vm.$get('pay/braintreeMakePayment', {
-              nonce: payload.nonce,
+              nonce: 'fake-three-d-secure-visa-failed-signature-nonce', // payload.nonce,
               token: vm.braintreeToken,
             })
             vm.$router.push(`/payment/success?id=${result.id}`)
@@ -893,6 +900,9 @@ export default {
           //    templates or async http request
           authorization: this.braintreeToken,
           container: '#dropin-container',
+          paypal: {
+            flow: 'vault',
+          },
         })
         // .then((dropinInstance) => {
         this.dropinInstance = dropinInstance

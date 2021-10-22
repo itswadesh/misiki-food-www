@@ -39,8 +39,8 @@
 
         <div
           v-for="(p, ix) in pickedBanners"
+          v-else-if="pickedBanners && pickedBanners.length"
           :key="ix"
-          v-elseif="pickedBanners && pickedBanners.length"
         >
           <HeroBannersSlider
             :banners="p && p.data"
