@@ -36,7 +36,11 @@
       </div>
     </div>
 
-    <CleanModal :show="showCookieSetting" title="Allow Cookies">
+    <CleanModal
+      :show="showCookieSetting"
+      title="Allow Cookies"
+      hide-close-button
+    >
       <!-- Real Data section start  -->
 
       <div

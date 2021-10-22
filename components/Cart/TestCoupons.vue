@@ -1,43 +1,5 @@
 <template>
-  <CleanModal :show="show" title="Available Offer">
-    <!-- Close button start -->
-
-    <button
-      type="button"
-      class="
-        absolute
-        p-1
-        transition
-        duration-300
-        transform
-        rounded-md
-        hover:bg-opacity-50
-        group
-        hover:bg-gray-900 hover:shadow-md
-        top-3
-        right-3
-        focus:outline-none focus:ring-0 focus:ring-offset-0 focus:scale-75
-      "
-      @click="hide(null)"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="w-6 h-6 transition duration-100 group-hover:text-white"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M6 18L18 6M6 6l12 12"
-        />
-      </svg>
-    </button>
-
-    <!-- Close button end -->
-
+  <CleanModal :show="show" title="Available Offer" @close="show = false">
     <!-- Data for delete account start -->
 
     <div v-if="coupons">

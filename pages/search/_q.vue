@@ -106,11 +106,10 @@ import HomePageProduct from '~/components/Home/HomePageProduct.vue'
 // import ProductCardEs from '~/components/Listing/ProductCardEs.vue'
 import HeaderBody from '~/components/HeaderBody.vue'
 import QuickView from '~/components/QuickView.vue'
-import CleanModal from '~/shared/components/ui/CleanModal.vue'
+
 export default {
   components: {
     Pagination,
-    CleanModal,
     QuickView,
     //  ProductCardEs
     HomePageProduct,

@@ -75,9 +75,13 @@
             <h1
               v-else
               class="
+                h-10
+                lg:h-16
                 w-28
                 lg:w-40
-                text-lg
+                flex
+                items-center
+                text-start text-lg
                 lg:text-2xl
                 text-transparent
                 bg-clip-text bg-gradient-to-br
@@ -90,7 +94,7 @@
                 overflow-ellipsis
               "
             >
-              {{ store.name }}
+              <span>{{ store.name }}</span>
             </h1>
           </nuxt-link>
         </div>
