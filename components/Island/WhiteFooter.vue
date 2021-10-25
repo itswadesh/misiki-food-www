@@ -167,9 +167,9 @@
 
           <div class="flex flex-row flex-wrap mb-4 text-xs md:mt-2">
             <nuxt-link
-              v-for="(s, ix) in popularSearches"
-              :key="ix"
-              :to="`/search/${s.text}`"
+              v-for="(p, px) in popularSearches.data"
+              :key="px"
+              :to="`/search/${p.text}`"
               class="
                 w-auto
                 mb-1
@@ -179,7 +179,7 @@
                 hovereffect
               "
             >
-              {{ s.text }}
+              {{ p.text }}
             </nuxt-link>
           </div>
         </div>

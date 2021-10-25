@@ -56,7 +56,11 @@
       title="Store is not accepting orders now"
     >
       <div class="-mt-8 flex flex-col items-center justify-center text-center">
-        <img v-lazy="`/store-closed.png?tr=h-384,fo-auto`" alt="" class="" />
+        <img
+          v-lazy="`/store-closed.png?tr=h-384,fo-auto`"
+          alt=""
+          class="h-96"
+        />
 
         <span> {{ store.closedMessage || 'Please visit back later' }}</span>
       </div>
