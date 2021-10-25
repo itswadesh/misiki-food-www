@@ -100,7 +100,7 @@ export default {
   methods: {
     async getFaqs() {
       try {
-        this.faqs = await this.$get('faq/faqs', {})
+        this.faqs = await this.$get('faq/faqs', { active: true })
       } catch (e) {}
     },
   },
