@@ -63,11 +63,10 @@
             :class="sidebar ? 'openSideBar' : 'closeSideBar'"
             @hideSidebar="sidebar = false"
           />
-
           <nuxt-link :to="localePath('/')">
             <img
               v-if="store.logo"
-              v-lazy="`${store.logoCdn}?tr=h-80,fo-auto`"
+              v-lazy="`${store.logoCdn || store.logo}?tr=h-80,fo-auto`"
               alt="store logo"
               class="object-contain h-10 lg:h-16"
             />
