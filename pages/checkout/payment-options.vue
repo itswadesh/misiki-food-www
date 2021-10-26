@@ -601,7 +601,7 @@ export default {
     // async purchase() {
 
     // },
-    async payWithCard(clientSecret) {
+    async payWithCard(clientSecret, paid) {
       try {
         this.loading = true
         const result = await this.$stripe.confirmCardPayment(clientSecret, {
@@ -771,8 +771,16 @@ export default {
               paymentMethodId: pm.paymentMethod.id,
               address: this.$route.query.address,
             })
-            await this.payWithCard(res.clientSecret)
-            // console.log('pay/stripe', res)
+            if (res && !res.paid) {
+              // console.log('pay/stripe', res.paid) // Show 3d secure screen
+              await this.payWithCard(res.clientSecret)
+            } else if (res) {
+              this.$router.push(
+                `/payment/success?paymentReferenceId=${res.referenceId}`
+              )
+            } else {
+              this.setErr('Error occured. Please try after some time')
+            }
           } catch (e) {
             this.setErr(e)
           } finally {
@@ -837,7 +845,7 @@ export default {
           // console.log(
           //   'Send to server..............',
           //   payload.nonce,
-          //   '<<<>>>',
+          //   '<<<>>>',+-
           //   vm.braintreeToken
           // )
           try {
