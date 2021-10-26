@@ -19,7 +19,7 @@
       "
     >
       <img
-        v-lazy="`${product.imgCdn}?tr=h-160,fo-auto`"
+        v-lazy="`${product.img}?tr=h-160,fo-auto`"
         class="h-40 mx-auto"
         alt=""
       />

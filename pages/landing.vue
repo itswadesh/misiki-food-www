@@ -2,14 +2,13 @@
   <div class="bg-gray-100">
     <div class="relative justify-center w-full">
       <video
-        v-lazy="
-          'https://res.cloudinary.com/anne-biz/video/upload/q_auto/v1631807948/video_wiaoqe_m9u8ih.mp4?q_auto'
-        "
+        src="https://res.cloudinary.com/anne-biz/video/upload/q_auto/v1631807948/video_wiaoqe_m9u8ih.mp4?q_auto"
         class="object-cover w-full h-48 md:h-96 lg:h-125"
         autoplay
         loop
         muted
       />
+
       <!-- <div>
         <iframe
           src="https://player.vimeo.com/video/545331344?title=0&byline=0&portrait=0&speed=0&badge=0&loop=1&autoplay=1&muted=1&player_id=0&app_id=58479/embed"
@@ -18,6 +17,7 @@
           class="object-cover w-full h-64"
         />
       </div> -->
+
       <!-- <div
         class="absolute w-full py-4 text-3xl font-bold text-center bg-white cursor-pointer top-40 bg-opacity-60"
       >
