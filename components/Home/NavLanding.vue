@@ -7,8 +7,8 @@
         <nuxt-link to="/" class="flex items-center">
           <img
             v-if="store.logo"
-            v-lazy="`${store.logo}?tr=h-64,fo-auto`"
-            alt="store logo"
+            v-lazy="`${store.logoCdn || store.logo}?tr=h-80,fo-auto`"
+            alt="Anne.biz"
             class="object-contain h-12 md:h-16"
           />
         </nuxt-link>

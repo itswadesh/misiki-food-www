@@ -67,7 +67,7 @@
             <img
               v-if="store.logo"
               v-lazy="`${store.logoCdn || store.logo}?tr=h-80,fo-auto`"
-              alt="store logo"
+              alt="Anne.biz"
               class="object-contain h-10 lg:h-16"
             />
 
