@@ -46,7 +46,7 @@
             Explore the world of Live Commerce
           </h1>
 
-          <p class="mt-2 text-sm lg:mt-5">Live stream your products showcase</p>
+          <p class="mt-2 text-sm lg:mt-5">Livestream your products showcase</p>
 
           <PrimaryButtonRounded class="my-5 py-3 px-9" @click="saveLanding()">
             Enter Site
