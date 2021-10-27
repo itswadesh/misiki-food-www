@@ -166,7 +166,7 @@
                   <nuxt-link
                     :to="localePath(`/${item.slug}?id=${item.pid}`)"
                     rel="noopener"
-                    class="text-sm font-normal text-gray-600"
+                    class="text-sm text-gray-600"
                   >
                     {{ item.name }}
                   </nuxt-link>
@@ -241,42 +241,44 @@
               Payment Information
             </h6>
 
-            <div v-if="order.amount.subtotal" class="mb-3">
-              <span class="me-2 font-medium text-gray-500">Subtotal :</span>
-              <b>{{
-                order.amount.subtotal
-                  | currency(store.currencySymbol, store.currencyDecimals)
-              }}</b>
-            </div>
-
-            <div v-if="order.amount.discount" class="mb-3">
-              <span class="me-2 font-medium text-gray-500">Discount :</span>
-              <b>
-                {{
-                  order.amount.discount
+            <div class="py-3">
+              <div v-if="order.amount.subtotal" class="mb-3">
+                <span class="me-2 font-medium text-gray-500">Subtotal :</span>
+                <b>{{
+                  order.amount.subtotal
                     | currency(store.currencySymbol, store.currencyDecimals)
-                }}</b
-              >
-            </div>
+                }}</b>
+              </div>
 
-            <div v-if="order.amount.shipping" class="mb-3">
-              <span class="me-2 font-medium text-gray-500">Shipping :</span>
-              <b>
-                {{
-                  order.amount.shipping
-                    | currency(store.currencySymbol, store.currencyDecimals)
-                }}</b
-              >
-            </div>
+              <div v-if="order.amount.discount" class="mb-3">
+                <span class="me-2 font-medium text-gray-500">Discount :</span>
+                <b>
+                  {{
+                    order.amount.discount
+                      | currency(store.currencySymbol, store.currencyDecimals)
+                  }}</b
+                >
+              </div>
 
-            <div v-if="order.amount.total" class="mb-3 text-base">
-              <span class="me-2 font-medium text-gray-500">Total :</span>
-              <b>
-                {{
-                  order.amount.total
-                    | currency(store.currencySymbol, store.currencyDecimals)
-                }}</b
-              >
+              <div v-if="order.amount.shipping" class="mb-3">
+                <span class="me-2 font-medium text-gray-500">Shipping :</span>
+                <b>
+                  {{
+                    order.amount.shipping
+                      | currency(store.currencySymbol, store.currencyDecimals)
+                  }}</b
+                >
+              </div>
+
+              <div v-if="order.amount.total" class="text-base">
+                <span class="me-2 font-medium text-gray-500">Total :</span>
+                <b>
+                  {{
+                    order.amount.total
+                      | currency(store.currencySymbol, store.currencyDecimals)
+                  }}</b
+                >
+              </div>
             </div>
           </div>
         </div>
@@ -296,34 +298,37 @@
               Shipping Information
             </h6>
 
-            <h5
-              class="mb-3 sm:text-base capitalize font-semibold tracking-wide"
-            >
-              {{ order.address.firstName }}
-
-              {{ order.address.lastName }}
-            </h5>
-
-            <div class="mb-3 flex flex-col">
-              <span class="flex flex-wrap"> {{ order.address.address }}, </span>
-
-              <span class="flex flex-wrap">
-                {{ order.address.city }}, {{ order.address.state }},
-
-                {{ order.address.country }} - {{ order.address.zip }}</span
+            <div class="py-3 text-sm text-gray-600">
+              <h5
+                v-if="order.address.firstName"
+                class="mb-3 text-base capitalize font-semibold tracking-wide"
               >
-            </div>
+                {{ order.address.firstName }}
 
-            <div class="mb-3 space-x-2 whitespace-nowrap">
-              <span>Mobile : </span>
+                {{ order.address.lastName }}
+              </h5>
 
-              <span class="font-semibold"> {{ order.address.phone }}</span>
-            </div>
+              <div v-if="order.address.address">
+                {{ order.address.address }},
+              </div>
 
-            <div class="mb-5 sm:space-x-2 whitespace-nowrap">
-              <span>Email : </span>
+              <div v-if="order.address.city">{{ order.address.city }},</div>
 
-              <span class="font-semibold"> {{ order.address.email }}</span>
+              <div v-if="order.address.country">
+                {{ order.address.country }}
+              </div>
+
+              <div v-if="order.address.zip">
+                {{ order.address.zip }}
+              </div>
+
+              <div v-if="order.address.phone">
+                <span>Phone:</span> {{ order.address.phone }}
+              </div>
+
+              <div v-if="order.address.email">
+                <span>Email:</span> {{ order.address.email }}
+              </div>
             </div>
           </div>
         </div>
@@ -331,6 +336,7 @@
     </div>
 
     <!-- <h3 class="flex flex-row justify-center lg:justify-between">
+      
       <div class="flex-row hidden -mt-6 text-secondary-500 px-auto lg:flex">
         <h3
           class="
