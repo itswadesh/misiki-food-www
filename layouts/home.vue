@@ -39,7 +39,7 @@
 
     <div v-else>
       <Nav class="fixed top-0 z-50 w-full" @showLogin="showLogin" />
-      <div class="mt-rem">
+      <div :class="settings.id ? 'mt-rem' : 'mt-noSettingID'">
         <Nuxt class="w-full" />
       </div>
     </div>
@@ -123,6 +123,16 @@ export default {
 @media (min-width: 1024px) {
   .mt-rem {
     margin-top: 5.7rem;
+  }
+}
+@media (max-width: 1024px) {
+  .mt-noSettingID {
+    margin-top: 8.7rem;
+  }
+}
+@media (min-width: 1024px) {
+  .mt-noSettingID {
+    margin-top: 7.6rem;
   }
 }
 </style>
