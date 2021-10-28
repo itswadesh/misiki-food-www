@@ -109,7 +109,7 @@ export default {
             { info: 'Take control of your live sales events.' },
             { info: 'Grow your customer base every time you go live.' },
             {
-              info: 'With Anne.biz, live stream shopping platform, you own your audience and brand.',
+              info: 'With Anne.biz, livestream shopping platform, you own your audience and brand.',
             },
           ],
           footer: 'Stand Out, Sell & Buy Live.',

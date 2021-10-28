@@ -62,7 +62,7 @@
       />
 
       <ProductSlider
-        :details="hotProducts"
+        :details="trendingProducts"
         :loading="loading"
         :pg="pg"
         :heading="'Trending'"
@@ -141,7 +141,7 @@ export default {
 
   data() {
     return {
-      hotProducts: null,
+      trendingProducts: null,
       youMayLikeProducts: null,
       pg: null,
       visible: false,
@@ -264,9 +264,8 @@ export default {
         this.brandBanners = productDetailRecommendations.brands
         this.shopByCategory = productDetailRecommendations.categories
 
-        const trending = productDetailRecommendations.trending
-        this.youMayLikeProducts = trending.filter((b) => b.sale === true)
-        this.hotProducts = trending.filter((b) => b.hot === true)
+        this.youMayLikeProducts = productDetailRecommendations.youMayLike
+        this.trendingProducts = productDetailRecommendations.trending
 
         this.pg = productDetailRecommendations.pg
       } catch (e) {
