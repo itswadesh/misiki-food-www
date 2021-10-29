@@ -50,20 +50,26 @@
 
     <OtpLogin v-if="showLoginModal" @showLogin="showLogin" />
 
-    <Modal
-      :show="store.closed"
-      type="info"
-      title="Store is not accepting orders now"
-    >
-      <div class="-mt-8 flex flex-col items-center justify-center text-center">
+    <Modal :is-visible="store.closed">
+      <template #title>
+        <br />
+      </template>
+
+      <div class="flex flex-col items-center justify-center text-center">
+        <p class="font-semibold">Store is not accepting orders now</p>
+
         <img
-          v-lazy="`/store-closed.png?tr=h-384,fo-auto`"
+          v-lazy="`${settings.CDN_URL}/store-closed.png?tr=h-384,fo-auto`"
           alt=""
-          class="h-96"
+          class=""
         />
 
         <span> {{ store.closedMessage || 'Please visit back later' }}</span>
       </div>
+
+      <template #footer>
+        <br />
+      </template>
     </Modal>
   </div>
 </template>
@@ -73,7 +79,7 @@ import OtpLogin from '~/components/Login/Mobile/OtpLogin.vue'
 import Nav from '~/components/Home/Nav.vue'
 import WhiteFooter from '~/components/Island/WhiteFooter.vue'
 import BackToTopDark from '~/shared/components/ui/BackToTopDark.vue'
-import { Modal } from '~/shared/components/ui'
+import Modal from '~/components/ui/Modal.vue'
 import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
 
 export default {

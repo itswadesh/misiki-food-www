@@ -165,18 +165,28 @@
         </div>
       </div>
 
-      <CleanModal
-        :show="openQuickView"
-        title="Quick View"
-        @close="openQuickView = false"
+      <Modal
+        :is-visible="openQuickView"
+        @cancel="openQuickView = false"
+        @confirm="openQuickView = false"
       >
-        <div v-if="quickViewProduct" class="w-full max-w-4xl">
-          <QuickView
-            :img="quickViewProduct.imgCdn"
-            :product="quickViewProduct"
-          />
+        <template #title>
+          <p>Quick View</p>
+        </template>
+
+        <div class="width">
+          <div v-if="quickViewProduct" class="w-full max-w-4xl">
+            <QuickView
+              :img="quickViewProduct.imgCdn"
+              :product="quickViewProduct"
+            />
+          </div>
         </div>
-      </CleanModal>
+
+        <template #footer>
+          <br />
+        </template>
+      </Modal>
     </div>
   </section>
 </template>
@@ -184,7 +194,7 @@
 <script>
 import HomePageProduct from '~/components/Home/HomePageProduct.vue'
 import ProductSliderSkeleton from '~/components/AllSkeletons/ProductSliderSkeleton'
-import CleanModal from '~/shared/components/ui/CleanModal.vue'
+import Modal from '~/components/ui/Modal.vue'
 import ProductImages from '~/components/ProductDetails/ProductImages.vue'
 import AddToCart from '~/components/ProductDetails/AddToCart.vue'
 import ProductRight from '~/components/ProductDetails/ProductRight.vue'
@@ -195,7 +205,7 @@ export default {
   components: {
     ProductSliderSkeleton,
     HomePageProduct,
-    CleanModal,
+    Modal,
     ProductImages,
     AddToCart,
     ProductRight,

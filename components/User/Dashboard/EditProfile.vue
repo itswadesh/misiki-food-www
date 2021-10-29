@@ -224,89 +224,77 @@
 
     <!-- Close account end -->
 
-    <CleanModal
-      :show="openDeleteAccountModal"
-      title="Delete Your Account"
-      @close="openDeleteAccountModal = false"
+    <Modal
+      :is-visible="openDeleteAccountModal"
+      @cancel="openDeleteAccountModal = false"
+      @confirm="openDeleteAccountModal = false"
     >
-      <!-- Data for delete account start -->
+      <template #title>
+        <p>Close Account ?</p>
+      </template>
 
       <div class="width">
-        <h5 class="px-5 sm:px-10 pt-3.5 mb-3 font-semibold text-lg">
-          Close Account ?
-        </h5>
+        <label>
+          <h6 class="mb-1 text-sm">
+            What is the main reason you're deleting the account ?
+          </h6>
 
-        <hr class="mb-5 border-t border-gray-200 w-full" />
-
-        <div class="px-5 sm:px-10">
-          <label>
-            <h6 class="mb-1 text-sm">
-              What is the main reason you're deleting the account ?
-            </h6>
-
-            <select
-              class="
-                mb-5
-                w-full
-                text-sm
-                border-gray-400
-                rounded-md
-                appearance-none
-                hover:border-primary-500 hover:bg-white
-                bg-gray-50
-              "
-            >
-              <option :value="null">Select an option</option>
-
-              <option>I was testing the website.</option>
-
-              <option>Website is very slow.</option>
-
-              <option>Don't know how to use.</option>
-
-              <option>Don't want to add profile details.</option>
-            </select>
-          </label>
-
-          <h6 class="mb-1 text-sm">Please tell us more</h6>
-
-          <Textarea class="mb-5 w-full" />
-
-          <h6 class="mb-1 text-sm">Enter your password to conform</h6>
-
-          <Textbox class="mb-5 w-full" />
-        </div>
-
-        <hr class="border-t border-gray-200 w-full" />
-
-        <div class="flex justify-end">
-          <button
-            type="submit"
+          <select
             class="
-              px-4
-              py-2
-              my-5
-              mx-10
+              mb-5
+              w-full
+              p-2
               text-sm
-              font-semibold
+              font-light
+              placeholder-gray-400
               rounded-md
-              shadow-md
-              text-white
-              bg-red-500 bg-opacity-70
-              hover:bg-opacity-100
+              bg-gray-50
+              border border-gray-300
+              hover:bg-white
               transition
               duration-300
-              focus:outline-none focus:ring-0 focus:ring-offset-0
+              focus:outline-none
             "
-            @click="openDeleteAccountModal = true"
           >
-            Close acount
-          </button>
-        </div>
+            <option :value="null">Select an option</option>
+            <option>I was testing the website.</option>
+            <option>Website is very slow.</option>
+            <option>Don't know how to use.</option>
+            <option>Don't want to add profile details.</option>
+          </select>
+        </label>
+
+        <h6 class="mb-1 text-sm">Please tell us more</h6>
+
+        <Textarea class="mb-5 w-full" />
+
+        <h6 class="mb-1 text-sm">Enter password to conform</h6>
+
+        <Textbox class="w-full" />
       </div>
 
-      <!-- Data for delete account end -->
-    </CleanModal>
+      <template #confirm-button>
+        <button
+          type="button"
+          class="
+            px-4
+            py-2
+            text-sm
+            font-semibold
+            rounded-md
+            shadow-md
+            text-white
+            bg-red-500 bg-opacity-70
+            hover:bg-opacity-100
+            transition
+            duration-300
+            focus:outline-none
+          "
+        >
+          Close acount
+        </button>
+      </template>
+    </Modal>
   </section>
 </template>
 
@@ -318,9 +306,9 @@ import Textbox from '~/components/ui/Textbox.vue'
 import { Textarea, Radio } from '~/shared/components/ui'
 import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
 import ImageUpload from '~/shared/components/ImageUpload.vue'
+import Modal from '~/components/ui/Modal.vue'
 import UPDATE_PROFILE from '~/gql/user/updateProfile.gql'
 import ME from '~/gql/user/me.gql'
-import CleanModal from '~/shared/components/ui/CleanModal.vue'
 
 export default {
   components: {
@@ -329,7 +317,7 @@ export default {
     Radio,
     PrimaryButtonRounded,
     ImageUpload,
-    CleanModal,
+    Modal,
   },
 
   mixins: [validationMixin],

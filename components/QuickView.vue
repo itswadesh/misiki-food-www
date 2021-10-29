@@ -812,18 +812,15 @@ export default {
   border-radius: 3px;
   visibility: visible;
 }
-::-webkit-scrollbar {
-  width: 10px;
-}
 
 @media (max-width: 768px) {
   .max-height {
-    max-height: 85vh;
+    max-height: 75vh;
   }
 }
 @media (min-width: 768px) {
   .max-height {
-    max-height: 75vh;
+    max-height: 65vh;
   }
 }
 </style>
