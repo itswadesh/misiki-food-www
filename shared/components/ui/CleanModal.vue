@@ -17,45 +17,9 @@
         sm:p-10
       "
     >
-      <button
-        type="button"
-        class="
-          fixed
-          top-0
-          right-0
-          mx-6
-          my-1
-          md:my-3
-          p-1
-          transform
-          rounded-md
-          hover:text-white
-          transition
-          duration-300
-          hover:bg-opacity-50 hover:bg-gray-900 hover:shadow-md
-          focus:outline-none focus:scale-75
-        "
-        :class="hideCloseButton ? 'hidden' : 'block'"
-        @click="$emit('close')"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-6 h-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
-      </button>
-
       <div
         class="
+          relative
           max-w-max
           height
           overflow-y-auto
@@ -73,6 +37,42 @@
         aria-modal="true"
         aria-labelledby="modal-headline"
       >
+        <button
+          type="button"
+          class="
+            fixed
+            top-0
+            right-0
+            m-3
+            md:mx-6
+            p-1
+            transform
+            rounded-md
+            hover:text-white
+            transition
+            duration-300
+            hover:bg-opacity-50 hover:bg-gray-900 hover:shadow-md
+            focus:outline-none focus:scale-75
+          "
+          :class="hideCloseButton ? 'hidden' : 'block'"
+          @click="$emit('close')"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+
         <slot />
       </div>
     </div>
