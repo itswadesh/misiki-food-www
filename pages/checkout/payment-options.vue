@@ -49,7 +49,7 @@
                   v-model="paymentMethod"
                   :value="p"
                   :color="p.color"
-                  @change="setUpStripeAndPaypal"
+                  @change="paymentMethodChanged"
                 />
 
                 <div
@@ -539,7 +539,7 @@ export default {
   },
 
   mounted() {
-    this.setUpStripeAndPaypal()
+    // this.setUpStripeAndPaypal()
   },
 
   methods: {
@@ -553,9 +553,15 @@ export default {
       success: 'success',
       busy: 'busy',
     }),
-
+    paymentMethodChanged(pm) {
+      if (pm.value === 'Stripe') {
+        this.setupStripeElement()
+      } else if (pm.value === 'Paypal') {
+        this.getDropinInstance()
+      }
+    },
     setUpStripeAndPaypal() {
-      this.setErr = null
+      this.errorMessage = null
       this.setupStripeElement()
       this.getDropinInstance()
     },
