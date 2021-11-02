@@ -323,7 +323,7 @@
               </div>
 
               <div v-if="order.address.phone">
-                <span>Phone:</span> {{ order.address.phone }}
+                <span>Phone:</span> {{ order.address.phone || order.userPhone }}
               </div>
 
               <div v-if="order.address.email">

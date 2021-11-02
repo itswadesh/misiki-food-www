@@ -710,46 +710,41 @@
                 </span>
               </span> -->
 
-          <div v-if="reviewSummary" class="flex flex-row mb-1.5 sm:mb-3">
+          <div
+            v-if="reviewSummary"
+            class="
+              border border-gray-200
+              p-1
+              flex
+              items-center
+              mb-1.5
+              sm:mb-3
+              max-w-max
+            "
+          >
             <div
-              class="
-                flex flex-row
-                items-center
-                justify-center
-                w-20
-                h-8
-                my-auto
-                text-base
-                font-normal
-                tracking-wider
-                text-gray-600
-                bg-gray-300
-                rounded
-                me-3
-              "
+              class="flex items-center space-x-1 border-r border-gray-200 px-2"
             >
-              <span class="my-auto me-1">{{ reviewSummary.avg }}</span>
+              <h6 class="font-bold">{{ reviewSummary.avg }}</h6>
+
               <svg
-                width="17"
-                height="17"
-                viewBox="0 0 20 19"
-                fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 text-primary-500"
+                viewBox="0 0 20 20"
+                fill="currentColor"
               >
                 <path
-                  d="M10.0517 15.1844L10 15.1532L9.94833 15.1844L3.97123 18.7919L5.55738 11.9927L5.5711 11.9339L5.52548 11.8944L0.244617 7.31961L7.19845 6.72964L7.25854 6.72454L7.28207 6.66902L10 0.256259L12.7179 6.66902L12.7415 6.72454L12.8015 6.72964L19.7554 7.31961L14.4745 11.8944L14.4289 11.9339L14.4426 11.9927L16.0288 18.7919L10.0517 15.1844Z"
-                  fill="#F2B200"
-                  stroke="#95989A"
-                  stroke-width="0.2"
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
                 />
               </svg>
             </div>
-            <span class="text-sm text-gray-500">
+
+            <h6 class="px-2 text-sm font-light text-gray-500">
               {{ reviewSummary.count }}
               ratings and
               {{ reviewSummary.reviews && reviewSummary.reviews.length }}
               reviews
-            </span>
+            </h6>
           </div>
 
           <!-- share and add reviews and wishlist icon  -->

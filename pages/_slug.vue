@@ -165,13 +165,15 @@
           recommendedProducts.data &&
           recommendedProducts.data.length
         "
-        class="container mx-auto my-10"
+        class="container mx-auto mt-10"
       >
         <ProductSlider
           :details="recommendedProducts.data"
           :heading="'Recommended For You'"
         />
       </div>
+
+      <div class="h-5 w-full"></div>
     </div>
   </section>
 </template>
