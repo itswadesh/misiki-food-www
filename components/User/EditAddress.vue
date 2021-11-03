@@ -297,6 +297,9 @@ export default {
     },
 
     async submit() {
+      this.$v.$touch()
+      if (this.$v.$invalid) return
+
       if (!this.address) return this.setErr('Please enter address')
       // this.address.phone =
       //   this.address.phone && this.address.phone.replace(/^0+/, '')
