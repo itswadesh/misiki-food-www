@@ -25,42 +25,38 @@
         </h2>
 
         <div class="py-4">
-          <div class="items-center p-2 sm:px-4 sm:flex">
+          <div class="p-2 sm:px-4 sm:flex">
             <div class="w-full text-sm sm:w-4/12 md:w-3/12">First Name</div>
 
-            <div class="w-full sm:w-8/12 md:w-9/12">
-              <div class="max-w-sm mt-2 sm:mt-0">
-                <Textbox
-                  v-model="profile.firstName"
-                  type="text"
-                  placeholder="First Name"
-                  class="w-full"
-                  required
-                  autofocus
-                  :v="$v.profile.firstName"
-                  :err="
-                    $v.profile.firstName.$invalid && $v.profile.firstName.$dirty
-                      ? 'First Name is required'
-                      : ''
-                  "
-                />
-              </div>
+            <div class="w-full sm:w-8/12 md:w-9/12 max-w-sm mt-2 sm:mt-0">
+              <Textbox
+                v-model="profile.firstName"
+                type="text"
+                placeholder="First Name"
+                class="w-full"
+                required
+                autofocus
+                :v="$v.profile.firstName"
+                :err="
+                  $v.profile.firstName.$invalid && $v.profile.firstName.$dirty
+                    ? 'First Name is required'
+                    : ''
+                "
+              />
             </div>
           </div>
 
-          <div class="items-center p-2 sm:px-4 sm:flex">
+          <div class="p-2 sm:px-4 sm:flex">
             <div class="w-full text-sm sm:w-4/12 md:w-3/12">Last Name</div>
 
-            <div class="w-full sm:w-8/12 md:w-9/12">
-              <div class="max-w-sm mt-2 sm:mt-0">
-                <Textbox
-                  v-model="profile.lastName"
-                  type="text"
-                  placeholder="Last Name"
-                  class="w-full"
-                  required
-                />
-              </div>
+            <div class="w-full sm:w-8/12 md:w-9/12 max-w-sm mt-2 sm:mt-0">
+              <Textbox
+                v-model="profile.lastName"
+                type="text"
+                placeholder="Last Name"
+                class="w-full"
+                required
+              />
             </div>
           </div>
 
@@ -78,67 +74,61 @@
             </div>
           </div> -->
 
-          <div class="items-center p-2 sm:px-4 sm:flex">
+          <div class="p-2 sm:px-4 sm:flex">
             <div class="w-full text-sm sm:w-4/12 md:w-3/12">Your Email</div>
 
-            <div class="w-full sm:w-8/12 md:w-9/12">
-              <div class="max-w-sm mt-2 sm:mt-0">
-                <Textbox
-                  v-model="profile.email"
-                  type="email"
-                  placeholder="Email"
-                  class="w-full"
-                  required
-                />
-              </div>
+            <div class="w-full sm:w-8/12 md:w-9/12 max-w-sm mt-2 sm:mt-0">
+              <Textbox
+                v-model="profile.email"
+                type="email"
+                placeholder="Email"
+                class="w-full"
+                required
+              />
             </div>
           </div>
 
-          <div class="items-center p-2 sm:px-4 sm:flex">
+          <div class="p-2 sm:px-4 sm:flex">
             <div class="w-full text-sm sm:w-4/12 md:w-3/12">Your Phone</div>
 
-            <div class="w-full sm:w-8/12 md:w-9/12">
-              <div class="max-w-sm mt-2 sm:mt-0">
-                <Textbox
-                  v-model="profile.phone"
-                  type="tel"
-                  placeholder="Mobile number"
-                  class="w-full"
-                  required
-                />
-              </div>
+            <div class="w-full sm:w-8/12 md:w-9/12 max-w-sm mt-2 sm:mt-0">
+              <Textbox
+                v-model="profile.phone"
+                type="tel"
+                placeholder="Mobile number"
+                class="w-full"
+                required
+              />
             </div>
           </div>
 
-          <div class="items-center p-2 sm:px-4 sm:flex">
+          <div class="p-2 sm:px-4 sm:flex">
             <div class="w-full text-sm sm:w-4/12 md:w-3/12">Gender</div>
 
-            <div class="w-full sm:w-8/12 md:w-9/12">
-              <div class="flex mt-2 md:mt-0">
-                <label class="flex flex-row cursor-pointer me-4">
-                  <Radio
-                    id="one"
-                    v-model="profile.gender"
-                    value="Male"
-                    name="group"
-                    class="my-auto"
-                  />
+            <div class="w-full sm:w-8/12 md:w-9/12 flex max-w-sm mt-2 sm:mt-0">
+              <label class="flex flex-row cursor-pointer me-4">
+                <Radio
+                  id="one"
+                  v-model="profile.gender"
+                  value="Male"
+                  name="group"
+                  class="my-auto"
+                />
 
-                  <span class="my-auto text-gray-600 ms-2">Male</span>
-                </label>
+                <span class="my-auto text-gray-600 ms-2">Male</span>
+              </label>
 
-                <label class="flex flex-row cursor-pointer">
-                  <Radio
-                    id="one"
-                    v-model="profile.gender"
-                    value="Female"
-                    name="group"
-                    class="my-auto"
-                  />
+              <label class="flex flex-row cursor-pointer">
+                <Radio
+                  id="one"
+                  v-model="profile.gender"
+                  value="Female"
+                  name="group"
+                  class="my-auto"
+                />
 
-                  <span class="my-auto text-gray-600 ms-2">Female</span>
-                </label>
-              </div>
+                <span class="my-auto text-gray-600 ms-2">Female</span>
+              </label>
             </div>
           </div>
 
@@ -147,32 +137,28 @@
               Your Profile Picture
             </div>
 
-            <div class="w-full sm:w-8/12 md:w-9/12">
-              <div class="max-w-sm mt-2 sm:mt-0">
-                <ImageUpload
-                  name="avatar"
-                  folder="user"
-                  :image="profile.avatar"
-                  @save="saveImage"
-                  @remove="saveImage(profile.avatar, '')"
-                />
-              </div>
+            <div class="w-full sm:w-8/12 md:w-9/12 max-w-sm mt-2 sm:mt-0">
+              <ImageUpload
+                name="avatar"
+                folder="user"
+                :image="profile.avatar"
+                @save="saveImage"
+                @remove="saveImage(profile.avatar, '')"
+              />
             </div>
           </div>
 
-          <div class="items-center p-2 sm:px-4 sm:flex">
+          <div class="p-2 sm:px-4 sm:flex">
             <div class="w-full text-sm sm:w-4/12 md:w-3/12"></div>
 
-            <div class="w-full sm:w-8/12 md:w-9/12">
-              <div class="max-w-sm mt-2 sm:mt-0">
-                <PrimaryButtonRounded
-                  type="submit"
-                  class="w-full text-sm sm:text-base"
-                  :disabled="$v.profile.$anyError && $v.profile.$anyDirty"
-                >
-                  Submit
-                </PrimaryButtonRounded>
-              </div>
+            <div class="w-full sm:w-8/12 md:w-9/12 max-w-sm mt-2 sm:mt-0">
+              <PrimaryButtonRounded
+                type="submit"
+                class="w-full text-sm sm:text-base"
+                :disabled="$v.profile.$anyError && $v.profile.$anyDirty"
+              >
+                Submit
+              </PrimaryButtonRounded>
             </div>
           </div>
         </div>

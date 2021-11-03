@@ -1,21 +1,36 @@
 <template>
-  <div class="w-full">
-    <h2 class="max-w-max">{{ label }}</h2>
+  <div class="w-full text-gray-800">
+    <div v-if="icon || label" class="flex flex-wrap items-center mb-1">
+      <img v-if="icon" v-lazy="icon" alt="" class="w-6 h-6 me-2" />
+
+      <h5 v-if="label" class="text-sm md:text-base font-semibold">
+        {{ label }}
+      </h5>
+    </div>
+
     <input
       class="
         w-full
         p-2
         text-sm
+        font-light
         placeholder-gray-400
-        border border-gray-300
         rounded-md
         bg-gray-50
-        hover:bg-white hover:border-primary-500
+        hover:bg-white
+        transition
+        duration-300
+        border
         focus:outline-none
       "
       :class="[
-        right ? 'text-end' : 'text-start',
-        err ? 'border-2 border-red-700 bg-red-100' : '',
+        right ? 'text-right' : 'text-left',
+        err
+          ? 'border-red-500 focus:border-red-500 bg-red-100 focus:ring-red-500'
+          : 'border-gray-300',
+        success
+          ? 'border-secondary-500 focus:border-secondary-500 bg-secondary-100 focus:ring-secondary-500'
+          : 'border-gray-300',
       ]"
       :placeholder="placeholder"
       v-bind="$attrs"
@@ -23,18 +38,16 @@
       :type="type"
       :aria-label="label"
       @blur="$emit('blur', $event.target.value)"
-      @input="$emit('input', $event.target.value)"
+      @input="$emit('input', $event.target.value), v ? v.$touch() : ''"
       @change="$emit('change', $event.target.value)"
     />
-    <span class="highlight"></span>
-    <!-- <label
-      class="absolute text-base font-light"
-      :class="err ? 'text-red-700' : 'text-gray-500'"
-    >
-      {{ label }}
-    </label> -->
-    <div v-if="err" class="items-center block text-xs text-red-700">
-      <span>{{ err }}</span>
+
+    <p v-if="description" class="m-1 text-xs text-gray-500">
+      {{ description }}
+    </p>
+
+    <div v-if="err" class="m-1 block text-xs text-red-500">
+      {{ err }}
     </div>
   </div>
 </template>
@@ -42,11 +55,23 @@
 <script>
 export default {
   props: {
+    success: {
+      type: Boolean,
+      default: false,
+    },
     errorPosition: {
       type: String,
       default: 'left',
     },
+    icon: {
+      type: String,
+      default: null,
+    },
     label: {
+      type: String,
+      default: null,
+    },
+    description: {
       type: String,
       default: null,
     },
@@ -79,8 +104,8 @@ export default {
       default: null,
     },
     right: {
-      type: String,
-      default: null,
+      type: Boolean,
+      default: false,
     },
   },
 }
@@ -119,11 +144,12 @@ export default {
   font-size: 0.875rem;
 }
 .floating-input:focus ~ label,
-.floating-input:not(:placeholder-shown) ~ label {
+.floating-input:not() ~ label {
   top: 2px;
   color: #b26e12;
   font-size: 0.8rem;
 }
+
 label {
   pointer-events: none;
   left: 8px;
