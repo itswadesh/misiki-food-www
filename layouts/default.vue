@@ -62,6 +62,9 @@
       <template #title>
         <br />
       </template>
+      <template #close>
+        <br />
+      </template>
 
       <div class="flex flex-col items-center justify-center text-center">
         <p class="font-semibold">Store is not accepting orders now</p>
