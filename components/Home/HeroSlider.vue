@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white h-48 sm:h-60 md:h-72 lg:h-80 xl:h-96 w-full">
+  <div class="bg-white w-full">
     <HeroSliderSkeleton v-if="loading" />
 
     <!-- <SlideBarSkeleton v-if="skeleton" /> -->
@@ -54,13 +54,9 @@
             hidden
             sm:block
             bg-white
-            h-48
-            sm:h-60
-            md:h-72
-            lg:h-80
-            xl:h-96
+            h-full
             w-full
-            object-cover
+            object-contain object-top
             overflow-hidden
             bg-white
           "
