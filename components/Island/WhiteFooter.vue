@@ -471,7 +471,7 @@ export default {
     googleTranslateInit() {
       const vm = this
       const checkIfGoogleLoaded = setInterval(() => {
-        console.log('checkIfGoogleLoaded')
+        // console.log('checkIfGoogleLoaded')
         if (google !== null && google.translate.TranslateElement != null) {
           clearInterval(checkIfGoogleLoaded)
 
