@@ -117,6 +117,7 @@
     "vue-social-sharing": "^3.0.8",
     "vue-stripe-elements-plus": "^1.0.2",
     "vue-sweetalert2": "^5.0.2",
+    "vue-tel-input": "^5.6.2",
     "vue-toasted": "^1.1.28",
     "vue-youtube": "^1.4.0",
     "vuejs-countdown": "^0.2.1",

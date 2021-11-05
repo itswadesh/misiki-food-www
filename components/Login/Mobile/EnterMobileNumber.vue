@@ -11,7 +11,13 @@
         <div class="mb-5 flex flex-col space-y-3">
           <span class="text-center">Please enter Mobile Number</span>
 
-          <Textbox
+          <vue-tel-input
+            v-model="phone"
+            :default-country="defaultCountry"
+            @validate="onPhoneChange"
+          ></vue-tel-input>
+
+          <!-- <Textbox
             id="number"
             ref="mobile"
             v-model="phone"
@@ -21,7 +27,7 @@
             placeholder="Enter Phone Number"
             required
             class="w-full max-w-sm mx-auto"
-          />
+          /> -->
         </div>
 
         <PrimaryButtonRounded
@@ -42,16 +48,19 @@
 
 <script>
 import { mapMutations } from 'vuex'
+import { VueTelInput } from 'vue-tel-input'
 import EnterEmail from '~/components/Login/Email/EnterEmail.vue'
 import GET_OTP from '~/gql/user/getOtp.gql'
 import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
 import { Textbox } from '~/shared/components/ui'
+import 'vue-tel-input/dist/vue-tel-input.css'
 
 export default {
   components: {
     EnterEmail,
     PrimaryButtonRounded,
     Textbox,
+    VueTelInput,
   },
 
   data() {
@@ -62,6 +71,9 @@ export default {
       phone: null,
       countryCode: '',
       title: 'aboutpage',
+      defaultCountry: 'IN',
+      validPhoneNumber: false,
+      phoneNumber: null,
     }
   },
 
@@ -69,23 +81,39 @@ export default {
     settings() {
       return this.$store.state.settings || {}
     },
+    store() {
+      return this.$store.state.store || {}
+    },
+  },
+
+  created() {
+    this.defaultCountry =
+      this.store.countryDetail && this.store.countryDetail.code
   },
 
   methods: {
     ...mapMutations({ setErr: 'setErr' }),
+
+    onPhoneChange(e) {
+      this.validPhoneNumber = e.valid
+      this.phoneNumber = e.number
+    },
+
     async requestOtp() {
-      this.loading = true
+      console.log(this.validPhoneNumber)
+
+      if (!this.validPhoneNumber) {
+        this.setErr('Invalid phone number or country code')
+        return
+      }
       try {
+        this.loading = true
         await this.$post('user/getOtp', {
-          phone: this.countryCode + this.phone,
+          phone: this.phoneNumber,
+          role: 'vendor',
         })
-        // await this.$apollo.mutate({
-        //   mutation: GET_OTP,
-        //   variables: { phone: this.countryCode + this.phone },
-        // })
         this.$emit('sendOtp', {
-          phone: this.phone,
-          countryCode: this.countryCode,
+          phone: this.phoneNumber,
         })
       } catch (e) {
         this.setErr(e)
@@ -96,3 +124,5 @@ export default {
   },
 }
 </script>
+
+<style src="vue-tel-input/dist/vue-tel-input.css"></style>
