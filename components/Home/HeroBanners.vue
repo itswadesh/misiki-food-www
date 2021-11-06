@@ -4,7 +4,7 @@
 
     <div
       v-for="(b, ix) of banners"
-      v-else-if="banners && banners.length > 0"
+      v-else-if="banners && banners.length"
       :key="ix"
     >
       <div

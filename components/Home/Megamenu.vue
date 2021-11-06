@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full mx-auto mt-12 bg-gray-100 border-b">
+  <div v-if="megamenu" class="w-full mx-auto mt-12 bg-gray-100 border-b">
     <ul class="container flex flex-row justify-center mx-auto text-sm">
       <li
         v-for="(category, index) in megamenu"
