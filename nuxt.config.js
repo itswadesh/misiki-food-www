@@ -17,7 +17,7 @@ import { pwa } from './config/index'
 //   STRIPE_PUBLISHABLE_KEY
 // )
 // const whitelist = ['preview-img-item']
-const whitelistPatterns = [/^slick-/, /^vue-tel-input-/, /^swal2-/, /^mx-/] // mx- is for vue2-datepicker
+const whitelistPatterns = [/^slick-/, /^vti__/, /^swal2-/, /^mx-/] // mx- is for vue2-datepicker
 export default {
   server: {
     host: '0.0.0.0',
