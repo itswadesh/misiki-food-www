@@ -87,8 +87,7 @@ export default {
   },
 
   created() {
-    this.defaultCountry =
-      this.store.countryDetail && this.store.countryDetail.code
+    this.defaultCountry = this.store.country && this.store.country.code
   },
 
   methods: {
