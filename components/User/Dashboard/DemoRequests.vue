@@ -198,7 +198,7 @@
                 />
                 <div class="p-3 text-xl">Empty Demo Requests!</div>
                 <div class="text-xs text-center">
-                  You have no items in your Demo Requests. Start adding
+                  You have no items in your Demo Requests.
                 </div>
                 <nuxt-link :to="localePath('/')">
                   <button
