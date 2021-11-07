@@ -45,8 +45,8 @@
             :to="localePath(`/c/${c.slug}`)"
             class="
               w-24
-              md:w-32
-              xl:w-40
+              md:w-28
+              xl:w-36
               flex flex-col
               items-start
               justify-center

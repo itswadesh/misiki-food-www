@@ -78,6 +78,7 @@
               />
 
               <button
+                type="button"
                 class="
                   absolute
                   right-0
@@ -147,7 +148,7 @@
 
             <PrimaryButtonRounded
               class="mb-5 w-full max-w-sm mx-auto"
-              type="button"
+              type="submit"
               :loading="loading"
             >
               LOGIN
