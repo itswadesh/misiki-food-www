@@ -77,10 +77,10 @@
             text-sm
             font-bold
             text-center
-            bg-yellow-400
+            bg-yellow-500
             rounded-full
             ms-5
-            text-accent-900
+            text-error
           "
           >{{ cart.qty }}</span
         >

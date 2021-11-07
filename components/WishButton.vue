@@ -10,7 +10,7 @@
       justify-center
       font-semibold
       text-center
-      bg-accent-100
+      bg-gray-100
       hover:opacity-75
       focus:outline-none focus:ring-0 focus:ring-offset-0
     "
@@ -20,8 +20,8 @@
     <!-- class="p-2 hover:bg-red-200 focus:outline-none hover:shadow-md" -->
     <!-- heart icon  -->
     <svg
-      class="text-accent-900"
-      :class="{ 'text-accent-900 fill-current ': existInWishlist }"
+      class="text-error"
+      :class="{ 'text-error fill-current ': existInWishlist }"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"

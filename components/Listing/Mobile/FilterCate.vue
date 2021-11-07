@@ -165,7 +165,7 @@
           tracking-wider
           text-white
           rounded
-          hover:bg-accent-500
+          hover:bg-error
           focus:outline-none focus:ring-0 focus:ring-offset-0
           bg-primary-500
           text-medium

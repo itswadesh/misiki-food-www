@@ -161,7 +161,7 @@ input:checked ~ .dot {
   transform: translateX(100%);
 }
 input:checked ~ .green {
-  @apply bg-secondary-500;
+  @apply bg-success;
 }
 input:checked ~ .blue {
   @apply bg-blue-500;
@@ -183,7 +183,7 @@ input:checked ~ .purple {
 }
 
 .green {
-  @apply text-secondary-500;
+  @apply text-success;
 }
 .primary {
   @apply text-blue-500;

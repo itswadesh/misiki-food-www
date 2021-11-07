@@ -16,7 +16,7 @@
           transition
           duration-300
           transform
-          bg-accent-500
+          bg-error
           hover:bg-opacity-80
           rounded-md
           shadow-md

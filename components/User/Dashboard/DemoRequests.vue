@@ -103,16 +103,16 @@
                           mx-auto
                           text-sm text-center
                           rounded-b
-                          bg-accent-100
+                          bg-gray-100
                         "
                       >
                         <div>
                           <div class="truncate text-medium">
                             {{ w.product.name }}
                           </div>
-                          <!-- <div class="text-secondary-200">Shop Now</div> -->
+                          <!-- <div class="text-secondary-500">Shop Now</div> -->
                           <div class="flex flex-row justify-center m-2 mx-auto">
-                            <div class="text-accent-900">
+                            <div class="text-gray-900">
                               {{
                                 w.product.price
                                   | currency(
@@ -135,7 +135,7 @@
                             </strike>
                             <div
                               v-if="w.product.price < w.product.mrp"
-                              class="my-auto text-xs text-secondary-200"
+                              class="my-auto text-xs text-secondary-500"
                             >
                               {{
                                 Math.floor(

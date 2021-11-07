@@ -66,7 +66,7 @@
               class="w-20 h-20 rounded-full"
             />
           </div>
-          <span class="mt-3 text-xl text-center text-secondary-200">
+          <span class="mt-3 text-xl text-center text-secondary-500">
             Items Returned Successfullly
           </span>
           <span class="px-4 mt-8 mb-8 text-sm text-center">

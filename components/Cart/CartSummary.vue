@@ -59,7 +59,7 @@
           </div>
         </div> -->
       </div>
-      <!-- <div class="p-2 my-2 text-xs text-gray-500 rounded bg-accent-100">
+      <!-- <div class="p-2 my-2 text-xs text-gray-500 rounded bg-error">
         <div class="flex items-center">
           <img v-lazy="`/shield.png?tr=w-48,fo-auto`"
           class="w-12 pe-2" alt="" />

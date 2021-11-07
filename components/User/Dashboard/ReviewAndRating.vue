@@ -54,8 +54,8 @@
                 <p v-if="r.rating == 2" class="text-red-400">
                   Slightly Disappointed
                 </p>
-                <p v-if="r.rating == 3" class="text-accent-500">Good</p>
-                <p v-if="r.rating == 4" class="text-secondary-200">Very Good</p>
+                <p v-if="r.rating == 3" class="text-success">Good</p>
+                <p v-if="r.rating == 4" class="text-secondary-500">Very Good</p>
                 <p v-if="r.rating == 5" class="text-[#c30b4e]">Awesome</p>
               </span>
             </div>
@@ -73,7 +73,7 @@
               <div v-if="r.user" class="flex flex-row">
                 <h6>{{ r.user.firstName }} {{ r.user.lastName }}</h6>
                 <svg
-                  class="w-4 mx-2 my-auto text-secondary-200"
+                  class="w-4 mx-2 my-auto text-secondary-500"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"

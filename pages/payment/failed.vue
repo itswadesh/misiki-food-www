@@ -154,8 +154,8 @@
                         p-2
                         my-auto
                         ms-4
-                        text-secondary-200
-                        border border-secondary-200
+                        text-secondary-500
+                        border border-secondary-500
                         rounded
                         shadow
                         md:py-2
@@ -235,7 +235,7 @@
                           <div class="font-light text-gray-400 me-1">
                             Price:
                           </div>
-                          <div class="text-secondary-200">
+                          <div class="text-secondary-500">
                             {{
                               item.price
                                 | currency(

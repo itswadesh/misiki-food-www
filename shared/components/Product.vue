@@ -11,7 +11,7 @@
           text-xs text-white
           rounded-l-lg
           opacity-75
-          bg-secondary-600
+          bg-secondary-500
         "
       >
         Lunch
@@ -50,10 +50,10 @@
         <div class="font-bold">
           {{ p.price | currency(store.currencySymbol, store.currencyDecimals) }}
         </div>
-        <div v-if="p.stock < 1" class="text-xs text-secondary-600">
+        <div v-if="p.stock < 1" class="text-xs text-secondary-500">
           Out of stock
         </div>
-        <div v-else class="text-xs text-secondary-600">
+        <div v-else class="text-xs text-secondary-500">
           <span v-if="p.stock < 6">Only</span> {{ p.stock }} left
         </div>
         <img

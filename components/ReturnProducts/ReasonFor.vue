@@ -12,7 +12,7 @@
         font-medium
         tracking-wider
         text-center text-gray-500
-        bg-accent-100
+        bg-gray-100
       "
     >
       Select the Reason for returning the product

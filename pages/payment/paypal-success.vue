@@ -195,7 +195,7 @@
                       "
                     >
                       <div class="font-light text-gray-400 me-1">Price:</div>
-                      <div class="text-secondary-200">
+                      <div class="text-secondary-500">
                         {{
                           item.price
                             | currency(

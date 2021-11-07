@@ -38,7 +38,7 @@
                   <span class="my-2 text-sm text-primary-500">Bruice</span>
                   <span class="flex flex-row my-2 text-sm font-normal">
                     <span class="me-1">Price:</span>
-                    <span class="text-secondary-400">1988</span>
+                    <span class="text-secondary-500">1988</span>
                   </span>
                 </div>
               </div>
@@ -107,7 +107,7 @@
                         >
                           <div
                             v-if="index < 3"
-                            class="w-full h-full bg-secondary-400"
+                            class="w-full h-full bg-secondary-500"
                             :class="{
                               'rounded-s-3xl': index == 0,
                               'rounded-e-3xl:': index == tracking.length - 1,
@@ -389,7 +389,7 @@
                         <div class="z-10 items-center w-full h-full my-auto">
                           <div
                             v-if="index < 3"
-                            class="w-full h-full bg-secondary-400"
+                            class="w-full h-full bg-secondary-500"
                           >
                             <div
                               class="
@@ -430,7 +430,7 @@
                   "
                 >
                   <span>Your item in on the way. It will be Arrived on</span>
-                  <span class="text-accent-900">18th, Feb.</span>
+                  <span class="text-error">18th, Feb.</span>
                 </div>
               </div>
             </div>
