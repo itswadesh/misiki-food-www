@@ -801,7 +801,7 @@
 <script>
 import { mapGetters, mapActions, mapMutations } from 'vuex'
 import REVIEWS from '~/gql/review/reviewSummary.gql'
-import { NETEASE_WWW } from '~/shared/config'
+// import { NETEASE_WWW } from '~/shared/config'
 import DemoRequestModal from '~/components/ProductDetails/DemoRequestModal.vue'
 import NuxtLink from '~/components/NuxtLink.vue'
 
@@ -832,7 +832,7 @@ export default {
       userSelectedVariant: null,
       addedToCart: false,
       showScheduleDemoPopup: false,
-      NETEASE_WWW,
+      // NETEASE_WWW,
     }
   },
   computed: {

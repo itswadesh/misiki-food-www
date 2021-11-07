@@ -161,7 +161,7 @@
                   >
                     {{ w.scheduleDateTime | date }}
                     <a
-                      :href="`${NETEASE_WWW}/netease?channelName=${w.product.id}`"
+                      :href="`${settings.LIVE_COMMERCE_URL}/netease?channelName=${w.product.id}`"
                       target="blank"
                       class="
                         w-full
@@ -235,14 +235,12 @@
 import { mapGetters } from 'vuex'
 import WishlistSkeleton from '~/components/AllSkeletons/WishlistSkeleton.vue'
 import MY_SCHEDULE_DEMOS from '~/gql/scheduleDemo/myScheduleDemos.gql'
-import { NETEASE_WWW } from '~/shared/config'
 import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
   components: { WishlistSkeleton },
   data() {
     return {
-      NETEASE_WWW,
       loading: false,
       listLoading: false,
       myDemoRequests: null,
@@ -251,6 +249,7 @@ export default {
   computed: {
     ...mapGetters({
       store: 'store',
+      settings: 'settings',
     }),
   },
 

@@ -563,7 +563,7 @@
 import { mapGetters } from 'vuex'
 import OrderListSkeleton from '~/components/AllSkeletons/OrderListSkeleton.vue'
 import MY_ORDERS from '~/gql/order/myOrders.gql'
-import { NETEASE_WWW } from '~/shared/config'
+// import { NETEASE_WWW } from '~/shared/config'
 import NuxtLink from '~/components/NuxtLink.vue'
 export default {
   components: { OrderListSkeleton, NuxtLink },
@@ -573,7 +573,7 @@ export default {
       statuses: [{ b: 'delivered' }, { b: 'In-track' }, { b: 'pending' }],
       loading: false,
       myOrders: null,
-      NETEASE_WWW,
+      // NETEASE_WWW,
     }
   },
   computed: {
