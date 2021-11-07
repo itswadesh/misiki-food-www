@@ -122,23 +122,13 @@
       <div class="px-2 my-8 text-center md:my-16">
         <h4 class="text-2xl font-bold md:text-4xl">About Us</h4>
         <h4 class="mt-5 md:mt-10">
-          <nuxt-link to="/" class="link">anne.biz </nuxt-link> provides a
-          platform to learn from the Experts (e.g. Educators, Learning
+          <nuxt-link to="/" class="link">{{ store.name }} </nuxt-link> provides
+          a platform to learn from the Experts (e.g. Educators, Learning
           Specialists, Researchers) to promote learning, covering academic,
           competitive and skills through customized designed content in the form
           of Videos, Notes, MCQs as well as Online and Offline Tuitions in all
           Indian Languages.
         </h4>
-
-        <!-- <h4 class="mt-5">
-        Our mission is to share knowledge through customized designed content in the form of Videos,
-        Notes, MCQs as well as Online and Offline Tuitions in all Indian Languages and to provide
-        interactive, fun and superior learning experience.
-        <span class="text-blue-500 cursor-pointer">anne.biz</span> provides a platform to learn from
-        the Experts (e.g. Educators, Learning Specialists, Researchers) to promote learning,
-        including academic, social-emotional, physical and creative learning, learning basic life
-        skills, critical thinking, problem solving and more.
-      </h4> -->
       </div>
 
       <div
@@ -284,8 +274,8 @@
           in the form of Videos, Notes, MCQs as well as Online and Offline
           Tuitions in all Indian Languages and to provide interactive, fun and
           superior learning experience.
-          <nuxt-link to="/" class="link">anne.biz </nuxt-link> provides a
-          platform to learn from the Experts (e.g. Educators, Learning
+          <nuxt-link to="/" class="link">{{ store.name }} </nuxt-link> provides
+          a platform to learn from the Experts (e.g. Educators, Learning
           Specialists, Researchers) to promote learning, including academic,
           social-emotional, physical and creative learning, learning basic life
           skills, critical thinking, problem solving and more.
@@ -402,11 +392,15 @@ export default {
       ],
     }
   },
-
   head() {
     return {
       title: 'About Us',
     }
+  },
+  computed: {
+    store() {
+      return this.$store.state.store || {}
+    },
   },
 }
 </script>

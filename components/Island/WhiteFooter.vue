@@ -130,22 +130,6 @@
             class="w-auto  mb-1 tracking-wider text-center  cursor-pointer "
             >Careers</span
           > -->
-
-          <!-- <nuxt-link
-            v-if="store.domain === 'anne.biz'"
-            to="/social-impact"
-            class="
-              w-auto
-              
-              mb-2
-              text-center
-              
-              cursor-pointer
-              
-            "
-          >
-            Social Impact
-          </nuxt-link> -->
         </div>
 
         <div v-if="popularSearches && popularSearches.length">
