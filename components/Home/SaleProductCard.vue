@@ -26,7 +26,7 @@
               v-bind:class="[
                 isActive
                   ? 'text-gray-500 fill-current'
-                  : 'text-accent-900 fill-current',
+                  : 'text-error fill-current',
               ]"
               size="1.1x"
               class="text-gray-500 fill-current"
@@ -70,7 +70,7 @@
               <span class="text-lg text-gray-700 truncate">{{ name }}</span>
               <span class="text-gray-800">Shop Now</span>
               <h1 class="m-2 mx-auto">
-                <span class="font-semibold text-secondary-200 text">
+                <span class="font-semibold text-secondary-500 text">
                   {{
                     price
                       | currency(store.currencySymbol, store.currencyDecimals)

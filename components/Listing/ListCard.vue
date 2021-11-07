@@ -94,7 +94,7 @@
                 :class="[
                   isActive
                     ? 'text-gray-500 fill-current'
-                    : 'text-accent-900 fill-current',
+                    : 'text-error fill-current',
                 ]"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -195,7 +195,7 @@
                   >
                   <div
                     v-if="product.price < product.mrp"
-                    class="my-auto text-xs font-bold text-secondary-200"
+                    class="my-auto text-xs font-bold text-secondary-500"
                   >
                     ({{ Math.floor((product.price * 100) / product.mrp) }}% off)
                   </div>

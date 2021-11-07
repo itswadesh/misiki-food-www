@@ -144,7 +144,7 @@
                 <button
                   v-ripple="'rgba(255, 255, 255, 0.2)'"
                   v-if="select == index"
-                  class="p-1 px-4 text-sm font-medium text-center text-white uppercase bg-accent-700 border-accent-700 rounded-2xl       focus:outline-none focus:ring-0 focus:ring-offset-0
+                  class="p-1 px-4 text-sm font-medium text-center text-white uppercase bg-success border-success rounded-2xl       focus:outline-none focus:ring-0 focus:ring-offset-0
 "
                 >
                   {{ b.b }}
@@ -384,24 +384,24 @@
                   >
                     </span>Order Id</span>
                     <span
-                      class="h-8 px-2 pt-1 text-center text-secondary-200 bg-secondary-100"
+                      class="h-8 px-2 pt-1 text-center text-secondary-500 bg-secondary-100"
                     >
                       Status
                    </span>
                     </span>Order Date</span>
                     </span>Delivered Date</span>
-                    <span class="text-secondary-400">Price</span>
+                    <span class="text-secondary-500">Price</span>
                     <span class="flex flex-col my-auto space-y-2">
                       <nuxt-link :to="localePath('/order-tracking')">
                         <button
-                          class="p-2 px-4 font-semibold text-white border track bg-accent-700 border-accent-700       focus:outline-none focus:ring-0 focus:ring-offset-0
+                          class="p-2 px-4 font-semibold text-white border track bg-success border-success       focus:outline-none focus:ring-0 focus:ring-offset-0
 "
                         >
                           Track Order
                         </button>
                       </nuxt-link>
                       <button
-                        class="p-2 px-4 font-semibold bg-white border reorder hover:bg-gray-50 text-secondary-400 border-secondary-400       focus:outline-none focus:ring-0 focus:ring-offset-0
+                        class="p-2 px-4 font-semibold bg-white border reorder hover:bg-gray-50 text-secondary-500 border-secondary-500       focus:outline-none focus:ring-0 focus:ring-offset-0
 "
                       >
                         Re Order

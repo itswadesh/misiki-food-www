@@ -215,7 +215,7 @@
 
         <span
           v-if="product.stock >= 5"
-          class="text-secondary-200 whitespace-nowrap"
+          class="text-secondary-700 whitespace-nowrap"
           >In Stock</span
         >
 

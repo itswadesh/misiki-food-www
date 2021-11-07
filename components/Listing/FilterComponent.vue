@@ -9,7 +9,7 @@
           rounded
           cursor-pointer
           ps-4
-          hover:bg-primary-200
+          hover:bg-primary-100
         "
       >
         <Checkbox

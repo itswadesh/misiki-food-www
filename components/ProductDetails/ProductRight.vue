@@ -104,7 +104,7 @@
               text-sm
               sm:text-base
               font-light
-              text-accent-900
+              text-error
               mb-1.5
               sm:mb-3
               animate-pulse
@@ -596,7 +596,7 @@
 
             <span
               v-if="product.stock >= 5"
-              class="text-sm text-secondary-200 whitespace-nowrap"
+              class="text-sm text-secondary-500 whitespace-nowrap"
               >In Stock</span
             >
 
@@ -607,7 +607,7 @@
               Only {{ product.stock }} remaining
             </span>
 
-            <span v-else class="text-sm text-accent-900 whitespace-nowrap">
+            <span v-else class="text-sm text-error whitespace-nowrap">
               Out of Stock</span
             >
           </div>

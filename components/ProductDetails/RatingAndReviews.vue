@@ -40,14 +40,12 @@
         <span v-if="r.rating == 1" class="text-red-600"
           >Very Disappointed Product</span
         >
-        <span v-if="r.rating == 2" class="text-red-400">
+        <span v-if="r.rating == 2" class="text-red-500">
           Slightly Disappointed Product
         </span>
-        <span v-if="r.rating == 3" class="text-accent-500">Good Product</span>
-        <span v-if="r.rating == 4" class="text-secondary-200"
-          >Very Good Product</span
-        >
-        <span v-if="r.rating == 5" class="text-secondary-500"
+        <span v-if="r.rating == 3" class="text-red-400">Good Product</span>
+        <span v-if="r.rating == 4" class="text-success">Very Good Product</span>
+        <span v-if="r.rating == 5" class="text-primary-500"
           >Awesome Product</span
         >
       </div>

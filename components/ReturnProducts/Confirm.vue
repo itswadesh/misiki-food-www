@@ -12,7 +12,7 @@
         font-medium
         tracking-wider
         text-center text-gray-500
-        bg-accent-100 bg:opacity-50
+        bg-gray-100 bg:opacity-50
       "
     >
       Confirm your return
@@ -57,8 +57,8 @@
           class="
             p-3
             px-4
-            text-sm text-secondary-200
-            border-secondary-200
+            text-sm text-secondary-500
+            border-secondary-500
             font-medium
             border
             rounded

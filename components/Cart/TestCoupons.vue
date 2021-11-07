@@ -23,17 +23,7 @@
           v-model="coupon_code"
           type="text"
           placeholder="Enter coupon Code"
-          class="
-            py-2
-            px-4
-            w-full
-            my-auto
-            text-sm
-            rounded-md
-            border-gray-300
-            ring-primary-600
-            focus:ring-primary-600
-          "
+          class="py-2 px-4 w-full my-auto text-sm rounded-md border-gray-300"
         />
 
         <button
@@ -60,7 +50,7 @@
 
       <div v-if="coupons" class="h-56 mb-5 overflow-y-auto">
         <div v-for="c in coupons.data" :key="c.id">
-          <label class="flex flex-row mb-3 bg-accent-100">
+          <label class="flex flex-row mb-3 bg-gray-100">
             <Radio v-model="coupon_code" :value="c.code" />
             <div class="flex flex-col ms-2">
               <div

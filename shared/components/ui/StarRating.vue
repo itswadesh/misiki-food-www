@@ -25,13 +25,13 @@
     <!-- {{select}} -->
     <span
       v-if="select == 1"
-      class="my-auto text-sm font-medium text-brand-700 ms-3"
+      class="my-auto text-sm font-medium text-red-500 ms-3"
     >
       Very Disappointed
     </span>
     <span
       v-if="select == 2"
-      class="my-auto text-sm font-medium text-brand-400 ms-3"
+      class="my-auto text-sm font-medium text-red-400 ms-3"
     >
       Slightly Disapponted
     </span>
@@ -43,13 +43,13 @@
     </span>
     <span
       v-if="select == 4"
-      class="my-auto text-sm font-medium ms-3 text-secondary-200"
+      class="my-auto text-sm font-medium ms-3 text-success"
     >
       Very Good
     </span>
     <span
       v-if="select == 5"
-      class="my-auto text-sm font-medium ms-3 text-secondary-500"
+      class="my-auto text-sm font-medium ms-3 text-primary-500"
     >
       Awesome
     </span>

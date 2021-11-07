@@ -108,7 +108,6 @@
                 font-light
                 cursor-pointer
                 text-primary-500
-                hover:text-primary-200
                 max-w-max
                 mx-auto
                 transition
@@ -125,7 +124,6 @@
                 font-light
                 cursor-pointer
                 text-primary-500
-                hover:text-primary-200
                 max-w-max
                 mx-auto
                 transition

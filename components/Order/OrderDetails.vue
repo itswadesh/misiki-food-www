@@ -61,9 +61,7 @@
           <div class="flex flex-col mt-3 lg:flex-row md:mt-0">
             <div class="mx-auto me-12">
               <div class="flex flex-row">
-                <span
-                  class="w-3 h-3 my-auto rounded-full me-2 bg-accent-900"
-                ></span>
+                <span class="w-3 h-3 my-auto rounded-full me-2 bg-error"></span>
                 <span class="text-sm font-semibold">{{ i.status }}</span>
               </div>
               <span class="text-xs"

@@ -337,7 +337,7 @@
           <div
             v-if="product.price < product.mrp"
             class="
-              text-xs text-secondary-200
+              text-xs text-secondary-500
               font-light
               whitespace-nowrap
               truncate
