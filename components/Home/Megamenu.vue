@@ -169,6 +169,7 @@
       </li>
 
       <li
+        v-if="parentBrands && parentBrands.data && parentBrands.data.length > 0"
         class="
           h-auto
           mx-1
@@ -198,9 +199,6 @@
           <p>BRANDS</p>
 
           <svg
-            v-if="
-              parentBrands && parentBrands.data && parentBrands.data.length > 0
-            "
             class="w-4 h-4 my-auto"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -220,7 +218,6 @@
           class="w-auto mx-auto mt-1 mb-16 bg-white shadow-xl mega-menu sm:mb-0"
         >
           <div
-            v-if="parentBrands"
             class="
               p-10
               container
