@@ -171,10 +171,7 @@
         @close="openQuickView = false"
       >
         <div v-if="quickViewProduct" class="w-full max-w-4xl">
-          <QuickView
-            :img="quickViewProduct.imgCdn"
-            :product="quickViewProduct"
-          />
+          <QuickView :img="quickViewProduct.img" :product="quickViewProduct" />
         </div>
       </CleanModal>
     </div>

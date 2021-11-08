@@ -94,7 +94,7 @@
               rounded
               :exist-in-wishlist="existInWishlist"
               :pid="product.id"
-              class="p-1 w-8 h-8"
+              size="md"
             />
           </div>
 

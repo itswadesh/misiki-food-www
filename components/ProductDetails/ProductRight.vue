@@ -87,13 +87,13 @@
 
               <div
                 v-if="product.discount > 0"
-                class="text-base sm:text-lg text-primary-700"
+                class="text-base sm:text-lg text-primary-500"
               >
                 ({{ product.discount }}% off)
               </div>
             </div>
 
-            <div class="text-sm text-secondary-500 font-medium">
+            <div class="text-sm text-success font-medium">
               inclusive of all taxes
             </div>
           </div>
@@ -596,7 +596,7 @@
 
             <span
               v-if="product.stock >= 5"
-              class="text-sm text-secondary-500 whitespace-nowrap"
+              class="text-sm text-success whitespace-nowrap"
               >In Stock</span
             >
 

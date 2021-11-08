@@ -69,14 +69,14 @@
         >
           <div v-if="currentIndex === 0" key="1" class="justify-center flex">
             <img
-              v-lazy="`${product.imgCdn}?tr=h-288,fo-auto`"
+              v-lazy="`${product.img}?tr=h-288,fo-auto`"
               alt="product"
               class="card object-contain h-48 sm:h-56 slide"
             />
           </div>
           <div v-if="currentIndex === 1" key="2" class="justify-center flex">
             <img
-              :src="`${product.imagesCdn[1]}?tr=h-288,fo-auto`"
+              :src="`${product.images[1]}?tr=h-288,fo-auto`"
               alt="product"
               class="card object-contain h-48 sm:h-56 slide"
             />

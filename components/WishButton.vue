@@ -4,24 +4,27 @@
     aria-label="Wishlist"
     :disabled="isDisabled"
     class="
-      p-1
       flex
       items-center
       justify-center
-      font-semibold
-      text-center
-      bg-gray-100
-      hover:opacity-75
+      p-1
+      bg-gray-200
+      icons
+      hover:bg-gray-300
       focus:outline-none focus:ring-0 focus:ring-offset-0
     "
-    :class="rounded ? 'rounded-full' : 'rounded-sm'"
+    :class="rounded ? 'rounded-full' : 'rounded'"
     @click="toggleWishlist(pid)"
   >
     <!-- class="p-2 hover:bg-red-200 focus:outline-none hover:shadow-md" -->
     <!-- heart icon  -->
     <svg
       class="text-error"
-      :class="{ 'text-error fill-current ': existInWishlist }"
+      :class="{
+        'h-5 w-5': size == 'sm',
+        'h-7 w-7': size == 'md',
+        'text-error fill-curren': existInWishlist,
+      }"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
@@ -45,6 +48,7 @@ export default {
   props: {
     existInWishlist: { type: Boolean, required: false, default: false },
     pid: { type: String, required: true },
+    size: { type: String, default: 'sm' },
     rounded: { type: Boolean },
   },
   data() {

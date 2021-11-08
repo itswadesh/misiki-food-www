@@ -61,22 +61,20 @@
 
           <div
             v-if="product.discount > 0"
-            class="text-sm sm:text-base text-primary-700"
+            class="text-sm sm:text-base text-primary-500"
           >
             ({{ product.discount }}% off)
           </div>
         </div>
 
-        <p class="text-sm text-secondary-500 font-medium">
-          inclusive of all taxes
-        </p>
+        <p class="text-sm text-success font-medium">inclusive of all taxes</p>
       </div>
 
       <!-- Hurry up -->
 
       <p
         v-if="product.stock > 0 && product.stock < 5"
-        class="text-sm font-light text-red-500 mb-2 sm:mb-3 animate-pulse"
+        class="text-sm font-light text-error mb-2 sm:mb-3 animate-pulse"
       >
         Hurry up, only few left!
       </p>
@@ -213,9 +211,7 @@
           <span>Availability :</span>
         </div>
 
-        <span
-          v-if="product.stock >= 5"
-          class="text-secondary-700 whitespace-nowrap"
+        <span v-if="product.stock >= 5" class="text-success whitespace-nowrap"
           >In Stock</span
         >
 
@@ -226,7 +222,7 @@
           Only {{ product.stock }} remaining
         </span>
 
-        <span v-else class="text-red-500 whitespace-nowrap"> Out of Stock</span>
+        <span v-else class="text-error whitespace-nowrap"> Out of Stock</span>
       </div>
 
       <!-- Return Info -->
