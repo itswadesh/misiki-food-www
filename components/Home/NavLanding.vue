@@ -8,7 +8,7 @@
           <img
             v-if="store.logo"
             v-lazy="`${store.logoCdn || store.logo}?tr=h-80,fo-auto`"
-            alt="Anne.biz"
+            alt=""
             class="object-contain h-12 md:h-16"
           />
         </nuxt-link>

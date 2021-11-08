@@ -29,12 +29,55 @@
         <span class="w-20 h-20 my-auto text-primary-500 me-5" v-html="i.icon" />
 
         <div class="flex-1 flex flex-col">
-          <span class="mb-2 text-lg font-semibold text-primary-500">{{
-            i.text
-          }}</span>
+          <span class="mb-2 text-lg font-semibold text-primary-500">
+            {{ i.text }}
+          </span>
 
           <span class="text-xs md:text-sm text-gray-500">
             {{ i.description }}
+          </span>
+        </div>
+      </div>
+    </nuxt-link>
+    <nuxt-link
+      v-if="settings.liveCommerce"
+      to="/my/demo-requests"
+      class="
+        transition
+        duration-300
+        ease-in-out
+        transform
+        bg-white
+        border
+        rounded-md
+        cursor-pointer
+        shadow-md
+        hover:shadow-lg
+      "
+    >
+      <div class="flex flex-row items-start p-5">
+        <span class="w-20 h-20 my-auto text-primary-500 me-5">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+            />
+          </svg>
+        </span>
+
+        <div class="flex-1 flex flex-col">
+          <span class="mb-2 text-lg font-semibold text-primary-500">
+            Demo Requests
+          </span>
+
+          <span class="text-xs md:text-sm text-gray-500">
+            All your prime demo requests
           </span>
         </div>
       </div>
@@ -135,14 +178,14 @@ export default {
                 </svg>`,
         },
 
-        //         {
-        //           link: '/my/demo-requests',
-        //           text: 'Demo Requests',
-        //           description: 'All your prime demo requests',
-        //           icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        // {
+        //   link: '/my/demo-requests',
+        //   text: 'Demo Requests',
+        //   description: 'All your prime demo requests',
+        //   icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
         //   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
         // </svg>`,
-        //         },
+        // },
 
         // {
         //   role: 'user',
@@ -208,6 +251,9 @@ export default {
   computed: {
     user() {
       return (this.$store.state.auth || {}).user
+    },
+    settings() {
+      return this.$store.state.settings || {}
     },
   },
 }

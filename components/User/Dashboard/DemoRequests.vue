@@ -103,16 +103,16 @@
                           mx-auto
                           text-sm text-center
                           rounded-b
-                          bg-accent-100
+                          bg-gray-100
                         "
                       >
                         <div>
                           <div class="truncate text-medium">
                             {{ w.product.name }}
                           </div>
-                          <!-- <div class="text-secondary-200">Shop Now</div> -->
+                          <!-- <div class="text-secondary-500">Shop Now</div> -->
                           <div class="flex flex-row justify-center m-2 mx-auto">
-                            <div class="text-accent-900">
+                            <div class="text-gray-900">
                               {{
                                 w.product.price
                                   | currency(
@@ -135,7 +135,7 @@
                             </strike>
                             <div
                               v-if="w.product.price < w.product.mrp"
-                              class="my-auto text-xs text-secondary-200"
+                              class="my-auto text-xs text-secondary-500"
                             >
                               {{
                                 Math.floor(
@@ -161,7 +161,7 @@
                   >
                     {{ w.scheduleDateTime | date }}
                     <a
-                      :href="`${NETEASE_WWW}/netease?channelName=${w.product.id}`"
+                      :href="`${settings.LIVE_COMMERCE_URL}/netease?channelName=${w.product.id}`"
                       target="blank"
                       class="
                         w-full
@@ -198,7 +198,7 @@
                 />
                 <div class="p-3 text-xl">Empty Demo Requests!</div>
                 <div class="text-xs text-center">
-                  You have no items in your Demo Requests. Start adding
+                  You have no items in your Demo Requests.
                 </div>
                 <nuxt-link :to="localePath('/')">
                   <button
@@ -235,14 +235,12 @@
 import { mapGetters } from 'vuex'
 import WishlistSkeleton from '~/components/AllSkeletons/WishlistSkeleton.vue'
 import MY_SCHEDULE_DEMOS from '~/gql/scheduleDemo/myScheduleDemos.gql'
-import { NETEASE_WWW } from '~/shared/config'
 import NuxtLink from '~/components/NuxtLink.vue'
 
 export default {
   components: { WishlistSkeleton },
   data() {
     return {
-      NETEASE_WWW,
       loading: false,
       listLoading: false,
       myDemoRequests: null,
@@ -251,6 +249,7 @@ export default {
   computed: {
     ...mapGetters({
       store: 'store',
+      settings: 'settings',
     }),
   },
 

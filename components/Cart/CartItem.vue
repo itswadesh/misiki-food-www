@@ -226,8 +226,6 @@
                 font-semibold
                 text-center
                 rounded
-                hover:bg-red-200
-                bg-accent-100
                 px-auto
                 focus:outline-none
               "

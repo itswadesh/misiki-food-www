@@ -60,20 +60,20 @@
           </h1>
 
           <p class="mb-2.5 sm:mb-5 text-sm font-light leading-relaxed">
-            When you visit anne.biz, Anne and our partners use cookies and other
-            methods to process your personal data in order to customize content
-            and your site experience, provide social media features, analyze our
-            traffic, and personalize advertising on both our family of websites
-            and our partners' platforms.
+            When you visit {{ store.name }} and our partners use cookies and
+            other methods to process your personal data in order to customize
+            content and your site experience, provide social media features,
+            analyze our traffic, and personalize advertising on both our family
+            of websites and our partners' platforms.
           </p>
 
           <p class="mb-2.5 sm:mb-5 text-sm font-light leading-relaxed">
             You may use the below interface to accept (or reject) specific
             categories of data processing, and to see some of the vendors
             undertaking those categories of data processing. You can click here
-            for a complete list of Anne’s data processing partners, and the
-            categories of processing undertaken by each. Please note that
-            withholding consent for processing may reduce or remove some
+            for a complete list of {{ store.name }}’s data processing partners,
+            and the categories of processing undertaken by each. Please note
+            that withholding consent for processing may reduce or remove some
             functionality of our website.
           </p>
 
@@ -284,6 +284,11 @@ export default {
       analyticsCookies: false,
     }
   },
+  computed: {
+    store() {
+      return this.$store.state.store || {}
+    },
+  },
 
   mounted() {
     const vm = this
@@ -291,7 +296,6 @@ export default {
       vm.checkCookieConsent()
     }, 3000)
   },
-
   methods: {
     saveCookieConsent() {
       this.allowCookies()

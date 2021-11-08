@@ -54,7 +54,7 @@
           />
         </div>
         <form v-else enctype="multipart/form-data" novalidate>
-          <div class="dropbox hover:bg-primary-200">
+          <div class="dropbox hover:bg-primary-1s00">
             <input
               multiple
               type="file"

@@ -12,7 +12,7 @@
         border-2 border-gray-200 border-dashed
         cursor-pointer
         bg-cgray-200
-        hover:bg-primary-200
+        hover:bg-primary-100
       "
     >
       <input

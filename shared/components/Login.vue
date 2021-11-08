@@ -57,7 +57,7 @@
               </div>
               <!-- Show OTP box -->
               <div v-else class="text-center">
-                <span class="mb-5 text-xs font-hairline text-secondary-900">
+                <span class="mb-5 text-xs font-hairline text-primary-500">
                   Please enter OTP sent to mobile number
                 </span>
                 <div

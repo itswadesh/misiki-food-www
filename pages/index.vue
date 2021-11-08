@@ -54,6 +54,7 @@
       </div>
 
       <ProductSlider
+        v-if="youMayLikeProducts && youMayLikeProducts.length"
         :details="youMayLikeProducts"
         :loading="loading"
         :pg="pg"
@@ -62,6 +63,7 @@
       />
 
       <ProductSlider
+        v-if="trendingProducts && trendingProducts.length"
         :details="trendingProducts"
         :loading="loading"
         :pg="pg"

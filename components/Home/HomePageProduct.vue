@@ -336,12 +336,7 @@
 
           <div
             v-if="product.price < product.mrp"
-            class="
-              text-xs text-secondary-200
-              font-light
-              whitespace-nowrap
-              truncate
-            "
+            class="text-xs text-success font-light whitespace-nowrap truncate"
           >
             ({{ product.discount }}% off)
           </div>

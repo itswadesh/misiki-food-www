@@ -3,6 +3,7 @@
     v-if="order"
     class="p-4 md:p-8 xl:p-16 bg-white border shadow-md text-gray-700"
   >
+    {{ order.orderNo }}
     <!-- Order detail  -->
     <div class="md:flex md:justify-between border-b-2 border-gray-200 pb-10">
       <div class="md:w-1/2 md:border-r-2 md:border-gray-200">
@@ -88,7 +89,7 @@
     <div>
       <div class="md:flex md:items-center md:justify-between">
         <h4 class="md:w-2/3 my-5 md:my-10 flex-1 text-xl font-medium">
-          Expected Delivered by : {{ deliveryBy }}
+          Expected delivery date : {{ deliveryBy }}
         </h4>
         <div class="mt-2 md:mt-0 md:w-1/3 flex items-center md:justify-center">
           <!-- <div

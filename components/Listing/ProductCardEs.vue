@@ -160,7 +160,7 @@
 
                 <div
                   v-if="product.price < product.mrp"
-                  class="my-auto text-xs text-secondary-200"
+                  class="my-auto text-xs text-secondary-500"
                 >
                   {{ product.discount }}% off
                 </div>

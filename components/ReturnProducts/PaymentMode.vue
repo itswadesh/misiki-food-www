@@ -13,7 +13,7 @@
         tracking-wider
         text-center text-gray-500
         www
-        bg-accent-100
+        bg-gray-100
       "
     >
       Select the Reason for returning the product

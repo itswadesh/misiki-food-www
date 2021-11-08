@@ -13,7 +13,7 @@
         tracking-wider
         text-gray-500
         www
-        bg-accent-100
+        bg-gray-100
       "
     >
       <span>Select items for return</span>

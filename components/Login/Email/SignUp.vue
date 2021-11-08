@@ -114,8 +114,7 @@
               text-base
               font-medium
               cursor-pointer
-              text-primary-200
-              hover:text-primary-500
+              text-primary-500
               lg:mt-3
               hover:underline
             "

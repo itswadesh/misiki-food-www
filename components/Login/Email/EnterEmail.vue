@@ -141,8 +141,8 @@
             font-medium
             cursor-pointer
             lg:mt-3
-            text-primary-200
-            hover:text-primary-500 hover:underline
+            text-primary-500
+            hover:underline
           "
         >
           Not a Member yet?

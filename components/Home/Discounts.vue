@@ -77,21 +77,21 @@
           bg-gray-200
           md:mt-20
           w-max-full
-          text-accent-500
+          text-error
           md:flex-row md:ps-0
           text-size
         "
       >
         <div class="flex-row hidden md:flex">
           <span>17</span>
-          <div class="pt-1 my-auto text-2xl font-semibold ms-2 text-accent-500">
+          <div class="pt-1 my-auto text-2xl font-semibold ms-2 text-error">
             <span>Golbal</span>
             <span>Brands</span>
           </div>
         </div>
         <div class="flex-row hidden md:flex">
           <span>74</span>
-          <div class="pt-1 my-auto text-2xl font-semibold ms-2 text-accent-500">
+          <div class="pt-1 my-auto text-2xl font-semibold ms-2 text-error">
             <span>Current</span>
             <span>Stores</span>
           </div>
@@ -100,18 +100,14 @@
         <div class="flex flex-row items-center justify-center w-full md:hidden">
           <div class="flex flex-row me-2">
             <span class="my-auto text-6xl">17</span>
-            <div
-              class="my-auto mt-1 text-lg font-semibold ms-2 text-accent-500"
-            >
+            <div class="my-auto mt-1 text-lg font-semibold ms-2 text-error">
               <span>Golbal</span>
               <span>Brands</span>
             </div>
           </div>
           <div class="flex flex-row me-3">
             <span class="my-auto text-6xl">74</span>
-            <div
-              class="my-auto mt-1 text-lg font-semibold ms-2 text-accent-500"
-            >
+            <div class="my-auto mt-1 text-lg font-semibold ms-2 text-error">
               <span>Current</span>
               <span>Stores</span>
             </div>
@@ -120,7 +116,7 @@
         <!-- mobile end -->
         <div class="flex flex-row justify-center">
           <span>300+</span>
-          <div class="pt-1 my-auto text-2xl font-semibold ms-2 text-accent-500">
+          <div class="pt-1 my-auto text-2xl font-semibold ms-2 text-error">
             <span>Store</span>
             <span>2020 plan</span>
           </div>
