@@ -1,7 +1,7 @@
 <template>
   <section
     v-if="product"
-    class="relative w-full border group hover:shadow-md text-gray-800"
+    class="relative w-full group hover:shadow-md border bg-white text-gray-800"
     @mouseenter="showitems()"
     @mouseleave="hideitems()"
   >
@@ -58,7 +58,7 @@
       class="z-0 block overflow-hidden"
     >
       <div
-        class="h-48 sm:h-56 desktop-height bg-white"
+        class="h-48 sm:h-56"
         @mouseenter="onMouseOverImage"
         @mouseleave="onMouseOutImage"
       >
@@ -87,227 +87,37 @@
         </transition> -->
       </div>
 
+      <!-- Product brand -->
+
       <div class="p-2 sm:p-4">
-        <!-- For view above 640px start -->
+        <h4 v-if="product.brand" class="mb-1.5 sm:mb-2.5 text-sm font-semibold">
+          {{ product.brand.name }}
+        </h4>
 
-        <div v-if="show" class="z-10 sm:-mt-12">
-          <div class="hidden sm:block">
-            <!-- View smilar button start-->
+        <!-- Product name -->
 
-            <div class="h-rem-similar w-full"></div>
+        <h5
+          class="
+            mb-1.5
+            sm:mb-2.5
+            text-xs
+            sm:text-sm
+            font-light
+            text-gray-500
+            overflow-hidden
+            whitespace-nowrap
+            overflow-ellipsis
+          "
+        >
+          {{ product.name }}
+        </h5>
 
-            <!-- <nuxt-link
-              :to="`/search/${product.brand && product.brand.name}`"
-              class="flex justify-end"
-            >
-              <div
-                class="
-                  flex
-                  items-center
-                  bg-white
-                  text-primary-500
-                  h-7
-                  w-7
-                  rounded-full
-                  border border-primary-500
-                  trans
-                "
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5 flex-shrink-0"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
-                  ></path>
-                </svg>
-                <span class="ps-2 text-xs whitespace-nowrap">View similar</span>
-              </div>
-            </nuxt-link> -->
+        <!-- Price,MRP,Discount -->
 
-            <!-- View smilar button end-->
-
-            <!-- Wishlist start-->
-
-            <div class="h-rem-wishlist w-full"></div>
-            <!-- <button
-              class="
-                z-30
-                flex
-                mt-3.5
-                py-1
-                w-full
-                border border-gray-300
-                hover:bg-gray-100
-                transition
-                duration-300
-                items-center
-                justify-center
-                space-x-2
-      focus:outline-none focus:ring-0 focus:ring-offset-0
-              "
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-gray-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                ></path></svg
-              ><span class="text-sm font-semibold">WISHLIST</span>
-            </button> -->
-
-            <!-- Wishlist end-->
-
-            <!-- Available sizes start-->
-
-            <div class="h-rem-size w-full"></div>
-
-            <!-- <div
-              class="
-                flex
-                mt-1.5
-                items-baseline
-                justify-start
-                overflow-hidden
-                whitespace-nowrap
-                overflow-ellipsis
-              "
-            >
-              <h5 class="me-1 text-sm">Sizes:</h5>
-              <h6 class="space-x-1 text-xs text-gray-500 flex items-baseline">
-                <div
-                  v-if="pg && pg.sizeGroup && pg.sizeGroup.length"
-                  class="font-medium"
-                >
-                  <span v-for="(s, sx) in pg.sizeGroup" :key="sx + 's'">
-                    {{ s.size.name }}
-                  </span>
-                </div>
-
-                <div v-else class="font-light truncate">Not available</div>
-              </h6>
-            </div> -->
-
-            <!-- Available sizes end-->
-          </div>
-
-          <!-- For view above 640px end -->
-
-          <!-- For view below 640px start -->
-
-          <div class="block sm:hidden">
-            <div class="flex items-center justify-between mb-1.5">
-              <h4 class="text-sm font-semibold">
-                <span v-if="product.brand"> {{ product.brand.name }}</span>
-                <span v-else> _ </span>
-              </h4>
-
-              <!-- Heart icon start  -->
-
-              <!-- <button class="z-30       focus:outline-none focus:ring-0 focus:ring-offset-0
-">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                  ></path>
-                </svg>
-              </button> -->
-
-              <!-- Heart icon end  -->
-            </div>
-
-            <h5
-              class="
-                text-xs
-                sm:text-sm
-                font-light
-                sm:font-normal
-                text-gray-500
-                overflow-hidden
-                whitespace-nowrap
-                overflow-ellipsis
-              "
-            >
-              <span v-if="product.name"> {{ product.name }}</span>
-
-              <span v-else> _</span>
-            </h5>
-          </div>
-        </div>
-
-        <!-- For view below 640px end -->
-
-        <div v-else>
-          <div class="flex items-center justify-between mb-1.5">
-            <h4 class="text-sm sm:text-base font-semibold">
-              <span v-if="product.brand"> {{ product.brand.name }}</span>
-              <span v-else> _ </span>
-            </h4>
-
-            <!-- Heart icon start  -->
-            <!-- <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-4 sm:h-5 sm:hidden"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-              ></path>
-            </svg> -->
-            <!-- Heart icon end  -->
-          </div>
-
-          <h5
-            class="
-              text-xs
-              sm:text-sm
-              font-light
-              sm:font-normal
-              text-gray-500
-              overflow-hidden
-              whitespace-nowrap
-              overflow-ellipsis
-            "
-          >
-            <span v-if="product.name"> {{ product.name }}</span>
-
-            <span v-else> _</span>
-          </h5>
-        </div>
-
-        <!-- Price section for all view start -->
         <div
           class="
-            mt-1.5
-            sm:mt-2.5
-            leading-4
+            mb-1.5
+            sm:mb-2.5
             flex flex-row
             overflow-hidden
             whitespace-nowrap
@@ -342,14 +152,11 @@
           </div>
         </div>
 
-        <!-- Price section for all view end -->
+        <!-- Out of stock -->
 
-        <div
-          v-if="product.stock < 1"
-          class="mt-1 sm:mt-1.5 text-xs text-red-500"
-        >
+        <h6 v-if="product.stock < 1" class="text-xs text-red-500">
           Out of stock
-        </div>
+        </h6>
       </div>
     </nuxt-link>
   </section>
@@ -503,16 +310,6 @@ export default {
   transform: translate(100%, 0);
 }
 
-@media (min-width: 1024px) {
-  .desktop-height {
-    height: 13.5rem;
-  }
-}
-@media (min-width: 1536px) {
-  .desktop-height {
-    height: 17rem;
-  }
-}
 .trans {
   transition: width 0.3s;
   overflow: hidden;
