@@ -26,26 +26,14 @@
           class="py-2 px-4 w-full my-auto text-sm rounded-md border-gray-300"
         />
 
-        <button
+        <TransparentButton
           type="submit"
-          class="
-            py-2
-            px-6
-            bg-transparent
-            hover:bg-primary-500
-            transition
-            duration-300
-            text-sm
-            hover:text-white
-            font-semibold
-            tracking-wide
-            rounded-md
-            hover:shadow-md
-            focus:outline-none focus:ring-0 focus:ring-offset-0
-          "
+          border
+          loadingringsize="sm"
+          class="px-6 text-sm"
         >
           Apply
-        </button>
+        </TransparentButton>
       </form>
 
       <div v-if="coupons" class="h-56 mb-5 overflow-y-auto">
@@ -137,12 +125,14 @@
 import { mapGetters, mapActions } from 'vuex'
 import COUPONS from '~/gql/cart/coupons.gql'
 import PrimaryButtonRounded from '~/components/ui/PrimaryButtonRounded.vue'
+import TransparentButton from '~/components/ui/TransparentButton.vue'
 import Radio from '~/shared/components/ui/Radio.vue'
 import Modal from '~/components/ui/Modal.vue'
 
 export default {
   components: {
     PrimaryButtonRounded,
+    TransparentButton,
     Radio,
     Modal,
   },

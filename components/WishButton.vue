@@ -23,7 +23,7 @@
       :class="{
         'h-5 w-5': size == 'sm',
         'h-7 w-7': size == 'md',
-        'text-error fill-curren': existInWishlist,
+        'text-error fill-current': existInWishlist,
       }"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
